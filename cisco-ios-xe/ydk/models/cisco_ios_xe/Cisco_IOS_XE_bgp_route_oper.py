@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BgpNeighborRouteFilters(Enum):
     """
-    BgpNeighborRouteFilters
+    BgpNeighborRouteFilters (Enum Class)
 
     BGP neighbor route filters
 
@@ -47,7 +49,7 @@ class BgpNeighborRouteFilters(Enum):
 
 class BgpOriginCode(Enum):
     """
-    BgpOriginCode
+    BgpOriginCode (Enum Class)
 
     BGP origin code
 
@@ -74,7 +76,7 @@ class BgpOriginCode(Enum):
 
 class BgpRouteFilters(Enum):
     """
-    BgpRouteFilters
+    BgpRouteFilters (Enum Class)
 
     BGP route filters
 
@@ -143,7 +145,7 @@ class BgpRouteFilters(Enum):
 
 class BgpRpkiStatus(Enum):
     """
-    BgpRpkiStatus
+    BgpRpkiStatus (Enum Class)
 
     BGP RPKI status
 

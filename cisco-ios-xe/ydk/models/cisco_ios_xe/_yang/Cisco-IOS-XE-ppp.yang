@@ -31,12 +31,20 @@ module Cisco-IOS-XE-ppp {
 
   description
     "Cisco XE Native Point-to-Point Protocol (PPP) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-03 {
+    description
+      "reorder the CLIs, when deleting ppp config under interface serial";
+  }
+  revision 2017-11-29 {
+    description
+      "Add disable node for ppp multilink fragment disable";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -278,6 +286,11 @@ module Cisco-IOS-XE-ppp {
                 range "1..999";
               }
             }
+          }
+          leaf disable {
+            description
+              "Suppress multilink fragmentation when possible";
+            type empty;
           }
         }
       }

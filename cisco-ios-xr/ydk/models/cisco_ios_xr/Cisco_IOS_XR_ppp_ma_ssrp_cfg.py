@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,8 +49,10 @@ class Ssrp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ppp-ma-ssrp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"profiles" : ("profiles", Ssrp.Profiles)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("profiles", ("profiles", Ssrp.Profiles))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.profiles = Ssrp.Profiles()
         self.profiles.parent = self
@@ -80,8 +84,10 @@ class Ssrp(Entity):
             self.yang_parent_name = "ssrp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"profile" : ("profile", Ssrp.Profiles.Profile)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("profile", ("profile", Ssrp.Profiles.Profile))])
+            self._leafs = OrderedDict()
 
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
@@ -95,7 +101,7 @@ class Ssrp(Entity):
             """
             SSRP Profile configuration
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	The name of the profile
             	**type**\: str
@@ -130,15 +136,18 @@ class Ssrp(Entity):
                 self.yang_parent_name = "profiles"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.max_hops = YLeaf(YType.uint32, "max-hops")
-
-                self.peer_ipv4_address = YLeaf(YType.str, "peer-ipv4-address")
-                self._segment_path = lambda: "profile" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('max_hops', YLeaf(YType.uint32, 'max-hops')),
+                    ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
+                ])
+                self.name = None
+                self.max_hops = None
+                self.peer_ipv4_address = None
+                self._segment_path = lambda: "profile" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp/profiles/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

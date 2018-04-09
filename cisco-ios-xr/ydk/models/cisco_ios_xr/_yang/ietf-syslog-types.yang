@@ -2,8 +2,9 @@ module ietf-syslog-types {
   namespace "urn:ietf:params:xml:ns:yang:ietf-syslog-types";
   prefix syslogtypes;
 
-  organization "IETF NETMOD (NETCONF Data Modeling Language) Working 
-                Group";
+  organization
+    "IETF NETMOD (NETCONF Data Modeling Language) Working 
+     Group";
   contact
     "WG Web:   <http://tools.ietf.org/wg/netmod/>
      WG List:  <mailto:netmod@ietf.org>
@@ -26,53 +27,6 @@ module ietf-syslog-types {
     reference
       "This model references RFC 5424 - The Syslog Protocol, 
        and RFC 5848 - Signed Syslog Messages.";
-  }
-
-  typedef severity {
-    type enumeration {
-      enum "emergency" {
-        value 0;
-        description
-          "Emergency Level Msg";
-      }
-      enum "alert" {
-        value 1;
-        description
-          "Alert Level Msg";
-      }
-      enum "critical" {
-        value 2;
-        description
-          "Critical Level Msg";
-      }
-      enum "error" {
-        value 3;
-        description
-          "Error Level Msg";
-      }
-      enum "warning" {
-        value 4;
-        description
-          "Warning Level Msg";
-      }
-      enum "notice" {
-        value 5;
-        description
-          "Notification Level Msg";
-      }
-      enum "info" {
-        value 6;
-        description
-          "Informational Level Msg";
-      }
-      enum "debug" {
-        value 7;
-        description
-          "Debugging Level Msg";
-      }
-    }
-    description
-      "The definitions for Syslog message severity as per RFC 5424.";
   }
 
   identity syslog-facility {
@@ -102,7 +56,7 @@ module ietf-syslog-types {
     base syslog-facility;
     description
       "The facility for the system daemons as defined in RFC 5424.";
-   }
+  }
 
   identity auth {
     base syslog-facility;
@@ -236,5 +190,52 @@ module ietf-syslog-types {
     description
       "The facility for local use 7 messages as defined in 
        RFC 5424.";
+  }
+
+  typedef severity {
+    type enumeration {
+      enum "emergency" {
+        value 0;
+        description
+          "Emergency Level Msg";
+      }
+      enum "alert" {
+        value 1;
+        description
+          "Alert Level Msg";
+      }
+      enum "critical" {
+        value 2;
+        description
+          "Critical Level Msg";
+      }
+      enum "error" {
+        value 3;
+        description
+          "Error Level Msg";
+      }
+      enum "warning" {
+        value 4;
+        description
+          "Warning Level Msg";
+      }
+      enum "notice" {
+        value 5;
+        description
+          "Notification Level Msg";
+      }
+      enum "info" {
+        value 6;
+        description
+          "Informational Level Msg";
+      }
+      enum "debug" {
+        value 7;
+        description
+          "Debugging Level Msg";
+      }
+    }
+    description
+      "The definitions for Syslog message severity as per RFC 5424.";
   }
 }

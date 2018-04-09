@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Fpd(Enum):
     """
-    Fpd
+    Fpd (Enum Class)
 
     Fpd
 
@@ -46,7 +48,7 @@ class Fpd(Enum):
 
 class Fpd1(Enum):
     """
-    Fpd1
+    Fpd1 (Enum Class)
 
     FPD types
 
@@ -73,7 +75,7 @@ class Fpd1(Enum):
 
 class FpdSub(Enum):
     """
-    FpdSub
+    FpdSub (Enum Class)
 
     Fpd sub
 
@@ -286,7 +288,7 @@ class FpdSub(Enum):
 
 class FpdSub1(Enum):
     """
-    FpdSub1
+    FpdSub1 (Enum Class)
 
     FPD sub types
 
@@ -527,8 +529,10 @@ class Fpd_(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-upgrade-fpd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Fpd_.Nodes), "packages" : ("packages", Fpd_.Packages)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Fpd_.Nodes)), ("packages", ("packages", Fpd_.Packages))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Fpd_.Nodes()
         self.nodes.parent = self
@@ -565,8 +569,10 @@ class Fpd_(Entity):
             self.yang_parent_name = "fpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Fpd_.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Fpd_.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -580,7 +586,7 @@ class Fpd_(Entity):
             """
             Information about a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -606,16 +612,19 @@ class Fpd_(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"devices" : ("devices", Fpd_.Nodes.Node.Devices)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("devices", ("devices", Fpd_.Nodes.Node.Devices))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.devices = Fpd_.Nodes.Node.Devices()
                 self.devices.parent = self
                 self._children_name_map["devices"] = "devices"
                 self._children_yang_names.add("devices")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-oper:fpd/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -645,8 +654,10 @@ class Fpd_(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"device" : ("device", Fpd_.Nodes.Node.Devices.Device)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("device", ("device", Fpd_.Nodes.Node.Devices.Device))])
+                    self._leafs = OrderedDict()
 
                     self.device = YList(self)
                     self._segment_path = lambda: "devices"
@@ -710,22 +721,25 @@ class Fpd_(Entity):
                         self.yang_parent_name = "devices"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.fpd_type = YLeaf(YType.enumeration, "fpd-type")
-
-                        self.instance = YLeaf(YType.int32, "instance")
-
-                        self.sub_type = YLeaf(YType.enumeration, "sub-type")
-
-                        self.card_type = YLeaf(YType.str, "card-type")
-
-                        self.hardware_version = YLeaf(YType.str, "hardware-version")
-
-                        self.software_version = YLeaf(YType.str, "software-version")
-
-                        self.is_upgrade_downgrade = YLeaf(YType.boolean, "is-upgrade-downgrade")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('fpd_type', YLeaf(YType.enumeration, 'fpd-type')),
+                            ('instance', YLeaf(YType.int32, 'instance')),
+                            ('sub_type', YLeaf(YType.enumeration, 'sub-type')),
+                            ('card_type', YLeaf(YType.str, 'card-type')),
+                            ('hardware_version', YLeaf(YType.str, 'hardware-version')),
+                            ('software_version', YLeaf(YType.str, 'software-version')),
+                            ('is_upgrade_downgrade', YLeaf(YType.boolean, 'is-upgrade-downgrade')),
+                        ])
+                        self.fpd_type = None
+                        self.instance = None
+                        self.sub_type = None
+                        self.card_type = None
+                        self.hardware_version = None
+                        self.software_version = None
+                        self.is_upgrade_downgrade = None
                         self._segment_path = lambda: "device"
 
                     def __setattr__(self, name, value):
@@ -755,8 +769,10 @@ class Fpd_(Entity):
             self.yang_parent_name = "fpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"all-package" : ("all_package", Fpd_.Packages.AllPackage)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("all-package", ("all_package", Fpd_.Packages.AllPackage))])
+            self._leafs = OrderedDict()
 
             self.all_package = YList(self)
             self._segment_path = lambda: "packages"
@@ -819,22 +835,25 @@ class Fpd_(Entity):
                 self.yang_parent_name = "packages"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.card_type = YLeaf(YType.str, "card-type")
-
-                self.card_description = YLeaf(YType.str, "card-description")
-
-                self.fpd_type = YLeaf(YType.enumeration, "fpd-type")
-
-                self.fpd_sub_type = YLeaf(YType.enumeration, "fpd-sub-type")
-
-                self.software_version = YLeaf(YType.str, "software-version")
-
-                self.minimum_required_software_version = YLeaf(YType.str, "minimum-required-software-version")
-
-                self.minimum_required_hardware_version = YLeaf(YType.str, "minimum-required-hardware-version")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('card_type', YLeaf(YType.str, 'card-type')),
+                    ('card_description', YLeaf(YType.str, 'card-description')),
+                    ('fpd_type', YLeaf(YType.enumeration, 'fpd-type')),
+                    ('fpd_sub_type', YLeaf(YType.enumeration, 'fpd-sub-type')),
+                    ('software_version', YLeaf(YType.str, 'software-version')),
+                    ('minimum_required_software_version', YLeaf(YType.str, 'minimum-required-software-version')),
+                    ('minimum_required_hardware_version', YLeaf(YType.str, 'minimum-required-hardware-version')),
+                ])
+                self.card_type = None
+                self.card_description = None
+                self.fpd_type = None
+                self.fpd_sub_type = None
+                self.software_version = None
+                self.minimum_required_software_version = None
+                self.minimum_required_hardware_version = None
                 self._segment_path = lambda: "all-package"
                 self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-oper:fpd/packages/%s" % self._segment_path()
 

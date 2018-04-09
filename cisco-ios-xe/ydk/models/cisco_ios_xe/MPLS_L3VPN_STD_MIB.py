@@ -9,6 +9,8 @@ version of this MIB module is part of RFC4382; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -17,7 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MplsL3VpnRtType(Enum):
     """
-    MplsL3VpnRtType
+    MplsL3VpnRtType (Enum Class)
 
     Used to define the type of a route target usage.
 
@@ -87,8 +89,10 @@ class MPLSL3VPNSTDMIB(Entity):
         self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mplsL3VpnScalars" : ("mplsl3vpnscalars", MPLSL3VPNSTDMIB.Mplsl3Vpnscalars), "mplsL3VpnIfConfTable" : ("mplsl3vpnifconftable", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable), "mplsL3VpnVrfTable" : ("mplsl3vpnvrftable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable), "mplsL3VpnVrfRTTable" : ("mplsl3vpnvrfrttable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable), "mplsL3VpnVrfRteTable" : ("mplsl3vpnvrfrtetable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mplsL3VpnScalars", ("mplsl3vpnscalars", MPLSL3VPNSTDMIB.Mplsl3Vpnscalars)), ("mplsL3VpnIfConfTable", ("mplsl3vpnifconftable", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable)), ("mplsL3VpnVrfTable", ("mplsl3vpnvrftable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable)), ("mplsL3VpnVrfRTTable", ("mplsl3vpnvrfrttable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable)), ("mplsL3VpnVrfRteTable", ("mplsl3vpnvrfrtetable", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mplsl3vpnscalars = MPLSL3VPNSTDMIB.Mplsl3Vpnscalars()
         self.mplsl3vpnscalars.parent = self
@@ -184,22 +188,25 @@ class MPLSL3VPNSTDMIB(Entity):
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsl3vpnconfiguredvrfs = YLeaf(YType.uint32, "mplsL3VpnConfiguredVrfs")
-
-            self.mplsl3vpnactivevrfs = YLeaf(YType.uint32, "mplsL3VpnActiveVrfs")
-
-            self.mplsl3vpnconnectedinterfaces = YLeaf(YType.uint32, "mplsL3VpnConnectedInterfaces")
-
-            self.mplsl3vpnnotificationenable = YLeaf(YType.boolean, "mplsL3VpnNotificationEnable")
-
-            self.mplsl3vpnvrfconfmaxpossrts = YLeaf(YType.uint32, "mplsL3VpnVrfConfMaxPossRts")
-
-            self.mplsl3vpnvrfconfrtemxthrshtime = YLeaf(YType.uint32, "mplsL3VpnVrfConfRteMxThrshTime")
-
-            self.mplsl3vpnilllblrcvthrsh = YLeaf(YType.uint32, "mplsL3VpnIllLblRcvThrsh")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mplsl3vpnconfiguredvrfs', YLeaf(YType.uint32, 'mplsL3VpnConfiguredVrfs')),
+                ('mplsl3vpnactivevrfs', YLeaf(YType.uint32, 'mplsL3VpnActiveVrfs')),
+                ('mplsl3vpnconnectedinterfaces', YLeaf(YType.uint32, 'mplsL3VpnConnectedInterfaces')),
+                ('mplsl3vpnnotificationenable', YLeaf(YType.boolean, 'mplsL3VpnNotificationEnable')),
+                ('mplsl3vpnvrfconfmaxpossrts', YLeaf(YType.uint32, 'mplsL3VpnVrfConfMaxPossRts')),
+                ('mplsl3vpnvrfconfrtemxthrshtime', YLeaf(YType.uint32, 'mplsL3VpnVrfConfRteMxThrshTime')),
+                ('mplsl3vpnilllblrcvthrsh', YLeaf(YType.uint32, 'mplsL3VpnIllLblRcvThrsh')),
+            ])
+            self.mplsl3vpnconfiguredvrfs = None
+            self.mplsl3vpnactivevrfs = None
+            self.mplsl3vpnconnectedinterfaces = None
+            self.mplsl3vpnnotificationenable = None
+            self.mplsl3vpnvrfconfmaxpossrts = None
+            self.mplsl3vpnvrfconfrtemxthrshtime = None
+            self.mplsl3vpnilllblrcvthrsh = None
             self._segment_path = lambda: "mplsL3VpnScalars"
             self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/%s" % self._segment_path()
 
@@ -231,8 +238,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsL3VpnIfConfEntry" : ("mplsl3vpnifconfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsL3VpnIfConfEntry", ("mplsl3vpnifconfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnifconftable.Mplsl3Vpnifconfentry))])
+            self._leafs = OrderedDict()
 
             self.mplsl3vpnifconfentry = YList(self)
             self._segment_path = lambda: "mplsL3VpnIfConfTable"
@@ -249,7 +258,7 @@ class MPLSL3VPNSTDMIB(Entity):
             Each entry in this table is meant to correspond to
             an entry in the Interfaces Table.
             
-            .. attribute:: mplsl3vpnvrfname  <key>
+            .. attribute:: mplsl3vpnvrfname  (key)
             
             	
             	**type**\: str
@@ -258,7 +267,7 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
             
-            .. attribute:: mplsl3vpnifconfindex  <key>
+            .. attribute:: mplsl3vpnifconfindex  (key)
             
             	This is a unique index for an entry in the mplsL3VpnIfConfTable.  A non\-zero index for an entry indicates the ifIndex for the corresponding interface entry in the MPLS\-VPN\-layer in the ifTable. Note that this table does not necessarily correspond one\-to\-one with all entries in the Interface MIB having an ifType of MPLS\-layer; rather, only those that are enabled for MPLS L3VPN functionality
             	**type**\: int
@@ -299,21 +308,24 @@ class MPLSL3VPNSTDMIB(Entity):
                 self.yang_parent_name = "mplsL3VpnIfConfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsl3vpnvrfname = YLeaf(YType.str, "mplsL3VpnVrfName")
-
-                self.mplsl3vpnifconfindex = YLeaf(YType.int32, "mplsL3VpnIfConfIndex")
-
-                self.mplsl3vpnifvpnclassification = YLeaf(YType.enumeration, "mplsL3VpnIfVpnClassification")
-
-                self.mplsl3vpnifvpnroutedistprotocol = YLeaf(YType.bits, "mplsL3VpnIfVpnRouteDistProtocol")
-
-                self.mplsl3vpnifconfstoragetype = YLeaf(YType.enumeration, "mplsL3VpnIfConfStorageType")
-
-                self.mplsl3vpnifconfrowstatus = YLeaf(YType.enumeration, "mplsL3VpnIfConfRowStatus")
-                self._segment_path = lambda: "mplsL3VpnIfConfEntry" + "[mplsL3VpnVrfName='" + self.mplsl3vpnvrfname.get() + "']" + "[mplsL3VpnIfConfIndex='" + self.mplsl3vpnifconfindex.get() + "']"
+                self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnifconfindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
+                    ('mplsl3vpnifconfindex', YLeaf(YType.int32, 'mplsL3VpnIfConfIndex')),
+                    ('mplsl3vpnifvpnclassification', YLeaf(YType.enumeration, 'mplsL3VpnIfVpnClassification')),
+                    ('mplsl3vpnifvpnroutedistprotocol', YLeaf(YType.bits, 'mplsL3VpnIfVpnRouteDistProtocol')),
+                    ('mplsl3vpnifconfstoragetype', YLeaf(YType.enumeration, 'mplsL3VpnIfConfStorageType')),
+                    ('mplsl3vpnifconfrowstatus', YLeaf(YType.enumeration, 'mplsL3VpnIfConfRowStatus')),
+                ])
+                self.mplsl3vpnvrfname = None
+                self.mplsl3vpnifconfindex = None
+                self.mplsl3vpnifvpnclassification = None
+                self.mplsl3vpnifvpnroutedistprotocol = Bits()
+                self.mplsl3vpnifconfstoragetype = None
+                self.mplsl3vpnifconfrowstatus = None
+                self._segment_path = lambda: "mplsL3VpnIfConfEntry" + "[mplsL3VpnVrfName='" + str(self.mplsl3vpnvrfname) + "']" + "[mplsL3VpnIfConfIndex='" + str(self.mplsl3vpnifconfindex) + "']"
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnIfConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -321,7 +333,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
             class Mplsl3Vpnifvpnclassification(Enum):
                 """
-                Mplsl3Vpnifvpnclassification
+                Mplsl3Vpnifvpnclassification (Enum Class)
 
                 Denotes whether this link participates in a
 
@@ -374,8 +386,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsL3VpnVrfEntry" : ("mplsl3vpnvrfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsL3VpnVrfEntry", ("mplsl3vpnvrfentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry))])
+            self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfentry = YList(self)
             self._segment_path = lambda: "mplsL3VpnVrfTable"
@@ -392,7 +406,7 @@ class MPLSL3VPNSTDMIB(Entity):
             indexing provides an ordering of VRFs per\-VPN
             interface.
             
-            .. attribute:: mplsl3vpnvrfname  <key>
+            .. attribute:: mplsl3vpnvrfname  (key)
             
             	The human\-readable name of this VPN.  This MAY be equivalent to the [RFC2685] VPN\-ID, but may also vary.  If it is set to the VPN ID, it MUST be equivalent to the value of mplsL3VpnVrfVpnId. It is strongly recommended that all sites supporting VRFs that are part of the same VPN use the same naming convention for VRFs as well as the same VPN ID
             	**type**\: str
@@ -550,53 +564,56 @@ class MPLSL3VPNSTDMIB(Entity):
                 self.yang_parent_name = "mplsL3VpnVrfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsl3vpnvrfname = YLeaf(YType.str, "mplsL3VpnVrfName")
-
-                self.mplsl3vpnvrfvpnid = YLeaf(YType.str, "mplsL3VpnVrfVpnId")
-
-                self.mplsl3vpnvrfdescription = YLeaf(YType.str, "mplsL3VpnVrfDescription")
-
-                self.mplsl3vpnvrfrd = YLeaf(YType.str, "mplsL3VpnVrfRD")
-
-                self.mplsl3vpnvrfcreationtime = YLeaf(YType.uint32, "mplsL3VpnVrfCreationTime")
-
-                self.mplsl3vpnvrfoperstatus = YLeaf(YType.enumeration, "mplsL3VpnVrfOperStatus")
-
-                self.mplsl3vpnvrfactiveinterfaces = YLeaf(YType.uint32, "mplsL3VpnVrfActiveInterfaces")
-
-                self.mplsl3vpnvrfassociatedinterfaces = YLeaf(YType.uint32, "mplsL3VpnVrfAssociatedInterfaces")
-
-                self.mplsl3vpnvrfconfmidrtethresh = YLeaf(YType.uint32, "mplsL3VpnVrfConfMidRteThresh")
-
-                self.mplsl3vpnvrfconfhighrtethresh = YLeaf(YType.uint32, "mplsL3VpnVrfConfHighRteThresh")
-
-                self.mplsl3vpnvrfconfmaxroutes = YLeaf(YType.uint32, "mplsL3VpnVrfConfMaxRoutes")
-
-                self.mplsl3vpnvrfconflastchanged = YLeaf(YType.uint32, "mplsL3VpnVrfConfLastChanged")
-
-                self.mplsl3vpnvrfconfrowstatus = YLeaf(YType.enumeration, "mplsL3VpnVrfConfRowStatus")
-
-                self.mplsl3vpnvrfconfadminstatus = YLeaf(YType.enumeration, "mplsL3VpnVrfConfAdminStatus")
-
-                self.mplsl3vpnvrfconfstoragetype = YLeaf(YType.enumeration, "mplsL3VpnVrfConfStorageType")
-
-                self.mplsl3vpnvrfsecillegallblvltns = YLeaf(YType.uint32, "mplsL3VpnVrfSecIllegalLblVltns")
-
-                self.mplsl3vpnvrfsecdiscontinuitytime = YLeaf(YType.uint32, "mplsL3VpnVrfSecDiscontinuityTime")
-
-                self.mplsl3vpnvrfperfroutesadded = YLeaf(YType.uint32, "mplsL3VpnVrfPerfRoutesAdded")
-
-                self.mplsl3vpnvrfperfroutesdeleted = YLeaf(YType.uint32, "mplsL3VpnVrfPerfRoutesDeleted")
-
-                self.mplsl3vpnvrfperfcurrnumroutes = YLeaf(YType.uint32, "mplsL3VpnVrfPerfCurrNumRoutes")
-
-                self.mplsl3vpnvrfperfroutesdropped = YLeaf(YType.uint32, "mplsL3VpnVrfPerfRoutesDropped")
-
-                self.mplsl3vpnvrfperfdisctime = YLeaf(YType.uint32, "mplsL3VpnVrfPerfDiscTime")
-                self._segment_path = lambda: "mplsL3VpnVrfEntry" + "[mplsL3VpnVrfName='" + self.mplsl3vpnvrfname.get() + "']"
+                self.ylist_key_names = ['mplsl3vpnvrfname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
+                    ('mplsl3vpnvrfvpnid', YLeaf(YType.str, 'mplsL3VpnVrfVpnId')),
+                    ('mplsl3vpnvrfdescription', YLeaf(YType.str, 'mplsL3VpnVrfDescription')),
+                    ('mplsl3vpnvrfrd', YLeaf(YType.str, 'mplsL3VpnVrfRD')),
+                    ('mplsl3vpnvrfcreationtime', YLeaf(YType.uint32, 'mplsL3VpnVrfCreationTime')),
+                    ('mplsl3vpnvrfoperstatus', YLeaf(YType.enumeration, 'mplsL3VpnVrfOperStatus')),
+                    ('mplsl3vpnvrfactiveinterfaces', YLeaf(YType.uint32, 'mplsL3VpnVrfActiveInterfaces')),
+                    ('mplsl3vpnvrfassociatedinterfaces', YLeaf(YType.uint32, 'mplsL3VpnVrfAssociatedInterfaces')),
+                    ('mplsl3vpnvrfconfmidrtethresh', YLeaf(YType.uint32, 'mplsL3VpnVrfConfMidRteThresh')),
+                    ('mplsl3vpnvrfconfhighrtethresh', YLeaf(YType.uint32, 'mplsL3VpnVrfConfHighRteThresh')),
+                    ('mplsl3vpnvrfconfmaxroutes', YLeaf(YType.uint32, 'mplsL3VpnVrfConfMaxRoutes')),
+                    ('mplsl3vpnvrfconflastchanged', YLeaf(YType.uint32, 'mplsL3VpnVrfConfLastChanged')),
+                    ('mplsl3vpnvrfconfrowstatus', YLeaf(YType.enumeration, 'mplsL3VpnVrfConfRowStatus')),
+                    ('mplsl3vpnvrfconfadminstatus', YLeaf(YType.enumeration, 'mplsL3VpnVrfConfAdminStatus')),
+                    ('mplsl3vpnvrfconfstoragetype', YLeaf(YType.enumeration, 'mplsL3VpnVrfConfStorageType')),
+                    ('mplsl3vpnvrfsecillegallblvltns', YLeaf(YType.uint32, 'mplsL3VpnVrfSecIllegalLblVltns')),
+                    ('mplsl3vpnvrfsecdiscontinuitytime', YLeaf(YType.uint32, 'mplsL3VpnVrfSecDiscontinuityTime')),
+                    ('mplsl3vpnvrfperfroutesadded', YLeaf(YType.uint32, 'mplsL3VpnVrfPerfRoutesAdded')),
+                    ('mplsl3vpnvrfperfroutesdeleted', YLeaf(YType.uint32, 'mplsL3VpnVrfPerfRoutesDeleted')),
+                    ('mplsl3vpnvrfperfcurrnumroutes', YLeaf(YType.uint32, 'mplsL3VpnVrfPerfCurrNumRoutes')),
+                    ('mplsl3vpnvrfperfroutesdropped', YLeaf(YType.uint32, 'mplsL3VpnVrfPerfRoutesDropped')),
+                    ('mplsl3vpnvrfperfdisctime', YLeaf(YType.uint32, 'mplsL3VpnVrfPerfDiscTime')),
+                ])
+                self.mplsl3vpnvrfname = None
+                self.mplsl3vpnvrfvpnid = None
+                self.mplsl3vpnvrfdescription = None
+                self.mplsl3vpnvrfrd = None
+                self.mplsl3vpnvrfcreationtime = None
+                self.mplsl3vpnvrfoperstatus = None
+                self.mplsl3vpnvrfactiveinterfaces = None
+                self.mplsl3vpnvrfassociatedinterfaces = None
+                self.mplsl3vpnvrfconfmidrtethresh = None
+                self.mplsl3vpnvrfconfhighrtethresh = None
+                self.mplsl3vpnvrfconfmaxroutes = None
+                self.mplsl3vpnvrfconflastchanged = None
+                self.mplsl3vpnvrfconfrowstatus = None
+                self.mplsl3vpnvrfconfadminstatus = None
+                self.mplsl3vpnvrfconfstoragetype = None
+                self.mplsl3vpnvrfsecillegallblvltns = None
+                self.mplsl3vpnvrfsecdiscontinuitytime = None
+                self.mplsl3vpnvrfperfroutesadded = None
+                self.mplsl3vpnvrfperfroutesdeleted = None
+                self.mplsl3vpnvrfperfcurrnumroutes = None
+                self.mplsl3vpnvrfperfroutesdropped = None
+                self.mplsl3vpnvrfperfdisctime = None
+                self._segment_path = lambda: "mplsL3VpnVrfEntry" + "[mplsL3VpnVrfName='" + str(self.mplsl3vpnvrfname) + "']"
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -604,7 +621,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
             class Mplsl3Vpnvrfconfadminstatus(Enum):
                 """
-                Mplsl3Vpnvrfconfadminstatus
+                Mplsl3Vpnvrfconfadminstatus (Enum Class)
 
                 Indicates the desired operational status of this
 
@@ -627,7 +644,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
             class Mplsl3Vpnvrfoperstatus(Enum):
                 """
-                Mplsl3Vpnvrfoperstatus
+                Mplsl3Vpnvrfoperstatus (Enum Class)
 
                 Denotes whether or not a VRF is operational.  A VRF is
 
@@ -680,8 +697,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsL3VpnVrfRTEntry" : ("mplsl3vpnvrfrtentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsL3VpnVrfRTEntry", ("mplsl3vpnvrfrtentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrttable.Mplsl3Vpnvrfrtentry))])
+            self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfrtentry = YList(self)
             self._segment_path = lambda: "mplsL3VpnVrfRTTable"
@@ -699,7 +718,7 @@ class MPLSL3VPNSTDMIB(Entity):
             ordering per\-VRF instance.  See [RFC4364] for a
             complete definition of a route target.
             
-            .. attribute:: mplsl3vpnvrfname  <key>
+            .. attribute:: mplsl3vpnvrfname  (key)
             
             	
             	**type**\: str
@@ -708,14 +727,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
             
-            .. attribute:: mplsl3vpnvrfrtindex  <key>
+            .. attribute:: mplsl3vpnvrfrtindex  (key)
             
             	Auxiliary index for route targets configured for a particular VRF
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: mplsl3vpnvrfrttype  <key>
+            .. attribute:: mplsl3vpnvrfrttype  (key)
             
             	The route target distribution type
             	**type**\:  :py:class:`MplsL3VpnRtType <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MplsL3VpnRtType>`
@@ -756,23 +775,26 @@ class MPLSL3VPNSTDMIB(Entity):
                 self.yang_parent_name = "mplsL3VpnVrfRTTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsl3vpnvrfname = YLeaf(YType.str, "mplsL3VpnVrfName")
-
-                self.mplsl3vpnvrfrtindex = YLeaf(YType.uint32, "mplsL3VpnVrfRTIndex")
-
-                self.mplsl3vpnvrfrttype = YLeaf(YType.enumeration, "mplsL3VpnVrfRTType")
-
-                self.mplsl3vpnvrfrt = YLeaf(YType.str, "mplsL3VpnVrfRT")
-
-                self.mplsl3vpnvrfrtdescr = YLeaf(YType.str, "mplsL3VpnVrfRTDescr")
-
-                self.mplsl3vpnvrfrtrowstatus = YLeaf(YType.enumeration, "mplsL3VpnVrfRTRowStatus")
-
-                self.mplsl3vpnvrfrtstoragetype = YLeaf(YType.enumeration, "mplsL3VpnVrfRTStorageType")
-                self._segment_path = lambda: "mplsL3VpnVrfRTEntry" + "[mplsL3VpnVrfName='" + self.mplsl3vpnvrfname.get() + "']" + "[mplsL3VpnVrfRTIndex='" + self.mplsl3vpnvrfrtindex.get() + "']" + "[mplsL3VpnVrfRTType='" + self.mplsl3vpnvrfrttype.get() + "']"
+                self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnvrfrtindex','mplsl3vpnvrfrttype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
+                    ('mplsl3vpnvrfrtindex', YLeaf(YType.uint32, 'mplsL3VpnVrfRTIndex')),
+                    ('mplsl3vpnvrfrttype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRTType')),
+                    ('mplsl3vpnvrfrt', YLeaf(YType.str, 'mplsL3VpnVrfRT')),
+                    ('mplsl3vpnvrfrtdescr', YLeaf(YType.str, 'mplsL3VpnVrfRTDescr')),
+                    ('mplsl3vpnvrfrtrowstatus', YLeaf(YType.enumeration, 'mplsL3VpnVrfRTRowStatus')),
+                    ('mplsl3vpnvrfrtstoragetype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRTStorageType')),
+                ])
+                self.mplsl3vpnvrfname = None
+                self.mplsl3vpnvrfrtindex = None
+                self.mplsl3vpnvrfrttype = None
+                self.mplsl3vpnvrfrt = None
+                self.mplsl3vpnvrfrtdescr = None
+                self.mplsl3vpnvrfrtrowstatus = None
+                self.mplsl3vpnvrfrtstoragetype = None
+                self._segment_path = lambda: "mplsL3VpnVrfRTEntry" + "[mplsL3VpnVrfName='" + str(self.mplsl3vpnvrfname) + "']" + "[mplsL3VpnVrfRTIndex='" + str(self.mplsl3vpnvrfrtindex) + "']" + "[mplsL3VpnVrfRTType='" + str(self.mplsl3vpnvrfrttype) + "']"
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRTTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -807,8 +829,10 @@ class MPLSL3VPNSTDMIB(Entity):
             self.yang_parent_name = "MPLS-L3VPN-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsL3VpnVrfRteEntry" : ("mplsl3vpnvrfrteentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mplsL3VpnVrfRteEntry", ("mplsl3vpnvrfrteentry", MPLSL3VPNSTDMIB.Mplsl3Vpnvrfrtetable.Mplsl3Vpnvrfrteentry))])
+            self._leafs = OrderedDict()
 
             self.mplsl3vpnvrfrteentry = YList(self)
             self._segment_path = lambda: "mplsL3VpnVrfRteTable"
@@ -833,7 +857,7 @@ class MPLSL3VPNSTDMIB(Entity):
             no more than 128 sub\-identifiers, otherwise they cannot be
             accessed using SNMPv1, SNMPv2c, or SNMPv3.
             
-            .. attribute:: mplsl3vpnvrfname  <key>
+            .. attribute:: mplsl3vpnvrfname  (key)
             
             	
             	**type**\: str
@@ -842,38 +866,38 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.Mplsl3Vpnvrftable.Mplsl3Vpnvrfentry>`
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrdesttype  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrdesttype  (key)
             
             	The type of the mplsL3VpnVrfRteInetCidrDest address, as defined in the InetAddress MIB.  Only those address types that may appear in an actual routing table are allowed as values of this object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrdest  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrdest  (key)
             
             	The destination IP address of this route.  The type of this address is determined by the value of the mplsL3VpnVrfRteInetCidrDestType object.  The values for the index objects mplsL3VpnVrfRteInetCidrDest and mplsL3VpnVrfRteInetCidrPfxLen must be consistent.  When the value of mplsL3VpnVrfRteInetCidrDest is x, then the bitwise logical\-AND of x with the value of the mask formed from the corresponding index object mplsL3VpnVrfRteInetCidrPfxLen MUST be equal to x.  If not, then the index pair is not consistent and an inconsistentName error must be returned on SET or CREATE requests
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrpfxlen  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrpfxlen  (key)
             
             	Indicates the number of leading one bits that form the  mask to be logical\-ANDed with the destination address before being compared to the value in the mplsL3VpnVrfRteInetCidrDest field.  The values for the index objects mplsL3VpnVrfRteInetCidrDest and mplsL3VpnVrfRteInetCidrPfxLen must be consistent.  When the value of mplsL3VpnVrfRteInetCidrDest is x, then the bitwise logical\-AND of x with the value of the mask formed from the corresponding index object mplsL3VpnVrfRteInetCidrPfxLen MUST be equal to x.  If not, then the index pair is not consistent and an inconsistentName error must be returned on SET or CREATE requests
             	**type**\: int
             
             	**range:** 0..128
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrpolicy  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrpolicy  (key)
             
             	This object is an opaque object without any defined semantics.  Its purpose is to serve as an additional index that may delineate between multiple entries to the same destination.  The value { 0 0 } shall be used as the default value for this object
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrnhoptype  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrnhoptype  (key)
             
             	The type of the mplsL3VpnVrfRteInetCidrNextHop address, as defined in the InetAddress MIB.  Value should be set to unknown(0) for non\-remote routes.  Only those address types that may appear in an actual routing table are allowed as values of this object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: mplsl3vpnvrfrteinetcidrnexthop  <key>
+            .. attribute:: mplsl3vpnvrfrteinetcidrnexthop  (key)
             
             	On remote routes, the address of the next system en route.  For non\-remote routes, a zero\-length string. The type of this address is determined by the value of the mplsL3VpnVrfRteInetCidrNHopType object
             	**type**\: str
@@ -972,47 +996,50 @@ class MPLSL3VPNSTDMIB(Entity):
                 self.yang_parent_name = "mplsL3VpnVrfRteTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsl3vpnvrfname = YLeaf(YType.str, "mplsL3VpnVrfName")
-
-                self.mplsl3vpnvrfrteinetcidrdesttype = YLeaf(YType.enumeration, "mplsL3VpnVrfRteInetCidrDestType")
-
-                self.mplsl3vpnvrfrteinetcidrdest = YLeaf(YType.str, "mplsL3VpnVrfRteInetCidrDest")
-
-                self.mplsl3vpnvrfrteinetcidrpfxlen = YLeaf(YType.uint32, "mplsL3VpnVrfRteInetCidrPfxLen")
-
-                self.mplsl3vpnvrfrteinetcidrpolicy = YLeaf(YType.str, "mplsL3VpnVrfRteInetCidrPolicy")
-
-                self.mplsl3vpnvrfrteinetcidrnhoptype = YLeaf(YType.enumeration, "mplsL3VpnVrfRteInetCidrNHopType")
-
-                self.mplsl3vpnvrfrteinetcidrnexthop = YLeaf(YType.str, "mplsL3VpnVrfRteInetCidrNextHop")
-
-                self.mplsl3vpnvrfrteinetcidrifindex = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrIfIndex")
-
-                self.mplsl3vpnvrfrteinetcidrtype = YLeaf(YType.enumeration, "mplsL3VpnVrfRteInetCidrType")
-
-                self.mplsl3vpnvrfrteinetcidrproto = YLeaf(YType.enumeration, "mplsL3VpnVrfRteInetCidrProto")
-
-                self.mplsl3vpnvrfrteinetcidrage = YLeaf(YType.uint32, "mplsL3VpnVrfRteInetCidrAge")
-
-                self.mplsl3vpnvrfrteinetcidrnexthopas = YLeaf(YType.uint32, "mplsL3VpnVrfRteInetCidrNextHopAS")
-
-                self.mplsl3vpnvrfrteinetcidrmetric1 = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrMetric1")
-
-                self.mplsl3vpnvrfrteinetcidrmetric2 = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrMetric2")
-
-                self.mplsl3vpnvrfrteinetcidrmetric3 = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrMetric3")
-
-                self.mplsl3vpnvrfrteinetcidrmetric4 = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrMetric4")
-
-                self.mplsl3vpnvrfrteinetcidrmetric5 = YLeaf(YType.int32, "mplsL3VpnVrfRteInetCidrMetric5")
-
-                self.mplsl3vpnvrfrtexcpointer = YLeaf(YType.str, "mplsL3VpnVrfRteXCPointer")
-
-                self.mplsl3vpnvrfrteinetcidrstatus = YLeaf(YType.enumeration, "mplsL3VpnVrfRteInetCidrStatus")
-                self._segment_path = lambda: "mplsL3VpnVrfRteEntry" + "[mplsL3VpnVrfName='" + self.mplsl3vpnvrfname.get() + "']" + "[mplsL3VpnVrfRteInetCidrDestType='" + self.mplsl3vpnvrfrteinetcidrdesttype.get() + "']" + "[mplsL3VpnVrfRteInetCidrDest='" + self.mplsl3vpnvrfrteinetcidrdest.get() + "']" + "[mplsL3VpnVrfRteInetCidrPfxLen='" + self.mplsl3vpnvrfrteinetcidrpfxlen.get() + "']" + "[mplsL3VpnVrfRteInetCidrPolicy='" + self.mplsl3vpnvrfrteinetcidrpolicy.get() + "']" + "[mplsL3VpnVrfRteInetCidrNHopType='" + self.mplsl3vpnvrfrteinetcidrnhoptype.get() + "']" + "[mplsL3VpnVrfRteInetCidrNextHop='" + self.mplsl3vpnvrfrteinetcidrnexthop.get() + "']"
+                self.ylist_key_names = ['mplsl3vpnvrfname','mplsl3vpnvrfrteinetcidrdesttype','mplsl3vpnvrfrteinetcidrdest','mplsl3vpnvrfrteinetcidrpfxlen','mplsl3vpnvrfrteinetcidrpolicy','mplsl3vpnvrfrteinetcidrnhoptype','mplsl3vpnvrfrteinetcidrnexthop']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mplsl3vpnvrfname', YLeaf(YType.str, 'mplsL3VpnVrfName')),
+                    ('mplsl3vpnvrfrteinetcidrdesttype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrDestType')),
+                    ('mplsl3vpnvrfrteinetcidrdest', YLeaf(YType.str, 'mplsL3VpnVrfRteInetCidrDest')),
+                    ('mplsl3vpnvrfrteinetcidrpfxlen', YLeaf(YType.uint32, 'mplsL3VpnVrfRteInetCidrPfxLen')),
+                    ('mplsl3vpnvrfrteinetcidrpolicy', YLeaf(YType.str, 'mplsL3VpnVrfRteInetCidrPolicy')),
+                    ('mplsl3vpnvrfrteinetcidrnhoptype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrNHopType')),
+                    ('mplsl3vpnvrfrteinetcidrnexthop', YLeaf(YType.str, 'mplsL3VpnVrfRteInetCidrNextHop')),
+                    ('mplsl3vpnvrfrteinetcidrifindex', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrIfIndex')),
+                    ('mplsl3vpnvrfrteinetcidrtype', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrType')),
+                    ('mplsl3vpnvrfrteinetcidrproto', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrProto')),
+                    ('mplsl3vpnvrfrteinetcidrage', YLeaf(YType.uint32, 'mplsL3VpnVrfRteInetCidrAge')),
+                    ('mplsl3vpnvrfrteinetcidrnexthopas', YLeaf(YType.uint32, 'mplsL3VpnVrfRteInetCidrNextHopAS')),
+                    ('mplsl3vpnvrfrteinetcidrmetric1', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrMetric1')),
+                    ('mplsl3vpnvrfrteinetcidrmetric2', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrMetric2')),
+                    ('mplsl3vpnvrfrteinetcidrmetric3', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrMetric3')),
+                    ('mplsl3vpnvrfrteinetcidrmetric4', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrMetric4')),
+                    ('mplsl3vpnvrfrteinetcidrmetric5', YLeaf(YType.int32, 'mplsL3VpnVrfRteInetCidrMetric5')),
+                    ('mplsl3vpnvrfrtexcpointer', YLeaf(YType.str, 'mplsL3VpnVrfRteXCPointer')),
+                    ('mplsl3vpnvrfrteinetcidrstatus', YLeaf(YType.enumeration, 'mplsL3VpnVrfRteInetCidrStatus')),
+                ])
+                self.mplsl3vpnvrfname = None
+                self.mplsl3vpnvrfrteinetcidrdesttype = None
+                self.mplsl3vpnvrfrteinetcidrdest = None
+                self.mplsl3vpnvrfrteinetcidrpfxlen = None
+                self.mplsl3vpnvrfrteinetcidrpolicy = None
+                self.mplsl3vpnvrfrteinetcidrnhoptype = None
+                self.mplsl3vpnvrfrteinetcidrnexthop = None
+                self.mplsl3vpnvrfrteinetcidrifindex = None
+                self.mplsl3vpnvrfrteinetcidrtype = None
+                self.mplsl3vpnvrfrteinetcidrproto = None
+                self.mplsl3vpnvrfrteinetcidrage = None
+                self.mplsl3vpnvrfrteinetcidrnexthopas = None
+                self.mplsl3vpnvrfrteinetcidrmetric1 = None
+                self.mplsl3vpnvrfrteinetcidrmetric2 = None
+                self.mplsl3vpnvrfrteinetcidrmetric3 = None
+                self.mplsl3vpnvrfrteinetcidrmetric4 = None
+                self.mplsl3vpnvrfrteinetcidrmetric5 = None
+                self.mplsl3vpnvrfrtexcpointer = None
+                self.mplsl3vpnvrfrteinetcidrstatus = None
+                self._segment_path = lambda: "mplsL3VpnVrfRteEntry" + "[mplsL3VpnVrfName='" + str(self.mplsl3vpnvrfname) + "']" + "[mplsL3VpnVrfRteInetCidrDestType='" + str(self.mplsl3vpnvrfrteinetcidrdesttype) + "']" + "[mplsL3VpnVrfRteInetCidrDest='" + str(self.mplsl3vpnvrfrteinetcidrdest) + "']" + "[mplsL3VpnVrfRteInetCidrPfxLen='" + str(self.mplsl3vpnvrfrteinetcidrpfxlen) + "']" + "[mplsL3VpnVrfRteInetCidrPolicy='" + str(self.mplsl3vpnvrfrteinetcidrpolicy) + "']" + "[mplsL3VpnVrfRteInetCidrNHopType='" + str(self.mplsl3vpnvrfrteinetcidrnhoptype) + "']" + "[mplsL3VpnVrfRteInetCidrNextHop='" + str(self.mplsl3vpnvrfrteinetcidrnexthop) + "']"
                 self._absolute_path = lambda: "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1020,7 +1047,7 @@ class MPLSL3VPNSTDMIB(Entity):
 
             class Mplsl3Vpnvrfrteinetcidrtype(Enum):
                 """
-                Mplsl3Vpnvrfrteinetcidrtype
+                Mplsl3Vpnvrfrteinetcidrtype (Enum Class)
 
                 The type of route.  Note that local(3) refers to a
 

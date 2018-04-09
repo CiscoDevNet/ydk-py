@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MacsecCard(Enum):
     """
-    MacsecCard
+    MacsecCard (Enum Class)
 
     Macsec card
 
@@ -75,8 +77,10 @@ class MacsecPlatform(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-macsec-pl-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", MacsecPlatform.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", MacsecPlatform.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = MacsecPlatform.Nodes()
         self.nodes.parent = self
@@ -108,8 +112,10 @@ class MacsecPlatform(Entity):
             self.yang_parent_name = "macsec-platform"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", MacsecPlatform.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", MacsecPlatform.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -123,7 +129,7 @@ class MacsecPlatform(Entity):
             """
             Node where macsec interfaces exist
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node
             	**type**\: str
@@ -149,16 +155,19 @@ class MacsecPlatform(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interfaces" : ("interfaces", MacsecPlatform.Nodes.Node.Interfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MacsecPlatform.Nodes.Node.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.interfaces = MacsecPlatform.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -188,8 +197,10 @@ class MacsecPlatform(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", MacsecPlatform.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", MacsecPlatform.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -202,7 +213,7 @@ class MacsecPlatform(Entity):
                     """
                     Interface Where Macsec is configured
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Value
                     	**type**\: str
@@ -243,10 +254,13 @@ class MacsecPlatform(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"hw-statistics" : ("hw_statistics", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics), "hw-sas" : ("hw_sas", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas), "hw-flow-s" : ("hw_flow_s", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS), "sw-statistics" : ("sw_statistics", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("hw-statistics", ("hw_statistics", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics)), ("hw-sas", ("hw_sas", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas)), ("hw-flow-s", ("hw_flow_s", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS)), ("sw-statistics", ("sw_statistics", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
                         self.hw_statistics = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics()
                         self.hw_statistics.parent = self
@@ -267,7 +281,7 @@ class MacsecPlatform(Entity):
                         self.sw_statistics.parent = self
                         self._children_name_map["sw_statistics"] = "sw-statistics"
                         self._children_yang_names.add("sw-statistics")
-                        self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface, ['name'], name, value)
@@ -296,8 +310,10 @@ class MacsecPlatform(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ext" : ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("ext", ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.ext = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext()
                             self.ext.parent = self
@@ -344,10 +360,13 @@ class MacsecPlatform(Entity):
                                 self.yang_parent_name = "hw-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"msfpga-stats" : ("msfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats), "xlfpga-stats" : ("xlfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats), "es200-stats" : ("es200_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats)}
-                                self._child_list_classes = {}
-
-                                self.type = YLeaf(YType.enumeration, "type")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("msfpga-stats", ("msfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats)), ("xlfpga-stats", ("xlfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats)), ("es200-stats", ("es200_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                ])
+                                self.type = None
 
                                 self.msfpga_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats()
                                 self.msfpga_stats.parent = self
@@ -407,8 +426,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"tx-sa-stats" : ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats), "rx-sa-stats" : ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats), "tx-interface-macsec-stats" : ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats), "rx-interface-macsec-stats" : ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("tx-sa-stats", ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats)), ("rx-sa-stats", ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats)), ("tx-interface-macsec-stats", ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats)), ("rx-interface-macsec-stats", ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.tx_sa_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats()
                                     self.tx_sa_stats.parent = self
@@ -478,16 +499,19 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_protected = YLeaf(YType.uint64, "out-pkts-protected")
-
-                                        self.out_pkts_encrypted = YLeaf(YType.uint64, "out-pkts-encrypted")
-
-                                        self.out_octets_protected = YLeaf(YType.uint64, "out-octets-protected")
-
-                                        self.out_octets_encrypted = YLeaf(YType.uint64, "out-octets-encrypted")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
+                                            ('out_pkts_encrypted', YLeaf(YType.uint64, 'out-pkts-encrypted')),
+                                            ('out_octets_protected', YLeaf(YType.uint64, 'out-octets-protected')),
+                                            ('out_octets_encrypted', YLeaf(YType.uint64, 'out-octets-encrypted')),
+                                        ])
+                                        self.out_pkts_protected = None
+                                        self.out_pkts_encrypted = None
+                                        self.out_octets_protected = None
+                                        self.out_octets_encrypted = None
                                         self._segment_path = lambda: "tx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -582,28 +606,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_unused_sa = YLeaf(YType.uint64, "in-pkts-unused-sa")
-
-                                        self.in_pkts_not_using_sa = YLeaf(YType.uint64, "in-pkts-not-using-sa")
-
-                                        self.in_pkts_not_valid = YLeaf(YType.uint64, "in-pkts-not-valid")
-
-                                        self.in_pkts_invalid = YLeaf(YType.uint64, "in-pkts-invalid")
-
-                                        self.in_pkts_ok = YLeaf(YType.uint64, "in-pkts-ok")
-
-                                        self.in_pkts_delayed = YLeaf(YType.uint64, "in-pkts-delayed")
-
-                                        self.in_pkts_late = YLeaf(YType.uint64, "in-pkts-late")
-
-                                        self.in_pkts_unchecked = YLeaf(YType.uint64, "in-pkts-unchecked")
-
-                                        self.in_octets_validated = YLeaf(YType.uint64, "in-octets-validated")
-
-                                        self.in_octets_decrypted = YLeaf(YType.uint64, "in-octets-decrypted")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
+                                            ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
+                                            ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
+                                            ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
+                                            ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
+                                            ('in_pkts_delayed', YLeaf(YType.uint64, 'in-pkts-delayed')),
+                                            ('in_pkts_late', YLeaf(YType.uint64, 'in-pkts-late')),
+                                            ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
+                                            ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
+                                            ('in_octets_decrypted', YLeaf(YType.uint64, 'in-octets-decrypted')),
+                                        ])
+                                        self.in_pkts_unused_sa = None
+                                        self.in_pkts_not_using_sa = None
+                                        self.in_pkts_not_valid = None
+                                        self.in_pkts_invalid = None
+                                        self.in_pkts_ok = None
+                                        self.in_pkts_delayed = None
+                                        self.in_pkts_late = None
+                                        self.in_pkts_unchecked = None
+                                        self.in_octets_validated = None
+                                        self.in_octets_decrypted = None
                                         self._segment_path = lambda: "rx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -649,14 +676,17 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkt_uncontrolled = YLeaf(YType.uint64, "out-pkt-uncontrolled")
-
-                                        self.out_pkt_untagged = YLeaf(YType.uint64, "out-pkt-untagged")
-
-                                        self.out_pkt_too_long = YLeaf(YType.uint64, "out-pkt-too-long")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkt_uncontrolled', YLeaf(YType.uint64, 'out-pkt-uncontrolled')),
+                                            ('out_pkt_untagged', YLeaf(YType.uint64, 'out-pkt-untagged')),
+                                            ('out_pkt_too_long', YLeaf(YType.uint64, 'out-pkt-too-long')),
+                                        ])
+                                        self.out_pkt_uncontrolled = None
+                                        self.out_pkt_untagged = None
+                                        self.out_pkt_too_long = None
                                         self._segment_path = lambda: "tx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -737,24 +767,27 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkt_untagged = YLeaf(YType.uint64, "in-pkt-untagged")
-
-                                        self.in_pkt_notag = YLeaf(YType.uint64, "in-pkt-notag")
-
-                                        self.in_pkt_bad_tag = YLeaf(YType.uint64, "in-pkt-bad-tag")
-
-                                        self.in_pkt_no_sci = YLeaf(YType.uint64, "in-pkt-no-sci")
-
-                                        self.in_pkt_unknown_sci = YLeaf(YType.uint64, "in-pkt-unknown-sci")
-
-                                        self.in_pkt_tagged = YLeaf(YType.uint64, "in-pkt-tagged")
-
-                                        self.in_pkt_overrun = YLeaf(YType.uint64, "in-pkt-overrun")
-
-                                        self.in_pkt_uncontrolled = YLeaf(YType.uint64, "in-pkt-uncontrolled")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkt_untagged', YLeaf(YType.uint64, 'in-pkt-untagged')),
+                                            ('in_pkt_notag', YLeaf(YType.uint64, 'in-pkt-notag')),
+                                            ('in_pkt_bad_tag', YLeaf(YType.uint64, 'in-pkt-bad-tag')),
+                                            ('in_pkt_no_sci', YLeaf(YType.uint64, 'in-pkt-no-sci')),
+                                            ('in_pkt_unknown_sci', YLeaf(YType.uint64, 'in-pkt-unknown-sci')),
+                                            ('in_pkt_tagged', YLeaf(YType.uint64, 'in-pkt-tagged')),
+                                            ('in_pkt_overrun', YLeaf(YType.uint64, 'in-pkt-overrun')),
+                                            ('in_pkt_uncontrolled', YLeaf(YType.uint64, 'in-pkt-uncontrolled')),
+                                        ])
+                                        self.in_pkt_untagged = None
+                                        self.in_pkt_notag = None
+                                        self.in_pkt_bad_tag = None
+                                        self.in_pkt_no_sci = None
+                                        self.in_pkt_unknown_sci = None
+                                        self.in_pkt_tagged = None
+                                        self.in_pkt_overrun = None
+                                        self.in_pkt_uncontrolled = None
                                         self._segment_path = lambda: "rx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -789,8 +822,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"macsec-tx-stats" : ("macsec_tx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats), "macsec-rx-stats" : ("macsec_rx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("macsec-tx-stats", ("macsec_tx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats)), ("macsec-rx-stats", ("macsec_rx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.macsec_tx_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats()
                                     self.macsec_tx_stats.parent = self
@@ -892,28 +927,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "xlfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.sc_encrypted_octets = YLeaf(YType.uint64, "sc-encrypted-octets")
-
-                                        self.sc_toolong_pkts = YLeaf(YType.uint64, "sc-toolong-pkts")
-
-                                        self.sc_encrypted_pkts = YLeaf(YType.uint64, "sc-encrypted-pkts")
-
-                                        self.sc_untagged_pkts = YLeaf(YType.uint64, "sc-untagged-pkts")
-
-                                        self.sc_overrun_pkts = YLeaf(YType.uint64, "sc-overrun-pkts")
-
-                                        self.sc_bypass_pkts = YLeaf(YType.uint64, "sc-bypass-pkts")
-
-                                        self.sc_eapol_pkts = YLeaf(YType.uint64, "sc-eapol-pkts")
-
-                                        self.sc_dropped_pkts = YLeaf(YType.uint64, "sc-dropped-pkts")
-
-                                        self.current_an = YLeaf(YType.uint64, "current-an")
-
-                                        self.sa_encrypted_pkts = YLeaf(YType.uint64, "sa-encrypted-pkts")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sc_encrypted_octets', YLeaf(YType.uint64, 'sc-encrypted-octets')),
+                                            ('sc_toolong_pkts', YLeaf(YType.uint64, 'sc-toolong-pkts')),
+                                            ('sc_encrypted_pkts', YLeaf(YType.uint64, 'sc-encrypted-pkts')),
+                                            ('sc_untagged_pkts', YLeaf(YType.uint64, 'sc-untagged-pkts')),
+                                            ('sc_overrun_pkts', YLeaf(YType.uint64, 'sc-overrun-pkts')),
+                                            ('sc_bypass_pkts', YLeaf(YType.uint64, 'sc-bypass-pkts')),
+                                            ('sc_eapol_pkts', YLeaf(YType.uint64, 'sc-eapol-pkts')),
+                                            ('sc_dropped_pkts', YLeaf(YType.uint64, 'sc-dropped-pkts')),
+                                            ('current_an', YLeaf(YType.uint64, 'current-an')),
+                                            ('sa_encrypted_pkts', YLeaf(YType.uint64, 'sa-encrypted-pkts')),
+                                        ])
+                                        self.sc_encrypted_octets = None
+                                        self.sc_toolong_pkts = None
+                                        self.sc_encrypted_pkts = None
+                                        self.sc_untagged_pkts = None
+                                        self.sc_overrun_pkts = None
+                                        self.sc_bypass_pkts = None
+                                        self.sc_eapol_pkts = None
+                                        self.sc_dropped_pkts = None
+                                        self.current_an = None
+                                        self.sa_encrypted_pkts = None
                                         self._segment_path = lambda: "macsec-tx-stats"
 
                                     def __setattr__(self, name, value):
@@ -1069,44 +1107,47 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "xlfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"rx-sa-stat" : ("rx_sa_stat", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat)}
-
-                                        self.sc_decrypted_octets = YLeaf(YType.uint64, "sc-decrypted-octets")
-
-                                        self.sc_no_tag_pkts = YLeaf(YType.uint64, "sc-no-tag-pkts")
-
-                                        self.sc_untagged_pkts = YLeaf(YType.uint64, "sc-untagged-pkts")
-
-                                        self.sc_bad_tag_pkts = YLeaf(YType.uint64, "sc-bad-tag-pkts")
-
-                                        self.sc_late_pkts = YLeaf(YType.uint64, "sc-late-pkts")
-
-                                        self.sc_delayed_pkts = YLeaf(YType.uint64, "sc-delayed-pkts")
-
-                                        self.sc_unchecked_pkts = YLeaf(YType.uint64, "sc-unchecked-pkts")
-
-                                        self.sc_no_sci_pkts = YLeaf(YType.uint64, "sc-no-sci-pkts")
-
-                                        self.sc_unknown_sci_pkts = YLeaf(YType.uint64, "sc-unknown-sci-pkts")
-
-                                        self.sc_ok_pkts = YLeaf(YType.uint64, "sc-ok-pkts")
-
-                                        self.sc_not_using_pkts = YLeaf(YType.uint64, "sc-not-using-pkts")
-
-                                        self.sc_unused_pkts = YLeaf(YType.uint64, "sc-unused-pkts")
-
-                                        self.sc_not_valid_pkts = YLeaf(YType.uint64, "sc-not-valid-pkts")
-
-                                        self.sc_invalid_pkts = YLeaf(YType.uint64, "sc-invalid-pkts")
-
-                                        self.sc_overrun_pkts = YLeaf(YType.uint64, "sc-overrun-pkts")
-
-                                        self.sc_bypass_pkts = YLeaf(YType.uint64, "sc-bypass-pkts")
-
-                                        self.sc_eapol_pkts = YLeaf(YType.uint64, "sc-eapol-pkts")
-
-                                        self.sc_dropped_pkts = YLeaf(YType.uint64, "sc-dropped-pkts")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("rx-sa-stat", ("rx_sa_stat", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat))])
+                                        self._leafs = OrderedDict([
+                                            ('sc_decrypted_octets', YLeaf(YType.uint64, 'sc-decrypted-octets')),
+                                            ('sc_no_tag_pkts', YLeaf(YType.uint64, 'sc-no-tag-pkts')),
+                                            ('sc_untagged_pkts', YLeaf(YType.uint64, 'sc-untagged-pkts')),
+                                            ('sc_bad_tag_pkts', YLeaf(YType.uint64, 'sc-bad-tag-pkts')),
+                                            ('sc_late_pkts', YLeaf(YType.uint64, 'sc-late-pkts')),
+                                            ('sc_delayed_pkts', YLeaf(YType.uint64, 'sc-delayed-pkts')),
+                                            ('sc_unchecked_pkts', YLeaf(YType.uint64, 'sc-unchecked-pkts')),
+                                            ('sc_no_sci_pkts', YLeaf(YType.uint64, 'sc-no-sci-pkts')),
+                                            ('sc_unknown_sci_pkts', YLeaf(YType.uint64, 'sc-unknown-sci-pkts')),
+                                            ('sc_ok_pkts', YLeaf(YType.uint64, 'sc-ok-pkts')),
+                                            ('sc_not_using_pkts', YLeaf(YType.uint64, 'sc-not-using-pkts')),
+                                            ('sc_unused_pkts', YLeaf(YType.uint64, 'sc-unused-pkts')),
+                                            ('sc_not_valid_pkts', YLeaf(YType.uint64, 'sc-not-valid-pkts')),
+                                            ('sc_invalid_pkts', YLeaf(YType.uint64, 'sc-invalid-pkts')),
+                                            ('sc_overrun_pkts', YLeaf(YType.uint64, 'sc-overrun-pkts')),
+                                            ('sc_bypass_pkts', YLeaf(YType.uint64, 'sc-bypass-pkts')),
+                                            ('sc_eapol_pkts', YLeaf(YType.uint64, 'sc-eapol-pkts')),
+                                            ('sc_dropped_pkts', YLeaf(YType.uint64, 'sc-dropped-pkts')),
+                                        ])
+                                        self.sc_decrypted_octets = None
+                                        self.sc_no_tag_pkts = None
+                                        self.sc_untagged_pkts = None
+                                        self.sc_bad_tag_pkts = None
+                                        self.sc_late_pkts = None
+                                        self.sc_delayed_pkts = None
+                                        self.sc_unchecked_pkts = None
+                                        self.sc_no_sci_pkts = None
+                                        self.sc_unknown_sci_pkts = None
+                                        self.sc_ok_pkts = None
+                                        self.sc_not_using_pkts = None
+                                        self.sc_unused_pkts = None
+                                        self.sc_not_valid_pkts = None
+                                        self.sc_invalid_pkts = None
+                                        self.sc_overrun_pkts = None
+                                        self.sc_bypass_pkts = None
+                                        self.sc_eapol_pkts = None
+                                        self.sc_dropped_pkts = None
 
                                         self.rx_sa_stat = YList(self)
                                         self._segment_path = lambda: "macsec-rx-stats"
@@ -1175,20 +1216,23 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "macsec-rx-stats"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.an = YLeaf(YType.uint64, "an")
-
-                                            self.sa_ok_pkts = YLeaf(YType.uint64, "sa-ok-pkts")
-
-                                            self.sa_not_using_pkts = YLeaf(YType.uint64, "sa-not-using-pkts")
-
-                                            self.sa_unused_pkts = YLeaf(YType.uint64, "sa-unused-pkts")
-
-                                            self.sa_not_valid_pkts = YLeaf(YType.uint64, "sa-not-valid-pkts")
-
-                                            self.sa_invalid_pkts = YLeaf(YType.uint64, "sa-invalid-pkts")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('an', YLeaf(YType.uint64, 'an')),
+                                                ('sa_ok_pkts', YLeaf(YType.uint64, 'sa-ok-pkts')),
+                                                ('sa_not_using_pkts', YLeaf(YType.uint64, 'sa-not-using-pkts')),
+                                                ('sa_unused_pkts', YLeaf(YType.uint64, 'sa-unused-pkts')),
+                                                ('sa_not_valid_pkts', YLeaf(YType.uint64, 'sa-not-valid-pkts')),
+                                                ('sa_invalid_pkts', YLeaf(YType.uint64, 'sa-invalid-pkts')),
+                                            ])
+                                            self.an = None
+                                            self.sa_ok_pkts = None
+                                            self.sa_not_using_pkts = None
+                                            self.sa_unused_pkts = None
+                                            self.sa_not_valid_pkts = None
+                                            self.sa_invalid_pkts = None
                                             self._segment_path = lambda: "rx-sa-stat"
 
                                         def __setattr__(self, name, value):
@@ -1253,8 +1297,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"tx-sa-stats" : ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats), "rx-sa-stats" : ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats), "tx-sc-macsec-stats" : ("tx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats), "rx-sc-macsec-stats" : ("rx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats), "tx-interface-macsec-stats" : ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats), "rx-interface-macsec-stats" : ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats), "tx-port-stats" : ("tx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats), "rx-port-stats" : ("rx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("tx-sa-stats", ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats)), ("rx-sa-stats", ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats)), ("tx-sc-macsec-stats", ("tx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats)), ("rx-sc-macsec-stats", ("rx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats)), ("tx-interface-macsec-stats", ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats)), ("rx-interface-macsec-stats", ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats)), ("tx-port-stats", ("tx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats)), ("rx-port-stats", ("rx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.tx_sa_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats()
                                     self.tx_sa_stats.parent = self
@@ -1337,14 +1383,17 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_too_long = YLeaf(YType.uint64, "out-pkts-too-long")
-
-                                        self.out_pkts_encrypted_protected = YLeaf(YType.uint64, "out-pkts-encrypted-protected")
-
-                                        self.out_octets_encrypted_protected1 = YLeaf(YType.uint64, "out-octets-encrypted-protected1")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_too_long', YLeaf(YType.uint64, 'out-pkts-too-long')),
+                                            ('out_pkts_encrypted_protected', YLeaf(YType.uint64, 'out-pkts-encrypted-protected')),
+                                            ('out_octets_encrypted_protected1', YLeaf(YType.uint64, 'out-octets-encrypted-protected1')),
+                                        ])
+                                        self.out_pkts_too_long = None
+                                        self.out_pkts_encrypted_protected = None
+                                        self.out_octets_encrypted_protected1 = None
                                         self._segment_path = lambda: "tx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -1439,28 +1488,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_unchecked = YLeaf(YType.uint64, "in-pkts-unchecked")
-
-                                        self.in_pkts_delayed = YLeaf(YType.uint64, "in-pkts-delayed")
-
-                                        self.in_pkts_late = YLeaf(YType.uint64, "in-pkts-late")
-
-                                        self.in_pkts_ok = YLeaf(YType.uint64, "in-pkts-ok")
-
-                                        self.in_pkts_invalid = YLeaf(YType.uint64, "in-pkts-invalid")
-
-                                        self.in_pkts_not_valid = YLeaf(YType.uint64, "in-pkts-not-valid")
-
-                                        self.in_pkts_not_using_sa = YLeaf(YType.uint64, "in-pkts-not-using-sa")
-
-                                        self.in_pkts_unused_sa = YLeaf(YType.uint64, "in-pkts-unused-sa")
-
-                                        self.in_octets_decrypted_validated1 = YLeaf(YType.uint64, "in-octets-decrypted-validated1")
-
-                                        self.in_octets_validated = YLeaf(YType.uint64, "in-octets-validated")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
+                                            ('in_pkts_delayed', YLeaf(YType.uint64, 'in-pkts-delayed')),
+                                            ('in_pkts_late', YLeaf(YType.uint64, 'in-pkts-late')),
+                                            ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
+                                            ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
+                                            ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
+                                            ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
+                                            ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
+                                            ('in_octets_decrypted_validated1', YLeaf(YType.uint64, 'in-octets-decrypted-validated1')),
+                                            ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
+                                        ])
+                                        self.in_pkts_unchecked = None
+                                        self.in_pkts_delayed = None
+                                        self.in_pkts_late = None
+                                        self.in_pkts_ok = None
+                                        self.in_pkts_invalid = None
+                                        self.in_pkts_not_valid = None
+                                        self.in_pkts_not_using_sa = None
+                                        self.in_pkts_unused_sa = None
+                                        self.in_octets_decrypted_validated1 = None
+                                        self.in_octets_validated = None
                                         self._segment_path = lambda: "rx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -1492,10 +1544,13 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_sa_not_in_use = YLeaf(YType.uint64, "out-pkts-sa-not-in-use")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_sa_not_in_use', YLeaf(YType.uint64, 'out-pkts-sa-not-in-use')),
+                                        ])
+                                        self.out_pkts_sa_not_in_use = None
                                         self._segment_path = lambda: "tx-sc-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -1527,10 +1582,13 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_sa_not_in_use = YLeaf(YType.uint64, "in-pkts-sa-not-in-use")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_sa_not_in_use', YLeaf(YType.uint64, 'in-pkts-sa-not-in-use')),
+                                        ])
+                                        self.in_pkts_sa_not_in_use = None
                                         self._segment_path = lambda: "rx-sc-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -1681,44 +1739,47 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.transform_error_pkts = YLeaf(YType.uint64, "transform-error-pkts")
-
-                                        self.out_pkt_ctrl = YLeaf(YType.uint64, "out-pkt-ctrl")
-
-                                        self.out_pkts_untagged = YLeaf(YType.uint64, "out-pkts-untagged")
-
-                                        self.out_octets_unctrl = YLeaf(YType.uint64, "out-octets-unctrl")
-
-                                        self.out_octets_ctrl = YLeaf(YType.uint64, "out-octets-ctrl")
-
-                                        self.out_octets_common = YLeaf(YType.uint64, "out-octets-common")
-
-                                        self.out_ucast_pkts_unctrl = YLeaf(YType.uint64, "out-ucast-pkts-unctrl")
-
-                                        self.out_ucast_pkts_ctrl = YLeaf(YType.uint64, "out-ucast-pkts-ctrl")
-
-                                        self.out_mcast_pkts_unctrl = YLeaf(YType.uint64, "out-mcast-pkts-unctrl")
-
-                                        self.out_mcast_pkts_ctrl = YLeaf(YType.uint64, "out-mcast-pkts-ctrl")
-
-                                        self.out_bcast_pkts_unctrl = YLeaf(YType.uint64, "out-bcast-pkts-unctrl")
-
-                                        self.out_bcast_pkts_ctrl = YLeaf(YType.uint64, "out-bcast-pkts-ctrl")
-
-                                        self.out_rx_drop_pkts_unctrl = YLeaf(YType.uint64, "out-rx-drop-pkts-unctrl")
-
-                                        self.out_rx_drop_pkts_ctrl = YLeaf(YType.uint64, "out-rx-drop-pkts-ctrl")
-
-                                        self.out_rx_err_pkts_unctrl = YLeaf(YType.uint64, "out-rx-err-pkts-unctrl")
-
-                                        self.out_rx_err_pkts_ctrl = YLeaf(YType.uint64, "out-rx-err-pkts-ctrl")
-
-                                        self.out_drop_pkts_class = YLeaf(YType.uint64, "out-drop-pkts-class")
-
-                                        self.out_drop_pkts_data = YLeaf(YType.uint64, "out-drop-pkts-data")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('transform_error_pkts', YLeaf(YType.uint64, 'transform-error-pkts')),
+                                            ('out_pkt_ctrl', YLeaf(YType.uint64, 'out-pkt-ctrl')),
+                                            ('out_pkts_untagged', YLeaf(YType.uint64, 'out-pkts-untagged')),
+                                            ('out_octets_unctrl', YLeaf(YType.uint64, 'out-octets-unctrl')),
+                                            ('out_octets_ctrl', YLeaf(YType.uint64, 'out-octets-ctrl')),
+                                            ('out_octets_common', YLeaf(YType.uint64, 'out-octets-common')),
+                                            ('out_ucast_pkts_unctrl', YLeaf(YType.uint64, 'out-ucast-pkts-unctrl')),
+                                            ('out_ucast_pkts_ctrl', YLeaf(YType.uint64, 'out-ucast-pkts-ctrl')),
+                                            ('out_mcast_pkts_unctrl', YLeaf(YType.uint64, 'out-mcast-pkts-unctrl')),
+                                            ('out_mcast_pkts_ctrl', YLeaf(YType.uint64, 'out-mcast-pkts-ctrl')),
+                                            ('out_bcast_pkts_unctrl', YLeaf(YType.uint64, 'out-bcast-pkts-unctrl')),
+                                            ('out_bcast_pkts_ctrl', YLeaf(YType.uint64, 'out-bcast-pkts-ctrl')),
+                                            ('out_rx_drop_pkts_unctrl', YLeaf(YType.uint64, 'out-rx-drop-pkts-unctrl')),
+                                            ('out_rx_drop_pkts_ctrl', YLeaf(YType.uint64, 'out-rx-drop-pkts-ctrl')),
+                                            ('out_rx_err_pkts_unctrl', YLeaf(YType.uint64, 'out-rx-err-pkts-unctrl')),
+                                            ('out_rx_err_pkts_ctrl', YLeaf(YType.uint64, 'out-rx-err-pkts-ctrl')),
+                                            ('out_drop_pkts_class', YLeaf(YType.uint64, 'out-drop-pkts-class')),
+                                            ('out_drop_pkts_data', YLeaf(YType.uint64, 'out-drop-pkts-data')),
+                                        ])
+                                        self.transform_error_pkts = None
+                                        self.out_pkt_ctrl = None
+                                        self.out_pkts_untagged = None
+                                        self.out_octets_unctrl = None
+                                        self.out_octets_ctrl = None
+                                        self.out_octets_common = None
+                                        self.out_ucast_pkts_unctrl = None
+                                        self.out_ucast_pkts_ctrl = None
+                                        self.out_mcast_pkts_unctrl = None
+                                        self.out_mcast_pkts_ctrl = None
+                                        self.out_bcast_pkts_unctrl = None
+                                        self.out_bcast_pkts_ctrl = None
+                                        self.out_rx_drop_pkts_unctrl = None
+                                        self.out_rx_drop_pkts_ctrl = None
+                                        self.out_rx_err_pkts_unctrl = None
+                                        self.out_rx_err_pkts_ctrl = None
+                                        self.out_drop_pkts_class = None
+                                        self.out_drop_pkts_data = None
                                         self._segment_path = lambda: "tx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -1897,52 +1958,55 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.transform_error_pkts = YLeaf(YType.uint64, "transform-error-pkts")
-
-                                        self.in_pkt_ctrl = YLeaf(YType.uint64, "in-pkt-ctrl")
-
-                                        self.in_pkt_no_tag = YLeaf(YType.uint64, "in-pkt-no-tag")
-
-                                        self.in_pkts_untagged = YLeaf(YType.uint64, "in-pkts-untagged")
-
-                                        self.in_pkt_bad_tag = YLeaf(YType.uint64, "in-pkt-bad-tag")
-
-                                        self.in_pkt_no_sci = YLeaf(YType.uint64, "in-pkt-no-sci")
-
-                                        self.in_pkts_unknown_sci = YLeaf(YType.uint64, "in-pkts-unknown-sci")
-
-                                        self.in_pkts_tagged_ctrl = YLeaf(YType.uint64, "in-pkts-tagged-ctrl")
-
-                                        self.in_octets_unctrl = YLeaf(YType.uint64, "in-octets-unctrl")
-
-                                        self.in_octets_ctrl = YLeaf(YType.uint64, "in-octets-ctrl")
-
-                                        self.in_ucast_pkts_unctrl = YLeaf(YType.uint64, "in-ucast-pkts-unctrl")
-
-                                        self.in_ucast_pkts_ctrl = YLeaf(YType.uint64, "in-ucast-pkts-ctrl")
-
-                                        self.in_mcast_pkts_unctrl = YLeaf(YType.uint64, "in-mcast-pkts-unctrl")
-
-                                        self.in_mcast_pkts_ctrl = YLeaf(YType.uint64, "in-mcast-pkts-ctrl")
-
-                                        self.in_bcast_pkts_unctrl = YLeaf(YType.uint64, "in-bcast-pkts-unctrl")
-
-                                        self.in_bcast_pkts_ctrl = YLeaf(YType.uint64, "in-bcast-pkts-ctrl")
-
-                                        self.in_rx_drop_pkts_unctrl = YLeaf(YType.uint64, "in-rx-drop-pkts-unctrl")
-
-                                        self.in_rx_drop_pkts_ctrl = YLeaf(YType.uint64, "in-rx-drop-pkts-ctrl")
-
-                                        self.in_rx_error_pkts_unctrl = YLeaf(YType.uint64, "in-rx-error-pkts-unctrl")
-
-                                        self.in_rx_error_pkts_ctrl = YLeaf(YType.uint64, "in-rx-error-pkts-ctrl")
-
-                                        self.in_drop_pkts_class = YLeaf(YType.uint64, "in-drop-pkts-class")
-
-                                        self.in_drop_pkts_data = YLeaf(YType.uint64, "in-drop-pkts-data")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('transform_error_pkts', YLeaf(YType.uint64, 'transform-error-pkts')),
+                                            ('in_pkt_ctrl', YLeaf(YType.uint64, 'in-pkt-ctrl')),
+                                            ('in_pkt_no_tag', YLeaf(YType.uint64, 'in-pkt-no-tag')),
+                                            ('in_pkts_untagged', YLeaf(YType.uint64, 'in-pkts-untagged')),
+                                            ('in_pkt_bad_tag', YLeaf(YType.uint64, 'in-pkt-bad-tag')),
+                                            ('in_pkt_no_sci', YLeaf(YType.uint64, 'in-pkt-no-sci')),
+                                            ('in_pkts_unknown_sci', YLeaf(YType.uint64, 'in-pkts-unknown-sci')),
+                                            ('in_pkts_tagged_ctrl', YLeaf(YType.uint64, 'in-pkts-tagged-ctrl')),
+                                            ('in_octets_unctrl', YLeaf(YType.uint64, 'in-octets-unctrl')),
+                                            ('in_octets_ctrl', YLeaf(YType.uint64, 'in-octets-ctrl')),
+                                            ('in_ucast_pkts_unctrl', YLeaf(YType.uint64, 'in-ucast-pkts-unctrl')),
+                                            ('in_ucast_pkts_ctrl', YLeaf(YType.uint64, 'in-ucast-pkts-ctrl')),
+                                            ('in_mcast_pkts_unctrl', YLeaf(YType.uint64, 'in-mcast-pkts-unctrl')),
+                                            ('in_mcast_pkts_ctrl', YLeaf(YType.uint64, 'in-mcast-pkts-ctrl')),
+                                            ('in_bcast_pkts_unctrl', YLeaf(YType.uint64, 'in-bcast-pkts-unctrl')),
+                                            ('in_bcast_pkts_ctrl', YLeaf(YType.uint64, 'in-bcast-pkts-ctrl')),
+                                            ('in_rx_drop_pkts_unctrl', YLeaf(YType.uint64, 'in-rx-drop-pkts-unctrl')),
+                                            ('in_rx_drop_pkts_ctrl', YLeaf(YType.uint64, 'in-rx-drop-pkts-ctrl')),
+                                            ('in_rx_error_pkts_unctrl', YLeaf(YType.uint64, 'in-rx-error-pkts-unctrl')),
+                                            ('in_rx_error_pkts_ctrl', YLeaf(YType.uint64, 'in-rx-error-pkts-ctrl')),
+                                            ('in_drop_pkts_class', YLeaf(YType.uint64, 'in-drop-pkts-class')),
+                                            ('in_drop_pkts_data', YLeaf(YType.uint64, 'in-drop-pkts-data')),
+                                        ])
+                                        self.transform_error_pkts = None
+                                        self.in_pkt_ctrl = None
+                                        self.in_pkt_no_tag = None
+                                        self.in_pkts_untagged = None
+                                        self.in_pkt_bad_tag = None
+                                        self.in_pkt_no_sci = None
+                                        self.in_pkts_unknown_sci = None
+                                        self.in_pkts_tagged_ctrl = None
+                                        self.in_octets_unctrl = None
+                                        self.in_octets_ctrl = None
+                                        self.in_ucast_pkts_unctrl = None
+                                        self.in_ucast_pkts_ctrl = None
+                                        self.in_mcast_pkts_unctrl = None
+                                        self.in_mcast_pkts_ctrl = None
+                                        self.in_bcast_pkts_unctrl = None
+                                        self.in_bcast_pkts_ctrl = None
+                                        self.in_rx_drop_pkts_unctrl = None
+                                        self.in_rx_drop_pkts_ctrl = None
+                                        self.in_rx_error_pkts_unctrl = None
+                                        self.in_rx_error_pkts_ctrl = None
+                                        self.in_drop_pkts_class = None
+                                        self.in_drop_pkts_data = None
                                         self._segment_path = lambda: "rx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -2016,22 +2080,25 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_flow_match = YLeaf(YType.uint64, "multi-flow-match")
-
-                                        self.parser_dropped = YLeaf(YType.uint64, "parser-dropped")
-
-                                        self.flow_miss = YLeaf(YType.uint64, "flow-miss")
-
-                                        self.pkts_ctrl = YLeaf(YType.uint64, "pkts-ctrl")
-
-                                        self.pkts_data = YLeaf(YType.uint64, "pkts-data")
-
-                                        self.pkts_dropped = YLeaf(YType.uint64, "pkts-dropped")
-
-                                        self.pkts_err_in = YLeaf(YType.uint64, "pkts-err-in")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_flow_match', YLeaf(YType.uint64, 'multi-flow-match')),
+                                            ('parser_dropped', YLeaf(YType.uint64, 'parser-dropped')),
+                                            ('flow_miss', YLeaf(YType.uint64, 'flow-miss')),
+                                            ('pkts_ctrl', YLeaf(YType.uint64, 'pkts-ctrl')),
+                                            ('pkts_data', YLeaf(YType.uint64, 'pkts-data')),
+                                            ('pkts_dropped', YLeaf(YType.uint64, 'pkts-dropped')),
+                                            ('pkts_err_in', YLeaf(YType.uint64, 'pkts-err-in')),
+                                        ])
+                                        self.multi_flow_match = None
+                                        self.parser_dropped = None
+                                        self.flow_miss = None
+                                        self.pkts_ctrl = None
+                                        self.pkts_data = None
+                                        self.pkts_dropped = None
+                                        self.pkts_err_in = None
                                         self._segment_path = lambda: "tx-port-stats"
 
                                     def __setattr__(self, name, value):
@@ -2105,22 +2172,25 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_flow_match = YLeaf(YType.uint64, "multi-flow-match")
-
-                                        self.parser_dropped = YLeaf(YType.uint64, "parser-dropped")
-
-                                        self.flow_miss = YLeaf(YType.uint64, "flow-miss")
-
-                                        self.pkts_ctrl = YLeaf(YType.uint64, "pkts-ctrl")
-
-                                        self.pkts_data = YLeaf(YType.uint64, "pkts-data")
-
-                                        self.pkts_dropped = YLeaf(YType.uint64, "pkts-dropped")
-
-                                        self.pkts_err_in = YLeaf(YType.uint64, "pkts-err-in")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_flow_match', YLeaf(YType.uint64, 'multi-flow-match')),
+                                            ('parser_dropped', YLeaf(YType.uint64, 'parser-dropped')),
+                                            ('flow_miss', YLeaf(YType.uint64, 'flow-miss')),
+                                            ('pkts_ctrl', YLeaf(YType.uint64, 'pkts-ctrl')),
+                                            ('pkts_data', YLeaf(YType.uint64, 'pkts-data')),
+                                            ('pkts_dropped', YLeaf(YType.uint64, 'pkts-dropped')),
+                                            ('pkts_err_in', YLeaf(YType.uint64, 'pkts-err-in')),
+                                        ])
+                                        self.multi_flow_match = None
+                                        self.parser_dropped = None
+                                        self.flow_miss = None
+                                        self.pkts_ctrl = None
+                                        self.pkts_data = None
+                                        self.pkts_dropped = None
+                                        self.pkts_err_in = None
                                         self._segment_path = lambda: "rx-port-stats"
 
                                     def __setattr__(self, name, value):
@@ -2150,8 +2220,10 @@ class MacsecPlatform(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hw-sa" : ("hw_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hw-sa", ("hw_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa))])
+                            self._leafs = OrderedDict()
 
                             self.hw_sa = YList(self)
                             self._segment_path = lambda: "hw-sas"
@@ -2164,7 +2236,7 @@ class MacsecPlatform(Entity):
                             """
                             Hardware Security Association
                             
-                            .. attribute:: sa_id  <key>
+                            .. attribute:: sa_id  (key)
                             
                             	SA ID
                             	**type**\: int
@@ -2190,16 +2262,19 @@ class MacsecPlatform(Entity):
                                 self.yang_parent_name = "hw-sas"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ext" : ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext)}
-                                self._child_list_classes = {}
-
-                                self.sa_id = YLeaf(YType.int32, "sa-id")
+                                self.ylist_key_names = ['sa_id']
+                                self._child_container_classes = OrderedDict([("ext", ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sa_id', YLeaf(YType.int32, 'sa-id')),
+                                ])
+                                self.sa_id = None
 
                                 self.ext = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext()
                                 self.ext.parent = self
                                 self._children_name_map["ext"] = "ext"
                                 self._children_yang_names.add("ext")
-                                self._segment_path = lambda: "hw-sa" + "[sa-id='" + self.sa_id.get() + "']"
+                                self._segment_path = lambda: "hw-sa" + "[sa-id='" + str(self.sa_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa, ['sa_id'], name, value)
@@ -2243,10 +2318,13 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "hw-sa"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"msfpga-sa" : ("msfpga_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa), "xlfpga-sa" : ("xlfpga_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa), "es200-sa" : ("es200_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("msfpga-sa", ("msfpga_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa)), ("xlfpga-sa", ("xlfpga_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa)), ("es200-sa", ("es200_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                    ])
+                                    self.type = None
 
                                     self.msfpga_sa = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa()
                                     self.msfpga_sa.parent = self
@@ -2296,8 +2374,10 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "ext"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"tx-sa" : ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa), "rx-sa" : ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("tx-sa", ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa)), ("rx-sa", ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.tx_sa = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa()
                                         self.tx_sa.parent = self
@@ -2417,36 +2497,39 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "msfpga-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.sa_id = YLeaf(YType.uint8, "sa-id")
-
-                                            self.valid = YLeaf(YType.boolean, "valid")
-
-                                            self.is_egress = YLeaf(YType.boolean, "is-egress")
-
-                                            self.crypto_algo = YLeaf(YType.uint8, "crypto-algo")
-
-                                            self.key_len = YLeaf(YType.uint8, "key-len")
-
-                                            self.an = YLeaf(YType.uint8, "an")
-
-                                            self.xpn = YLeaf(YType.uint8, "xpn")
-
-                                            self.sci = YLeaf(YType.uint64, "sci")
-
-                                            self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                            self.next_pn = YLeaf(YType.uint64, "next-pn")
-
-                                            self.c_offset = YLeaf(YType.uint8, "c-offset")
-
-                                            self.action = YLeaf(YType.uint8, "action")
-
-                                            self.q_bit = YLeaf(YType.boolean, "q-bit")
-
-                                            self.qq_bit = YLeaf(YType.boolean, "qq-bit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sa_id', YLeaf(YType.uint8, 'sa-id')),
+                                                ('valid', YLeaf(YType.boolean, 'valid')),
+                                                ('is_egress', YLeaf(YType.boolean, 'is-egress')),
+                                                ('crypto_algo', YLeaf(YType.uint8, 'crypto-algo')),
+                                                ('key_len', YLeaf(YType.uint8, 'key-len')),
+                                                ('an', YLeaf(YType.uint8, 'an')),
+                                                ('xpn', YLeaf(YType.uint8, 'xpn')),
+                                                ('sci', YLeaf(YType.uint64, 'sci')),
+                                                ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                                ('next_pn', YLeaf(YType.uint64, 'next-pn')),
+                                                ('c_offset', YLeaf(YType.uint8, 'c-offset')),
+                                                ('action', YLeaf(YType.uint8, 'action')),
+                                                ('q_bit', YLeaf(YType.boolean, 'q-bit')),
+                                                ('qq_bit', YLeaf(YType.boolean, 'qq-bit')),
+                                            ])
+                                            self.sa_id = None
+                                            self.valid = None
+                                            self.is_egress = None
+                                            self.crypto_algo = None
+                                            self.key_len = None
+                                            self.an = None
+                                            self.xpn = None
+                                            self.sci = None
+                                            self.in_use = None
+                                            self.next_pn = None
+                                            self.c_offset = None
+                                            self.action = None
+                                            self.q_bit = None
+                                            self.qq_bit = None
                                             self._segment_path = lambda: "tx-sa"
 
                                         def __setattr__(self, name, value):
@@ -2559,36 +2642,39 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "msfpga-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.sa_id = YLeaf(YType.uint8, "sa-id")
-
-                                            self.valid = YLeaf(YType.boolean, "valid")
-
-                                            self.is_egress = YLeaf(YType.boolean, "is-egress")
-
-                                            self.crypto_algo = YLeaf(YType.uint8, "crypto-algo")
-
-                                            self.key_len = YLeaf(YType.uint8, "key-len")
-
-                                            self.an = YLeaf(YType.uint8, "an")
-
-                                            self.xpn = YLeaf(YType.uint8, "xpn")
-
-                                            self.sci = YLeaf(YType.uint64, "sci")
-
-                                            self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                            self.next_pn = YLeaf(YType.uint64, "next-pn")
-
-                                            self.c_offset = YLeaf(YType.uint8, "c-offset")
-
-                                            self.action = YLeaf(YType.uint8, "action")
-
-                                            self.q_bit = YLeaf(YType.boolean, "q-bit")
-
-                                            self.qq_bit = YLeaf(YType.boolean, "qq-bit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sa_id', YLeaf(YType.uint8, 'sa-id')),
+                                                ('valid', YLeaf(YType.boolean, 'valid')),
+                                                ('is_egress', YLeaf(YType.boolean, 'is-egress')),
+                                                ('crypto_algo', YLeaf(YType.uint8, 'crypto-algo')),
+                                                ('key_len', YLeaf(YType.uint8, 'key-len')),
+                                                ('an', YLeaf(YType.uint8, 'an')),
+                                                ('xpn', YLeaf(YType.uint8, 'xpn')),
+                                                ('sci', YLeaf(YType.uint64, 'sci')),
+                                                ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                                ('next_pn', YLeaf(YType.uint64, 'next-pn')),
+                                                ('c_offset', YLeaf(YType.uint8, 'c-offset')),
+                                                ('action', YLeaf(YType.uint8, 'action')),
+                                                ('q_bit', YLeaf(YType.boolean, 'q-bit')),
+                                                ('qq_bit', YLeaf(YType.boolean, 'qq-bit')),
+                                            ])
+                                            self.sa_id = None
+                                            self.valid = None
+                                            self.is_egress = None
+                                            self.crypto_algo = None
+                                            self.key_len = None
+                                            self.an = None
+                                            self.xpn = None
+                                            self.sci = None
+                                            self.in_use = None
+                                            self.next_pn = None
+                                            self.c_offset = None
+                                            self.action = None
+                                            self.q_bit = None
+                                            self.qq_bit = None
                                             self._segment_path = lambda: "rx-sa"
 
                                         def __setattr__(self, name, value):
@@ -2623,8 +2709,10 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "ext"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"tx-sa" : ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa), "rx-sa" : ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("tx-sa", ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa)), ("rx-sa", ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.tx_sa = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa()
                                         self.tx_sa.parent = self
@@ -2747,34 +2835,37 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "xlfpga-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.protection_enable = YLeaf(YType.boolean, "protection-enable")
-
-                                            self.secure_mode = YLeaf(YType.uint8, "secure-mode")
-
-                                            self.secure_channel_id = YLeaf(YType.uint64, "secure-channel-id")
-
-                                            self.sectag_length = YLeaf(YType.uint32, "sectag-length")
-
-                                            self.cipher_suite = YLeaf(YType.uint32, "cipher-suite")
-
-                                            self.confidentiality_offset = YLeaf(YType.uint8, "confidentiality-offset")
-
-                                            self.fcs_err_cfg = YLeaf(YType.uint8, "fcs-err-cfg")
-
-                                            self.max_packet_num = YLeaf(YType.uint64, "max-packet-num")
-
-                                            self.an = YLeaf(YType.uint8, "an")
-
-                                            self.initial_packet_number = YLeaf(YType.uint64, "initial-packet-number")
-
-                                            self.ssci = YLeaf(YType.uint32, "ssci")
-
-                                            self.current_packet_num = YLeaf(YType.uint64, "current-packet-num")
-
-                                            self.crc_value = YLeaf(YType.uint32, "crc-value")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('protection_enable', YLeaf(YType.boolean, 'protection-enable')),
+                                                ('secure_mode', YLeaf(YType.uint8, 'secure-mode')),
+                                                ('secure_channel_id', YLeaf(YType.uint64, 'secure-channel-id')),
+                                                ('sectag_length', YLeaf(YType.uint32, 'sectag-length')),
+                                                ('cipher_suite', YLeaf(YType.uint32, 'cipher-suite')),
+                                                ('confidentiality_offset', YLeaf(YType.uint8, 'confidentiality-offset')),
+                                                ('fcs_err_cfg', YLeaf(YType.uint8, 'fcs-err-cfg')),
+                                                ('max_packet_num', YLeaf(YType.uint64, 'max-packet-num')),
+                                                ('an', YLeaf(YType.uint8, 'an')),
+                                                ('initial_packet_number', YLeaf(YType.uint64, 'initial-packet-number')),
+                                                ('ssci', YLeaf(YType.uint32, 'ssci')),
+                                                ('current_packet_num', YLeaf(YType.uint64, 'current-packet-num')),
+                                                ('crc_value', YLeaf(YType.uint32, 'crc-value')),
+                                            ])
+                                            self.protection_enable = None
+                                            self.secure_mode = None
+                                            self.secure_channel_id = None
+                                            self.sectag_length = None
+                                            self.cipher_suite = None
+                                            self.confidentiality_offset = None
+                                            self.fcs_err_cfg = None
+                                            self.max_packet_num = None
+                                            self.an = None
+                                            self.initial_packet_number = None
+                                            self.ssci = None
+                                            self.current_packet_num = None
+                                            self.crc_value = None
                                             self._segment_path = lambda: "tx-sa"
 
                                         def __setattr__(self, name, value):
@@ -2943,52 +3034,55 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "xlfpga-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.protection_enable = YLeaf(YType.boolean, "protection-enable")
-
-                                            self.secure_mode = YLeaf(YType.uint32, "secure-mode")
-
-                                            self.replay_protect_mode = YLeaf(YType.boolean, "replay-protect-mode")
-
-                                            self.validation_mode = YLeaf(YType.uint32, "validation-mode")
-
-                                            self.replay_window = YLeaf(YType.uint32, "replay-window")
-
-                                            self.secure_channel_id = YLeaf(YType.uint64, "secure-channel-id")
-
-                                            self.cipher_suite = YLeaf(YType.uint32, "cipher-suite")
-
-                                            self.confidentiality_offset = YLeaf(YType.uint8, "confidentiality-offset")
-
-                                            self.fcs_err_cfg = YLeaf(YType.uint32, "fcs-err-cfg")
-
-                                            self.auth_err_cfg = YLeaf(YType.uint32, "auth-err-cfg")
-
-                                            self.max_packet_num = YLeaf(YType.uint64, "max-packet-num")
-
-                                            self.num_an_in_use = YLeaf(YType.uint32, "num-an-in-use")
-
-                                            self.an = YLeaf(YType.str, "an")
-
-                                            self.recent_an = YLeaf(YType.uint8, "recent-an")
-
-                                            self.pkt_untagged_detected = YLeaf(YType.boolean, "pkt-untagged-detected")
-
-                                            self.pkt_tagged_detected = YLeaf(YType.boolean, "pkt-tagged-detected")
-
-                                            self.pkt_tagged_validated = YLeaf(YType.boolean, "pkt-tagged-validated")
-
-                                            self.current_packet_num = YLeaf(YType.uint64, "current-packet-num")
-
-                                            self.ssci = YLeafList(YType.uint32, "ssci")
-
-                                            self.lowest_acceptable_packet_num = YLeafList(YType.uint64, "lowest-acceptable-packet-num")
-
-                                            self.next_expected_packet_num = YLeafList(YType.uint64, "next-expected-packet-num")
-
-                                            self.crc_value = YLeafList(YType.uint32, "crc-value")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('protection_enable', YLeaf(YType.boolean, 'protection-enable')),
+                                                ('secure_mode', YLeaf(YType.uint32, 'secure-mode')),
+                                                ('replay_protect_mode', YLeaf(YType.boolean, 'replay-protect-mode')),
+                                                ('validation_mode', YLeaf(YType.uint32, 'validation-mode')),
+                                                ('replay_window', YLeaf(YType.uint32, 'replay-window')),
+                                                ('secure_channel_id', YLeaf(YType.uint64, 'secure-channel-id')),
+                                                ('cipher_suite', YLeaf(YType.uint32, 'cipher-suite')),
+                                                ('confidentiality_offset', YLeaf(YType.uint8, 'confidentiality-offset')),
+                                                ('fcs_err_cfg', YLeaf(YType.uint32, 'fcs-err-cfg')),
+                                                ('auth_err_cfg', YLeaf(YType.uint32, 'auth-err-cfg')),
+                                                ('max_packet_num', YLeaf(YType.uint64, 'max-packet-num')),
+                                                ('num_an_in_use', YLeaf(YType.uint32, 'num-an-in-use')),
+                                                ('an', YLeaf(YType.str, 'an')),
+                                                ('recent_an', YLeaf(YType.uint8, 'recent-an')),
+                                                ('pkt_untagged_detected', YLeaf(YType.boolean, 'pkt-untagged-detected')),
+                                                ('pkt_tagged_detected', YLeaf(YType.boolean, 'pkt-tagged-detected')),
+                                                ('pkt_tagged_validated', YLeaf(YType.boolean, 'pkt-tagged-validated')),
+                                                ('current_packet_num', YLeaf(YType.uint64, 'current-packet-num')),
+                                                ('ssci', YLeafList(YType.uint32, 'ssci')),
+                                                ('lowest_acceptable_packet_num', YLeafList(YType.uint64, 'lowest-acceptable-packet-num')),
+                                                ('next_expected_packet_num', YLeafList(YType.uint64, 'next-expected-packet-num')),
+                                                ('crc_value', YLeafList(YType.uint32, 'crc-value')),
+                                            ])
+                                            self.protection_enable = None
+                                            self.secure_mode = None
+                                            self.replay_protect_mode = None
+                                            self.validation_mode = None
+                                            self.replay_window = None
+                                            self.secure_channel_id = None
+                                            self.cipher_suite = None
+                                            self.confidentiality_offset = None
+                                            self.fcs_err_cfg = None
+                                            self.auth_err_cfg = None
+                                            self.max_packet_num = None
+                                            self.num_an_in_use = None
+                                            self.an = None
+                                            self.recent_an = None
+                                            self.pkt_untagged_detected = None
+                                            self.pkt_tagged_detected = None
+                                            self.pkt_tagged_validated = None
+                                            self.current_packet_num = None
+                                            self.ssci = []
+                                            self.lowest_acceptable_packet_num = []
+                                            self.next_expected_packet_num = []
+                                            self.crc_value = []
                                             self._segment_path = lambda: "rx-sa"
 
                                         def __setattr__(self, name, value):
@@ -3023,8 +3117,10 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "ext"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"tx-sa" : ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa)}
-                                        self._child_list_classes = {"rx-sa" : ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("tx-sa", ("tx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa))])
+                                        self._child_list_classes = OrderedDict([("rx-sa", ("rx_sa", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa))])
+                                        self._leafs = OrderedDict()
 
                                         self.tx_sa = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa()
                                         self.tx_sa.parent = self
@@ -3122,26 +3218,29 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "es200-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"xform-params" : ("xform_params", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams)}
-                                            self._child_list_classes = {}
-
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                            self.sa_id = YLeaf(YType.uint8, "sa-id")
-
-                                            self.sc_no = YLeaf(YType.uint32, "sc-no")
-
-                                            self.out_pkts_too_long = YLeaf(YType.uint8, "out-pkts-too-long")
-
-                                            self.out_pkts_encrypted_protected = YLeaf(YType.uint8, "out-pkts-encrypted-protected")
-
-                                            self.out_octets_encrypted_protected1 = YLeaf(YType.uint8, "out-octets-encrypted-protected1")
-
-                                            self.initial_pkt_number = YLeaf(YType.uint8, "initial-pkt-number")
-
-                                            self.current_pkt_number = YLeaf(YType.uint64, "current-pkt-number")
-
-                                            self.max_pkt_number = YLeaf(YType.uint64, "max-pkt-number")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("xform-params", ("xform_params", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                                ('sa_id', YLeaf(YType.uint8, 'sa-id')),
+                                                ('sc_no', YLeaf(YType.uint32, 'sc-no')),
+                                                ('out_pkts_too_long', YLeaf(YType.uint8, 'out-pkts-too-long')),
+                                                ('out_pkts_encrypted_protected', YLeaf(YType.uint8, 'out-pkts-encrypted-protected')),
+                                                ('out_octets_encrypted_protected1', YLeaf(YType.uint8, 'out-octets-encrypted-protected1')),
+                                                ('initial_pkt_number', YLeaf(YType.uint8, 'initial-pkt-number')),
+                                                ('current_pkt_number', YLeaf(YType.uint64, 'current-pkt-number')),
+                                                ('max_pkt_number', YLeaf(YType.uint64, 'max-pkt-number')),
+                                            ])
+                                            self.is_valid = None
+                                            self.sa_id = None
+                                            self.sc_no = None
+                                            self.out_pkts_too_long = None
+                                            self.out_pkts_encrypted_protected = None
+                                            self.out_octets_encrypted_protected1 = None
+                                            self.initial_pkt_number = None
+                                            self.current_pkt_number = None
+                                            self.max_pkt_number = None
 
                                             self.xform_params = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams()
                                             self.xform_params.parent = self
@@ -3210,22 +3309,25 @@ class MacsecPlatform(Entity):
                                                 self.yang_parent_name = "tx-sa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.replay_win_size = YLeaf(YType.uint32, "replay-win-size")
-
-                                                self.crypt_algo = YLeaf(YType.str, "crypt-algo")
-
-                                                self.is_egress_tr = YLeaf(YType.boolean, "is-egress-tr")
-
-                                                self.aes_key_len = YLeaf(YType.str, "aes-key-len")
-
-                                                self.assoc_num = YLeaf(YType.uint8, "assoc-num")
-
-                                                self.is_seq_num64_bit = YLeaf(YType.boolean, "is-seq-num64-bit")
-
-                                                self.bgen_auth_key = YLeaf(YType.boolean, "bgen-auth-key")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('replay_win_size', YLeaf(YType.uint32, 'replay-win-size')),
+                                                    ('crypt_algo', YLeaf(YType.str, 'crypt-algo')),
+                                                    ('is_egress_tr', YLeaf(YType.boolean, 'is-egress-tr')),
+                                                    ('aes_key_len', YLeaf(YType.str, 'aes-key-len')),
+                                                    ('assoc_num', YLeaf(YType.uint8, 'assoc-num')),
+                                                    ('is_seq_num64_bit', YLeaf(YType.boolean, 'is-seq-num64-bit')),
+                                                    ('bgen_auth_key', YLeaf(YType.boolean, 'bgen-auth-key')),
+                                                ])
+                                                self.replay_win_size = None
+                                                self.crypt_algo = None
+                                                self.is_egress_tr = None
+                                                self.aes_key_len = None
+                                                self.assoc_num = None
+                                                self.is_seq_num64_bit = None
+                                                self.bgen_auth_key = None
                                                 self._segment_path = lambda: "xform-params"
 
                                             def __setattr__(self, name, value):
@@ -3344,34 +3446,37 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "es200-sa"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"xform-params" : ("xform_params", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams)}
-                                            self._child_list_classes = {}
-
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                            self.sa_id = YLeaf(YType.uint8, "sa-id")
-
-                                            self.sc_no = YLeaf(YType.uint32, "sc-no")
-
-                                            self.in_pkts_unchecked = YLeaf(YType.uint8, "in-pkts-unchecked")
-
-                                            self.in_pkts_delayed = YLeaf(YType.uint8, "in-pkts-delayed")
-
-                                            self.in_pkts_late = YLeaf(YType.uint8, "in-pkts-late")
-
-                                            self.in_pkts_ok = YLeaf(YType.uint8, "in-pkts-ok")
-
-                                            self.in_pkts_invalid = YLeaf(YType.uint8, "in-pkts-invalid")
-
-                                            self.in_pkts_not_valid = YLeaf(YType.uint8, "in-pkts-not-valid")
-
-                                            self.in_pkts_not_using_sa = YLeaf(YType.uint8, "in-pkts-not-using-sa")
-
-                                            self.in_pkts_unused_sa = YLeaf(YType.uint8, "in-pkts-unused-sa")
-
-                                            self.in_octets_decrypted_validated1 = YLeaf(YType.uint8, "in-octets-decrypted-validated1")
-
-                                            self.in_octets_validated = YLeaf(YType.uint8, "in-octets-validated")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("xform-params", ("xform_params", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                                ('sa_id', YLeaf(YType.uint8, 'sa-id')),
+                                                ('sc_no', YLeaf(YType.uint32, 'sc-no')),
+                                                ('in_pkts_unchecked', YLeaf(YType.uint8, 'in-pkts-unchecked')),
+                                                ('in_pkts_delayed', YLeaf(YType.uint8, 'in-pkts-delayed')),
+                                                ('in_pkts_late', YLeaf(YType.uint8, 'in-pkts-late')),
+                                                ('in_pkts_ok', YLeaf(YType.uint8, 'in-pkts-ok')),
+                                                ('in_pkts_invalid', YLeaf(YType.uint8, 'in-pkts-invalid')),
+                                                ('in_pkts_not_valid', YLeaf(YType.uint8, 'in-pkts-not-valid')),
+                                                ('in_pkts_not_using_sa', YLeaf(YType.uint8, 'in-pkts-not-using-sa')),
+                                                ('in_pkts_unused_sa', YLeaf(YType.uint8, 'in-pkts-unused-sa')),
+                                                ('in_octets_decrypted_validated1', YLeaf(YType.uint8, 'in-octets-decrypted-validated1')),
+                                                ('in_octets_validated', YLeaf(YType.uint8, 'in-octets-validated')),
+                                            ])
+                                            self.is_valid = None
+                                            self.sa_id = None
+                                            self.sc_no = None
+                                            self.in_pkts_unchecked = None
+                                            self.in_pkts_delayed = None
+                                            self.in_pkts_late = None
+                                            self.in_pkts_ok = None
+                                            self.in_pkts_invalid = None
+                                            self.in_pkts_not_valid = None
+                                            self.in_pkts_not_using_sa = None
+                                            self.in_pkts_unused_sa = None
+                                            self.in_octets_decrypted_validated1 = None
+                                            self.in_octets_validated = None
 
                                             self.xform_params = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams()
                                             self.xform_params.parent = self
@@ -3440,22 +3545,25 @@ class MacsecPlatform(Entity):
                                                 self.yang_parent_name = "rx-sa"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.replay_win_size = YLeaf(YType.uint32, "replay-win-size")
-
-                                                self.crypt_algo = YLeaf(YType.str, "crypt-algo")
-
-                                                self.is_egress_tr = YLeaf(YType.boolean, "is-egress-tr")
-
-                                                self.aes_key_len = YLeaf(YType.str, "aes-key-len")
-
-                                                self.assoc_num = YLeaf(YType.uint8, "assoc-num")
-
-                                                self.is_seq_num64_bit = YLeaf(YType.boolean, "is-seq-num64-bit")
-
-                                                self.bgen_auth_key = YLeaf(YType.boolean, "bgen-auth-key")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('replay_win_size', YLeaf(YType.uint32, 'replay-win-size')),
+                                                    ('crypt_algo', YLeaf(YType.str, 'crypt-algo')),
+                                                    ('is_egress_tr', YLeaf(YType.boolean, 'is-egress-tr')),
+                                                    ('aes_key_len', YLeaf(YType.str, 'aes-key-len')),
+                                                    ('assoc_num', YLeaf(YType.uint8, 'assoc-num')),
+                                                    ('is_seq_num64_bit', YLeaf(YType.boolean, 'is-seq-num64-bit')),
+                                                    ('bgen_auth_key', YLeaf(YType.boolean, 'bgen-auth-key')),
+                                                ])
+                                                self.replay_win_size = None
+                                                self.crypt_algo = None
+                                                self.is_egress_tr = None
+                                                self.aes_key_len = None
+                                                self.assoc_num = None
+                                                self.is_seq_num64_bit = None
+                                                self.bgen_auth_key = None
                                                 self._segment_path = lambda: "xform-params"
 
                                             def __setattr__(self, name, value):
@@ -3485,8 +3593,10 @@ class MacsecPlatform(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"hw-flow" : ("hw_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("hw-flow", ("hw_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow))])
+                            self._leafs = OrderedDict()
 
                             self.hw_flow = YList(self)
                             self._segment_path = lambda: "hw-flow-s"
@@ -3499,7 +3609,7 @@ class MacsecPlatform(Entity):
                             """
                             Hardware Flow
                             
-                            .. attribute:: flow_id  <key>
+                            .. attribute:: flow_id  (key)
                             
                             	FLOW ID
                             	**type**\: int
@@ -3525,16 +3635,19 @@ class MacsecPlatform(Entity):
                                 self.yang_parent_name = "hw-flow-s"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ext" : ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext)}
-                                self._child_list_classes = {}
-
-                                self.flow_id = YLeaf(YType.int32, "flow-id")
+                                self.ylist_key_names = ['flow_id']
+                                self._child_container_classes = OrderedDict([("ext", ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flow_id', YLeaf(YType.int32, 'flow-id')),
+                                ])
+                                self.flow_id = None
 
                                 self.ext = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext()
                                 self.ext.parent = self
                                 self._children_name_map["ext"] = "ext"
                                 self._children_yang_names.add("ext")
-                                self._segment_path = lambda: "hw-flow" + "[flow-id='" + self.flow_id.get() + "']"
+                                self._segment_path = lambda: "hw-flow" + "[flow-id='" + str(self.flow_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow, ['flow_id'], name, value)
@@ -3573,10 +3686,13 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "hw-flow"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"msfpga-flow" : ("msfpga_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow), "es200-flow" : ("es200_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("msfpga-flow", ("msfpga_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow)), ("es200-flow", ("es200_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                    ])
+                                    self.type = None
 
                                     self.msfpga_flow = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow()
                                     self.msfpga_flow.parent = self
@@ -3621,8 +3737,10 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "ext"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"tx-flow" : ("tx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow), "rx-flow" : ("rx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("tx-flow", ("tx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow)), ("rx-flow", ("rx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.tx_flow = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow()
                                         self.tx_flow.parent = self
@@ -3883,82 +4001,85 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "msfpga-flow"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.flow_id = YLeaf(YType.uint8, "flow-id")
-
-                                            self.valid = YLeaf(YType.boolean, "valid")
-
-                                            self.is_egress = YLeaf(YType.boolean, "is-egress")
-
-                                            self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                            self.action = YLeaf(YType.uint8, "action")
-
-                                            self.smac_inuse = YLeaf(YType.boolean, "smac-inuse")
-
-                                            self.dmac_inuse = YLeaf(YType.boolean, "dmac-inuse")
-
-                                            self.ethertype = YLeaf(YType.uint16, "ethertype")
-
-                                            self.outer_vlan = YLeaf(YType.uint16, "outer-vlan")
-
-                                            self.outer_vlan_up = YLeaf(YType.uint8, "outer-vlan-up")
-
-                                            self.outer_vlan_tpid = YLeaf(YType.uint16, "outer-vlan-tpid")
-
-                                            self.inner_vlan = YLeaf(YType.uint16, "inner-vlan")
-
-                                            self.inner_vlan_up = YLeaf(YType.uint8, "inner-vlan-up")
-
-                                            self.inner_vlan_tpid = YLeaf(YType.uint16, "inner-vlan-tpid")
-
-                                            self.source_port = YLeaf(YType.uint32, "source-port")
-
-                                            self.source_port_chk = YLeaf(YType.boolean, "source-port-chk")
-
-                                            self.sci_inuse = YLeaf(YType.boolean, "sci-inuse")
-
-                                            self.sci = YLeaf(YType.uint64, "sci")
-
-                                            self.match_pri = YLeaf(YType.uint8, "match-pri")
-
-                                            self.is_ctrl_pkt = YLeaf(YType.boolean, "is-ctrl-pkt")
-
-                                            self.ctrl_check = YLeaf(YType.boolean, "ctrl-check")
-
-                                            self.match_untagged = YLeaf(YType.boolean, "match-untagged")
-
-                                            self.match_tagged = YLeaf(YType.boolean, "match-tagged")
-
-                                            self.match_bad_tag = YLeaf(YType.boolean, "match-bad-tag")
-
-                                            self.match_kay_tag = YLeaf(YType.boolean, "match-kay-tag")
-
-                                            self.tci_v = YLeaf(YType.uint8, "tci-v")
-
-                                            self.tci_e_xr = YLeaf(YType.uint8, "tci-e-xr")
-
-                                            self.tci_sc = YLeaf(YType.uint8, "tci-sc")
-
-                                            self.tci_scb = YLeaf(YType.uint8, "tci-scb")
-
-                                            self.tci = YLeaf(YType.uint8, "tci")
-
-                                            self.tci_c = YLeaf(YType.uint8, "tci-c")
-
-                                            self.tci_an = YLeaf(YType.uint8, "tci-an")
-
-                                            self.tci_an_chk = YLeaf(YType.boolean, "tci-an-chk")
-
-                                            self.tci_chk = YLeaf(YType.boolean, "tci-chk")
-
-                                            self.sai = YLeaf(YType.uint32, "sai")
-
-                                            self.macsa = YLeafList(YType.uint8, "macsa")
-
-                                            self.macda = YLeafList(YType.uint8, "macda")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('flow_id', YLeaf(YType.uint8, 'flow-id')),
+                                                ('valid', YLeaf(YType.boolean, 'valid')),
+                                                ('is_egress', YLeaf(YType.boolean, 'is-egress')),
+                                                ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                                ('action', YLeaf(YType.uint8, 'action')),
+                                                ('smac_inuse', YLeaf(YType.boolean, 'smac-inuse')),
+                                                ('dmac_inuse', YLeaf(YType.boolean, 'dmac-inuse')),
+                                                ('ethertype', YLeaf(YType.uint16, 'ethertype')),
+                                                ('outer_vlan', YLeaf(YType.uint16, 'outer-vlan')),
+                                                ('outer_vlan_up', YLeaf(YType.uint8, 'outer-vlan-up')),
+                                                ('outer_vlan_tpid', YLeaf(YType.uint16, 'outer-vlan-tpid')),
+                                                ('inner_vlan', YLeaf(YType.uint16, 'inner-vlan')),
+                                                ('inner_vlan_up', YLeaf(YType.uint8, 'inner-vlan-up')),
+                                                ('inner_vlan_tpid', YLeaf(YType.uint16, 'inner-vlan-tpid')),
+                                                ('source_port', YLeaf(YType.uint32, 'source-port')),
+                                                ('source_port_chk', YLeaf(YType.boolean, 'source-port-chk')),
+                                                ('sci_inuse', YLeaf(YType.boolean, 'sci-inuse')),
+                                                ('sci', YLeaf(YType.uint64, 'sci')),
+                                                ('match_pri', YLeaf(YType.uint8, 'match-pri')),
+                                                ('is_ctrl_pkt', YLeaf(YType.boolean, 'is-ctrl-pkt')),
+                                                ('ctrl_check', YLeaf(YType.boolean, 'ctrl-check')),
+                                                ('match_untagged', YLeaf(YType.boolean, 'match-untagged')),
+                                                ('match_tagged', YLeaf(YType.boolean, 'match-tagged')),
+                                                ('match_bad_tag', YLeaf(YType.boolean, 'match-bad-tag')),
+                                                ('match_kay_tag', YLeaf(YType.boolean, 'match-kay-tag')),
+                                                ('tci_v', YLeaf(YType.uint8, 'tci-v')),
+                                                ('tci_e_xr', YLeaf(YType.uint8, 'tci-e-xr')),
+                                                ('tci_sc', YLeaf(YType.uint8, 'tci-sc')),
+                                                ('tci_scb', YLeaf(YType.uint8, 'tci-scb')),
+                                                ('tci', YLeaf(YType.uint8, 'tci')),
+                                                ('tci_c', YLeaf(YType.uint8, 'tci-c')),
+                                                ('tci_an', YLeaf(YType.uint8, 'tci-an')),
+                                                ('tci_an_chk', YLeaf(YType.boolean, 'tci-an-chk')),
+                                                ('tci_chk', YLeaf(YType.boolean, 'tci-chk')),
+                                                ('sai', YLeaf(YType.uint32, 'sai')),
+                                                ('macsa', YLeafList(YType.uint8, 'macsa')),
+                                                ('macda', YLeafList(YType.uint8, 'macda')),
+                                            ])
+                                            self.flow_id = None
+                                            self.valid = None
+                                            self.is_egress = None
+                                            self.in_use = None
+                                            self.action = None
+                                            self.smac_inuse = None
+                                            self.dmac_inuse = None
+                                            self.ethertype = None
+                                            self.outer_vlan = None
+                                            self.outer_vlan_up = None
+                                            self.outer_vlan_tpid = None
+                                            self.inner_vlan = None
+                                            self.inner_vlan_up = None
+                                            self.inner_vlan_tpid = None
+                                            self.source_port = None
+                                            self.source_port_chk = None
+                                            self.sci_inuse = None
+                                            self.sci = None
+                                            self.match_pri = None
+                                            self.is_ctrl_pkt = None
+                                            self.ctrl_check = None
+                                            self.match_untagged = None
+                                            self.match_tagged = None
+                                            self.match_bad_tag = None
+                                            self.match_kay_tag = None
+                                            self.tci_v = None
+                                            self.tci_e_xr = None
+                                            self.tci_sc = None
+                                            self.tci_scb = None
+                                            self.tci = None
+                                            self.tci_c = None
+                                            self.tci_an = None
+                                            self.tci_an_chk = None
+                                            self.tci_chk = None
+                                            self.sai = None
+                                            self.macsa = []
+                                            self.macda = []
                                             self._segment_path = lambda: "tx-flow"
 
                                         def __setattr__(self, name, value):
@@ -4212,82 +4333,85 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "msfpga-flow"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.flow_id = YLeaf(YType.uint8, "flow-id")
-
-                                            self.valid = YLeaf(YType.boolean, "valid")
-
-                                            self.is_egress = YLeaf(YType.boolean, "is-egress")
-
-                                            self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                            self.action = YLeaf(YType.uint8, "action")
-
-                                            self.smac_inuse = YLeaf(YType.boolean, "smac-inuse")
-
-                                            self.dmac_inuse = YLeaf(YType.boolean, "dmac-inuse")
-
-                                            self.ethertype = YLeaf(YType.uint16, "ethertype")
-
-                                            self.outer_vlan = YLeaf(YType.uint16, "outer-vlan")
-
-                                            self.outer_vlan_up = YLeaf(YType.uint8, "outer-vlan-up")
-
-                                            self.outer_vlan_tpid = YLeaf(YType.uint16, "outer-vlan-tpid")
-
-                                            self.inner_vlan = YLeaf(YType.uint16, "inner-vlan")
-
-                                            self.inner_vlan_up = YLeaf(YType.uint8, "inner-vlan-up")
-
-                                            self.inner_vlan_tpid = YLeaf(YType.uint16, "inner-vlan-tpid")
-
-                                            self.source_port = YLeaf(YType.uint32, "source-port")
-
-                                            self.source_port_chk = YLeaf(YType.boolean, "source-port-chk")
-
-                                            self.sci_inuse = YLeaf(YType.boolean, "sci-inuse")
-
-                                            self.sci = YLeaf(YType.uint64, "sci")
-
-                                            self.match_pri = YLeaf(YType.uint8, "match-pri")
-
-                                            self.is_ctrl_pkt = YLeaf(YType.boolean, "is-ctrl-pkt")
-
-                                            self.ctrl_check = YLeaf(YType.boolean, "ctrl-check")
-
-                                            self.match_untagged = YLeaf(YType.boolean, "match-untagged")
-
-                                            self.match_tagged = YLeaf(YType.boolean, "match-tagged")
-
-                                            self.match_bad_tag = YLeaf(YType.boolean, "match-bad-tag")
-
-                                            self.match_kay_tag = YLeaf(YType.boolean, "match-kay-tag")
-
-                                            self.tci_v = YLeaf(YType.uint8, "tci-v")
-
-                                            self.tci_e_xr = YLeaf(YType.uint8, "tci-e-xr")
-
-                                            self.tci_sc = YLeaf(YType.uint8, "tci-sc")
-
-                                            self.tci_scb = YLeaf(YType.uint8, "tci-scb")
-
-                                            self.tci = YLeaf(YType.uint8, "tci")
-
-                                            self.tci_c = YLeaf(YType.uint8, "tci-c")
-
-                                            self.tci_an = YLeaf(YType.uint8, "tci-an")
-
-                                            self.tci_an_chk = YLeaf(YType.boolean, "tci-an-chk")
-
-                                            self.tci_chk = YLeaf(YType.boolean, "tci-chk")
-
-                                            self.sai = YLeaf(YType.uint32, "sai")
-
-                                            self.macsa = YLeafList(YType.uint8, "macsa")
-
-                                            self.macda = YLeafList(YType.uint8, "macda")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('flow_id', YLeaf(YType.uint8, 'flow-id')),
+                                                ('valid', YLeaf(YType.boolean, 'valid')),
+                                                ('is_egress', YLeaf(YType.boolean, 'is-egress')),
+                                                ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                                ('action', YLeaf(YType.uint8, 'action')),
+                                                ('smac_inuse', YLeaf(YType.boolean, 'smac-inuse')),
+                                                ('dmac_inuse', YLeaf(YType.boolean, 'dmac-inuse')),
+                                                ('ethertype', YLeaf(YType.uint16, 'ethertype')),
+                                                ('outer_vlan', YLeaf(YType.uint16, 'outer-vlan')),
+                                                ('outer_vlan_up', YLeaf(YType.uint8, 'outer-vlan-up')),
+                                                ('outer_vlan_tpid', YLeaf(YType.uint16, 'outer-vlan-tpid')),
+                                                ('inner_vlan', YLeaf(YType.uint16, 'inner-vlan')),
+                                                ('inner_vlan_up', YLeaf(YType.uint8, 'inner-vlan-up')),
+                                                ('inner_vlan_tpid', YLeaf(YType.uint16, 'inner-vlan-tpid')),
+                                                ('source_port', YLeaf(YType.uint32, 'source-port')),
+                                                ('source_port_chk', YLeaf(YType.boolean, 'source-port-chk')),
+                                                ('sci_inuse', YLeaf(YType.boolean, 'sci-inuse')),
+                                                ('sci', YLeaf(YType.uint64, 'sci')),
+                                                ('match_pri', YLeaf(YType.uint8, 'match-pri')),
+                                                ('is_ctrl_pkt', YLeaf(YType.boolean, 'is-ctrl-pkt')),
+                                                ('ctrl_check', YLeaf(YType.boolean, 'ctrl-check')),
+                                                ('match_untagged', YLeaf(YType.boolean, 'match-untagged')),
+                                                ('match_tagged', YLeaf(YType.boolean, 'match-tagged')),
+                                                ('match_bad_tag', YLeaf(YType.boolean, 'match-bad-tag')),
+                                                ('match_kay_tag', YLeaf(YType.boolean, 'match-kay-tag')),
+                                                ('tci_v', YLeaf(YType.uint8, 'tci-v')),
+                                                ('tci_e_xr', YLeaf(YType.uint8, 'tci-e-xr')),
+                                                ('tci_sc', YLeaf(YType.uint8, 'tci-sc')),
+                                                ('tci_scb', YLeaf(YType.uint8, 'tci-scb')),
+                                                ('tci', YLeaf(YType.uint8, 'tci')),
+                                                ('tci_c', YLeaf(YType.uint8, 'tci-c')),
+                                                ('tci_an', YLeaf(YType.uint8, 'tci-an')),
+                                                ('tci_an_chk', YLeaf(YType.boolean, 'tci-an-chk')),
+                                                ('tci_chk', YLeaf(YType.boolean, 'tci-chk')),
+                                                ('sai', YLeaf(YType.uint32, 'sai')),
+                                                ('macsa', YLeafList(YType.uint8, 'macsa')),
+                                                ('macda', YLeafList(YType.uint8, 'macda')),
+                                            ])
+                                            self.flow_id = None
+                                            self.valid = None
+                                            self.is_egress = None
+                                            self.in_use = None
+                                            self.action = None
+                                            self.smac_inuse = None
+                                            self.dmac_inuse = None
+                                            self.ethertype = None
+                                            self.outer_vlan = None
+                                            self.outer_vlan_up = None
+                                            self.outer_vlan_tpid = None
+                                            self.inner_vlan = None
+                                            self.inner_vlan_up = None
+                                            self.inner_vlan_tpid = None
+                                            self.source_port = None
+                                            self.source_port_chk = None
+                                            self.sci_inuse = None
+                                            self.sci = None
+                                            self.match_pri = None
+                                            self.is_ctrl_pkt = None
+                                            self.ctrl_check = None
+                                            self.match_untagged = None
+                                            self.match_tagged = None
+                                            self.match_bad_tag = None
+                                            self.match_kay_tag = None
+                                            self.tci_v = None
+                                            self.tci_e_xr = None
+                                            self.tci_sc = None
+                                            self.tci_scb = None
+                                            self.tci = None
+                                            self.tci_c = None
+                                            self.tci_an = None
+                                            self.tci_an_chk = None
+                                            self.tci_chk = None
+                                            self.sai = None
+                                            self.macsa = []
+                                            self.macda = []
                                             self._segment_path = lambda: "rx-flow"
 
                                         def __setattr__(self, name, value):
@@ -4322,8 +4446,10 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "ext"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"tx-flow" : ("tx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow), "rx-flow" : ("rx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("tx-flow", ("tx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow)), ("rx-flow", ("rx_flow", MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.tx_flow = MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow()
                                         self.tx_flow.parent = self
@@ -4614,86 +4740,89 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "es200-flow"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.flow_no = YLeaf(YType.uint32, "flow-no")
-
-                                            self.is_flow_enabled = YLeaf(YType.boolean, "is-flow-enabled")
-
-                                            self.ethertype = YLeaf(YType.uint16, "ethertype")
-
-                                            self.outer_vlan_id = YLeaf(YType.uint16, "outer-vlan-id")
-
-                                            self.outer_vlan_user_pri = YLeaf(YType.uint8, "outer-vlan-user-pri")
-
-                                            self.inner_vlan_id = YLeaf(YType.uint16, "inner-vlan-id")
-
-                                            self.inner_vlan_user_pri = YLeaf(YType.uint8, "inner-vlan-user-pri")
-
-                                            self.psci = YLeaf(YType.uint64, "psci")
-
-                                            self.match_priority = YLeaf(YType.uint8, "match-priority")
-
-                                            self.tci_v = YLeaf(YType.uint8, "tci-v")
-
-                                            self.tci_e_xr = YLeaf(YType.uint8, "tci-e-xr")
-
-                                            self.tci_sc = YLeaf(YType.uint8, "tci-sc")
-
-                                            self.tci_scb = YLeaf(YType.uint8, "tci-scb")
-
-                                            self.tci = YLeaf(YType.uint8, "tci")
-
-                                            self.tci_c = YLeaf(YType.uint8, "tci-c")
-
-                                            self.tci_chk = YLeaf(YType.boolean, "tci-chk")
-
-                                            self.pkt_type = YLeaf(YType.str, "pkt-type")
-
-                                            self.tag_num = YLeaf(YType.str, "tag-num")
-
-                                            self.inner_vlan_dei = YLeaf(YType.boolean, "inner-vlan-dei")
-
-                                            self.outer_vlan_dei = YLeaf(YType.boolean, "outer-vlan-dei")
-
-                                            self.pbb_sid = YLeaf(YType.uint32, "pbb-sid")
-
-                                            self.pbb_bvid = YLeaf(YType.uint32, "pbb-bvid")
-
-                                            self.pbb_pcp = YLeaf(YType.uint8, "pbb-pcp")
-
-                                            self.pbb_dei = YLeaf(YType.uint8, "pbb-dei")
-
-                                            self.mpls1_label = YLeaf(YType.uint32, "mpls1-label")
-
-                                            self.mpls1_exp = YLeaf(YType.uint8, "mpls1-exp")
-
-                                            self.mpls1_bos = YLeaf(YType.uint8, "mpls1-bos")
-
-                                            self.mpls2_label = YLeaf(YType.uint32, "mpls2-label")
-
-                                            self.mpls2_exp = YLeaf(YType.uint8, "mpls2-exp")
-
-                                            self.mpls2_bos = YLeaf(YType.uint8, "mpls2-bos")
-
-                                            self.plain_bits = YLeaf(YType.uint64, "plain-bits")
-
-                                            self.plain_bits_size = YLeaf(YType.uint8, "plain-bits-size")
-
-                                            self.force_ctrl = YLeaf(YType.boolean, "force-ctrl")
-
-                                            self.drop = YLeaf(YType.boolean, "drop")
-
-                                            self.mask_da = YLeaf(YType.uint64, "mask-da")
-
-                                            self.mask_ethertype = YLeaf(YType.uint32, "mask-ethertype")
-
-                                            self.mask_plain_bits = YLeaf(YType.uint64, "mask-plain-bits")
-
-                                            self.flow_hits = YLeaf(YType.uint64, "flow-hits")
-
-                                            self.macda = YLeafList(YType.uint8, "macda")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('flow_no', YLeaf(YType.uint32, 'flow-no')),
+                                                ('is_flow_enabled', YLeaf(YType.boolean, 'is-flow-enabled')),
+                                                ('ethertype', YLeaf(YType.uint16, 'ethertype')),
+                                                ('outer_vlan_id', YLeaf(YType.uint16, 'outer-vlan-id')),
+                                                ('outer_vlan_user_pri', YLeaf(YType.uint8, 'outer-vlan-user-pri')),
+                                                ('inner_vlan_id', YLeaf(YType.uint16, 'inner-vlan-id')),
+                                                ('inner_vlan_user_pri', YLeaf(YType.uint8, 'inner-vlan-user-pri')),
+                                                ('psci', YLeaf(YType.uint64, 'psci')),
+                                                ('match_priority', YLeaf(YType.uint8, 'match-priority')),
+                                                ('tci_v', YLeaf(YType.uint8, 'tci-v')),
+                                                ('tci_e_xr', YLeaf(YType.uint8, 'tci-e-xr')),
+                                                ('tci_sc', YLeaf(YType.uint8, 'tci-sc')),
+                                                ('tci_scb', YLeaf(YType.uint8, 'tci-scb')),
+                                                ('tci', YLeaf(YType.uint8, 'tci')),
+                                                ('tci_c', YLeaf(YType.uint8, 'tci-c')),
+                                                ('tci_chk', YLeaf(YType.boolean, 'tci-chk')),
+                                                ('pkt_type', YLeaf(YType.str, 'pkt-type')),
+                                                ('tag_num', YLeaf(YType.str, 'tag-num')),
+                                                ('inner_vlan_dei', YLeaf(YType.boolean, 'inner-vlan-dei')),
+                                                ('outer_vlan_dei', YLeaf(YType.boolean, 'outer-vlan-dei')),
+                                                ('pbb_sid', YLeaf(YType.uint32, 'pbb-sid')),
+                                                ('pbb_bvid', YLeaf(YType.uint32, 'pbb-bvid')),
+                                                ('pbb_pcp', YLeaf(YType.uint8, 'pbb-pcp')),
+                                                ('pbb_dei', YLeaf(YType.uint8, 'pbb-dei')),
+                                                ('mpls1_label', YLeaf(YType.uint32, 'mpls1-label')),
+                                                ('mpls1_exp', YLeaf(YType.uint8, 'mpls1-exp')),
+                                                ('mpls1_bos', YLeaf(YType.uint8, 'mpls1-bos')),
+                                                ('mpls2_label', YLeaf(YType.uint32, 'mpls2-label')),
+                                                ('mpls2_exp', YLeaf(YType.uint8, 'mpls2-exp')),
+                                                ('mpls2_bos', YLeaf(YType.uint8, 'mpls2-bos')),
+                                                ('plain_bits', YLeaf(YType.uint64, 'plain-bits')),
+                                                ('plain_bits_size', YLeaf(YType.uint8, 'plain-bits-size')),
+                                                ('force_ctrl', YLeaf(YType.boolean, 'force-ctrl')),
+                                                ('drop', YLeaf(YType.boolean, 'drop')),
+                                                ('mask_da', YLeaf(YType.uint64, 'mask-da')),
+                                                ('mask_ethertype', YLeaf(YType.uint32, 'mask-ethertype')),
+                                                ('mask_plain_bits', YLeaf(YType.uint64, 'mask-plain-bits')),
+                                                ('flow_hits', YLeaf(YType.uint64, 'flow-hits')),
+                                                ('macda', YLeafList(YType.uint8, 'macda')),
+                                            ])
+                                            self.flow_no = None
+                                            self.is_flow_enabled = None
+                                            self.ethertype = None
+                                            self.outer_vlan_id = None
+                                            self.outer_vlan_user_pri = None
+                                            self.inner_vlan_id = None
+                                            self.inner_vlan_user_pri = None
+                                            self.psci = None
+                                            self.match_priority = None
+                                            self.tci_v = None
+                                            self.tci_e_xr = None
+                                            self.tci_sc = None
+                                            self.tci_scb = None
+                                            self.tci = None
+                                            self.tci_c = None
+                                            self.tci_chk = None
+                                            self.pkt_type = None
+                                            self.tag_num = None
+                                            self.inner_vlan_dei = None
+                                            self.outer_vlan_dei = None
+                                            self.pbb_sid = None
+                                            self.pbb_bvid = None
+                                            self.pbb_pcp = None
+                                            self.pbb_dei = None
+                                            self.mpls1_label = None
+                                            self.mpls1_exp = None
+                                            self.mpls1_bos = None
+                                            self.mpls2_label = None
+                                            self.mpls2_exp = None
+                                            self.mpls2_bos = None
+                                            self.plain_bits = None
+                                            self.plain_bits_size = None
+                                            self.force_ctrl = None
+                                            self.drop = None
+                                            self.mask_da = None
+                                            self.mask_ethertype = None
+                                            self.mask_plain_bits = None
+                                            self.flow_hits = None
+                                            self.macda = []
                                             self._segment_path = lambda: "tx-flow"
 
                                         def __setattr__(self, name, value):
@@ -4977,86 +5106,89 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "es200-flow"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.flow_no = YLeaf(YType.uint32, "flow-no")
-
-                                            self.is_flow_enabled = YLeaf(YType.boolean, "is-flow-enabled")
-
-                                            self.ethertype = YLeaf(YType.uint16, "ethertype")
-
-                                            self.outer_vlan_id = YLeaf(YType.uint16, "outer-vlan-id")
-
-                                            self.outer_vlan_user_pri = YLeaf(YType.uint8, "outer-vlan-user-pri")
-
-                                            self.inner_vlan_id = YLeaf(YType.uint16, "inner-vlan-id")
-
-                                            self.inner_vlan_user_pri = YLeaf(YType.uint8, "inner-vlan-user-pri")
-
-                                            self.psci = YLeaf(YType.uint64, "psci")
-
-                                            self.match_priority = YLeaf(YType.uint8, "match-priority")
-
-                                            self.tci_v = YLeaf(YType.uint8, "tci-v")
-
-                                            self.tci_e_xr = YLeaf(YType.uint8, "tci-e-xr")
-
-                                            self.tci_sc = YLeaf(YType.uint8, "tci-sc")
-
-                                            self.tci_scb = YLeaf(YType.uint8, "tci-scb")
-
-                                            self.tci = YLeaf(YType.uint8, "tci")
-
-                                            self.tci_c = YLeaf(YType.uint8, "tci-c")
-
-                                            self.tci_chk = YLeaf(YType.boolean, "tci-chk")
-
-                                            self.pkt_type = YLeaf(YType.str, "pkt-type")
-
-                                            self.tag_num = YLeaf(YType.str, "tag-num")
-
-                                            self.inner_vlan_dei = YLeaf(YType.boolean, "inner-vlan-dei")
-
-                                            self.outer_vlan_dei = YLeaf(YType.boolean, "outer-vlan-dei")
-
-                                            self.pbb_sid = YLeaf(YType.uint32, "pbb-sid")
-
-                                            self.pbb_bvid = YLeaf(YType.uint32, "pbb-bvid")
-
-                                            self.pbb_pcp = YLeaf(YType.uint8, "pbb-pcp")
-
-                                            self.pbb_dei = YLeaf(YType.uint8, "pbb-dei")
-
-                                            self.mpls1_label = YLeaf(YType.uint32, "mpls1-label")
-
-                                            self.mpls1_exp = YLeaf(YType.uint8, "mpls1-exp")
-
-                                            self.mpls1_bos = YLeaf(YType.uint8, "mpls1-bos")
-
-                                            self.mpls2_label = YLeaf(YType.uint32, "mpls2-label")
-
-                                            self.mpls2_exp = YLeaf(YType.uint8, "mpls2-exp")
-
-                                            self.mpls2_bos = YLeaf(YType.uint8, "mpls2-bos")
-
-                                            self.plain_bits = YLeaf(YType.uint64, "plain-bits")
-
-                                            self.plain_bits_size = YLeaf(YType.uint8, "plain-bits-size")
-
-                                            self.force_ctrl = YLeaf(YType.boolean, "force-ctrl")
-
-                                            self.drop = YLeaf(YType.boolean, "drop")
-
-                                            self.mask_da = YLeaf(YType.uint64, "mask-da")
-
-                                            self.mask_ethertype = YLeaf(YType.uint32, "mask-ethertype")
-
-                                            self.mask_plain_bits = YLeaf(YType.uint64, "mask-plain-bits")
-
-                                            self.flow_hits = YLeaf(YType.uint64, "flow-hits")
-
-                                            self.macda = YLeafList(YType.uint8, "macda")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('flow_no', YLeaf(YType.uint32, 'flow-no')),
+                                                ('is_flow_enabled', YLeaf(YType.boolean, 'is-flow-enabled')),
+                                                ('ethertype', YLeaf(YType.uint16, 'ethertype')),
+                                                ('outer_vlan_id', YLeaf(YType.uint16, 'outer-vlan-id')),
+                                                ('outer_vlan_user_pri', YLeaf(YType.uint8, 'outer-vlan-user-pri')),
+                                                ('inner_vlan_id', YLeaf(YType.uint16, 'inner-vlan-id')),
+                                                ('inner_vlan_user_pri', YLeaf(YType.uint8, 'inner-vlan-user-pri')),
+                                                ('psci', YLeaf(YType.uint64, 'psci')),
+                                                ('match_priority', YLeaf(YType.uint8, 'match-priority')),
+                                                ('tci_v', YLeaf(YType.uint8, 'tci-v')),
+                                                ('tci_e_xr', YLeaf(YType.uint8, 'tci-e-xr')),
+                                                ('tci_sc', YLeaf(YType.uint8, 'tci-sc')),
+                                                ('tci_scb', YLeaf(YType.uint8, 'tci-scb')),
+                                                ('tci', YLeaf(YType.uint8, 'tci')),
+                                                ('tci_c', YLeaf(YType.uint8, 'tci-c')),
+                                                ('tci_chk', YLeaf(YType.boolean, 'tci-chk')),
+                                                ('pkt_type', YLeaf(YType.str, 'pkt-type')),
+                                                ('tag_num', YLeaf(YType.str, 'tag-num')),
+                                                ('inner_vlan_dei', YLeaf(YType.boolean, 'inner-vlan-dei')),
+                                                ('outer_vlan_dei', YLeaf(YType.boolean, 'outer-vlan-dei')),
+                                                ('pbb_sid', YLeaf(YType.uint32, 'pbb-sid')),
+                                                ('pbb_bvid', YLeaf(YType.uint32, 'pbb-bvid')),
+                                                ('pbb_pcp', YLeaf(YType.uint8, 'pbb-pcp')),
+                                                ('pbb_dei', YLeaf(YType.uint8, 'pbb-dei')),
+                                                ('mpls1_label', YLeaf(YType.uint32, 'mpls1-label')),
+                                                ('mpls1_exp', YLeaf(YType.uint8, 'mpls1-exp')),
+                                                ('mpls1_bos', YLeaf(YType.uint8, 'mpls1-bos')),
+                                                ('mpls2_label', YLeaf(YType.uint32, 'mpls2-label')),
+                                                ('mpls2_exp', YLeaf(YType.uint8, 'mpls2-exp')),
+                                                ('mpls2_bos', YLeaf(YType.uint8, 'mpls2-bos')),
+                                                ('plain_bits', YLeaf(YType.uint64, 'plain-bits')),
+                                                ('plain_bits_size', YLeaf(YType.uint8, 'plain-bits-size')),
+                                                ('force_ctrl', YLeaf(YType.boolean, 'force-ctrl')),
+                                                ('drop', YLeaf(YType.boolean, 'drop')),
+                                                ('mask_da', YLeaf(YType.uint64, 'mask-da')),
+                                                ('mask_ethertype', YLeaf(YType.uint32, 'mask-ethertype')),
+                                                ('mask_plain_bits', YLeaf(YType.uint64, 'mask-plain-bits')),
+                                                ('flow_hits', YLeaf(YType.uint64, 'flow-hits')),
+                                                ('macda', YLeafList(YType.uint8, 'macda')),
+                                            ])
+                                            self.flow_no = None
+                                            self.is_flow_enabled = None
+                                            self.ethertype = None
+                                            self.outer_vlan_id = None
+                                            self.outer_vlan_user_pri = None
+                                            self.inner_vlan_id = None
+                                            self.inner_vlan_user_pri = None
+                                            self.psci = None
+                                            self.match_priority = None
+                                            self.tci_v = None
+                                            self.tci_e_xr = None
+                                            self.tci_sc = None
+                                            self.tci_scb = None
+                                            self.tci = None
+                                            self.tci_c = None
+                                            self.tci_chk = None
+                                            self.pkt_type = None
+                                            self.tag_num = None
+                                            self.inner_vlan_dei = None
+                                            self.outer_vlan_dei = None
+                                            self.pbb_sid = None
+                                            self.pbb_bvid = None
+                                            self.pbb_pcp = None
+                                            self.pbb_dei = None
+                                            self.mpls1_label = None
+                                            self.mpls1_exp = None
+                                            self.mpls1_bos = None
+                                            self.mpls2_label = None
+                                            self.mpls2_exp = None
+                                            self.mpls2_bos = None
+                                            self.plain_bits = None
+                                            self.plain_bits_size = None
+                                            self.force_ctrl = None
+                                            self.drop = None
+                                            self.mask_da = None
+                                            self.mask_ethertype = None
+                                            self.mask_plain_bits = None
+                                            self.flow_hits = None
+                                            self.macda = []
                                             self._segment_path = lambda: "rx-flow"
 
                                         def __setattr__(self, name, value):
@@ -5086,8 +5218,10 @@ class MacsecPlatform(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ext" : ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("ext", ("ext", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.ext = MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext()
                             self.ext.parent = self
@@ -5134,10 +5268,13 @@ class MacsecPlatform(Entity):
                                 self.yang_parent_name = "sw-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"msfpga-stats" : ("msfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats), "xlfpga-stats" : ("xlfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats), "es200-stats" : ("es200_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats)}
-                                self._child_list_classes = {}
-
-                                self.type = YLeaf(YType.enumeration, "type")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("msfpga-stats", ("msfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats)), ("xlfpga-stats", ("xlfpga_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats)), ("es200-stats", ("es200_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                ])
+                                self.type = None
 
                                 self.msfpga_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats()
                                 self.msfpga_stats.parent = self
@@ -5197,8 +5334,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"tx-sa-stats" : ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats), "rx-sa-stats" : ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats), "tx-interface-macsec-stats" : ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats), "rx-interface-macsec-stats" : ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("tx-sa-stats", ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats)), ("rx-sa-stats", ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats)), ("tx-interface-macsec-stats", ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats)), ("rx-interface-macsec-stats", ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.tx_sa_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats()
                                     self.tx_sa_stats.parent = self
@@ -5268,16 +5407,19 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_protected = YLeaf(YType.uint64, "out-pkts-protected")
-
-                                        self.out_pkts_encrypted = YLeaf(YType.uint64, "out-pkts-encrypted")
-
-                                        self.out_octets_protected = YLeaf(YType.uint64, "out-octets-protected")
-
-                                        self.out_octets_encrypted = YLeaf(YType.uint64, "out-octets-encrypted")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
+                                            ('out_pkts_encrypted', YLeaf(YType.uint64, 'out-pkts-encrypted')),
+                                            ('out_octets_protected', YLeaf(YType.uint64, 'out-octets-protected')),
+                                            ('out_octets_encrypted', YLeaf(YType.uint64, 'out-octets-encrypted')),
+                                        ])
+                                        self.out_pkts_protected = None
+                                        self.out_pkts_encrypted = None
+                                        self.out_octets_protected = None
+                                        self.out_octets_encrypted = None
                                         self._segment_path = lambda: "tx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -5372,28 +5514,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_unused_sa = YLeaf(YType.uint64, "in-pkts-unused-sa")
-
-                                        self.in_pkts_not_using_sa = YLeaf(YType.uint64, "in-pkts-not-using-sa")
-
-                                        self.in_pkts_not_valid = YLeaf(YType.uint64, "in-pkts-not-valid")
-
-                                        self.in_pkts_invalid = YLeaf(YType.uint64, "in-pkts-invalid")
-
-                                        self.in_pkts_ok = YLeaf(YType.uint64, "in-pkts-ok")
-
-                                        self.in_pkts_delayed = YLeaf(YType.uint64, "in-pkts-delayed")
-
-                                        self.in_pkts_late = YLeaf(YType.uint64, "in-pkts-late")
-
-                                        self.in_pkts_unchecked = YLeaf(YType.uint64, "in-pkts-unchecked")
-
-                                        self.in_octets_validated = YLeaf(YType.uint64, "in-octets-validated")
-
-                                        self.in_octets_decrypted = YLeaf(YType.uint64, "in-octets-decrypted")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
+                                            ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
+                                            ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
+                                            ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
+                                            ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
+                                            ('in_pkts_delayed', YLeaf(YType.uint64, 'in-pkts-delayed')),
+                                            ('in_pkts_late', YLeaf(YType.uint64, 'in-pkts-late')),
+                                            ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
+                                            ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
+                                            ('in_octets_decrypted', YLeaf(YType.uint64, 'in-octets-decrypted')),
+                                        ])
+                                        self.in_pkts_unused_sa = None
+                                        self.in_pkts_not_using_sa = None
+                                        self.in_pkts_not_valid = None
+                                        self.in_pkts_invalid = None
+                                        self.in_pkts_ok = None
+                                        self.in_pkts_delayed = None
+                                        self.in_pkts_late = None
+                                        self.in_pkts_unchecked = None
+                                        self.in_octets_validated = None
+                                        self.in_octets_decrypted = None
                                         self._segment_path = lambda: "rx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -5439,14 +5584,17 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkt_uncontrolled = YLeaf(YType.uint64, "out-pkt-uncontrolled")
-
-                                        self.out_pkt_untagged = YLeaf(YType.uint64, "out-pkt-untagged")
-
-                                        self.out_pkt_too_long = YLeaf(YType.uint64, "out-pkt-too-long")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkt_uncontrolled', YLeaf(YType.uint64, 'out-pkt-uncontrolled')),
+                                            ('out_pkt_untagged', YLeaf(YType.uint64, 'out-pkt-untagged')),
+                                            ('out_pkt_too_long', YLeaf(YType.uint64, 'out-pkt-too-long')),
+                                        ])
+                                        self.out_pkt_uncontrolled = None
+                                        self.out_pkt_untagged = None
+                                        self.out_pkt_too_long = None
                                         self._segment_path = lambda: "tx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -5527,24 +5675,27 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "msfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkt_untagged = YLeaf(YType.uint64, "in-pkt-untagged")
-
-                                        self.in_pkt_notag = YLeaf(YType.uint64, "in-pkt-notag")
-
-                                        self.in_pkt_bad_tag = YLeaf(YType.uint64, "in-pkt-bad-tag")
-
-                                        self.in_pkt_no_sci = YLeaf(YType.uint64, "in-pkt-no-sci")
-
-                                        self.in_pkt_unknown_sci = YLeaf(YType.uint64, "in-pkt-unknown-sci")
-
-                                        self.in_pkt_tagged = YLeaf(YType.uint64, "in-pkt-tagged")
-
-                                        self.in_pkt_overrun = YLeaf(YType.uint64, "in-pkt-overrun")
-
-                                        self.in_pkt_uncontrolled = YLeaf(YType.uint64, "in-pkt-uncontrolled")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkt_untagged', YLeaf(YType.uint64, 'in-pkt-untagged')),
+                                            ('in_pkt_notag', YLeaf(YType.uint64, 'in-pkt-notag')),
+                                            ('in_pkt_bad_tag', YLeaf(YType.uint64, 'in-pkt-bad-tag')),
+                                            ('in_pkt_no_sci', YLeaf(YType.uint64, 'in-pkt-no-sci')),
+                                            ('in_pkt_unknown_sci', YLeaf(YType.uint64, 'in-pkt-unknown-sci')),
+                                            ('in_pkt_tagged', YLeaf(YType.uint64, 'in-pkt-tagged')),
+                                            ('in_pkt_overrun', YLeaf(YType.uint64, 'in-pkt-overrun')),
+                                            ('in_pkt_uncontrolled', YLeaf(YType.uint64, 'in-pkt-uncontrolled')),
+                                        ])
+                                        self.in_pkt_untagged = None
+                                        self.in_pkt_notag = None
+                                        self.in_pkt_bad_tag = None
+                                        self.in_pkt_no_sci = None
+                                        self.in_pkt_unknown_sci = None
+                                        self.in_pkt_tagged = None
+                                        self.in_pkt_overrun = None
+                                        self.in_pkt_uncontrolled = None
                                         self._segment_path = lambda: "rx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -5579,8 +5730,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"macsec-tx-stats" : ("macsec_tx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats), "macsec-rx-stats" : ("macsec_rx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("macsec-tx-stats", ("macsec_tx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats)), ("macsec-rx-stats", ("macsec_rx_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.macsec_tx_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats()
                                     self.macsec_tx_stats.parent = self
@@ -5682,28 +5835,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "xlfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.sc_encrypted_octets = YLeaf(YType.uint64, "sc-encrypted-octets")
-
-                                        self.sc_toolong_pkts = YLeaf(YType.uint64, "sc-toolong-pkts")
-
-                                        self.sc_encrypted_pkts = YLeaf(YType.uint64, "sc-encrypted-pkts")
-
-                                        self.sc_untagged_pkts = YLeaf(YType.uint64, "sc-untagged-pkts")
-
-                                        self.sc_overrun_pkts = YLeaf(YType.uint64, "sc-overrun-pkts")
-
-                                        self.sc_bypass_pkts = YLeaf(YType.uint64, "sc-bypass-pkts")
-
-                                        self.sc_eapol_pkts = YLeaf(YType.uint64, "sc-eapol-pkts")
-
-                                        self.sc_dropped_pkts = YLeaf(YType.uint64, "sc-dropped-pkts")
-
-                                        self.current_an = YLeaf(YType.uint64, "current-an")
-
-                                        self.sa_encrypted_pkts = YLeaf(YType.uint64, "sa-encrypted-pkts")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sc_encrypted_octets', YLeaf(YType.uint64, 'sc-encrypted-octets')),
+                                            ('sc_toolong_pkts', YLeaf(YType.uint64, 'sc-toolong-pkts')),
+                                            ('sc_encrypted_pkts', YLeaf(YType.uint64, 'sc-encrypted-pkts')),
+                                            ('sc_untagged_pkts', YLeaf(YType.uint64, 'sc-untagged-pkts')),
+                                            ('sc_overrun_pkts', YLeaf(YType.uint64, 'sc-overrun-pkts')),
+                                            ('sc_bypass_pkts', YLeaf(YType.uint64, 'sc-bypass-pkts')),
+                                            ('sc_eapol_pkts', YLeaf(YType.uint64, 'sc-eapol-pkts')),
+                                            ('sc_dropped_pkts', YLeaf(YType.uint64, 'sc-dropped-pkts')),
+                                            ('current_an', YLeaf(YType.uint64, 'current-an')),
+                                            ('sa_encrypted_pkts', YLeaf(YType.uint64, 'sa-encrypted-pkts')),
+                                        ])
+                                        self.sc_encrypted_octets = None
+                                        self.sc_toolong_pkts = None
+                                        self.sc_encrypted_pkts = None
+                                        self.sc_untagged_pkts = None
+                                        self.sc_overrun_pkts = None
+                                        self.sc_bypass_pkts = None
+                                        self.sc_eapol_pkts = None
+                                        self.sc_dropped_pkts = None
+                                        self.current_an = None
+                                        self.sa_encrypted_pkts = None
                                         self._segment_path = lambda: "macsec-tx-stats"
 
                                     def __setattr__(self, name, value):
@@ -5859,44 +6015,47 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "xlfpga-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"rx-sa-stat" : ("rx_sa_stat", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat)}
-
-                                        self.sc_decrypted_octets = YLeaf(YType.uint64, "sc-decrypted-octets")
-
-                                        self.sc_no_tag_pkts = YLeaf(YType.uint64, "sc-no-tag-pkts")
-
-                                        self.sc_untagged_pkts = YLeaf(YType.uint64, "sc-untagged-pkts")
-
-                                        self.sc_bad_tag_pkts = YLeaf(YType.uint64, "sc-bad-tag-pkts")
-
-                                        self.sc_late_pkts = YLeaf(YType.uint64, "sc-late-pkts")
-
-                                        self.sc_delayed_pkts = YLeaf(YType.uint64, "sc-delayed-pkts")
-
-                                        self.sc_unchecked_pkts = YLeaf(YType.uint64, "sc-unchecked-pkts")
-
-                                        self.sc_no_sci_pkts = YLeaf(YType.uint64, "sc-no-sci-pkts")
-
-                                        self.sc_unknown_sci_pkts = YLeaf(YType.uint64, "sc-unknown-sci-pkts")
-
-                                        self.sc_ok_pkts = YLeaf(YType.uint64, "sc-ok-pkts")
-
-                                        self.sc_not_using_pkts = YLeaf(YType.uint64, "sc-not-using-pkts")
-
-                                        self.sc_unused_pkts = YLeaf(YType.uint64, "sc-unused-pkts")
-
-                                        self.sc_not_valid_pkts = YLeaf(YType.uint64, "sc-not-valid-pkts")
-
-                                        self.sc_invalid_pkts = YLeaf(YType.uint64, "sc-invalid-pkts")
-
-                                        self.sc_overrun_pkts = YLeaf(YType.uint64, "sc-overrun-pkts")
-
-                                        self.sc_bypass_pkts = YLeaf(YType.uint64, "sc-bypass-pkts")
-
-                                        self.sc_eapol_pkts = YLeaf(YType.uint64, "sc-eapol-pkts")
-
-                                        self.sc_dropped_pkts = YLeaf(YType.uint64, "sc-dropped-pkts")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("rx-sa-stat", ("rx_sa_stat", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat))])
+                                        self._leafs = OrderedDict([
+                                            ('sc_decrypted_octets', YLeaf(YType.uint64, 'sc-decrypted-octets')),
+                                            ('sc_no_tag_pkts', YLeaf(YType.uint64, 'sc-no-tag-pkts')),
+                                            ('sc_untagged_pkts', YLeaf(YType.uint64, 'sc-untagged-pkts')),
+                                            ('sc_bad_tag_pkts', YLeaf(YType.uint64, 'sc-bad-tag-pkts')),
+                                            ('sc_late_pkts', YLeaf(YType.uint64, 'sc-late-pkts')),
+                                            ('sc_delayed_pkts', YLeaf(YType.uint64, 'sc-delayed-pkts')),
+                                            ('sc_unchecked_pkts', YLeaf(YType.uint64, 'sc-unchecked-pkts')),
+                                            ('sc_no_sci_pkts', YLeaf(YType.uint64, 'sc-no-sci-pkts')),
+                                            ('sc_unknown_sci_pkts', YLeaf(YType.uint64, 'sc-unknown-sci-pkts')),
+                                            ('sc_ok_pkts', YLeaf(YType.uint64, 'sc-ok-pkts')),
+                                            ('sc_not_using_pkts', YLeaf(YType.uint64, 'sc-not-using-pkts')),
+                                            ('sc_unused_pkts', YLeaf(YType.uint64, 'sc-unused-pkts')),
+                                            ('sc_not_valid_pkts', YLeaf(YType.uint64, 'sc-not-valid-pkts')),
+                                            ('sc_invalid_pkts', YLeaf(YType.uint64, 'sc-invalid-pkts')),
+                                            ('sc_overrun_pkts', YLeaf(YType.uint64, 'sc-overrun-pkts')),
+                                            ('sc_bypass_pkts', YLeaf(YType.uint64, 'sc-bypass-pkts')),
+                                            ('sc_eapol_pkts', YLeaf(YType.uint64, 'sc-eapol-pkts')),
+                                            ('sc_dropped_pkts', YLeaf(YType.uint64, 'sc-dropped-pkts')),
+                                        ])
+                                        self.sc_decrypted_octets = None
+                                        self.sc_no_tag_pkts = None
+                                        self.sc_untagged_pkts = None
+                                        self.sc_bad_tag_pkts = None
+                                        self.sc_late_pkts = None
+                                        self.sc_delayed_pkts = None
+                                        self.sc_unchecked_pkts = None
+                                        self.sc_no_sci_pkts = None
+                                        self.sc_unknown_sci_pkts = None
+                                        self.sc_ok_pkts = None
+                                        self.sc_not_using_pkts = None
+                                        self.sc_unused_pkts = None
+                                        self.sc_not_valid_pkts = None
+                                        self.sc_invalid_pkts = None
+                                        self.sc_overrun_pkts = None
+                                        self.sc_bypass_pkts = None
+                                        self.sc_eapol_pkts = None
+                                        self.sc_dropped_pkts = None
 
                                         self.rx_sa_stat = YList(self)
                                         self._segment_path = lambda: "macsec-rx-stats"
@@ -5965,20 +6124,23 @@ class MacsecPlatform(Entity):
                                             self.yang_parent_name = "macsec-rx-stats"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.an = YLeaf(YType.uint64, "an")
-
-                                            self.sa_ok_pkts = YLeaf(YType.uint64, "sa-ok-pkts")
-
-                                            self.sa_not_using_pkts = YLeaf(YType.uint64, "sa-not-using-pkts")
-
-                                            self.sa_unused_pkts = YLeaf(YType.uint64, "sa-unused-pkts")
-
-                                            self.sa_not_valid_pkts = YLeaf(YType.uint64, "sa-not-valid-pkts")
-
-                                            self.sa_invalid_pkts = YLeaf(YType.uint64, "sa-invalid-pkts")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('an', YLeaf(YType.uint64, 'an')),
+                                                ('sa_ok_pkts', YLeaf(YType.uint64, 'sa-ok-pkts')),
+                                                ('sa_not_using_pkts', YLeaf(YType.uint64, 'sa-not-using-pkts')),
+                                                ('sa_unused_pkts', YLeaf(YType.uint64, 'sa-unused-pkts')),
+                                                ('sa_not_valid_pkts', YLeaf(YType.uint64, 'sa-not-valid-pkts')),
+                                                ('sa_invalid_pkts', YLeaf(YType.uint64, 'sa-invalid-pkts')),
+                                            ])
+                                            self.an = None
+                                            self.sa_ok_pkts = None
+                                            self.sa_not_using_pkts = None
+                                            self.sa_unused_pkts = None
+                                            self.sa_not_valid_pkts = None
+                                            self.sa_invalid_pkts = None
                                             self._segment_path = lambda: "rx-sa-stat"
 
                                         def __setattr__(self, name, value):
@@ -6043,8 +6205,10 @@ class MacsecPlatform(Entity):
                                     self.yang_parent_name = "ext"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"tx-sa-stats" : ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats), "rx-sa-stats" : ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats), "tx-sc-macsec-stats" : ("tx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats), "rx-sc-macsec-stats" : ("rx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats), "tx-interface-macsec-stats" : ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats), "rx-interface-macsec-stats" : ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats), "tx-port-stats" : ("tx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats), "rx-port-stats" : ("rx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("tx-sa-stats", ("tx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats)), ("rx-sa-stats", ("rx_sa_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats)), ("tx-sc-macsec-stats", ("tx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats)), ("rx-sc-macsec-stats", ("rx_sc_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats)), ("tx-interface-macsec-stats", ("tx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats)), ("rx-interface-macsec-stats", ("rx_interface_macsec_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats)), ("tx-port-stats", ("tx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats)), ("rx-port-stats", ("rx_port_stats", MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.tx_sa_stats = MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats()
                                     self.tx_sa_stats.parent = self
@@ -6127,14 +6291,17 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_too_long = YLeaf(YType.uint64, "out-pkts-too-long")
-
-                                        self.out_pkts_encrypted_protected = YLeaf(YType.uint64, "out-pkts-encrypted-protected")
-
-                                        self.out_octets_encrypted_protected1 = YLeaf(YType.uint64, "out-octets-encrypted-protected1")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_too_long', YLeaf(YType.uint64, 'out-pkts-too-long')),
+                                            ('out_pkts_encrypted_protected', YLeaf(YType.uint64, 'out-pkts-encrypted-protected')),
+                                            ('out_octets_encrypted_protected1', YLeaf(YType.uint64, 'out-octets-encrypted-protected1')),
+                                        ])
+                                        self.out_pkts_too_long = None
+                                        self.out_pkts_encrypted_protected = None
+                                        self.out_octets_encrypted_protected1 = None
                                         self._segment_path = lambda: "tx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -6229,28 +6396,31 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_unchecked = YLeaf(YType.uint64, "in-pkts-unchecked")
-
-                                        self.in_pkts_delayed = YLeaf(YType.uint64, "in-pkts-delayed")
-
-                                        self.in_pkts_late = YLeaf(YType.uint64, "in-pkts-late")
-
-                                        self.in_pkts_ok = YLeaf(YType.uint64, "in-pkts-ok")
-
-                                        self.in_pkts_invalid = YLeaf(YType.uint64, "in-pkts-invalid")
-
-                                        self.in_pkts_not_valid = YLeaf(YType.uint64, "in-pkts-not-valid")
-
-                                        self.in_pkts_not_using_sa = YLeaf(YType.uint64, "in-pkts-not-using-sa")
-
-                                        self.in_pkts_unused_sa = YLeaf(YType.uint64, "in-pkts-unused-sa")
-
-                                        self.in_octets_decrypted_validated1 = YLeaf(YType.uint64, "in-octets-decrypted-validated1")
-
-                                        self.in_octets_validated = YLeaf(YType.uint64, "in-octets-validated")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
+                                            ('in_pkts_delayed', YLeaf(YType.uint64, 'in-pkts-delayed')),
+                                            ('in_pkts_late', YLeaf(YType.uint64, 'in-pkts-late')),
+                                            ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
+                                            ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
+                                            ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
+                                            ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
+                                            ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
+                                            ('in_octets_decrypted_validated1', YLeaf(YType.uint64, 'in-octets-decrypted-validated1')),
+                                            ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
+                                        ])
+                                        self.in_pkts_unchecked = None
+                                        self.in_pkts_delayed = None
+                                        self.in_pkts_late = None
+                                        self.in_pkts_ok = None
+                                        self.in_pkts_invalid = None
+                                        self.in_pkts_not_valid = None
+                                        self.in_pkts_not_using_sa = None
+                                        self.in_pkts_unused_sa = None
+                                        self.in_octets_decrypted_validated1 = None
+                                        self.in_octets_validated = None
                                         self._segment_path = lambda: "rx-sa-stats"
 
                                     def __setattr__(self, name, value):
@@ -6282,10 +6452,13 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.out_pkts_sa_not_in_use = YLeaf(YType.uint64, "out-pkts-sa-not-in-use")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('out_pkts_sa_not_in_use', YLeaf(YType.uint64, 'out-pkts-sa-not-in-use')),
+                                        ])
+                                        self.out_pkts_sa_not_in_use = None
                                         self._segment_path = lambda: "tx-sc-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -6317,10 +6490,13 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.in_pkts_sa_not_in_use = YLeaf(YType.uint64, "in-pkts-sa-not-in-use")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('in_pkts_sa_not_in_use', YLeaf(YType.uint64, 'in-pkts-sa-not-in-use')),
+                                        ])
+                                        self.in_pkts_sa_not_in_use = None
                                         self._segment_path = lambda: "rx-sc-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -6471,44 +6647,47 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.transform_error_pkts = YLeaf(YType.uint64, "transform-error-pkts")
-
-                                        self.out_pkt_ctrl = YLeaf(YType.uint64, "out-pkt-ctrl")
-
-                                        self.out_pkts_untagged = YLeaf(YType.uint64, "out-pkts-untagged")
-
-                                        self.out_octets_unctrl = YLeaf(YType.uint64, "out-octets-unctrl")
-
-                                        self.out_octets_ctrl = YLeaf(YType.uint64, "out-octets-ctrl")
-
-                                        self.out_octets_common = YLeaf(YType.uint64, "out-octets-common")
-
-                                        self.out_ucast_pkts_unctrl = YLeaf(YType.uint64, "out-ucast-pkts-unctrl")
-
-                                        self.out_ucast_pkts_ctrl = YLeaf(YType.uint64, "out-ucast-pkts-ctrl")
-
-                                        self.out_mcast_pkts_unctrl = YLeaf(YType.uint64, "out-mcast-pkts-unctrl")
-
-                                        self.out_mcast_pkts_ctrl = YLeaf(YType.uint64, "out-mcast-pkts-ctrl")
-
-                                        self.out_bcast_pkts_unctrl = YLeaf(YType.uint64, "out-bcast-pkts-unctrl")
-
-                                        self.out_bcast_pkts_ctrl = YLeaf(YType.uint64, "out-bcast-pkts-ctrl")
-
-                                        self.out_rx_drop_pkts_unctrl = YLeaf(YType.uint64, "out-rx-drop-pkts-unctrl")
-
-                                        self.out_rx_drop_pkts_ctrl = YLeaf(YType.uint64, "out-rx-drop-pkts-ctrl")
-
-                                        self.out_rx_err_pkts_unctrl = YLeaf(YType.uint64, "out-rx-err-pkts-unctrl")
-
-                                        self.out_rx_err_pkts_ctrl = YLeaf(YType.uint64, "out-rx-err-pkts-ctrl")
-
-                                        self.out_drop_pkts_class = YLeaf(YType.uint64, "out-drop-pkts-class")
-
-                                        self.out_drop_pkts_data = YLeaf(YType.uint64, "out-drop-pkts-data")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('transform_error_pkts', YLeaf(YType.uint64, 'transform-error-pkts')),
+                                            ('out_pkt_ctrl', YLeaf(YType.uint64, 'out-pkt-ctrl')),
+                                            ('out_pkts_untagged', YLeaf(YType.uint64, 'out-pkts-untagged')),
+                                            ('out_octets_unctrl', YLeaf(YType.uint64, 'out-octets-unctrl')),
+                                            ('out_octets_ctrl', YLeaf(YType.uint64, 'out-octets-ctrl')),
+                                            ('out_octets_common', YLeaf(YType.uint64, 'out-octets-common')),
+                                            ('out_ucast_pkts_unctrl', YLeaf(YType.uint64, 'out-ucast-pkts-unctrl')),
+                                            ('out_ucast_pkts_ctrl', YLeaf(YType.uint64, 'out-ucast-pkts-ctrl')),
+                                            ('out_mcast_pkts_unctrl', YLeaf(YType.uint64, 'out-mcast-pkts-unctrl')),
+                                            ('out_mcast_pkts_ctrl', YLeaf(YType.uint64, 'out-mcast-pkts-ctrl')),
+                                            ('out_bcast_pkts_unctrl', YLeaf(YType.uint64, 'out-bcast-pkts-unctrl')),
+                                            ('out_bcast_pkts_ctrl', YLeaf(YType.uint64, 'out-bcast-pkts-ctrl')),
+                                            ('out_rx_drop_pkts_unctrl', YLeaf(YType.uint64, 'out-rx-drop-pkts-unctrl')),
+                                            ('out_rx_drop_pkts_ctrl', YLeaf(YType.uint64, 'out-rx-drop-pkts-ctrl')),
+                                            ('out_rx_err_pkts_unctrl', YLeaf(YType.uint64, 'out-rx-err-pkts-unctrl')),
+                                            ('out_rx_err_pkts_ctrl', YLeaf(YType.uint64, 'out-rx-err-pkts-ctrl')),
+                                            ('out_drop_pkts_class', YLeaf(YType.uint64, 'out-drop-pkts-class')),
+                                            ('out_drop_pkts_data', YLeaf(YType.uint64, 'out-drop-pkts-data')),
+                                        ])
+                                        self.transform_error_pkts = None
+                                        self.out_pkt_ctrl = None
+                                        self.out_pkts_untagged = None
+                                        self.out_octets_unctrl = None
+                                        self.out_octets_ctrl = None
+                                        self.out_octets_common = None
+                                        self.out_ucast_pkts_unctrl = None
+                                        self.out_ucast_pkts_ctrl = None
+                                        self.out_mcast_pkts_unctrl = None
+                                        self.out_mcast_pkts_ctrl = None
+                                        self.out_bcast_pkts_unctrl = None
+                                        self.out_bcast_pkts_ctrl = None
+                                        self.out_rx_drop_pkts_unctrl = None
+                                        self.out_rx_drop_pkts_ctrl = None
+                                        self.out_rx_err_pkts_unctrl = None
+                                        self.out_rx_err_pkts_ctrl = None
+                                        self.out_drop_pkts_class = None
+                                        self.out_drop_pkts_data = None
                                         self._segment_path = lambda: "tx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -6687,52 +6866,55 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.transform_error_pkts = YLeaf(YType.uint64, "transform-error-pkts")
-
-                                        self.in_pkt_ctrl = YLeaf(YType.uint64, "in-pkt-ctrl")
-
-                                        self.in_pkt_no_tag = YLeaf(YType.uint64, "in-pkt-no-tag")
-
-                                        self.in_pkts_untagged = YLeaf(YType.uint64, "in-pkts-untagged")
-
-                                        self.in_pkt_bad_tag = YLeaf(YType.uint64, "in-pkt-bad-tag")
-
-                                        self.in_pkt_no_sci = YLeaf(YType.uint64, "in-pkt-no-sci")
-
-                                        self.in_pkts_unknown_sci = YLeaf(YType.uint64, "in-pkts-unknown-sci")
-
-                                        self.in_pkts_tagged_ctrl = YLeaf(YType.uint64, "in-pkts-tagged-ctrl")
-
-                                        self.in_octets_unctrl = YLeaf(YType.uint64, "in-octets-unctrl")
-
-                                        self.in_octets_ctrl = YLeaf(YType.uint64, "in-octets-ctrl")
-
-                                        self.in_ucast_pkts_unctrl = YLeaf(YType.uint64, "in-ucast-pkts-unctrl")
-
-                                        self.in_ucast_pkts_ctrl = YLeaf(YType.uint64, "in-ucast-pkts-ctrl")
-
-                                        self.in_mcast_pkts_unctrl = YLeaf(YType.uint64, "in-mcast-pkts-unctrl")
-
-                                        self.in_mcast_pkts_ctrl = YLeaf(YType.uint64, "in-mcast-pkts-ctrl")
-
-                                        self.in_bcast_pkts_unctrl = YLeaf(YType.uint64, "in-bcast-pkts-unctrl")
-
-                                        self.in_bcast_pkts_ctrl = YLeaf(YType.uint64, "in-bcast-pkts-ctrl")
-
-                                        self.in_rx_drop_pkts_unctrl = YLeaf(YType.uint64, "in-rx-drop-pkts-unctrl")
-
-                                        self.in_rx_drop_pkts_ctrl = YLeaf(YType.uint64, "in-rx-drop-pkts-ctrl")
-
-                                        self.in_rx_error_pkts_unctrl = YLeaf(YType.uint64, "in-rx-error-pkts-unctrl")
-
-                                        self.in_rx_error_pkts_ctrl = YLeaf(YType.uint64, "in-rx-error-pkts-ctrl")
-
-                                        self.in_drop_pkts_class = YLeaf(YType.uint64, "in-drop-pkts-class")
-
-                                        self.in_drop_pkts_data = YLeaf(YType.uint64, "in-drop-pkts-data")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('transform_error_pkts', YLeaf(YType.uint64, 'transform-error-pkts')),
+                                            ('in_pkt_ctrl', YLeaf(YType.uint64, 'in-pkt-ctrl')),
+                                            ('in_pkt_no_tag', YLeaf(YType.uint64, 'in-pkt-no-tag')),
+                                            ('in_pkts_untagged', YLeaf(YType.uint64, 'in-pkts-untagged')),
+                                            ('in_pkt_bad_tag', YLeaf(YType.uint64, 'in-pkt-bad-tag')),
+                                            ('in_pkt_no_sci', YLeaf(YType.uint64, 'in-pkt-no-sci')),
+                                            ('in_pkts_unknown_sci', YLeaf(YType.uint64, 'in-pkts-unknown-sci')),
+                                            ('in_pkts_tagged_ctrl', YLeaf(YType.uint64, 'in-pkts-tagged-ctrl')),
+                                            ('in_octets_unctrl', YLeaf(YType.uint64, 'in-octets-unctrl')),
+                                            ('in_octets_ctrl', YLeaf(YType.uint64, 'in-octets-ctrl')),
+                                            ('in_ucast_pkts_unctrl', YLeaf(YType.uint64, 'in-ucast-pkts-unctrl')),
+                                            ('in_ucast_pkts_ctrl', YLeaf(YType.uint64, 'in-ucast-pkts-ctrl')),
+                                            ('in_mcast_pkts_unctrl', YLeaf(YType.uint64, 'in-mcast-pkts-unctrl')),
+                                            ('in_mcast_pkts_ctrl', YLeaf(YType.uint64, 'in-mcast-pkts-ctrl')),
+                                            ('in_bcast_pkts_unctrl', YLeaf(YType.uint64, 'in-bcast-pkts-unctrl')),
+                                            ('in_bcast_pkts_ctrl', YLeaf(YType.uint64, 'in-bcast-pkts-ctrl')),
+                                            ('in_rx_drop_pkts_unctrl', YLeaf(YType.uint64, 'in-rx-drop-pkts-unctrl')),
+                                            ('in_rx_drop_pkts_ctrl', YLeaf(YType.uint64, 'in-rx-drop-pkts-ctrl')),
+                                            ('in_rx_error_pkts_unctrl', YLeaf(YType.uint64, 'in-rx-error-pkts-unctrl')),
+                                            ('in_rx_error_pkts_ctrl', YLeaf(YType.uint64, 'in-rx-error-pkts-ctrl')),
+                                            ('in_drop_pkts_class', YLeaf(YType.uint64, 'in-drop-pkts-class')),
+                                            ('in_drop_pkts_data', YLeaf(YType.uint64, 'in-drop-pkts-data')),
+                                        ])
+                                        self.transform_error_pkts = None
+                                        self.in_pkt_ctrl = None
+                                        self.in_pkt_no_tag = None
+                                        self.in_pkts_untagged = None
+                                        self.in_pkt_bad_tag = None
+                                        self.in_pkt_no_sci = None
+                                        self.in_pkts_unknown_sci = None
+                                        self.in_pkts_tagged_ctrl = None
+                                        self.in_octets_unctrl = None
+                                        self.in_octets_ctrl = None
+                                        self.in_ucast_pkts_unctrl = None
+                                        self.in_ucast_pkts_ctrl = None
+                                        self.in_mcast_pkts_unctrl = None
+                                        self.in_mcast_pkts_ctrl = None
+                                        self.in_bcast_pkts_unctrl = None
+                                        self.in_bcast_pkts_ctrl = None
+                                        self.in_rx_drop_pkts_unctrl = None
+                                        self.in_rx_drop_pkts_ctrl = None
+                                        self.in_rx_error_pkts_unctrl = None
+                                        self.in_rx_error_pkts_ctrl = None
+                                        self.in_drop_pkts_class = None
+                                        self.in_drop_pkts_data = None
                                         self._segment_path = lambda: "rx-interface-macsec-stats"
 
                                     def __setattr__(self, name, value):
@@ -6806,22 +6988,25 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_flow_match = YLeaf(YType.uint64, "multi-flow-match")
-
-                                        self.parser_dropped = YLeaf(YType.uint64, "parser-dropped")
-
-                                        self.flow_miss = YLeaf(YType.uint64, "flow-miss")
-
-                                        self.pkts_ctrl = YLeaf(YType.uint64, "pkts-ctrl")
-
-                                        self.pkts_data = YLeaf(YType.uint64, "pkts-data")
-
-                                        self.pkts_dropped = YLeaf(YType.uint64, "pkts-dropped")
-
-                                        self.pkts_err_in = YLeaf(YType.uint64, "pkts-err-in")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_flow_match', YLeaf(YType.uint64, 'multi-flow-match')),
+                                            ('parser_dropped', YLeaf(YType.uint64, 'parser-dropped')),
+                                            ('flow_miss', YLeaf(YType.uint64, 'flow-miss')),
+                                            ('pkts_ctrl', YLeaf(YType.uint64, 'pkts-ctrl')),
+                                            ('pkts_data', YLeaf(YType.uint64, 'pkts-data')),
+                                            ('pkts_dropped', YLeaf(YType.uint64, 'pkts-dropped')),
+                                            ('pkts_err_in', YLeaf(YType.uint64, 'pkts-err-in')),
+                                        ])
+                                        self.multi_flow_match = None
+                                        self.parser_dropped = None
+                                        self.flow_miss = None
+                                        self.pkts_ctrl = None
+                                        self.pkts_data = None
+                                        self.pkts_dropped = None
+                                        self.pkts_err_in = None
                                         self._segment_path = lambda: "tx-port-stats"
 
                                     def __setattr__(self, name, value):
@@ -6895,22 +7080,25 @@ class MacsecPlatform(Entity):
                                         self.yang_parent_name = "es200-stats"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.multi_flow_match = YLeaf(YType.uint64, "multi-flow-match")
-
-                                        self.parser_dropped = YLeaf(YType.uint64, "parser-dropped")
-
-                                        self.flow_miss = YLeaf(YType.uint64, "flow-miss")
-
-                                        self.pkts_ctrl = YLeaf(YType.uint64, "pkts-ctrl")
-
-                                        self.pkts_data = YLeaf(YType.uint64, "pkts-data")
-
-                                        self.pkts_dropped = YLeaf(YType.uint64, "pkts-dropped")
-
-                                        self.pkts_err_in = YLeaf(YType.uint64, "pkts-err-in")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('multi_flow_match', YLeaf(YType.uint64, 'multi-flow-match')),
+                                            ('parser_dropped', YLeaf(YType.uint64, 'parser-dropped')),
+                                            ('flow_miss', YLeaf(YType.uint64, 'flow-miss')),
+                                            ('pkts_ctrl', YLeaf(YType.uint64, 'pkts-ctrl')),
+                                            ('pkts_data', YLeaf(YType.uint64, 'pkts-data')),
+                                            ('pkts_dropped', YLeaf(YType.uint64, 'pkts-dropped')),
+                                            ('pkts_err_in', YLeaf(YType.uint64, 'pkts-err-in')),
+                                        ])
+                                        self.multi_flow_match = None
+                                        self.parser_dropped = None
+                                        self.flow_miss = None
+                                        self.pkts_ctrl = None
+                                        self.pkts_data = None
+                                        self.pkts_dropped = None
+                                        self.pkts_err_in = None
                                         self._segment_path = lambda: "rx-port-stats"
 
                                     def __setattr__(self, name, value):

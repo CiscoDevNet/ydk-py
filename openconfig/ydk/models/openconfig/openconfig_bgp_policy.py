@@ -5,6 +5,8 @@ It augments the base routing\-policy module with BGP\-specific
 options for conditions and actions.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BgpNextHopType(Enum):
     """
-    BgpNextHopType
+    BgpNextHopType (Enum Class)
 
     type definition for specifying next\-hop in policy actions
 
@@ -30,7 +32,7 @@ class BgpNextHopType(Enum):
 
 class BgpSetCommunityOptionType(Enum):
     """
-    BgpSetCommunityOptionType
+    BgpSetCommunityOptionType (Enum Class)
 
     Type definition for options when setting the community
 
@@ -69,7 +71,7 @@ class BgpSetCommunityOptionType(Enum):
 
 class BgpSetMedType(Enum):
     """
-    BgpSetMedType
+    BgpSetMedType (Enum Class)
 
     Type definition for specifying how the BGP MED can
 

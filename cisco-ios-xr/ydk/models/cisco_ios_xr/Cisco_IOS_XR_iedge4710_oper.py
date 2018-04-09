@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AaaAuthService(Enum):
     """
-    AaaAuthService
+    AaaAuthService (Enum Class)
 
     AAA authorization service types
 
@@ -125,7 +127,7 @@ class AaaAuthService(Enum):
 
 class AaaInterface(Enum):
     """
-    AaaInterface
+    AaaInterface (Enum Class)
 
     AAA interface types
 
@@ -302,7 +304,7 @@ class AaaInterface(Enum):
 
 class AaaTerminateCause(Enum):
     """
-    AaaTerminateCause
+    AaaTerminateCause (Enum Class)
 
     AAA terminate cause types
 
@@ -449,7 +451,7 @@ class AaaTerminateCause(Enum):
 
 class AaaTunnelMedium(Enum):
     """
-    AaaTunnelMedium
+    AaaTunnelMedium (Enum Class)
 
     Tunnel medium types
 
@@ -500,7 +502,7 @@ class AaaTunnelMedium(Enum):
 
 class AaaTunnelProto(Enum):
     """
-    AaaTunnelProto
+    AaaTunnelProto (Enum Class)
 
     Tunnel protocol types
 
@@ -593,7 +595,7 @@ class AaaTunnelProto(Enum):
 
 class IedgeOperSession(Enum):
     """
-    IedgeOperSession
+    IedgeOperSession (Enum Class)
 
     Subscriber session types
 
@@ -632,7 +634,7 @@ class IedgeOperSession(Enum):
 
 class IedgeOperSessionAfState(Enum):
     """
-    IedgeOperSessionAfState
+    IedgeOperSessionAfState (Enum Class)
 
     Subscriber session address family state
 
@@ -665,7 +667,7 @@ class IedgeOperSessionAfState(Enum):
 
 class IedgeOperSessionState(Enum):
     """
-    IedgeOperSessionState
+    IedgeOperSessionState (Enum Class)
 
     Subscriber session states
 
@@ -716,7 +718,7 @@ class IedgeOperSessionState(Enum):
 
 class IedgePppSub(Enum):
     """
-    IedgePppSub
+    IedgePppSub (Enum Class)
 
     PPPoE sub types
 
@@ -737,7 +739,7 @@ class IedgePppSub(Enum):
 
 class SubscriberAddressFamilyFilterFlag(Enum):
     """
-    SubscriberAddressFamilyFilterFlag
+    SubscriberAddressFamilyFilterFlag (Enum Class)
 
     Subscriber address family filter flag
 
@@ -794,7 +796,7 @@ class SubscriberAddressFamilyFilterFlag(Enum):
 
 class SubscriberAuthenStateFilterFlag(Enum):
     """
-    SubscriberAuthenStateFilterFlag
+    SubscriberAuthenStateFilterFlag (Enum Class)
 
     Subscriber authen state filter flag
 
@@ -815,7 +817,7 @@ class SubscriberAuthenStateFilterFlag(Enum):
 
 class SubscriberAuthorStateFilterFlag(Enum):
     """
-    SubscriberAuthorStateFilterFlag
+    SubscriberAuthorStateFilterFlag (Enum Class)
 
     Subscriber author state filter flag
 
@@ -836,7 +838,7 @@ class SubscriberAuthorStateFilterFlag(Enum):
 
 class SubscriberStateFilterFlag(Enum):
     """
-    SubscriberStateFilterFlag
+    SubscriberStateFilterFlag (Enum Class)
 
     Subscriber state filter flag
 
@@ -915,8 +917,10 @@ class Subscriber(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"manager" : ("manager", Subscriber.Manager), "session" : ("session", Subscriber.Session)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("manager", ("manager", Subscriber.Manager)), ("session", ("session", Subscriber.Session))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.manager = Subscriber.Manager()
         self.manager.parent = self
@@ -953,8 +957,10 @@ class Subscriber(Entity):
             self.yang_parent_name = "subscriber"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nodes" : ("nodes", Subscriber.Manager.Nodes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nodes", ("nodes", Subscriber.Manager.Nodes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.nodes = Subscriber.Manager.Nodes()
             self.nodes.parent = self
@@ -987,8 +993,10 @@ class Subscriber(Entity):
                 self.yang_parent_name = "manager"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"node" : ("node", Subscriber.Manager.Nodes.Node)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("node", ("node", Subscriber.Manager.Nodes.Node))])
+                self._leafs = OrderedDict()
 
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
@@ -1003,7 +1011,7 @@ class Subscriber(Entity):
                 Subscriber manager operational data for a
                 particular node
                 
-                .. attribute:: node_name  <key>
+                .. attribute:: node_name  (key)
                 
                 	Node name
                 	**type**\: str
@@ -1029,16 +1037,19 @@ class Subscriber(Entity):
                     self.yang_parent_name = "nodes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"statistics" : ("statistics", Subscriber.Manager.Nodes.Node.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
+                    self.ylist_key_names = ['node_name']
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Subscriber.Manager.Nodes.Node.Statistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                    ])
+                    self.node_name = None
 
                     self.statistics = Subscriber.Manager.Nodes.Node.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
-                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                    self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1078,8 +1089,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"aaa" : ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa), "aggregate-summary" : ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary), "srg" : ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("aaa", ("aaa", Subscriber.Manager.Nodes.Node.Statistics.Aaa)), ("aggregate-summary", ("aggregate_summary", Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary)), ("srg", ("srg", Subscriber.Manager.Nodes.Node.Statistics.Srg))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.aaa = Subscriber.Manager.Nodes.Node.Statistics.Aaa()
                         self.aaa.parent = self
@@ -1176,8 +1189,10 @@ class Subscriber(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"aggregate-accounting" : ("aggregate_accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting), "authentication" : ("authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication), "aggregate-mobility" : ("aggregate_mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility), "aggregate-authentication" : ("aggregate_authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication), "accounting-stats-all" : ("accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll), "change-of-authorization" : ("change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization), "authorization" : ("authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization), "aggregate-authorization" : ("aggregate_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization), "aggregate-accounting-stats-all" : ("aggregate_accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll), "accounting" : ("accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting), "mobility" : ("mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility), "aggregate-change-of-authorization" : ("aggregate_change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("aggregate-accounting", ("aggregate_accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting)), ("authentication", ("authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication)), ("aggregate-mobility", ("aggregate_mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility)), ("aggregate-authentication", ("aggregate_authentication", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication)), ("accounting-stats-all", ("accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll)), ("change-of-authorization", ("change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization)), ("authorization", ("authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization)), ("aggregate-authorization", ("aggregate_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization)), ("aggregate-accounting-stats-all", ("aggregate_accounting_stats_all", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll)), ("accounting", ("accounting", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting)), ("mobility", ("mobility", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility)), ("aggregate-change-of-authorization", ("aggregate_change_of_authorization", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.aggregate_accounting = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting()
                             self.aggregate_accounting.parent = self
@@ -1324,18 +1339,21 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"start" : ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start), "stop" : ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop), "interim" : ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim), "pass-through" : ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough), "update" : ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update), "interim-inflight" : ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight)}
-                                self._child_list_classes = {}
-
-                                self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                                self.started_sessions = YLeaf(YType.uint64, "started-sessions")
-
-                                self.stopped_sessions = YLeaf(YType.uint64, "stopped-sessions")
-
-                                self.policy_plane_errored_requests = YLeaf(YType.uint64, "policy-plane-errored-requests")
-
-                                self.policy_plane_unknown_requests = YLeaf(YType.uint64, "policy-plane-unknown-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                                    ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
+                                    ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
+                                    ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
+                                    ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                ])
+                                self.active_sessions = None
+                                self.started_sessions = None
+                                self.stopped_sessions = None
+                                self.policy_plane_errored_requests = None
+                                self.policy_plane_unknown_requests = None
 
                                 self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start()
                                 self.start.parent = self
@@ -1432,20 +1450,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "start"
 
                                 def __setattr__(self, name, value):
@@ -1512,20 +1533,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "stop"
 
                                 def __setattr__(self, name, value):
@@ -1592,20 +1616,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "interim"
 
                                 def __setattr__(self, name, value):
@@ -1672,20 +1699,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "pass-through"
 
                                 def __setattr__(self, name, value):
@@ -1752,20 +1782,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "update"
 
                                 def __setattr__(self, name, value):
@@ -1832,20 +1865,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.quota_exhausts = YLeaf(YType.uint32, "quota-exhausts")
-
-                                    self.denied_requests = YLeaf(YType.uint32, "denied-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint32, "accepted-requests")
-
-                                    self.total_quota_of_requests = YLeaf(YType.uint32, "total-quota-of-requests")
-
-                                    self.remaining_quota_of_requests = YLeaf(YType.uint32, "remaining-quota-of-requests")
-
-                                    self.low_water_mark_quota_of_requests = YLeaf(YType.uint32, "low-water-mark-quota-of-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
+                                        ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
+                                        ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
+                                        ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
+                                        ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                    ])
+                                    self.quota_exhausts = None
+                                    self.denied_requests = None
+                                    self.accepted_requests = None
+                                    self.total_quota_of_requests = None
+                                    self.remaining_quota_of_requests = None
+                                    self.low_water_mark_quota_of_requests = None
                                     self._segment_path = lambda: "interim-inflight"
 
                                 def __setattr__(self, name, value):
@@ -1926,24 +1962,27 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                ])
+                                self.sent_requests = None
+                                self.accepted_requests = None
+                                self.successful_requests = None
+                                self.rejected_requests = None
+                                self.unreachable_requests = None
+                                self.errored_requests = None
+                                self.incomplete_requests = None
+                                self.terminated_requests = None
                                 self._segment_path = lambda: "authentication"
 
                             def __setattr__(self, name, value):
@@ -1996,16 +2035,19 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_request_successes = YLeaf(YType.uint64, "send-request-successes")
-
-                                self.send_request_failures = YLeaf(YType.uint64, "send-request-failures")
-
-                                self.receive_response_successes = YLeaf(YType.uint64, "receive-response-successes")
-
-                                self.receive_response_failures = YLeaf(YType.uint64, "receive-response-failures")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
+                                    ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
+                                    ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
+                                    ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                ])
+                                self.send_request_successes = None
+                                self.send_request_failures = None
+                                self.receive_response_successes = None
+                                self.receive_response_failures = None
                                 self._segment_path = lambda: "aggregate-mobility"
 
                             def __setattr__(self, name, value):
@@ -2086,24 +2128,27 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                ])
+                                self.sent_requests = None
+                                self.accepted_requests = None
+                                self.successful_requests = None
+                                self.rejected_requests = None
+                                self.unreachable_requests = None
+                                self.errored_requests = None
+                                self.incomplete_requests = None
+                                self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authentication"
 
                             def __setattr__(self, name, value):
@@ -2154,8 +2199,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"accounting-statistics" : ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics), "authentication-statistics" : ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics), "authorization-statistics" : ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics), "change-of-authorization-statistics" : ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics), "mobility-statistics" : ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics()
                                 self.accounting_statistics.parent = self
@@ -2267,18 +2314,21 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"start" : ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start), "stop" : ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop), "interim" : ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim), "pass-through" : ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough), "update" : ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update), "interim-inflight" : ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight)}
-                                    self._child_list_classes = {}
-
-                                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                                    self.started_sessions = YLeaf(YType.uint64, "started-sessions")
-
-                                    self.stopped_sessions = YLeaf(YType.uint64, "stopped-sessions")
-
-                                    self.policy_plane_errored_requests = YLeaf(YType.uint64, "policy-plane-errored-requests")
-
-                                    self.policy_plane_unknown_requests = YLeaf(YType.uint64, "policy-plane-unknown-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                                        ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
+                                        ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
+                                        ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
+                                        ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                    ])
+                                    self.active_sessions = None
+                                    self.started_sessions = None
+                                    self.stopped_sessions = None
+                                    self.policy_plane_errored_requests = None
+                                    self.policy_plane_unknown_requests = None
 
                                     self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start()
                                     self.start.parent = self
@@ -2375,20 +2425,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "start"
 
                                     def __setattr__(self, name, value):
@@ -2455,20 +2508,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "stop"
 
                                     def __setattr__(self, name, value):
@@ -2535,20 +2591,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "interim"
 
                                     def __setattr__(self, name, value):
@@ -2615,20 +2674,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "pass-through"
 
                                     def __setattr__(self, name, value):
@@ -2695,20 +2757,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "update"
 
                                     def __setattr__(self, name, value):
@@ -2775,20 +2840,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.quota_exhausts = YLeaf(YType.uint32, "quota-exhausts")
-
-                                        self.denied_requests = YLeaf(YType.uint32, "denied-requests")
-
-                                        self.accepted_requests = YLeaf(YType.uint32, "accepted-requests")
-
-                                        self.total_quota_of_requests = YLeaf(YType.uint32, "total-quota-of-requests")
-
-                                        self.remaining_quota_of_requests = YLeaf(YType.uint32, "remaining-quota-of-requests")
-
-                                        self.low_water_mark_quota_of_requests = YLeaf(YType.uint32, "low-water-mark-quota-of-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
+                                            ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
+                                            ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
+                                            ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
+                                            ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
+                                            ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                        ])
+                                        self.quota_exhausts = None
+                                        self.denied_requests = None
+                                        self.accepted_requests = None
+                                        self.total_quota_of_requests = None
+                                        self.remaining_quota_of_requests = None
+                                        self.low_water_mark_quota_of_requests = None
                                         self._segment_path = lambda: "interim-inflight"
 
                                     def __setattr__(self, name, value):
@@ -2869,24 +2937,27 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                    self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                    self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                    self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                    self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ])
+                                    self.sent_requests = None
+                                    self.accepted_requests = None
+                                    self.successful_requests = None
+                                    self.rejected_requests = None
+                                    self.unreachable_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
 
                                 def __setattr__(self, name, value):
@@ -2967,24 +3038,27 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                    self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                    self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                    self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                    self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ])
+                                    self.sent_requests = None
+                                    self.accepted_requests = None
+                                    self.successful_requests = None
+                                    self.rejected_requests = None
+                                    self.unreachable_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
 
                                 def __setattr__(self, name, value):
@@ -3119,28 +3193,31 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"account-logon" : ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon), "account-logoff" : ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff), "account-update" : ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate), "session-disconnect" : ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect), "single-service-logon" : ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon), "single-service-logoff" : ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff), "single-service-modify" : ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify), "service-multi" : ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti)}
-                                    self._child_list_classes = {}
-
-                                    self.unknown_account_cmd_resps = YLeaf(YType.uint64, "unknown-account-cmd-resps")
-
-                                    self.unknown_service_cmd_resps = YLeaf(YType.uint64, "unknown-service-cmd-resps")
-
-                                    self.unknown_cmd_resps = YLeaf(YType.uint64, "unknown-cmd-resps")
-
-                                    self.attr_list_retrieve_failure_resps = YLeaf(YType.uint64, "attr-list-retrieve-failure-resps")
-
-                                    self.resp_send_failure = YLeaf(YType.uint64, "resp-send-failure")
-
-                                    self.internal_err_resps = YLeaf(YType.uint64, "internal-err-resps")
-
-                                    self.service_profile_push_failure_resps = YLeaf(YType.uint64, "service-profile-push-failure-resps")
-
-                                    self.no_cmd_resps = YLeaf(YType.uint64, "no-cmd-resps")
-
-                                    self.no_session_found_resps = YLeaf(YType.uint64, "no-session-found-resps")
-
-                                    self.no_session_peer_resps = YLeaf(YType.uint64, "no-session-peer-resps")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
+                                        ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
+                                        ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
+                                        ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
+                                        ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
+                                        ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
+                                        ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
+                                        ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
+                                        ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
+                                        ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                    ])
+                                    self.unknown_account_cmd_resps = None
+                                    self.unknown_service_cmd_resps = None
+                                    self.unknown_cmd_resps = None
+                                    self.attr_list_retrieve_failure_resps = None
+                                    self.resp_send_failure = None
+                                    self.internal_err_resps = None
+                                    self.service_profile_push_failure_resps = None
+                                    self.no_cmd_resps = None
+                                    self.no_session_found_resps = None
+                                    self.no_session_peer_resps = None
 
                                     self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
                                     self.account_logon.parent = self
@@ -3226,14 +3303,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logon"
 
                                     def __setattr__(self, name, value):
@@ -3279,14 +3359,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logoff"
 
                                     def __setattr__(self, name, value):
@@ -3332,14 +3415,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-update"
 
                                     def __setattr__(self, name, value):
@@ -3385,14 +3471,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "session-disconnect"
 
                                     def __setattr__(self, name, value):
@@ -3438,14 +3527,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logon"
 
                                     def __setattr__(self, name, value):
@@ -3491,14 +3583,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logoff"
 
                                     def __setattr__(self, name, value):
@@ -3544,14 +3639,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-modify"
 
                                     def __setattr__(self, name, value):
@@ -3597,14 +3695,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "service-multi"
 
                                     def __setattr__(self, name, value):
@@ -3657,16 +3758,19 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.send_request_successes = YLeaf(YType.uint64, "send-request-successes")
-
-                                    self.send_request_failures = YLeaf(YType.uint64, "send-request-failures")
-
-                                    self.receive_response_successes = YLeaf(YType.uint64, "receive-response-successes")
-
-                                    self.receive_response_failures = YLeaf(YType.uint64, "receive-response-failures")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
+                                        ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
+                                        ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
+                                        ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                    ])
+                                    self.send_request_successes = None
+                                    self.send_request_failures = None
+                                    self.receive_response_successes = None
+                                    self.receive_response_failures = None
                                     self._segment_path = lambda: "mobility-statistics"
 
                                 def __setattr__(self, name, value):
@@ -3801,28 +3905,31 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"account-logon" : ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon), "account-logoff" : ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff), "account-update" : ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate), "session-disconnect" : ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect), "single-service-logon" : ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon), "single-service-logoff" : ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff), "single-service-modify" : ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify), "service-multi" : ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti)}
-                                self._child_list_classes = {}
-
-                                self.unknown_account_cmd_resps = YLeaf(YType.uint64, "unknown-account-cmd-resps")
-
-                                self.unknown_service_cmd_resps = YLeaf(YType.uint64, "unknown-service-cmd-resps")
-
-                                self.unknown_cmd_resps = YLeaf(YType.uint64, "unknown-cmd-resps")
-
-                                self.attr_list_retrieve_failure_resps = YLeaf(YType.uint64, "attr-list-retrieve-failure-resps")
-
-                                self.resp_send_failure = YLeaf(YType.uint64, "resp-send-failure")
-
-                                self.internal_err_resps = YLeaf(YType.uint64, "internal-err-resps")
-
-                                self.service_profile_push_failure_resps = YLeaf(YType.uint64, "service-profile-push-failure-resps")
-
-                                self.no_cmd_resps = YLeaf(YType.uint64, "no-cmd-resps")
-
-                                self.no_session_found_resps = YLeaf(YType.uint64, "no-session-found-resps")
-
-                                self.no_session_peer_resps = YLeaf(YType.uint64, "no-session-peer-resps")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
+                                    ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
+                                    ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
+                                    ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
+                                    ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
+                                    ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
+                                    ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
+                                    ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
+                                    ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
+                                    ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                ])
+                                self.unknown_account_cmd_resps = None
+                                self.unknown_service_cmd_resps = None
+                                self.unknown_cmd_resps = None
+                                self.attr_list_retrieve_failure_resps = None
+                                self.resp_send_failure = None
+                                self.internal_err_resps = None
+                                self.service_profile_push_failure_resps = None
+                                self.no_cmd_resps = None
+                                self.no_session_found_resps = None
+                                self.no_session_peer_resps = None
 
                                 self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon()
                                 self.account_logon.parent = self
@@ -3908,14 +4015,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logon"
 
                                 def __setattr__(self, name, value):
@@ -3961,14 +4071,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logoff"
 
                                 def __setattr__(self, name, value):
@@ -4014,14 +4127,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-update"
 
                                 def __setattr__(self, name, value):
@@ -4067,14 +4183,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "session-disconnect"
 
                                 def __setattr__(self, name, value):
@@ -4120,14 +4239,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logon"
 
                                 def __setattr__(self, name, value):
@@ -4173,14 +4295,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logoff"
 
                                 def __setattr__(self, name, value):
@@ -4226,14 +4351,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-modify"
 
                                 def __setattr__(self, name, value):
@@ -4279,14 +4407,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "service-multi"
 
                                 def __setattr__(self, name, value):
@@ -4367,24 +4498,27 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                ])
+                                self.sent_requests = None
+                                self.accepted_requests = None
+                                self.successful_requests = None
+                                self.rejected_requests = None
+                                self.unreachable_requests = None
+                                self.errored_requests = None
+                                self.incomplete_requests = None
+                                self.terminated_requests = None
                                 self._segment_path = lambda: "authorization"
 
                             def __setattr__(self, name, value):
@@ -4465,24 +4599,27 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                ])
+                                self.sent_requests = None
+                                self.accepted_requests = None
+                                self.successful_requests = None
+                                self.rejected_requests = None
+                                self.unreachable_requests = None
+                                self.errored_requests = None
+                                self.incomplete_requests = None
+                                self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authorization"
 
                             def __setattr__(self, name, value):
@@ -4533,8 +4670,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"accounting-statistics" : ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics), "authentication-statistics" : ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics), "authorization-statistics" : ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics), "change-of-authorization-statistics" : ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics), "mobility-statistics" : ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("accounting-statistics", ("accounting_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics)), ("authentication-statistics", ("authentication_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics)), ("authorization-statistics", ("authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics)), ("change-of-authorization-statistics", ("change_of_authorization_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics)), ("mobility-statistics", ("mobility_statistics", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics()
                                 self.accounting_statistics.parent = self
@@ -4646,18 +4785,21 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"start" : ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start), "stop" : ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop), "interim" : ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim), "pass-through" : ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough), "update" : ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update), "interim-inflight" : ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight)}
-                                    self._child_list_classes = {}
-
-                                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                                    self.started_sessions = YLeaf(YType.uint64, "started-sessions")
-
-                                    self.stopped_sessions = YLeaf(YType.uint64, "stopped-sessions")
-
-                                    self.policy_plane_errored_requests = YLeaf(YType.uint64, "policy-plane-errored-requests")
-
-                                    self.policy_plane_unknown_requests = YLeaf(YType.uint64, "policy-plane-unknown-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                                        ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
+                                        ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
+                                        ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
+                                        ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                    ])
+                                    self.active_sessions = None
+                                    self.started_sessions = None
+                                    self.stopped_sessions = None
+                                    self.policy_plane_errored_requests = None
+                                    self.policy_plane_unknown_requests = None
 
                                     self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start()
                                     self.start.parent = self
@@ -4754,20 +4896,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "start"
 
                                     def __setattr__(self, name, value):
@@ -4834,20 +4979,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "stop"
 
                                     def __setattr__(self, name, value):
@@ -4914,20 +5062,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "interim"
 
                                     def __setattr__(self, name, value):
@@ -4994,20 +5145,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "pass-through"
 
                                     def __setattr__(self, name, value):
@@ -5074,20 +5228,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                        self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                        self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                        self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                        self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ])
+                                        self.received_requests = None
+                                        self.errored_requests = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.aaa_failed_responses = None
                                         self._segment_path = lambda: "update"
 
                                     def __setattr__(self, name, value):
@@ -5154,20 +5311,23 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "accounting-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.quota_exhausts = YLeaf(YType.uint32, "quota-exhausts")
-
-                                        self.denied_requests = YLeaf(YType.uint32, "denied-requests")
-
-                                        self.accepted_requests = YLeaf(YType.uint32, "accepted-requests")
-
-                                        self.total_quota_of_requests = YLeaf(YType.uint32, "total-quota-of-requests")
-
-                                        self.remaining_quota_of_requests = YLeaf(YType.uint32, "remaining-quota-of-requests")
-
-                                        self.low_water_mark_quota_of_requests = YLeaf(YType.uint32, "low-water-mark-quota-of-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
+                                            ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
+                                            ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
+                                            ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
+                                            ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
+                                            ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                        ])
+                                        self.quota_exhausts = None
+                                        self.denied_requests = None
+                                        self.accepted_requests = None
+                                        self.total_quota_of_requests = None
+                                        self.remaining_quota_of_requests = None
+                                        self.low_water_mark_quota_of_requests = None
                                         self._segment_path = lambda: "interim-inflight"
 
                                     def __setattr__(self, name, value):
@@ -5248,24 +5408,27 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                    self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                    self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                    self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                    self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ])
+                                    self.sent_requests = None
+                                    self.accepted_requests = None
+                                    self.successful_requests = None
+                                    self.rejected_requests = None
+                                    self.unreachable_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
 
                                 def __setattr__(self, name, value):
@@ -5346,24 +5509,27 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.sent_requests = YLeaf(YType.uint64, "sent-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint64, "accepted-requests")
-
-                                    self.successful_requests = YLeaf(YType.uint64, "successful-requests")
-
-                                    self.rejected_requests = YLeaf(YType.uint64, "rejected-requests")
-
-                                    self.unreachable_requests = YLeaf(YType.uint64, "unreachable-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.incomplete_requests = YLeaf(YType.uint64, "incomplete-requests")
-
-                                    self.terminated_requests = YLeaf(YType.uint64, "terminated-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
+                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
+                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
+                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
+                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ])
+                                    self.sent_requests = None
+                                    self.accepted_requests = None
+                                    self.successful_requests = None
+                                    self.rejected_requests = None
+                                    self.unreachable_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
 
                                 def __setattr__(self, name, value):
@@ -5498,28 +5664,31 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"account-logon" : ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon), "account-logoff" : ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff), "account-update" : ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate), "session-disconnect" : ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect), "single-service-logon" : ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon), "single-service-logoff" : ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff), "single-service-modify" : ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify), "service-multi" : ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti)}
-                                    self._child_list_classes = {}
-
-                                    self.unknown_account_cmd_resps = YLeaf(YType.uint64, "unknown-account-cmd-resps")
-
-                                    self.unknown_service_cmd_resps = YLeaf(YType.uint64, "unknown-service-cmd-resps")
-
-                                    self.unknown_cmd_resps = YLeaf(YType.uint64, "unknown-cmd-resps")
-
-                                    self.attr_list_retrieve_failure_resps = YLeaf(YType.uint64, "attr-list-retrieve-failure-resps")
-
-                                    self.resp_send_failure = YLeaf(YType.uint64, "resp-send-failure")
-
-                                    self.internal_err_resps = YLeaf(YType.uint64, "internal-err-resps")
-
-                                    self.service_profile_push_failure_resps = YLeaf(YType.uint64, "service-profile-push-failure-resps")
-
-                                    self.no_cmd_resps = YLeaf(YType.uint64, "no-cmd-resps")
-
-                                    self.no_session_found_resps = YLeaf(YType.uint64, "no-session-found-resps")
-
-                                    self.no_session_peer_resps = YLeaf(YType.uint64, "no-session-peer-resps")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
+                                        ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
+                                        ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
+                                        ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
+                                        ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
+                                        ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
+                                        ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
+                                        ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
+                                        ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
+                                        ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                    ])
+                                    self.unknown_account_cmd_resps = None
+                                    self.unknown_service_cmd_resps = None
+                                    self.unknown_cmd_resps = None
+                                    self.attr_list_retrieve_failure_resps = None
+                                    self.resp_send_failure = None
+                                    self.internal_err_resps = None
+                                    self.service_profile_push_failure_resps = None
+                                    self.no_cmd_resps = None
+                                    self.no_session_found_resps = None
+                                    self.no_session_peer_resps = None
 
                                     self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
                                     self.account_logon.parent = self
@@ -5605,14 +5774,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logon"
 
                                     def __setattr__(self, name, value):
@@ -5658,14 +5830,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logoff"
 
                                     def __setattr__(self, name, value):
@@ -5711,14 +5886,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-update"
 
                                     def __setattr__(self, name, value):
@@ -5764,14 +5942,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "session-disconnect"
 
                                     def __setattr__(self, name, value):
@@ -5817,14 +5998,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logon"
 
                                     def __setattr__(self, name, value):
@@ -5870,14 +6054,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logoff"
 
                                     def __setattr__(self, name, value):
@@ -5923,14 +6110,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-modify"
 
                                     def __setattr__(self, name, value):
@@ -5976,14 +6166,17 @@ class Subscriber(Entity):
                                         self.yang_parent_name = "change-of-authorization-statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                        self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                        self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ])
+                                        self.received_requests = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "service-multi"
 
                                     def __setattr__(self, name, value):
@@ -6036,16 +6229,19 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-accounting-stats-all"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.send_request_successes = YLeaf(YType.uint64, "send-request-successes")
-
-                                    self.send_request_failures = YLeaf(YType.uint64, "send-request-failures")
-
-                                    self.receive_response_successes = YLeaf(YType.uint64, "receive-response-successes")
-
-                                    self.receive_response_failures = YLeaf(YType.uint64, "receive-response-failures")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
+                                        ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
+                                        ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
+                                        ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                    ])
+                                    self.send_request_successes = None
+                                    self.send_request_failures = None
+                                    self.receive_response_successes = None
+                                    self.receive_response_failures = None
                                     self._segment_path = lambda: "mobility-statistics"
 
                                 def __setattr__(self, name, value):
@@ -6135,18 +6331,21 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"start" : ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start), "stop" : ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop), "interim" : ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim), "pass-through" : ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough), "update" : ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update), "interim-inflight" : ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight)}
-                                self._child_list_classes = {}
-
-                                self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                                self.started_sessions = YLeaf(YType.uint64, "started-sessions")
-
-                                self.stopped_sessions = YLeaf(YType.uint64, "stopped-sessions")
-
-                                self.policy_plane_errored_requests = YLeaf(YType.uint64, "policy-plane-errored-requests")
-
-                                self.policy_plane_unknown_requests = YLeaf(YType.uint64, "policy-plane-unknown-requests")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                                    ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
+                                    ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
+                                    ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
+                                    ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                ])
+                                self.active_sessions = None
+                                self.started_sessions = None
+                                self.stopped_sessions = None
+                                self.policy_plane_errored_requests = None
+                                self.policy_plane_unknown_requests = None
 
                                 self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start()
                                 self.start.parent = self
@@ -6243,20 +6442,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "start"
 
                                 def __setattr__(self, name, value):
@@ -6323,20 +6525,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "stop"
 
                                 def __setattr__(self, name, value):
@@ -6403,20 +6608,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "interim"
 
                                 def __setattr__(self, name, value):
@@ -6483,20 +6691,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "pass-through"
 
                                 def __setattr__(self, name, value):
@@ -6563,20 +6774,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.errored_requests = YLeaf(YType.uint64, "errored-requests")
-
-                                    self.aaa_errored_requests = YLeaf(YType.uint64, "aaa-errored-requests")
-
-                                    self.aaa_sent_requests = YLeaf(YType.uint64, "aaa-sent-requests")
-
-                                    self.aaa_succeeded_responses = YLeaf(YType.uint64, "aaa-succeeded-responses")
-
-                                    self.aaa_failed_responses = YLeaf(YType.uint64, "aaa-failed-responses")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
+                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
+                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
+                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
+                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                    ])
+                                    self.received_requests = None
+                                    self.errored_requests = None
+                                    self.aaa_errored_requests = None
+                                    self.aaa_sent_requests = None
+                                    self.aaa_succeeded_responses = None
+                                    self.aaa_failed_responses = None
                                     self._segment_path = lambda: "update"
 
                                 def __setattr__(self, name, value):
@@ -6643,20 +6857,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.quota_exhausts = YLeaf(YType.uint32, "quota-exhausts")
-
-                                    self.denied_requests = YLeaf(YType.uint32, "denied-requests")
-
-                                    self.accepted_requests = YLeaf(YType.uint32, "accepted-requests")
-
-                                    self.total_quota_of_requests = YLeaf(YType.uint32, "total-quota-of-requests")
-
-                                    self.remaining_quota_of_requests = YLeaf(YType.uint32, "remaining-quota-of-requests")
-
-                                    self.low_water_mark_quota_of_requests = YLeaf(YType.uint32, "low-water-mark-quota-of-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
+                                        ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
+                                        ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
+                                        ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
+                                        ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
+                                        ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                    ])
+                                    self.quota_exhausts = None
+                                    self.denied_requests = None
+                                    self.accepted_requests = None
+                                    self.total_quota_of_requests = None
+                                    self.remaining_quota_of_requests = None
+                                    self.low_water_mark_quota_of_requests = None
                                     self._segment_path = lambda: "interim-inflight"
 
                                 def __setattr__(self, name, value):
@@ -6709,16 +6926,19 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_request_successes = YLeaf(YType.uint64, "send-request-successes")
-
-                                self.send_request_failures = YLeaf(YType.uint64, "send-request-failures")
-
-                                self.receive_response_successes = YLeaf(YType.uint64, "receive-response-successes")
-
-                                self.receive_response_failures = YLeaf(YType.uint64, "receive-response-failures")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
+                                    ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
+                                    ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
+                                    ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                ])
+                                self.send_request_successes = None
+                                self.send_request_failures = None
+                                self.receive_response_successes = None
+                                self.receive_response_failures = None
                                 self._segment_path = lambda: "mobility"
 
                             def __setattr__(self, name, value):
@@ -6854,28 +7074,31 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "aaa"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"account-logon" : ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon), "account-logoff" : ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff), "account-update" : ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate), "session-disconnect" : ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect), "single-service-logon" : ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon), "single-service-logoff" : ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff), "single-service-modify" : ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify), "service-multi" : ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti)}
-                                self._child_list_classes = {}
-
-                                self.unknown_account_cmd_resps = YLeaf(YType.uint64, "unknown-account-cmd-resps")
-
-                                self.unknown_service_cmd_resps = YLeaf(YType.uint64, "unknown-service-cmd-resps")
-
-                                self.unknown_cmd_resps = YLeaf(YType.uint64, "unknown-cmd-resps")
-
-                                self.attr_list_retrieve_failure_resps = YLeaf(YType.uint64, "attr-list-retrieve-failure-resps")
-
-                                self.resp_send_failure = YLeaf(YType.uint64, "resp-send-failure")
-
-                                self.internal_err_resps = YLeaf(YType.uint64, "internal-err-resps")
-
-                                self.service_profile_push_failure_resps = YLeaf(YType.uint64, "service-profile-push-failure-resps")
-
-                                self.no_cmd_resps = YLeaf(YType.uint64, "no-cmd-resps")
-
-                                self.no_session_found_resps = YLeaf(YType.uint64, "no-session-found-resps")
-
-                                self.no_session_peer_resps = YLeaf(YType.uint64, "no-session-peer-resps")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
+                                    ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
+                                    ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
+                                    ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
+                                    ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
+                                    ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
+                                    ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
+                                    ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
+                                    ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
+                                    ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                ])
+                                self.unknown_account_cmd_resps = None
+                                self.unknown_service_cmd_resps = None
+                                self.unknown_cmd_resps = None
+                                self.attr_list_retrieve_failure_resps = None
+                                self.resp_send_failure = None
+                                self.internal_err_resps = None
+                                self.service_profile_push_failure_resps = None
+                                self.no_cmd_resps = None
+                                self.no_session_found_resps = None
+                                self.no_session_peer_resps = None
 
                                 self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon()
                                 self.account_logon.parent = self
@@ -6961,14 +7184,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logon"
 
                                 def __setattr__(self, name, value):
@@ -7014,14 +7240,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logoff"
 
                                 def __setattr__(self, name, value):
@@ -7067,14 +7296,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-update"
 
                                 def __setattr__(self, name, value):
@@ -7120,14 +7352,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "session-disconnect"
 
                                 def __setattr__(self, name, value):
@@ -7173,14 +7408,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logon"
 
                                 def __setattr__(self, name, value):
@@ -7226,14 +7464,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logoff"
 
                                 def __setattr__(self, name, value):
@@ -7279,14 +7520,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-modify"
 
                                 def __setattr__(self, name, value):
@@ -7332,14 +7576,17 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "aggregate-change-of-authorization"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_requests = YLeaf(YType.uint64, "received-requests")
-
-                                    self.acknowledged_requests = YLeaf(YType.uint64, "acknowledged-requests")
-
-                                    self.non_acknowledged_requests = YLeaf(YType.uint64, "non-acknowledged-requests")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
+                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
+                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                    ])
+                                    self.received_requests = None
+                                    self.acknowledged_requests = None
+                                    self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "service-multi"
 
                                 def __setattr__(self, name, value):
@@ -7497,46 +7744,49 @@ class Subscriber(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.no_subscriber_control_policy_on_interface = YLeaf(YType.uint64, "no-subscriber-control-policy-on-interface")
-
-                            self.no_class_match_in_start_request = YLeaf(YType.uint64, "no-class-match-in-start-request")
-
-                            self.nas_port_attribute_format_warnings = YLeaf(YType.uint64, "nas-port-attribute-format-warnings")
-
-                            self.nas_port_id_attribute_format_warnings = YLeaf(YType.uint64, "nas-port-id-attribute-format-warnings")
-
-                            self.destination_station_id_attribute_format_warnings = YLeaf(YType.uint64, "destination-station-id-attribute-format-warnings")
-
-                            self.calling_station_id_attribute_format_warnings = YLeaf(YType.uint64, "calling-station-id-attribute-format-warnings")
-
-                            self.username_attribute_format_warnings = YLeaf(YType.uint64, "username-attribute-format-warnings")
-
-                            self.install_user_profiles = YLeaf(YType.uint64, "install-user-profiles")
-
-                            self.user_profile_install_errors = YLeaf(YType.uint64, "user-profile-install-errors")
-
-                            self.user_profile_removals = YLeaf(YType.uint64, "user-profile-removals")
-
-                            self.user_profile_errors = YLeaf(YType.uint64, "user-profile-errors")
-
-                            self.sess_disc_quota_exhausts = YLeaf(YType.uint64, "sess-disc-quota-exhausts")
-
-                            self.sess_disc_no_quota = YLeaf(YType.uint64, "sess-disc-no-quota")
-
-                            self.sess_disc_quota_avail = YLeaf(YType.uint64, "sess-disc-quota-avail")
-
-                            self.sess_disc_recon_ip = YLeaf(YType.uint64, "sess-disc-recon-ip")
-
-                            self.sess_disc_none_started = YLeaf(YType.uint64, "sess-disc-none-started")
-
-                            self.sess_disc_quota = YLeaf(YType.uint32, "sess-disc-quota")
-
-                            self.sess_disc_quota_remaining = YLeaf(YType.uint32, "sess-disc-quota-remaining")
-
-                            self.sess_disc_q_count = YLeaf(YType.uint32, "sess-disc-q-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('no_subscriber_control_policy_on_interface', YLeaf(YType.uint64, 'no-subscriber-control-policy-on-interface')),
+                                ('no_class_match_in_start_request', YLeaf(YType.uint64, 'no-class-match-in-start-request')),
+                                ('nas_port_attribute_format_warnings', YLeaf(YType.uint64, 'nas-port-attribute-format-warnings')),
+                                ('nas_port_id_attribute_format_warnings', YLeaf(YType.uint64, 'nas-port-id-attribute-format-warnings')),
+                                ('destination_station_id_attribute_format_warnings', YLeaf(YType.uint64, 'destination-station-id-attribute-format-warnings')),
+                                ('calling_station_id_attribute_format_warnings', YLeaf(YType.uint64, 'calling-station-id-attribute-format-warnings')),
+                                ('username_attribute_format_warnings', YLeaf(YType.uint64, 'username-attribute-format-warnings')),
+                                ('install_user_profiles', YLeaf(YType.uint64, 'install-user-profiles')),
+                                ('user_profile_install_errors', YLeaf(YType.uint64, 'user-profile-install-errors')),
+                                ('user_profile_removals', YLeaf(YType.uint64, 'user-profile-removals')),
+                                ('user_profile_errors', YLeaf(YType.uint64, 'user-profile-errors')),
+                                ('sess_disc_quota_exhausts', YLeaf(YType.uint64, 'sess-disc-quota-exhausts')),
+                                ('sess_disc_no_quota', YLeaf(YType.uint64, 'sess-disc-no-quota')),
+                                ('sess_disc_quota_avail', YLeaf(YType.uint64, 'sess-disc-quota-avail')),
+                                ('sess_disc_recon_ip', YLeaf(YType.uint64, 'sess-disc-recon-ip')),
+                                ('sess_disc_none_started', YLeaf(YType.uint64, 'sess-disc-none-started')),
+                                ('sess_disc_quota', YLeaf(YType.uint32, 'sess-disc-quota')),
+                                ('sess_disc_quota_remaining', YLeaf(YType.uint32, 'sess-disc-quota-remaining')),
+                                ('sess_disc_q_count', YLeaf(YType.uint32, 'sess-disc-q-count')),
+                            ])
+                            self.no_subscriber_control_policy_on_interface = None
+                            self.no_class_match_in_start_request = None
+                            self.nas_port_attribute_format_warnings = None
+                            self.nas_port_id_attribute_format_warnings = None
+                            self.destination_station_id_attribute_format_warnings = None
+                            self.calling_station_id_attribute_format_warnings = None
+                            self.username_attribute_format_warnings = None
+                            self.install_user_profiles = None
+                            self.user_profile_install_errors = None
+                            self.user_profile_removals = None
+                            self.user_profile_errors = None
+                            self.sess_disc_quota_exhausts = None
+                            self.sess_disc_no_quota = None
+                            self.sess_disc_quota_avail = None
+                            self.sess_disc_recon_ip = None
+                            self.sess_disc_none_started = None
+                            self.sess_disc_quota = None
+                            self.sess_disc_quota_remaining = None
+                            self.sess_disc_q_count = None
                             self._segment_path = lambda: "aggregate-summary"
 
                         def __setattr__(self, name, value):
@@ -7923,112 +8173,115 @@ class Subscriber(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.txlist_send_triggered = YLeaf(YType.uint32, "txlist-send-triggered")
-
-                            self.txlist_send_failed = YLeaf(YType.uint32, "txlist-send-failed")
-
-                            self.txlist_send_failed_notactive = YLeaf(YType.uint32, "txlist-send-failed-notactive")
-
-                            self.actual_txlist_sent = YLeaf(YType.uint32, "actual-txlist-sent")
-
-                            self.alreadyin_txlist = YLeaf(YType.uint32, "alreadyin-txlist")
-
-                            self.txlist_encode = YLeaf(YType.uint32, "txlist-encode")
-
-                            self.txlist_encode_fail = YLeaf(YType.uint32, "txlist-encode-fail")
-
-                            self.create_update_encode = YLeaf(YType.uint32, "create-update-encode")
-
-                            self.delete_encode = YLeaf(YType.uint32, "delete-encode")
-
-                            self.create_upd_clean_callback = YLeaf(YType.uint32, "create-upd-clean-callback")
-
-                            self.delete_clean_callback = YLeaf(YType.uint32, "delete-clean-callback")
-
-                            self.slave_recv_entry = YLeaf(YType.uint32, "slave-recv-entry")
-
-                            self.slave_decode_fail = YLeaf(YType.uint32, "slave-decode-fail")
-
-                            self.slave_create_update = YLeaf(YType.uint32, "slave-create-update")
-
-                            self.slave_delete = YLeaf(YType.uint32, "slave-delete")
-
-                            self.srg_context_malloc = YLeaf(YType.uint32, "srg-context-malloc")
-
-                            self.srg_context_free = YLeaf(YType.uint32, "srg-context-free")
-
-                            self.sod_count = YLeaf(YType.uint32, "sod-count")
-
-                            self.eod_count = YLeaf(YType.uint32, "eod-count")
-
-                            self.sod_eod_replay_req_count = YLeaf(YType.uint32, "sod-eod-replay-req-count")
-
-                            self.sod_eod_dirty_mark_count = YLeaf(YType.uint32, "sod-eod-dirty-mark-count")
-
-                            self.sod_eod_dirty_delete_count = YLeaf(YType.uint32, "sod-eod-dirty-delete-count")
-
-                            self.ack_to_srg = YLeaf(YType.uint32, "ack-to-srg")
-
-                            self.nack_to_srg = YLeaf(YType.uint32, "nack-to-srg")
-
-                            self.nack_to_srg_fail_cnt = YLeaf(YType.uint32, "nack-to-srg-fail-cnt")
-
-                            self.txlist_remove_all = YLeaf(YType.uint32, "txlist-remove-all")
-
-                            self.txlist_del_sync = YLeaf(YType.uint32, "txlist-del-sync")
-
-                            self.txlist_del_sync_notlinked = YLeaf(YType.uint32, "txlist-del-sync-notlinked")
-
-                            self.txlist_del_app = YLeaf(YType.uint32, "txlist-del-app")
-
-                            self.txlist_del_app_notlinked = YLeaf(YType.uint32, "txlist-del-app-notlinked")
-
-                            self.txlist_clean_invalid_state = YLeaf(YType.uint32, "txlist-clean-invalid-state")
-
-                            self.txlist_remove_all_internal_error = YLeaf(YType.uint32, "txlist-remove-all-internal-error")
-
-                            self.is_srg_flow_control_enabled = YLeaf(YType.boolean, "is-srg-flow-control-enabled")
-
-                            self.max_inflight_sessoin_count = YLeaf(YType.uint32, "max-inflight-sessoin-count")
-
-                            self.flow_control_resume_threshold = YLeaf(YType.uint32, "flow-control-resume-threshold")
-
-                            self.inflight_session_count = YLeaf(YType.uint32, "inflight-session-count")
-
-                            self.inflight_add_count = YLeaf(YType.uint32, "inflight-add-count")
-
-                            self.inflight_under_run_count = YLeaf(YType.uint32, "inflight-under-run-count")
-
-                            self.inflight_alloc_fails = YLeaf(YType.uint32, "inflight-alloc-fails")
-
-                            self.inflight_insert_failures = YLeaf(YType.uint32, "inflight-insert-failures")
-
-                            self.inflight_deletes = YLeaf(YType.uint32, "inflight-deletes")
-
-                            self.inflight_not_found = YLeaf(YType.uint32, "inflight-not-found")
-
-                            self.inflight_delete_failures = YLeaf(YType.uint32, "inflight-delete-failures")
-
-                            self.total_pause_count = YLeaf(YType.uint32, "total-pause-count")
-
-                            self.total_resume_count = YLeaf(YType.uint32, "total-resume-count")
-
-                            self.total_dont_send_to_txlist = YLeaf(YType.uint32, "total-dont-send-to-txlist")
-
-                            self.total_srg_not_master = YLeaf(YType.uint32, "total-srg-not-master")
-
-                            self.total_master_eoms_pending = YLeaf(YType.uint32, "total-master-eoms-pending")
-
-                            self.last_pause_period = YLeaf(YType.uint64, "last-pause-period")
-
-                            self.total_pause_time = YLeaf(YType.uint64, "total-pause-time")
-
-                            self.last_pause_time = YLeaf(YType.uint64, "last-pause-time")
-
-                            self.last_resume_time = YLeaf(YType.uint64, "last-resume-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('txlist_send_triggered', YLeaf(YType.uint32, 'txlist-send-triggered')),
+                                ('txlist_send_failed', YLeaf(YType.uint32, 'txlist-send-failed')),
+                                ('txlist_send_failed_notactive', YLeaf(YType.uint32, 'txlist-send-failed-notactive')),
+                                ('actual_txlist_sent', YLeaf(YType.uint32, 'actual-txlist-sent')),
+                                ('alreadyin_txlist', YLeaf(YType.uint32, 'alreadyin-txlist')),
+                                ('txlist_encode', YLeaf(YType.uint32, 'txlist-encode')),
+                                ('txlist_encode_fail', YLeaf(YType.uint32, 'txlist-encode-fail')),
+                                ('create_update_encode', YLeaf(YType.uint32, 'create-update-encode')),
+                                ('delete_encode', YLeaf(YType.uint32, 'delete-encode')),
+                                ('create_upd_clean_callback', YLeaf(YType.uint32, 'create-upd-clean-callback')),
+                                ('delete_clean_callback', YLeaf(YType.uint32, 'delete-clean-callback')),
+                                ('slave_recv_entry', YLeaf(YType.uint32, 'slave-recv-entry')),
+                                ('slave_decode_fail', YLeaf(YType.uint32, 'slave-decode-fail')),
+                                ('slave_create_update', YLeaf(YType.uint32, 'slave-create-update')),
+                                ('slave_delete', YLeaf(YType.uint32, 'slave-delete')),
+                                ('srg_context_malloc', YLeaf(YType.uint32, 'srg-context-malloc')),
+                                ('srg_context_free', YLeaf(YType.uint32, 'srg-context-free')),
+                                ('sod_count', YLeaf(YType.uint32, 'sod-count')),
+                                ('eod_count', YLeaf(YType.uint32, 'eod-count')),
+                                ('sod_eod_replay_req_count', YLeaf(YType.uint32, 'sod-eod-replay-req-count')),
+                                ('sod_eod_dirty_mark_count', YLeaf(YType.uint32, 'sod-eod-dirty-mark-count')),
+                                ('sod_eod_dirty_delete_count', YLeaf(YType.uint32, 'sod-eod-dirty-delete-count')),
+                                ('ack_to_srg', YLeaf(YType.uint32, 'ack-to-srg')),
+                                ('nack_to_srg', YLeaf(YType.uint32, 'nack-to-srg')),
+                                ('nack_to_srg_fail_cnt', YLeaf(YType.uint32, 'nack-to-srg-fail-cnt')),
+                                ('txlist_remove_all', YLeaf(YType.uint32, 'txlist-remove-all')),
+                                ('txlist_del_sync', YLeaf(YType.uint32, 'txlist-del-sync')),
+                                ('txlist_del_sync_notlinked', YLeaf(YType.uint32, 'txlist-del-sync-notlinked')),
+                                ('txlist_del_app', YLeaf(YType.uint32, 'txlist-del-app')),
+                                ('txlist_del_app_notlinked', YLeaf(YType.uint32, 'txlist-del-app-notlinked')),
+                                ('txlist_clean_invalid_state', YLeaf(YType.uint32, 'txlist-clean-invalid-state')),
+                                ('txlist_remove_all_internal_error', YLeaf(YType.uint32, 'txlist-remove-all-internal-error')),
+                                ('is_srg_flow_control_enabled', YLeaf(YType.boolean, 'is-srg-flow-control-enabled')),
+                                ('max_inflight_sessoin_count', YLeaf(YType.uint32, 'max-inflight-sessoin-count')),
+                                ('flow_control_resume_threshold', YLeaf(YType.uint32, 'flow-control-resume-threshold')),
+                                ('inflight_session_count', YLeaf(YType.uint32, 'inflight-session-count')),
+                                ('inflight_add_count', YLeaf(YType.uint32, 'inflight-add-count')),
+                                ('inflight_under_run_count', YLeaf(YType.uint32, 'inflight-under-run-count')),
+                                ('inflight_alloc_fails', YLeaf(YType.uint32, 'inflight-alloc-fails')),
+                                ('inflight_insert_failures', YLeaf(YType.uint32, 'inflight-insert-failures')),
+                                ('inflight_deletes', YLeaf(YType.uint32, 'inflight-deletes')),
+                                ('inflight_not_found', YLeaf(YType.uint32, 'inflight-not-found')),
+                                ('inflight_delete_failures', YLeaf(YType.uint32, 'inflight-delete-failures')),
+                                ('total_pause_count', YLeaf(YType.uint32, 'total-pause-count')),
+                                ('total_resume_count', YLeaf(YType.uint32, 'total-resume-count')),
+                                ('total_dont_send_to_txlist', YLeaf(YType.uint32, 'total-dont-send-to-txlist')),
+                                ('total_srg_not_master', YLeaf(YType.uint32, 'total-srg-not-master')),
+                                ('total_master_eoms_pending', YLeaf(YType.uint32, 'total-master-eoms-pending')),
+                                ('last_pause_period', YLeaf(YType.uint64, 'last-pause-period')),
+                                ('total_pause_time', YLeaf(YType.uint64, 'total-pause-time')),
+                                ('last_pause_time', YLeaf(YType.uint64, 'last-pause-time')),
+                                ('last_resume_time', YLeaf(YType.uint64, 'last-resume-time')),
+                            ])
+                            self.txlist_send_triggered = None
+                            self.txlist_send_failed = None
+                            self.txlist_send_failed_notactive = None
+                            self.actual_txlist_sent = None
+                            self.alreadyin_txlist = None
+                            self.txlist_encode = None
+                            self.txlist_encode_fail = None
+                            self.create_update_encode = None
+                            self.delete_encode = None
+                            self.create_upd_clean_callback = None
+                            self.delete_clean_callback = None
+                            self.slave_recv_entry = None
+                            self.slave_decode_fail = None
+                            self.slave_create_update = None
+                            self.slave_delete = None
+                            self.srg_context_malloc = None
+                            self.srg_context_free = None
+                            self.sod_count = None
+                            self.eod_count = None
+                            self.sod_eod_replay_req_count = None
+                            self.sod_eod_dirty_mark_count = None
+                            self.sod_eod_dirty_delete_count = None
+                            self.ack_to_srg = None
+                            self.nack_to_srg = None
+                            self.nack_to_srg_fail_cnt = None
+                            self.txlist_remove_all = None
+                            self.txlist_del_sync = None
+                            self.txlist_del_sync_notlinked = None
+                            self.txlist_del_app = None
+                            self.txlist_del_app_notlinked = None
+                            self.txlist_clean_invalid_state = None
+                            self.txlist_remove_all_internal_error = None
+                            self.is_srg_flow_control_enabled = None
+                            self.max_inflight_sessoin_count = None
+                            self.flow_control_resume_threshold = None
+                            self.inflight_session_count = None
+                            self.inflight_add_count = None
+                            self.inflight_under_run_count = None
+                            self.inflight_alloc_fails = None
+                            self.inflight_insert_failures = None
+                            self.inflight_deletes = None
+                            self.inflight_not_found = None
+                            self.inflight_delete_failures = None
+                            self.total_pause_count = None
+                            self.total_resume_count = None
+                            self.total_dont_send_to_txlist = None
+                            self.total_srg_not_master = None
+                            self.total_master_eoms_pending = None
+                            self.last_pause_period = None
+                            self.total_pause_time = None
+                            self.last_pause_time = None
+                            self.last_resume_time = None
                             self._segment_path = lambda: "srg"
 
                         def __setattr__(self, name, value):
@@ -8058,8 +8311,10 @@ class Subscriber(Entity):
             self.yang_parent_name = "subscriber"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nodes" : ("nodes", Subscriber.Session.Nodes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nodes", ("nodes", Subscriber.Session.Nodes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.nodes = Subscriber.Session.Nodes()
             self.nodes.parent = self
@@ -8092,8 +8347,10 @@ class Subscriber(Entity):
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"node" : ("node", Subscriber.Session.Nodes.Node)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("node", ("node", Subscriber.Session.Nodes.Node))])
+                self._leafs = OrderedDict()
 
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
@@ -8108,7 +8365,7 @@ class Subscriber(Entity):
                 Subscriber session operational data for a
                 particular node
                 
-                .. attribute:: node_name  <key>
+                .. attribute:: node_name  (key)
                 
                 	Node name
                 	**type**\: str
@@ -8194,10 +8451,13 @@ class Subscriber(Entity):
                     self.yang_parent_name = "nodes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"author-summaries" : ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries), "summary" : ("summary", Subscriber.Session.Nodes.Node.Summary), "mac-summaries" : ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries), "interface-summaries" : ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries), "authentication-summaries" : ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries), "state-summaries" : ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries), "ipv4-address-vrf-summaries" : ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries), "address-family-summaries" : ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries), "username-summaries" : ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries), "access-interface-summaries" : ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries), "ipv4-address-summaries" : ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries), "vrf-summaries" : ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries), "sessions" : ("sessions", Subscriber.Session.Nodes.Node.Sessions)}
-                    self._child_list_classes = {}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
+                    self.ylist_key_names = ['node_name']
+                    self._child_container_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                    ])
+                    self.node_name = None
 
                     self.author_summaries = Subscriber.Session.Nodes.Node.AuthorSummaries()
                     self.author_summaries.parent = self
@@ -8263,7 +8523,7 @@ class Subscriber(Entity):
                     self.sessions.parent = self
                     self._children_name_map["sessions"] = "sessions"
                     self._children_yang_names.add("sessions")
-                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                    self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -8294,8 +8554,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"author-summary" : ("author_summary", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("author-summary", ("author_summary", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary))])
+                        self._leafs = OrderedDict()
 
                         self.author_summary = YList(self)
                         self._segment_path = lambda: "author-summaries"
@@ -8308,7 +8570,7 @@ class Subscriber(Entity):
                         """
                         authorization summary
                         
-                        .. attribute:: author_state  <key>
+                        .. attribute:: author_state  (key)
                         
                         	Authorization state
                         	**type**\:  :py:class:`SubscriberAuthorStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthorStateFilterFlag>`
@@ -8337,10 +8599,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "author-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.author_state = YLeaf(YType.enumeration, "author-state")
+                            self.ylist_key_names = ['author_state']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('author_state', YLeaf(YType.enumeration, 'author-state')),
+                            ])
+                            self.author_state = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr()
                             self.state_xr.parent = self
@@ -8351,7 +8616,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "author-summary" + "[author-state='" + self.author_state.get() + "']"
+                            self._segment_path = lambda: "author-summary" + "[author-state='" + str(self.author_state) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, ['author_state'], name, value)
@@ -8390,8 +8655,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "author-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -8477,22 +8744,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -8566,22 +8836,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -8655,22 +8928,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -8710,8 +8986,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "author-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -8790,20 +9068,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -8870,20 +9151,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -8950,20 +9234,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -8998,8 +9285,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.Summary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Summary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.state_xr = Subscriber.Session.Nodes.Node.Summary.StateXr()
                         self.state_xr.parent = self
@@ -9046,8 +9335,10 @@ class Subscriber(Entity):
                             self.yang_parent_name = "summary"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.pppoe = Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe()
                             self.pppoe.parent = self
@@ -9133,22 +9424,25 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "state-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                ])
+                                self.initialized_sessions = None
+                                self.connecting_sessions = None
+                                self.connected_sessions = None
+                                self.activated_sessions = None
+                                self.idle_sessions = None
+                                self.disconnecting_sessions = None
+                                self.end_sessions = None
                                 self._segment_path = lambda: "pppoe"
 
                             def __setattr__(self, name, value):
@@ -9222,22 +9516,25 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "state-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                ])
+                                self.initialized_sessions = None
+                                self.connecting_sessions = None
+                                self.connected_sessions = None
+                                self.activated_sessions = None
+                                self.idle_sessions = None
+                                self.disconnecting_sessions = None
+                                self.end_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
 
                             def __setattr__(self, name, value):
@@ -9311,22 +9608,25 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "state-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                ])
+                                self.initialized_sessions = None
+                                self.connecting_sessions = None
+                                self.connected_sessions = None
+                                self.activated_sessions = None
+                                self.idle_sessions = None
+                                self.disconnecting_sessions = None
+                                self.end_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-packet"
 
                             def __setattr__(self, name, value):
@@ -9366,8 +9666,10 @@ class Subscriber(Entity):
                             self.yang_parent_name = "summary"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.pppoe = Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe()
                             self.pppoe.parent = self
@@ -9446,20 +9748,23 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "address-family-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                ])
+                                self.in_progress_sessions = None
+                                self.ipv4_only_sessions = None
+                                self.ipv6_only_sessions = None
+                                self.dual_part_up_sessions = None
+                                self.dual_up_sessions = None
+                                self.lac_sessions = None
                                 self._segment_path = lambda: "pppoe"
 
                             def __setattr__(self, name, value):
@@ -9526,20 +9831,23 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "address-family-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                ])
+                                self.in_progress_sessions = None
+                                self.ipv4_only_sessions = None
+                                self.ipv6_only_sessions = None
+                                self.dual_part_up_sessions = None
+                                self.dual_up_sessions = None
+                                self.lac_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
 
                             def __setattr__(self, name, value):
@@ -9606,20 +9914,23 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "address-family-xr"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                ])
+                                self.in_progress_sessions = None
+                                self.ipv4_only_sessions = None
+                                self.ipv6_only_sessions = None
+                                self.dual_part_up_sessions = None
+                                self.dual_up_sessions = None
+                                self.lac_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-packet"
 
                             def __setattr__(self, name, value):
@@ -9649,8 +9960,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mac-summary" : ("mac_summary", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mac-summary", ("mac_summary", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary))])
+                        self._leafs = OrderedDict()
 
                         self.mac_summary = YList(self)
                         self._segment_path = lambda: "mac-summaries"
@@ -9663,7 +9976,7 @@ class Subscriber(Entity):
                         """
                         MAC address summary
                         
-                        .. attribute:: mac_address  <key>
+                        .. attribute:: mac_address  (key)
                         
                         	Subscriber MAC address
                         	**type**\: str
@@ -9694,10 +10007,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "mac-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
+                            self.ylist_key_names = ['mac_address']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                            ])
+                            self.mac_address = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr()
                             self.state_xr.parent = self
@@ -9708,7 +10024,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "mac-summary" + "[mac-address='" + self.mac_address.get() + "']"
+                            self._segment_path = lambda: "mac-summary" + "[mac-address='" + str(self.mac_address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, ['mac_address'], name, value)
@@ -9747,8 +10063,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "mac-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -9834,22 +10152,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -9923,22 +10244,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -10012,22 +10336,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -10067,8 +10394,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "mac-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -10147,20 +10476,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -10227,20 +10559,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -10307,20 +10642,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -10350,8 +10688,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface-summary" : ("interface_summary", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface-summary", ("interface_summary", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary))])
+                        self._leafs = OrderedDict()
 
                         self.interface_summary = YList(self)
                         self._segment_path = lambda: "interface-summaries"
@@ -10364,7 +10704,7 @@ class Subscriber(Entity):
                         """
                         Interface summary
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface name
                         	**type**\: str
@@ -10395,10 +10735,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "interface-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ])
+                            self.interface_name = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr()
                             self.state_xr.parent = self
@@ -10409,7 +10752,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "interface-summary" + "[interface-name='" + self.interface_name.get() + "']"
+                            self._segment_path = lambda: "interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, ['interface_name'], name, value)
@@ -10448,8 +10791,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "interface-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -10535,22 +10880,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -10624,22 +10972,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -10713,22 +11064,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -10768,8 +11122,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "interface-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -10848,20 +11204,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -10928,20 +11287,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -11008,20 +11370,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -11052,8 +11417,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"authentication-summary" : ("authentication_summary", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("authentication-summary", ("authentication_summary", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary))])
+                        self._leafs = OrderedDict()
 
                         self.authentication_summary = YList(self)
                         self._segment_path = lambda: "authentication-summaries"
@@ -11066,7 +11433,7 @@ class Subscriber(Entity):
                         """
                         authentication summary
                         
-                        .. attribute:: authentication_state  <key>
+                        .. attribute:: authentication_state  (key)
                         
                         	Authentication state
                         	**type**\:  :py:class:`SubscriberAuthenStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthenStateFilterFlag>`
@@ -11095,10 +11462,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "authentication-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.authentication_state = YLeaf(YType.enumeration, "authentication-state")
+                            self.ylist_key_names = ['authentication_state']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('authentication_state', YLeaf(YType.enumeration, 'authentication-state')),
+                            ])
+                            self.authentication_state = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr()
                             self.state_xr.parent = self
@@ -11109,7 +11479,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "authentication-summary" + "[authentication-state='" + self.authentication_state.get() + "']"
+                            self._segment_path = lambda: "authentication-summary" + "[authentication-state='" + str(self.authentication_state) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, ['authentication_state'], name, value)
@@ -11148,8 +11518,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "authentication-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -11235,22 +11607,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -11324,22 +11699,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -11413,22 +11791,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -11468,8 +11849,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "authentication-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -11548,20 +11931,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -11628,20 +12014,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -11708,20 +12097,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -11751,8 +12143,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"state-summary" : ("state_summary", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("state-summary", ("state_summary", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary))])
+                        self._leafs = OrderedDict()
 
                         self.state_summary = YList(self)
                         self._segment_path = lambda: "state-summaries"
@@ -11765,7 +12159,7 @@ class Subscriber(Entity):
                         """
                         State summary
                         
-                        .. attribute:: state  <key>
+                        .. attribute:: state  (key)
                         
                         	Subscriber state
                         	**type**\:  :py:class:`SubscriberStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberStateFilterFlag>`
@@ -11794,10 +12188,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "state-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.state = YLeaf(YType.enumeration, "state")
+                            self.ylist_key_names = ['state']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('state', YLeaf(YType.enumeration, 'state')),
+                            ])
+                            self.state = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr()
                             self.state_xr.parent = self
@@ -11808,7 +12205,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "state-summary" + "[state='" + self.state.get() + "']"
+                            self._segment_path = lambda: "state-summary" + "[state='" + str(self.state) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, ['state'], name, value)
@@ -11847,8 +12244,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "state-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -11934,22 +12333,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -12023,22 +12425,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -12112,22 +12517,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -12167,8 +12575,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "state-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -12247,20 +12657,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -12327,20 +12740,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -12407,20 +12823,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -12451,8 +12870,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv4-address-vrf-summary" : ("ipv4_address_vrf_summary", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipv4-address-vrf-summary", ("ipv4_address_vrf_summary", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary))])
+                        self._leafs = OrderedDict()
 
                         self.ipv4_address_vrf_summary = YList(self)
                         self._segment_path = lambda: "ipv4-address-vrf-summaries"
@@ -12503,12 +12924,15 @@ class Subscriber(Entity):
                             self.yang_parent_name = "ipv4-address-vrf-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.address = YLeaf(YType.str, "address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('address', YLeaf(YType.str, 'address')),
+                            ])
+                            self.vrf_name = None
+                            self.address = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr()
                             self.state_xr.parent = self
@@ -12558,8 +12982,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "ipv4-address-vrf-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -12645,22 +13071,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -12734,22 +13163,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -12823,22 +13255,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -12878,8 +13313,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "ipv4-address-vrf-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -12958,20 +13395,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -13038,20 +13478,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -13118,20 +13561,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -13162,8 +13608,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"address-family-summary" : ("address_family_summary", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("address-family-summary", ("address_family_summary", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary))])
+                        self._leafs = OrderedDict()
 
                         self.address_family_summary = YList(self)
                         self._segment_path = lambda: "address-family-summaries"
@@ -13176,7 +13624,7 @@ class Subscriber(Entity):
                         """
                         Address family summary
                         
-                        .. attribute:: address_family  <key>
+                        .. attribute:: address_family  (key)
                         
                         	Address family
                         	**type**\:  :py:class:`SubscriberAddressFamilyFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAddressFamilyFilterFlag>`
@@ -13205,10 +13653,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "address-family-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.address_family = YLeaf(YType.enumeration, "address-family")
+                            self.ylist_key_names = ['address_family']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                            ])
+                            self.address_family = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr()
                             self.state_xr.parent = self
@@ -13219,7 +13670,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "address-family-summary" + "[address-family='" + self.address_family.get() + "']"
+                            self._segment_path = lambda: "address-family-summary" + "[address-family='" + str(self.address_family) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, ['address_family'], name, value)
@@ -13258,8 +13709,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "address-family-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -13345,22 +13798,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -13434,22 +13890,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -13523,22 +13982,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -13578,8 +14040,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "address-family-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -13658,20 +14122,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -13738,20 +14205,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -13818,20 +14288,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -13861,8 +14334,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"username-summary" : ("username_summary", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("username-summary", ("username_summary", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary))])
+                        self._leafs = OrderedDict()
 
                         self.username_summary = YList(self)
                         self._segment_path = lambda: "username-summaries"
@@ -13875,7 +14350,7 @@ class Subscriber(Entity):
                         """
                         Username summary
                         
-                        .. attribute:: username  <key>
+                        .. attribute:: username  (key)
                         
                         	Subscriber username
                         	**type**\: str
@@ -13906,10 +14381,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "username-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.username = YLeaf(YType.str, "username")
+                            self.ylist_key_names = ['username']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('username', YLeaf(YType.str, 'username')),
+                            ])
+                            self.username = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr()
                             self.state_xr.parent = self
@@ -13920,7 +14398,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "username-summary" + "[username='" + self.username.get() + "']"
+                            self._segment_path = lambda: "username-summary" + "[username='" + str(self.username) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, ['username'], name, value)
@@ -13959,8 +14437,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "username-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -14046,22 +14526,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -14135,22 +14618,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -14224,22 +14710,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -14279,8 +14768,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "username-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -14359,20 +14850,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -14439,20 +14933,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -14519,20 +15016,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -14563,8 +15063,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"access-interface-summary" : ("access_interface_summary", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("access-interface-summary", ("access_interface_summary", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary))])
+                        self._leafs = OrderedDict()
 
                         self.access_interface_summary = YList(self)
                         self._segment_path = lambda: "access-interface-summaries"
@@ -14577,7 +15079,7 @@ class Subscriber(Entity):
                         """
                         Access interface summary
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface name
                         	**type**\: str
@@ -14608,10 +15110,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "access-interface-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ])
+                            self.interface_name = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr()
                             self.state_xr.parent = self
@@ -14622,7 +15127,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "access-interface-summary" + "[interface-name='" + self.interface_name.get() + "']"
+                            self._segment_path = lambda: "access-interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, ['interface_name'], name, value)
@@ -14661,8 +15166,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "access-interface-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -14748,22 +15255,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -14837,22 +15347,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -14926,22 +15439,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -14981,8 +15497,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "access-interface-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -15061,20 +15579,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -15141,20 +15662,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -15221,20 +15745,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -15265,8 +15792,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv4-address-summary" : ("ipv4_address_summary", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipv4-address-summary", ("ipv4_address_summary", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary))])
+                        self._leafs = OrderedDict()
 
                         self.ipv4_address_summary = YList(self)
                         self._segment_path = lambda: "ipv4-address-summaries"
@@ -15279,7 +15808,7 @@ class Subscriber(Entity):
                         """
                         IPv4 address summary
                         
-                        .. attribute:: address  <key>
+                        .. attribute:: address  (key)
                         
                         	Subscriber IPv4 address
                         	**type**\: str
@@ -15310,10 +15839,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "ipv4-address-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
+                            self.ylist_key_names = ['address']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                            ])
+                            self.address = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr()
                             self.state_xr.parent = self
@@ -15324,7 +15856,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "ipv4-address-summary" + "[address='" + self.address.get() + "']"
+                            self._segment_path = lambda: "ipv4-address-summary" + "[address='" + str(self.address) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, ['address'], name, value)
@@ -15363,8 +15895,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "ipv4-address-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -15450,22 +15984,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -15539,22 +16076,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -15628,22 +16168,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -15683,8 +16226,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "ipv4-address-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -15763,20 +16308,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -15843,20 +16391,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -15923,20 +16474,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -15966,8 +16520,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf-summary" : ("vrf_summary", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("vrf-summary", ("vrf_summary", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary))])
+                        self._leafs = OrderedDict()
 
                         self.vrf_summary = YList(self)
                         self._segment_path = lambda: "vrf-summaries"
@@ -15980,7 +16536,7 @@ class Subscriber(Entity):
                         """
                         VRF summary
                         
-                        .. attribute:: vrf_name  <key>
+                        .. attribute:: vrf_name  (key)
                         
                         	VRF name
                         	**type**\: str
@@ -16011,10 +16567,13 @@ class Subscriber(Entity):
                             self.yang_parent_name = "vrf-summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"state-xr" : ("state_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr), "address-family-xr" : ("address_family_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = ['vrf_name']
+                            self._child_container_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
                             self.state_xr = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr()
                             self.state_xr.parent = self
@@ -16025,7 +16584,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._children_yang_names.add("address-family-xr")
-                            self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + self.vrf_name.get() + "']"
+                            self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, ['vrf_name'], name, value)
@@ -16064,8 +16623,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "vrf-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe()
                                 self.pppoe.parent = self
@@ -16151,22 +16712,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -16240,22 +16804,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -16329,22 +16896,25 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "state-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.initialized_sessions = YLeaf(YType.uint32, "initialized-sessions")
-
-                                    self.connecting_sessions = YLeaf(YType.uint32, "connecting-sessions")
-
-                                    self.connected_sessions = YLeaf(YType.uint32, "connected-sessions")
-
-                                    self.activated_sessions = YLeaf(YType.uint32, "activated-sessions")
-
-                                    self.idle_sessions = YLeaf(YType.uint32, "idle-sessions")
-
-                                    self.disconnecting_sessions = YLeaf(YType.uint32, "disconnecting-sessions")
-
-                                    self.end_sessions = YLeaf(YType.uint32, "end-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
+                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
+                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
+                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
+                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
+                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
+                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ])
+                                    self.initialized_sessions = None
+                                    self.connecting_sessions = None
+                                    self.connected_sessions = None
+                                    self.activated_sessions = None
+                                    self.idle_sessions = None
+                                    self.disconnecting_sessions = None
+                                    self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -16384,8 +16954,10 @@ class Subscriber(Entity):
                                 self.yang_parent_name = "vrf-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pppoe" : ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe), "ip-subscriber-dhcp" : ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp), "ip-subscriber-packet" : ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pppoe", ("pppoe", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe)), ("ip-subscriber-dhcp", ("ip_subscriber_dhcp", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp)), ("ip-subscriber-packet", ("ip_subscriber_packet", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pppoe = Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe()
                                 self.pppoe.parent = self
@@ -16464,20 +17036,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
 
                                 def __setattr__(self, name, value):
@@ -16544,20 +17119,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
 
                                 def __setattr__(self, name, value):
@@ -16624,20 +17202,23 @@ class Subscriber(Entity):
                                     self.yang_parent_name = "address-family-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.in_progress_sessions = YLeaf(YType.uint32, "in-progress-sessions")
-
-                                    self.ipv4_only_sessions = YLeaf(YType.uint32, "ipv4-only-sessions")
-
-                                    self.ipv6_only_sessions = YLeaf(YType.uint32, "ipv6-only-sessions")
-
-                                    self.dual_part_up_sessions = YLeaf(YType.uint32, "dual-part-up-sessions")
-
-                                    self.dual_up_sessions = YLeaf(YType.uint32, "dual-up-sessions")
-
-                                    self.lac_sessions = YLeaf(YType.uint32, "lac-sessions")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
+                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
+                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
+                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
+                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
+                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ])
+                                    self.in_progress_sessions = None
+                                    self.ipv4_only_sessions = None
+                                    self.ipv6_only_sessions = None
+                                    self.dual_part_up_sessions = None
+                                    self.dual_up_sessions = None
+                                    self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
 
                                 def __setattr__(self, name, value):
@@ -16651,7 +17232,7 @@ class Subscriber(Entity):
                     .. attribute:: session
                     
                     	Subscriber session information
-                    	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session>`
+                    	**type**\: list of  		 :py:class:`Session_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_>`
                     
                     
 
@@ -16667,8 +17248,10 @@ class Subscriber(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"session" : ("session", Subscriber.Session.Nodes.Node.Sessions.Session)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("session", ("session", Subscriber.Session.Nodes.Node.Sessions.Session_))])
+                        self._leafs = OrderedDict()
 
                         self.session = YList(self)
                         self._segment_path = lambda: "sessions"
@@ -16677,11 +17260,11 @@ class Subscriber(Entity):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions, [], name, value)
 
 
-                    class Session(Entity):
+                    class Session_(Entity):
                         """
                         Subscriber session information
                         
-                        .. attribute:: session_id  <key>
+                        .. attribute:: session_id  (key)
                         
                         	Session ID
                         	**type**\: str
@@ -16691,17 +17274,17 @@ class Subscriber(Entity):
                         .. attribute:: accounting
                         
                         	Accounting information
-                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.Accounting>`
+                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting>`
                         
                         .. attribute:: user_profile_attributes
                         
                         	List of user profile attributes collected for subscriber session
-                        	**type**\:  :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes>`
+                        	**type**\:  :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes>`
                         
                         .. attribute:: mobility_attributes
                         
                         	List of mobility attributes collected for subscriber session
-                        	**type**\:  :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes>`
+                        	**type**\:  :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes>`
                         
                         .. attribute:: session_type
                         
@@ -16888,7 +17471,7 @@ class Subscriber(Entity):
                         .. attribute:: session_change_of_authorization
                         
                         	Subscriber change of authorization information
-                        	**type**\: list of  		 :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization>`
+                        	**type**\: list of  		 :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization>`
                         
                         
 
@@ -16898,101 +17481,104 @@ class Subscriber(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Subscriber.Session.Nodes.Node.Sessions.Session, self).__init__()
+                            super(Subscriber.Session.Nodes.Node.Sessions.Session_, self).__init__()
 
                             self.yang_name = "session"
                             self.yang_parent_name = "sessions"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"accounting" : ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session.Accounting), "user-profile-attributes" : ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes), "mobility-attributes" : ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes)}
-                            self._child_list_classes = {"session-change-of-authorization" : ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization)}
+                            self.ylist_key_names = ['session_id']
+                            self._child_container_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("user-profile-attributes", ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes)), ("mobility-attributes", ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes))])
+                            self._child_list_classes = OrderedDict([("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
+                            self._leafs = OrderedDict([
+                                ('session_id', YLeaf(YType.str, 'session-id')),
+                                ('session_type', YLeaf(YType.enumeration, 'session-type')),
+                                ('pppoe_sub_type', YLeaf(YType.enumeration, 'pppoe-sub-type')),
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                                ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                ('lns_address', YLeaf(YType.str, 'lns-address')),
+                                ('lac_address', YLeaf(YType.str, 'lac-address')),
+                                ('tunnel_client_authentication_id', YLeaf(YType.str, 'tunnel-client-authentication-id')),
+                                ('tunnel_server_authentication_id', YLeaf(YType.str, 'tunnel-server-authentication-id')),
+                                ('session_ip_address', YLeaf(YType.str, 'session-ip-address')),
+                                ('session_ipv6_address', YLeaf(YType.str, 'session-ipv6-address')),
+                                ('session_ipv6_prefix', YLeaf(YType.str, 'session-ipv6-prefix')),
+                                ('delegated_ipv6_prefix', YLeaf(YType.str, 'delegated-ipv6-prefix')),
+                                ('ipv6_interface_id', YLeaf(YType.str, 'ipv6-interface-id')),
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('account_session_id', YLeaf(YType.str, 'account-session-id')),
+                                ('nas_port', YLeaf(YType.str, 'nas-port')),
+                                ('username', YLeaf(YType.str, 'username')),
+                                ('clientname', YLeaf(YType.str, 'clientname')),
+                                ('formattedname', YLeaf(YType.str, 'formattedname')),
+                                ('is_session_authentic', YLeaf(YType.boolean, 'is-session-authentic')),
+                                ('is_session_author', YLeaf(YType.boolean, 'is-session-author')),
+                                ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                                ('session_creation_time', YLeaf(YType.str, 'session-creation-time')),
+                                ('idle_state_change_time', YLeaf(YType.str, 'idle-state-change-time')),
+                                ('total_session_idle_time', YLeaf(YType.uint32, 'total-session-idle-time')),
+                                ('access_interface_name', YLeaf(YType.str, 'access-interface-name')),
+                                ('pending_callbacks', YLeaf(YType.uint64, 'pending-callbacks')),
+                                ('af_up_status', YLeaf(YType.uint32, 'af-up-status')),
+                                ('session_ipv4_state', YLeaf(YType.enumeration, 'session-ipv4-state')),
+                                ('session_ipv6_state', YLeaf(YType.enumeration, 'session-ipv6-state')),
+                            ])
+                            self.session_id = None
+                            self.session_type = None
+                            self.pppoe_sub_type = None
+                            self.interface_name = None
+                            self.vrf_name = None
+                            self.circuit_id = None
+                            self.remote_id = None
+                            self.lns_address = None
+                            self.lac_address = None
+                            self.tunnel_client_authentication_id = None
+                            self.tunnel_server_authentication_id = None
+                            self.session_ip_address = None
+                            self.session_ipv6_address = None
+                            self.session_ipv6_prefix = None
+                            self.delegated_ipv6_prefix = None
+                            self.ipv6_interface_id = None
+                            self.mac_address = None
+                            self.account_session_id = None
+                            self.nas_port = None
+                            self.username = None
+                            self.clientname = None
+                            self.formattedname = None
+                            self.is_session_authentic = None
+                            self.is_session_author = None
+                            self.session_state = None
+                            self.session_creation_time = None
+                            self.idle_state_change_time = None
+                            self.total_session_idle_time = None
+                            self.access_interface_name = None
+                            self.pending_callbacks = None
+                            self.af_up_status = None
+                            self.session_ipv4_state = None
+                            self.session_ipv6_state = None
 
-                            self.session_id = YLeaf(YType.str, "session-id")
-
-                            self.session_type = YLeaf(YType.enumeration, "session-type")
-
-                            self.pppoe_sub_type = YLeaf(YType.enumeration, "pppoe-sub-type")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                            self.remote_id = YLeaf(YType.str, "remote-id")
-
-                            self.lns_address = YLeaf(YType.str, "lns-address")
-
-                            self.lac_address = YLeaf(YType.str, "lac-address")
-
-                            self.tunnel_client_authentication_id = YLeaf(YType.str, "tunnel-client-authentication-id")
-
-                            self.tunnel_server_authentication_id = YLeaf(YType.str, "tunnel-server-authentication-id")
-
-                            self.session_ip_address = YLeaf(YType.str, "session-ip-address")
-
-                            self.session_ipv6_address = YLeaf(YType.str, "session-ipv6-address")
-
-                            self.session_ipv6_prefix = YLeaf(YType.str, "session-ipv6-prefix")
-
-                            self.delegated_ipv6_prefix = YLeaf(YType.str, "delegated-ipv6-prefix")
-
-                            self.ipv6_interface_id = YLeaf(YType.str, "ipv6-interface-id")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.account_session_id = YLeaf(YType.str, "account-session-id")
-
-                            self.nas_port = YLeaf(YType.str, "nas-port")
-
-                            self.username = YLeaf(YType.str, "username")
-
-                            self.clientname = YLeaf(YType.str, "clientname")
-
-                            self.formattedname = YLeaf(YType.str, "formattedname")
-
-                            self.is_session_authentic = YLeaf(YType.boolean, "is-session-authentic")
-
-                            self.is_session_author = YLeaf(YType.boolean, "is-session-author")
-
-                            self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                            self.session_creation_time = YLeaf(YType.str, "session-creation-time")
-
-                            self.idle_state_change_time = YLeaf(YType.str, "idle-state-change-time")
-
-                            self.total_session_idle_time = YLeaf(YType.uint32, "total-session-idle-time")
-
-                            self.access_interface_name = YLeaf(YType.str, "access-interface-name")
-
-                            self.pending_callbacks = YLeaf(YType.uint64, "pending-callbacks")
-
-                            self.af_up_status = YLeaf(YType.uint32, "af-up-status")
-
-                            self.session_ipv4_state = YLeaf(YType.enumeration, "session-ipv4-state")
-
-                            self.session_ipv6_state = YLeaf(YType.enumeration, "session-ipv6-state")
-
-                            self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session.Accounting()
+                            self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting()
                             self.accounting.parent = self
                             self._children_name_map["accounting"] = "accounting"
                             self._children_yang_names.add("accounting")
 
-                            self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes()
+                            self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes()
                             self.user_profile_attributes.parent = self
                             self._children_name_map["user_profile_attributes"] = "user-profile-attributes"
                             self._children_yang_names.add("user-profile-attributes")
 
-                            self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes()
+                            self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes()
                             self.mobility_attributes.parent = self
                             self._children_name_map["mobility_attributes"] = "mobility-attributes"
                             self._children_yang_names.add("mobility-attributes")
 
                             self.session_change_of_authorization = YList(self)
-                            self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                            self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name', 'pending_callbacks', 'af_up_status', 'session_ipv4_state', 'session_ipv6_state'], name, value)
+                            self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', 'session_type', 'pppoe_sub_type', 'interface_name', 'vrf_name', 'circuit_id', 'remote_id', 'lns_address', 'lac_address', 'tunnel_client_authentication_id', 'tunnel_server_authentication_id', 'session_ip_address', 'session_ipv6_address', 'session_ipv6_prefix', 'delegated_ipv6_prefix', 'ipv6_interface_id', 'mac_address', 'account_session_id', 'nas_port', 'username', 'clientname', 'formattedname', 'is_session_authentic', 'is_session_author', 'session_state', 'session_creation_time', 'idle_state_change_time', 'total_session_idle_time', 'access_interface_name', 'pending_callbacks', 'af_up_status', 'session_ipv4_state', 'session_ipv6_state'], name, value)
 
 
                         class Accounting(Entity):
@@ -17002,7 +17588,7 @@ class Subscriber(Entity):
                             .. attribute:: accounting_session
                             
                             	Accounting information
-                            	**type**\: list of  		 :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession>`
+                            	**type**\: list of  		 :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession>`
                             
                             
 
@@ -17012,20 +17598,22 @@ class Subscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session.Accounting, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, self).__init__()
 
                                 self.yang_name = "accounting"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"accounting-session" : ("accounting_session", Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("accounting-session", ("accounting_session", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession))])
+                                self._leafs = OrderedDict()
 
                                 self.accounting_session = YList(self)
                                 self._segment_path = lambda: "accounting"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session.Accounting, [], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, [], name, value)
 
 
                             class AccountingSession(Entity):
@@ -17135,48 +17723,51 @@ class Subscriber(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession, self).__init__()
+                                    super(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, self).__init__()
 
                                     self.yang_name = "accounting-session"
                                     self.yang_parent_name = "accounting"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.accounting_state_rc = YLeaf(YType.uint32, "accounting-state-rc")
-
-                                    self.accounting_stop_state = YLeaf(YType.uint32, "accounting-stop-state")
-
-                                    self.record_context_name = YLeaf(YType.str, "record-context-name")
-
-                                    self.method_list_name = YLeaf(YType.str, "method-list-name")
-
-                                    self.account_session_id = YLeaf(YType.str, "account-session-id")
-
-                                    self.accounting_start_time = YLeaf(YType.str, "accounting-start-time")
-
-                                    self.is_interim_accounting_enabled = YLeaf(YType.boolean, "is-interim-accounting-enabled")
-
-                                    self.interim_interval = YLeaf(YType.uint32, "interim-interval")
-
-                                    self.last_successful_interim_update_time = YLeaf(YType.str, "last-successful-interim-update-time")
-
-                                    self.next_interim_update_attempt_time = YLeaf(YType.uint32, "next-interim-update-attempt-time")
-
-                                    self.last_interim_update_attempt_time = YLeaf(YType.str, "last-interim-update-attempt-time")
-
-                                    self.sent_interim_updates = YLeaf(YType.uint32, "sent-interim-updates")
-
-                                    self.accepted_interim_updates = YLeaf(YType.uint32, "accepted-interim-updates")
-
-                                    self.rejected_interim_updates = YLeaf(YType.uint32, "rejected-interim-updates")
-
-                                    self.sent_interim_update_failures = YLeaf(YType.uint32, "sent-interim-update-failures")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('accounting_state_rc', YLeaf(YType.uint32, 'accounting-state-rc')),
+                                        ('accounting_stop_state', YLeaf(YType.uint32, 'accounting-stop-state')),
+                                        ('record_context_name', YLeaf(YType.str, 'record-context-name')),
+                                        ('method_list_name', YLeaf(YType.str, 'method-list-name')),
+                                        ('account_session_id', YLeaf(YType.str, 'account-session-id')),
+                                        ('accounting_start_time', YLeaf(YType.str, 'accounting-start-time')),
+                                        ('is_interim_accounting_enabled', YLeaf(YType.boolean, 'is-interim-accounting-enabled')),
+                                        ('interim_interval', YLeaf(YType.uint32, 'interim-interval')),
+                                        ('last_successful_interim_update_time', YLeaf(YType.str, 'last-successful-interim-update-time')),
+                                        ('next_interim_update_attempt_time', YLeaf(YType.uint32, 'next-interim-update-attempt-time')),
+                                        ('last_interim_update_attempt_time', YLeaf(YType.str, 'last-interim-update-attempt-time')),
+                                        ('sent_interim_updates', YLeaf(YType.uint32, 'sent-interim-updates')),
+                                        ('accepted_interim_updates', YLeaf(YType.uint32, 'accepted-interim-updates')),
+                                        ('rejected_interim_updates', YLeaf(YType.uint32, 'rejected-interim-updates')),
+                                        ('sent_interim_update_failures', YLeaf(YType.uint32, 'sent-interim-update-failures')),
+                                    ])
+                                    self.accounting_state_rc = None
+                                    self.accounting_stop_state = None
+                                    self.record_context_name = None
+                                    self.method_list_name = None
+                                    self.account_session_id = None
+                                    self.accounting_start_time = None
+                                    self.is_interim_accounting_enabled = None
+                                    self.interim_interval = None
+                                    self.last_successful_interim_update_time = None
+                                    self.next_interim_update_attempt_time = None
+                                    self.last_interim_update_attempt_time = None
+                                    self.sent_interim_updates = None
+                                    self.accepted_interim_updates = None
+                                    self.rejected_interim_updates = None
+                                    self.sent_interim_update_failures = None
                                     self._segment_path = lambda: "accounting-session"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, ['accounting_state_rc', 'accounting_stop_state', 'record_context_name', 'method_list_name', 'account_session_id', 'accounting_start_time', 'is_interim_accounting_enabled', 'interim_interval', 'last_successful_interim_update_time', 'next_interim_update_attempt_time', 'last_interim_update_attempt_time', 'sent_interim_updates', 'accepted_interim_updates', 'rejected_interim_updates', 'sent_interim_update_failures'], name, value)
 
 
                         class UserProfileAttributes(Entity):
@@ -17515,116 +18106,119 @@ class Subscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, self).__init__()
 
                                 self.yang_name = "user-profile-attributes"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4mtu = YLeaf(YType.uint32, "ipv4mtu")
-
-                                self.ipv4_unnumbered = YLeaf(YType.str, "ipv4-unnumbered")
-
-                                self.authorization_service_type = YLeaf(YType.enumeration, "authorization-service-type")
-
-                                self.tunnel_client_endpoint = YLeaf(YType.str, "tunnel-client-endpoint")
-
-                                self.tunnel_server_endpoint = YLeaf(YType.str, "tunnel-server-endpoint")
-
-                                self.tunnel_tos_setting = YLeaf(YType.uint32, "tunnel-tos-setting")
-
-                                self.tunnel_medium = YLeaf(YType.enumeration, "tunnel-medium")
-
-                                self.tunnel_preference = YLeaf(YType.uint32, "tunnel-preference")
-
-                                self.tunnel_client_authentication_id = YLeaf(YType.str, "tunnel-client-authentication-id")
-
-                                self.tunnel_protocol = YLeaf(YType.enumeration, "tunnel-protocol")
-
-                                self.actual_data_rate_upstream = YLeaf(YType.uint32, "actual-data-rate-upstream")
-
-                                self.actual_data_rate_downstream = YLeaf(YType.uint32, "actual-data-rate-downstream")
-
-                                self.attainable_data_rate_upstream = YLeaf(YType.uint32, "attainable-data-rate-upstream")
-
-                                self.attainable_data_rate_downstream = YLeaf(YType.uint32, "attainable-data-rate-downstream")
-
-                                self.pool_address = YLeaf(YType.str, "pool-address")
-
-                                self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                                self.connection_receive_speed = YLeaf(YType.uint32, "connection-receive-speed")
-
-                                self.connection_transmission_speed = YLeaf(YType.uint32, "connection-transmission-speed")
-
-                                self.destination_station_id = YLeaf(YType.str, "destination-station-id")
-
-                                self.primary_dns_server_address = YLeaf(YType.str, "primary-dns-server-address")
-
-                                self.secondary_dns_server_address = YLeaf(YType.str, "secondary-dns-server-address")
-
-                                self.formatted_calling_station_id = YLeaf(YType.str, "formatted-calling-station-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.interface_type = YLeaf(YType.enumeration, "interface-type")
-
-                                self.interim_accounting_interval = YLeaf(YType.uint32, "interim-accounting-interval")
-
-                                self.ingress_access_list = YLeaf(YType.str, "ingress-access-list")
-
-                                self.egress_access_list = YLeaf(YType.str, "egress-access-list")
-
-                                self.ip_netmask = YLeaf(YType.str, "ip-netmask")
-
-                                self.is_interworking_functionality = YLeaf(YType.boolean, "is-interworking-functionality")
-
-                                self.max_interleaving_delay_downstream = YLeaf(YType.uint32, "max-interleaving-delay-downstream")
-
-                                self.max_interleaving_delay_upstream = YLeaf(YType.uint32, "max-interleaving-delay-upstream")
-
-                                self.max_data_rate_upstream = YLeaf(YType.uint32, "max-data-rate-upstream")
-
-                                self.max_data_rate_downstream = YLeaf(YType.uint32, "max-data-rate-downstream")
-
-                                self.min_data_rate_downstream = YLeaf(YType.uint32, "min-data-rate-downstream")
-
-                                self.min_data_rate_downstream_low_power = YLeaf(YType.uint32, "min-data-rate-downstream-low-power")
-
-                                self.min_data_rate_upstream_low_power = YLeaf(YType.uint32, "min-data-rate-upstream-low-power")
-
-                                self.primary_net_bios_server_address = YLeaf(YType.str, "primary-net-bios-server-address")
-
-                                self.secondary_net_bios_server_address = YLeaf(YType.str, "secondary-net-bios-server-address")
-
-                                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.route = YLeaf(YType.str, "route")
-
-                                self.session_timeout = YLeaf(YType.uint32, "session-timeout")
-
-                                self.strict_rpf_packets = YLeaf(YType.uint32, "strict-rpf-packets")
-
-                                self.accounting_session_id = YLeaf(YType.str, "accounting-session-id")
-
-                                self.upstream_parameterized_qos_policy = YLeaf(YType.str, "upstream-parameterized-qos-policy")
-
-                                self.downstream_parameterized_qos_policy = YLeaf(YType.str, "downstream-parameterized-qos-policy")
-
-                                self.upstream_qos_policy = YLeaf(YType.str, "upstream-qos-policy")
-
-                                self.downstream_qos_policy = YLeaf(YType.str, "downstream-qos-policy")
-
-                                self.session_termination_cause = YLeaf(YType.enumeration, "session-termination-cause")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4mtu', YLeaf(YType.uint32, 'ipv4mtu')),
+                                    ('ipv4_unnumbered', YLeaf(YType.str, 'ipv4-unnumbered')),
+                                    ('authorization_service_type', YLeaf(YType.enumeration, 'authorization-service-type')),
+                                    ('tunnel_client_endpoint', YLeaf(YType.str, 'tunnel-client-endpoint')),
+                                    ('tunnel_server_endpoint', YLeaf(YType.str, 'tunnel-server-endpoint')),
+                                    ('tunnel_tos_setting', YLeaf(YType.uint32, 'tunnel-tos-setting')),
+                                    ('tunnel_medium', YLeaf(YType.enumeration, 'tunnel-medium')),
+                                    ('tunnel_preference', YLeaf(YType.uint32, 'tunnel-preference')),
+                                    ('tunnel_client_authentication_id', YLeaf(YType.str, 'tunnel-client-authentication-id')),
+                                    ('tunnel_protocol', YLeaf(YType.enumeration, 'tunnel-protocol')),
+                                    ('actual_data_rate_upstream', YLeaf(YType.uint32, 'actual-data-rate-upstream')),
+                                    ('actual_data_rate_downstream', YLeaf(YType.uint32, 'actual-data-rate-downstream')),
+                                    ('attainable_data_rate_upstream', YLeaf(YType.uint32, 'attainable-data-rate-upstream')),
+                                    ('attainable_data_rate_downstream', YLeaf(YType.uint32, 'attainable-data-rate-downstream')),
+                                    ('pool_address', YLeaf(YType.str, 'pool-address')),
+                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                                    ('connection_receive_speed', YLeaf(YType.uint32, 'connection-receive-speed')),
+                                    ('connection_transmission_speed', YLeaf(YType.uint32, 'connection-transmission-speed')),
+                                    ('destination_station_id', YLeaf(YType.str, 'destination-station-id')),
+                                    ('primary_dns_server_address', YLeaf(YType.str, 'primary-dns-server-address')),
+                                    ('secondary_dns_server_address', YLeaf(YType.str, 'secondary-dns-server-address')),
+                                    ('formatted_calling_station_id', YLeaf(YType.str, 'formatted-calling-station-id')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('interface_type', YLeaf(YType.enumeration, 'interface-type')),
+                                    ('interim_accounting_interval', YLeaf(YType.uint32, 'interim-accounting-interval')),
+                                    ('ingress_access_list', YLeaf(YType.str, 'ingress-access-list')),
+                                    ('egress_access_list', YLeaf(YType.str, 'egress-access-list')),
+                                    ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
+                                    ('is_interworking_functionality', YLeaf(YType.boolean, 'is-interworking-functionality')),
+                                    ('max_interleaving_delay_downstream', YLeaf(YType.uint32, 'max-interleaving-delay-downstream')),
+                                    ('max_interleaving_delay_upstream', YLeaf(YType.uint32, 'max-interleaving-delay-upstream')),
+                                    ('max_data_rate_upstream', YLeaf(YType.uint32, 'max-data-rate-upstream')),
+                                    ('max_data_rate_downstream', YLeaf(YType.uint32, 'max-data-rate-downstream')),
+                                    ('min_data_rate_downstream', YLeaf(YType.uint32, 'min-data-rate-downstream')),
+                                    ('min_data_rate_downstream_low_power', YLeaf(YType.uint32, 'min-data-rate-downstream-low-power')),
+                                    ('min_data_rate_upstream_low_power', YLeaf(YType.uint32, 'min-data-rate-upstream-low-power')),
+                                    ('primary_net_bios_server_address', YLeaf(YType.str, 'primary-net-bios-server-address')),
+                                    ('secondary_net_bios_server_address', YLeaf(YType.str, 'secondary-net-bios-server-address')),
+                                    ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('route', YLeaf(YType.str, 'route')),
+                                    ('session_timeout', YLeaf(YType.uint32, 'session-timeout')),
+                                    ('strict_rpf_packets', YLeaf(YType.uint32, 'strict-rpf-packets')),
+                                    ('accounting_session_id', YLeaf(YType.str, 'accounting-session-id')),
+                                    ('upstream_parameterized_qos_policy', YLeaf(YType.str, 'upstream-parameterized-qos-policy')),
+                                    ('downstream_parameterized_qos_policy', YLeaf(YType.str, 'downstream-parameterized-qos-policy')),
+                                    ('upstream_qos_policy', YLeaf(YType.str, 'upstream-qos-policy')),
+                                    ('downstream_qos_policy', YLeaf(YType.str, 'downstream-qos-policy')),
+                                    ('session_termination_cause', YLeaf(YType.enumeration, 'session-termination-cause')),
+                                ])
+                                self.ipv4mtu = None
+                                self.ipv4_unnumbered = None
+                                self.authorization_service_type = None
+                                self.tunnel_client_endpoint = None
+                                self.tunnel_server_endpoint = None
+                                self.tunnel_tos_setting = None
+                                self.tunnel_medium = None
+                                self.tunnel_preference = None
+                                self.tunnel_client_authentication_id = None
+                                self.tunnel_protocol = None
+                                self.actual_data_rate_upstream = None
+                                self.actual_data_rate_downstream = None
+                                self.attainable_data_rate_upstream = None
+                                self.attainable_data_rate_downstream = None
+                                self.pool_address = None
+                                self.circuit_id = None
+                                self.connection_receive_speed = None
+                                self.connection_transmission_speed = None
+                                self.destination_station_id = None
+                                self.primary_dns_server_address = None
+                                self.secondary_dns_server_address = None
+                                self.formatted_calling_station_id = None
+                                self.interface_name = None
+                                self.interface_type = None
+                                self.interim_accounting_interval = None
+                                self.ingress_access_list = None
+                                self.egress_access_list = None
+                                self.ip_netmask = None
+                                self.is_interworking_functionality = None
+                                self.max_interleaving_delay_downstream = None
+                                self.max_interleaving_delay_upstream = None
+                                self.max_data_rate_upstream = None
+                                self.max_data_rate_downstream = None
+                                self.min_data_rate_downstream = None
+                                self.min_data_rate_downstream_low_power = None
+                                self.min_data_rate_upstream_low_power = None
+                                self.primary_net_bios_server_address = None
+                                self.secondary_net_bios_server_address = None
+                                self.parent_interface_name = None
+                                self.remote_id = None
+                                self.route = None
+                                self.session_timeout = None
+                                self.strict_rpf_packets = None
+                                self.accounting_session_id = None
+                                self.upstream_parameterized_qos_policy = None
+                                self.downstream_parameterized_qos_policy = None
+                                self.upstream_qos_policy = None
+                                self.downstream_qos_policy = None
+                                self.session_termination_cause = None
                                 self._segment_path = lambda: "user-profile-attributes"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes, ['ipv4mtu', 'ipv4_unnumbered', 'authorization_service_type', 'tunnel_client_endpoint', 'tunnel_server_endpoint', 'tunnel_tos_setting', 'tunnel_medium', 'tunnel_preference', 'tunnel_client_authentication_id', 'tunnel_protocol', 'actual_data_rate_upstream', 'actual_data_rate_downstream', 'attainable_data_rate_upstream', 'attainable_data_rate_downstream', 'pool_address', 'circuit_id', 'connection_receive_speed', 'connection_transmission_speed', 'destination_station_id', 'primary_dns_server_address', 'secondary_dns_server_address', 'formatted_calling_station_id', 'interface_name', 'interface_type', 'interim_accounting_interval', 'ingress_access_list', 'egress_access_list', 'ip_netmask', 'is_interworking_functionality', 'max_interleaving_delay_downstream', 'max_interleaving_delay_upstream', 'max_data_rate_upstream', 'max_data_rate_downstream', 'min_data_rate_downstream', 'min_data_rate_downstream_low_power', 'min_data_rate_upstream_low_power', 'primary_net_bios_server_address', 'secondary_net_bios_server_address', 'parent_interface_name', 'remote_id', 'route', 'session_timeout', 'strict_rpf_packets', 'accounting_session_id', 'upstream_parameterized_qos_policy', 'downstream_parameterized_qos_policy', 'upstream_qos_policy', 'downstream_qos_policy', 'session_termination_cause'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, ['ipv4mtu', 'ipv4_unnumbered', 'authorization_service_type', 'tunnel_client_endpoint', 'tunnel_server_endpoint', 'tunnel_tos_setting', 'tunnel_medium', 'tunnel_preference', 'tunnel_client_authentication_id', 'tunnel_protocol', 'actual_data_rate_upstream', 'actual_data_rate_downstream', 'attainable_data_rate_upstream', 'attainable_data_rate_downstream', 'pool_address', 'circuit_id', 'connection_receive_speed', 'connection_transmission_speed', 'destination_station_id', 'primary_dns_server_address', 'secondary_dns_server_address', 'formatted_calling_station_id', 'interface_name', 'interface_type', 'interim_accounting_interval', 'ingress_access_list', 'egress_access_list', 'ip_netmask', 'is_interworking_functionality', 'max_interleaving_delay_downstream', 'max_interleaving_delay_upstream', 'max_data_rate_upstream', 'max_data_rate_downstream', 'min_data_rate_downstream', 'min_data_rate_downstream_low_power', 'min_data_rate_upstream_low_power', 'primary_net_bios_server_address', 'secondary_net_bios_server_address', 'parent_interface_name', 'remote_id', 'route', 'session_timeout', 'strict_rpf_packets', 'accounting_session_id', 'upstream_parameterized_qos_policy', 'downstream_parameterized_qos_policy', 'upstream_qos_policy', 'downstream_qos_policy', 'session_termination_cause'], name, value)
 
 
                         class MobilityAttributes(Entity):
@@ -17692,38 +18286,41 @@ class Subscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, self).__init__()
 
                                 self.yang_name = "mobility-attributes"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mpc_protocol = YLeaf(YType.boolean, "mpc-protocol")
-
-                                self.mobility_ipv4_address = YLeaf(YType.str, "mobility-ipv4-address")
-
-                                self.mobility_default_ipv4_gateway = YLeaf(YType.str, "mobility-default-ipv4-gateway")
-
-                                self.mobility_dns_server = YLeaf(YType.str, "mobility-dns-server")
-
-                                self.mobility_dhcp_server = YLeaf(YType.str, "mobility-dhcp-server")
-
-                                self.mobility_ipv4_netmask = YLeaf(YType.str, "mobility-ipv4-netmask")
-
-                                self.domain_name = YLeaf(YType.str, "domain-name")
-
-                                self.uplink_gre_key = YLeaf(YType.str, "uplink-gre-key")
-
-                                self.downlink_gre_key = YLeaf(YType.str, "downlink-gre-key")
-
-                                self.lease_time = YLeaf(YType.str, "lease-time")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mpc_protocol', YLeaf(YType.boolean, 'mpc-protocol')),
+                                    ('mobility_ipv4_address', YLeaf(YType.str, 'mobility-ipv4-address')),
+                                    ('mobility_default_ipv4_gateway', YLeaf(YType.str, 'mobility-default-ipv4-gateway')),
+                                    ('mobility_dns_server', YLeaf(YType.str, 'mobility-dns-server')),
+                                    ('mobility_dhcp_server', YLeaf(YType.str, 'mobility-dhcp-server')),
+                                    ('mobility_ipv4_netmask', YLeaf(YType.str, 'mobility-ipv4-netmask')),
+                                    ('domain_name', YLeaf(YType.str, 'domain-name')),
+                                    ('uplink_gre_key', YLeaf(YType.str, 'uplink-gre-key')),
+                                    ('downlink_gre_key', YLeaf(YType.str, 'downlink-gre-key')),
+                                    ('lease_time', YLeaf(YType.str, 'lease-time')),
+                                ])
+                                self.mpc_protocol = None
+                                self.mobility_ipv4_address = None
+                                self.mobility_default_ipv4_gateway = None
+                                self.mobility_dns_server = None
+                                self.mobility_dhcp_server = None
+                                self.mobility_ipv4_netmask = None
+                                self.domain_name = None
+                                self.uplink_gre_key = None
+                                self.downlink_gre_key = None
+                                self.lease_time = None
                                 self._segment_path = lambda: "mobility-attributes"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes, ['mpc_protocol', 'mobility_ipv4_address', 'mobility_default_ipv4_gateway', 'mobility_dns_server', 'mobility_dhcp_server', 'mobility_ipv4_netmask', 'domain_name', 'uplink_gre_key', 'downlink_gre_key', 'lease_time'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, ['mpc_protocol', 'mobility_ipv4_address', 'mobility_default_ipv4_gateway', 'mobility_dns_server', 'mobility_dhcp_server', 'mobility_ipv4_netmask', 'domain_name', 'uplink_gre_key', 'downlink_gre_key', 'lease_time'], name, value)
 
 
                         class SessionChangeOfAuthorization(Entity):
@@ -17767,28 +18364,31 @@ class Subscriber(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization, self).__init__()
+                                super(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, self).__init__()
 
                                 self.yang_name = "session-change-of-authorization"
                                 self.yang_parent_name = "session"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.request_acked = YLeaf(YType.boolean, "request-acked")
-
-                                self.request_time = YLeaf(YType.str, "request-time")
-
-                                self.coa_request_attributes = YLeaf(YType.str, "coa-request-attributes")
-
-                                self.reply_time = YLeaf(YType.str, "reply-time")
-
-                                self.coa_reply_attributes = YLeaf(YType.str, "coa-reply-attributes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('request_acked', YLeaf(YType.boolean, 'request-acked')),
+                                    ('request_time', YLeaf(YType.str, 'request-time')),
+                                    ('coa_request_attributes', YLeaf(YType.str, 'coa-request-attributes')),
+                                    ('reply_time', YLeaf(YType.str, 'reply-time')),
+                                    ('coa_reply_attributes', YLeaf(YType.str, 'coa-reply-attributes')),
+                                ])
+                                self.request_acked = None
+                                self.request_time = None
+                                self.coa_request_attributes = None
+                                self.reply_time = None
+                                self.coa_reply_attributes = None
                                 self._segment_path = lambda: "session-change-of-authorization"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization, ['request_acked', 'request_time', 'coa_request_attributes', 'reply_time', 'coa_reply_attributes'], name, value)
+                                self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, ['request_acked', 'request_time', 'coa_request_attributes', 'reply_time', 'coa_reply_attributes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Subscriber()
@@ -17818,8 +18418,10 @@ class IedgeLicenseManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", IedgeLicenseManager.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", IedgeLicenseManager.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = IedgeLicenseManager.Nodes()
         self.nodes.parent = self
@@ -17852,8 +18454,10 @@ class IedgeLicenseManager(Entity):
             self.yang_parent_name = "iedge-license-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", IedgeLicenseManager.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", IedgeLicenseManager.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -17867,7 +18471,7 @@ class IedgeLicenseManager(Entity):
             """
             Location. For example, 0/1/CPU0
             
-            .. attribute:: nodeid  <key>
+            .. attribute:: nodeid  (key)
             
             	The node id to filter on. For example, 0/1/CPU0
             	**type**\: str
@@ -17893,16 +18497,19 @@ class IedgeLicenseManager(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"iedge-license-manager-summary" : ("iedge_license_manager_summary", IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary)}
-                self._child_list_classes = {}
-
-                self.nodeid = YLeaf(YType.str, "nodeid")
+                self.ylist_key_names = ['nodeid']
+                self._child_container_classes = OrderedDict([("iedge-license-manager-summary", ("iedge_license_manager_summary", IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nodeid', YLeaf(YType.str, 'nodeid')),
+                ])
+                self.nodeid = None
 
                 self.iedge_license_manager_summary = IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary()
                 self.iedge_license_manager_summary.parent = self
                 self._children_name_map["iedge_license_manager_summary"] = "iedge-license-manager-summary"
                 self._children_yang_names.add("iedge-license-manager-summary")
-                self._segment_path = lambda: "node" + "[nodeid='" + self.nodeid.get() + "']"
+                self._segment_path = lambda: "node" + "[nodeid='" + str(self.nodeid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -17955,16 +18562,19 @@ class IedgeLicenseManager(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.session_limit = YLeaf(YType.uint32, "session-limit")
-
-                    self.session_threshold = YLeaf(YType.uint32, "session-threshold")
-
-                    self.session_license_count = YLeaf(YType.uint32, "session-license-count")
-
-                    self.session_count = YLeaf(YType.uint32, "session-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('session_limit', YLeaf(YType.uint32, 'session-limit')),
+                        ('session_threshold', YLeaf(YType.uint32, 'session-threshold')),
+                        ('session_license_count', YLeaf(YType.uint32, 'session-license-count')),
+                        ('session_count', YLeaf(YType.uint32, 'session-count')),
+                    ])
+                    self.session_limit = None
+                    self.session_threshold = None
+                    self.session_license_count = None
+                    self.session_count = None
                     self._segment_path = lambda: "iedge-license-manager-summary"
 
                 def __setattr__(self, name, value):

@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class FsyncClock(Enum):
     """
-    FsyncClock
+    FsyncClock (Enum Class)
 
     Fsync clock
 
@@ -36,7 +38,7 @@ class FsyncClock(Enum):
 
 class FsyncQlOption(Enum):
     """
-    FsyncQlOption
+    FsyncQlOption (Enum Class)
 
     Fsync ql option
 
@@ -63,7 +65,7 @@ class FsyncQlOption(Enum):
 
 class FsyncQlValue(Enum):
     """
-    FsyncQlValue
+    FsyncQlValue (Enum Class)
 
     Fsync ql value
 

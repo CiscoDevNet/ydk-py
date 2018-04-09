@@ -7,6 +7,8 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -38,8 +40,10 @@ class MasterKeyAdd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = MasterKeyAdd.Input()
         self.input.parent = self
@@ -71,10 +75,13 @@ class MasterKeyAdd(Entity):
             self.yang_parent_name = "master-key-add"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.new_key = YLeaf(YType.str, "new-key")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('new_key', YLeaf(YType.str, 'new-key')),
+            ])
+            self.new_key = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-add/%s" % self._segment_path()
 
@@ -104,8 +111,10 @@ class MasterKeyDelete(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-delete"
 
     def clone_ptr(self):
@@ -136,8 +145,10 @@ class MasterKeyUpdate(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = MasterKeyUpdate.Input()
         self.input.parent = self
@@ -178,12 +189,15 @@ class MasterKeyUpdate(Entity):
             self.yang_parent_name = "master-key-update"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.old_key = YLeaf(YType.str, "old-key")
-
-            self.new_key = YLeaf(YType.str, "new-key")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('old_key', YLeaf(YType.str, 'old-key')),
+                ('new_key', YLeaf(YType.str, 'new-key')),
+            ])
+            self.old_key = None
+            self.new_key = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-act:master-key-update/%s" % self._segment_path()
 

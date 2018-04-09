@@ -1,67 +1,55 @@
 module Cisco-IOS-XR-ipv4-ospf-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ospf-oper";
+  prefix ipv4-ospf-oper;
 
-
-  prefix "ipv4-ospf-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-ipv4-ospf-oper-sub3 {
     revision-date 2017-05-01;
   }
-
   include Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     revision-date 2017-05-01;
   }
-
   include Cisco-IOS-XR-ipv4-ospf-oper-sub1 {
     revision-date 2017-05-01;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-ospf package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        ospf: OSPF operational data
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2017-01-02" {
+  revision 2017-01-02 {
     description
       "IOS XR 6.2.1 revision.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
@@ -70,64 +58,78 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
     type uint32 {
       range "0..32";
     }
-    description "Ospf prefix length";
+    description
+      "Ospf prefix length";
   }
+
   typedef Ospf-ls {
     type enumeration {
-      enum router {
+      enum "router" {
         value 1;
-        description "Router LSA";
+        description
+          "Router LSA";
       }
-      enum network {
+      enum "network" {
         value 2;
-        description "Network LSA";
+        description
+          "Network LSA";
       }
-      enum summary {
+      enum "summary" {
         value 3;
-        description "Summary LSA";
+        description
+          "Summary LSA";
       }
-      enum asbr-summary {
+      enum "asbr-summary" {
         value 4;
-        description "ASBR-Summary LSA";
+        description
+          "ASBR-Summary LSA";
       }
-      enum external {
+      enum "external" {
         value 5;
-        description "External LSA";
+        description
+          "External LSA";
       }
-      enum nssa-external {
+      enum "nssa-external" {
         value 7;
-        description "NSSA External LSA";
+        description
+          "NSSA External LSA";
       }
-      enum opaque-link {
+      enum "opaque-link" {
         value 9;
-        description "Opaque LSALink Scope";
+        description
+          "Opaque LSALink Scope";
       }
-      enum opaque-area {
+      enum "opaque-area" {
         value 10;
-        description "Opaque LSA Area Scope";
+        description
+          "Opaque LSA Area Scope";
       }
-      enum opaque-as {
+      enum "opaque-as" {
         value 11;
-        description "Opaque LSA AS Scope";
+        description
+          "Opaque LSA AS Scope";
       }
     }
-    description "Ospf ls";
+    description
+      "Ospf ls";
   }
 
   grouping ROUTE {
     description
       "Common node of route-table,
-      multicast-intact-route-table";
-
+       multicast-intact-route-table";
     list route {
-      description "An OSPF route";
+      description
+        "An OSPF route";
       leaf prefix {
         type inet:ipv4-address-no-zone;
-        description "Prefix";
+        description
+          "Prefix";
       }
       leaf prefix-length {
         type Ospf-prefix-length;
-        description "Prefix Length";
+        description
+          "Prefix Length";
       }
       uses OSPF-SH-TOPOLOGY;
     }
@@ -136,31 +138,34 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   grouping FLOOD-LIST {
     description
       "Common node of flood-list-table,
-      flood-list-area-table";
-
+       flood-list-area-table";
     list flood {
       key "interface-name";
-      description "Flooding information for a specific interface";
+      description
+        "Flooding information for a specific interface";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       uses OSPF-SH-FLOOD-LIST;
     }
   }
 
   grouping BORDER-ROUTER-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container border-routers {
-      description "Border router table";
-
+      description
+        "Border router table";
       list border-router {
         key "border-router-id";
-        description "Information for a particular border router";
+        description
+          "Information for a particular border router";
         leaf border-router-id {
           type inet:ipv4-address-no-zone;
-          description "Router address";
+          description
+            "Router address";
         }
         uses OSPF-SH-BORDER-ROUTER;
       }
@@ -168,22 +173,24 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping AREA-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container areas {
-      description "Area table";
-
+      description
+        "Area table";
       list area {
         key "area-id";
-        description "Container for per area data";
-
+        description
+          "Container for per area data";
         container flood-list-area-table {
-          description "Area specific flood list table";
+          description
+            "Area specific flood list table";
           uses FLOOD-LIST;
         }
         leaf area-id {
           type int32;
-          description "Area ID";
+          description
+            "Area ID";
         }
         uses NEIGHBOR-TABLE;
         uses INTERFACE-BRIEF-TABLE;
@@ -197,18 +204,19 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping INTERFACE-STATS-TABLE {
-    description "Common node of statistics, area-statistics";
-
+    description
+      "Common node of statistics, area-statistics";
     container interface-stats-entries {
-      description "Statistics innformation Interface table";
-
+      description
+        "Statistics innformation Interface table";
       list interface-stats-entry {
         key "interface-name";
         description
           "Statistics information for a specific interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         uses OSPF-SH-IF-STATS;
       }
@@ -216,60 +224,60 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping STATISTICS {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container statistics {
-      description "Container for Statistics";
-
+      description
+        "Container for Statistics";
       container spf-stats {
-        description "OSPF SPF statistics";
+        description
+          "OSPF SPF statistics";
         uses OSPF-SH-STATS-SPF;
       }
-
       container rib-batch-stats {
         description
           "Stats concerning RIB route updates using the
-          Batching API";
+           Batching API";
         uses OSPF-SH-RIB-BATCH-PRIORITY-QUEUES;
       }
-
       container issu-stats {
-        description "OSPF ISSU statistics";
+        description
+          "OSPF ISSU statistics";
         uses OSPF-SH-NSR-STATS;
       }
-
       container rib-thread-stats {
-        description "OSPF RIB thread statistics";
+        description
+          "OSPF RIB thread statistics";
         uses OSPF-SH-STATS-WORK-QUEUES;
       }
-
       container nsr-pl-stats {
-        description "OSPF NSR packet library statistics";
+        description
+          "OSPF NSR packet library statistics";
         uses OSPF-SH-NCD-STATS;
       }
-
       container nsr-stats {
-        description "OSPF NSR thread statistics";
+        description
+          "OSPF NSR thread statistics";
         uses OSPF-SH-NSR-STATS;
       }
-
       container frr-stats {
-        description "OSPF fast-reroute statistics";
+        description
+          "OSPF fast-reroute statistics";
         uses OSPF-SH-IPFRR-STATS;
       }
-
       container te-stats {
-        description "OSPF TE IO statistics";
+        description
+          "OSPF TE IO statistics";
         uses OSPF-SH-TE-STATS;
       }
-
       container protocol-stats {
-        description "OSPF Protocol statistics";
+        description
+          "OSPF Protocol statistics";
         uses OSPF-SH-PROTOPKT-STATS;
       }
-
       container raw-io-stats {
-        description "OSPF RAW IO statistics";
+        description
+          "OSPF RAW IO statistics";
         uses OSPF-SH-RAW-STATS;
       }
       uses INTERFACE-STATS-TABLE;
@@ -277,88 +285,97 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping OSPF-SUMMARY {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container ospf-summary {
-      description "Fast-reroute topology information";
+      description
+        "Fast-reroute topology information";
       uses OSPF-SH-STATS-AGGT;
     }
   }
 
   grouping PROCESS-INFORMATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container process-information {
-      description "Container for OSPF Process information";
-
+      description
+        "Container for OSPF Process information";
       container protocol-areas {
-        description "Protocol Area table";
-
+        description
+          "Protocol Area table";
         list protocol-area {
-          description "Area information";
+          description
+            "Area information";
           leaf area-id {
             type int32;
-            description "Area ID if in integer format";
+            description
+              "Area ID if in integer format";
           }
           leaf address {
             type inet:ipv4-address-no-zone;
-            description "Area ID if in IP address format";
+            description
+              "Area ID if in IP address format";
           }
           uses OSPF-SH-PROTO-AREA;
         }
       }
-
       container protocol-summary {
-        description "Basic OSPF protocol information";
+        description
+          "Basic OSPF protocol information";
         uses OSPF-SH-PROTOCOL;
       }
-
       container redistributions {
-        description "Redistribution information table";
-
+        description
+          "Redistribution information table";
         list redistribution {
-          description "Redistribution information";
+          description
+            "Redistribution information";
           leaf protocol-name {
             type xr:Cisco-ios-xr-string;
-            description "Protocol name";
+            description
+              "Protocol name";
           }
           leaf process-name {
             type xr:Cisco-ios-xr-string;
-            description "Process name";
+            description
+              "Process name";
           }
           uses OSPF-SH-REDIST;
         }
       }
-
       container process-areas {
-        description "Process Area table";
-
+        description
+          "Process Area table";
         list process-area {
-          description "Detailed information for a particular area";
+          description
+            "Detailed information for a particular area";
           leaf area-id {
             type int32;
-            description "Area ID if in integer format";
+            description
+              "Area ID if in integer format";
           }
           leaf address {
             type inet:ipv4-address-no-zone;
-            description "Area ID if in IP address format";
+            description
+              "Area ID if in IP address format";
           }
           uses OSPF-SH-AREA;
         }
       }
-
       container process-summary {
-        description "Basic OSPF summary information";
+        description
+          "Basic OSPF summary information";
         uses OSPF-SH-SUMMARY;
       }
     }
   }
 
   grouping ADJACENCY-INFORMATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container adjacency-information {
-      description "Container for OSPF Interfaces";
+      description
+        "Container for OSPF Interfaces";
       uses NEIGHBOR-TABLE;
       uses REQUEST-LIST-TABLE;
       uses RETRANSMISSION-LIST-TABLE;
@@ -367,21 +384,23 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping RETRANSMISSION-LIST-TABLE {
-    description "Common node of adjacency-information, area";
-
+    description
+      "Common node of adjacency-information, area";
     container retransmissions {
-      description "Retransmission list table";
-
+      description
+        "Retransmission list table";
       list retransmission {
         description
           "Retransmission list for a particular adjacency";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         leaf neighbor-address {
           type inet:ipv4-address-no-zone;
-          description "Neighbor address";
+          description
+            "Neighbor address";
         }
         uses OSPF-SH-RETRANS-LIST;
       }
@@ -389,32 +408,38 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping LSA-SUMMARY-TABLE {
-    description "Common node of database, database-area";
-
+    description
+      "Common node of database, database-area";
     container lsa-summaries {
-      description "Link state advertisement summary table";
-
+      description
+        "Link state advertisement summary table";
       list lsa-summary {
-        description "LSA summary information";
+        description
+          "LSA summary information";
         leaf area-id {
           type int32;
-          description "Area ID";
+          description
+            "Area ID";
         }
         leaf ls-type {
           type Ospf-ls;
-          description "Link state type";
+          description
+            "Link state type";
         }
         leaf ls-id {
           type inet:ipv4-address-no-zone;
-          description "Link state ID";
+          description
+            "Link state ID";
         }
         leaf advertising-router {
           type inet:ipv4-address-no-zone;
-          description "Advertising Router ID";
+          description
+            "Advertising Router ID";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         uses OSPF-SH-DATABASE;
       }
@@ -422,238 +447,256 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping ROUTE-INFORMATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container route-information {
-      description "Container for OSPF routing tables";
-
+      description
+        "Container for OSPF routing tables";
       container backup-routes {
-        description "OSPF Route Table Including Backup Paths";
-
+        description
+          "OSPF Route Table Including Backup Paths";
         list backup-route {
-          description "OSPF route including backup paths";
+          description
+            "OSPF route including backup paths";
           leaf prefix {
             type inet:ipv4-address-no-zone;
-            description "Prefix";
+            description
+              "Prefix";
           }
           leaf prefix-length {
             type Ospf-prefix-length;
-            description "Prefix Length";
+            description
+              "Prefix Length";
           }
           uses OSPF-SH-TOPOLOGY-BACKUP;
         }
       }
-
       container multicast-intact-route-table {
         description
           "OSPF Route Table including multicast-intact
-          routes";
+           routes";
         uses ROUTE;
       }
-
       container multicast-intact-backup-routes {
         description
           "OSPF Route Table Including Multicast intact
-          Backup Paths";
-
+           Backup Paths";
         list multicast-intact-backup-route {
-          description "OSPF route including multicast backup paths";
+          description
+            "OSPF route including multicast backup paths";
           leaf prefix {
             type inet:ipv4-address-no-zone;
-            description "Prefix";
+            description
+              "Prefix";
           }
           leaf prefix-length {
             type Ospf-prefix-length;
-            description "Prefix Length";
+            description
+              "Prefix Length";
           }
           uses OSPF-SH-TOPOLOGY-BACKUP;
         }
       }
-
       container summary-information {
-        description "OSPF route summary statistics";
+        description
+          "OSPF route summary statistics";
         uses OSPF-SH-ROUTE-SUMMARY;
       }
-
       container connected-routes {
-        description "OSPF Connected Route Table";
-
+        description
+          "OSPF Connected Route Table";
         list connected-route {
-          description "Connected route";
+          description
+            "Connected route";
           leaf prefix {
             type inet:ipv4-address-no-zone;
-            description "Prefix";
+            description
+              "Prefix";
           }
           leaf prefix-length {
             type Ospf-prefix-length;
-            description "Prefix Length";
+            description
+              "Prefix Length";
           }
           uses OSPF-SH-TOPOLOGY;
         }
       }
-
       container local-routes {
-        description "OSPF Local Route Table";
-
+        description
+          "OSPF Local Route Table";
         list local-route {
-          description "Local route";
+          description
+            "Local route";
           leaf prefix {
             type inet:ipv4-address-no-zone;
-            description "Prefix";
+            description
+              "Prefix";
           }
           leaf prefix-length {
             type Ospf-prefix-length;
-            description "Prefix Length";
+            description
+              "Prefix Length";
           }
           uses OSPF-SH-TOPOLOGY;
         }
       }
-
       container route-areas {
-        description "OSPF Area Route Table";
-
+        description
+          "OSPF Area Route Table";
         list route-area {
           key "area-id";
-          description "OSPF Area Route";
-
+          description
+            "OSPF Area Route";
           container multicast-intact-backup-route-areas {
             description
               "OSPF Route Table Including Multicast Intace
-              Backup Paths in an area";
-
+               Backup Paths in an area";
             list multicast-intact-backup-route-area {
               description
                 "OSPF route including Multicast intact backup
-                paths";
+                 paths";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY-BACKUP;
             }
           }
-
           container connected-route-areas {
-            description "OSPF Connected Route Table in an area";
-
+            description
+              "OSPF Connected Route Table in an area";
             list connected-route-area {
-              description "Connected route";
+              description
+                "Connected route";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY;
             }
           }
-
           container backup-route-areas {
             description
               "OSPF Route Table Including Backup Paths in an
-              area";
-
+               area";
             list backup-route-area {
-              description "OSPF route including backup paths";
+              description
+                "OSPF route including backup paths";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY-BACKUP;
             }
           }
-
           container route-area-informations {
-            description "OSPF Area Route Entry";
-
+            description
+              "OSPF Area Route Entry";
             list route-area-information {
-              description "An OSPF route";
+              description
+                "An OSPF route";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY;
             }
           }
-
           container multicast-intact-route-areas {
             description
               "OSPF Area multicast-intact included route
-              entry";
-
+               entry";
             list multicast-intact-route-area {
-              description "A Muliticast OSPF route in an area";
+              description
+                "A Muliticast OSPF route in an area";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY;
             }
           }
-
           container summary-area-information {
-            description "OSPF route summary statistics";
+            description
+              "OSPF route summary statistics";
             uses OSPF-SH-ROUTE-SUMMARY;
           }
-
           container local-route-areas {
-            description "OSPF Local Route Table";
-
+            description
+              "OSPF Local Route Table";
             list local-route-area {
-              description "Local route";
+              description
+                "Local route";
               leaf prefix {
                 type inet:ipv4-address-no-zone;
-                description "Prefix";
+                description
+                  "Prefix";
               }
               leaf prefix-length {
                 type Ospf-prefix-length;
-                description "Prefix Length";
+                description
+                  "Prefix Length";
               }
               uses OSPF-SH-TOPOLOGY;
             }
           }
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
         }
       }
-
       container route-table {
-        description "OSPF Route Table";
+        description
+          "OSPF Route Table";
         uses ROUTE;
       }
-
       container external-routes {
-        description "OSPF External Route Table";
-
+        description
+          "OSPF External Route Table";
         list external-route {
-          description "OSPF external route";
+          description
+            "OSPF external route";
           leaf prefix {
             type inet:ipv4-address-no-zone;
-            description "Prefix";
+            description
+              "Prefix";
           }
           leaf prefix-length {
             type Ospf-prefix-length;
-            description "Prefix Length";
+            description
+              "Prefix Length";
           }
           uses OSPF-SH-ROUTE-EXT;
         }
@@ -662,23 +705,26 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping FAST-REROUTE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container fast-reroute {
-      description "Container for FastReroute";
-
+      description
+        "Container for FastReroute";
       container topologies {
-        description "Fast-reroute topology information table";
-
+        description
+          "Fast-reroute topology information table";
         list topology {
-          description "Fast-reroute topology information";
+          description
+            "Fast-reroute topology information";
           leaf router-id {
             type inet:ipv4-address-no-zone;
-            description "Router ID";
+            description
+              "Router ID";
           }
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
           uses OSPF-SH-IPFRR-TOPO;
         }
@@ -689,48 +735,52 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   grouping POLICY-MI {
     description
       "Common node of policy-ipv4-active,
-      policy-ipv4-backup";
-
+       policy-ipv4-backup";
     list policy-mi {
       key "mi-id";
-      description "Mapping Item";
+      description
+        "Mapping Item";
       leaf mi-id {
         type xr:Cisco-ios-xr-string;
-        description "Mapping Item ID (0, 1, 2, ...)";
+        description
+          "Mapping Item ID (0, 1, 2, ...)";
       }
       uses SRMS-MI-T-B;
     }
   }
 
   grouping MPLS-TE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container mpls-te {
-      description "Container for MPLS TE";
-
+      description
+        "Container for MPLS TE";
       container mpls-te-links {
-        description "MPLS TE link information table";
-
+        description
+          "MPLS TE link information table";
         list mpls-te-link {
           key "area-id";
-          description "MPLS TE link information";
+          description
+            "MPLS TE link information";
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
           uses OSPF-SH-MPLS;
         }
       }
-
       container mpls-te-fragments {
-        description "MPLS TE Fragment information table";
-
+        description
+          "MPLS TE Fragment information table";
         list mpls-te-fragment {
           key "area-id";
-          description "MPLS TE Fragment";
+          description
+            "MPLS TE Fragment";
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
           uses OSPF-SH-MPLS;
         }
@@ -739,29 +789,33 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping FLOOD-LIST-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container flood-list-table {
-      description "Flood list table";
+      description
+        "Flood list table";
       uses FLOOD-LIST;
     }
   }
 
   grouping SUMMARY-PREFIX-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container summary-prefixes {
-      description "Summary prefix table";
-
+      description
+        "Summary prefix table";
       list summary-prefix {
-        description "Summary prefix information";
+        description
+          "Summary prefix information";
         leaf prefix {
           type inet:ipv4-address-no-zone;
-          description "Summary Prefix";
+          description
+            "Summary Prefix";
         }
         leaf netmask {
           type inet:ipv4-address-no-zone;
-          description "Summary Mask";
+          description
+            "Summary Mask";
         }
         uses OSPF-SH-SUMMARY-ADDRESS;
       }
@@ -769,20 +823,23 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping NEIGHBOR-DETAIL-TABLE {
-    description "Common node of adjacency-information, area";
-
+    description
+      "Common node of adjacency-information, area";
     container neighbor-details {
-      description "Neighbor detail table";
-
+      description
+        "Neighbor detail table";
       list neighbor-detail {
-        description "A single neighbor's detail information";
+        description
+          "A single neighbor's detail information";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         leaf neighbor-address {
           type inet:ipv4-address-no-zone;
-          description "Neighbor address";
+          description
+            "Neighbor address";
         }
         uses OSPF-SH-NEIGHBOR-DETAIL;
       }
@@ -790,20 +847,23 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping REQUEST-LIST-TABLE {
-    description "Common node of adjacency-information, area";
-
+    description
+      "Common node of adjacency-information, area";
     container requests {
-      description "Request List table";
-
+      description
+        "Request List table";
       list request {
-        description "Request list for a particular adjacency";
+        description
+          "Request list for a particular adjacency";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface";
+          description
+            "Interface";
         }
         leaf neighbor-address {
           type inet:ipv4-address-no-zone;
-          description "Neighbor address";
+          description
+            "Neighbor address";
         }
         uses OSPF-SH-REQUEST-LIST;
       }
@@ -811,26 +871,29 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping AREA-STATISTICS {
-    description "Common node of default-vrf, vrf, area";
-
+    description
+      "Common node of default-vrf, vrf, area";
     container area-statistics {
-      description "Container for Statistics";
+      description
+        "Container for Statistics";
       uses INTERFACE-STATS-TABLE;
     }
   }
 
   grouping INTERFACE-TABLE {
-    description "Common node of interface-information, area";
-
+    description
+      "Common node of interface-information, area";
     container interfaces {
-      description "OSPF Interface Table";
-
+      description
+        "OSPF Interface Table";
       list interface {
         key "interface-name";
-        description "OSPF interface information";
+        description
+          "OSPF interface information";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         uses OSPF-SH-INTERFACE;
       }
@@ -838,17 +901,19 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping INTERFACE-BRIEF-TABLE {
-    description "Common node of interface-information, area";
-
+    description
+      "Common node of interface-information, area";
     container interface-briefs {
-      description "OSPF Interface Brief Table";
-
+      description
+        "OSPF Interface Brief Table";
       list interface-brief {
         key "interface-name";
-        description "OSPF interface brief information";
+        description
+          "OSPF interface brief information";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface";
+          description
+            "Interface";
         }
         uses OSPF-SH-IF-BRIEF;
       }
@@ -856,44 +921,46 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping DATABASE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container database {
-      description "OSPF Link State Database";
-
+      description
+        "OSPF Link State Database";
       container database-areas {
-        description "Per-Area view of Link state database";
-
+        description
+          "Per-Area view of Link state database";
         list database-area {
           key "area-id";
-          description "Per-Area Link State Database data";
+          description
+            "Per-Area Link State Database data";
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
           uses LSA-TABLE;
           uses LSA-SUMMARY-TABLE;
         }
       }
-
       container database-summaries {
-        description "Link State database summary table";
-
+        description
+          "Link State database summary table";
         list database-summary {
           key "area-id";
           description
             "Link State Database summary for a particular
-            area";
+             area";
           leaf area-id {
             type int32;
-            description "Area ID";
+            description
+              "Area ID";
           }
           uses OSPF-SH-DB-AREA-SUM;
         }
       }
-
       container database-summary-as {
-        description "Link State Database summary for the AS";
+        description
+          "Link State Database summary for the AS";
         uses OSPF-SH-DB-AS-SUM;
       }
       uses LSA-TABLE;
@@ -902,20 +969,22 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping INTERFACE-INFORMATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container interface-information {
-      description "Container for OSPF Interfaces/links";
-
+      description
+        "Container for OSPF Interfaces/links";
       container virtual-links {
-        description "Virtual Link table";
-
+        description
+          "Virtual Link table";
         list virtual-link {
           key "virtual-link-name";
-          description "Information for one Virtual link";
+          description
+            "Information for one Virtual link";
           leaf virtual-link-name {
             type xr:Cisco-ios-xr-string;
-            description "Virtual link";
+            description
+              "Virtual link";
           }
           uses OSPF-SH-VIRTUAL-LINKS;
         }
@@ -926,20 +995,23 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping NEIGHBOR-TABLE {
-    description "Common node of adjacency-information, area";
-
+    description
+      "Common node of adjacency-information, area";
     container neighbors {
-      description "Neighbor table";
-
+      description
+        "Neighbor table";
       list neighbor {
-        description "Neighbor information";
+        description
+          "Neighbor information";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         leaf neighbor-address {
           type inet:ipv4-address-no-zone;
-          description "Neighbor address";
+          description
+            "Neighbor address";
         }
         uses OSPF-SH-NEIGHBOR;
       }
@@ -947,32 +1019,38 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
   }
 
   grouping LSA-TABLE {
-    description "Common node of database-area, database";
-
+    description
+      "Common node of database-area, database";
     container lsas {
-      description "Link State Database Table";
-
+      description
+        "Link State Database Table";
       list lsa {
-        description "Link State Advertisement information";
+        description
+          "Link State Advertisement information";
         leaf area-id {
           type int32;
-          description "Area ID";
+          description
+            "Area ID";
         }
         leaf ls-type {
           type Ospf-ls;
-          description "Link state type";
+          description
+            "Link state type";
         }
         leaf ls-id {
           type inet:ipv4-address-no-zone;
-          description "Link state ID";
+          description
+            "Link state ID";
         }
         leaf advertising-router {
           type inet:ipv4-address-no-zone;
-          description "Advertising Router ID";
+          description
+            "Advertising Router ID";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "InterfaceName";
+          description
+            "InterfaceName";
         }
         uses OSPF-SH-DATABASE-DETAIL;
       }
@@ -981,39 +1059,38 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
 
   container ospf {
     config false;
-    description "OSPF operational data";
-
+    description
+      "OSPF operational data";
     container processes {
-      description "Table for each process";
-
+      description
+        "Table for each process";
       list process {
         key "process-name";
         description
           "Operational data for a particular OSPF process";
-
         container vrfs {
-          description "Table for each VRF";
-
+          description
+            "Table for each VRF";
           list vrf {
             key "vrf-name";
             description
               "Operational data for a particular VRF
-              (instance) in the OSPF process";
-
+               (instance) in the OSPF process";
             container interface-vrf-information {
               description
                 "Container for OSPF Interfaces/links under a
-                VRF";
-
+                 VRF";
               container sham-links {
-                description "Sham Link table";
-
+                description
+                  "Sham Link table";
                 list sham-link {
                   key "sham-link-name";
-                  description "Information for one Sham link";
+                  description
+                    "Information for one Sham link";
                   leaf sham-link-name {
                     type xr:Cisco-ios-xr-string;
-                    description "Sham link";
+                    description
+                      "Sham link";
                   }
                   uses OSPF-SH-SHAM-LINKS;
                 }
@@ -1021,7 +1098,8 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
             }
             leaf vrf-name {
               type xr:Cisco-ios-xr-string;
-              description "VRF Name";
+              description
+                "VRF Name";
             }
             uses FLOOD-LIST-TABLE;
             uses MPLS-TE;
@@ -1039,35 +1117,33 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
             uses FAST-REROUTE;
           }
         }
-
         container srms {
           description
             "Segment Routing Mapping Server operational
-            data";
-
+             data";
           container policy {
-            description "Policy operational data";
-
+            description
+              "Policy operational data";
             container policy-ipv4 {
-              description "IPv4 policy operational data";
-
+              description
+                "IPv4 policy operational data";
               container policy-ipv4-backup {
-                description "IPv4 backup policy operational data";
+                description
+                  "IPv4 backup policy operational data";
                 uses POLICY-MI;
               }
-
               container policy-ipv4-active {
-                description "IPv4 active policy operational data";
+                description
+                  "IPv4 active policy operational data";
                 uses POLICY-MI;
               }
             }
           }
         }
-
         container default-vrf {
           description
             "Operational data for the default VRF
-            (instance) in the OSPF process";
+             (instance) in the OSPF process";
           uses FLOOD-LIST-TABLE;
           uses MPLS-TE;
           uses STATISTICS;
@@ -1085,7 +1161,8 @@ module Cisco-IOS-XR-ipv4-ospf-oper {
         }
         leaf process-name {
           type xr:Cisco-ios-xr-string;
-          description "OSPF process";
+          description
+            "OSPF process";
         }
       }
     }

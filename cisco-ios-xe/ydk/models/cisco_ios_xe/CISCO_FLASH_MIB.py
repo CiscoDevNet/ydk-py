@@ -4,6 +4,8 @@ This MIB provides for the management of Cisco
 Flash Devices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,7 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class FlashFileType(Enum):
     """
-    FlashFileType
+    FlashFileType (Enum Class)
 
     File types for files in a flash.
 
@@ -123,8 +125,10 @@ class CISCOFLASHMIB(Entity):
         self.yang_parent_name = "CISCO-FLASH-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoFlashDevice" : ("ciscoflashdevice", CISCOFLASHMIB.Ciscoflashdevice), "ciscoFlashCfg" : ("ciscoflashcfg", CISCOFLASHMIB.Ciscoflashcfg), "ciscoFlashDeviceTable" : ("ciscoflashdevicetable", CISCOFLASHMIB.Ciscoflashdevicetable), "ciscoFlashChipTable" : ("ciscoflashchiptable", CISCOFLASHMIB.Ciscoflashchiptable), "ciscoFlashPartitionTable" : ("ciscoflashpartitiontable", CISCOFLASHMIB.Ciscoflashpartitiontable), "ciscoFlashFileTable" : ("ciscoflashfiletable", CISCOFLASHMIB.Ciscoflashfiletable), "ciscoFlashFileByTypeTable" : ("ciscoflashfilebytypetable", CISCOFLASHMIB.Ciscoflashfilebytypetable), "ciscoFlashCopyTable" : ("ciscoflashcopytable", CISCOFLASHMIB.Ciscoflashcopytable), "ciscoFlashPartitioningTable" : ("ciscoflashpartitioningtable", CISCOFLASHMIB.Ciscoflashpartitioningtable), "ciscoFlashMiscOpTable" : ("ciscoflashmiscoptable", CISCOFLASHMIB.Ciscoflashmiscoptable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoFlashDevice", ("ciscoflashdevice", CISCOFLASHMIB.Ciscoflashdevice)), ("ciscoFlashCfg", ("ciscoflashcfg", CISCOFLASHMIB.Ciscoflashcfg)), ("ciscoFlashDeviceTable", ("ciscoflashdevicetable", CISCOFLASHMIB.Ciscoflashdevicetable)), ("ciscoFlashChipTable", ("ciscoflashchiptable", CISCOFLASHMIB.Ciscoflashchiptable)), ("ciscoFlashPartitionTable", ("ciscoflashpartitiontable", CISCOFLASHMIB.Ciscoflashpartitiontable)), ("ciscoFlashFileTable", ("ciscoflashfiletable", CISCOFLASHMIB.Ciscoflashfiletable)), ("ciscoFlashFileByTypeTable", ("ciscoflashfilebytypetable", CISCOFLASHMIB.Ciscoflashfilebytypetable)), ("ciscoFlashCopyTable", ("ciscoflashcopytable", CISCOFLASHMIB.Ciscoflashcopytable)), ("ciscoFlashPartitioningTable", ("ciscoflashpartitioningtable", CISCOFLASHMIB.Ciscoflashpartitioningtable)), ("ciscoFlashMiscOpTable", ("ciscoflashmiscoptable", CISCOFLASHMIB.Ciscoflashmiscoptable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciscoflashdevice = CISCOFLASHMIB.Ciscoflashdevice()
         self.ciscoflashdevice.parent = self
@@ -203,10 +207,13 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciscoflashdevicessupported = YLeaf(YType.uint32, "ciscoFlashDevicesSupported")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ciscoflashdevicessupported', YLeaf(YType.uint32, 'ciscoFlashDevicesSupported')),
+            ])
+            self.ciscoflashdevicessupported = None
             self._segment_path = lambda: "ciscoFlashDevice"
             self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self._segment_path()
 
@@ -247,14 +254,17 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciscoflashcfgdevinsnotifenable = YLeaf(YType.boolean, "ciscoFlashCfgDevInsNotifEnable")
-
-            self.ciscoflashcfgdevremnotifenable = YLeaf(YType.boolean, "ciscoFlashCfgDevRemNotifEnable")
-
-            self.ciscoflashpartitionlowspacenotifenable = YLeaf(YType.boolean, "ciscoFlashPartitionLowSpaceNotifEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ciscoflashcfgdevinsnotifenable', YLeaf(YType.boolean, 'ciscoFlashCfgDevInsNotifEnable')),
+                ('ciscoflashcfgdevremnotifenable', YLeaf(YType.boolean, 'ciscoFlashCfgDevRemNotifEnable')),
+                ('ciscoflashpartitionlowspacenotifenable', YLeaf(YType.boolean, 'ciscoFlashPartitionLowSpaceNotifEnable')),
+            ])
+            self.ciscoflashcfgdevinsnotifenable = None
+            self.ciscoflashcfgdevremnotifenable = None
+            self.ciscoflashpartitionlowspacenotifenable = None
             self._segment_path = lambda: "ciscoFlashCfg"
             self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self._segment_path()
 
@@ -311,8 +321,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashDeviceEntry" : ("ciscoflashdeviceentry", CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashDeviceEntry", ("ciscoflashdeviceentry", CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashdeviceentry = YList(self)
             self._segment_path = lambda: "ciscoFlashDeviceTable"
@@ -333,7 +345,7 @@ class CISCOFLASHMIB(Entity):
             a non\-removable device that has not been installed
             will not have an entry in the table.
             
-            .. attribute:: ciscoflashdeviceindex  <key>
+            .. attribute:: ciscoflashdeviceindex  (key)
             
             	Flash device sequence number to index within the table of initialized flash devices. The lowest value should be 1. The highest should be less than or equal to the value of the ciscoFlashDevicesSupported object
             	**type**\: int
@@ -472,43 +484,46 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashDeviceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashdeviceindex = YLeaf(YType.uint32, "ciscoFlashDeviceIndex")
-
-                self.ciscoflashdevicesize = YLeaf(YType.uint32, "ciscoFlashDeviceSize")
-
-                self.ciscoflashdeviceminpartitionsize = YLeaf(YType.uint32, "ciscoFlashDeviceMinPartitionSize")
-
-                self.ciscoflashdevicemaxpartitions = YLeaf(YType.uint32, "ciscoFlashDeviceMaxPartitions")
-
-                self.ciscoflashdevicepartitions = YLeaf(YType.uint32, "ciscoFlashDevicePartitions")
-
-                self.ciscoflashdevicechipcount = YLeaf(YType.int32, "ciscoFlashDeviceChipCount")
-
-                self.ciscoflashdevicename = YLeaf(YType.str, "ciscoFlashDeviceName")
-
-                self.ciscoflashdevicedescr = YLeaf(YType.str, "ciscoFlashDeviceDescr")
-
-                self.ciscoflashdevicecontroller = YLeaf(YType.str, "ciscoFlashDeviceController")
-
-                self.ciscoflashdevicecard = YLeaf(YType.str, "ciscoFlashDeviceCard")
-
-                self.ciscoflashdeviceprogrammingjumper = YLeaf(YType.enumeration, "ciscoFlashDeviceProgrammingJumper")
-
-                self.ciscoflashdeviceinittime = YLeaf(YType.uint32, "ciscoFlashDeviceInitTime")
-
-                self.ciscoflashdeviceremovable = YLeaf(YType.boolean, "ciscoFlashDeviceRemovable")
-
-                self.ciscoflashphyentindex = YLeaf(YType.int32, "ciscoFlashPhyEntIndex")
-
-                self.ciscoflashdevicenameextended = YLeaf(YType.str, "ciscoFlashDeviceNameExtended")
-
-                self.ciscoflashdevicesizeextended = YLeaf(YType.uint64, "ciscoFlashDeviceSizeExtended")
-
-                self.ciscoflashdeviceminpartitionsizeextended = YLeaf(YType.uint64, "ciscoFlashDeviceMinPartitionSizeExtended")
-                self._segment_path = lambda: "ciscoFlashDeviceEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']"
+                self.ylist_key_names = ['ciscoflashdeviceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashdeviceindex', YLeaf(YType.uint32, 'ciscoFlashDeviceIndex')),
+                    ('ciscoflashdevicesize', YLeaf(YType.uint32, 'ciscoFlashDeviceSize')),
+                    ('ciscoflashdeviceminpartitionsize', YLeaf(YType.uint32, 'ciscoFlashDeviceMinPartitionSize')),
+                    ('ciscoflashdevicemaxpartitions', YLeaf(YType.uint32, 'ciscoFlashDeviceMaxPartitions')),
+                    ('ciscoflashdevicepartitions', YLeaf(YType.uint32, 'ciscoFlashDevicePartitions')),
+                    ('ciscoflashdevicechipcount', YLeaf(YType.int32, 'ciscoFlashDeviceChipCount')),
+                    ('ciscoflashdevicename', YLeaf(YType.str, 'ciscoFlashDeviceName')),
+                    ('ciscoflashdevicedescr', YLeaf(YType.str, 'ciscoFlashDeviceDescr')),
+                    ('ciscoflashdevicecontroller', YLeaf(YType.str, 'ciscoFlashDeviceController')),
+                    ('ciscoflashdevicecard', YLeaf(YType.str, 'ciscoFlashDeviceCard')),
+                    ('ciscoflashdeviceprogrammingjumper', YLeaf(YType.enumeration, 'ciscoFlashDeviceProgrammingJumper')),
+                    ('ciscoflashdeviceinittime', YLeaf(YType.uint32, 'ciscoFlashDeviceInitTime')),
+                    ('ciscoflashdeviceremovable', YLeaf(YType.boolean, 'ciscoFlashDeviceRemovable')),
+                    ('ciscoflashphyentindex', YLeaf(YType.int32, 'ciscoFlashPhyEntIndex')),
+                    ('ciscoflashdevicenameextended', YLeaf(YType.str, 'ciscoFlashDeviceNameExtended')),
+                    ('ciscoflashdevicesizeextended', YLeaf(YType.uint64, 'ciscoFlashDeviceSizeExtended')),
+                    ('ciscoflashdeviceminpartitionsizeextended', YLeaf(YType.uint64, 'ciscoFlashDeviceMinPartitionSizeExtended')),
+                ])
+                self.ciscoflashdeviceindex = None
+                self.ciscoflashdevicesize = None
+                self.ciscoflashdeviceminpartitionsize = None
+                self.ciscoflashdevicemaxpartitions = None
+                self.ciscoflashdevicepartitions = None
+                self.ciscoflashdevicechipcount = None
+                self.ciscoflashdevicename = None
+                self.ciscoflashdevicedescr = None
+                self.ciscoflashdevicecontroller = None
+                self.ciscoflashdevicecard = None
+                self.ciscoflashdeviceprogrammingjumper = None
+                self.ciscoflashdeviceinittime = None
+                self.ciscoflashdeviceremovable = None
+                self.ciscoflashphyentindex = None
+                self.ciscoflashdevicenameextended = None
+                self.ciscoflashdevicesizeextended = None
+                self.ciscoflashdeviceminpartitionsizeextended = None
+                self._segment_path = lambda: "ciscoFlashDeviceEntry" + "[ciscoFlashDeviceIndex='" + str(self.ciscoflashdeviceindex) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashDeviceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -516,7 +531,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashdeviceprogrammingjumper(Enum):
                 """
-                Ciscoflashdeviceprogrammingjumper
+                Ciscoflashdeviceprogrammingjumper (Enum Class)
 
                 This object gives the state of a jumper (if present and can be
 
@@ -606,8 +621,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashChipEntry" : ("ciscoflashchipentry", CISCOFLASHMIB.Ciscoflashchiptable.Ciscoflashchipentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashChipEntry", ("ciscoflashchipentry", CISCOFLASHMIB.Ciscoflashchiptable.Ciscoflashchipentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashchipentry = YList(self)
             self._segment_path = lambda: "ciscoFlashChipTable"
@@ -625,7 +642,7 @@ class CISCOFLASHMIB(Entity):
             device index and the chip index within that
             device.
             
-            .. attribute:: ciscoflashdeviceindex  <key>
+            .. attribute:: ciscoflashdeviceindex  (key)
             
             	
             	**type**\: int
@@ -634,7 +651,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry>`
             
-            .. attribute:: ciscoflashchipindex  <key>
+            .. attribute:: ciscoflashchipindex  (key)
             
             	Chip sequence number within selected flash device. Used to index within chip info table. Value starts from 1 and should not be greater than ciscoFlashDeviceChipCount for that device. When retrieving chip information for chips within a partition, the sequence number should lie between ciscoFlashPartitionStartChip & ciscoFlashPartitionEndChip (both inclusive)
             	**type**\: int
@@ -697,25 +714,28 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashChipTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
-
-                self.ciscoflashchipindex = YLeaf(YType.int32, "ciscoFlashChipIndex")
-
-                self.ciscoflashchipcode = YLeaf(YType.str, "ciscoFlashChipCode")
-
-                self.ciscoflashchipdescr = YLeaf(YType.str, "ciscoFlashChipDescr")
-
-                self.ciscoflashchipwriteretries = YLeaf(YType.uint32, "ciscoFlashChipWriteRetries")
-
-                self.ciscoflashchiperaseretries = YLeaf(YType.uint32, "ciscoFlashChipEraseRetries")
-
-                self.ciscoflashchipmaxwriteretries = YLeaf(YType.uint32, "ciscoFlashChipMaxWriteRetries")
-
-                self.ciscoflashchipmaxeraseretries = YLeaf(YType.uint32, "ciscoFlashChipMaxEraseRetries")
-                self._segment_path = lambda: "ciscoFlashChipEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashChipIndex='" + self.ciscoflashchipindex.get() + "']"
+                self.ylist_key_names = ['ciscoflashdeviceindex','ciscoflashchipindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashdeviceindex', YLeaf(YType.str, 'ciscoFlashDeviceIndex')),
+                    ('ciscoflashchipindex', YLeaf(YType.int32, 'ciscoFlashChipIndex')),
+                    ('ciscoflashchipcode', YLeaf(YType.str, 'ciscoFlashChipCode')),
+                    ('ciscoflashchipdescr', YLeaf(YType.str, 'ciscoFlashChipDescr')),
+                    ('ciscoflashchipwriteretries', YLeaf(YType.uint32, 'ciscoFlashChipWriteRetries')),
+                    ('ciscoflashchiperaseretries', YLeaf(YType.uint32, 'ciscoFlashChipEraseRetries')),
+                    ('ciscoflashchipmaxwriteretries', YLeaf(YType.uint32, 'ciscoFlashChipMaxWriteRetries')),
+                    ('ciscoflashchipmaxeraseretries', YLeaf(YType.uint32, 'ciscoFlashChipMaxEraseRetries')),
+                ])
+                self.ciscoflashdeviceindex = None
+                self.ciscoflashchipindex = None
+                self.ciscoflashchipcode = None
+                self.ciscoflashchipdescr = None
+                self.ciscoflashchipwriteretries = None
+                self.ciscoflashchiperaseretries = None
+                self.ciscoflashchipmaxwriteretries = None
+                self.ciscoflashchipmaxeraseretries = None
+                self._segment_path = lambda: "ciscoFlashChipEntry" + "[ciscoFlashDeviceIndex='" + str(self.ciscoflashdeviceindex) + "']" + "[ciscoFlashChipIndex='" + str(self.ciscoflashchipindex) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashChipTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -749,8 +769,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashPartitionEntry" : ("ciscoflashpartitionentry", CISCOFLASHMIB.Ciscoflashpartitiontable.Ciscoflashpartitionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashPartitionEntry", ("ciscoflashpartitionentry", CISCOFLASHMIB.Ciscoflashpartitiontable.Ciscoflashpartitionentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashpartitionentry = YList(self)
             self._segment_path = lambda: "ciscoFlashPartitionTable"
@@ -767,7 +789,7 @@ class CISCOFLASHMIB(Entity):
             will be indexed by a device number and a partition
             number within the device.
             
-            .. attribute:: ciscoflashdeviceindex  <key>
+            .. attribute:: ciscoflashdeviceindex  (key)
             
             	
             	**type**\: int
@@ -776,7 +798,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry>`
             
-            .. attribute:: ciscoflashpartitionindex  <key>
+            .. attribute:: ciscoflashpartitionindex  (key)
             
             	Flash partition sequence number used to index within table of initialized flash partitions
             	**type**\: int
@@ -895,41 +917,44 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashPartitionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
-
-                self.ciscoflashpartitionindex = YLeaf(YType.uint32, "ciscoFlashPartitionIndex")
-
-                self.ciscoflashpartitionstartchip = YLeaf(YType.int32, "ciscoFlashPartitionStartChip")
-
-                self.ciscoflashpartitionendchip = YLeaf(YType.int32, "ciscoFlashPartitionEndChip")
-
-                self.ciscoflashpartitionsize = YLeaf(YType.uint32, "ciscoFlashPartitionSize")
-
-                self.ciscoflashpartitionfreespace = YLeaf(YType.uint32, "ciscoFlashPartitionFreeSpace")
-
-                self.ciscoflashpartitionfilecount = YLeaf(YType.uint32, "ciscoFlashPartitionFileCount")
-
-                self.ciscoflashpartitionchecksumalgorithm = YLeaf(YType.enumeration, "ciscoFlashPartitionChecksumAlgorithm")
-
-                self.ciscoflashpartitionstatus = YLeaf(YType.enumeration, "ciscoFlashPartitionStatus")
-
-                self.ciscoflashpartitionupgrademethod = YLeaf(YType.enumeration, "ciscoFlashPartitionUpgradeMethod")
-
-                self.ciscoflashpartitionname = YLeaf(YType.str, "ciscoFlashPartitionName")
-
-                self.ciscoflashpartitionneederasure = YLeaf(YType.boolean, "ciscoFlashPartitionNeedErasure")
-
-                self.ciscoflashpartitionfilenamelength = YLeaf(YType.int32, "ciscoFlashPartitionFileNameLength")
-
-                self.ciscoflashpartitionsizeextended = YLeaf(YType.uint64, "ciscoFlashPartitionSizeExtended")
-
-                self.ciscoflashpartitionfreespaceextended = YLeaf(YType.uint64, "ciscoFlashPartitionFreeSpaceExtended")
-
-                self.ciscoflashpartitionlowspacenotifthreshold = YLeaf(YType.int32, "ciscoFlashPartitionLowSpaceNotifThreshold")
-                self._segment_path = lambda: "ciscoFlashPartitionEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']"
+                self.ylist_key_names = ['ciscoflashdeviceindex','ciscoflashpartitionindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashdeviceindex', YLeaf(YType.str, 'ciscoFlashDeviceIndex')),
+                    ('ciscoflashpartitionindex', YLeaf(YType.uint32, 'ciscoFlashPartitionIndex')),
+                    ('ciscoflashpartitionstartchip', YLeaf(YType.int32, 'ciscoFlashPartitionStartChip')),
+                    ('ciscoflashpartitionendchip', YLeaf(YType.int32, 'ciscoFlashPartitionEndChip')),
+                    ('ciscoflashpartitionsize', YLeaf(YType.uint32, 'ciscoFlashPartitionSize')),
+                    ('ciscoflashpartitionfreespace', YLeaf(YType.uint32, 'ciscoFlashPartitionFreeSpace')),
+                    ('ciscoflashpartitionfilecount', YLeaf(YType.uint32, 'ciscoFlashPartitionFileCount')),
+                    ('ciscoflashpartitionchecksumalgorithm', YLeaf(YType.enumeration, 'ciscoFlashPartitionChecksumAlgorithm')),
+                    ('ciscoflashpartitionstatus', YLeaf(YType.enumeration, 'ciscoFlashPartitionStatus')),
+                    ('ciscoflashpartitionupgrademethod', YLeaf(YType.enumeration, 'ciscoFlashPartitionUpgradeMethod')),
+                    ('ciscoflashpartitionname', YLeaf(YType.str, 'ciscoFlashPartitionName')),
+                    ('ciscoflashpartitionneederasure', YLeaf(YType.boolean, 'ciscoFlashPartitionNeedErasure')),
+                    ('ciscoflashpartitionfilenamelength', YLeaf(YType.int32, 'ciscoFlashPartitionFileNameLength')),
+                    ('ciscoflashpartitionsizeextended', YLeaf(YType.uint64, 'ciscoFlashPartitionSizeExtended')),
+                    ('ciscoflashpartitionfreespaceextended', YLeaf(YType.uint64, 'ciscoFlashPartitionFreeSpaceExtended')),
+                    ('ciscoflashpartitionlowspacenotifthreshold', YLeaf(YType.int32, 'ciscoFlashPartitionLowSpaceNotifThreshold')),
+                ])
+                self.ciscoflashdeviceindex = None
+                self.ciscoflashpartitionindex = None
+                self.ciscoflashpartitionstartchip = None
+                self.ciscoflashpartitionendchip = None
+                self.ciscoflashpartitionsize = None
+                self.ciscoflashpartitionfreespace = None
+                self.ciscoflashpartitionfilecount = None
+                self.ciscoflashpartitionchecksumalgorithm = None
+                self.ciscoflashpartitionstatus = None
+                self.ciscoflashpartitionupgrademethod = None
+                self.ciscoflashpartitionname = None
+                self.ciscoflashpartitionneederasure = None
+                self.ciscoflashpartitionfilenamelength = None
+                self.ciscoflashpartitionsizeextended = None
+                self.ciscoflashpartitionfreespaceextended = None
+                self.ciscoflashpartitionlowspacenotifthreshold = None
+                self._segment_path = lambda: "ciscoFlashPartitionEntry" + "[ciscoFlashDeviceIndex='" + str(self.ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + str(self.ciscoflashpartitionindex) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -937,7 +962,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashpartitionchecksumalgorithm(Enum):
                 """
-                Ciscoflashpartitionchecksumalgorithm
+                Ciscoflashpartitionchecksumalgorithm (Enum Class)
 
                 Checksum algorithm identifier for checksum method
 
@@ -992,7 +1017,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashpartitionstatus(Enum):
                 """
-                Ciscoflashpartitionstatus
+                Ciscoflashpartitionstatus (Enum Class)
 
                 Flash partition status can be \:
 
@@ -1043,7 +1068,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashpartitionupgrademethod(Enum):
                 """
-                Ciscoflashpartitionupgrademethod
+                Ciscoflashpartitionupgrademethod (Enum Class)
 
                 Flash partition upgrade method, ie., method by which
 
@@ -1132,8 +1157,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashFileEntry" : ("ciscoflashfileentry", CISCOFLASHMIB.Ciscoflashfiletable.Ciscoflashfileentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashFileEntry", ("ciscoflashfileentry", CISCOFLASHMIB.Ciscoflashfiletable.Ciscoflashfileentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashfileentry = YList(self)
             self._segment_path = lambda: "ciscoFlashFileTable"
@@ -1152,7 +1179,7 @@ class CISCOFLASHMIB(Entity):
             partition number within the device, and file
             number within the partition.
             
-            .. attribute:: ciscoflashdeviceindex  <key>
+            .. attribute:: ciscoflashdeviceindex  (key)
             
             	
             	**type**\: int
@@ -1161,7 +1188,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry>`
             
-            .. attribute:: ciscoflashpartitionindex  <key>
+            .. attribute:: ciscoflashpartitionindex  (key)
             
             	
             	**type**\: int
@@ -1170,7 +1197,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashpartitionindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashpartitiontable.Ciscoflashpartitionentry>`
             
-            .. attribute:: ciscoflashfileindex  <key>
+            .. attribute:: ciscoflashfileindex  (key)
             
             	Flash file sequence number used to index within a Flash partition directory table
             	**type**\: int
@@ -1227,27 +1254,30 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashFileTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
-
-                self.ciscoflashpartitionindex = YLeaf(YType.str, "ciscoFlashPartitionIndex")
-
-                self.ciscoflashfileindex = YLeaf(YType.uint32, "ciscoFlashFileIndex")
-
-                self.ciscoflashfilesize = YLeaf(YType.uint32, "ciscoFlashFileSize")
-
-                self.ciscoflashfilechecksum = YLeaf(YType.str, "ciscoFlashFileChecksum")
-
-                self.ciscoflashfilestatus = YLeaf(YType.enumeration, "ciscoFlashFileStatus")
-
-                self.ciscoflashfilename = YLeaf(YType.str, "ciscoFlashFileName")
-
-                self.ciscoflashfiletype = YLeaf(YType.enumeration, "ciscoFlashFileType")
-
-                self.ciscoflashfiledate = YLeaf(YType.str, "ciscoFlashFileDate")
-                self._segment_path = lambda: "ciscoFlashFileEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']" + "[ciscoFlashFileIndex='" + self.ciscoflashfileindex.get() + "']"
+                self.ylist_key_names = ['ciscoflashdeviceindex','ciscoflashpartitionindex','ciscoflashfileindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashdeviceindex', YLeaf(YType.str, 'ciscoFlashDeviceIndex')),
+                    ('ciscoflashpartitionindex', YLeaf(YType.str, 'ciscoFlashPartitionIndex')),
+                    ('ciscoflashfileindex', YLeaf(YType.uint32, 'ciscoFlashFileIndex')),
+                    ('ciscoflashfilesize', YLeaf(YType.uint32, 'ciscoFlashFileSize')),
+                    ('ciscoflashfilechecksum', YLeaf(YType.str, 'ciscoFlashFileChecksum')),
+                    ('ciscoflashfilestatus', YLeaf(YType.enumeration, 'ciscoFlashFileStatus')),
+                    ('ciscoflashfilename', YLeaf(YType.str, 'ciscoFlashFileName')),
+                    ('ciscoflashfiletype', YLeaf(YType.enumeration, 'ciscoFlashFileType')),
+                    ('ciscoflashfiledate', YLeaf(YType.str, 'ciscoFlashFileDate')),
+                ])
+                self.ciscoflashdeviceindex = None
+                self.ciscoflashpartitionindex = None
+                self.ciscoflashfileindex = None
+                self.ciscoflashfilesize = None
+                self.ciscoflashfilechecksum = None
+                self.ciscoflashfilestatus = None
+                self.ciscoflashfilename = None
+                self.ciscoflashfiletype = None
+                self.ciscoflashfiledate = None
+                self._segment_path = lambda: "ciscoFlashFileEntry" + "[ciscoFlashDeviceIndex='" + str(self.ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + str(self.ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + str(self.ciscoflashfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1255,7 +1285,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashfilestatus(Enum):
                 """
-                Ciscoflashfilestatus
+                Ciscoflashfilestatus (Enum Class)
 
                 Status of a file.
 
@@ -1323,8 +1353,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashFileByTypeEntry" : ("ciscoflashfilebytypeentry", CISCOFLASHMIB.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashFileByTypeEntry", ("ciscoflashfilebytypeentry", CISCOFLASHMIB.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashfilebytypeentry = YList(self)
             self._segment_path = lambda: "ciscoFlashFileByTypeTable"
@@ -1351,12 +1383,12 @@ class CISCOFLASHMIB(Entity):
             the file number within the partition, given by
             ciscoFlashFileIndex.
             
-            .. attribute:: ciscoflashfiletype  <key>
+            .. attribute:: ciscoflashfiletype  (key)
             
             	
             	**type**\:  :py:class:`FlashFileType <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.FlashFileType>`
             
-            .. attribute:: ciscoflashdeviceindex  <key>
+            .. attribute:: ciscoflashdeviceindex  (key)
             
             	
             	**type**\: int
@@ -1365,7 +1397,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashdevicetable.Ciscoflashdeviceentry>`
             
-            .. attribute:: ciscoflashpartitionindex  <key>
+            .. attribute:: ciscoflashpartitionindex  (key)
             
             	
             	**type**\: int
@@ -1374,7 +1406,7 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashpartitionindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.Ciscoflashpartitiontable.Ciscoflashpartitionentry>`
             
-            .. attribute:: ciscoflashfileindex  <key>
+            .. attribute:: ciscoflashfileindex  (key)
             
             	
             	**type**\: int
@@ -1428,27 +1460,30 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashFileByTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashfiletype = YLeaf(YType.enumeration, "ciscoFlashFileType")
-
-                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
-
-                self.ciscoflashpartitionindex = YLeaf(YType.str, "ciscoFlashPartitionIndex")
-
-                self.ciscoflashfileindex = YLeaf(YType.str, "ciscoFlashFileIndex")
-
-                self.ciscoflashfilebytypesize = YLeaf(YType.uint32, "ciscoFlashFileByTypeSize")
-
-                self.ciscoflashfilebytypechecksum = YLeaf(YType.str, "ciscoFlashFileByTypeChecksum")
-
-                self.ciscoflashfilebytypestatus = YLeaf(YType.enumeration, "ciscoFlashFileByTypeStatus")
-
-                self.ciscoflashfilebytypename = YLeaf(YType.str, "ciscoFlashFileByTypeName")
-
-                self.ciscoflashfilebytypedate = YLeaf(YType.str, "ciscoFlashFileByTypeDate")
-                self._segment_path = lambda: "ciscoFlashFileByTypeEntry" + "[ciscoFlashFileType='" + self.ciscoflashfiletype.get() + "']" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']" + "[ciscoFlashFileIndex='" + self.ciscoflashfileindex.get() + "']"
+                self.ylist_key_names = ['ciscoflashfiletype','ciscoflashdeviceindex','ciscoflashpartitionindex','ciscoflashfileindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashfiletype', YLeaf(YType.enumeration, 'ciscoFlashFileType')),
+                    ('ciscoflashdeviceindex', YLeaf(YType.str, 'ciscoFlashDeviceIndex')),
+                    ('ciscoflashpartitionindex', YLeaf(YType.str, 'ciscoFlashPartitionIndex')),
+                    ('ciscoflashfileindex', YLeaf(YType.str, 'ciscoFlashFileIndex')),
+                    ('ciscoflashfilebytypesize', YLeaf(YType.uint32, 'ciscoFlashFileByTypeSize')),
+                    ('ciscoflashfilebytypechecksum', YLeaf(YType.str, 'ciscoFlashFileByTypeChecksum')),
+                    ('ciscoflashfilebytypestatus', YLeaf(YType.enumeration, 'ciscoFlashFileByTypeStatus')),
+                    ('ciscoflashfilebytypename', YLeaf(YType.str, 'ciscoFlashFileByTypeName')),
+                    ('ciscoflashfilebytypedate', YLeaf(YType.str, 'ciscoFlashFileByTypeDate')),
+                ])
+                self.ciscoflashfiletype = None
+                self.ciscoflashdeviceindex = None
+                self.ciscoflashpartitionindex = None
+                self.ciscoflashfileindex = None
+                self.ciscoflashfilebytypesize = None
+                self.ciscoflashfilebytypechecksum = None
+                self.ciscoflashfilebytypestatus = None
+                self.ciscoflashfilebytypename = None
+                self.ciscoflashfilebytypedate = None
+                self._segment_path = lambda: "ciscoFlashFileByTypeEntry" + "[ciscoFlashFileType='" + str(self.ciscoflashfiletype) + "']" + "[ciscoFlashDeviceIndex='" + str(self.ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + str(self.ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + str(self.ciscoflashfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileByTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1456,7 +1491,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashfilebytypestatus(Enum):
                 """
-                Ciscoflashfilebytypestatus
+                Ciscoflashfilebytypestatus (Enum Class)
 
                 This object represents exactly the
 
@@ -1505,8 +1540,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashCopyEntry" : ("ciscoflashcopyentry", CISCOFLASHMIB.Ciscoflashcopytable.Ciscoflashcopyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashCopyEntry", ("ciscoflashcopyentry", CISCOFLASHMIB.Ciscoflashcopytable.Ciscoflashcopyentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashcopyentry = YList(self)
             self._segment_path = lambda: "ciscoFlashCopyTable"
@@ -1551,7 +1588,7 @@ class CISCOFLASHMIB(Entity):
             but an entry will never be deleted within 5 minutes of
             completing.
             
-            .. attribute:: ciscoflashcopyserialnumber  <key>
+            .. attribute:: ciscoflashcopyserialnumber  (key)
             
             	Object which specifies a unique entry in the table. A management station wishing to initiate a copy operation should use a pseudo\-random value for this object when creating or modifying an instance of a ciscoFlashCopyEntry
             	**type**\: int
@@ -1658,39 +1695,42 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashCopyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashcopyserialnumber = YLeaf(YType.int32, "ciscoFlashCopySerialNumber")
-
-                self.ciscoflashcopycommand = YLeaf(YType.enumeration, "ciscoFlashCopyCommand")
-
-                self.ciscoflashcopyprotocol = YLeaf(YType.enumeration, "ciscoFlashCopyProtocol")
-
-                self.ciscoflashcopyserveraddress = YLeaf(YType.str, "ciscoFlashCopyServerAddress")
-
-                self.ciscoflashcopysourcename = YLeaf(YType.str, "ciscoFlashCopySourceName")
-
-                self.ciscoflashcopydestinationname = YLeaf(YType.str, "ciscoFlashCopyDestinationName")
-
-                self.ciscoflashcopyremoteusername = YLeaf(YType.str, "ciscoFlashCopyRemoteUserName")
-
-                self.ciscoflashcopystatus = YLeaf(YType.enumeration, "ciscoFlashCopyStatus")
-
-                self.ciscoflashcopynotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashCopyNotifyOnCompletion")
-
-                self.ciscoflashcopytime = YLeaf(YType.uint32, "ciscoFlashCopyTime")
-
-                self.ciscoflashcopyentrystatus = YLeaf(YType.enumeration, "ciscoFlashCopyEntryStatus")
-
-                self.ciscoflashcopyverify = YLeaf(YType.boolean, "ciscoFlashCopyVerify")
-
-                self.ciscoflashcopyserveraddrtype = YLeaf(YType.enumeration, "ciscoFlashCopyServerAddrType")
-
-                self.ciscoflashcopyserveraddrrev1 = YLeaf(YType.str, "ciscoFlashCopyServerAddrRev1")
-
-                self.ciscoflashcopyremotepassword = YLeaf(YType.str, "ciscoFlashCopyRemotePassword")
-                self._segment_path = lambda: "ciscoFlashCopyEntry" + "[ciscoFlashCopySerialNumber='" + self.ciscoflashcopyserialnumber.get() + "']"
+                self.ylist_key_names = ['ciscoflashcopyserialnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashcopyserialnumber', YLeaf(YType.int32, 'ciscoFlashCopySerialNumber')),
+                    ('ciscoflashcopycommand', YLeaf(YType.enumeration, 'ciscoFlashCopyCommand')),
+                    ('ciscoflashcopyprotocol', YLeaf(YType.enumeration, 'ciscoFlashCopyProtocol')),
+                    ('ciscoflashcopyserveraddress', YLeaf(YType.str, 'ciscoFlashCopyServerAddress')),
+                    ('ciscoflashcopysourcename', YLeaf(YType.str, 'ciscoFlashCopySourceName')),
+                    ('ciscoflashcopydestinationname', YLeaf(YType.str, 'ciscoFlashCopyDestinationName')),
+                    ('ciscoflashcopyremoteusername', YLeaf(YType.str, 'ciscoFlashCopyRemoteUserName')),
+                    ('ciscoflashcopystatus', YLeaf(YType.enumeration, 'ciscoFlashCopyStatus')),
+                    ('ciscoflashcopynotifyoncompletion', YLeaf(YType.boolean, 'ciscoFlashCopyNotifyOnCompletion')),
+                    ('ciscoflashcopytime', YLeaf(YType.uint32, 'ciscoFlashCopyTime')),
+                    ('ciscoflashcopyentrystatus', YLeaf(YType.enumeration, 'ciscoFlashCopyEntryStatus')),
+                    ('ciscoflashcopyverify', YLeaf(YType.boolean, 'ciscoFlashCopyVerify')),
+                    ('ciscoflashcopyserveraddrtype', YLeaf(YType.enumeration, 'ciscoFlashCopyServerAddrType')),
+                    ('ciscoflashcopyserveraddrrev1', YLeaf(YType.str, 'ciscoFlashCopyServerAddrRev1')),
+                    ('ciscoflashcopyremotepassword', YLeaf(YType.str, 'ciscoFlashCopyRemotePassword')),
+                ])
+                self.ciscoflashcopyserialnumber = None
+                self.ciscoflashcopycommand = None
+                self.ciscoflashcopyprotocol = None
+                self.ciscoflashcopyserveraddress = None
+                self.ciscoflashcopysourcename = None
+                self.ciscoflashcopydestinationname = None
+                self.ciscoflashcopyremoteusername = None
+                self.ciscoflashcopystatus = None
+                self.ciscoflashcopynotifyoncompletion = None
+                self.ciscoflashcopytime = None
+                self.ciscoflashcopyentrystatus = None
+                self.ciscoflashcopyverify = None
+                self.ciscoflashcopyserveraddrtype = None
+                self.ciscoflashcopyserveraddrrev1 = None
+                self.ciscoflashcopyremotepassword = None
+                self._segment_path = lambda: "ciscoFlashCopyEntry" + "[ciscoFlashCopySerialNumber='" + str(self.ciscoflashcopyserialnumber) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashCopyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1698,7 +1738,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashcopycommand(Enum):
                 """
-                Ciscoflashcopycommand
+                Ciscoflashcopycommand (Enum Class)
 
                 The copy command to be executed. Mandatory.
 
@@ -1821,7 +1861,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashcopyprotocol(Enum):
                 """
-                Ciscoflashcopyprotocol
+                Ciscoflashcopyprotocol (Enum Class)
 
                 The protocol to be used for any copy. Optional.
 
@@ -1866,7 +1906,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashcopystatus(Enum):
                 """
-                Ciscoflashcopystatus
+                Ciscoflashcopystatus (Enum Class)
 
                 The status of the specified copy operation.
 
@@ -2083,8 +2123,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashPartitioningEntry" : ("ciscoflashpartitioningentry", CISCOFLASHMIB.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashPartitioningEntry", ("ciscoflashpartitioningentry", CISCOFLASHMIB.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashpartitioningentry = YList(self)
             self._segment_path = lambda: "ciscoFlashPartitioningTable"
@@ -2128,7 +2170,7 @@ class CISCOFLASHMIB(Entity):
             but an entry will never be deleted within 5 minutes of
             completing.
             
-            .. attribute:: ciscoflashpartitioningserialnumber  <key>
+            .. attribute:: ciscoflashpartitioningserialnumber  (key)
             
             	Object which specifies a unique entry in the partitioning operations table. A management station wishing to initiate a partitioning operation should use a pseudo\-random value for this object when creating or modifying an instance of a ciscoFlashPartitioningEntry
             	**type**\: int
@@ -2195,27 +2237,30 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashPartitioningTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashpartitioningserialnumber = YLeaf(YType.int32, "ciscoFlashPartitioningSerialNumber")
-
-                self.ciscoflashpartitioningcommand = YLeaf(YType.enumeration, "ciscoFlashPartitioningCommand")
-
-                self.ciscoflashpartitioningdestinationname = YLeaf(YType.str, "ciscoFlashPartitioningDestinationName")
-
-                self.ciscoflashpartitioningpartitioncount = YLeaf(YType.uint32, "ciscoFlashPartitioningPartitionCount")
-
-                self.ciscoflashpartitioningpartitionsizes = YLeaf(YType.str, "ciscoFlashPartitioningPartitionSizes")
-
-                self.ciscoflashpartitioningstatus = YLeaf(YType.enumeration, "ciscoFlashPartitioningStatus")
-
-                self.ciscoflashpartitioningnotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashPartitioningNotifyOnCompletion")
-
-                self.ciscoflashpartitioningtime = YLeaf(YType.uint32, "ciscoFlashPartitioningTime")
-
-                self.ciscoflashpartitioningentrystatus = YLeaf(YType.enumeration, "ciscoFlashPartitioningEntryStatus")
-                self._segment_path = lambda: "ciscoFlashPartitioningEntry" + "[ciscoFlashPartitioningSerialNumber='" + self.ciscoflashpartitioningserialnumber.get() + "']"
+                self.ylist_key_names = ['ciscoflashpartitioningserialnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashpartitioningserialnumber', YLeaf(YType.int32, 'ciscoFlashPartitioningSerialNumber')),
+                    ('ciscoflashpartitioningcommand', YLeaf(YType.enumeration, 'ciscoFlashPartitioningCommand')),
+                    ('ciscoflashpartitioningdestinationname', YLeaf(YType.str, 'ciscoFlashPartitioningDestinationName')),
+                    ('ciscoflashpartitioningpartitioncount', YLeaf(YType.uint32, 'ciscoFlashPartitioningPartitionCount')),
+                    ('ciscoflashpartitioningpartitionsizes', YLeaf(YType.str, 'ciscoFlashPartitioningPartitionSizes')),
+                    ('ciscoflashpartitioningstatus', YLeaf(YType.enumeration, 'ciscoFlashPartitioningStatus')),
+                    ('ciscoflashpartitioningnotifyoncompletion', YLeaf(YType.boolean, 'ciscoFlashPartitioningNotifyOnCompletion')),
+                    ('ciscoflashpartitioningtime', YLeaf(YType.uint32, 'ciscoFlashPartitioningTime')),
+                    ('ciscoflashpartitioningentrystatus', YLeaf(YType.enumeration, 'ciscoFlashPartitioningEntryStatus')),
+                ])
+                self.ciscoflashpartitioningserialnumber = None
+                self.ciscoflashpartitioningcommand = None
+                self.ciscoflashpartitioningdestinationname = None
+                self.ciscoflashpartitioningpartitioncount = None
+                self.ciscoflashpartitioningpartitionsizes = None
+                self.ciscoflashpartitioningstatus = None
+                self.ciscoflashpartitioningnotifyoncompletion = None
+                self.ciscoflashpartitioningtime = None
+                self.ciscoflashpartitioningentrystatus = None
+                self._segment_path = lambda: "ciscoFlashPartitioningEntry" + "[ciscoFlashPartitioningSerialNumber='" + str(self.ciscoflashpartitioningserialnumber) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitioningTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2223,7 +2268,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashpartitioningcommand(Enum):
                 """
-                Ciscoflashpartitioningcommand
+                Ciscoflashpartitioningcommand (Enum Class)
 
                 The partitioning command to be executed. Mandatory.
 
@@ -2262,7 +2307,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashpartitioningstatus(Enum):
                 """
-                Ciscoflashpartitioningstatus
+                Ciscoflashpartitioningstatus (Enum Class)
 
                 The status of the specified partitioning operation.
 
@@ -2395,8 +2440,10 @@ class CISCOFLASHMIB(Entity):
             self.yang_parent_name = "CISCO-FLASH-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoFlashMiscOpEntry" : ("ciscoflashmiscopentry", CISCOFLASHMIB.Ciscoflashmiscoptable.Ciscoflashmiscopentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoFlashMiscOpEntry", ("ciscoflashmiscopentry", CISCOFLASHMIB.Ciscoflashmiscoptable.Ciscoflashmiscopentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoflashmiscopentry = YList(self)
             self._segment_path = lambda: "ciscoFlashMiscOpTable"
@@ -2439,7 +2486,7 @@ class CISCOFLASHMIB(Entity):
             but an entry will never be deleted within 5 minutes of
             completing.
             
-            .. attribute:: ciscoflashmiscopserialnumber  <key>
+            .. attribute:: ciscoflashmiscopserialnumber  (key)
             
             	Object which specifies a unique entry in the table. A management station wishing to initiate a flash operation should use a pseudo\-random value for this object when creating or modifying an instance of a ciscoFlashMiscOpEntry
             	**type**\: int
@@ -2494,23 +2541,26 @@ class CISCOFLASHMIB(Entity):
                 self.yang_parent_name = "ciscoFlashMiscOpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoflashmiscopserialnumber = YLeaf(YType.int32, "ciscoFlashMiscOpSerialNumber")
-
-                self.ciscoflashmiscopcommand = YLeaf(YType.enumeration, "ciscoFlashMiscOpCommand")
-
-                self.ciscoflashmiscopdestinationname = YLeaf(YType.str, "ciscoFlashMiscOpDestinationName")
-
-                self.ciscoflashmiscopstatus = YLeaf(YType.enumeration, "ciscoFlashMiscOpStatus")
-
-                self.ciscoflashmiscopnotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashMiscOpNotifyOnCompletion")
-
-                self.ciscoflashmiscoptime = YLeaf(YType.uint32, "ciscoFlashMiscOpTime")
-
-                self.ciscoflashmiscopentrystatus = YLeaf(YType.enumeration, "ciscoFlashMiscOpEntryStatus")
-                self._segment_path = lambda: "ciscoFlashMiscOpEntry" + "[ciscoFlashMiscOpSerialNumber='" + self.ciscoflashmiscopserialnumber.get() + "']"
+                self.ylist_key_names = ['ciscoflashmiscopserialnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoflashmiscopserialnumber', YLeaf(YType.int32, 'ciscoFlashMiscOpSerialNumber')),
+                    ('ciscoflashmiscopcommand', YLeaf(YType.enumeration, 'ciscoFlashMiscOpCommand')),
+                    ('ciscoflashmiscopdestinationname', YLeaf(YType.str, 'ciscoFlashMiscOpDestinationName')),
+                    ('ciscoflashmiscopstatus', YLeaf(YType.enumeration, 'ciscoFlashMiscOpStatus')),
+                    ('ciscoflashmiscopnotifyoncompletion', YLeaf(YType.boolean, 'ciscoFlashMiscOpNotifyOnCompletion')),
+                    ('ciscoflashmiscoptime', YLeaf(YType.uint32, 'ciscoFlashMiscOpTime')),
+                    ('ciscoflashmiscopentrystatus', YLeaf(YType.enumeration, 'ciscoFlashMiscOpEntryStatus')),
+                ])
+                self.ciscoflashmiscopserialnumber = None
+                self.ciscoflashmiscopcommand = None
+                self.ciscoflashmiscopdestinationname = None
+                self.ciscoflashmiscopstatus = None
+                self.ciscoflashmiscopnotifyoncompletion = None
+                self.ciscoflashmiscoptime = None
+                self.ciscoflashmiscopentrystatus = None
+                self._segment_path = lambda: "ciscoFlashMiscOpEntry" + "[ciscoFlashMiscOpSerialNumber='" + str(self.ciscoflashmiscopserialnumber) + "']"
                 self._absolute_path = lambda: "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashMiscOpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2518,7 +2568,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashmiscopcommand(Enum):
                 """
-                Ciscoflashmiscopcommand
+                Ciscoflashmiscopcommand (Enum Class)
 
                 The command to be executed. Mandatory.
 
@@ -2625,7 +2675,7 @@ class CISCOFLASHMIB(Entity):
 
             class Ciscoflashmiscopstatus(Enum):
                 """
-                Ciscoflashmiscopstatus
+                Ciscoflashmiscopstatus (Enum Class)
 
                 The status of the specified operation.
 

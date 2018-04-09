@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Exception(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-dumper-exception-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"enter" : ("enter", Exception.Enter)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("enter", ("enter", Exception.Enter))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.enter = Exception.Enter()
         self.enter.parent = self
@@ -155,18 +159,21 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"display-config1" : ("display_config1", Exception.Enter.DisplayConfig1), "display-config2" : ("display_config2", Exception.Enter.DisplayConfig2), "display-config3" : ("display_config3", Exception.Enter.DisplayConfig3), "display-fall-back-config1" : ("display_fall_back_config1", Exception.Enter.DisplayFallBackConfig1), "display-fall-back-config2" : ("display_fall_back_config2", Exception.Enter.DisplayFallBackConfig2), "display-fall-back-config3" : ("display_fall_back_config3", Exception.Enter.DisplayFallBackConfig3), "kernel-config" : ("kernel_config", Exception.Enter.KernelConfig), "kernel-route-config" : ("kernel_route_config", Exception.Enter.KernelRouteConfig), "core-size" : ("core_size", Exception.Enter.CoreSize), "memory-threshold" : ("memory_threshold", Exception.Enter.MemoryThreshold), "proc-size" : ("proc_size", Exception.Enter.ProcSize), "qsize" : ("qsize", Exception.Enter.Qsize)}
-            self._child_list_classes = {}
-
-            self.pak_mem = YLeaf(YType.str, "pak-mem")
-
-            self.sparse = YLeaf(YType.str, "sparse")
-
-            self.spr_size = YLeaf(YType.str, "spr-size")
-
-            self.core_verification = YLeaf(YType.str, "core-verification")
-
-            self.dump_time_out = YLeaf(YType.str, "dump-time-out")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("display-config1", ("display_config1", Exception.Enter.DisplayConfig1)), ("display-config2", ("display_config2", Exception.Enter.DisplayConfig2)), ("display-config3", ("display_config3", Exception.Enter.DisplayConfig3)), ("display-fall-back-config1", ("display_fall_back_config1", Exception.Enter.DisplayFallBackConfig1)), ("display-fall-back-config2", ("display_fall_back_config2", Exception.Enter.DisplayFallBackConfig2)), ("display-fall-back-config3", ("display_fall_back_config3", Exception.Enter.DisplayFallBackConfig3)), ("kernel-config", ("kernel_config", Exception.Enter.KernelConfig)), ("kernel-route-config", ("kernel_route_config", Exception.Enter.KernelRouteConfig)), ("core-size", ("core_size", Exception.Enter.CoreSize)), ("memory-threshold", ("memory_threshold", Exception.Enter.MemoryThreshold)), ("proc-size", ("proc_size", Exception.Enter.ProcSize)), ("qsize", ("qsize", Exception.Enter.Qsize))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('pak_mem', YLeaf(YType.str, 'pak-mem')),
+                ('sparse', YLeaf(YType.str, 'sparse')),
+                ('spr_size', YLeaf(YType.str, 'spr-size')),
+                ('core_verification', YLeaf(YType.str, 'core-verification')),
+                ('dump_time_out', YLeaf(YType.str, 'dump-time-out')),
+            ])
+            self.pak_mem = None
+            self.sparse = None
+            self.spr_size = None
+            self.core_verification = None
+            self.dump_time_out = None
 
             self.display_config1 = Exception.Enter.DisplayConfig1()
             self.display_config1.parent = self
@@ -286,20 +293,23 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice = YLeaf(YType.str, "choice")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice', YLeaf(YType.str, 'choice')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-config1"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -359,20 +369,23 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice = YLeaf(YType.str, "choice")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice', YLeaf(YType.str, 'choice')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-config2"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -432,20 +445,23 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice = YLeaf(YType.str, "choice")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice', YLeaf(YType.str, 'choice')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-config3"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -510,22 +526,25 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice_fall_back = YLeaf(YType.str, "choice-fall-back")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.boot_device_str = YLeaf(YType.str, "boot-device-str")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('boot_device_str', YLeaf(YType.str, 'boot-device-str')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice_fall_back = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.boot_device_str = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-fall-back-config1"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -590,22 +609,25 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice_fall_back = YLeaf(YType.str, "choice-fall-back")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.boot_device_str = YLeaf(YType.str, "boot-device-str")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('boot_device_str', YLeaf(YType.str, 'boot-device-str')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice_fall_back = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.boot_device_str = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-fall-back-config2"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -670,22 +692,25 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice_fall_back = YLeaf(YType.str, "choice-fall-back")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.compress = YLeaf(YType.str, "compress")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.boot_device_str = YLeaf(YType.str, "boot-device-str")
-
-                self.range_low = YLeaf(YType.uint32, "range-low")
-
-                self.range_high = YLeaf(YType.uint32, "range-high")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('compress', YLeaf(YType.str, 'compress')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('boot_device_str', YLeaf(YType.str, 'boot-device-str')),
+                    ('range_low', YLeaf(YType.uint32, 'range-low')),
+                    ('range_high', YLeaf(YType.uint32, 'range-high')),
+                ])
+                self.choice_fall_back = None
+                self.path = None
+                self.compress = None
+                self.file_name = None
+                self.boot_device_str = None
+                self.range_low = None
+                self.range_high = None
                 self._segment_path = lambda: "display-fall-back-config3"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -731,16 +756,19 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.choice_fall_back = YLeaf(YType.str, "choice-fall-back")
-
-                self.path = YLeaf(YType.str, "path")
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.memory = YLeaf(YType.str, "memory")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('choice_fall_back', YLeaf(YType.str, 'choice-fall-back')),
+                    ('path', YLeaf(YType.str, 'path')),
+                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('memory', YLeaf(YType.str, 'memory')),
+                ])
+                self.choice_fall_back = None
+                self.path = None
+                self.file_name = None
+                self.memory = None
                 self._segment_path = lambda: "kernel-config"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -800,20 +828,23 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.slot = YLeaf(YType.uint32, "slot")
-
-                self.port = YLeaf(YType.uint32, "port")
-
-                self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-                self.mask = YLeaf(YType.str, "mask")
-
-                self.destination = YLeaf(YType.str, "destination")
-
-                self.next_hop = YLeaf(YType.str, "next-hop")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('slot', YLeaf(YType.uint32, 'slot')),
+                    ('port', YLeaf(YType.uint32, 'port')),
+                    ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                    ('mask', YLeaf(YType.str, 'mask')),
+                    ('destination', YLeaf(YType.str, 'destination')),
+                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                ])
+                self.slot = None
+                self.port = None
+                self.ip_addr = None
+                self.mask = None
+                self.destination = None
+                self.next_hop = None
                 self._segment_path = lambda: "kernel-route-config"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -844,10 +875,13 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.string = YLeaf(YType.str, "string")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('string', YLeaf(YType.str, 'string')),
+                ])
+                self.string = None
                 self._segment_path = lambda: "core-size"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -878,10 +912,13 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.string = YLeaf(YType.str, "string")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('string', YLeaf(YType.str, 'string')),
+                ])
+                self.string = None
                 self._segment_path = lambda: "memory-threshold"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -912,10 +949,13 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.string = YLeaf(YType.str, "string")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('string', YLeaf(YType.str, 'string')),
+                ])
+                self.string = None
                 self._segment_path = lambda: "proc-size"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 
@@ -946,10 +986,13 @@ class Exception(Entity):
                 self.yang_parent_name = "enter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.string = YLeaf(YType.str, "string")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('string', YLeaf(YType.str, 'string')),
+                ])
+                self.string = None
                 self._segment_path = lambda: "qsize"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-exception-oper:exception/enter/%s" % self._segment_path()
 

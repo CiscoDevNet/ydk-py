@@ -20,6 +20,8 @@ protocol\-specific policy after importing the route into the
 protocol for distribution (again via routing policy).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -81,8 +83,10 @@ class LocalRoutes(Entity):
         self.yang_parent_name = "openconfig-local-routing"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", LocalRoutes.Config), "state" : ("state", LocalRoutes.State), "static-routes" : ("static_routes", LocalRoutes.StaticRoutes), "local-aggregates" : ("local_aggregates", LocalRoutes.LocalAggregates)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("config", ("config", LocalRoutes.Config)), ("state", ("state", LocalRoutes.State)), ("static-routes", ("static_routes", LocalRoutes.StaticRoutes)), ("local-aggregates", ("local_aggregates", LocalRoutes.LocalAggregates))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.config = LocalRoutes.Config()
         self.config.parent = self
@@ -124,8 +128,10 @@ class LocalRoutes(Entity):
             self.yang_parent_name = "local-routes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
 
@@ -148,8 +154,10 @@ class LocalRoutes(Entity):
             self.yang_parent_name = "local-routes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
 
@@ -177,8 +185,10 @@ class LocalRoutes(Entity):
             self.yang_parent_name = "local-routes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"static" : ("static", LocalRoutes.StaticRoutes.Static)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("static", ("static", LocalRoutes.StaticRoutes.Static))])
+            self._leafs = OrderedDict()
 
             self.static = YList(self)
             self._segment_path = lambda: "static-routes"
@@ -192,7 +202,7 @@ class LocalRoutes(Entity):
             """
             List of locally configured static routes
             
-            .. attribute:: prefix  <key>
+            .. attribute:: prefix  (key)
             
             	Reference to the destination prefix list key
             	**type**\: union of the below types:
@@ -236,10 +246,13 @@ class LocalRoutes(Entity):
                 self.yang_parent_name = "static-routes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.Config), "state" : ("state", LocalRoutes.StaticRoutes.Static.State), "next-hops" : ("next_hops", LocalRoutes.StaticRoutes.Static.NextHops)}
-                self._child_list_classes = {}
-
-                self.prefix = YLeaf(YType.str, "prefix")
+                self.ylist_key_names = ['prefix']
+                self._child_container_classes = OrderedDict([("config", ("config", LocalRoutes.StaticRoutes.Static.Config)), ("state", ("state", LocalRoutes.StaticRoutes.Static.State)), ("next-hops", ("next_hops", LocalRoutes.StaticRoutes.Static.NextHops))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('prefix', YLeaf(YType.str, 'prefix')),
+                ])
+                self.prefix = None
 
                 self.config = LocalRoutes.StaticRoutes.Static.Config()
                 self.config.parent = self
@@ -255,7 +268,7 @@ class LocalRoutes(Entity):
                 self.next_hops.parent = self
                 self._children_name_map["next_hops"] = "next-hops"
                 self._children_yang_names.add("next-hops")
-                self._segment_path = lambda: "static" + "[prefix='" + self.prefix.get() + "']"
+                self._segment_path = lambda: "static" + "[prefix='" + str(self.prefix) + "']"
                 self._absolute_path = lambda: "openconfig-local-routing:local-routes/static-routes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -306,12 +319,15 @@ class LocalRoutes(Entity):
                     self.yang_parent_name = "static"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefix', YLeaf(YType.str, 'prefix')),
+                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                    ])
+                    self.prefix = None
+                    self.set_tag = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -362,12 +378,15 @@ class LocalRoutes(Entity):
                     self.yang_parent_name = "static"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefix', YLeaf(YType.str, 'prefix')),
+                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                    ])
+                    self.prefix = None
+                    self.set_tag = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -399,8 +418,10 @@ class LocalRoutes(Entity):
                     self.yang_parent_name = "static"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"next-hop" : ("next_hop", LocalRoutes.StaticRoutes.Static.NextHops.NextHop)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("next-hop", ("next_hop", LocalRoutes.StaticRoutes.Static.NextHops.NextHop))])
+                    self._leafs = OrderedDict()
 
                     self.next_hop = YList(self)
                     self._segment_path = lambda: "next-hops"
@@ -414,7 +435,7 @@ class LocalRoutes(Entity):
                     A list of next\-hops to be utilised for the static
                     route being specified.
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	A reference to the index of the current next\-hop. The index is intended to be a user\-specified value which can be used to reference the next\-hop in question, without any other semantics being assigned to it
                     	**type**\: str
@@ -450,10 +471,13 @@ class LocalRoutes(Entity):
                         self.yang_parent_name = "next-hops"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config), "state" : ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State), "interface-ref" : ("interface_ref", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.str, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("config", ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config)), ("state", ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State)), ("interface-ref", ("interface_ref", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.str, 'index')),
+                        ])
+                        self.index = None
 
                         self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config()
                         self.config.parent = self
@@ -469,7 +493,7 @@ class LocalRoutes(Entity):
                         self.interface_ref.parent = self
                         self._children_name_map["interface_ref"] = "interface-ref"
                         self._children_yang_names.add("interface-ref")
-                        self._segment_path = lambda: "next-hop" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "next-hop" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, ['index'], name, value)
@@ -528,16 +552,19 @@ class LocalRoutes(Entity):
                             self.yang_parent_name = "next-hop"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.str, "index")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.recurse = YLeaf(YType.boolean, "recurse")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.str, 'index')),
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                ('recurse', YLeaf(YType.boolean, 'recurse')),
+                            ])
+                            self.index = None
+                            self.next_hop = None
+                            self.metric = None
+                            self.recurse = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -597,16 +624,19 @@ class LocalRoutes(Entity):
                             self.yang_parent_name = "next-hop"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.str, "index")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.recurse = YLeaf(YType.boolean, "recurse")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.str, 'index')),
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                ('recurse', YLeaf(YType.boolean, 'recurse')),
+                            ])
+                            self.index = None
+                            self.next_hop = None
+                            self.metric = None
+                            self.recurse = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -641,8 +671,10 @@ class LocalRoutes(Entity):
                             self.yang_parent_name = "next-hop"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config), "state" : ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config)), ("state", ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config()
                             self.config.parent = self
@@ -690,12 +722,15 @@ class LocalRoutes(Entity):
                                 self.yang_parent_name = "interface-ref"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface = YLeaf(YType.str, "interface")
-
-                                self.subinterface = YLeaf(YType.str, "subinterface")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -736,12 +771,15 @@ class LocalRoutes(Entity):
                                 self.yang_parent_name = "interface-ref"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface = YLeaf(YType.str, "interface")
-
-                                self.subinterface = YLeaf(YType.str, "subinterface")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ])
+                                self.interface = None
+                                self.subinterface = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -772,8 +810,10 @@ class LocalRoutes(Entity):
             self.yang_parent_name = "local-routes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"aggregate" : ("aggregate", LocalRoutes.LocalAggregates.Aggregate)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("aggregate", ("aggregate", LocalRoutes.LocalAggregates.Aggregate))])
+            self._leafs = OrderedDict()
 
             self.aggregate = YList(self)
             self._segment_path = lambda: "local-aggregates"
@@ -787,7 +827,7 @@ class LocalRoutes(Entity):
             """
             List of aggregates
             
-            .. attribute:: prefix  <key>
+            .. attribute:: prefix  (key)
             
             	Reference to the configured prefix for this aggregate
             	**type**\: union of the below types:
@@ -826,10 +866,13 @@ class LocalRoutes(Entity):
                 self.yang_parent_name = "local-aggregates"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", LocalRoutes.LocalAggregates.Aggregate.Config), "state" : ("state", LocalRoutes.LocalAggregates.Aggregate.State)}
-                self._child_list_classes = {}
-
-                self.prefix = YLeaf(YType.str, "prefix")
+                self.ylist_key_names = ['prefix']
+                self._child_container_classes = OrderedDict([("config", ("config", LocalRoutes.LocalAggregates.Aggregate.Config)), ("state", ("state", LocalRoutes.LocalAggregates.Aggregate.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('prefix', YLeaf(YType.str, 'prefix')),
+                ])
+                self.prefix = None
 
                 self.config = LocalRoutes.LocalAggregates.Aggregate.Config()
                 self.config.parent = self
@@ -840,7 +883,7 @@ class LocalRoutes(Entity):
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
-                self._segment_path = lambda: "aggregate" + "[prefix='" + self.prefix.get() + "']"
+                self._segment_path = lambda: "aggregate" + "[prefix='" + str(self.prefix) + "']"
                 self._absolute_path = lambda: "openconfig-local-routing:local-routes/local-aggregates/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -898,14 +941,17 @@ class LocalRoutes(Entity):
                     self.yang_parent_name = "aggregate"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.discard = YLeaf(YType.boolean, "discard")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefix', YLeaf(YType.str, 'prefix')),
+                        ('discard', YLeaf(YType.boolean, 'discard')),
+                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                    ])
+                    self.prefix = None
+                    self.discard = None
+                    self.set_tag = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -964,14 +1010,17 @@ class LocalRoutes(Entity):
                     self.yang_parent_name = "aggregate"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.discard = YLeaf(YType.boolean, "discard")
-
-                    self.set_tag = YLeaf(YType.str, "set-tag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefix', YLeaf(YType.str, 'prefix')),
+                        ('discard', YLeaf(YType.boolean, 'discard')),
+                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                    ])
+                    self.prefix = None
+                    self.discard = None
+                    self.set_tag = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):

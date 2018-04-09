@@ -199,6 +199,8 @@ Subscriber Session
     sessions, see the CISCO\-SUBSCRIBER\-SESSION\-TC\-MIB.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -285,8 +287,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"csubJob" : ("csubjob", CISCOSUBSCRIBERSESSIONMIB.Csubjob), "csubAggThresh" : ("csubaggthresh", CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh), "csubSessionTable" : ("csubsessiontable", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable), "csubSessionByTypeTable" : ("csubsessionbytypetable", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable), "csubAggStatsTable" : ("csubaggstatstable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable), "csubAggStatsIntTable" : ("csubaggstatsinttable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable), "csubAggStatsThreshTable" : ("csubaggstatsthreshtable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable), "csubJobTable" : ("csubjobtable", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable), "csubJobMatchParamsTable" : ("csubjobmatchparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable), "csubJobQueryParamsTable" : ("csubjobqueryparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable), "csubJobQueueTable" : ("csubjobqueuetable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable), "csubJobReportTable" : ("csubjobreporttable", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("csubJob", ("csubjob", CISCOSUBSCRIBERSESSIONMIB.Csubjob)), ("csubAggThresh", ("csubaggthresh", CISCOSUBSCRIBERSESSIONMIB.Csubaggthresh)), ("csubSessionTable", ("csubsessiontable", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable)), ("csubSessionByTypeTable", ("csubsessionbytypetable", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable)), ("csubAggStatsTable", ("csubaggstatstable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable)), ("csubAggStatsIntTable", ("csubaggstatsinttable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable)), ("csubAggStatsThreshTable", ("csubaggstatsthreshtable", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable)), ("csubJobTable", ("csubjobtable", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable)), ("csubJobMatchParamsTable", ("csubjobmatchparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable)), ("csubJobQueryParamsTable", ("csubjobqueryparamstable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable)), ("csubJobQueueTable", ("csubjobqueuetable", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable)), ("csubJobReportTable", ("csubjobreporttable", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.csubjob = CISCOSUBSCRIBERSESSIONMIB.Csubjob()
         self.csubjob.parent = self
@@ -412,20 +416,23 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.csubjobfinishednotifyenable = YLeaf(YType.boolean, "csubJobFinishedNotifyEnable")
-
-            self.csubjobindexedattributes = YLeaf(YType.bits, "csubJobIndexedAttributes")
-
-            self.csubjobidnext = YLeaf(YType.uint32, "csubJobIdNext")
-
-            self.csubjobmaxnumber = YLeaf(YType.uint32, "csubJobMaxNumber")
-
-            self.csubjobmaxlife = YLeaf(YType.uint32, "csubJobMaxLife")
-
-            self.csubjobcount = YLeaf(YType.uint32, "csubJobCount")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('csubjobfinishednotifyenable', YLeaf(YType.boolean, 'csubJobFinishedNotifyEnable')),
+                ('csubjobindexedattributes', YLeaf(YType.bits, 'csubJobIndexedAttributes')),
+                ('csubjobidnext', YLeaf(YType.uint32, 'csubJobIdNext')),
+                ('csubjobmaxnumber', YLeaf(YType.uint32, 'csubJobMaxNumber')),
+                ('csubjobmaxlife', YLeaf(YType.uint32, 'csubJobMaxLife')),
+                ('csubjobcount', YLeaf(YType.uint32, 'csubJobCount')),
+            ])
+            self.csubjobfinishednotifyenable = None
+            self.csubjobindexedattributes = Bits()
+            self.csubjobidnext = None
+            self.csubjobmaxnumber = None
+            self.csubjobmaxlife = None
+            self.csubjobcount = None
             self._segment_path = lambda: "csubJob"
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
@@ -456,10 +463,13 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.csubaggstatsthreshnotifenable = YLeaf(YType.boolean, "csubAggStatsThreshNotifEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('csubaggstatsthreshnotifenable', YLeaf(YType.boolean, 'csubAggStatsThreshNotifEnable')),
+            ])
+            self.csubaggstatsthreshnotifenable = None
             self._segment_path = lambda: "csubAggThresh"
             self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/%s" % self._segment_path()
 
@@ -495,8 +505,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubSessionEntry" : ("csubsessionentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubSessionEntry", ("csubsessionentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessiontable.Csubsessionentry))])
+            self._leafs = OrderedDict()
 
             self.csubsessionentry = YList(self)
             self._segment_path = lambda: "csubSessionTable"
@@ -523,7 +535,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             session.  Likewise, the system destroys an entry when it
             terminates the corresponding subscriber session.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -751,85 +763,88 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.csubsessiontype = YLeaf(YType.enumeration, "csubSessionType")
-
-                self.csubsessionipaddrassignment = YLeaf(YType.enumeration, "csubSessionIpAddrAssignment")
-
-                self.csubsessionstate = YLeaf(YType.enumeration, "csubSessionState")
-
-                self.csubsessionauthenticated = YLeaf(YType.boolean, "csubSessionAuthenticated")
-
-                self.csubsessionredundancymode = YLeaf(YType.enumeration, "csubSessionRedundancyMode")
-
-                self.csubsessioncreationtime = YLeaf(YType.str, "csubSessionCreationTime")
-
-                self.csubsessionderivedcfg = YLeaf(YType.str, "csubSessionDerivedCfg")
-
-                self.csubsessionavailableidentities = YLeaf(YType.bits, "csubSessionAvailableIdentities")
-
-                self.csubsessionsubscriberlabel = YLeaf(YType.uint32, "csubSessionSubscriberLabel")
-
-                self.csubsessionmacaddress = YLeaf(YType.str, "csubSessionMacAddress")
-
-                self.csubsessionnativevrf = YLeaf(YType.str, "csubSessionNativeVrf")
-
-                self.csubsessionnativeipaddrtype = YLeaf(YType.enumeration, "csubSessionNativeIpAddrType")
-
-                self.csubsessionnativeipaddr = YLeaf(YType.str, "csubSessionNativeIpAddr")
-
-                self.csubsessionnativeipmask = YLeaf(YType.str, "csubSessionNativeIpMask")
-
-                self.csubsessiondomainvrf = YLeaf(YType.str, "csubSessionDomainVrf")
-
-                self.csubsessiondomainipaddrtype = YLeaf(YType.enumeration, "csubSessionDomainIpAddrType")
-
-                self.csubsessiondomainipaddr = YLeaf(YType.str, "csubSessionDomainIpAddr")
-
-                self.csubsessiondomainipmask = YLeaf(YType.str, "csubSessionDomainIpMask")
-
-                self.csubsessionpbhk = YLeaf(YType.str, "csubSessionPbhk")
-
-                self.csubsessionremoteid = YLeaf(YType.str, "csubSessionRemoteId")
-
-                self.csubsessioncircuitid = YLeaf(YType.str, "csubSessionCircuitId")
-
-                self.csubsessionnasport = YLeaf(YType.str, "csubSessionNasPort")
-
-                self.csubsessiondomain = YLeaf(YType.str, "csubSessionDomain")
-
-                self.csubsessionusername = YLeaf(YType.str, "csubSessionUsername")
-
-                self.csubsessionacctsessionid = YLeaf(YType.uint32, "csubSessionAcctSessionId")
-
-                self.csubsessiondnis = YLeaf(YType.str, "csubSessionDnis")
-
-                self.csubsessionmedia = YLeaf(YType.enumeration, "csubSessionMedia")
-
-                self.csubsessionmlpnegotiated = YLeaf(YType.boolean, "csubSessionMlpNegotiated")
-
-                self.csubsessionprotocol = YLeaf(YType.enumeration, "csubSessionProtocol")
-
-                self.csubsessiondhcpclass = YLeaf(YType.str, "csubSessionDhcpClass")
-
-                self.csubsessiontunnelname = YLeaf(YType.str, "csubSessionTunnelName")
-
-                self.csubsessionlocationidentifier = YLeaf(YType.str, "csubSessionLocationIdentifier")
-
-                self.csubsessionserviceidentifier = YLeaf(YType.str, "csubSessionServiceIdentifier")
-
-                self.csubsessionlastchanged = YLeaf(YType.str, "csubSessionLastChanged")
-
-                self.csubsessionnativeipaddrtype2 = YLeaf(YType.enumeration, "csubSessionNativeIpAddrType2")
-
-                self.csubsessionnativeipaddr2 = YLeaf(YType.str, "csubSessionNativeIpAddr2")
-
-                self.csubsessionnativeipmask2 = YLeaf(YType.str, "csubSessionNativeIpMask2")
-                self._segment_path = lambda: "csubSessionEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('csubsessiontype', YLeaf(YType.enumeration, 'csubSessionType')),
+                    ('csubsessionipaddrassignment', YLeaf(YType.enumeration, 'csubSessionIpAddrAssignment')),
+                    ('csubsessionstate', YLeaf(YType.enumeration, 'csubSessionState')),
+                    ('csubsessionauthenticated', YLeaf(YType.boolean, 'csubSessionAuthenticated')),
+                    ('csubsessionredundancymode', YLeaf(YType.enumeration, 'csubSessionRedundancyMode')),
+                    ('csubsessioncreationtime', YLeaf(YType.str, 'csubSessionCreationTime')),
+                    ('csubsessionderivedcfg', YLeaf(YType.str, 'csubSessionDerivedCfg')),
+                    ('csubsessionavailableidentities', YLeaf(YType.bits, 'csubSessionAvailableIdentities')),
+                    ('csubsessionsubscriberlabel', YLeaf(YType.uint32, 'csubSessionSubscriberLabel')),
+                    ('csubsessionmacaddress', YLeaf(YType.str, 'csubSessionMacAddress')),
+                    ('csubsessionnativevrf', YLeaf(YType.str, 'csubSessionNativeVrf')),
+                    ('csubsessionnativeipaddrtype', YLeaf(YType.enumeration, 'csubSessionNativeIpAddrType')),
+                    ('csubsessionnativeipaddr', YLeaf(YType.str, 'csubSessionNativeIpAddr')),
+                    ('csubsessionnativeipmask', YLeaf(YType.str, 'csubSessionNativeIpMask')),
+                    ('csubsessiondomainvrf', YLeaf(YType.str, 'csubSessionDomainVrf')),
+                    ('csubsessiondomainipaddrtype', YLeaf(YType.enumeration, 'csubSessionDomainIpAddrType')),
+                    ('csubsessiondomainipaddr', YLeaf(YType.str, 'csubSessionDomainIpAddr')),
+                    ('csubsessiondomainipmask', YLeaf(YType.str, 'csubSessionDomainIpMask')),
+                    ('csubsessionpbhk', YLeaf(YType.str, 'csubSessionPbhk')),
+                    ('csubsessionremoteid', YLeaf(YType.str, 'csubSessionRemoteId')),
+                    ('csubsessioncircuitid', YLeaf(YType.str, 'csubSessionCircuitId')),
+                    ('csubsessionnasport', YLeaf(YType.str, 'csubSessionNasPort')),
+                    ('csubsessiondomain', YLeaf(YType.str, 'csubSessionDomain')),
+                    ('csubsessionusername', YLeaf(YType.str, 'csubSessionUsername')),
+                    ('csubsessionacctsessionid', YLeaf(YType.uint32, 'csubSessionAcctSessionId')),
+                    ('csubsessiondnis', YLeaf(YType.str, 'csubSessionDnis')),
+                    ('csubsessionmedia', YLeaf(YType.enumeration, 'csubSessionMedia')),
+                    ('csubsessionmlpnegotiated', YLeaf(YType.boolean, 'csubSessionMlpNegotiated')),
+                    ('csubsessionprotocol', YLeaf(YType.enumeration, 'csubSessionProtocol')),
+                    ('csubsessiondhcpclass', YLeaf(YType.str, 'csubSessionDhcpClass')),
+                    ('csubsessiontunnelname', YLeaf(YType.str, 'csubSessionTunnelName')),
+                    ('csubsessionlocationidentifier', YLeaf(YType.str, 'csubSessionLocationIdentifier')),
+                    ('csubsessionserviceidentifier', YLeaf(YType.str, 'csubSessionServiceIdentifier')),
+                    ('csubsessionlastchanged', YLeaf(YType.str, 'csubSessionLastChanged')),
+                    ('csubsessionnativeipaddrtype2', YLeaf(YType.enumeration, 'csubSessionNativeIpAddrType2')),
+                    ('csubsessionnativeipaddr2', YLeaf(YType.str, 'csubSessionNativeIpAddr2')),
+                    ('csubsessionnativeipmask2', YLeaf(YType.str, 'csubSessionNativeIpMask2')),
+                ])
+                self.ifindex = None
+                self.csubsessiontype = None
+                self.csubsessionipaddrassignment = None
+                self.csubsessionstate = None
+                self.csubsessionauthenticated = None
+                self.csubsessionredundancymode = None
+                self.csubsessioncreationtime = None
+                self.csubsessionderivedcfg = None
+                self.csubsessionavailableidentities = Bits()
+                self.csubsessionsubscriberlabel = None
+                self.csubsessionmacaddress = None
+                self.csubsessionnativevrf = None
+                self.csubsessionnativeipaddrtype = None
+                self.csubsessionnativeipaddr = None
+                self.csubsessionnativeipmask = None
+                self.csubsessiondomainvrf = None
+                self.csubsessiondomainipaddrtype = None
+                self.csubsessiondomainipaddr = None
+                self.csubsessiondomainipmask = None
+                self.csubsessionpbhk = None
+                self.csubsessionremoteid = None
+                self.csubsessioncircuitid = None
+                self.csubsessionnasport = None
+                self.csubsessiondomain = None
+                self.csubsessionusername = None
+                self.csubsessionacctsessionid = None
+                self.csubsessiondnis = None
+                self.csubsessionmedia = None
+                self.csubsessionmlpnegotiated = None
+                self.csubsessionprotocol = None
+                self.csubsessiondhcpclass = None
+                self.csubsessiontunnelname = None
+                self.csubsessionlocationidentifier = None
+                self.csubsessionserviceidentifier = None
+                self.csubsessionlastchanged = None
+                self.csubsessionnativeipaddrtype2 = None
+                self.csubsessionnativeipaddr2 = None
+                self.csubsessionnativeipmask2 = None
+                self._segment_path = lambda: "csubSessionEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -837,7 +852,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubsessionipaddrassignment(Enum):
                 """
-                Csubsessionipaddrassignment
+                Csubsessionipaddrassignment (Enum Class)
 
                 This object indicates how the system assigns IP addresses to
 
@@ -973,8 +988,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubSessionByTypeEntry" : ("csubsessionbytypeentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubSessionByTypeEntry", ("csubsessionbytypeentry", CISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable.Csubsessionbytypeentry))])
+            self._leafs = OrderedDict()
 
             self.csubsessionbytypeentry = YList(self)
             self._segment_path = lambda: "csubSessionByTypeTable"
@@ -1000,12 +1017,12 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             session.  Likewise, the system destroys an entry when it
             terminates the corresponding subscriber session.
             
-            .. attribute:: csubsessionbytype  <key>
+            .. attribute:: csubsessionbytype  (key)
             
             	This object indicates the type of the subscriber session
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
             
-            .. attribute:: csubsessionifindex  <key>
+            .. attribute:: csubsessionifindex  (key)
             
             	This object indicates the ifIndex assigned to the subscriber session
             	**type**\: int
@@ -1026,13 +1043,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubSessionByTypeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubsessionbytype = YLeaf(YType.enumeration, "csubSessionByType")
-
-                self.csubsessionifindex = YLeaf(YType.int32, "csubSessionIfIndex")
-                self._segment_path = lambda: "csubSessionByTypeEntry" + "[csubSessionByType='" + self.csubsessionbytype.get() + "']" + "[csubSessionIfIndex='" + self.csubsessionifindex.get() + "']"
+                self.ylist_key_names = ['csubsessionbytype','csubsessionifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubsessionbytype', YLeaf(YType.enumeration, 'csubSessionByType')),
+                    ('csubsessionifindex', YLeaf(YType.int32, 'csubSessionIfIndex')),
+                ])
+                self.csubsessionbytype = None
+                self.csubsessionifindex = None
+                self._segment_path = lambda: "csubSessionByTypeEntry" + "[csubSessionByType='" + str(self.csubsessionbytype) + "']" + "[csubSessionIfIndex='" + str(self.csubsessionifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionByTypeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1064,8 +1084,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubAggStatsEntry" : ("csubaggstatsentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubAggStatsEntry", ("csubaggstatsentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry))])
+            self._leafs = OrderedDict()
 
             self.csubaggstatsentry = YList(self)
             self._segment_path = lambda: "csubAggStatsTable"
@@ -1158,19 +1180,19 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             those nodes.  Likewise, the system destroys these entries 
             upon removal of the physical entity.
             
-            .. attribute:: csubaggstatspointtype  <key>
+            .. attribute:: csubaggstatspointtype  (key)
             
             	This object indicates format of the csubAggStatsPoint for this entry.   The format for the csubAggStatsPoint is as follows\:   csubAggStatsPointType      csubAggStatsPoint  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      'physical'                 PhysicalIndex      'interface'                InterfaceIndex
             	**type**\:  :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
             
-            .. attribute:: csubaggstatspoint  <key>
+            .. attribute:: csubaggstatspoint  (key)
             
             	This object should be read with csubAggStatsPointType always.  This object indicates one of the determining factors affecting  the 'scope of aggregation' for the set of statistics contained  by the row.   The value indicated by this object should be interpreted as the  identifier for the point type specific base table.   For point types of 'physical', the type specific base table is  the entPhysicalTable and this value is a PhysicalIndex.  For  point types of 'interface', the type specific base table is  the ifTable and this value is an InterfaceIndex.   If this column indicates a physical entity which has an  entPhysicalClass of 'chassis', then the 'scope of aggregation'  may includes those subscriber sessions maintained by all nodes  contained by the system.   If this column indicates a physical entity which has an  entPhysicalClass of  'module' (e.g., a line card), then the  'scope of aggregation' may include those subscriber sessions  maintained by the nodes contained by the module.   If this column indicates a physical entity which has an  entPhysicalClass of 'cpu', then the 'scope of aggregation' may  include those subscriber sessions maintained by the node  running on the processor.   Aggregation points with entPhysicalTable / ifTable overlap\:  For interfaces which map directly to physical 'port' class  entities in the entPhysicalTable, the preferred representation  as aggregation points is the 'physical' point type and  PhysicalIndex identifier
             	**type**\: int
             
             	**range:** 1..4294967295
             
-            .. attribute:: csubaggstatssessiontype  <key>
+            .. attribute:: csubaggstatssessiontype  (key)
             
             	This object indicates one of the determining factors affecting the 'scope of aggregation' for the statistics contained by the row.  If the value of this column is 'all', then the 'scope of aggregation' may include all subscriber sessions, regardless of type.  If the value of this column is not 'all', then the 'scope of aggregation' may include subscriber sessions of the indicated subscriber session type
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
@@ -1482,81 +1504,84 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubAggStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubaggstatspointtype = YLeaf(YType.enumeration, "csubAggStatsPointType")
-
-                self.csubaggstatspoint = YLeaf(YType.uint32, "csubAggStatsPoint")
-
-                self.csubaggstatssessiontype = YLeaf(YType.enumeration, "csubAggStatsSessionType")
-
-                self.csubaggstatspendingsessions = YLeaf(YType.uint32, "csubAggStatsPendingSessions")
-
-                self.csubaggstatsupsessions = YLeaf(YType.uint32, "csubAggStatsUpSessions")
-
-                self.csubaggstatsauthsessions = YLeaf(YType.uint32, "csubAggStatsAuthSessions")
-
-                self.csubaggstatsunauthsessions = YLeaf(YType.uint32, "csubAggStatsUnAuthSessions")
-
-                self.csubaggstatslightweightsessions = YLeaf(YType.uint32, "csubAggStatsLightWeightSessions")
-
-                self.csubaggstatsredsessions = YLeaf(YType.uint32, "csubAggStatsRedSessions")
-
-                self.csubaggstatshighupsessions = YLeaf(YType.uint32, "csubAggStatsHighUpSessions")
-
-                self.csubaggstatsavgsessionuptime = YLeaf(YType.uint32, "csubAggStatsAvgSessionUptime")
-
-                self.csubaggstatsavgsessionrpm = YLeaf(YType.uint32, "csubAggStatsAvgSessionRPM")
-
-                self.csubaggstatsavgsessionrph = YLeaf(YType.uint32, "csubAggStatsAvgSessionRPH")
-
-                self.csubaggstatsthrottleengagements = YLeaf(YType.uint64, "csubAggStatsThrottleEngagements")
-
-                self.csubaggstatstotalcreatedsessions = YLeaf(YType.uint64, "csubAggStatsTotalCreatedSessions")
-
-                self.csubaggstatstotalfailedsessions = YLeaf(YType.uint64, "csubAggStatsTotalFailedSessions")
-
-                self.csubaggstatstotalupsessions = YLeaf(YType.uint64, "csubAggStatsTotalUpSessions")
-
-                self.csubaggstatstotalauthsessions = YLeaf(YType.uint64, "csubAggStatsTotalAuthSessions")
-
-                self.csubaggstatstotaldiscsessions = YLeaf(YType.uint64, "csubAggStatsTotalDiscSessions")
-
-                self.csubaggstatstotallightweightsessions = YLeaf(YType.uint64, "csubAggStatsTotalLightWeightSessions")
-
-                self.csubaggstatstotalflowsup = YLeaf(YType.uint64, "csubAggStatsTotalFlowsUp")
-
-                self.csubaggstatsdaycreatedsessions = YLeaf(YType.uint32, "csubAggStatsDayCreatedSessions")
-
-                self.csubaggstatsdayfailedsessions = YLeaf(YType.uint32, "csubAggStatsDayFailedSessions")
-
-                self.csubaggstatsdayupsessions = YLeaf(YType.uint32, "csubAggStatsDayUpSessions")
-
-                self.csubaggstatsdayauthsessions = YLeaf(YType.uint32, "csubAggStatsDayAuthSessions")
-
-                self.csubaggstatsdaydiscsessions = YLeaf(YType.uint32, "csubAggStatsDayDiscSessions")
-
-                self.csubaggstatscurrtimeelapsed = YLeaf(YType.uint32, "csubAggStatsCurrTimeElapsed")
-
-                self.csubaggstatscurrvalidintervals = YLeaf(YType.uint32, "csubAggStatsCurrValidIntervals")
-
-                self.csubaggstatscurrinvalidintervals = YLeaf(YType.uint32, "csubAggStatsCurrInvalidIntervals")
-
-                self.csubaggstatscurrflowsup = YLeaf(YType.uint32, "csubAggStatsCurrFlowsUp")
-
-                self.csubaggstatscurrcreatedsessions = YLeaf(YType.uint32, "csubAggStatsCurrCreatedSessions")
-
-                self.csubaggstatscurrfailedsessions = YLeaf(YType.uint32, "csubAggStatsCurrFailedSessions")
-
-                self.csubaggstatscurrupsessions = YLeaf(YType.uint32, "csubAggStatsCurrUpSessions")
-
-                self.csubaggstatscurrauthsessions = YLeaf(YType.uint32, "csubAggStatsCurrAuthSessions")
-
-                self.csubaggstatscurrdiscsessions = YLeaf(YType.uint32, "csubAggStatsCurrDiscSessions")
-
-                self.csubaggstatsdiscontinuitytime = YLeaf(YType.str, "csubAggStatsDiscontinuityTime")
-                self._segment_path = lambda: "csubAggStatsEntry" + "[csubAggStatsPointType='" + self.csubaggstatspointtype.get() + "']" + "[csubAggStatsPoint='" + self.csubaggstatspoint.get() + "']" + "[csubAggStatsSessionType='" + self.csubaggstatssessiontype.get() + "']"
+                self.ylist_key_names = ['csubaggstatspointtype','csubaggstatspoint','csubaggstatssessiontype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubaggstatspointtype', YLeaf(YType.enumeration, 'csubAggStatsPointType')),
+                    ('csubaggstatspoint', YLeaf(YType.uint32, 'csubAggStatsPoint')),
+                    ('csubaggstatssessiontype', YLeaf(YType.enumeration, 'csubAggStatsSessionType')),
+                    ('csubaggstatspendingsessions', YLeaf(YType.uint32, 'csubAggStatsPendingSessions')),
+                    ('csubaggstatsupsessions', YLeaf(YType.uint32, 'csubAggStatsUpSessions')),
+                    ('csubaggstatsauthsessions', YLeaf(YType.uint32, 'csubAggStatsAuthSessions')),
+                    ('csubaggstatsunauthsessions', YLeaf(YType.uint32, 'csubAggStatsUnAuthSessions')),
+                    ('csubaggstatslightweightsessions', YLeaf(YType.uint32, 'csubAggStatsLightWeightSessions')),
+                    ('csubaggstatsredsessions', YLeaf(YType.uint32, 'csubAggStatsRedSessions')),
+                    ('csubaggstatshighupsessions', YLeaf(YType.uint32, 'csubAggStatsHighUpSessions')),
+                    ('csubaggstatsavgsessionuptime', YLeaf(YType.uint32, 'csubAggStatsAvgSessionUptime')),
+                    ('csubaggstatsavgsessionrpm', YLeaf(YType.uint32, 'csubAggStatsAvgSessionRPM')),
+                    ('csubaggstatsavgsessionrph', YLeaf(YType.uint32, 'csubAggStatsAvgSessionRPH')),
+                    ('csubaggstatsthrottleengagements', YLeaf(YType.uint64, 'csubAggStatsThrottleEngagements')),
+                    ('csubaggstatstotalcreatedsessions', YLeaf(YType.uint64, 'csubAggStatsTotalCreatedSessions')),
+                    ('csubaggstatstotalfailedsessions', YLeaf(YType.uint64, 'csubAggStatsTotalFailedSessions')),
+                    ('csubaggstatstotalupsessions', YLeaf(YType.uint64, 'csubAggStatsTotalUpSessions')),
+                    ('csubaggstatstotalauthsessions', YLeaf(YType.uint64, 'csubAggStatsTotalAuthSessions')),
+                    ('csubaggstatstotaldiscsessions', YLeaf(YType.uint64, 'csubAggStatsTotalDiscSessions')),
+                    ('csubaggstatstotallightweightsessions', YLeaf(YType.uint64, 'csubAggStatsTotalLightWeightSessions')),
+                    ('csubaggstatstotalflowsup', YLeaf(YType.uint64, 'csubAggStatsTotalFlowsUp')),
+                    ('csubaggstatsdaycreatedsessions', YLeaf(YType.uint32, 'csubAggStatsDayCreatedSessions')),
+                    ('csubaggstatsdayfailedsessions', YLeaf(YType.uint32, 'csubAggStatsDayFailedSessions')),
+                    ('csubaggstatsdayupsessions', YLeaf(YType.uint32, 'csubAggStatsDayUpSessions')),
+                    ('csubaggstatsdayauthsessions', YLeaf(YType.uint32, 'csubAggStatsDayAuthSessions')),
+                    ('csubaggstatsdaydiscsessions', YLeaf(YType.uint32, 'csubAggStatsDayDiscSessions')),
+                    ('csubaggstatscurrtimeelapsed', YLeaf(YType.uint32, 'csubAggStatsCurrTimeElapsed')),
+                    ('csubaggstatscurrvalidintervals', YLeaf(YType.uint32, 'csubAggStatsCurrValidIntervals')),
+                    ('csubaggstatscurrinvalidintervals', YLeaf(YType.uint32, 'csubAggStatsCurrInvalidIntervals')),
+                    ('csubaggstatscurrflowsup', YLeaf(YType.uint32, 'csubAggStatsCurrFlowsUp')),
+                    ('csubaggstatscurrcreatedsessions', YLeaf(YType.uint32, 'csubAggStatsCurrCreatedSessions')),
+                    ('csubaggstatscurrfailedsessions', YLeaf(YType.uint32, 'csubAggStatsCurrFailedSessions')),
+                    ('csubaggstatscurrupsessions', YLeaf(YType.uint32, 'csubAggStatsCurrUpSessions')),
+                    ('csubaggstatscurrauthsessions', YLeaf(YType.uint32, 'csubAggStatsCurrAuthSessions')),
+                    ('csubaggstatscurrdiscsessions', YLeaf(YType.uint32, 'csubAggStatsCurrDiscSessions')),
+                    ('csubaggstatsdiscontinuitytime', YLeaf(YType.str, 'csubAggStatsDiscontinuityTime')),
+                ])
+                self.csubaggstatspointtype = None
+                self.csubaggstatspoint = None
+                self.csubaggstatssessiontype = None
+                self.csubaggstatspendingsessions = None
+                self.csubaggstatsupsessions = None
+                self.csubaggstatsauthsessions = None
+                self.csubaggstatsunauthsessions = None
+                self.csubaggstatslightweightsessions = None
+                self.csubaggstatsredsessions = None
+                self.csubaggstatshighupsessions = None
+                self.csubaggstatsavgsessionuptime = None
+                self.csubaggstatsavgsessionrpm = None
+                self.csubaggstatsavgsessionrph = None
+                self.csubaggstatsthrottleengagements = None
+                self.csubaggstatstotalcreatedsessions = None
+                self.csubaggstatstotalfailedsessions = None
+                self.csubaggstatstotalupsessions = None
+                self.csubaggstatstotalauthsessions = None
+                self.csubaggstatstotaldiscsessions = None
+                self.csubaggstatstotallightweightsessions = None
+                self.csubaggstatstotalflowsup = None
+                self.csubaggstatsdaycreatedsessions = None
+                self.csubaggstatsdayfailedsessions = None
+                self.csubaggstatsdayupsessions = None
+                self.csubaggstatsdayauthsessions = None
+                self.csubaggstatsdaydiscsessions = None
+                self.csubaggstatscurrtimeelapsed = None
+                self.csubaggstatscurrvalidintervals = None
+                self.csubaggstatscurrinvalidintervals = None
+                self.csubaggstatscurrflowsup = None
+                self.csubaggstatscurrcreatedsessions = None
+                self.csubaggstatscurrfailedsessions = None
+                self.csubaggstatscurrupsessions = None
+                self.csubaggstatscurrauthsessions = None
+                self.csubaggstatscurrdiscsessions = None
+                self.csubaggstatsdiscontinuitytime = None
+                self._segment_path = lambda: "csubAggStatsEntry" + "[csubAggStatsPointType='" + str(self.csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + str(self.csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + str(self.csubaggstatssessiontype) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1564,7 +1589,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubaggstatspointtype(Enum):
                 """
-                Csubaggstatspointtype
+                Csubaggstatspointtype (Enum Class)
 
                 This object indicates format of the csubAggStatsPoint
 
@@ -1627,8 +1652,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubAggStatsIntEntry" : ("csubaggstatsintentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubAggStatsIntEntry", ("csubaggstatsintentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable.Csubaggstatsintentry))])
+            self._leafs = OrderedDict()
 
             self.csubaggstatsintentry = YList(self)
             self._segment_path = lambda: "csubAggStatsIntTable"
@@ -1646,12 +1673,12 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             'scope of aggregation', see the descriptive text associated with
             the csubAggStatsEntry.
             
-            .. attribute:: csubaggstatspointtype  <key>
+            .. attribute:: csubaggstatspointtype  (key)
             
             	
             	**type**\:  :py:class:`Csubaggstatspointtype <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry.Csubaggstatspointtype>`
             
-            .. attribute:: csubaggstatspoint  <key>
+            .. attribute:: csubaggstatspoint  (key)
             
             	
             	**type**\: int
@@ -1660,12 +1687,12 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubaggstatspoint <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable.Csubaggstatsentry>`
             
-            .. attribute:: csubaggstatssessiontype  <key>
+            .. attribute:: csubaggstatssessiontype  (key)
             
             	
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
             
-            .. attribute:: csubaggstatsintnumber  <key>
+            .. attribute:: csubaggstatsintnumber  (key)
             
             	This object indicates the interval number identifying the 15\-minute measurement interval for which aggregated subscriber session performance data was successfully collected by the system.  The interval identified by the value '1' represents the most recent 15\-minute measurement interval, and the interval identified by the value (n) represents the interval immediately preceding the interval identified by the value (n\-1)
             	**type**\: int
@@ -1736,29 +1763,32 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubAggStatsIntTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubaggstatspointtype = YLeaf(YType.enumeration, "csubAggStatsPointType")
-
-                self.csubaggstatspoint = YLeaf(YType.str, "csubAggStatsPoint")
-
-                self.csubaggstatssessiontype = YLeaf(YType.enumeration, "csubAggStatsSessionType")
-
-                self.csubaggstatsintnumber = YLeaf(YType.uint32, "csubAggStatsIntNumber")
-
-                self.csubaggstatsintvalid = YLeaf(YType.boolean, "csubAggStatsIntValid")
-
-                self.csubaggstatsintcreatedsessions = YLeaf(YType.uint32, "csubAggStatsIntCreatedSessions")
-
-                self.csubaggstatsintfailedsessions = YLeaf(YType.uint32, "csubAggStatsIntFailedSessions")
-
-                self.csubaggstatsintupsessions = YLeaf(YType.uint32, "csubAggStatsIntUpSessions")
-
-                self.csubaggstatsintauthsessions = YLeaf(YType.uint32, "csubAggStatsIntAuthSessions")
-
-                self.csubaggstatsintdiscsessions = YLeaf(YType.uint32, "csubAggStatsIntDiscSessions")
-                self._segment_path = lambda: "csubAggStatsIntEntry" + "[csubAggStatsPointType='" + self.csubaggstatspointtype.get() + "']" + "[csubAggStatsPoint='" + self.csubaggstatspoint.get() + "']" + "[csubAggStatsSessionType='" + self.csubaggstatssessiontype.get() + "']" + "[csubAggStatsIntNumber='" + self.csubaggstatsintnumber.get() + "']"
+                self.ylist_key_names = ['csubaggstatspointtype','csubaggstatspoint','csubaggstatssessiontype','csubaggstatsintnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubaggstatspointtype', YLeaf(YType.enumeration, 'csubAggStatsPointType')),
+                    ('csubaggstatspoint', YLeaf(YType.str, 'csubAggStatsPoint')),
+                    ('csubaggstatssessiontype', YLeaf(YType.enumeration, 'csubAggStatsSessionType')),
+                    ('csubaggstatsintnumber', YLeaf(YType.uint32, 'csubAggStatsIntNumber')),
+                    ('csubaggstatsintvalid', YLeaf(YType.boolean, 'csubAggStatsIntValid')),
+                    ('csubaggstatsintcreatedsessions', YLeaf(YType.uint32, 'csubAggStatsIntCreatedSessions')),
+                    ('csubaggstatsintfailedsessions', YLeaf(YType.uint32, 'csubAggStatsIntFailedSessions')),
+                    ('csubaggstatsintupsessions', YLeaf(YType.uint32, 'csubAggStatsIntUpSessions')),
+                    ('csubaggstatsintauthsessions', YLeaf(YType.uint32, 'csubAggStatsIntAuthSessions')),
+                    ('csubaggstatsintdiscsessions', YLeaf(YType.uint32, 'csubAggStatsIntDiscSessions')),
+                ])
+                self.csubaggstatspointtype = None
+                self.csubaggstatspoint = None
+                self.csubaggstatssessiontype = None
+                self.csubaggstatsintnumber = None
+                self.csubaggstatsintvalid = None
+                self.csubaggstatsintcreatedsessions = None
+                self.csubaggstatsintfailedsessions = None
+                self.csubaggstatsintupsessions = None
+                self.csubaggstatsintauthsessions = None
+                self.csubaggstatsintdiscsessions = None
+                self._segment_path = lambda: "csubAggStatsIntEntry" + "[csubAggStatsPointType='" + str(self.csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + str(self.csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + str(self.csubaggstatssessiontype) + "']" + "[csubAggStatsIntNumber='" + str(self.csubaggstatsintnumber) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsIntTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1788,8 +1818,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubAggStatsThreshEntry" : ("csubaggstatsthreshentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubAggStatsThreshEntry", ("csubaggstatsthreshentry", CISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable.Csubaggstatsthreshentry))])
+            self._leafs = OrderedDict()
 
             self.csubaggstatsthreshentry = YList(self)
             self._segment_path = lambda: "csubAggStatsThreshTable"
@@ -1806,7 +1838,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             Each row defines the set of thresholds and evaluation attributes
             for an aggregation point.
             
-            .. attribute:: csubsessionrisingthresh  <key>
+            .. attribute:: csubsessionrisingthresh  (key)
             
             	This threshold, if non\-zero, indicates the rising threshold for the value of csubAggStatsUpSessions for the aggregation point, When the current sample of csubAggStatsUpSessions is greater than or equal to this threshold, and the value of csubAggStatsUpSessions for the last sample interval was less than this thershold, the csubSessionRisingNotif is triggered.           If the value of this threshold is 0, the threshold is not evaluated
             	**type**\: int
@@ -1848,17 +1880,20 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubAggStatsThreshTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubsessionrisingthresh = YLeaf(YType.uint32, "csubSessionRisingThresh")
-
-                self.csubsessionfallingthresh = YLeaf(YType.uint32, "csubSessionFallingThresh")
-
-                self.csubsessiondeltapercentfallingthresh = YLeaf(YType.uint32, "csubSessionDeltaPercentFallingThresh")
-
-                self.csubsessionthreshevalinterval = YLeaf(YType.uint32, "csubSessionThreshEvalInterval")
-                self._segment_path = lambda: "csubAggStatsThreshEntry" + "[csubSessionRisingThresh='" + self.csubsessionrisingthresh.get() + "']"
+                self.ylist_key_names = ['csubsessionrisingthresh']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubsessionrisingthresh', YLeaf(YType.uint32, 'csubSessionRisingThresh')),
+                    ('csubsessionfallingthresh', YLeaf(YType.uint32, 'csubSessionFallingThresh')),
+                    ('csubsessiondeltapercentfallingthresh', YLeaf(YType.uint32, 'csubSessionDeltaPercentFallingThresh')),
+                    ('csubsessionthreshevalinterval', YLeaf(YType.uint32, 'csubSessionThreshEvalInterval')),
+                ])
+                self.csubsessionrisingthresh = None
+                self.csubsessionfallingthresh = None
+                self.csubsessiondeltapercentfallingthresh = None
+                self.csubsessionthreshevalinterval = None
+                self._segment_path = lambda: "csubAggStatsThreshEntry" + "[csubSessionRisingThresh='" + str(self.csubsessionrisingthresh) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsThreshTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1889,8 +1924,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubJobEntry" : ("csubjobentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubJobEntry", ("csubjobentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry))])
+            self._leafs = OrderedDict()
 
             self.csubjobentry = YList(self)
             self._segment_path = lambda: "csubJobTable"
@@ -1974,7 +2011,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 after reading it.  It can do this by setting the
                 corresponding instance of csubJobControl to 'release'.
             
-            .. attribute:: csubjobid  <key>
+            .. attribute:: csubjobid  (key)
             
             	This object indicates an arbitrary, positive integer\-value uniquely identifying the subscriber session job
             	**type**\: int
@@ -2039,27 +2076,30 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubJobTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubjobid = YLeaf(YType.uint32, "csubJobId")
-
-                self.csubjobstatus = YLeaf(YType.enumeration, "csubJobStatus")
-
-                self.csubjobstorage = YLeaf(YType.enumeration, "csubJobStorage")
-
-                self.csubjobtype = YLeaf(YType.enumeration, "csubJobType")
-
-                self.csubjobcontrol = YLeaf(YType.enumeration, "csubJobControl")
-
-                self.csubjobstate = YLeaf(YType.enumeration, "csubJobState")
-
-                self.csubjobstartedtime = YLeaf(YType.uint32, "csubJobStartedTime")
-
-                self.csubjobfinishedtime = YLeaf(YType.uint32, "csubJobFinishedTime")
-
-                self.csubjobfinishedreason = YLeaf(YType.enumeration, "csubJobFinishedReason")
-                self._segment_path = lambda: "csubJobEntry" + "[csubJobId='" + self.csubjobid.get() + "']"
+                self.ylist_key_names = ['csubjobid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubjobid', YLeaf(YType.uint32, 'csubJobId')),
+                    ('csubjobstatus', YLeaf(YType.enumeration, 'csubJobStatus')),
+                    ('csubjobstorage', YLeaf(YType.enumeration, 'csubJobStorage')),
+                    ('csubjobtype', YLeaf(YType.enumeration, 'csubJobType')),
+                    ('csubjobcontrol', YLeaf(YType.enumeration, 'csubJobControl')),
+                    ('csubjobstate', YLeaf(YType.enumeration, 'csubJobState')),
+                    ('csubjobstartedtime', YLeaf(YType.uint32, 'csubJobStartedTime')),
+                    ('csubjobfinishedtime', YLeaf(YType.uint32, 'csubJobFinishedTime')),
+                    ('csubjobfinishedreason', YLeaf(YType.enumeration, 'csubJobFinishedReason')),
+                ])
+                self.csubjobid = None
+                self.csubjobstatus = None
+                self.csubjobstorage = None
+                self.csubjobtype = None
+                self.csubjobcontrol = None
+                self.csubjobstate = None
+                self.csubjobstartedtime = None
+                self.csubjobfinishedtime = None
+                self.csubjobfinishedreason = None
+                self._segment_path = lambda: "csubJobEntry" + "[csubJobId='" + str(self.csubjobid) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2067,7 +2107,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubjobcontrol(Enum):
                 """
-                Csubjobcontrol
+                Csubjobcontrol (Enum Class)
 
                 This object specifies an action relating to the subscriber
 
@@ -2158,7 +2198,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubjobfinishedreason(Enum):
                 """
-                Csubjobfinishedreason
+                Csubjobfinishedreason (Enum Class)
 
                 This object indicates the reason why the system finished
 
@@ -2239,7 +2279,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubjobstate(Enum):
                 """
-                Csubjobstate
+                Csubjobstate (Enum Class)
 
                 This object indicates the current state of the subscriber
 
@@ -2298,7 +2338,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
             class Csubjobtype(Enum):
                 """
-                Csubjobtype
+                Csubjobtype (Enum Class)
 
                 This object specifies the type of subscriber session job\:
 
@@ -2384,8 +2424,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubJobMatchParamsEntry" : ("csubjobmatchparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubJobMatchParamsEntry", ("csubjobmatchparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable.Csubjobmatchparamsentry))])
+            self._leafs = OrderedDict()
 
             self.csubjobmatchparamsentry = YList(self)
             self._segment_path = lambda: "csubJobMatchParamsTable"
@@ -2420,7 +2462,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             2)  The EMS/NMS sets the corresponding instance of csubJobType
                 to 'noop'.
             
-            .. attribute:: csubjobid  <key>
+            .. attribute:: csubjobid  (key)
             
             	
             	**type**\: int
@@ -2609,71 +2651,74 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubJobMatchParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubjobid = YLeaf(YType.str, "csubJobId")
-
-                self.csubjobmatchidentities = YLeaf(YType.bits, "csubJobMatchIdentities")
-
-                self.csubjobmatchotherparams = YLeaf(YType.bits, "csubJobMatchOtherParams")
-
-                self.csubjobmatchsubscriberlabel = YLeaf(YType.uint32, "csubJobMatchSubscriberLabel")
-
-                self.csubjobmatchmacaddress = YLeaf(YType.str, "csubJobMatchMacAddress")
-
-                self.csubjobmatchnativevrf = YLeaf(YType.str, "csubJobMatchNativeVrf")
-
-                self.csubjobmatchnativeipaddrtype = YLeaf(YType.enumeration, "csubJobMatchNativeIpAddrType")
-
-                self.csubjobmatchnativeipaddr = YLeaf(YType.str, "csubJobMatchNativeIpAddr")
-
-                self.csubjobmatchnativeipmask = YLeaf(YType.str, "csubJobMatchNativeIpMask")
-
-                self.csubjobmatchdomainvrf = YLeaf(YType.str, "csubJobMatchDomainVrf")
-
-                self.csubjobmatchdomainipaddrtype = YLeaf(YType.enumeration, "csubJobMatchDomainIpAddrType")
-
-                self.csubjobmatchdomainipaddr = YLeaf(YType.str, "csubJobMatchDomainIpAddr")
-
-                self.csubjobmatchdomainipmask = YLeaf(YType.str, "csubJobMatchDomainIpMask")
-
-                self.csubjobmatchpbhk = YLeaf(YType.str, "csubJobMatchPbhk")
-
-                self.csubjobmatchremoteid = YLeaf(YType.str, "csubJobMatchRemoteId")
-
-                self.csubjobmatchcircuitid = YLeaf(YType.str, "csubJobMatchCircuitId")
-
-                self.csubjobmatchnasport = YLeaf(YType.str, "csubJobMatchNasPort")
-
-                self.csubjobmatchdomain = YLeaf(YType.str, "csubJobMatchDomain")
-
-                self.csubjobmatchusername = YLeaf(YType.str, "csubJobMatchUsername")
-
-                self.csubjobmatchacctsessionid = YLeaf(YType.uint32, "csubJobMatchAcctSessionId")
-
-                self.csubjobmatchdnis = YLeaf(YType.str, "csubJobMatchDnis")
-
-                self.csubjobmatchmedia = YLeaf(YType.enumeration, "csubJobMatchMedia")
-
-                self.csubjobmatchmlpnegotiated = YLeaf(YType.boolean, "csubJobMatchMlpNegotiated")
-
-                self.csubjobmatchprotocol = YLeaf(YType.enumeration, "csubJobMatchProtocol")
-
-                self.csubjobmatchservicename = YLeaf(YType.str, "csubJobMatchServiceName")
-
-                self.csubjobmatchdhcpclass = YLeaf(YType.str, "csubJobMatchDhcpClass")
-
-                self.csubjobmatchtunnelname = YLeaf(YType.str, "csubJobMatchTunnelName")
-
-                self.csubjobmatchdanglingduration = YLeaf(YType.uint32, "csubJobMatchDanglingDuration")
-
-                self.csubjobmatchstate = YLeaf(YType.enumeration, "csubJobMatchState")
-
-                self.csubjobmatchauthenticated = YLeaf(YType.boolean, "csubJobMatchAuthenticated")
-
-                self.csubjobmatchredundancymode = YLeaf(YType.enumeration, "csubJobMatchRedundancyMode")
-                self._segment_path = lambda: "csubJobMatchParamsEntry" + "[csubJobId='" + self.csubjobid.get() + "']"
+                self.ylist_key_names = ['csubjobid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubjobid', YLeaf(YType.str, 'csubJobId')),
+                    ('csubjobmatchidentities', YLeaf(YType.bits, 'csubJobMatchIdentities')),
+                    ('csubjobmatchotherparams', YLeaf(YType.bits, 'csubJobMatchOtherParams')),
+                    ('csubjobmatchsubscriberlabel', YLeaf(YType.uint32, 'csubJobMatchSubscriberLabel')),
+                    ('csubjobmatchmacaddress', YLeaf(YType.str, 'csubJobMatchMacAddress')),
+                    ('csubjobmatchnativevrf', YLeaf(YType.str, 'csubJobMatchNativeVrf')),
+                    ('csubjobmatchnativeipaddrtype', YLeaf(YType.enumeration, 'csubJobMatchNativeIpAddrType')),
+                    ('csubjobmatchnativeipaddr', YLeaf(YType.str, 'csubJobMatchNativeIpAddr')),
+                    ('csubjobmatchnativeipmask', YLeaf(YType.str, 'csubJobMatchNativeIpMask')),
+                    ('csubjobmatchdomainvrf', YLeaf(YType.str, 'csubJobMatchDomainVrf')),
+                    ('csubjobmatchdomainipaddrtype', YLeaf(YType.enumeration, 'csubJobMatchDomainIpAddrType')),
+                    ('csubjobmatchdomainipaddr', YLeaf(YType.str, 'csubJobMatchDomainIpAddr')),
+                    ('csubjobmatchdomainipmask', YLeaf(YType.str, 'csubJobMatchDomainIpMask')),
+                    ('csubjobmatchpbhk', YLeaf(YType.str, 'csubJobMatchPbhk')),
+                    ('csubjobmatchremoteid', YLeaf(YType.str, 'csubJobMatchRemoteId')),
+                    ('csubjobmatchcircuitid', YLeaf(YType.str, 'csubJobMatchCircuitId')),
+                    ('csubjobmatchnasport', YLeaf(YType.str, 'csubJobMatchNasPort')),
+                    ('csubjobmatchdomain', YLeaf(YType.str, 'csubJobMatchDomain')),
+                    ('csubjobmatchusername', YLeaf(YType.str, 'csubJobMatchUsername')),
+                    ('csubjobmatchacctsessionid', YLeaf(YType.uint32, 'csubJobMatchAcctSessionId')),
+                    ('csubjobmatchdnis', YLeaf(YType.str, 'csubJobMatchDnis')),
+                    ('csubjobmatchmedia', YLeaf(YType.enumeration, 'csubJobMatchMedia')),
+                    ('csubjobmatchmlpnegotiated', YLeaf(YType.boolean, 'csubJobMatchMlpNegotiated')),
+                    ('csubjobmatchprotocol', YLeaf(YType.enumeration, 'csubJobMatchProtocol')),
+                    ('csubjobmatchservicename', YLeaf(YType.str, 'csubJobMatchServiceName')),
+                    ('csubjobmatchdhcpclass', YLeaf(YType.str, 'csubJobMatchDhcpClass')),
+                    ('csubjobmatchtunnelname', YLeaf(YType.str, 'csubJobMatchTunnelName')),
+                    ('csubjobmatchdanglingduration', YLeaf(YType.uint32, 'csubJobMatchDanglingDuration')),
+                    ('csubjobmatchstate', YLeaf(YType.enumeration, 'csubJobMatchState')),
+                    ('csubjobmatchauthenticated', YLeaf(YType.boolean, 'csubJobMatchAuthenticated')),
+                    ('csubjobmatchredundancymode', YLeaf(YType.enumeration, 'csubJobMatchRedundancyMode')),
+                ])
+                self.csubjobid = None
+                self.csubjobmatchidentities = Bits()
+                self.csubjobmatchotherparams = Bits()
+                self.csubjobmatchsubscriberlabel = None
+                self.csubjobmatchmacaddress = None
+                self.csubjobmatchnativevrf = None
+                self.csubjobmatchnativeipaddrtype = None
+                self.csubjobmatchnativeipaddr = None
+                self.csubjobmatchnativeipmask = None
+                self.csubjobmatchdomainvrf = None
+                self.csubjobmatchdomainipaddrtype = None
+                self.csubjobmatchdomainipaddr = None
+                self.csubjobmatchdomainipmask = None
+                self.csubjobmatchpbhk = None
+                self.csubjobmatchremoteid = None
+                self.csubjobmatchcircuitid = None
+                self.csubjobmatchnasport = None
+                self.csubjobmatchdomain = None
+                self.csubjobmatchusername = None
+                self.csubjobmatchacctsessionid = None
+                self.csubjobmatchdnis = None
+                self.csubjobmatchmedia = None
+                self.csubjobmatchmlpnegotiated = None
+                self.csubjobmatchprotocol = None
+                self.csubjobmatchservicename = None
+                self.csubjobmatchdhcpclass = None
+                self.csubjobmatchtunnelname = None
+                self.csubjobmatchdanglingduration = None
+                self.csubjobmatchstate = None
+                self.csubjobmatchauthenticated = None
+                self.csubjobmatchredundancymode = None
+                self._segment_path = lambda: "csubJobMatchParamsEntry" + "[csubJobId='" + str(self.csubjobid) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobMatchParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2708,8 +2753,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubJobQueryParamsEntry" : ("csubjobqueryparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubJobQueryParamsEntry", ("csubjobqueryparamsentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable.Csubjobqueryparamsentry))])
+            self._leafs = OrderedDict()
 
             self.csubjobqueryparamsentry = YList(self)
             self._segment_path = lambda: "csubJobQueryParamsTable"
@@ -2734,7 +2781,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             2)  The EMS/NMS sets the corresponding instance of csubJobType to
                 'noop' or 'clear'.
             
-            .. attribute:: csubjobid  <key>
+            .. attribute:: csubjobid  (key)
             
             	
             	**type**\: int
@@ -2779,19 +2826,22 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubJobQueryParamsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubjobid = YLeaf(YType.str, "csubJobId")
-
-                self.csubjobquerysortkey1 = YLeaf(YType.enumeration, "csubJobQuerySortKey1")
-
-                self.csubjobquerysortkey2 = YLeaf(YType.enumeration, "csubJobQuerySortKey2")
-
-                self.csubjobquerysortkey3 = YLeaf(YType.enumeration, "csubJobQuerySortKey3")
-
-                self.csubjobqueryresultingreportsize = YLeaf(YType.uint32, "csubJobQueryResultingReportSize")
-                self._segment_path = lambda: "csubJobQueryParamsEntry" + "[csubJobId='" + self.csubjobid.get() + "']"
+                self.ylist_key_names = ['csubjobid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubjobid', YLeaf(YType.str, 'csubJobId')),
+                    ('csubjobquerysortkey1', YLeaf(YType.enumeration, 'csubJobQuerySortKey1')),
+                    ('csubjobquerysortkey2', YLeaf(YType.enumeration, 'csubJobQuerySortKey2')),
+                    ('csubjobquerysortkey3', YLeaf(YType.enumeration, 'csubJobQuerySortKey3')),
+                    ('csubjobqueryresultingreportsize', YLeaf(YType.uint32, 'csubJobQueryResultingReportSize')),
+                ])
+                self.csubjobid = None
+                self.csubjobquerysortkey1 = None
+                self.csubjobquerysortkey2 = None
+                self.csubjobquerysortkey3 = None
+                self.csubjobqueryresultingreportsize = None
+                self._segment_path = lambda: "csubJobQueryParamsEntry" + "[csubJobId='" + str(self.csubjobid) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueryParamsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2822,8 +2872,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubJobQueueEntry" : ("csubjobqueueentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubJobQueueEntry", ("csubjobqueueentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable.Csubjobqueueentry))])
+            self._leafs = OrderedDict()
 
             self.csubjobqueueentry = YList(self)
             self._segment_path = lambda: "csubJobQueueTable"
@@ -2852,7 +2904,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             2)  The EMS/NMS has set an instance of csubJobControl to 'abort'
                 for a job that was on the queue.
             
-            .. attribute:: csubjobqueuenumber  <key>
+            .. attribute:: csubjobqueuenumber  (key)
             
             	This object indicates an positive, integer\-value that uniquely identifies the entry in the table. The value of this object starts at '1' and monotonically increases for each subscriber session job inserted into the subscriber session job queue.  If the value of this object is '4294967295', the system will reset it to '1' when it inserts the next subscriber session job into the subscriber session job queue
             	**type**\: int
@@ -2880,13 +2932,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubJobQueueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubjobqueuenumber = YLeaf(YType.uint32, "csubJobQueueNumber")
-
-                self.csubjobqueuejobid = YLeaf(YType.uint32, "csubJobQueueJobId")
-                self._segment_path = lambda: "csubJobQueueEntry" + "[csubJobQueueNumber='" + self.csubjobqueuenumber.get() + "']"
+                self.ylist_key_names = ['csubjobqueuenumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubjobqueuenumber', YLeaf(YType.uint32, 'csubJobQueueNumber')),
+                    ('csubjobqueuejobid', YLeaf(YType.uint32, 'csubJobQueueJobId')),
+                ])
+                self.csubjobqueuenumber = None
+                self.csubjobqueuejobid = None
+                self._segment_path = lambda: "csubJobQueueEntry" + "[csubJobQueueNumber='" + str(self.csubjobqueuenumber) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2921,8 +2976,10 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-SUBSCRIBER-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"csubJobReportEntry" : ("csubjobreportentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("csubJobReportEntry", ("csubjobreportentry", CISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable.Csubjobreportentry))])
+            self._leafs = OrderedDict()
 
             self.csubjobreportentry = YList(self)
             self._segment_path = lambda: "csubJobReportTable"
@@ -2958,7 +3015,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 session job (i.e., has set the corresponding instance of
                 csubJobControl to 'start').
             
-            .. attribute:: csubjobid  <key>
+            .. attribute:: csubjobid  (key)
             
             	
             	**type**\: int
@@ -2967,7 +3024,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.Csubjobtable.Csubjobentry>`
             
-            .. attribute:: csubjobreportid  <key>
+            .. attribute:: csubjobreportid  (key)
             
             	This object indicates an arbitrary, positive, integer\-value that uniquely identifies this entry in a report.  This auxiliary value is necessary, as the corresponding subscriber session job can specify up to three subscriber identities on which to sort the subscriber sessions that end up in the final report
             	**type**\: int
@@ -2995,15 +3052,18 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self.yang_parent_name = "csubJobReportTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.csubjobid = YLeaf(YType.str, "csubJobId")
-
-                self.csubjobreportid = YLeaf(YType.uint32, "csubJobReportId")
-
-                self.csubjobreportsession = YLeaf(YType.int32, "csubJobReportSession")
-                self._segment_path = lambda: "csubJobReportEntry" + "[csubJobId='" + self.csubjobid.get() + "']" + "[csubJobReportId='" + self.csubjobreportid.get() + "']"
+                self.ylist_key_names = ['csubjobid','csubjobreportid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('csubjobid', YLeaf(YType.str, 'csubJobId')),
+                    ('csubjobreportid', YLeaf(YType.uint32, 'csubJobReportId')),
+                    ('csubjobreportsession', YLeaf(YType.int32, 'csubJobReportSession')),
+                ])
+                self.csubjobid = None
+                self.csubjobreportid = None
+                self.csubjobreportsession = None
+                self._segment_path = lambda: "csubJobReportEntry" + "[csubJobId='" + str(self.csubjobid) + "']" + "[csubJobReportId='" + str(self.csubjobreportid) + "']"
                 self._absolute_path = lambda: "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobReportTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

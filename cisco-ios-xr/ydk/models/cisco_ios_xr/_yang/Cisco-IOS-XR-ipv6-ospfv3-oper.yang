@@ -1,118 +1,128 @@
 module Cisco-IOS-XR-ipv6-ospfv3-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ospfv3-oper";
+  prefix ipv6-ospfv3-oper;
 
-
-  prefix "ipv6-ospfv3-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-10-30;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-ospfv3 package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        ospfv3: OSPFv3 operational information 
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2017-10-30 {
+    description
+      "Added link information in grace LSA.";
+  }
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ospfv3-lsa {
     type enumeration {
-      enum link-lsa {
+      enum "link-lsa" {
         value 8;
-        description "Link LSA";
+        description
+          "Link LSA";
       }
-      enum grace-lsa {
+      enum "grace-lsa" {
         value 11;
-        description "Grace LSA";
+        description
+          "Grace LSA";
       }
-      enum router {
+      enum "router" {
         value 8193;
-        description "Router LSA";
+        description
+          "Router LSA";
       }
-      enum network {
+      enum "network" {
         value 8194;
-        description "Network LSA";
+        description
+          "Network LSA";
       }
-      enum inter-area-prefix {
+      enum "inter-area-prefix" {
         value 8195;
-        description "Inter-Area Prefix LSA";
+        description
+          "Inter-Area Prefix LSA";
       }
-      enum inter-area-router {
+      enum "inter-area-router" {
         value 8196;
-        description "Inter-Area Router LSA";
+        description
+          "Inter-Area Router LSA";
       }
-      enum nssa-external {
+      enum "nssa-external" {
         value 8199;
-        description "NSSA External LSA";
+        description
+          "NSSA External LSA";
       }
-      enum intra-area-prefix {
+      enum "intra-area-prefix" {
         value 8201;
-        description "Intra-Area Prefix LSA";
+        description
+          "Intra-Area Prefix LSA";
       }
-      enum external {
+      enum "external" {
         value 16389;
-        description "External LSA";
+        description
+          "External LSA";
       }
-      enum opaque-link {
+      enum "opaque-link" {
         value 32768;
-        description "Opaque LSALink Scope";
+        description
+          "Opaque LSALink Scope";
       }
-      enum opaque-area {
+      enum "opaque-area" {
         value 40960;
-        description "Opaque LSA Area Scope";
+        description
+          "Opaque LSA Area Scope";
       }
-      enum opaque-as {
+      enum "opaque-as" {
         value 49152;
-        description "Opaque LSA AS Scope";
+        description
+          "Opaque LSA AS Scope";
       }
-      enum unknown {
+      enum "unknown" {
         value 57344;
-        description "Unknown Reserved Scope LSAs";
+        description
+          "Unknown Reserved Scope LSAs";
       }
     }
-    description "Ospfv3 lsa";
+    description
+      "Ospfv3 lsa";
   }
 
   grouping FLOOD-LIST-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container flood-list-process-table {
       description
         "OSPFv3 flood list information table for all
-        areas";
+         areas";
       uses FLOOD-LIST;
     }
   }
@@ -120,31 +130,34 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping FLOOD-LIST {
     description
       "Common node of flood-list-table,
-      flood-list-process-table";
-
+       flood-list-process-table";
     list flood {
       key "interface-name";
-      description "OSPFv3 flood list information";
+      description
+        "OSPFv3 flood list information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       uses OSPFV3-EDM-FLOOD-LIST;
     }
   }
 
   grouping BORDER-ROUTER-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container border-routers {
-      description "OSPFv3 border router information table";
-
+      description
+        "OSPFv3 border router information table";
       list border-router {
         key "border-router-id";
-        description "OSPFv3 border router information";
+        description
+          "OSPFv3 border router information";
         leaf border-router-id {
           type inet:ipv4-address-no-zone;
-          description "Router address";
+          description
+            "Router address";
         }
         uses OSPFV3-EDM-BORDER-ROUTER;
       }
@@ -152,20 +165,23 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping FAST-REROUTE-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container fast-reroutes {
-      description "OSPFv3 fast reroute topology information table";
-
+      description
+        "OSPFv3 fast reroute topology information table";
       list fast-reroute {
-        description "OSPFv3 fast reroute topology information";
+        description
+          "OSPFv3 fast reroute topology information";
         leaf router-id {
           type inet:ipv4-address-no-zone;
-          description "Router ID";
+          description
+            "Router ID";
         }
         leaf area-id {
           type int32;
-          description "AreaID";
+          description
+            "AreaID";
         }
         uses OSPFV3-SH-IPFRR-TOPO;
       }
@@ -173,59 +189,57 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping AREA-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container areas {
-      description "OSPFv3 area table";
-
+      description
+        "OSPFv3 area table";
       list area {
         key "area-id";
-        description "Per-area information";
-
+        description
+          "Per-area information";
         container neighbor-detail-table {
-          description "OSPFv3 area neighbor information table";
+          description
+            "OSPFv3 area neighbor information table";
           uses NEIGHBOR-DETAIL;
         }
-
         container interface-brief-table {
           description
             "OSPFv3 interface brief information table for
-            an area";
+             an area";
           uses INTERFACE-BRIEF;
         }
-
         container request-list-table {
-          description "OSPFv3 request list information in an area";
+          description
+            "OSPFv3 request list information in an area";
           uses REQUEST-LIST;
         }
-
         container neighbor-table {
-          description "OSPFv3 neighbor information table";
+          description
+            "OSPFv3 neighbor information table";
           uses NEIGHBOR;
         }
-
         container interface-table {
           description
             "OSPFv3 interface information table for an area";
           uses INTERFACE;
         }
-
         container flood-list-table {
           description
             "OSPFv3 flood list information table for an
-            area";
+             area";
           uses FLOOD-LIST;
         }
-
         container retransmission-list-table {
           description
             "OSPFv3 retransmission list information table
-            in an area";
+             in an area";
           uses RETRANSMISSION-LIST;
         }
         leaf area-id {
           type int32;
-          description "Area ID";
+          description
+            "Area ID";
         }
         uses DATABASE-TABLE;
         uses DATABASE-SUMMARY-TABLE;
@@ -234,20 +248,23 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping EXTERNAL-ROUTE-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container external-routes {
-      description "OSPFv3 external route information table";
-
+      description
+        "OSPFv3 external route information table";
       list external-route {
-        description "OSPFv3 external route information";
+        description
+          "OSPFv3 external route information";
         leaf prefix {
           type inet:ipv6-address-no-zone;
-          description "Route prefix";
+          description
+            "Route prefix";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
-          description "Prefix length";
+          description
+            "Prefix length";
         }
         uses OSPFV3-EDM-TOPOLOGY-EXTERNAL;
       }
@@ -255,37 +272,41 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping RAWIO-STATS {
-    description "Common node of statistics, vrf-statistics";
-
+    description
+      "Common node of statistics, vrf-statistics";
     container rawio-stats {
-      description "OSPF Prefix SPF Prioritization statistics";
+      description
+        "OSPF Prefix SPF Prioritization statistics";
       uses OSPFV3-EDM-RAW-STATS;
     }
   }
 
   grouping NEIGHBOR-DETAIL-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container neighbor-detail-process-table {
-      description "OSPFv3 neighbor information table for all areas";
+      description
+        "OSPFv3 neighbor information table for all areas";
       uses NEIGHBOR-DETAIL;
     }
   }
 
   grouping VRF-RIB-BATCH-STATS {
-    description "Common node of statistics, vrf-statistics";
-
+    description
+      "Common node of statistics, vrf-statistics";
     container vrf-rib-batch-stats {
-      description "OSPFv3 RIB batch statistics";
+      description
+        "OSPFv3 RIB batch statistics";
       uses OSPFV3-EDM-BATCH-STATS;
     }
   }
 
   grouping VRF-STATISTICS {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container vrf-statistics {
-      description "Container for Statistics";
+      description
+        "Container for Statistics";
       uses PROTOCOL-STATS-TABLE;
       uses SPF-STATS;
       uses RAWIO-STATS;
@@ -297,14 +318,15 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping INTERFACE {
     description
       "Common node of interface-table,
-      interface-process-table";
-
+       interface-process-table";
     list interface {
       key "interface-name";
-      description "OSPFv3 interface information";
+      description
+        "OSPFv3 interface information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       uses OSPFV3-EDM-INTERFACE;
     }
@@ -313,33 +335,36 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping INTERFACE-BRIEF {
     description
       "Common node of interface-brief-table,
-      interface-brief-process-table";
-
+       interface-brief-process-table";
     list interface-brief {
       key "interface-name";
-      description "Interface brief information";
+      description
+        "Interface brief information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       uses OSPFV3-EDM-INTF-BRIEF;
     }
   }
 
   grouping ROUTE-SUMMARY {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container route-summary {
-      description "Summarize OSPFv3 local RIB tables";
+      description
+        "Summarize OSPFv3 local RIB tables";
       uses OSPFV3-EDM-ROUTE-SUM;
     }
   }
 
   grouping PREFIX-PRIORITY-STATS {
-    description "Common node of statistics, vrf-statistics";
-
+    description
+      "Common node of statistics, vrf-statistics";
     container prefix-priority-stats {
-      description "OSPF Prefix SPF Prioritization statistics";
+      description
+        "OSPF Prefix SPF Prioritization statistics";
       uses OSPFV3-EDM-PRIO-STATS;
     }
   }
@@ -347,56 +372,65 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping NEIGHBOR-DETAIL {
     description
       "Common node of neighbor-detail-process-table,
-      neighbor-detail-table";
-
+       neighbor-detail-table";
     list neighbor-detail {
-      description "OSPFv3 neighbor detail information";
+      description
+        "OSPFv3 neighbor detail information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       leaf neighbor-address {
         type inet:ipv4-address-no-zone;
-        description "Neighbor ID";
+        description
+          "Neighbor ID";
       }
       uses OSPFV3-EDM-NEIGHBOR;
     }
   }
 
   grouping LSA {
-    description "Common node of lsa-table, lsa-internal-table";
-
+    description
+      "Common node of lsa-table, lsa-internal-table";
     list lsa {
-      description "Database LSA information";
+      description
+        "Database LSA information";
       leaf area-id {
         type int32;
-        description "Area ID";
+        description
+          "Area ID";
       }
       leaf ls-type {
         type Ospfv3-lsa;
-        description "LSA type";
+        description
+          "LSA type";
       }
       leaf advertising-router {
         type inet:ipv4-address-no-zone;
-        description "Advertising Router ID";
+        description
+          "Advertising Router ID";
       }
       leaf ls-id {
         type int32;
-        description "Link state ID";
+        description
+          "Link state ID";
       }
       leaf interface-name {
         type xr:Interface-name;
-        description "InterfaceName";
+        description
+          "InterfaceName";
       }
       uses OSPFV3-EDM-DATABASE-LSAINFO;
     }
   }
 
   grouping VIRTUAL-LINK {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container virtual-link {
-      description "Virtual link information";
+      description
+        "Virtual link information";
       uses OSPFV3-EDM-VIRTUAL-LINKS;
     }
   }
@@ -404,57 +438,63 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping RETRANSMISSION-LIST {
     description
       "Common node of retransmission-list-process-table,
-      retransmission-list-table";
-
+       retransmission-list-table";
     list retransmission {
-      description "OSPFv3 retransmission list information";
+      description
+        "OSPFv3 retransmission list information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       leaf neighbor-address {
         type inet:ipv4-address-no-zone;
-        description "Neighbor address";
+        description
+          "Neighbor address";
       }
       uses OSPFV3-EDM-RETRANS;
     }
   }
 
   grouping RETRANSMISSION-LIST-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container retransmission-list-process-table {
       description
         "OSPFv3 retransmission list information table for
-        all areas";
+         all areas";
       uses RETRANSMISSION-LIST;
     }
   }
 
   grouping SPF-STATS {
-    description "Common node of statistics, vrf-statistics";
-
+    description
+      "Common node of statistics, vrf-statistics";
     container spf-stats {
-      description "OSPFv3 RIB batch statistics";
+      description
+        "OSPFv3 RIB batch statistics";
       uses OSPFV3-EDM-SPF-STATS;
     }
   }
 
   grouping SUMMARY-PREFIX-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container summary-prefixes {
-      description "Summary prefix information table";
-
+      description
+        "Summary prefix information table";
       list summary-prefix {
-        description "Summary prefix information";
+        description
+          "Summary prefix information";
         leaf prefix {
           type inet:ipv6-address-no-zone;
-          description "Summary prefix";
+          description
+            "Summary prefix";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
-          description "Prefix length";
+          description
+            "Prefix length";
         }
         uses OSPFV3-EDM-SUMMARY-PREFIX;
       }
@@ -462,17 +502,19 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping AREA-INFORMATION-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container area-informations {
-      description "OSPFv3 area information table";
-
+      description
+        "OSPFv3 area information table";
       list area-information {
         key "area-id";
-        description "OSPFv3 area information";
+        description
+          "OSPFv3 area information";
         leaf area-id {
           type int32;
-          description "Area ID";
+          description
+            "Area ID";
         }
         uses OSPFV3-EDM-AREA;
       }
@@ -480,10 +522,11 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping SHAM-LINK-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container sham-link-table {
-      description "Sham link information";
+      description
+        "Sham link information";
       uses OSPFV3-SH-SHAM-LINKS;
     }
   }
@@ -491,87 +534,95 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping NEIGHBOR {
     description
       "Common node of neighbor-process-table,
-      neighbor-table";
-
+       neighbor-table";
     list neighbor {
-      description "OSPFv3 neighbor detail information";
+      description
+        "OSPFv3 neighbor detail information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       leaf neighbor-address {
         type inet:ipv4-address-no-zone;
-        description "Neighbor ID";
+        description
+          "Neighbor ID";
       }
       uses OSPFV3-EDM-NEIGHBOR;
     }
   }
 
   grouping SUMMARY {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container summary {
-      description "OSPFv3 summary";
-
+      description
+        "OSPFv3 summary";
       container protocol {
-        description "OSPFv3 protocol summary";
+        description
+          "OSPFv3 protocol summary";
         uses OSPFV3-EDM-PROTOCOL;
       }
-
       container ospfv3 {
-        description "OSPFv3 summary";
+        description
+          "OSPFv3 summary";
         uses OSPFV3-EDM-SUMMARY;
       }
-
       container route {
-        description "OSPFv3 route summary";
+        description
+          "OSPFv3 route summary";
         uses OSPFV3-EDM-ROUTE-SUM;
       }
     }
   }
 
   grouping REQUEST-LIST-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container request-list-process-table {
-      description "OSPFv3 request list information for all areas";
+      description
+        "OSPFv3 request list information for all areas";
       uses REQUEST-LIST;
     }
   }
 
   grouping DATABASE-TABLE {
-    description "Common node of area, default-vrf, vrf";
-
+    description
+      "Common node of area, default-vrf, vrf";
     container database-table {
-      description "OSPF Link State Database";
-
+      description
+        "OSPF Link State Database";
       container lsa-table {
-        description "Database LSA information";
+        description
+          "Database LSA information";
         uses LSA;
       }
-
       container lsa-internal-table {
-        description "Database LSA information";
+        description
+          "Database LSA information";
         uses LSA;
       }
     }
   }
 
   grouping CONNECTED-ROUTE-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container connected-routes {
-      description "OSPFv3 connected route information table";
-
+      description
+        "OSPFv3 connected route information table";
       list connected-route {
-        description "OSPFv3 connected route information";
+        description
+          "OSPFv3 connected route information";
         leaf prefix {
           type inet:ipv6-address-no-zone;
-          description "Route prefix";
+          description
+            "Route prefix";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
-          description "Prefix length";
+          description
+            "Prefix length";
         }
         uses OSPFV3-EDM-TOPOLOGY-CONNECTED;
       }
@@ -579,19 +630,21 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping BAD-CHECKSUM-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container bad-checksums {
-      description "Bad Checksum Packets information table";
-
+      description
+        "Bad Checksum Packets information table";
       list bad-checksum {
         key "packet-number";
-        description "Bad Checksum Packet information";
+        description
+          "Bad Checksum Packet information";
         leaf packet-number {
           type uint32 {
             range "0..9";
           }
-          description "Bad Checksum Packets number";
+          description
+            "Bad Checksum Packets number";
         }
         uses OSPFV3-SH-BAD-CHECKSUM;
       }
@@ -599,17 +652,19 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping PROTOCOL-STATS-TABLE {
-    description "Common node of statistics, vrf-statistics";
-
+    description
+      "Common node of statistics, vrf-statistics";
     container protocol-stats {
-      description "Protocol table";
-
+      description
+        "Protocol table";
       list protocol-stat {
         key "interface-name";
-        description "Protocol statistics for an interface";
+        description
+          "Protocol statistics for an interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
         uses OSPFV3-EDM-PROTO-STATS;
       }
@@ -617,13 +672,14 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping DATABASE-SUMMARY-TABLE {
-    description "Common node of default-vrf, vrf, area";
-
+    description
+      "Common node of default-vrf, vrf, area";
     container database-summary-table {
-      description "Database summary table";
-
+      description
+        "Database summary table";
       container database-summary {
-        description "Database Summary information";
+        description
+          "Database Summary information";
         uses OSPFV3-EDM-DB-SUMMARY;
       }
     }
@@ -632,57 +688,63 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   grouping REQUEST-LIST {
     description
       "Common node of request-list-process-table,
-      request-list-table";
-
+       request-list-table";
     list request {
-      description "OSPFv3 request list information";
+      description
+        "OSPFv3 request list information";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface name";
+        description
+          "Interface name";
       }
       leaf neighbor-address {
         type inet:ipv4-address-no-zone;
-        description "Neighbor address";
+        description
+          "Neighbor address";
       }
       uses OSPFV3-EDM-REQUEST;
     }
   }
 
   grouping INTERFACE-BRIEF-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container interface-brief-process-table {
       description
         "OSPFv3 interface brief information table for all
-        areas";
+         areas";
       uses INTERFACE-BRIEF;
     }
   }
 
   grouping NEIGHBOR-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container neighbor-process-table {
-      description "OSPFv3 neighbor information table for all areas";
+      description
+        "OSPFv3 neighbor information table for all areas";
       uses NEIGHBOR;
     }
   }
 
   grouping INTERNAL-ROUTE-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container internal-routes {
-      description "OSPFv3 internal route information table";
-
+      description
+        "OSPFv3 internal route information table";
       list internal-route {
-        description "OSPFv3 internal route information";
+        description
+          "OSPFv3 internal route information";
         leaf prefix {
           type inet:ipv6-address-no-zone;
-          description "Route prefix";
+          description
+            "Route prefix";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
-          description "Prefix length";
+          description
+            "Prefix length";
         }
         uses OSPFV3-EDM-TOPOLOGY-INTERNAL;
       }
@@ -690,16 +752,18 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping REDISTRIBUTION-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container redistributions {
-      description "Redistribution information table";
-
+      description
+        "Redistribution information table";
       list redistribution {
-        description "Redistribution information";
+        description
+          "Redistribution information";
         leaf protocol-name {
           type xr:Cisco-ios-xr-string;
-          description "Protocol name that is redistributed";
+          description
+            "Protocol name that is redistributed";
         }
         leaf process-name {
           type xr:Cisco-ios-xr-string;
@@ -712,8 +776,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping INTERFACE-PROCESS-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container interface-process-table {
       description
         "OSPFv3 interface information table for all areas";
@@ -722,17 +786,19 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
   }
 
   grouping PROTOCOL-AREA-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container protocol-areas {
-      description "Protocol area table ";
-
+      description
+        "Protocol area table ";
       list protocol-area {
         key "area-id";
-        description "Area information ";
+        description
+          "Area information ";
         leaf area-id {
           type inet:ipv4-address-no-zone;
-          description "Area ID";
+          description
+            "Area ID";
         }
         uses OSPFV3-EDM-PROTO-AREA;
       }
@@ -741,28 +807,28 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
 
   container ospfv3 {
     config false;
-    description "OSPFv3 operational information ";
-
+    description
+      "OSPFv3 operational information ";
     container processes {
-      description "OSPFv3 Process Table";
-
+      description
+        "OSPFv3 Process Table";
       list process {
         key "process-name";
         description
           "OSPFv3 Operational data for a particular OSPFv3
-          process ";
-
+           process ";
         container vrfs {
-          description "Table for each VRF";
-
+          description
+            "Table for each VRF";
           list vrf {
             key "vrf-name";
             description
               "Operational data for a particular VRF
-              (instance) in the OSPFv3 process";
+               (instance) in the OSPFv3 process";
             leaf vrf-name {
               type xr:Cisco-ios-xr-string;
-              description "VRF Name";
+              description
+                "VRF Name";
             }
             uses SUMMARY-PREFIX-TABLE;
             uses BORDER-ROUTER-TABLE;
@@ -791,27 +857,27 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
             uses NEIGHBOR-DETAIL-PROCESS-TABLE;
           }
         }
-
         container statistics {
-          description "Container for Statistics";
-
+          description
+            "Container for Statistics";
           container nsr-stats {
-            description "OSPF NSR statistics";
+            description
+              "OSPF NSR statistics";
             uses OSPFV3-EDM-NSR-STATS;
           }
-
           container rib-thread-stats {
-            description "OSPFv3 RIB thread statistics";
+            description
+              "OSPFv3 RIB thread statistics";
             uses OSPFV3-EDM-RTHREAD-STATS;
           }
-
           container issu-stats {
-            description "OSPF ISSU statistics";
+            description
+              "OSPF ISSU statistics";
             uses OSPFV3-EDM-NSR-STATS;
           }
-
           container nsr-pl-stats {
-            description "OSPF NSR packet library statistics";
+            description
+              "OSPF NSR packet library statistics";
             uses OSPF-SH-NCD-STATS;
           }
           uses PROTOCOL-STATS-TABLE;
@@ -820,11 +886,10 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
           uses PREFIX-PRIORITY-STATS;
           uses VRF-RIB-BATCH-STATS;
         }
-
         container default-vrf {
           description
             "Operational data for the default VRF
-            (instance) in the OSPFv3 process";
+             (instance) in the OSPFv3 process";
           uses SUMMARY-PREFIX-TABLE;
           uses BORDER-ROUTER-TABLE;
           uses SHAM-LINK-TABLE;
@@ -853,7 +918,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-oper {
         }
         leaf process-name {
           type xr:Cisco-ios-xr-string;
-          description "Particular OSPFv3 process";
+          description
+            "Particular OSPFv3 process";
         }
       }
     }

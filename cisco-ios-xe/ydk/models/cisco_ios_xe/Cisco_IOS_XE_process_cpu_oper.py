@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -37,8 +39,10 @@ class CpuUsage(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-process-cpu-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpu-utilization" : ("cpu_utilization", CpuUsage.CpuUtilization)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpu-utilization", ("cpu_utilization", CpuUsage.CpuUtilization))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpu_utilization = CpuUsage.CpuUtilization()
         self.cpu_utilization.parent = self
@@ -106,16 +110,19 @@ class CpuUsage(Entity):
             self.yang_parent_name = "cpu-usage"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"cpu-usage-processes" : ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses)}
-            self._child_list_classes = {}
-
-            self.five_seconds = YLeaf(YType.uint8, "five-seconds")
-
-            self.five_seconds_intr = YLeaf(YType.uint8, "five-seconds-intr")
-
-            self.one_minute = YLeaf(YType.uint8, "one-minute")
-
-            self.five_minutes = YLeaf(YType.uint8, "five-minutes")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("cpu-usage-processes", ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('five_seconds', YLeaf(YType.uint8, 'five-seconds')),
+                ('five_seconds_intr', YLeaf(YType.uint8, 'five-seconds-intr')),
+                ('one_minute', YLeaf(YType.uint8, 'one-minute')),
+                ('five_minutes', YLeaf(YType.uint8, 'five-minutes')),
+            ])
+            self.five_seconds = None
+            self.five_seconds_intr = None
+            self.one_minute = None
+            self.five_minutes = None
 
             self.cpu_usage_processes = CpuUsage.CpuUtilization.CpuUsageProcesses()
             self.cpu_usage_processes.parent = self
@@ -151,8 +158,10 @@ class CpuUsage(Entity):
                 self.yang_parent_name = "cpu-utilization"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"cpu-usage-process" : ("cpu_usage_process", CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("cpu-usage-process", ("cpu_usage_process", CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess))])
+                self._leafs = OrderedDict()
 
                 self.cpu_usage_process = YList(self)
                 self._segment_path = lambda: "cpu-usage-processes"
@@ -166,14 +175,14 @@ class CpuUsage(Entity):
                 """
                 The list of software processes on the device.
                 
-                .. attribute:: pid  <key>
+                .. attribute:: pid  (key)
                 
                 	Process\-ID of the process
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	The name of the process
                 	**type**\: str
@@ -251,27 +260,30 @@ class CpuUsage(Entity):
                     self.yang_parent_name = "cpu-usage-processes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.pid = YLeaf(YType.uint32, "pid")
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.tty = YLeaf(YType.uint16, "tty")
-
-                    self.total_run_time = YLeaf(YType.uint64, "total-run-time")
-
-                    self.invocation_count = YLeaf(YType.uint32, "invocation-count")
-
-                    self.avg_run_time = YLeaf(YType.uint64, "avg-run-time")
-
-                    self.five_seconds = YLeaf(YType.str, "five-seconds")
-
-                    self.one_minute = YLeaf(YType.str, "one-minute")
-
-                    self.five_minutes = YLeaf(YType.str, "five-minutes")
-                    self._segment_path = lambda: "cpu-usage-process" + "[pid='" + self.pid.get() + "']" + "[name='" + self.name.get() + "']"
+                    self.ylist_key_names = ['pid','name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('pid', YLeaf(YType.uint32, 'pid')),
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('tty', YLeaf(YType.uint16, 'tty')),
+                        ('total_run_time', YLeaf(YType.uint64, 'total-run-time')),
+                        ('invocation_count', YLeaf(YType.uint32, 'invocation-count')),
+                        ('avg_run_time', YLeaf(YType.uint64, 'avg-run-time')),
+                        ('five_seconds', YLeaf(YType.str, 'five-seconds')),
+                        ('one_minute', YLeaf(YType.str, 'one-minute')),
+                        ('five_minutes', YLeaf(YType.str, 'five-minutes')),
+                    ])
+                    self.pid = None
+                    self.name = None
+                    self.tty = None
+                    self.total_run_time = None
+                    self.invocation_count = None
+                    self.avg_run_time = None
+                    self.five_seconds = None
+                    self.one_minute = None
+                    self.five_minutes = None
+                    self._segment_path = lambda: "cpu-usage-process" + "[pid='" + str(self.pid) + "']" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/cpu-usage-processes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -25,7 +27,7 @@ class InventoryConfigurations(Entity):
     .. attribute:: entity_
     
     	Entity name
-    	**type**\: list of  		 :py:class:`Entity_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_cfg.InventoryConfigurations.Entity_>`
+    	**type**\: list of  		 :py:class:`Entity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_cfg.InventoryConfigurations.Entity>`
     
     
 
@@ -42,8 +44,10 @@ class InventoryConfigurations(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-invmgr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"entity" : ("entity_", InventoryConfigurations.Entity_)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("entity", ("entity_", InventoryConfigurations.Entity))])
+        self._leafs = OrderedDict()
 
         self.entity_ = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-invmgr-cfg:inventory-configurations"
@@ -52,11 +56,11 @@ class InventoryConfigurations(Entity):
         self._perform_setattr(InventoryConfigurations, [], name, value)
 
 
-    class Entity_(Entity):
+    class Entity(Entity):
         """
         Entity name
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	Entity name
         	**type**\: str
@@ -76,23 +80,26 @@ class InventoryConfigurations(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(InventoryConfigurations.Entity_, self).__init__()
+            super(InventoryConfigurations.Entity, self).__init__()
 
             self.yang_name = "entity"
             self.yang_parent_name = "inventory-configurations"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.name_xr = YLeaf(YType.str, "name-xr")
-            self._segment_path = lambda: "entity" + "[name='" + self.name.get() + "']"
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('name_xr', YLeaf(YType.str, 'name-xr')),
+            ])
+            self.name = None
+            self.name_xr = None
+            self._segment_path = lambda: "entity" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-invmgr-cfg:inventory-configurations/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(InventoryConfigurations.Entity_, ['name', 'name_xr'], name, value)
+            self._perform_setattr(InventoryConfigurations.Entity, ['name', 'name_xr'], name, value)
 
     def clone_ptr(self):
         self._top_entity = InventoryConfigurations()

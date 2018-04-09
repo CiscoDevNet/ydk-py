@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class HardwareModuleNp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-np-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", HardwareModuleNp.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModuleNp.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = HardwareModuleNp.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class HardwareModuleNp(Entity):
             self.yang_parent_name = "hardware-module-np"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", HardwareModuleNp.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", HardwareModuleNp.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class HardwareModuleNp(Entity):
             """
             Number
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	node number
             	**type**\: str
@@ -116,16 +122,19 @@ class HardwareModuleNp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"nps" : ("nps", HardwareModuleNp.Nodes.Node.Nps)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("nps", ("nps", HardwareModuleNp.Nodes.Node.Nps))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.nps = HardwareModuleNp.Nodes.Node.Nps()
                 self.nps.parent = self
                 self._children_name_map["nps"] = "nps"
                 self._children_yang_names.add("nps")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-np-oper:hardware-module-np/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -155,8 +164,10 @@ class HardwareModuleNp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"np" : ("np", HardwareModuleNp.Nodes.Node.Nps.Np)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("np", ("np", HardwareModuleNp.Nodes.Node.Nps.Np))])
+                    self._leafs = OrderedDict()
 
                     self.np = YList(self)
                     self._segment_path = lambda: "nps"
@@ -169,7 +180,7 @@ class HardwareModuleNp(Entity):
                     """
                     np0 to np7
                     
-                    .. attribute:: np_name  <key>
+                    .. attribute:: np_name  (key)
                     
                     	NP name
                     	**type**\: str
@@ -210,10 +221,13 @@ class HardwareModuleNp(Entity):
                         self.yang_parent_name = "nps"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"chn-load" : ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad), "tcam-summary" : ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary), "counters" : ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters), "fast-drop" : ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop)}
-                        self._child_list_classes = {}
-
-                        self.np_name = YLeaf(YType.str, "np-name")
+                        self.ylist_key_names = ['np_name']
+                        self._child_container_classes = OrderedDict([("chn-load", ("chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad)), ("tcam-summary", ("tcam_summary", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary)), ("counters", ("counters", HardwareModuleNp.Nodes.Node.Nps.Np.Counters)), ("fast-drop", ("fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('np_name', YLeaf(YType.str, 'np-name')),
+                        ])
+                        self.np_name = None
 
                         self.chn_load = HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad()
                         self.chn_load.parent = self
@@ -234,7 +248,7 @@ class HardwareModuleNp(Entity):
                         self.fast_drop.parent = self
                         self._children_name_map["fast_drop"] = "fast-drop"
                         self._children_yang_names.add("fast-drop")
-                        self._segment_path = lambda: "np" + "[np-name='" + self.np_name.get() + "']"
+                        self._segment_path = lambda: "np" + "[np-name='" + str(self.np_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModuleNp.Nodes.Node.Nps.Np, ['np_name'], name, value)
@@ -263,8 +277,10 @@ class HardwareModuleNp(Entity):
                             self.yang_parent_name = "np"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np-chn-load" : ("np_chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("np-chn-load", ("np_chn_load", HardwareModuleNp.Nodes.Node.Nps.Np.ChnLoad.NpChnLoad))])
+                            self._leafs = OrderedDict()
 
                             self.np_chn_load = YList(self)
                             self._segment_path = lambda: "chn-load"
@@ -331,20 +347,23 @@ class HardwareModuleNp(Entity):
                                 self.yang_parent_name = "chn-load"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.flow_ctr_counter = YLeaf(YType.uint32, "flow-ctr-counter")
-
-                                self.avg_rfd_usage = YLeaf(YType.uint32, "avg-rfd-usage")
-
-                                self.peak_rfd_usage = YLeaf(YType.uint32, "peak-rfd-usage")
-
-                                self.avg_guar_rfd_usage = YLeaf(YType.uint32, "avg-guar-rfd-usage")
-
-                                self.peak_guar_rfd_usage = YLeaf(YType.uint32, "peak-guar-rfd-usage")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flow_ctr_counter', YLeaf(YType.uint32, 'flow-ctr-counter')),
+                                    ('avg_rfd_usage', YLeaf(YType.uint32, 'avg-rfd-usage')),
+                                    ('peak_rfd_usage', YLeaf(YType.uint32, 'peak-rfd-usage')),
+                                    ('avg_guar_rfd_usage', YLeaf(YType.uint32, 'avg-guar-rfd-usage')),
+                                    ('peak_guar_rfd_usage', YLeaf(YType.uint32, 'peak-guar-rfd-usage')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ])
+                                self.flow_ctr_counter = None
+                                self.avg_rfd_usage = None
+                                self.peak_rfd_usage = None
+                                self.avg_guar_rfd_usage = None
+                                self.peak_guar_rfd_usage = None
+                                self.interface_name = None
                                 self._segment_path = lambda: "np-chn-load"
 
                             def __setattr__(self, name, value):
@@ -379,8 +398,10 @@ class HardwareModuleNp(Entity):
                             self.yang_parent_name = "np"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"internal-tcam-info" : ("internal_tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo), "tcam-info" : ("tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("internal-tcam-info", ("internal_tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo)), ("tcam-info", ("tcam_info", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.internal_tcam_info = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo()
                             self.internal_tcam_info.parent = self
@@ -427,8 +448,10 @@ class HardwareModuleNp(Entity):
                                 self.yang_parent_name = "tcam-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tcam-lt-ods2" : ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2), "tcam-lt-ods8" : ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8)}
-                                self._child_list_classes = {"tcam-lt-l2" : ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8))])
+                                self._child_list_classes = OrderedDict([("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtL2))])
+                                self._leafs = OrderedDict()
 
                                 self.tcam_lt_ods2 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2()
                                 self.tcam_lt_ods2.parent = self
@@ -514,12 +537,15 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "internal-tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"app-id-ifib" : ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib), "app-id-qos" : ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos), "app-id-acl" : ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl), "app-id-afmon" : ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon), "app-id-li" : ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi), "app-id-pbr" : ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr), "application-edpl-entry" : ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry)}
-                                    self._child_list_classes = {}
-
-                                    self.max_entries = YLeaf(YType.uint32, "max-entries")
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.ApplicationEdplEntry))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_entries', YLeaf(YType.uint32, 'max-entries')),
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                    ])
+                                    self.max_entries = None
+                                    self.free_entries = None
 
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds2.AppIdIfib()
                                     self.app_id_ifib.parent = self
@@ -600,14 +626,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-ifib"
 
                                     def __setattr__(self, name, value):
@@ -653,14 +682,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-qos"
 
                                     def __setattr__(self, name, value):
@@ -706,14 +738,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-acl"
 
                                     def __setattr__(self, name, value):
@@ -759,14 +794,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-afmon"
 
                                     def __setattr__(self, name, value):
@@ -812,14 +850,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-li"
 
                                     def __setattr__(self, name, value):
@@ -865,14 +906,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-pbr"
 
                                     def __setattr__(self, name, value):
@@ -918,14 +962,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "application-edpl-entry"
 
                                     def __setattr__(self, name, value):
@@ -999,12 +1046,15 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "internal-tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"app-id-ifib" : ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib), "app-id-qos" : ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos), "app-id-acl" : ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl), "app-id-afmon" : ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon), "app-id-li" : ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi), "app-id-pbr" : ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr), "application-edpl-entry" : ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry)}
-                                    self._child_list_classes = {}
-
-                                    self.max_entries = YLeaf(YType.uint32, "max-entries")
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdPbr)), ("application-edpl-entry", ("application_edpl_entry", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.ApplicationEdplEntry))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_entries', YLeaf(YType.uint32, 'max-entries')),
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                    ])
+                                    self.max_entries = None
+                                    self.free_entries = None
 
                                     self.app_id_ifib = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.InternalTcamInfo.TcamLtOds8.AppIdIfib()
                                     self.app_id_ifib.parent = self
@@ -1085,14 +1135,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-ifib"
 
                                     def __setattr__(self, name, value):
@@ -1138,14 +1191,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-qos"
 
                                     def __setattr__(self, name, value):
@@ -1191,14 +1247,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-acl"
 
                                     def __setattr__(self, name, value):
@@ -1244,14 +1303,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-afmon"
 
                                     def __setattr__(self, name, value):
@@ -1297,14 +1359,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-li"
 
                                     def __setattr__(self, name, value):
@@ -1350,14 +1415,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "app-id-pbr"
 
                                     def __setattr__(self, name, value):
@@ -1403,14 +1471,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.total_used_entries = YLeaf(YType.uint32, "total-used-entries")
-
-                                        self.total_allocated_entries = YLeaf(YType.uint32, "total-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('total_used_entries', YLeaf(YType.uint32, 'total-used-entries')),
+                                            ('total_allocated_entries', YLeaf(YType.uint32, 'total-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.total_used_entries = None
+                                        self.total_allocated_entries = None
                                         self._segment_path = lambda: "application-edpl-entry"
 
                                     def __setattr__(self, name, value):
@@ -1456,14 +1527,17 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "internal-tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.partition_id = YLeaf(YType.uint32, "partition-id")
-
-                                    self.valid_entries = YLeaf(YType.uint32, "valid-entries")
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('partition_id', YLeaf(YType.uint32, 'partition-id')),
+                                        ('valid_entries', YLeaf(YType.uint32, 'valid-entries')),
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                    ])
+                                    self.partition_id = None
+                                    self.valid_entries = None
+                                    self.free_entries = None
                                     self._segment_path = lambda: "tcam-lt-l2"
 
                                 def __setattr__(self, name, value):
@@ -1503,8 +1577,10 @@ class HardwareModuleNp(Entity):
                                 self.yang_parent_name = "tcam-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tcam-lt-ods2" : ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2), "tcam-lt-ods8" : ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8)}
-                                self._child_list_classes = {"tcam-lt-l2" : ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("tcam-lt-ods2", ("tcam_lt_ods2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2)), ("tcam-lt-ods8", ("tcam_lt_ods8", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8))])
+                                self._child_list_classes = OrderedDict([("tcam-lt-l2", ("tcam_lt_l2", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtL2))])
+                                self._leafs = OrderedDict()
 
                                 self.tcam_lt_ods2 = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2()
                                 self.tcam_lt_ods2.parent = self
@@ -1595,12 +1671,15 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"acl-common" : ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon), "app-id-ifib" : ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib), "app-id-qos" : ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos), "app-id-acl" : ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl), "app-id-afmon" : ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon), "app-id-li" : ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi), "app-id-pbr" : ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr), "app-id-edpl" : ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl)}
-                                    self._child_list_classes = {}
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
-
-                                    self.reserved_entries = YLeaf(YType.uint32, "reserved-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AppIdEdpl))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                        ('reserved_entries', YLeaf(YType.uint32, 'reserved-entries')),
+                                    ])
+                                    self.free_entries = None
+                                    self.reserved_entries = None
 
                                     self.acl_common = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds2.AclCommon()
                                     self.acl_common.parent = self
@@ -1679,12 +1758,15 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.free_entries = YLeaf(YType.uint32, "free-entries")
-
-                                        self.allocated_entries = YLeaf(YType.uint32, "allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                            ('allocated_entries', YLeaf(YType.uint32, 'allocated-entries')),
+                                        ])
+                                        self.free_entries = None
+                                        self.allocated_entries = None
                                         self._segment_path = lambda: "acl-common"
 
                                     def __setattr__(self, name, value):
@@ -1730,14 +1812,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-ifib"
 
                                     def __setattr__(self, name, value):
@@ -1783,14 +1868,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-qos"
 
                                     def __setattr__(self, name, value):
@@ -1836,14 +1924,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-acl"
 
                                     def __setattr__(self, name, value):
@@ -1889,14 +1980,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-afmon"
 
                                     def __setattr__(self, name, value):
@@ -1942,14 +2036,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-li"
 
                                     def __setattr__(self, name, value):
@@ -1995,14 +2092,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-pbr"
 
                                     def __setattr__(self, name, value):
@@ -2048,14 +2148,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods2"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-edpl"
 
                                     def __setattr__(self, name, value):
@@ -2134,12 +2237,15 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"acl-common" : ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon), "app-id-ifib" : ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib), "app-id-qos" : ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos), "app-id-acl" : ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl), "app-id-afmon" : ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon), "app-id-li" : ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi), "app-id-pbr" : ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr), "app-id-edpl" : ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl)}
-                                    self._child_list_classes = {}
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
-
-                                    self.reserved_entries = YLeaf(YType.uint32, "reserved-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("acl-common", ("acl_common", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon)), ("app-id-ifib", ("app_id_ifib", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdIfib)), ("app-id-qos", ("app_id_qos", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdQos)), ("app-id-acl", ("app_id_acl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAcl)), ("app-id-afmon", ("app_id_afmon", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdAfmon)), ("app-id-li", ("app_id_li", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdLi)), ("app-id-pbr", ("app_id_pbr", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdPbr)), ("app-id-edpl", ("app_id_edpl", HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AppIdEdpl))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                        ('reserved_entries', YLeaf(YType.uint32, 'reserved-entries')),
+                                    ])
+                                    self.free_entries = None
+                                    self.reserved_entries = None
 
                                     self.acl_common = HardwareModuleNp.Nodes.Node.Nps.Np.TcamSummary.TcamInfo.TcamLtOds8.AclCommon()
                                     self.acl_common.parent = self
@@ -2218,12 +2324,15 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.free_entries = YLeaf(YType.uint32, "free-entries")
-
-                                        self.allocated_entries = YLeaf(YType.uint32, "allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                            ('allocated_entries', YLeaf(YType.uint32, 'allocated-entries')),
+                                        ])
+                                        self.free_entries = None
+                                        self.allocated_entries = None
                                         self._segment_path = lambda: "acl-common"
 
                                     def __setattr__(self, name, value):
@@ -2269,14 +2378,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-ifib"
 
                                     def __setattr__(self, name, value):
@@ -2322,14 +2434,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-qos"
 
                                     def __setattr__(self, name, value):
@@ -2375,14 +2490,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-acl"
 
                                     def __setattr__(self, name, value):
@@ -2428,14 +2546,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-afmon"
 
                                     def __setattr__(self, name, value):
@@ -2481,14 +2602,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-li"
 
                                     def __setattr__(self, name, value):
@@ -2534,14 +2658,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-pbr"
 
                                     def __setattr__(self, name, value):
@@ -2587,14 +2714,17 @@ class HardwareModuleNp(Entity):
                                         self.yang_parent_name = "tcam-lt-ods8"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_vmr_ids = YLeaf(YType.uint32, "num-vmr-ids")
-
-                                        self.num_active_entries = YLeaf(YType.uint32, "num-active-entries")
-
-                                        self.num_allocated_entries = YLeaf(YType.uint32, "num-allocated-entries")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_vmr_ids', YLeaf(YType.uint32, 'num-vmr-ids')),
+                                            ('num_active_entries', YLeaf(YType.uint32, 'num-active-entries')),
+                                            ('num_allocated_entries', YLeaf(YType.uint32, 'num-allocated-entries')),
+                                        ])
+                                        self.num_vmr_ids = None
+                                        self.num_active_entries = None
+                                        self.num_allocated_entries = None
                                         self._segment_path = lambda: "app-id-edpl"
 
                                     def __setattr__(self, name, value):
@@ -2647,16 +2777,19 @@ class HardwareModuleNp(Entity):
                                     self.yang_parent_name = "tcam-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.partition_id = YLeaf(YType.uint32, "partition-id")
-
-                                    self.priority = YLeaf(YType.uint32, "priority")
-
-                                    self.valid_entries = YLeaf(YType.uint32, "valid-entries")
-
-                                    self.free_entries = YLeaf(YType.uint32, "free-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('partition_id', YLeaf(YType.uint32, 'partition-id')),
+                                        ('priority', YLeaf(YType.uint32, 'priority')),
+                                        ('valid_entries', YLeaf(YType.uint32, 'valid-entries')),
+                                        ('free_entries', YLeaf(YType.uint32, 'free-entries')),
+                                    ])
+                                    self.partition_id = None
+                                    self.priority = None
+                                    self.valid_entries = None
+                                    self.free_entries = None
                                     self._segment_path = lambda: "tcam-lt-l2"
 
                                 def __setattr__(self, name, value):
@@ -2686,8 +2819,10 @@ class HardwareModuleNp(Entity):
                             self.yang_parent_name = "np"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np-counter" : ("np_counter", HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("np-counter", ("np_counter", HardwareModuleNp.Nodes.Node.Nps.Np.Counters.NpCounter))])
+                            self._leafs = OrderedDict()
 
                             self.np_counter = YList(self)
                             self._segment_path = lambda: "counters"
@@ -2747,18 +2882,21 @@ class HardwareModuleNp(Entity):
                                 self.yang_parent_name = "counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.counter_index = YLeaf(YType.uint32, "counter-index")
-
-                                self.counter_value = YLeaf(YType.uint64, "counter-value")
-
-                                self.rate = YLeaf(YType.uint32, "rate")
-
-                                self.counter_type = YLeaf(YType.str, "counter-type")
-
-                                self.counter_name = YLeaf(YType.str, "counter-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('counter_index', YLeaf(YType.uint32, 'counter-index')),
+                                    ('counter_value', YLeaf(YType.uint64, 'counter-value')),
+                                    ('rate', YLeaf(YType.uint32, 'rate')),
+                                    ('counter_type', YLeaf(YType.str, 'counter-type')),
+                                    ('counter_name', YLeaf(YType.str, 'counter-name')),
+                                ])
+                                self.counter_index = None
+                                self.counter_value = None
+                                self.rate = None
+                                self.counter_type = None
+                                self.counter_name = None
                                 self._segment_path = lambda: "np-counter"
 
                             def __setattr__(self, name, value):
@@ -2788,8 +2926,10 @@ class HardwareModuleNp(Entity):
                             self.yang_parent_name = "np"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np-fast-drop" : ("np_fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("np-fast-drop", ("np_fast_drop", HardwareModuleNp.Nodes.Node.Nps.Np.FastDrop.NpFastDrop))])
+                            self._leafs = OrderedDict()
 
                             self.np_fast_drop = YList(self)
                             self._segment_path = lambda: "fast-drop"
@@ -2828,12 +2968,15 @@ class HardwareModuleNp(Entity):
                                 self.yang_parent_name = "fast-drop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.counter_value = YLeaf(YType.uint64, "counter-value")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('counter_value', YLeaf(YType.uint64, 'counter-value')),
+                                ])
+                                self.interface_name = None
+                                self.counter_value = None
                                 self._segment_path = lambda: "np-fast-drop"
 
                             def __setattr__(self, name, value):

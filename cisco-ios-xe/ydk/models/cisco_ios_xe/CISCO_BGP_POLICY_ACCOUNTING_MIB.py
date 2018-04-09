@@ -3,6 +3,8 @@
 BGP policy based accounting information
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -34,8 +36,10 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
         self.yang_parent_name = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cbpAcctTable" : ("cbpaccttable", CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cbpAcctTable", ("cbpaccttable", CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cbpaccttable = CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable()
         self.cbpaccttable.parent = self
@@ -69,8 +73,10 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             self.yang_parent_name = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cbpAcctEntry" : ("cbpacctentry", CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cbpAcctEntry", ("cbpacctentry", CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry))])
+            self._leafs = OrderedDict()
 
             self.cbpacctentry = YList(self)
             self._segment_path = lambda: "cbpAcctTable"
@@ -96,7 +102,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             removes the corresponding traffic\-type configuration from an
             interface.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -105,7 +111,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: cbpaccttrafficindex  <key>
+            .. attribute:: cbpaccttrafficindex  (key)
             
             	An integer value greater than 0, that uniquely identifies a traffic\-type. The traffic\-type has no intrinsic meaning. It just means the traffic coming into an interface can be differentiated into different types. It is up to the user to give meaning to and configure the various traffic\-types on an  interface
             	**type**\: int
@@ -154,21 +160,24 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
                 self.yang_parent_name = "cbpAcctTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cbpaccttrafficindex = YLeaf(YType.int32, "cbpAcctTrafficIndex")
-
-                self.cbpacctinpacketcount = YLeaf(YType.uint64, "cbpAcctInPacketCount")
-
-                self.cbpacctinoctetcount = YLeaf(YType.uint64, "cbpAcctInOctetCount")
-
-                self.cbpacctoutpacketcount = YLeaf(YType.uint64, "cbpAcctOutPacketCount")
-
-                self.cbpacctoutoctetcount = YLeaf(YType.uint64, "cbpAcctOutOctetCount")
-                self._segment_path = lambda: "cbpAcctEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cbpAcctTrafficIndex='" + self.cbpaccttrafficindex.get() + "']"
+                self.ylist_key_names = ['ifindex','cbpaccttrafficindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cbpaccttrafficindex', YLeaf(YType.int32, 'cbpAcctTrafficIndex')),
+                    ('cbpacctinpacketcount', YLeaf(YType.uint64, 'cbpAcctInPacketCount')),
+                    ('cbpacctinoctetcount', YLeaf(YType.uint64, 'cbpAcctInOctetCount')),
+                    ('cbpacctoutpacketcount', YLeaf(YType.uint64, 'cbpAcctOutPacketCount')),
+                    ('cbpacctoutoctetcount', YLeaf(YType.uint64, 'cbpAcctOutOctetCount')),
+                ])
+                self.ifindex = None
+                self.cbpaccttrafficindex = None
+                self.cbpacctinpacketcount = None
+                self.cbpacctinoctetcount = None
+                self.cbpacctoutpacketcount = None
+                self.cbpacctoutoctetcount = None
+                self._segment_path = lambda: "cbpAcctEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cbpAcctTrafficIndex='" + str(self.cbpaccttrafficindex) + "']"
                 self._absolute_path = lambda: "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/cbpAcctTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

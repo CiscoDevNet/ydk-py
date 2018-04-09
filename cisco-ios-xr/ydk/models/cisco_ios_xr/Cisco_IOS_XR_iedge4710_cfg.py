@@ -18,6 +18,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -54,8 +56,10 @@ class SubscriberManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"accounting" : ("accounting", SubscriberManager.Accounting), "srg" : ("srg", SubscriberManager.Srg)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("accounting", ("accounting", SubscriberManager.Accounting)), ("srg", ("srg", SubscriberManager.Srg))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.accounting = SubscriberManager.Accounting()
         self.accounting.parent = self
@@ -97,8 +101,10 @@ class SubscriberManager(Entity):
             self.yang_parent_name = "subscriber-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"send-stop" : ("send_stop", SubscriberManager.Accounting.SendStop), "interim" : ("interim", SubscriberManager.Accounting.Interim)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("send-stop", ("send_stop", SubscriberManager.Accounting.SendStop)), ("interim", ("interim", SubscriberManager.Accounting.Interim))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.send_stop = SubscriberManager.Accounting.SendStop()
             self.send_stop.parent = self
@@ -136,8 +142,10 @@ class SubscriberManager(Entity):
                 self.yang_parent_name = "accounting"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"setup-failure" : ("setup_failure", SubscriberManager.Accounting.SendStop.SetupFailure)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("setup-failure", ("setup_failure", SubscriberManager.Accounting.SendStop.SetupFailure))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.setup_failure = SubscriberManager.Accounting.SendStop.SetupFailure()
                 self.setup_failure.parent = self
@@ -170,10 +178,13 @@ class SubscriberManager(Entity):
                     self.yang_parent_name = "send-stop"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.method_list_name = YLeaf(YType.str, "method-list-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('method_list_name', YLeaf(YType.str, 'method-list-name')),
+                    ])
+                    self.method_list_name = None
                     self._segment_path = lambda: "setup-failure"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/send-stop/%s" % self._segment_path()
 
@@ -204,8 +215,10 @@ class SubscriberManager(Entity):
                 self.yang_parent_name = "accounting"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"variation" : ("variation", SubscriberManager.Accounting.Interim.Variation)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("variation", ("variation", SubscriberManager.Accounting.Interim.Variation))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.variation = SubscriberManager.Accounting.Interim.Variation()
                 self.variation.parent = self
@@ -243,10 +256,13 @@ class SubscriberManager(Entity):
                     self.yang_parent_name = "interim"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maximum_percentage_variation = YLeaf(YType.uint32, "maximum-percentage-variation")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('maximum_percentage_variation', YLeaf(YType.uint32, 'maximum-percentage-variation')),
+                    ])
+                    self.maximum_percentage_variation = None
                     self._segment_path = lambda: "variation"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/%s" % self._segment_path()
 
@@ -277,10 +293,13 @@ class SubscriberManager(Entity):
             self.yang_parent_name = "subscriber-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.sync_account_session_id = YLeaf(YType.empty, "sync-account-session-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('sync_account_session_id', YLeaf(YType.empty, 'sync-account-session-id')),
+            ])
+            self.sync_account_session_id = None
             self._segment_path = lambda: "srg"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
 
@@ -295,10 +314,10 @@ class SubscriberFeaturette(Entity):
     """
     subscriber featurette
     
-    .. attribute:: identity_change
+    .. attribute:: featurette_name
     
-    	enable identity change processing
-    	**type**\: list of  		 :py:class:`IdentityChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.IdentityChange>`
+    	enable featurette processing
+    	**type**\: list of  		 :py:class:`FeaturetteName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberFeaturette.FeaturetteName>`
     
     
 
@@ -315,30 +334,32 @@ class SubscriberFeaturette(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"identity-change" : ("identity_change", SubscriberFeaturette.IdentityChange)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("featurette-name", ("featurette_name", SubscriberFeaturette.FeaturetteName))])
+        self._leafs = OrderedDict()
 
-        self.identity_change = YList(self)
+        self.featurette_name = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberFeaturette, [], name, value)
 
 
-    class IdentityChange(Entity):
+    class FeaturetteName(Entity):
         """
-        enable identity change processing
+        enable featurette processing
         
-        .. attribute:: identity_change  <key>
+        .. attribute:: featurette  (key)
         
-        	identity change
+        	subscriber feature
         	**type**\: str
         
         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: enable
         
-        	instance of identity\-change
+        	instance of featurette
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
@@ -351,23 +372,26 @@ class SubscriberFeaturette(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SubscriberFeaturette.IdentityChange, self).__init__()
+            super(SubscriberFeaturette.FeaturetteName, self).__init__()
 
-            self.yang_name = "identity-change"
+            self.yang_name = "featurette-name"
             self.yang_parent_name = "subscriber-featurette"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.identity_change = YLeaf(YType.str, "identity-change")
-
-            self.enable = YLeaf(YType.int32, "enable")
-            self._segment_path = lambda: "identity-change" + "[identity-change='" + self.identity_change.get() + "']"
+            self.ylist_key_names = ['featurette']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('featurette', YLeaf(YType.str, 'featurette')),
+                ('enable', YLeaf(YType.int32, 'enable')),
+            ])
+            self.featurette = None
+            self.enable = None
+            self._segment_path = lambda: "featurette-name" + "[featurette='" + str(self.featurette) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberFeaturette.IdentityChange, ['identity_change', 'enable'], name, value)
+            self._perform_setattr(SubscriberFeaturette.FeaturetteName, ['featurette', 'enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberFeaturette()
@@ -397,8 +421,10 @@ class IedgeLicenseManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"node" : ("node", IedgeLicenseManager.Node)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("node", ("node", IedgeLicenseManager.Node))])
+        self._leafs = OrderedDict()
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager"
@@ -411,7 +437,7 @@ class IedgeLicenseManager(Entity):
         """
         Location. For eg., 0/1/CPU0
         
-        .. attribute:: node_name  <key>
+        .. attribute:: node_name  (key)
         
         	The node id to filter on. For eg., 0/1/CPU0
         	**type**\: str
@@ -446,15 +472,18 @@ class IedgeLicenseManager(Entity):
             self.yang_parent_name = "iedge-license-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.node_name = YLeaf(YType.str, "node-name")
-
-            self.session_limit = YLeaf(YType.int32, "session-limit")
-
-            self.session_threshold = YLeaf(YType.int32, "session-threshold")
-            self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+            self.ylist_key_names = ['node_name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('node_name', YLeaf(YType.str, 'node-name')),
+                ('session_limit', YLeaf(YType.int32, 'session-limit')),
+                ('session_threshold', YLeaf(YType.int32, 'session-threshold')),
+            ])
+            self.node_name = None
+            self.session_limit = None
+            self.session_threshold = None
+            self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -488,8 +517,10 @@ class SubManager(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"location" : ("location", SubManager.Location)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("location", ("location", SubManager.Location))])
+        self._leafs = OrderedDict()
 
         self.location = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:sub-manager"
@@ -502,7 +533,7 @@ class SubManager(Entity):
         """
         Select location
         
-        .. attribute:: location1  <key>
+        .. attribute:: location1  (key)
         
         	Specify location
         	**type**\: str
@@ -533,18 +564,21 @@ class SubManager(Entity):
             self.yang_parent_name = "sub-manager"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"trace" : ("trace", SubManager.Location.Trace)}
-            self._child_list_classes = {}
-
-            self.location1 = YLeaf(YType.str, "location1")
-
-            self.history = YLeaf(YType.empty, "history")
+            self.ylist_key_names = ['location1']
+            self._child_container_classes = OrderedDict([("trace", ("trace", SubManager.Location.Trace))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('location1', YLeaf(YType.str, 'location1')),
+                ('history', YLeaf(YType.empty, 'history')),
+            ])
+            self.location1 = None
+            self.history = None
 
             self.trace = SubManager.Location.Trace()
             self.trace.parent = self
             self._children_name_map["trace"] = "trace"
             self._children_yang_names.add("trace")
-            self._segment_path = lambda: "location" + "[location1='" + self.location1.get() + "']"
+            self._segment_path = lambda: "location" + "[location1='" + str(self.location1) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:sub-manager/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -576,10 +610,13 @@ class SubManager(Entity):
                 self.yang_parent_name = "location"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.trace_level = YLeaf(YType.int32, "trace-level")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('trace_level', YLeaf(YType.int32, 'trace-level')),
+                ])
+                self.trace_level = None
                 self._segment_path = lambda: "trace"
 
             def __setattr__(self, name, value):

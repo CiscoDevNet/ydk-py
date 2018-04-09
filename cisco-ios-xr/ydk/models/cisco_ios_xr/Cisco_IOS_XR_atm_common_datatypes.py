@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AtmPvcData(Enum):
     """
-    AtmPvcData
+    AtmPvcData (Enum Class)
 
     Atm pvc data
 
@@ -42,7 +44,7 @@ class AtmPvcData(Enum):
 
 class AtmPvcEncapsulation(Enum):
     """
-    AtmPvcEncapsulation
+    AtmPvcEncapsulation (Enum Class)
 
     Atm pvc encapsulation
 
@@ -81,7 +83,7 @@ class AtmPvcEncapsulation(Enum):
 
 class AtmPvcShaping(Enum):
     """
-    AtmPvcShaping
+    AtmPvcShaping (Enum Class)
 
     Atm pvc shaping
 
@@ -114,7 +116,7 @@ class AtmPvcShaping(Enum):
 
 class AtmVpShaping(Enum):
     """
-    AtmVpShaping
+    AtmVpShaping (Enum Class)
 
     Atm vp shaping
 

@@ -31,6 +31,11 @@ module Cisco-IOS-XE-bgp-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-25 {
+    description
+      "Properly indicated leaf-list ordering";
+    reference "2.2.0";
+  }
   revision 2017-05-12 {
     description
       "Added the BGP RD description";
@@ -264,6 +269,11 @@ module Cisco-IOS-XE-bgp-oper {
         "Indication of whether the neighbor was
          dyanmically configured";
     }
+    leaf as {
+      type uint32;
+      description
+        "BGP neighbor AS number";
+    }
   }
 
   grouping bgp-connection {
@@ -450,6 +460,7 @@ module Cisco-IOS-XE-bgp-oper {
     }
     leaf-list negotiated-cap {
       type string;
+      ordered-by user;
       description
         "Negotiated capabilities for neighbor session";
     }
@@ -472,6 +483,11 @@ module Cisco-IOS-XE-bgp-oper {
       description
         "BGP neighbor activity";
       uses bgp-ios-xe-oper:bgp-af-prefix-activity;
+    }
+    leaf as {
+      type uint32;
+      description
+        "BGP neighbor AS number";
     }
   }
 
@@ -587,6 +603,11 @@ module Cisco-IOS-XE-bgp-oper {
           "List of neighbor summaries";
         uses bgp-ios-xe-oper:neighbor-summary;
       }
+    }
+    leaf local-as {
+      type uint32;
+      description
+        "Local AS number";
     }
   }
 

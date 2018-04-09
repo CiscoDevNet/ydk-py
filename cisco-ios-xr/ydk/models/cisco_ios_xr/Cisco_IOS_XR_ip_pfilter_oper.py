@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class PfilterMa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-pfilter-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", PfilterMa.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", PfilterMa.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = PfilterMa.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class PfilterMa(Entity):
             self.yang_parent_name = "pfilter-ma"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", PfilterMa.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", PfilterMa.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -91,7 +97,7 @@ class PfilterMa(Entity):
             PfilterMa operational data for a particular
             node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node
             	**type**\: str
@@ -117,16 +123,19 @@ class PfilterMa(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"process" : ("process", PfilterMa.Nodes.Node.Process)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("process", ("process", PfilterMa.Nodes.Node.Process))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.process = PfilterMa.Nodes.Node.Process()
                 self.process.parent = self
                 self._children_name_map["process"] = "process"
                 self._children_yang_names.add("process")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -161,8 +170,10 @@ class PfilterMa(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ipv6" : ("ipv6", PfilterMa.Nodes.Node.Process.Ipv6), "ipv4" : ("ipv4", PfilterMa.Nodes.Node.Process.Ipv4)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ipv6", ("ipv6", PfilterMa.Nodes.Node.Process.Ipv6)), ("ipv4", ("ipv4", PfilterMa.Nodes.Node.Process.Ipv4))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
                     self.ipv6.parent = self
@@ -199,8 +210,10 @@ class PfilterMa(Entity):
                         self.yang_parent_name = "process"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"acl-info-table" : ("acl_info_table", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("acl-info-table", ("acl_info_table", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable()
                         self.acl_info_table.parent = self
@@ -232,8 +245,10 @@ class PfilterMa(Entity):
                             self.yang_parent_name = "ipv6"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"interface-infos" : ("interface_infos", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("interface-infos", ("interface_infos", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos()
                             self.interface_infos.parent = self
@@ -265,8 +280,10 @@ class PfilterMa(Entity):
                                 self.yang_parent_name = "acl-info-table"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"interface-info" : ("interface_info", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("interface-info", ("interface_info", PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo))])
+                                self._leafs = OrderedDict()
 
                                 self.interface_info = YList(self)
                                 self._segment_path = lambda: "interface-infos"
@@ -279,7 +296,7 @@ class PfilterMa(Entity):
                                 """
                                 Operational data for pfilter in bag
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Name of the interface
                                 	**type**\: str
@@ -305,13 +322,16 @@ class PfilterMa(Entity):
                                     self.yang_parent_name = "interface-infos"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.acl_info = YLeaf(YType.str, "acl-info")
-                                    self._segment_path = lambda: "interface-info" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('acl_info', YLeaf(YType.str, 'acl-info')),
+                                    ])
+                                    self.interface_name = None
+                                    self.acl_info = None
+                                    self._segment_path = lambda: "interface-info" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', 'acl_info'], name, value)
@@ -340,8 +360,10 @@ class PfilterMa(Entity):
                         self.yang_parent_name = "process"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"acl-info-table" : ("acl_info_table", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("acl-info-table", ("acl_info_table", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable()
                         self.acl_info_table.parent = self
@@ -373,8 +395,10 @@ class PfilterMa(Entity):
                             self.yang_parent_name = "ipv4"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"interface-infos" : ("interface_infos", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("interface-infos", ("interface_infos", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos()
                             self.interface_infos.parent = self
@@ -406,8 +430,10 @@ class PfilterMa(Entity):
                                 self.yang_parent_name = "acl-info-table"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"interface-info" : ("interface_info", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("interface-info", ("interface_info", PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo))])
+                                self._leafs = OrderedDict()
 
                                 self.interface_info = YList(self)
                                 self._segment_path = lambda: "interface-infos"
@@ -420,7 +446,7 @@ class PfilterMa(Entity):
                                 """
                                 Operational data for pfilter in bag
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Name of the interface
                                 	**type**\: str
@@ -446,13 +472,16 @@ class PfilterMa(Entity):
                                     self.yang_parent_name = "interface-infos"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.acl_info = YLeaf(YType.str, "acl-info")
-                                    self._segment_path = lambda: "interface-info" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('acl_info', YLeaf(YType.str, 'acl-info')),
+                                    ])
+                                    self.interface_name = None
+                                    self.acl_info = None
+                                    self._segment_path = lambda: "interface-info" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', 'acl_info'], name, value)

@@ -1,279 +1,258 @@
 module Cisco-IOS-XR-ipv6-nd-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-nd-cfg";
+  prefix ipv6-nd-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-ifmgr-cfg {
+    prefix a1;
+  }
 
-  prefix "ipv6-nd-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-ifmgr-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-nd package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        ipv6-neighbor: IPv6 neighbor or neighbor discovery
          configuration
-
+     
      This YANG module augments the
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ipv6srp-encapsulation {
     type enumeration {
-      enum srpa {
+      enum "srpa" {
         value 5;
-        description "Encapsulation type SRP, prefer side A";
+        description
+          "Encapsulation type SRP, prefer side A";
       }
-      enum srpb {
+      enum "srpb" {
         value 6;
-        description "Encapsulation type SRP, prefer side B";
+        description
+          "Encapsulation type SRP, prefer side B";
       }
     }
-    description "Ipv6srp encapsulation";
+    description
+      "Ipv6srp encapsulation";
   }
+
   typedef Ipv6nd-month {
     type enumeration {
-      enum january {
+      enum "january" {
         value 0;
-        description "January";
+        description
+          "January";
       }
-      enum february {
+      enum "february" {
         value 1;
-        description "February";
+        description
+          "February";
       }
-      enum march {
+      enum "march" {
         value 2;
-        description "March";
+        description
+          "March";
       }
-      enum april {
+      enum "april" {
         value 3;
-        description "April";
+        description
+          "April";
       }
-      enum may {
+      enum "may" {
         value 4;
-        description "May";
+        description
+          "May";
       }
-      enum june {
+      enum "june" {
         value 5;
-        description "June";
+        description
+          "June";
       }
-      enum july {
+      enum "july" {
         value 6;
-        description "July";
+        description
+          "July";
       }
-      enum august {
+      enum "august" {
         value 7;
-        description "August";
+        description
+          "August";
       }
-      enum september {
+      enum "september" {
         value 8;
-        description "September";
+        description
+          "September";
       }
-      enum october {
+      enum "october" {
         value 9;
-        description "October";
+        description
+          "October";
       }
-      enum november {
+      enum "november" {
         value 10;
-        description "November";
+        description
+          "November";
       }
-      enum december {
+      enum "december" {
         value 11;
-        description "December";
+        description
+          "December";
       }
     }
-    description "Ipv6nd month";
+    description
+      "Ipv6nd month";
   }
+
   typedef Ipv6-nd-router-pref {
     type enumeration {
-      enum high {
+      enum "high" {
         value 1;
-        description "High preference";
+        description
+          "High preference";
       }
-      enum medium {
+      enum "medium" {
         value 2;
-        description "Medium preference";
+        description
+          "Medium preference";
       }
-      enum low {
+      enum "low" {
         value 3;
-        description "Low preference";
+        description
+          "Low preference";
       }
     }
-    description "Ipv6 nd router pref";
-  }
-
-  container ipv6-neighbor {
-    description "IPv6 neighbor or neighbor discovery configuration";
-
-    container neighbors {
-      description "IPv6 neighbors";
-
-      list neighbor {
-        key "neighbor-address interface-name";
-        description "IPv6 neighbor configuration";
-        leaf neighbor-address {
-          type inet:ipv6-address-no-zone;
-          description "IPv6 address";
-        }
-        leaf interface-name {
-          type xr:Interface-name;
-          description "Interface name";
-        }
-        leaf zone {
-          type string;
-          default "0";
-          description "IPv6 address zone";
-        }
-        leaf mac-address {
-          type yang:mac-address;
-          mandatory true;
-          description "48-bit hardware address H.H.H";
-        }
-        leaf encapsulation {
-          type Ipv6srp-encapsulation;
-          description
-            "Encapsulation type only if interface type is
-            SRP";
-        }
-      }
-    }
-    leaf scavenge-timeout {
-      type uint32 {
-        range "1..43200";
-      }
-      units "second";
-      description "Set lifetime for stale neighbor";
-    }
+    description
+      "Ipv6 nd router pref";
   }
 
   augment "/a1:interface-configurations/a1:interface-configuration" {
-
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-ifmgr-cfg'";
     container ipv6-neighbor {
       description
         "IPv6 interface neighbor or neighbor discovery
-        configuration";
-
+         configuration";
       container raspecific-route-s {
-        description "IPv6 Router Advertisement (RA) Specific Route";
-
+        description
+          "IPv6 Router Advertisement (RA) Specific Route";
         list raspecific-route {
           key "specific-route";
           description
             "IPv6 Router Advertisement (RA) Specific Route";
           leaf specific-route {
             type inet:ipv6-address-no-zone;
-            description "IPv6 Address";
+            description
+              "IPv6 Address";
           }
           leaf prefix-length {
             type xr:Ipv6-prefix-length;
-            description "Prefix mask length";
+            description
+              "Prefix mask length";
           }
           leaf lifetime {
             type uint32 {
               range "0..4294967295";
             }
-            description "Lifetime (seconds)";
+            description
+              "Lifetime (seconds)";
           }
           leaf preference {
             type Ipv6-nd-router-pref;
-            description "Preference";
+            description
+              "Preference";
           }
         }
       }
-
       container radns-searches {
         description
           "IPv6 Router Advertisement (RA) DNS Search List";
-
         list radns-search {
           key "dns-search-list";
           description
             "IPv6 Router Advertisement (RA) DNS Search List";
           leaf dns-search-list {
             type xr:Cisco-ios-xr-string;
-            description "Search List";
+            description
+              "Search List";
           }
           leaf lifetime {
             type uint32 {
               range "4..3600";
             }
             mandatory true;
-            description "Lifetime value in seconds";
+            description
+              "Lifetime value in seconds";
           }
         }
       }
-
       container radns-servers {
-        description "IPv6 Router Advertisement (RA) DNS Servre";
-
+        description
+          "IPv6 Router Advertisement (RA) DNS Servre";
         list radns-server {
           key "dns-server";
-          description "IPv6 Router Advertisement (RA) DNS Servre";
+          description
+            "IPv6 Router Advertisement (RA) DNS Servre";
           leaf dns-server {
             type inet:ipv6-address-no-zone;
-            description "IPv6 Address";
+            description
+              "IPv6 Address";
           }
           leaf lifetime {
             type uint32 {
               range "4..3600";
             }
             mandatory true;
-            description "Lifetime value in seconds";
+            description
+              "Lifetime value in seconds";
           }
         }
       }
-
       container ra-interval {
         presence "Indicates a ra-interval node is configured.";
         description
           "Set IPv6 Router Advertisement (RA) interval in
-          seconds";
+           seconds";
         leaf maximum {
           type uint32 {
             range "4..1800";
           }
           mandatory true;
-          description "Maximum RA interval in seconds";
+          description
+            "Maximum RA interval in seconds";
         }
         leaf minimum {
           type uint32 {
@@ -281,36 +260,40 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
           }
           description
             "Minimum RA interval in seconds. Must be less
-            than 0.75 * maximum interval";
+             than 0.75 * maximum interval";
         }
       }
-
       container ipv6-prefixes {
-        description "Prefixes ";
-
+        description
+          "Prefixes ";
         list ipv6-prefix {
           key "prefix";
-          description "Configure prefix with paramemters";
+          description
+            "Configure prefix with paramemters";
           leaf prefix {
             type inet:ipv6-address-no-zone;
-            description "IPv6 prefix";
+            description
+              "IPv6 prefix";
           }
           leaf prefix-zone {
             type string {
               length "1..9";
             }
-            description "Prefix zone";
+            description
+              "Prefix zone";
           }
           leaf prefix-length {
             type xr:Ipv6-prefix-length;
             mandatory true;
-            description "Prefix mask length";
+            description
+              "Prefix mask length";
           }
           leaf valid-lifetime {
             type uint32 {
               range "0..4294967295";
             }
-            description "Valid Lifetime (seconds)";
+            description
+              "Valid Lifetime (seconds)";
           }
           leaf preferred-lifetime {
             type uint32 {
@@ -318,79 +301,90 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
             }
             description
               "Preferred Lifetime (seconds) must be <= Valid
-              Lifetime";
+               Lifetime";
           }
           leaf off-link {
             type boolean;
             description
               "If set, prefix will not be used for onlink
-              determination";
+               determination";
           }
           leaf no-auto-config {
             type boolean;
             description
               "If set, prefix will not be used for auto
-              configuration";
+               configuration";
           }
           leaf no-advertize {
             type boolean;
-            description "If set, prefix will not be advertized";
+            description
+              "If set, prefix will not be advertized";
           }
           leaf expiry-month {
             type Ipv6nd-month;
-            description "Month to expire valid lifetime";
+            description
+              "Month to expire valid lifetime";
           }
           leaf expiry-date {
             type uint32 {
               range "1..31";
             }
-            description "Date to expire valid lifetime";
+            description
+              "Date to expire valid lifetime";
           }
           leaf expiry-year {
             type uint32 {
               range "2003..2035";
             }
-            description "Year to expire valid lifetime";
+            description
+              "Year to expire valid lifetime";
           }
           leaf expiry-hour {
             type uint32 {
               range "0..23";
             }
-            description "Hour to expire valid lifetime";
+            description
+              "Hour to expire valid lifetime";
           }
           leaf expiry-minute {
             type uint32 {
               range "0..59";
             }
-            description "Minute to expire valid lifetime";
+            description
+              "Minute to expire valid lifetime";
           }
           leaf pref-expiry-month {
             type Ipv6nd-month;
-            description "Month to expire preferred lifetime";
+            description
+              "Month to expire preferred lifetime";
           }
           leaf pref-expiry-date {
             type uint32 {
               range "1..31";
             }
-            description "Date to expire preferred lifetime";
+            description
+              "Date to expire preferred lifetime";
           }
           leaf pref-expiry-year {
             type uint32 {
               range "2003..2035";
             }
-            description "Year to expire preferred lifetime";
+            description
+              "Year to expire preferred lifetime";
           }
           leaf pref-expiry-hour {
             type uint32 {
               range "0..23";
             }
-            description "Hour to expire preferred lifetime";
+            description
+              "Hour to expire preferred lifetime";
           }
           leaf pref-expiry-minute {
             type uint32 {
               range "0..59";
             }
-            description "Minute to expire preferred lifetime";
+            description
+              "Minute to expire preferred lifetime";
           }
         }
       }
@@ -401,13 +395,13 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
         units "millisecond";
         description
           "Set advertised reachability time in
-          milliseconds";
+           milliseconds";
       }
       leaf ra-unspecify-hoplimit {
         type empty;
         description
           "Unspecify IPv6 Router Advertisement (RA)
-          hop-limit";
+           hop-limit";
       }
       leaf dad-attempts {
         type uint32 {
@@ -418,7 +412,8 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
       }
       leaf srp-multicast-encapsulation {
         type Ipv6srp-encapsulation;
-        description "Set SRP multicast prefer encapsulation";
+        description
+          "Set SRP multicast prefer encapsulation";
       }
       leaf ns-interval {
         type uint32 {
@@ -427,37 +422,41 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
         units "millisecond";
         description
           "Set advertised NS retransmission interval in
-          milliseconds";
+           milliseconds";
       }
       leaf cache-limit {
         type uint32 {
           range "0..128000";
         }
-        description "Set the cache limit for neighbor entries";
+        description
+          "Set the cache limit for neighbor entries";
       }
       leaf redirect {
         type empty;
-        description "Enable sending of ICMP Redirect messages";
+        description
+          "Enable sending of ICMP Redirect messages";
       }
       leaf srp-unicast-encapsulation {
         type Ipv6srp-encapsulation;
-        description "Set SRP unicast prefer encapsulation";
+        description
+          "Set SRP unicast prefer encapsulation";
       }
       leaf ramtu-suppress {
         type empty;
         description
           "Enable suppress MTU in IPv6 router
-          advertisement";
+           advertisement";
       }
       leaf managed-config {
         type empty;
         description
           "Host to use stateful protocol for address
-          configuration";
+           configuration";
       }
       leaf ra-unicast {
         type empty;
-        description "Enable unicast IPv6 router advertisement";
+        description
+          "Enable unicast IPv6 router advertisement";
       }
       leaf ra-lifetime {
         type uint32 {
@@ -466,25 +465,73 @@ module Cisco-IOS-XR-ipv6-nd-cfg {
         units "second";
         description
           "Set IPv6 Router Advertisement (RA) lifetime in
-          seconds";
+           seconds";
       }
       leaf other-config {
         type empty;
         description
           "Host to use stateful protocol for non-address
-          configuration";
+           configuration";
       }
       leaf ra-suppress {
         type empty;
-        description "Enable suppress IPv6 router advertisement";
+        description
+          "Enable suppress IPv6 router advertisement";
       }
       leaf router-preference {
         type Ipv6-nd-router-pref;
-        description "RA Router Preference";
+        description
+          "RA Router Preference";
       }
     }
+  }
+  container ipv6-neighbor {
     description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-ifmgr-cfg'";
+      "IPv6 neighbor or neighbor discovery configuration";
+    container neighbors {
+      description
+        "IPv6 neighbors";
+      list neighbor {
+        key "neighbor-address interface-name";
+        description
+          "IPv6 neighbor configuration";
+        leaf neighbor-address {
+          type inet:ipv6-address-no-zone;
+          description
+            "IPv6 address";
+        }
+        leaf interface-name {
+          type xr:Interface-name;
+          description
+            "Interface name";
+        }
+        leaf zone {
+          type string;
+          default "0";
+          description
+            "IPv6 address zone";
+        }
+        leaf mac-address {
+          type yang:mac-address;
+          mandatory true;
+          description
+            "48-bit hardware address H.H.H";
+        }
+        leaf encapsulation {
+          type Ipv6srp-encapsulation;
+          description
+            "Encapsulation type only if interface type is
+             SRP";
+        }
+      }
+    }
+    leaf scavenge-timeout {
+      type uint32 {
+        range "1..43200";
+      }
+      units "second";
+      description
+        "Set lifetime for stale neighbor";
+    }
   }
 }

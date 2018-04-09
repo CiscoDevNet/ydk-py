@@ -1,51 +1,39 @@
 module Cisco-IOS-XR-fib-common-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-cfg";
+  prefix fib-common-cfg;
 
-
-  prefix "fib-common-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        fib: CEF configuration
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2017-01-20" {
+  revision 2017-01-20 {
     description
       "IOS XR 6.2.1 revision";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
@@ -53,66 +41,76 @@ module Cisco-IOS-XR-fib-common-cfg {
   typedef Fib-pbts-forward-class {
     type union {
       type enumeration {
-        enum any {
+        enum "any" {
           value 8;
-          description "Any class";
+          description
+            "Any class";
         }
       }
       type uint32 {
         range "0..8";
       }
     }
-    description "Fib pbts forward class";
+    description
+      "Fib pbts forward class";
   }
+
   typedef Fib-pbts-fallback {
     type enumeration {
-      enum list {
+      enum "list" {
         value 1;
-        description "Fallback to class number list";
+        description
+          "Fallback to class number list";
       }
-      enum any {
+      enum "any" {
         value 2;
-        description "Fallback to any class";
+        description
+          "Fallback to any class";
       }
-      enum drop {
+      enum "drop" {
         value 3;
-        description "Fallback to drop";
+        description
+          "Fallback to drop";
       }
     }
-    description "Fib pbts fallback";
+    description
+      "Fib pbts fallback";
   }
 
   container fib {
-    description "CEF configuration";
-
+    description
+      "CEF configuration";
     container pbts-forward-class-fallbacks {
-      description "PBTS class configuration";
-
+      description
+        "PBTS class configuration";
       list pbts-forward-class-fallback {
         key "forward-class-number";
-        description "Set PBTS class for fallback";
+        description
+          "Set PBTS class for fallback";
         leaf forward-class-number {
           type Fib-pbts-forward-class;
-          description "PBTS forward class number";
+          description
+            "PBTS forward class number";
         }
         leaf fallback-type {
           type Fib-pbts-fallback;
           mandatory true;
-          description "Set PBTS fallback type";
+          description
+            "Set PBTS fallback type";
         }
         leaf-list fallback-class-number-array {
           type uint32 {
             range "0..7";
           }
           max-elements "7";
-          description "Set PBTS fallback class number array";
+          description
+            "Set PBTS fallback class number array";
         }
       }
     }
-
     container platform {
-      description "FIB platform parameters";
-
+      description
+        "FIB platform parameters";
       container label-switched-multicast {
         description
           "Options for label-switched-multicast parameters";
@@ -130,7 +128,13 @@ module Cisco-IOS-XR-fib-common-cfg {
       type boolean;
       description
         "Set options for adjacency routes overriding RIB
-        routes";
+         routes";
+    }
+    leaf frr-follow-bgp-pic {
+      type boolean;
+      description
+        "Set option for fast-reroute to follow BGP PIC
+         update, not to wait for timeout";
     }
   }
 }

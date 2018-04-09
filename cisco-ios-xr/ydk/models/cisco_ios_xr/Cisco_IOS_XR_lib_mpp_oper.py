@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MppAllow(Enum):
     """
-    MppAllow
+    MppAllow (Enum Class)
 
     MPP protocol types
 
@@ -121,8 +123,10 @@ class ManagementPlaneProtection(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lib-mpp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"outband" : ("outband", ManagementPlaneProtection.Outband), "inband" : ("inband", ManagementPlaneProtection.Inband)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("outband", ("outband", ManagementPlaneProtection.Outband)), ("inband", ("inband", ManagementPlaneProtection.Inband))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.outband = ManagementPlaneProtection.Outband()
         self.outband.parent = self
@@ -165,8 +169,10 @@ class ManagementPlaneProtection(Entity):
             self.yang_parent_name = "management-plane-protection"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"vrf" : ("vrf", ManagementPlaneProtection.Outband.Vrf), "interfaces" : ("interfaces", ManagementPlaneProtection.Outband.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("vrf", ("vrf", ManagementPlaneProtection.Outband.Vrf)), ("interfaces", ("interfaces", ManagementPlaneProtection.Outband.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.vrf = ManagementPlaneProtection.Outband.Vrf()
             self.vrf.parent = self
@@ -204,10 +210,13 @@ class ManagementPlaneProtection(Entity):
                 self.yang_parent_name = "outband"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
                 self._segment_path = lambda: "vrf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self._segment_path()
 
@@ -238,8 +247,10 @@ class ManagementPlaneProtection(Entity):
                 self.yang_parent_name = "outband"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", ManagementPlaneProtection.Outband.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Outband.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -253,7 +264,7 @@ class ManagementPlaneProtection(Entity):
                 """
                 MPP interface information
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface name, specify 'all' for all interfaces
                 	**type**\: str
@@ -277,13 +288,16 @@ class ManagementPlaneProtection(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"protocol" : ("protocol", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ])
+                    self.interface_name = None
 
                     self.protocol = YList(self)
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -323,12 +337,15 @@ class ManagementPlaneProtection(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"peer-address" : ("peer_address", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress)}
-
-                        self.allow = YLeaf(YType.enumeration, "allow")
-
-                        self.is_all_peers_allowed = YLeaf(YType.boolean, "is-all-peers-allowed")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress))])
+                        self._leafs = OrderedDict([
+                            ('allow', YLeaf(YType.enumeration, 'allow')),
+                            ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
+                        ])
+                        self.allow = None
+                        self.is_all_peers_allowed = None
 
                         self.peer_address = YList(self)
                         self._segment_path = lambda: "protocol"
@@ -374,14 +391,17 @@ class ManagementPlaneProtection(Entity):
                             self.yang_parent_name = "protocol"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.identityref, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.identityref, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "peer-address"
 
                         def __setattr__(self, name, value):
@@ -412,8 +432,10 @@ class ManagementPlaneProtection(Entity):
             self.yang_parent_name = "management-plane-protection"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", ManagementPlaneProtection.Inband.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", ManagementPlaneProtection.Inband.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.interfaces = ManagementPlaneProtection.Inband.Interfaces()
             self.interfaces.parent = self
@@ -446,8 +468,10 @@ class ManagementPlaneProtection(Entity):
                 self.yang_parent_name = "inband"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", ManagementPlaneProtection.Inband.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", ManagementPlaneProtection.Inband.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -461,7 +485,7 @@ class ManagementPlaneProtection(Entity):
                 """
                 MPP interface information
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface name, specify 'all' for all interfaces
                 	**type**\: str
@@ -485,13 +509,16 @@ class ManagementPlaneProtection(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"protocol" : ("protocol", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ])
+                    self.interface_name = None
 
                     self.protocol = YList(self)
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -531,12 +558,15 @@ class ManagementPlaneProtection(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"peer-address" : ("peer_address", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress)}
-
-                        self.allow = YLeaf(YType.enumeration, "allow")
-
-                        self.is_all_peers_allowed = YLeaf(YType.boolean, "is-all-peers-allowed")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress))])
+                        self._leafs = OrderedDict([
+                            ('allow', YLeaf(YType.enumeration, 'allow')),
+                            ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
+                        ])
+                        self.allow = None
+                        self.is_all_peers_allowed = None
 
                         self.peer_address = YList(self)
                         self._segment_path = lambda: "protocol"
@@ -582,14 +612,17 @@ class ManagementPlaneProtection(Entity):
                             self.yang_parent_name = "protocol"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.identityref, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.identityref, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "peer-address"
 
                         def __setattr__(self, name, value):

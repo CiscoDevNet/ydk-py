@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MacsecMkaCipherSuite(Enum):
     """
-    MacsecMkaCipherSuite
+    MacsecMkaCipherSuite (Enum Class)
 
     Macsec mka cipher suite
 
@@ -52,7 +54,7 @@ class MacsecMkaCipherSuite(Enum):
 
 class MacsecMkaConfOffset(Enum):
     """
-    MacsecMkaConfOffset
+    MacsecMkaConfOffset (Enum Class)
 
     Macsec mka conf offset
 
@@ -79,7 +81,7 @@ class MacsecMkaConfOffset(Enum):
 
 class MacsecMkaPolicyException(Enum):
     """
-    MacsecMkaPolicyException
+    MacsecMkaPolicyException (Enum Class)
 
     Macsec mka policy exception
 
@@ -94,7 +96,7 @@ class MacsecMkaPolicyException(Enum):
 
 class MacsecMkaSecurityPolicy(Enum):
     """
-    MacsecMkaSecurityPolicy
+    MacsecMkaSecurityPolicy (Enum Class)
 
     Macsec mka security policy
 
@@ -138,8 +140,10 @@ class Macsec(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-macsec-mka-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"policy" : ("policy", Macsec.Policy)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("policy", ("policy", Macsec.Policy))])
+        self._leafs = OrderedDict()
 
         self.policy = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec"
@@ -152,7 +156,7 @@ class Macsec(Entity):
         """
         MACSec Policy
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	Name of the Policy of maximum length 16
         	**type**\: str
@@ -233,31 +237,34 @@ class Macsec(Entity):
             self.yang_parent_name = "macsec"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.delay_protection = YLeaf(YType.boolean, "delay-protection")
-
-            self.security_policy = YLeaf(YType.enumeration, "security-policy")
-
-            self.key_server_priority = YLeaf(YType.uint32, "key-server-priority")
-
-            self.conf_offset = YLeaf(YType.enumeration, "conf-offset")
-
-            self.sak_rekey_interval = YLeaf(YType.uint32, "sak-rekey-interval")
-
-            self.policy_exception = YLeaf(YType.enumeration, "policy-exception")
-
-            self.window_size = YLeaf(YType.uint32, "window-size")
-
-            self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
-
-            self.include_icv_indicator = YLeaf(YType.boolean, "include-icv-indicator")
-
-            self.vlan_tags_in_clear = YLeaf(YType.uint32, "vlan-tags-in-clear")
-            self._segment_path = lambda: "policy" + "[name='" + self.name.get() + "']"
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('delay_protection', YLeaf(YType.boolean, 'delay-protection')),
+                ('security_policy', YLeaf(YType.enumeration, 'security-policy')),
+                ('key_server_priority', YLeaf(YType.uint32, 'key-server-priority')),
+                ('conf_offset', YLeaf(YType.enumeration, 'conf-offset')),
+                ('sak_rekey_interval', YLeaf(YType.uint32, 'sak-rekey-interval')),
+                ('policy_exception', YLeaf(YType.enumeration, 'policy-exception')),
+                ('window_size', YLeaf(YType.uint32, 'window-size')),
+                ('cipher_suite', YLeaf(YType.enumeration, 'cipher-suite')),
+                ('include_icv_indicator', YLeaf(YType.boolean, 'include-icv-indicator')),
+                ('vlan_tags_in_clear', YLeaf(YType.uint32, 'vlan-tags-in-clear')),
+            ])
+            self.name = None
+            self.delay_protection = None
+            self.security_policy = None
+            self.key_server_priority = None
+            self.conf_offset = None
+            self.sak_rekey_interval = None
+            self.policy_exception = None
+            self.window_size = None
+            self.cipher_suite = None
+            self.include_icv_indicator = None
+            self.vlan_tags_in_clear = None
+            self._segment_path = lambda: "policy" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec/%s" % self._segment_path()
 
         def __setattr__(self, name, value):

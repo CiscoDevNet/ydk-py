@@ -7,6 +7,8 @@ of this MIB module is a part of RFC 4022; see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -55,8 +57,10 @@ class TCPMIB(Entity):
         self.yang_parent_name = "TCP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"tcp" : ("tcp", TCPMIB.Tcp), "tcpConnTable" : ("tcpconntable", TCPMIB.Tcpconntable), "tcpConnectionTable" : ("tcpconnectiontable", TCPMIB.Tcpconnectiontable), "tcpListenerTable" : ("tcplistenertable", TCPMIB.Tcplistenertable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("tcp", ("tcp", TCPMIB.Tcp)), ("tcpConnTable", ("tcpconntable", TCPMIB.Tcpconntable)), ("tcpConnectionTable", ("tcpconnectiontable", TCPMIB.Tcpconnectiontable)), ("tcpListenerTable", ("tcplistenertable", TCPMIB.Tcplistenertable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.tcp = TCPMIB.Tcp()
         self.tcp.parent = self
@@ -212,40 +216,43 @@ class TCPMIB(Entity):
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.tcprtoalgorithm = YLeaf(YType.enumeration, "tcpRtoAlgorithm")
-
-            self.tcprtomin = YLeaf(YType.int32, "tcpRtoMin")
-
-            self.tcprtomax = YLeaf(YType.int32, "tcpRtoMax")
-
-            self.tcpmaxconn = YLeaf(YType.int32, "tcpMaxConn")
-
-            self.tcpactiveopens = YLeaf(YType.uint32, "tcpActiveOpens")
-
-            self.tcppassiveopens = YLeaf(YType.uint32, "tcpPassiveOpens")
-
-            self.tcpattemptfails = YLeaf(YType.uint32, "tcpAttemptFails")
-
-            self.tcpestabresets = YLeaf(YType.uint32, "tcpEstabResets")
-
-            self.tcpcurrestab = YLeaf(YType.uint32, "tcpCurrEstab")
-
-            self.tcpinsegs = YLeaf(YType.uint32, "tcpInSegs")
-
-            self.tcpoutsegs = YLeaf(YType.uint32, "tcpOutSegs")
-
-            self.tcpretranssegs = YLeaf(YType.uint32, "tcpRetransSegs")
-
-            self.tcpinerrs = YLeaf(YType.uint32, "tcpInErrs")
-
-            self.tcpoutrsts = YLeaf(YType.uint32, "tcpOutRsts")
-
-            self.tcphcinsegs = YLeaf(YType.uint64, "tcpHCInSegs")
-
-            self.tcphcoutsegs = YLeaf(YType.uint64, "tcpHCOutSegs")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
+                ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
+                ('tcprtomax', YLeaf(YType.int32, 'tcpRtoMax')),
+                ('tcpmaxconn', YLeaf(YType.int32, 'tcpMaxConn')),
+                ('tcpactiveopens', YLeaf(YType.uint32, 'tcpActiveOpens')),
+                ('tcppassiveopens', YLeaf(YType.uint32, 'tcpPassiveOpens')),
+                ('tcpattemptfails', YLeaf(YType.uint32, 'tcpAttemptFails')),
+                ('tcpestabresets', YLeaf(YType.uint32, 'tcpEstabResets')),
+                ('tcpcurrestab', YLeaf(YType.uint32, 'tcpCurrEstab')),
+                ('tcpinsegs', YLeaf(YType.uint32, 'tcpInSegs')),
+                ('tcpoutsegs', YLeaf(YType.uint32, 'tcpOutSegs')),
+                ('tcpretranssegs', YLeaf(YType.uint32, 'tcpRetransSegs')),
+                ('tcpinerrs', YLeaf(YType.uint32, 'tcpInErrs')),
+                ('tcpoutrsts', YLeaf(YType.uint32, 'tcpOutRsts')),
+                ('tcphcinsegs', YLeaf(YType.uint64, 'tcpHCInSegs')),
+                ('tcphcoutsegs', YLeaf(YType.uint64, 'tcpHCOutSegs')),
+            ])
+            self.tcprtoalgorithm = None
+            self.tcprtomin = None
+            self.tcprtomax = None
+            self.tcpmaxconn = None
+            self.tcpactiveopens = None
+            self.tcppassiveopens = None
+            self.tcpattemptfails = None
+            self.tcpestabresets = None
+            self.tcpcurrestab = None
+            self.tcpinsegs = None
+            self.tcpoutsegs = None
+            self.tcpretranssegs = None
+            self.tcpinerrs = None
+            self.tcpoutrsts = None
+            self.tcphcinsegs = None
+            self.tcphcoutsegs = None
             self._segment_path = lambda: "tcp"
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
 
@@ -254,7 +261,7 @@ class TCPMIB(Entity):
 
         class Tcprtoalgorithm(Enum):
             """
-            Tcprtoalgorithm
+            Tcprtoalgorithm (Enum Class)
 
             The algorithm used to determine the timeout value used for
 
@@ -312,8 +319,10 @@ class TCPMIB(Entity):
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tcpConnEntry" : ("tcpconnentry", TCPMIB.Tcpconntable.Tcpconnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tcpConnEntry", ("tcpconnentry", TCPMIB.Tcpconntable.Tcpconnentry))])
+            self._leafs = OrderedDict()
 
             self.tcpconnentry = YList(self)
             self._segment_path = lambda: "tcpConnTable"
@@ -331,7 +340,7 @@ class TCPMIB(Entity):
             (or soon after) the connection makes the transition to the
             CLOSED state.
             
-            .. attribute:: tcpconnlocaladdress  <key>
+            .. attribute:: tcpconnlocaladdress  (key)
             
             	The local IP address for this TCP connection.  In the case of a connection in the listen state willing to accept connections for any IP interface associated with the node, the value 0.0.0.0 is used
             	**type**\: str
@@ -340,7 +349,7 @@ class TCPMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: tcpconnlocalport  <key>
+            .. attribute:: tcpconnlocalport  (key)
             
             	The local port number for this TCP connection
             	**type**\: int
@@ -349,7 +358,7 @@ class TCPMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: tcpconnremaddress  <key>
+            .. attribute:: tcpconnremaddress  (key)
             
             	The remote IP address for this TCP connection
             	**type**\: str
@@ -358,7 +367,7 @@ class TCPMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: tcpconnremport  <key>
+            .. attribute:: tcpconnremport  (key)
             
             	The remote port number for this TCP connection
             	**type**\: int
@@ -388,19 +397,22 @@ class TCPMIB(Entity):
                 self.yang_parent_name = "tcpConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.tcpconnlocaladdress = YLeaf(YType.str, "tcpConnLocalAddress")
-
-                self.tcpconnlocalport = YLeaf(YType.int32, "tcpConnLocalPort")
-
-                self.tcpconnremaddress = YLeaf(YType.str, "tcpConnRemAddress")
-
-                self.tcpconnremport = YLeaf(YType.int32, "tcpConnRemPort")
-
-                self.tcpconnstate = YLeaf(YType.enumeration, "tcpConnState")
-                self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + self.tcpconnlocaladdress.get() + "']" + "[tcpConnLocalPort='" + self.tcpconnlocalport.get() + "']" + "[tcpConnRemAddress='" + self.tcpconnremaddress.get() + "']" + "[tcpConnRemPort='" + self.tcpconnremport.get() + "']"
+                self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
+                    ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
+                    ('tcpconnremaddress', YLeaf(YType.str, 'tcpConnRemAddress')),
+                    ('tcpconnremport', YLeaf(YType.int32, 'tcpConnRemPort')),
+                    ('tcpconnstate', YLeaf(YType.enumeration, 'tcpConnState')),
+                ])
+                self.tcpconnlocaladdress = None
+                self.tcpconnlocalport = None
+                self.tcpconnremaddress = None
+                self.tcpconnremport = None
+                self.tcpconnstate = None
+                self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + str(self.tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + str(self.tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + str(self.tcpconnremaddress) + "']" + "[tcpConnRemPort='" + str(self.tcpconnremport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -408,7 +420,7 @@ class TCPMIB(Entity):
 
             class Tcpconnstate(Enum):
                 """
-                Tcpconnstate
+                Tcpconnstate (Enum Class)
 
                 The state of this TCP connection.
 
@@ -513,8 +525,10 @@ class TCPMIB(Entity):
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tcpConnectionEntry" : ("tcpconnectionentry", TCPMIB.Tcpconnectiontable.Tcpconnectionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tcpConnectionEntry", ("tcpconnectionentry", TCPMIB.Tcpconnectiontable.Tcpconnectionentry))])
+            self._leafs = OrderedDict()
 
             self.tcpconnectionentry = YList(self)
             self._segment_path = lambda: "tcpConnectionTable"
@@ -532,38 +546,38 @@ class TCPMIB(Entity):
             exist when (or soon after) the connection makes the
             transition to the CLOSED state.
             
-            .. attribute:: tcpconnectionlocaladdresstype  <key>
+            .. attribute:: tcpconnectionlocaladdresstype  (key)
             
             	The address type of tcpConnectionLocalAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: tcpconnectionlocaladdress  <key>
+            .. attribute:: tcpconnectionlocaladdress  (key)
             
             	The local IP address for this TCP connection.  The type of this address is determined by the value of tcpConnectionLocalAddressType.  As this object is used in the index for the tcpConnectionTable, implementors should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; otherwise the information cannot be accessed by using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: tcpconnectionlocalport  <key>
+            .. attribute:: tcpconnectionlocalport  (key)
             
             	The local port number for this TCP connection
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: tcpconnectionremaddresstype  <key>
+            .. attribute:: tcpconnectionremaddresstype  (key)
             
             	The address type of tcpConnectionRemAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: tcpconnectionremaddress  <key>
+            .. attribute:: tcpconnectionremaddress  (key)
             
             	The remote IP address for this TCP connection.  The type of this address is determined by the value of tcpConnectionRemAddressType.  As this object is used in the index for the tcpConnectionTable, implementors should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; otherwise the information cannot be accessed by using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: tcpconnectionremport  <key>
+            .. attribute:: tcpconnectionremport  (key)
             
             	The remote port number for this TCP connection
             	**type**\: int
@@ -596,25 +610,28 @@ class TCPMIB(Entity):
                 self.yang_parent_name = "tcpConnectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.tcpconnectionlocaladdresstype = YLeaf(YType.enumeration, "tcpConnectionLocalAddressType")
-
-                self.tcpconnectionlocaladdress = YLeaf(YType.str, "tcpConnectionLocalAddress")
-
-                self.tcpconnectionlocalport = YLeaf(YType.uint16, "tcpConnectionLocalPort")
-
-                self.tcpconnectionremaddresstype = YLeaf(YType.enumeration, "tcpConnectionRemAddressType")
-
-                self.tcpconnectionremaddress = YLeaf(YType.str, "tcpConnectionRemAddress")
-
-                self.tcpconnectionremport = YLeaf(YType.uint16, "tcpConnectionRemPort")
-
-                self.tcpconnectionstate = YLeaf(YType.enumeration, "tcpConnectionState")
-
-                self.tcpconnectionprocess = YLeaf(YType.uint32, "tcpConnectionProcess")
-                self._segment_path = lambda: "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + self.tcpconnectionlocaladdresstype.get() + "']" + "[tcpConnectionLocalAddress='" + self.tcpconnectionlocaladdress.get() + "']" + "[tcpConnectionLocalPort='" + self.tcpconnectionlocalport.get() + "']" + "[tcpConnectionRemAddressType='" + self.tcpconnectionremaddresstype.get() + "']" + "[tcpConnectionRemAddress='" + self.tcpconnectionremaddress.get() + "']" + "[tcpConnectionRemPort='" + self.tcpconnectionremport.get() + "']"
+                self.ylist_key_names = ['tcpconnectionlocaladdresstype','tcpconnectionlocaladdress','tcpconnectionlocalport','tcpconnectionremaddresstype','tcpconnectionremaddress','tcpconnectionremport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tcpconnectionlocaladdresstype', YLeaf(YType.enumeration, 'tcpConnectionLocalAddressType')),
+                    ('tcpconnectionlocaladdress', YLeaf(YType.str, 'tcpConnectionLocalAddress')),
+                    ('tcpconnectionlocalport', YLeaf(YType.uint16, 'tcpConnectionLocalPort')),
+                    ('tcpconnectionremaddresstype', YLeaf(YType.enumeration, 'tcpConnectionRemAddressType')),
+                    ('tcpconnectionremaddress', YLeaf(YType.str, 'tcpConnectionRemAddress')),
+                    ('tcpconnectionremport', YLeaf(YType.uint16, 'tcpConnectionRemPort')),
+                    ('tcpconnectionstate', YLeaf(YType.enumeration, 'tcpConnectionState')),
+                    ('tcpconnectionprocess', YLeaf(YType.uint32, 'tcpConnectionProcess')),
+                ])
+                self.tcpconnectionlocaladdresstype = None
+                self.tcpconnectionlocaladdress = None
+                self.tcpconnectionlocalport = None
+                self.tcpconnectionremaddresstype = None
+                self.tcpconnectionremaddress = None
+                self.tcpconnectionremport = None
+                self.tcpconnectionstate = None
+                self.tcpconnectionprocess = None
+                self._segment_path = lambda: "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + str(self.tcpconnectionlocaladdresstype) + "']" + "[tcpConnectionLocalAddress='" + str(self.tcpconnectionlocaladdress) + "']" + "[tcpConnectionLocalPort='" + str(self.tcpconnectionlocalport) + "']" + "[tcpConnectionRemAddressType='" + str(self.tcpconnectionremaddresstype) + "']" + "[tcpConnectionRemAddress='" + str(self.tcpconnectionremaddress) + "']" + "[tcpConnectionRemPort='" + str(self.tcpconnectionremport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -622,7 +639,7 @@ class TCPMIB(Entity):
 
             class Tcpconnectionstate(Enum):
                 """
-                Tcpconnectionstate
+                Tcpconnectionstate (Enum Class)
 
                 The state of this TCP connection.
 
@@ -759,8 +776,10 @@ class TCPMIB(Entity):
             self.yang_parent_name = "TCP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tcpListenerEntry" : ("tcplistenerentry", TCPMIB.Tcplistenertable.Tcplistenerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tcpListenerEntry", ("tcplistenerentry", TCPMIB.Tcplistenertable.Tcplistenerentry))])
+            self._leafs = OrderedDict()
 
             self.tcplistenerentry = YList(self)
             self._segment_path = lambda: "tcpListenerTable"
@@ -775,19 +794,19 @@ class TCPMIB(Entity):
             A conceptual row of the tcpListenerTable containing
             information about a particular TCP listener.
             
-            .. attribute:: tcplistenerlocaladdresstype  <key>
+            .. attribute:: tcplistenerlocaladdresstype  (key)
             
             	The address type of tcpListenerLocalAddress.  The value should be unknown (0) if connection initiations to all local IP addresses are accepted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: tcplistenerlocaladdress  <key>
+            .. attribute:: tcplistenerlocaladdress  (key)
             
             	The local IP address for this TCP connection.  The value of this object can be represented in three possible ways, depending on the characteristics of the listening application\:  1. For an application willing to accept both IPv4 and    IPv6 datagrams, the value of this object must be    ''h (a zero\-length octet\-string), with the value    of the corresponding tcpListenerLocalAddressType    object being unknown (0).  2. For an application willing to accept only IPv4 or    IPv6 datagrams, the value of this object must be    '0.0.0.0' or '\:\:' respectively, with    tcpListenerLocalAddressType representing the    appropriate address type.  3. For an application which is listening for data    destined only to a specific IP address, the value    of this object is the specific local address, with    tcpListenerLocalAddressType representing the    appropriate address type.  As this object is used in the index for the tcpListenerTable, implementors should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; otherwise the information cannot be accessed, using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: tcplistenerlocalport  <key>
+            .. attribute:: tcplistenerlocalport  (key)
             
             	The local port number for this TCP connection
             	**type**\: int
@@ -815,17 +834,20 @@ class TCPMIB(Entity):
                 self.yang_parent_name = "tcpListenerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.tcplistenerlocaladdresstype = YLeaf(YType.enumeration, "tcpListenerLocalAddressType")
-
-                self.tcplistenerlocaladdress = YLeaf(YType.str, "tcpListenerLocalAddress")
-
-                self.tcplistenerlocalport = YLeaf(YType.uint16, "tcpListenerLocalPort")
-
-                self.tcplistenerprocess = YLeaf(YType.uint32, "tcpListenerProcess")
-                self._segment_path = lambda: "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + self.tcplistenerlocaladdresstype.get() + "']" + "[tcpListenerLocalAddress='" + self.tcplistenerlocaladdress.get() + "']" + "[tcpListenerLocalPort='" + self.tcplistenerlocalport.get() + "']"
+                self.ylist_key_names = ['tcplistenerlocaladdresstype','tcplistenerlocaladdress','tcplistenerlocalport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tcplistenerlocaladdresstype', YLeaf(YType.enumeration, 'tcpListenerLocalAddressType')),
+                    ('tcplistenerlocaladdress', YLeaf(YType.str, 'tcpListenerLocalAddress')),
+                    ('tcplistenerlocalport', YLeaf(YType.uint16, 'tcpListenerLocalPort')),
+                    ('tcplistenerprocess', YLeaf(YType.uint32, 'tcpListenerProcess')),
+                ])
+                self.tcplistenerlocaladdresstype = None
+                self.tcplistenerlocaladdress = None
+                self.tcplistenerlocalport = None
+                self.tcplistenerprocess = None
+                self._segment_path = lambda: "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + str(self.tcplistenerlocaladdresstype) + "']" + "[tcpListenerLocalAddress='" + str(self.tcplistenerlocaladdress) + "']" + "[tcpListenerLocalPort='" + str(self.tcplistenerlocalport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpListenerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

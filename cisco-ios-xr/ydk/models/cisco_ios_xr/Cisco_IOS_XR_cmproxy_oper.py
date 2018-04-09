@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class SdrInventoryVm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cmproxy-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", SdrInventoryVm.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", SdrInventoryVm.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = SdrInventoryVm.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class SdrInventoryVm(Entity):
             self.yang_parent_name = "sdr-inventory-vm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", SdrInventoryVm.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", SdrInventoryVm.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class SdrInventoryVm(Entity):
             """
             Node name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Node name
             	**type**\: str
@@ -116,16 +122,19 @@ class SdrInventoryVm(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-entries" : ("node_entries", SdrInventoryVm.Nodes.Node.NodeEntries)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("node-entries", ("node_entries", SdrInventoryVm.Nodes.Node.NodeEntries))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.node_entries = SdrInventoryVm.Nodes.Node.NodeEntries()
                 self.node_entries.parent = self
                 self._children_name_map["node_entries"] = "node-entries"
                 self._children_yang_names.add("node-entries")
-                self._segment_path = lambda: "node" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "node" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -155,8 +164,10 @@ class SdrInventoryVm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"node-entry" : ("node_entry", SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("node-entry", ("node_entry", SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry))])
+                    self._leafs = OrderedDict()
 
                     self.node_entry = YList(self)
                     self._segment_path = lambda: "node-entries"
@@ -169,7 +180,7 @@ class SdrInventoryVm(Entity):
                     """
                     VM information for a node
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Node name
                     	**type**\: str
@@ -295,41 +306,44 @@ class SdrInventoryVm(Entity):
                         self.yang_parent_name = "node-entries"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.valid = YLeaf(YType.uint32, "valid")
-
-                        self.card_type = YLeaf(YType.uint32, "card-type")
-
-                        self.card_type_string = YLeaf(YType.str, "card-type-string")
-
-                        self.nodeid = YLeaf(YType.int32, "nodeid")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.partner_id = YLeaf(YType.int32, "partner-id")
-
-                        self.partner_name = YLeaf(YType.str, "partner-name")
-
-                        self.red_state = YLeaf(YType.uint32, "red-state")
-
-                        self.red_state_string = YLeaf(YType.str, "red-state-string")
-
-                        self.node_sw_state = YLeaf(YType.uint32, "node-sw-state")
-
-                        self.node_sw_state_string = YLeaf(YType.str, "node-sw-state-string")
-
-                        self.prev_sw_state = YLeaf(YType.uint32, "prev-sw-state")
-
-                        self.prev_sw_state_string = YLeaf(YType.str, "prev-sw-state-string")
-
-                        self.node_ip = YLeaf(YType.uint32, "node-ip")
-
-                        self.node_ipv4_string = YLeaf(YType.str, "node-ipv4-string")
-                        self._segment_path = lambda: "node-entry" + "[name='" + self.name.get() + "']"
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('valid', YLeaf(YType.uint32, 'valid')),
+                            ('card_type', YLeaf(YType.uint32, 'card-type')),
+                            ('card_type_string', YLeaf(YType.str, 'card-type-string')),
+                            ('nodeid', YLeaf(YType.int32, 'nodeid')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('partner_id', YLeaf(YType.int32, 'partner-id')),
+                            ('partner_name', YLeaf(YType.str, 'partner-name')),
+                            ('red_state', YLeaf(YType.uint32, 'red-state')),
+                            ('red_state_string', YLeaf(YType.str, 'red-state-string')),
+                            ('node_sw_state', YLeaf(YType.uint32, 'node-sw-state')),
+                            ('node_sw_state_string', YLeaf(YType.str, 'node-sw-state-string')),
+                            ('prev_sw_state', YLeaf(YType.uint32, 'prev-sw-state')),
+                            ('prev_sw_state_string', YLeaf(YType.str, 'prev-sw-state-string')),
+                            ('node_ip', YLeaf(YType.uint32, 'node-ip')),
+                            ('node_ipv4_string', YLeaf(YType.str, 'node-ipv4-string')),
+                        ])
+                        self.name = None
+                        self.valid = None
+                        self.card_type = None
+                        self.card_type_string = None
+                        self.nodeid = None
+                        self.node_name = None
+                        self.partner_id = None
+                        self.partner_name = None
+                        self.red_state = None
+                        self.red_state_string = None
+                        self.node_sw_state = None
+                        self.node_sw_state_string = None
+                        self.prev_sw_state = None
+                        self.prev_sw_state_string = None
+                        self.node_ip = None
+                        self.node_ipv4_string = None
+                        self._segment_path = lambda: "node-entry" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)

@@ -7,6 +7,8 @@ MIB and only allow certain ports to join certain
 multicast groups.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -53,8 +55,10 @@ class CISCOIGMPFILTERMIB(Entity):
         self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cIgmpFilterGeneral" : ("cigmpfiltergeneral", CISCOIGMPFILTERMIB.Cigmpfiltergeneral), "cIgmpFilterEditor" : ("cigmpfiltereditor", CISCOIGMPFILTERMIB.Cigmpfiltereditor), "cIgmpFilterTable" : ("cigmpfiltertable", CISCOIGMPFILTERMIB.Cigmpfiltertable), "cIgmpFilterInterfaceTable" : ("cigmpfilterinterfacetable", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cIgmpFilterGeneral", ("cigmpfiltergeneral", CISCOIGMPFILTERMIB.Cigmpfiltergeneral)), ("cIgmpFilterEditor", ("cigmpfiltereditor", CISCOIGMPFILTERMIB.Cigmpfiltereditor)), ("cIgmpFilterTable", ("cigmpfiltertable", CISCOIGMPFILTERMIB.Cigmpfiltertable)), ("cIgmpFilterInterfaceTable", ("cigmpfilterinterfacetable", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cigmpfiltergeneral = CISCOIGMPFILTERMIB.Cigmpfiltergeneral()
         self.cigmpfiltergeneral.parent = self
@@ -110,12 +114,15 @@ class CISCOIGMPFILTERMIB(Entity):
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cigmpfilterenable = YLeaf(YType.boolean, "cIgmpFilterEnable")
-
-            self.cigmpfiltermaxprofiles = YLeaf(YType.uint32, "cIgmpFilterMaxProfiles")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cigmpfilterenable', YLeaf(YType.boolean, 'cIgmpFilterEnable')),
+                ('cigmpfiltermaxprofiles', YLeaf(YType.uint32, 'cIgmpFilterMaxProfiles')),
+            ])
+            self.cigmpfilterenable = None
+            self.cigmpfiltermaxprofiles = None
             self._segment_path = lambda: "cIgmpFilterGeneral"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
@@ -194,26 +201,29 @@ class CISCOIGMPFILTERMIB(Entity):
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cigmpfiltereditspinlock = YLeaf(YType.int32, "cIgmpFilterEditSpinLock")
-
-            self.cigmpfiltereditprofileindex = YLeaf(YType.uint32, "cIgmpFilterEditProfileIndex")
-
-            self.cigmpfiltereditstartaddresstype = YLeaf(YType.enumeration, "cIgmpFilterEditStartAddressType")
-
-            self.cigmpfiltereditstartaddress = YLeaf(YType.str, "cIgmpFilterEditStartAddress")
-
-            self.cigmpfiltereditendaddresstype = YLeaf(YType.enumeration, "cIgmpFilterEditEndAddressType")
-
-            self.cigmpfiltereditendaddress = YLeaf(YType.str, "cIgmpFilterEditEndAddress")
-
-            self.cigmpfiltereditprofileaction = YLeaf(YType.enumeration, "cIgmpFilterEditProfileAction")
-
-            self.cigmpfiltereditoperation = YLeaf(YType.enumeration, "cIgmpFilterEditOperation")
-
-            self.cigmpfilterapplystatus = YLeaf(YType.enumeration, "cIgmpFilterApplyStatus")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cigmpfiltereditspinlock', YLeaf(YType.int32, 'cIgmpFilterEditSpinLock')),
+                ('cigmpfiltereditprofileindex', YLeaf(YType.uint32, 'cIgmpFilterEditProfileIndex')),
+                ('cigmpfiltereditstartaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEditStartAddressType')),
+                ('cigmpfiltereditstartaddress', YLeaf(YType.str, 'cIgmpFilterEditStartAddress')),
+                ('cigmpfiltereditendaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEditEndAddressType')),
+                ('cigmpfiltereditendaddress', YLeaf(YType.str, 'cIgmpFilterEditEndAddress')),
+                ('cigmpfiltereditprofileaction', YLeaf(YType.enumeration, 'cIgmpFilterEditProfileAction')),
+                ('cigmpfiltereditoperation', YLeaf(YType.enumeration, 'cIgmpFilterEditOperation')),
+                ('cigmpfilterapplystatus', YLeaf(YType.enumeration, 'cIgmpFilterApplyStatus')),
+            ])
+            self.cigmpfiltereditspinlock = None
+            self.cigmpfiltereditprofileindex = None
+            self.cigmpfiltereditstartaddresstype = None
+            self.cigmpfiltereditstartaddress = None
+            self.cigmpfiltereditendaddresstype = None
+            self.cigmpfiltereditendaddress = None
+            self.cigmpfiltereditprofileaction = None
+            self.cigmpfiltereditoperation = None
+            self.cigmpfilterapplystatus = None
             self._segment_path = lambda: "cIgmpFilterEditor"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
 
@@ -222,7 +232,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
         class Cigmpfilterapplystatus(Enum):
             """
-            Cigmpfilterapplystatus
+            Cigmpfilterapplystatus (Enum Class)
 
             The current status of an 'add', 'delete' or 'modify'
 
@@ -291,7 +301,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
         class Cigmpfiltereditoperation(Enum):
             """
-            Cigmpfiltereditoperation
+            Cigmpfiltereditoperation (Enum Class)
 
             The function of this object is to allow user to
 
@@ -354,7 +364,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
         class Cigmpfiltereditprofileaction(Enum):
             """
-            Cigmpfiltereditprofileaction
+            Cigmpfiltereditprofileaction (Enum Class)
 
             Buffer object to edit corresponding object in
 
@@ -418,8 +428,10 @@ class CISCOIGMPFILTERMIB(Entity):
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIgmpFilterEntry" : ("cigmpfilterentry", CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIgmpFilterEntry", ("cigmpfilterentry", CISCOIGMPFILTERMIB.Cigmpfiltertable.Cigmpfilterentry))])
+            self._leafs = OrderedDict()
 
             self.cigmpfilterentry = YList(self)
             self._segment_path = lambda: "cIgmpFilterTable"
@@ -437,19 +449,19 @@ class CISCOIGMPFILTERMIB(Entity):
             is controlled through the MIB objects defined under
             cIgmpFilterEditor group.
             
-            .. attribute:: cigmpfilterprofileindex  <key>
+            .. attribute:: cigmpfilterprofileindex  (key)
             
             	Index identifying this entry
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cigmpfilterstartaddresstype  <key>
+            .. attribute:: cigmpfilterstartaddresstype  (key)
             
             	This object describes the type of Internet address used to determine the start address  of IP multicast group for a profile
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cigmpfilterstartaddress  <key>
+            .. attribute:: cigmpfilterstartaddress  (key)
             
             	This object describes the start of the IP multicast group address of a contiguous range which will be subjected to filtering operation
             	**type**\: str
@@ -487,21 +499,24 @@ class CISCOIGMPFILTERMIB(Entity):
                 self.yang_parent_name = "cIgmpFilterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cigmpfilterprofileindex = YLeaf(YType.uint32, "cIgmpFilterProfileIndex")
-
-                self.cigmpfilterstartaddresstype = YLeaf(YType.enumeration, "cIgmpFilterStartAddressType")
-
-                self.cigmpfilterstartaddress = YLeaf(YType.str, "cIgmpFilterStartAddress")
-
-                self.cigmpfilterendaddresstype = YLeaf(YType.enumeration, "cIgmpFilterEndAddressType")
-
-                self.cigmpfilterendaddress = YLeaf(YType.str, "cIgmpFilterEndAddress")
-
-                self.cigmpfilterprofileaction = YLeaf(YType.enumeration, "cIgmpFilterProfileAction")
-                self._segment_path = lambda: "cIgmpFilterEntry" + "[cIgmpFilterProfileIndex='" + self.cigmpfilterprofileindex.get() + "']" + "[cIgmpFilterStartAddressType='" + self.cigmpfilterstartaddresstype.get() + "']" + "[cIgmpFilterStartAddress='" + self.cigmpfilterstartaddress.get() + "']"
+                self.ylist_key_names = ['cigmpfilterprofileindex','cigmpfilterstartaddresstype','cigmpfilterstartaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cigmpfilterprofileindex', YLeaf(YType.uint32, 'cIgmpFilterProfileIndex')),
+                    ('cigmpfilterstartaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterStartAddressType')),
+                    ('cigmpfilterstartaddress', YLeaf(YType.str, 'cIgmpFilterStartAddress')),
+                    ('cigmpfilterendaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEndAddressType')),
+                    ('cigmpfilterendaddress', YLeaf(YType.str, 'cIgmpFilterEndAddress')),
+                    ('cigmpfilterprofileaction', YLeaf(YType.enumeration, 'cIgmpFilterProfileAction')),
+                ])
+                self.cigmpfilterprofileindex = None
+                self.cigmpfilterstartaddresstype = None
+                self.cigmpfilterstartaddress = None
+                self.cigmpfilterendaddresstype = None
+                self.cigmpfilterendaddress = None
+                self.cigmpfilterprofileaction = None
+                self._segment_path = lambda: "cIgmpFilterEntry" + "[cIgmpFilterProfileIndex='" + str(self.cigmpfilterprofileindex) + "']" + "[cIgmpFilterStartAddressType='" + str(self.cigmpfilterstartaddresstype) + "']" + "[cIgmpFilterStartAddress='" + str(self.cigmpfilterstartaddress) + "']"
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -509,7 +524,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
             class Cigmpfilterprofileaction(Enum):
                 """
-                Cigmpfilterprofileaction
+                Cigmpfilterprofileaction (Enum Class)
 
                 This object defines the action for
 
@@ -567,8 +582,10 @@ class CISCOIGMPFILTERMIB(Entity):
             self.yang_parent_name = "CISCO-IGMP-FILTER-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cIgmpFilterInterfaceEntry" : ("cigmpfilterinterfaceentry", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cIgmpFilterInterfaceEntry", ("cigmpfilterinterfaceentry", CISCOIGMPFILTERMIB.Cigmpfilterinterfacetable.Cigmpfilterinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.cigmpfilterinterfaceentry = YList(self)
             self._segment_path = lambda: "cIgmpFilterInterfaceTable"
@@ -589,7 +606,7 @@ class CISCOIGMPFILTERMIB(Entity):
             The entry is removed on removal of corresponding 
             interface from system.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -619,13 +636,16 @@ class CISCOIGMPFILTERMIB(Entity):
                 self.yang_parent_name = "cIgmpFilterInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cigmpfilterinterfaceprofileindex = YLeaf(YType.uint32, "cIgmpFilterInterfaceProfileIndex")
-                self._segment_path = lambda: "cIgmpFilterInterfaceEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cigmpfilterinterfaceprofileindex', YLeaf(YType.uint32, 'cIgmpFilterInterfaceProfileIndex')),
+                ])
+                self.ifindex = None
+                self.cigmpfilterinterfaceprofileindex = None
+                self._segment_path = lambda: "cIgmpFilterInterfaceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -24,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class SpanDestination(Enum):
     """
-    SpanDestination
+    SpanDestination (Enum Class)
 
     Span destination
 
@@ -57,7 +59,7 @@ class SpanDestination(Enum):
 
 class SpanMirrorInterval(Enum):
     """
-    SpanMirrorInterval
+    SpanMirrorInterval (Enum Class)
 
     Span mirror interval
 
@@ -102,7 +104,7 @@ class SpanMirrorInterval(Enum):
 
 class SpanTrafficDirection(Enum):
     """
-    SpanTrafficDirection
+    SpanTrafficDirection (Enum Class)
 
     Span traffic direction
 
@@ -146,8 +148,10 @@ class SpanMonitorSession(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-Ethernet-SPAN-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"sessions" : ("sessions", SpanMonitorSession.Sessions)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("sessions", ("sessions", SpanMonitorSession.Sessions))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.sessions = SpanMonitorSession.Sessions()
         self.sessions.parent = self
@@ -179,8 +183,10 @@ class SpanMonitorSession(Entity):
             self.yang_parent_name = "span-monitor-session"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"session" : ("session", SpanMonitorSession.Sessions.Session)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("session", ("session", SpanMonitorSession.Sessions.Session))])
+            self._leafs = OrderedDict()
 
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
@@ -194,7 +200,7 @@ class SpanMonitorSession(Entity):
             """
             Configuration for a particular Monitor Session
             
-            .. attribute:: session  <key>
+            .. attribute:: session  (key)
             
             	Session Name
             	**type**\: str
@@ -227,18 +233,21 @@ class SpanMonitorSession(Entity):
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"destination" : ("destination", SpanMonitorSession.Sessions.Session.Destination)}
-                self._child_list_classes = {}
-
-                self.session = YLeaf(YType.str, "session")
-
-                self.class_ = YLeaf(YType.enumeration, "class")
+                self.ylist_key_names = ['session']
+                self._child_container_classes = OrderedDict([("destination", ("destination", SpanMonitorSession.Sessions.Session.Destination))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('session', YLeaf(YType.str, 'session')),
+                    ('class_', YLeaf(YType.enumeration, 'class')),
+                ])
+                self.session = None
+                self.class_ = None
 
                 self.destination = SpanMonitorSession.Sessions.Session.Destination()
                 self.destination.parent = self
                 self._children_name_map["destination"] = "destination"
                 self._children_yang_names.add("destination")
-                self._segment_path = lambda: "session" + "[session='" + self.session.get() + "']"
+                self._segment_path = lambda: "session" + "[session='" + str(self.session) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -289,16 +298,19 @@ class SpanMonitorSession(Entity):
                     self.yang_parent_name = "session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.destination_type = YLeaf(YType.enumeration, "destination-type")
-
-                    self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
-
-                    self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
-
-                    self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
+                        ('destination_interface_name', YLeaf(YType.str, 'destination-interface-name')),
+                        ('destination_ipv4_address', YLeaf(YType.str, 'destination-ipv4-address')),
+                        ('destination_ipv6_address', YLeaf(YType.str, 'destination-ipv6-address')),
+                    ])
+                    self.destination_type = None
+                    self.destination_interface_name = None
+                    self.destination_ipv4_address = None
+                    self.destination_ipv6_address = None
                     self._segment_path = lambda: "destination"
 
                 def __setattr__(self, name, value):

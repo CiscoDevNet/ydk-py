@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class HardwareModulePortMode(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-lc-pwrglide-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"config-mode" : ("config_mode", HardwareModulePortMode.ConfigMode)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("config-mode", ("config_mode", HardwareModulePortMode.ConfigMode))])
+        self._leafs = OrderedDict()
 
         self.config_mode = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-asr9k-lc-pwrglide-cfg:hardware-module-port-mode"
@@ -56,7 +60,7 @@ class HardwareModulePortMode(Entity):
         """
         Active or Pre configuration
         
-        .. attribute:: id1  <key>
+        .. attribute:: id1  (key)
         
         	act\- or pre\-config
         	**type**\: str
@@ -82,13 +86,16 @@ class HardwareModulePortMode(Entity):
             self.yang_parent_name = "hardware-module-port-mode"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", HardwareModulePortMode.ConfigMode.Node)}
-
-            self.id1 = YLeaf(YType.str, "id1")
+            self.ylist_key_names = ['id1']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", HardwareModulePortMode.ConfigMode.Node))])
+            self._leafs = OrderedDict([
+                ('id1', YLeaf(YType.str, 'id1')),
+            ])
+            self.id1 = None
 
             self.node = YList(self)
-            self._segment_path = lambda: "config-mode" + "[id1='" + self.id1.get() + "']"
+            self._segment_path = lambda: "config-mode" + "[id1='" + str(self.id1) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-lc-pwrglide-cfg:hardware-module-port-mode/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -99,7 +106,7 @@ class HardwareModulePortMode(Entity):
             """
             A node
             
-            .. attribute:: id2  <key>
+            .. attribute:: id2  (key)
             
             	Fully qualified line card specification
             	**type**\: str
@@ -125,16 +132,19 @@ class HardwareModulePortMode(Entity):
                 self.yang_parent_name = "config-mode"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"port-mode" : ("port_mode", HardwareModulePortMode.ConfigMode.Node.PortMode)}
-                self._child_list_classes = {}
-
-                self.id2 = YLeaf(YType.str, "id2")
+                self.ylist_key_names = ['id2']
+                self._child_container_classes = OrderedDict([("port-mode", ("port_mode", HardwareModulePortMode.ConfigMode.Node.PortMode))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('id2', YLeaf(YType.str, 'id2')),
+                ])
+                self.id2 = None
 
                 self.port_mode = HardwareModulePortMode.ConfigMode.Node.PortMode()
                 self.port_mode.parent = self
                 self._children_name_map["port_mode"] = "port-mode"
                 self._children_yang_names.add("port-mode")
-                self._segment_path = lambda: "node" + "[id2='" + self.id2.get() + "']"
+                self._segment_path = lambda: "node" + "[id2='" + str(self.id2) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModulePortMode.ConfigMode.Node, ['id2'], name, value)
@@ -163,10 +173,13 @@ class HardwareModulePortMode(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.if_port_mode = YLeaf(YType.str, "if-port-mode")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('if_port_mode', YLeaf(YType.str, 'if-port-mode')),
+                    ])
+                    self.if_port_mode = None
                     self._segment_path = lambda: "port-mode"
 
                 def __setattr__(self, name, value):

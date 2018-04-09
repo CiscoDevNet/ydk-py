@@ -29,6 +29,8 @@ version of this MIB module is part of RFC 3635;
 see the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -207,8 +209,10 @@ class EtherLikeMIB(Entity):
         self.yang_parent_name = "EtherLike-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dot3StatsTable" : ("dot3statstable", EtherLikeMIB.Dot3Statstable), "dot3CollTable" : ("dot3colltable", EtherLikeMIB.Dot3Colltable), "dot3ControlTable" : ("dot3controltable", EtherLikeMIB.Dot3Controltable), "dot3PauseTable" : ("dot3pausetable", EtherLikeMIB.Dot3Pausetable), "dot3HCStatsTable" : ("dot3hcstatstable", EtherLikeMIB.Dot3Hcstatstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dot3StatsTable", ("dot3statstable", EtherLikeMIB.Dot3Statstable)), ("dot3CollTable", ("dot3colltable", EtherLikeMIB.Dot3Colltable)), ("dot3ControlTable", ("dot3controltable", EtherLikeMIB.Dot3Controltable)), ("dot3PauseTable", ("dot3pausetable", EtherLikeMIB.Dot3Pausetable)), ("dot3HCStatsTable", ("dot3hcstatstable", EtherLikeMIB.Dot3Hcstatstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dot3statstable = EtherLikeMIB.Dot3Statstable()
         self.dot3statstable.parent = self
@@ -263,8 +267,10 @@ class EtherLikeMIB(Entity):
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot3StatsEntry" : ("dot3statsentry", EtherLikeMIB.Dot3Statstable.Dot3Statsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot3StatsEntry", ("dot3statsentry", EtherLikeMIB.Dot3Statstable.Dot3Statsentry))])
+            self._leafs = OrderedDict()
 
             self.dot3statsentry = YList(self)
             self._segment_path = lambda: "dot3StatsTable"
@@ -279,7 +285,7 @@ class EtherLikeMIB(Entity):
             Statistics for a particular interface to an
             ethernet\-like medium.
             
-            .. attribute:: dot3statsindex  <key>
+            .. attribute:: dot3statsindex  (key)
             
             	An index value that uniquely identifies an interface to an ethernet\-like medium.  The interface identified by a particular value of this index is the same interface as identified by the same value of ifIndex
             	**type**\: int
@@ -415,45 +421,48 @@ class EtherLikeMIB(Entity):
                 self.yang_parent_name = "dot3StatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot3statsindex = YLeaf(YType.int32, "dot3StatsIndex")
-
-                self.dot3statsalignmenterrors = YLeaf(YType.uint32, "dot3StatsAlignmentErrors")
-
-                self.dot3statsfcserrors = YLeaf(YType.uint32, "dot3StatsFCSErrors")
-
-                self.dot3statssinglecollisionframes = YLeaf(YType.uint32, "dot3StatsSingleCollisionFrames")
-
-                self.dot3statsmultiplecollisionframes = YLeaf(YType.uint32, "dot3StatsMultipleCollisionFrames")
-
-                self.dot3statssqetesterrors = YLeaf(YType.uint32, "dot3StatsSQETestErrors")
-
-                self.dot3statsdeferredtransmissions = YLeaf(YType.uint32, "dot3StatsDeferredTransmissions")
-
-                self.dot3statslatecollisions = YLeaf(YType.uint32, "dot3StatsLateCollisions")
-
-                self.dot3statsexcessivecollisions = YLeaf(YType.uint32, "dot3StatsExcessiveCollisions")
-
-                self.dot3statsinternalmactransmiterrors = YLeaf(YType.uint32, "dot3StatsInternalMacTransmitErrors")
-
-                self.dot3statscarriersenseerrors = YLeaf(YType.uint32, "dot3StatsCarrierSenseErrors")
-
-                self.dot3statsframetoolongs = YLeaf(YType.uint32, "dot3StatsFrameTooLongs")
-
-                self.dot3statsinternalmacreceiveerrors = YLeaf(YType.uint32, "dot3StatsInternalMacReceiveErrors")
-
-                self.dot3statsetherchipset = YLeaf(YType.str, "dot3StatsEtherChipSet")
-
-                self.dot3statssymbolerrors = YLeaf(YType.uint32, "dot3StatsSymbolErrors")
-
-                self.dot3statsduplexstatus = YLeaf(YType.enumeration, "dot3StatsDuplexStatus")
-
-                self.dot3statsratecontrolability = YLeaf(YType.boolean, "dot3StatsRateControlAbility")
-
-                self.dot3statsratecontrolstatus = YLeaf(YType.enumeration, "dot3StatsRateControlStatus")
-                self._segment_path = lambda: "dot3StatsEntry" + "[dot3StatsIndex='" + self.dot3statsindex.get() + "']"
+                self.ylist_key_names = ['dot3statsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot3statsindex', YLeaf(YType.int32, 'dot3StatsIndex')),
+                    ('dot3statsalignmenterrors', YLeaf(YType.uint32, 'dot3StatsAlignmentErrors')),
+                    ('dot3statsfcserrors', YLeaf(YType.uint32, 'dot3StatsFCSErrors')),
+                    ('dot3statssinglecollisionframes', YLeaf(YType.uint32, 'dot3StatsSingleCollisionFrames')),
+                    ('dot3statsmultiplecollisionframes', YLeaf(YType.uint32, 'dot3StatsMultipleCollisionFrames')),
+                    ('dot3statssqetesterrors', YLeaf(YType.uint32, 'dot3StatsSQETestErrors')),
+                    ('dot3statsdeferredtransmissions', YLeaf(YType.uint32, 'dot3StatsDeferredTransmissions')),
+                    ('dot3statslatecollisions', YLeaf(YType.uint32, 'dot3StatsLateCollisions')),
+                    ('dot3statsexcessivecollisions', YLeaf(YType.uint32, 'dot3StatsExcessiveCollisions')),
+                    ('dot3statsinternalmactransmiterrors', YLeaf(YType.uint32, 'dot3StatsInternalMacTransmitErrors')),
+                    ('dot3statscarriersenseerrors', YLeaf(YType.uint32, 'dot3StatsCarrierSenseErrors')),
+                    ('dot3statsframetoolongs', YLeaf(YType.uint32, 'dot3StatsFrameTooLongs')),
+                    ('dot3statsinternalmacreceiveerrors', YLeaf(YType.uint32, 'dot3StatsInternalMacReceiveErrors')),
+                    ('dot3statsetherchipset', YLeaf(YType.str, 'dot3StatsEtherChipSet')),
+                    ('dot3statssymbolerrors', YLeaf(YType.uint32, 'dot3StatsSymbolErrors')),
+                    ('dot3statsduplexstatus', YLeaf(YType.enumeration, 'dot3StatsDuplexStatus')),
+                    ('dot3statsratecontrolability', YLeaf(YType.boolean, 'dot3StatsRateControlAbility')),
+                    ('dot3statsratecontrolstatus', YLeaf(YType.enumeration, 'dot3StatsRateControlStatus')),
+                ])
+                self.dot3statsindex = None
+                self.dot3statsalignmenterrors = None
+                self.dot3statsfcserrors = None
+                self.dot3statssinglecollisionframes = None
+                self.dot3statsmultiplecollisionframes = None
+                self.dot3statssqetesterrors = None
+                self.dot3statsdeferredtransmissions = None
+                self.dot3statslatecollisions = None
+                self.dot3statsexcessivecollisions = None
+                self.dot3statsinternalmactransmiterrors = None
+                self.dot3statscarriersenseerrors = None
+                self.dot3statsframetoolongs = None
+                self.dot3statsinternalmacreceiveerrors = None
+                self.dot3statsetherchipset = None
+                self.dot3statssymbolerrors = None
+                self.dot3statsduplexstatus = None
+                self.dot3statsratecontrolability = None
+                self.dot3statsratecontrolstatus = None
+                self._segment_path = lambda: "dot3StatsEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3StatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -461,7 +470,7 @@ class EtherLikeMIB(Entity):
 
             class Dot3Statsduplexstatus(Enum):
                 """
-                Dot3Statsduplexstatus
+                Dot3Statsduplexstatus (Enum Class)
 
                 The current mode of operation of the MAC
 
@@ -522,7 +531,7 @@ class EtherLikeMIB(Entity):
 
             class Dot3Statsratecontrolstatus(Enum):
                 """
-                Dot3Statsratecontrolstatus
+                Dot3Statsratecontrolstatus (Enum Class)
 
                 The current Rate Control mode of operation of
 
@@ -568,8 +577,10 @@ class EtherLikeMIB(Entity):
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot3CollEntry" : ("dot3collentry", EtherLikeMIB.Dot3Colltable.Dot3Collentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot3CollEntry", ("dot3collentry", EtherLikeMIB.Dot3Colltable.Dot3Collentry))])
+            self._leafs = OrderedDict()
 
             self.dot3collentry = YList(self)
             self._segment_path = lambda: "dot3CollTable"
@@ -589,7 +600,7 @@ class EtherLikeMIB(Entity):
             particular interface is accompanied by a
             particular number of media collisions.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -598,7 +609,7 @@ class EtherLikeMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: dot3collcount  <key>
+            .. attribute:: dot3collcount  (key)
             
             	The number of per\-frame media collisions for which a particular collision histogram cell represents the frequency on a particular interface
             	**type**\: int
@@ -626,15 +637,18 @@ class EtherLikeMIB(Entity):
                 self.yang_parent_name = "dot3CollTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.dot3collcount = YLeaf(YType.int32, "dot3CollCount")
-
-                self.dot3collfrequencies = YLeaf(YType.uint32, "dot3CollFrequencies")
-                self._segment_path = lambda: "dot3CollEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[dot3CollCount='" + self.dot3collcount.get() + "']"
+                self.ylist_key_names = ['ifindex','dot3collcount']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('dot3collcount', YLeaf(YType.int32, 'dot3CollCount')),
+                    ('dot3collfrequencies', YLeaf(YType.uint32, 'dot3CollFrequencies')),
+                ])
+                self.ifindex = None
+                self.dot3collcount = None
+                self.dot3collfrequencies = None
+                self._segment_path = lambda: "dot3CollEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[dot3CollCount='" + str(self.dot3collcount) + "']"
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3CollTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -673,8 +687,10 @@ class EtherLikeMIB(Entity):
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot3ControlEntry" : ("dot3controlentry", EtherLikeMIB.Dot3Controltable.Dot3Controlentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot3ControlEntry", ("dot3controlentry", EtherLikeMIB.Dot3Controltable.Dot3Controlentry))])
+            self._leafs = OrderedDict()
 
             self.dot3controlentry = YList(self)
             self._segment_path = lambda: "dot3ControlTable"
@@ -690,7 +706,7 @@ class EtherLikeMIB(Entity):
             about the MAC Control sublayer on a single
             ethernet\-like interface.
             
-            .. attribute:: dot3statsindex  <key>
+            .. attribute:: dot3statsindex  (key)
             
             	
             	**type**\: int
@@ -732,17 +748,20 @@ class EtherLikeMIB(Entity):
                 self.yang_parent_name = "dot3ControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot3statsindex = YLeaf(YType.str, "dot3StatsIndex")
-
-                self.dot3controlfunctionssupported = YLeaf(YType.bits, "dot3ControlFunctionsSupported")
-
-                self.dot3controlinunknownopcodes = YLeaf(YType.uint32, "dot3ControlInUnknownOpcodes")
-
-                self.dot3hccontrolinunknownopcodes = YLeaf(YType.uint64, "dot3HCControlInUnknownOpcodes")
-                self._segment_path = lambda: "dot3ControlEntry" + "[dot3StatsIndex='" + self.dot3statsindex.get() + "']"
+                self.ylist_key_names = ['dot3statsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
+                    ('dot3controlfunctionssupported', YLeaf(YType.bits, 'dot3ControlFunctionsSupported')),
+                    ('dot3controlinunknownopcodes', YLeaf(YType.uint32, 'dot3ControlInUnknownOpcodes')),
+                    ('dot3hccontrolinunknownopcodes', YLeaf(YType.uint64, 'dot3HCControlInUnknownOpcodes')),
+                ])
+                self.dot3statsindex = None
+                self.dot3controlfunctionssupported = Bits()
+                self.dot3controlinunknownopcodes = None
+                self.dot3hccontrolinunknownopcodes = None
+                self._segment_path = lambda: "dot3ControlEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3ControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -785,8 +804,10 @@ class EtherLikeMIB(Entity):
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot3PauseEntry" : ("dot3pauseentry", EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot3PauseEntry", ("dot3pauseentry", EtherLikeMIB.Dot3Pausetable.Dot3Pauseentry))])
+            self._leafs = OrderedDict()
 
             self.dot3pauseentry = YList(self)
             self._segment_path = lambda: "dot3PauseTable"
@@ -802,7 +823,7 @@ class EtherLikeMIB(Entity):
             about the MAC Control PAUSE function on a single
             ethernet\-like interface.
             
-            .. attribute:: dot3statsindex  <key>
+            .. attribute:: dot3statsindex  (key)
             
             	
             	**type**\: int
@@ -863,23 +884,26 @@ class EtherLikeMIB(Entity):
                 self.yang_parent_name = "dot3PauseTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot3statsindex = YLeaf(YType.str, "dot3StatsIndex")
-
-                self.dot3pauseadminmode = YLeaf(YType.enumeration, "dot3PauseAdminMode")
-
-                self.dot3pauseopermode = YLeaf(YType.enumeration, "dot3PauseOperMode")
-
-                self.dot3inpauseframes = YLeaf(YType.uint32, "dot3InPauseFrames")
-
-                self.dot3outpauseframes = YLeaf(YType.uint32, "dot3OutPauseFrames")
-
-                self.dot3hcinpauseframes = YLeaf(YType.uint64, "dot3HCInPauseFrames")
-
-                self.dot3hcoutpauseframes = YLeaf(YType.uint64, "dot3HCOutPauseFrames")
-                self._segment_path = lambda: "dot3PauseEntry" + "[dot3StatsIndex='" + self.dot3statsindex.get() + "']"
+                self.ylist_key_names = ['dot3statsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
+                    ('dot3pauseadminmode', YLeaf(YType.enumeration, 'dot3PauseAdminMode')),
+                    ('dot3pauseopermode', YLeaf(YType.enumeration, 'dot3PauseOperMode')),
+                    ('dot3inpauseframes', YLeaf(YType.uint32, 'dot3InPauseFrames')),
+                    ('dot3outpauseframes', YLeaf(YType.uint32, 'dot3OutPauseFrames')),
+                    ('dot3hcinpauseframes', YLeaf(YType.uint64, 'dot3HCInPauseFrames')),
+                    ('dot3hcoutpauseframes', YLeaf(YType.uint64, 'dot3HCOutPauseFrames')),
+                ])
+                self.dot3statsindex = None
+                self.dot3pauseadminmode = None
+                self.dot3pauseopermode = None
+                self.dot3inpauseframes = None
+                self.dot3outpauseframes = None
+                self.dot3hcinpauseframes = None
+                self.dot3hcoutpauseframes = None
+                self._segment_path = lambda: "dot3PauseEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3PauseTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -887,7 +911,7 @@ class EtherLikeMIB(Entity):
 
             class Dot3Pauseadminmode(Enum):
                 """
-                Dot3Pauseadminmode
+                Dot3Pauseadminmode (Enum Class)
 
                 This object is used to configure the default
 
@@ -970,7 +994,7 @@ class EtherLikeMIB(Entity):
 
             class Dot3Pauseopermode(Enum):
                 """
-                Dot3Pauseopermode
+                Dot3Pauseopermode (Enum Class)
 
                 This object reflects the PAUSE mode currently
 
@@ -1064,8 +1088,10 @@ class EtherLikeMIB(Entity):
             self.yang_parent_name = "EtherLike-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot3HCStatsEntry" : ("dot3hcstatsentry", EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot3HCStatsEntry", ("dot3hcstatsentry", EtherLikeMIB.Dot3Hcstatstable.Dot3Hcstatsentry))])
+            self._leafs = OrderedDict()
 
             self.dot3hcstatsentry = YList(self)
             self._segment_path = lambda: "dot3HCStatsTable"
@@ -1080,7 +1106,7 @@ class EtherLikeMIB(Entity):
             An entry containing 64\-bit statistics for a
             single ethernet\-like interface.
             
-            .. attribute:: dot3statsindex  <key>
+            .. attribute:: dot3statsindex  (key)
             
             	
             	**type**\: int
@@ -1145,23 +1171,26 @@ class EtherLikeMIB(Entity):
                 self.yang_parent_name = "dot3HCStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot3statsindex = YLeaf(YType.str, "dot3StatsIndex")
-
-                self.dot3hcstatsalignmenterrors = YLeaf(YType.uint64, "dot3HCStatsAlignmentErrors")
-
-                self.dot3hcstatsfcserrors = YLeaf(YType.uint64, "dot3HCStatsFCSErrors")
-
-                self.dot3hcstatsinternalmactransmiterrors = YLeaf(YType.uint64, "dot3HCStatsInternalMacTransmitErrors")
-
-                self.dot3hcstatsframetoolongs = YLeaf(YType.uint64, "dot3HCStatsFrameTooLongs")
-
-                self.dot3hcstatsinternalmacreceiveerrors = YLeaf(YType.uint64, "dot3HCStatsInternalMacReceiveErrors")
-
-                self.dot3hcstatssymbolerrors = YLeaf(YType.uint64, "dot3HCStatsSymbolErrors")
-                self._segment_path = lambda: "dot3HCStatsEntry" + "[dot3StatsIndex='" + self.dot3statsindex.get() + "']"
+                self.ylist_key_names = ['dot3statsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
+                    ('dot3hcstatsalignmenterrors', YLeaf(YType.uint64, 'dot3HCStatsAlignmentErrors')),
+                    ('dot3hcstatsfcserrors', YLeaf(YType.uint64, 'dot3HCStatsFCSErrors')),
+                    ('dot3hcstatsinternalmactransmiterrors', YLeaf(YType.uint64, 'dot3HCStatsInternalMacTransmitErrors')),
+                    ('dot3hcstatsframetoolongs', YLeaf(YType.uint64, 'dot3HCStatsFrameTooLongs')),
+                    ('dot3hcstatsinternalmacreceiveerrors', YLeaf(YType.uint64, 'dot3HCStatsInternalMacReceiveErrors')),
+                    ('dot3hcstatssymbolerrors', YLeaf(YType.uint64, 'dot3HCStatsSymbolErrors')),
+                ])
+                self.dot3statsindex = None
+                self.dot3hcstatsalignmenterrors = None
+                self.dot3hcstatsfcserrors = None
+                self.dot3hcstatsinternalmactransmiterrors = None
+                self.dot3hcstatsframetoolongs = None
+                self.dot3hcstatsinternalmacreceiveerrors = None
+                self.dot3hcstatssymbolerrors = None
+                self._segment_path = lambda: "dot3HCStatsEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "EtherLike-MIB:EtherLike-MIB/dot3HCStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

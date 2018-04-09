@@ -28,6 +28,11 @@ module Cisco-IOS-XE-mdt-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-20 {
+    description
+      "TLS support for Native stream";
+    reference "2.1.0";
+  }
   revision 2017-07-01 {
     description
       "Add support for VRFs";
@@ -156,6 +161,7 @@ module Cisco-IOS-XE-mdt-oper {
       "MDT stream table element.";
     leaf-list stream {
       type string;
+      ordered-by user;
       description
         "Name of a supported stream.";
     }
@@ -232,6 +238,11 @@ module Cisco-IOS-XE-mdt-oper {
       description
         "Comments related to receiver state.";
     }
+    leaf security-profile {
+      type string;
+      description
+        "Receiver security profile.";
+    }
   }
 
   grouping mdt-connection-id {
@@ -287,6 +298,11 @@ module Cisco-IOS-XE-mdt-oper {
         "List of subscription specific statistics for this
          connection.";
       uses mdt-oper:mdt-sub-con-stats;
+    }
+    leaf security-profile {
+      type string;
+      description
+        "Security profile used with this connection.";
     }
   }
 

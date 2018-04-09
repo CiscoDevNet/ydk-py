@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EthernetPmd(Enum):
     """
-    EthernetPmd
+    EthernetPmd (Enum Class)
 
     Ethernet Pmd Type
 
@@ -208,7 +210,7 @@ class EthernetPmd(Enum):
 
 class FiberConnector(Enum):
     """
-    FiberConnector
+    FiberConnector (Enum Class)
 
     Fiber connector
 
@@ -247,7 +249,7 @@ class FiberConnector(Enum):
 
 class Optics(Enum):
     """
-    Optics
+    Optics (Enum Class)
 
     Optics
 
@@ -280,7 +282,7 @@ class Optics(Enum):
 
 class OpticsAmplifierControlMode(Enum):
     """
-    OpticsAmplifierControlMode
+    OpticsAmplifierControlMode (Enum Class)
 
     Optics amplifier control mode
 
@@ -301,7 +303,7 @@ class OpticsAmplifierControlMode(Enum):
 
 class OpticsAmplifierGainRange(Enum):
     """
-    OpticsAmplifierGainRange
+    OpticsAmplifierGainRange (Enum Class)
 
     Optics amplifier gain range
 
@@ -328,7 +330,7 @@ class OpticsAmplifierGainRange(Enum):
 
 class OpticsAmplifierSafetyControlMode(Enum):
     """
-    OpticsAmplifierSafetyControlMode
+    OpticsAmplifierSafetyControlMode (Enum Class)
 
     Optics amplifier safety control mode
 
@@ -355,7 +357,7 @@ class OpticsAmplifierSafetyControlMode(Enum):
 
 class OpticsControllerState(Enum):
     """
-    OpticsControllerState
+    OpticsControllerState (Enum Class)
 
     Optics controller state
 
@@ -382,7 +384,7 @@ class OpticsControllerState(Enum):
 
 class OpticsFec(Enum):
     """
-    OpticsFec
+    OpticsFec (Enum Class)
 
     Optics fec
 
@@ -410,6 +412,10 @@ class OpticsFec(Enum):
 
     	FEC ENABLED
 
+    .. data:: fec_not_set = 32
+
+    	FEC DISABLED
+
     """
 
     fec_none = Enum.YLeaf(0, "fec-none")
@@ -424,10 +430,12 @@ class OpticsFec(Enum):
 
     fec_enabled = Enum.YLeaf(16, "fec-enabled")
 
+    fec_not_set = Enum.YLeaf(32, "fec-not-set")
+
 
 class OpticsFormFactor(Enum):
     """
-    OpticsFormFactor
+    OpticsFormFactor (Enum Class)
 
     Optics form factor
 
@@ -532,7 +540,7 @@ class OpticsFormFactor(Enum):
 
 class OpticsLaserState(Enum):
     """
-    OpticsLaserState
+    OpticsLaserState (Enum Class)
 
     Optics laser state
 
@@ -565,7 +573,7 @@ class OpticsLaserState(Enum):
 
 class OpticsLedState(Enum):
     """
-    OpticsLedState
+    OpticsLedState (Enum Class)
 
     Optics led state
 
@@ -616,7 +624,7 @@ class OpticsLedState(Enum):
 
 class OpticsPhy(Enum):
     """
-    OpticsPhy
+    OpticsPhy (Enum Class)
 
     Optics phy type
 
@@ -967,7 +975,7 @@ class OpticsPhy(Enum):
 
 class OpticsPort(Enum):
     """
-    OpticsPort
+    OpticsPort (Enum Class)
 
     Optics port
 
@@ -1012,7 +1020,7 @@ class OpticsPort(Enum):
 
 class OpticsPortStatus(Enum):
     """
-    OpticsPortStatus
+    OpticsPortStatus (Enum Class)
 
     Optics port status
 
@@ -1033,7 +1041,7 @@ class OpticsPortStatus(Enum):
 
 class OpticsTas(Enum):
     """
-    OpticsTas
+    OpticsTas (Enum Class)
 
     Optics tas
 
@@ -1066,7 +1074,7 @@ class OpticsTas(Enum):
 
 class OpticsWaveBand(Enum):
     """
-    OpticsWaveBand
+    OpticsWaveBand (Enum Class)
 
     Optics wave band
 
@@ -1105,7 +1113,7 @@ class OpticsWaveBand(Enum):
 
 class OtnApplicationCode(Enum):
     """
-    OtnApplicationCode
+    OtnApplicationCode (Enum Class)
 
     Otn application code
 
@@ -1144,7 +1152,7 @@ class OtnApplicationCode(Enum):
 
 class SonetApplicationCode(Enum):
     """
-    SonetApplicationCode
+    SonetApplicationCode (Enum Class)
 
     Sonet application code
 
@@ -1206,8 +1214,10 @@ class OpticsOper(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-controller-optics-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"optics-ports" : ("optics_ports", OpticsOper.OpticsPorts)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("optics-ports", ("optics_ports", OpticsOper.OpticsPorts))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.optics_ports = OpticsOper.OpticsPorts()
         self.optics_ports.parent = self
@@ -1239,8 +1249,10 @@ class OpticsOper(Entity):
             self.yang_parent_name = "optics-oper"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"optics-port" : ("optics_port", OpticsOper.OpticsPorts.OpticsPort)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("optics-port", ("optics_port", OpticsOper.OpticsPorts.OpticsPort))])
+            self._leafs = OrderedDict()
 
             self.optics_port = YList(self)
             self._segment_path = lambda: "optics-ports"
@@ -1254,17 +1266,27 @@ class OpticsOper(Entity):
             """
             Optics operational data
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9./\-]+
             
-            .. attribute:: optics_dwdm_carrrier_channel_map
+            .. attribute:: optics_dwdm_carrier_channel_map
             
             	Optics operational data
-            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap>`
+            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap>`
+            
+            .. attribute:: ots_spectrum_info
+            
+            	Ots Spectrum Operational data
+            	**type**\:  :py:class:`OtsSpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo>`
+            
+            .. attribute:: optics_dwdm_carrier_channel_map_flexi
+            
+            	Optics operational data
+            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi>`
             
             .. attribute:: optics_info
             
@@ -1295,15 +1317,28 @@ class OpticsOper(Entity):
                 self.yang_parent_name = "optics-ports"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"optics-dwdm-carrrier-channel-map" : ("optics_dwdm_carrrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap), "optics-info" : ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo), "optics-lanes" : ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes), "optics-db-info" : ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo)}
-                self._child_list_classes = {}
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("optics-dwdm-carrier-channel-map", ("optics_dwdm_carrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap)), ("ots-spectrum-info", ("ots_spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo)), ("optics-dwdm-carrier-channel-map-flexi", ("optics_dwdm_carrier_channel_map_flexi", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi)), ("optics-info", ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo)), ("optics-lanes", ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes)), ("optics-db-info", ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
-                self.name = YLeaf(YType.str, "name")
+                self.optics_dwdm_carrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap()
+                self.optics_dwdm_carrier_channel_map.parent = self
+                self._children_name_map["optics_dwdm_carrier_channel_map"] = "optics-dwdm-carrier-channel-map"
+                self._children_yang_names.add("optics-dwdm-carrier-channel-map")
 
-                self.optics_dwdm_carrrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap()
-                self.optics_dwdm_carrrier_channel_map.parent = self
-                self._children_name_map["optics_dwdm_carrrier_channel_map"] = "optics-dwdm-carrrier-channel-map"
-                self._children_yang_names.add("optics-dwdm-carrrier-channel-map")
+                self.ots_spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo()
+                self.ots_spectrum_info.parent = self
+                self._children_name_map["ots_spectrum_info"] = "ots-spectrum-info"
+                self._children_yang_names.add("ots-spectrum-info")
+
+                self.optics_dwdm_carrier_channel_map_flexi = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi()
+                self.optics_dwdm_carrier_channel_map_flexi.parent = self
+                self._children_name_map["optics_dwdm_carrier_channel_map_flexi"] = "optics-dwdm-carrier-channel-map-flexi"
+                self._children_yang_names.add("optics-dwdm-carrier-channel-map-flexi")
 
                 self.optics_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo()
                 self.optics_info.parent = self
@@ -1319,14 +1354,14 @@ class OpticsOper(Entity):
                 self.optics_db_info.parent = self
                 self._children_name_map["optics_db_info"] = "optics-db-info"
                 self._children_yang_names.add("optics-db-info")
-                self._segment_path = lambda: "optics-port" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "optics-port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort, ['name'], name, value)
 
 
-            class OpticsDwdmCarrrierChannelMap(Entity):
+            class OpticsDwdmCarrierChannelMap(Entity):
                 """
                 Optics operational data
                 
@@ -1352,7 +1387,7 @@ class OpticsOper(Entity):
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
-                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo>`
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo>`
                 
                 
 
@@ -1362,26 +1397,29 @@ class OpticsOper(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, self).__init__()
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, self).__init__()
 
-                    self.yang_name = "optics-dwdm-carrrier-channel-map"
+                    self.yang_name = "optics-dwdm-carrier-channel-map"
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"dwdm-carrier-map-info" : ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo)}
-
-                    self.dwdm_carrier_band = YLeaf(YType.enumeration, "dwdm-carrier-band")
-
-                    self.dwdm_carrier_min = YLeaf(YType.uint32, "dwdm-carrier-min")
-
-                    self.dwdm_carrier_max = YLeaf(YType.uint32, "dwdm-carrier-max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo))])
+                    self._leafs = OrderedDict([
+                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
+                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
+                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
+                    ])
+                    self.dwdm_carrier_band = None
+                    self.dwdm_carrier_min = None
+                    self.dwdm_carrier_max = None
 
                     self.dwdm_carrier_map_info = YList(self)
-                    self._segment_path = lambda: "optics-dwdm-carrrier-channel-map"
+                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1424,26 +1462,345 @@ class OpticsOper(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, self).__init__()
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, self).__init__()
 
                         self.yang_name = "dwdm-carrier-map-info"
-                        self.yang_parent_name = "optics-dwdm-carrrier-channel-map"
+                        self.yang_parent_name = "optics-dwdm-carrier-channel-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.itu_chan_num = YLeaf(YType.uint32, "itu-chan-num")
-
-                        self.g694_chan_num = YLeaf(YType.int32, "g694-chan-num")
-
-                        self.frequency = YLeaf(YType.str, "frequency")
-
-                        self.wavelength = YLeaf(YType.str, "wavelength")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
+                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
+                            ('frequency', YLeaf(YType.str, 'frequency')),
+                            ('wavelength', YLeaf(YType.str, 'wavelength')),
+                        ])
+                        self.itu_chan_num = None
+                        self.g694_chan_num = None
+                        self.frequency = None
+                        self.wavelength = None
                         self._segment_path = lambda: "dwdm-carrier-map-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+
+
+            class OtsSpectrumInfo(Entity):
+                """
+                Ots Spectrum Operational data
+                
+                .. attribute:: spectrum_info
+                
+                	OTS Spectrum information
+                	**type**\:  :py:class:`SpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo>`
+                
+                
+
+                """
+
+                _prefix = 'controller-optics-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, self).__init__()
+
+                    self.yang_name = "ots-spectrum-info"
+                    self.yang_parent_name = "optics-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("spectrum-info", ("spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
+
+                    self.spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo()
+                    self.spectrum_info.parent = self
+                    self._children_name_map["spectrum_info"] = "spectrum-info"
+                    self._children_yang_names.add("spectrum-info")
+                    self._segment_path = lambda: "ots-spectrum-info"
+
+
+                class SpectrumInfo(Entity):
+                    """
+                    OTS Spectrum information
+                    
+                    .. attribute:: total_spectrum_slice_count
+                    
+                    	Total number of slices in Spectrum
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: spectrum_slice_spacing
+                    
+                    	Spacing between spectrum slices
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: first_slice_wavelength
+                    
+                    	Wavelength of first slice
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: spectrum_slice_power_info
+                    
+                    	Power information of spectrum slice info
+                    	**type**\: list of  		 :py:class:`SpectrumSlicePowerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, self).__init__()
+
+                        self.yang_name = "spectrum-info"
+                        self.yang_parent_name = "ots-spectrum-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("spectrum-slice-power-info", ("spectrum_slice_power_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo))])
+                        self._leafs = OrderedDict([
+                            ('total_spectrum_slice_count', YLeaf(YType.uint32, 'total-spectrum-slice-count')),
+                            ('spectrum_slice_spacing', YLeaf(YType.uint32, 'spectrum-slice-spacing')),
+                            ('first_slice_wavelength', YLeaf(YType.str, 'first-slice-wavelength')),
+                        ])
+                        self.total_spectrum_slice_count = None
+                        self.spectrum_slice_spacing = None
+                        self.first_slice_wavelength = None
+
+                        self.spectrum_slice_power_info = YList(self)
+                        self._segment_path = lambda: "spectrum-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
+
+
+                    class SpectrumSlicePowerInfo(Entity):
+                        """
+                        Power information of spectrum slice info
+                        
+                        .. attribute:: slice_num
+                        
+                        	spectrum slice number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lower_frequency
+                        
+                        	Lower frequency of the specified PSD
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: upper_frequency
+                        
+                        	Upper frequency of the specified PSD
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: rx_power
+                        
+                        	Received Power in dBm multiplied by 100
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: tx_power
+                        
+                        	Transmit Power in dBm multiplied by 100
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: rx_psd
+                        
+                        	Received Power spectral density in microwatts per megahertz, uW/MHz
+                        	**type**\: str
+                        
+                        	**length:** 0..16
+                        
+                        .. attribute:: tx_psd
+                        
+                        	Transmit Power spectral density in microwatts per megahertz, uW/MHz
+                        	**type**\: str
+                        
+                        	**length:** 0..16
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, self).__init__()
+
+                            self.yang_name = "spectrum-slice-power-info"
+                            self.yang_parent_name = "spectrum-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('slice_num', YLeaf(YType.uint32, 'slice-num')),
+                                ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
+                                ('upper_frequency', YLeaf(YType.uint64, 'upper-frequency')),
+                                ('rx_power', YLeaf(YType.int32, 'rx-power')),
+                                ('tx_power', YLeaf(YType.int32, 'tx-power')),
+                                ('rx_psd', YLeaf(YType.str, 'rx-psd')),
+                                ('tx_psd', YLeaf(YType.str, 'tx-psd')),
+                            ])
+                            self.slice_num = None
+                            self.lower_frequency = None
+                            self.upper_frequency = None
+                            self.rx_power = None
+                            self.tx_power = None
+                            self.rx_psd = None
+                            self.tx_psd = None
+                            self._segment_path = lambda: "spectrum-slice-power-info"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
+
+
+            class OpticsDwdmCarrierChannelMapFlexi(Entity):
+                """
+                Optics operational data
+                
+                .. attribute:: dwdm_carrier_band
+                
+                	DWDM carrier band
+                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                
+                .. attribute:: dwdm_carrier_min
+                
+                	Lowest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_max
+                
+                	Highest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_map_info
+                
+                	DWDM carrier mapping info
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo>`
+                
+                
+
+                """
+
+                _prefix = 'controller-optics-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, self).__init__()
+
+                    self.yang_name = "optics-dwdm-carrier-channel-map-flexi"
+                    self.yang_parent_name = "optics-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo))])
+                    self._leafs = OrderedDict([
+                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
+                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
+                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
+                    ])
+                    self.dwdm_carrier_band = None
+                    self.dwdm_carrier_min = None
+                    self.dwdm_carrier_max = None
+
+                    self.dwdm_carrier_map_info = YList(self)
+                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map-flexi"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+
+
+                class DwdmCarrierMapInfo(Entity):
+                    """
+                    DWDM carrier mapping info
+                    
+                    .. attribute:: itu_chan_num
+                    
+                    	ITU channel number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: g694_chan_num
+                    
+                    	G694 channel number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: frequency
+                    
+                    	Frequency
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: wavelength
+                    
+                    	Wavelength
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
+
+                        self.yang_name = "dwdm-carrier-map-info"
+                        self.yang_parent_name = "optics-dwdm-carrier-channel-map-flexi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
+                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
+                            ('frequency', YLeaf(YType.str, 'frequency')),
+                            ('wavelength', YLeaf(YType.str, 'wavelength')),
+                        ])
+                        self.itu_chan_num = None
+                        self.g694_chan_num = None
+                        self.frequency = None
+                        self.wavelength = None
+                        self._segment_path = lambda: "dwdm-carrier-map-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OpticsInfo(Entity):
@@ -1480,10 +1837,10 @@ class OpticsOper(Entity):
                 	Extended optics parameters threshold values
                 	**type**\:  :py:class:`ExtParamThresholdVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal>`
                 
-                .. attribute:: spectrum_info
+                .. attribute:: extended_alarm_alarm_info
                 
-                	OTS Spectrum information
-                	**type**\:  :py:class:`SpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo>`
+                	Extended DOM alarm Information
+                	**type**\:  :py:class:`ExtendedAlarmAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo>`
                 
                 .. attribute:: transport_admin_state
                 
@@ -1769,6 +2126,13 @@ class OpticsOper(Entity):
                 	Optics FEC
                 	**type**\:  :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
                 
+                .. attribute:: skip_snmp_pm_table
+                
+                	PM enabled or not
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: port_type
                 
                 	Showing port type
@@ -1886,6 +2250,16 @@ class OpticsOper(Entity):
                 .. attribute:: osri_config_val
                 
                 	osri config val
+                	**type**\: bool
+                
+                .. attribute:: tx_config_val
+                
+                	tx config val
+                	**type**\: bool
+                
+                .. attribute:: rx_config_val
+                
+                	rx config val
                 	**type**\: bool
                 
                 .. attribute:: safety_control_mode_config_val
@@ -2022,6 +2396,23 @@ class OpticsOper(Entity):
                 	optics type String
                 	**type**\: str
                 
+                .. attribute:: tx_enable
+                
+                	TX Enable
+                	**type**\: bool
+                
+                .. attribute:: rx_enable
+                
+                	RX Enable
+                	**type**\: bool
+                
+                .. attribute:: rx_low_threshold_current
+                
+                	Rx Low threshold actual value in units of 0.1dBm
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: lane_data
                 
                 	Lane information
@@ -2041,186 +2432,201 @@ class OpticsOper(Entity):
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"network-srlg-info" : ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo), "optics-alarm-info" : ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo), "ots-alarm-info" : ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo), "transceiver-info" : ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo), "ext-param-val" : ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal), "ext-param-threshold-val" : ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal), "spectrum-info" : ("spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo)}
-                    self._child_list_classes = {"lane-data" : ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData)}
-
-                    self.transport_admin_state = YLeaf(YType.enumeration, "transport-admin-state")
-
-                    self.optics_present = YLeaf(YType.boolean, "optics-present")
-
-                    self.optics_type = YLeaf(YType.enumeration, "optics-type")
-
-                    self.derived_optics_type = YLeaf(YType.str, "derived-optics-type")
-
-                    self.optics_module = YLeaf(YType.str, "optics-module")
-
-                    self.dwdm_carrier_band = YLeaf(YType.enumeration, "dwdm-carrier-band")
-
-                    self.dwdm_carrier_channel = YLeaf(YType.str, "dwdm-carrier-channel")
-
-                    self.dwdm_carrier_frequency = YLeaf(YType.str, "dwdm-carrier-frequency")
-
-                    self.dwdm_carrier_wavelength = YLeaf(YType.str, "dwdm-carrier-wavelength")
-
-                    self.grey_wavelength = YLeaf(YType.uint32, "grey-wavelength")
-
-                    self.rx_low_threshold = YLeaf(YType.int32, "rx-low-threshold")
-
-                    self.rx_high_threshold = YLeaf(YType.int32, "rx-high-threshold")
-
-                    self.lbc_high_threshold = YLeaf(YType.int32, "lbc-high-threshold")
-
-                    self.tx_low_threshold = YLeaf(YType.int32, "tx-low-threshold")
-
-                    self.tx_high_threshold = YLeaf(YType.int32, "tx-high-threshold")
-
-                    self.lbc_th_high_default = YLeaf(YType.int32, "lbc-th-high-default")
-
-                    self.lbc_th_low_default = YLeaf(YType.int32, "lbc-th-low-default")
-
-                    self.temp_low_threshold = YLeaf(YType.int32, "temp-low-threshold")
-
-                    self.temp_high_threshold = YLeaf(YType.int32, "temp-high-threshold")
-
-                    self.volt_low_threshold = YLeaf(YType.int32, "volt-low-threshold")
-
-                    self.volt_high_threshold = YLeaf(YType.int32, "volt-high-threshold")
-
-                    self.cd = YLeaf(YType.int32, "cd")
-
-                    self.cd_min = YLeaf(YType.int32, "cd-min")
-
-                    self.cd_max = YLeaf(YType.int32, "cd-max")
-
-                    self.cd_low_threshold = YLeaf(YType.int32, "cd-low-threshold")
-
-                    self.cd_high_threshold = YLeaf(YType.int32, "cd-high-threshold")
-
-                    self.osnr_low_threshold = YLeaf(YType.str, "osnr-low-threshold")
-
-                    self.dgd_high_threshold = YLeaf(YType.str, "dgd-high-threshold")
-
-                    self.polarization_mode_dispersion = YLeaf(YType.str, "polarization-mode-dispersion")
-
-                    self.second_order_polarization_mode_dispersion = YLeaf(YType.str, "second-order-polarization-mode-dispersion")
-
-                    self.optical_signal_to_noise_ratio = YLeaf(YType.str, "optical-signal-to-noise-ratio")
-
-                    self.polarization_dependent_loss = YLeaf(YType.str, "polarization-dependent-loss")
-
-                    self.polarization_change_rate = YLeaf(YType.str, "polarization-change-rate")
-
-                    self.differential_group_delay = YLeaf(YType.str, "differential-group-delay")
-
-                    self.phase_noise = YLeaf(YType.str, "phase-noise")
-
-                    self.pm_enable = YLeaf(YType.uint32, "pm-enable")
-
-                    self.laser_state = YLeaf(YType.enumeration, "laser-state")
-
-                    self.led_state = YLeaf(YType.enumeration, "led-state")
-
-                    self.controller_state = YLeaf(YType.enumeration, "controller-state")
-
-                    self.form_factor = YLeaf(YType.enumeration, "form-factor")
-
-                    self.phy_type = YLeaf(YType.enumeration, "phy-type")
-
-                    self.cfg_tx_power = YLeaf(YType.int32, "cfg-tx-power")
-
-                    self.cfg_tx_power_configurable = YLeaf(YType.boolean, "cfg-tx-power-configurable")
-
-                    self.temperature = YLeaf(YType.int32, "temperature")
-
-                    self.voltage = YLeaf(YType.int32, "voltage")
-
-                    self.display_volt_temp = YLeaf(YType.boolean, "display-volt-temp")
-
-                    self.cd_configurable = YLeaf(YType.boolean, "cd-configurable")
-
-                    self.optics_fec = YLeaf(YType.enumeration, "optics-fec")
-
-                    self.port_type = YLeaf(YType.enumeration, "port-type")
-
-                    self.port_status = YLeaf(YType.enumeration, "port-status")
-
-                    self.rx_voa_attenuation = YLeaf(YType.int32, "rx-voa-attenuation")
-
-                    self.tx_voa_attenuation = YLeaf(YType.int32, "tx-voa-attenuation")
-
-                    self.ampli_gain = YLeaf(YType.int32, "ampli-gain")
-
-                    self.ampli_tilt = YLeaf(YType.int32, "ampli-tilt")
-
-                    self.rx_power_th_configurable = YLeaf(YType.boolean, "rx-power-th-configurable")
-
-                    self.tx_power_th_configurable = YLeaf(YType.boolean, "tx-power-th-configurable")
-
-                    self.rx_voa_attenuation_config_val = YLeaf(YType.int32, "rx-voa-attenuation-config-val")
-
-                    self.tx_voa_attenuation_config_val = YLeaf(YType.int32, "tx-voa-attenuation-config-val")
-
-                    self.ampli_control_mode_config_val = YLeaf(YType.enumeration, "ampli-control-mode-config-val")
-
-                    self.ampli_gain_range_config_val = YLeaf(YType.enumeration, "ampli-gain-range-config-val")
-
-                    self.ampli_gain_config_val = YLeaf(YType.int32, "ampli-gain-config-val")
-
-                    self.ampli_tilt_config_val = YLeaf(YType.int32, "ampli-tilt-config-val")
-
-                    self.ampli_channel_power_config_val = YLeaf(YType.int32, "ampli-channel-power-config-val")
-
-                    self.channel_power_max_delta_config_val = YLeaf(YType.int32, "channel-power-max-delta-config-val")
-
-                    self.ampli_gain_thr_deg_low_config_val = YLeaf(YType.int32, "ampli-gain-thr-deg-low-config-val")
-
-                    self.ampli_gain_thr_deg_high_config_val = YLeaf(YType.int32, "ampli-gain-thr-deg-high-config-val")
-
-                    self.osri_config_val = YLeaf(YType.boolean, "osri-config-val")
-
-                    self.safety_control_mode_config_val = YLeaf(YType.enumeration, "safety-control-mode-config-val")
-
-                    self.total_rx_power = YLeaf(YType.int32, "total-rx-power")
-
-                    self.total_tx_power = YLeaf(YType.int32, "total-tx-power")
-
-                    self.is_bo_configured = YLeaf(YType.boolean, "is-bo-configured")
-
-                    self.is_ext_param_valid = YLeaf(YType.boolean, "is-ext-param-valid")
-
-                    self.alarm_detected = YLeaf(YType.boolean, "alarm-detected")
-
-                    self.rx_low_warning_threshold = YLeaf(YType.int32, "rx-low-warning-threshold")
-
-                    self.rx_high_warning_threshold = YLeaf(YType.int32, "rx-high-warning-threshold")
-
-                    self.tx_low_warning_threshold = YLeaf(YType.int32, "tx-low-warning-threshold")
-
-                    self.tx_high_warning_threshold = YLeaf(YType.int32, "tx-high-warning-threshold")
-
-                    self.lbc_th_high_warning_default = YLeaf(YType.int32, "lbc-th-high-warning-default")
-
-                    self.lbc_th_low_warning_default = YLeaf(YType.int32, "lbc-th-low-warning-default")
-
-                    self.temp_low_warning_threshold = YLeaf(YType.int32, "temp-low-warning-threshold")
-
-                    self.temp_high_warning_threshold = YLeaf(YType.int32, "temp-high-warning-threshold")
-
-                    self.volt_low_warning_threshold = YLeaf(YType.int32, "volt-low-warning-threshold")
-
-                    self.volt_high_warning_threshold = YLeaf(YType.int32, "volt-high-warning-threshold")
-
-                    self.ampli_gain_range = YLeaf(YType.enumeration, "ampli-gain-range")
-
-                    self.safety_control_mode = YLeaf(YType.enumeration, "safety-control-mode")
-
-                    self.osri = YLeaf(YType.boolean, "osri")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.is_optics_type_string_valid = YLeaf(YType.boolean, "is-optics-type-string-valid")
-
-                    self.optics_type_str = YLeaf(YType.str, "optics-type-str")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo)), ("optics-alarm-info", ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo)), ("ots-alarm-info", ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo)), ("transceiver-info", ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo)), ("ext-param-val", ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal)), ("ext-param-threshold-val", ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal)), ("extended-alarm-alarm-info", ("extended_alarm_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo))])
+                    self._child_list_classes = OrderedDict([("lane-data", ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData))])
+                    self._leafs = OrderedDict([
+                        ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
+                        ('optics_present', YLeaf(YType.boolean, 'optics-present')),
+                        ('optics_type', YLeaf(YType.enumeration, 'optics-type')),
+                        ('derived_optics_type', YLeaf(YType.str, 'derived-optics-type')),
+                        ('optics_module', YLeaf(YType.str, 'optics-module')),
+                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
+                        ('dwdm_carrier_channel', YLeaf(YType.str, 'dwdm-carrier-channel')),
+                        ('dwdm_carrier_frequency', YLeaf(YType.str, 'dwdm-carrier-frequency')),
+                        ('dwdm_carrier_wavelength', YLeaf(YType.str, 'dwdm-carrier-wavelength')),
+                        ('grey_wavelength', YLeaf(YType.uint32, 'grey-wavelength')),
+                        ('rx_low_threshold', YLeaf(YType.int32, 'rx-low-threshold')),
+                        ('rx_high_threshold', YLeaf(YType.int32, 'rx-high-threshold')),
+                        ('lbc_high_threshold', YLeaf(YType.int32, 'lbc-high-threshold')),
+                        ('tx_low_threshold', YLeaf(YType.int32, 'tx-low-threshold')),
+                        ('tx_high_threshold', YLeaf(YType.int32, 'tx-high-threshold')),
+                        ('lbc_th_high_default', YLeaf(YType.int32, 'lbc-th-high-default')),
+                        ('lbc_th_low_default', YLeaf(YType.int32, 'lbc-th-low-default')),
+                        ('temp_low_threshold', YLeaf(YType.int32, 'temp-low-threshold')),
+                        ('temp_high_threshold', YLeaf(YType.int32, 'temp-high-threshold')),
+                        ('volt_low_threshold', YLeaf(YType.int32, 'volt-low-threshold')),
+                        ('volt_high_threshold', YLeaf(YType.int32, 'volt-high-threshold')),
+                        ('cd', YLeaf(YType.int32, 'cd')),
+                        ('cd_min', YLeaf(YType.int32, 'cd-min')),
+                        ('cd_max', YLeaf(YType.int32, 'cd-max')),
+                        ('cd_low_threshold', YLeaf(YType.int32, 'cd-low-threshold')),
+                        ('cd_high_threshold', YLeaf(YType.int32, 'cd-high-threshold')),
+                        ('osnr_low_threshold', YLeaf(YType.str, 'osnr-low-threshold')),
+                        ('dgd_high_threshold', YLeaf(YType.str, 'dgd-high-threshold')),
+                        ('polarization_mode_dispersion', YLeaf(YType.str, 'polarization-mode-dispersion')),
+                        ('second_order_polarization_mode_dispersion', YLeaf(YType.str, 'second-order-polarization-mode-dispersion')),
+                        ('optical_signal_to_noise_ratio', YLeaf(YType.str, 'optical-signal-to-noise-ratio')),
+                        ('polarization_dependent_loss', YLeaf(YType.str, 'polarization-dependent-loss')),
+                        ('polarization_change_rate', YLeaf(YType.str, 'polarization-change-rate')),
+                        ('differential_group_delay', YLeaf(YType.str, 'differential-group-delay')),
+                        ('phase_noise', YLeaf(YType.str, 'phase-noise')),
+                        ('pm_enable', YLeaf(YType.uint32, 'pm-enable')),
+                        ('laser_state', YLeaf(YType.enumeration, 'laser-state')),
+                        ('led_state', YLeaf(YType.enumeration, 'led-state')),
+                        ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
+                        ('form_factor', YLeaf(YType.enumeration, 'form-factor')),
+                        ('phy_type', YLeaf(YType.enumeration, 'phy-type')),
+                        ('cfg_tx_power', YLeaf(YType.int32, 'cfg-tx-power')),
+                        ('cfg_tx_power_configurable', YLeaf(YType.boolean, 'cfg-tx-power-configurable')),
+                        ('temperature', YLeaf(YType.int32, 'temperature')),
+                        ('voltage', YLeaf(YType.int32, 'voltage')),
+                        ('display_volt_temp', YLeaf(YType.boolean, 'display-volt-temp')),
+                        ('cd_configurable', YLeaf(YType.boolean, 'cd-configurable')),
+                        ('optics_fec', YLeaf(YType.enumeration, 'optics-fec')),
+                        ('skip_snmp_pm_table', YLeaf(YType.int32, 'skip-snmp-pm-table')),
+                        ('port_type', YLeaf(YType.enumeration, 'port-type')),
+                        ('port_status', YLeaf(YType.enumeration, 'port-status')),
+                        ('rx_voa_attenuation', YLeaf(YType.int32, 'rx-voa-attenuation')),
+                        ('tx_voa_attenuation', YLeaf(YType.int32, 'tx-voa-attenuation')),
+                        ('ampli_gain', YLeaf(YType.int32, 'ampli-gain')),
+                        ('ampli_tilt', YLeaf(YType.int32, 'ampli-tilt')),
+                        ('rx_power_th_configurable', YLeaf(YType.boolean, 'rx-power-th-configurable')),
+                        ('tx_power_th_configurable', YLeaf(YType.boolean, 'tx-power-th-configurable')),
+                        ('rx_voa_attenuation_config_val', YLeaf(YType.int32, 'rx-voa-attenuation-config-val')),
+                        ('tx_voa_attenuation_config_val', YLeaf(YType.int32, 'tx-voa-attenuation-config-val')),
+                        ('ampli_control_mode_config_val', YLeaf(YType.enumeration, 'ampli-control-mode-config-val')),
+                        ('ampli_gain_range_config_val', YLeaf(YType.enumeration, 'ampli-gain-range-config-val')),
+                        ('ampli_gain_config_val', YLeaf(YType.int32, 'ampli-gain-config-val')),
+                        ('ampli_tilt_config_val', YLeaf(YType.int32, 'ampli-tilt-config-val')),
+                        ('ampli_channel_power_config_val', YLeaf(YType.int32, 'ampli-channel-power-config-val')),
+                        ('channel_power_max_delta_config_val', YLeaf(YType.int32, 'channel-power-max-delta-config-val')),
+                        ('ampli_gain_thr_deg_low_config_val', YLeaf(YType.int32, 'ampli-gain-thr-deg-low-config-val')),
+                        ('ampli_gain_thr_deg_high_config_val', YLeaf(YType.int32, 'ampli-gain-thr-deg-high-config-val')),
+                        ('osri_config_val', YLeaf(YType.boolean, 'osri-config-val')),
+                        ('tx_config_val', YLeaf(YType.boolean, 'tx-config-val')),
+                        ('rx_config_val', YLeaf(YType.boolean, 'rx-config-val')),
+                        ('safety_control_mode_config_val', YLeaf(YType.enumeration, 'safety-control-mode-config-val')),
+                        ('total_rx_power', YLeaf(YType.int32, 'total-rx-power')),
+                        ('total_tx_power', YLeaf(YType.int32, 'total-tx-power')),
+                        ('is_bo_configured', YLeaf(YType.boolean, 'is-bo-configured')),
+                        ('is_ext_param_valid', YLeaf(YType.boolean, 'is-ext-param-valid')),
+                        ('alarm_detected', YLeaf(YType.boolean, 'alarm-detected')),
+                        ('rx_low_warning_threshold', YLeaf(YType.int32, 'rx-low-warning-threshold')),
+                        ('rx_high_warning_threshold', YLeaf(YType.int32, 'rx-high-warning-threshold')),
+                        ('tx_low_warning_threshold', YLeaf(YType.int32, 'tx-low-warning-threshold')),
+                        ('tx_high_warning_threshold', YLeaf(YType.int32, 'tx-high-warning-threshold')),
+                        ('lbc_th_high_warning_default', YLeaf(YType.int32, 'lbc-th-high-warning-default')),
+                        ('lbc_th_low_warning_default', YLeaf(YType.int32, 'lbc-th-low-warning-default')),
+                        ('temp_low_warning_threshold', YLeaf(YType.int32, 'temp-low-warning-threshold')),
+                        ('temp_high_warning_threshold', YLeaf(YType.int32, 'temp-high-warning-threshold')),
+                        ('volt_low_warning_threshold', YLeaf(YType.int32, 'volt-low-warning-threshold')),
+                        ('volt_high_warning_threshold', YLeaf(YType.int32, 'volt-high-warning-threshold')),
+                        ('ampli_gain_range', YLeaf(YType.enumeration, 'ampli-gain-range')),
+                        ('safety_control_mode', YLeaf(YType.enumeration, 'safety-control-mode')),
+                        ('osri', YLeaf(YType.boolean, 'osri')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('is_optics_type_string_valid', YLeaf(YType.boolean, 'is-optics-type-string-valid')),
+                        ('optics_type_str', YLeaf(YType.str, 'optics-type-str')),
+                        ('tx_enable', YLeaf(YType.boolean, 'tx-enable')),
+                        ('rx_enable', YLeaf(YType.boolean, 'rx-enable')),
+                        ('rx_low_threshold_current', YLeaf(YType.int32, 'rx-low-threshold-current')),
+                    ])
+                    self.transport_admin_state = None
+                    self.optics_present = None
+                    self.optics_type = None
+                    self.derived_optics_type = None
+                    self.optics_module = None
+                    self.dwdm_carrier_band = None
+                    self.dwdm_carrier_channel = None
+                    self.dwdm_carrier_frequency = None
+                    self.dwdm_carrier_wavelength = None
+                    self.grey_wavelength = None
+                    self.rx_low_threshold = None
+                    self.rx_high_threshold = None
+                    self.lbc_high_threshold = None
+                    self.tx_low_threshold = None
+                    self.tx_high_threshold = None
+                    self.lbc_th_high_default = None
+                    self.lbc_th_low_default = None
+                    self.temp_low_threshold = None
+                    self.temp_high_threshold = None
+                    self.volt_low_threshold = None
+                    self.volt_high_threshold = None
+                    self.cd = None
+                    self.cd_min = None
+                    self.cd_max = None
+                    self.cd_low_threshold = None
+                    self.cd_high_threshold = None
+                    self.osnr_low_threshold = None
+                    self.dgd_high_threshold = None
+                    self.polarization_mode_dispersion = None
+                    self.second_order_polarization_mode_dispersion = None
+                    self.optical_signal_to_noise_ratio = None
+                    self.polarization_dependent_loss = None
+                    self.polarization_change_rate = None
+                    self.differential_group_delay = None
+                    self.phase_noise = None
+                    self.pm_enable = None
+                    self.laser_state = None
+                    self.led_state = None
+                    self.controller_state = None
+                    self.form_factor = None
+                    self.phy_type = None
+                    self.cfg_tx_power = None
+                    self.cfg_tx_power_configurable = None
+                    self.temperature = None
+                    self.voltage = None
+                    self.display_volt_temp = None
+                    self.cd_configurable = None
+                    self.optics_fec = None
+                    self.skip_snmp_pm_table = None
+                    self.port_type = None
+                    self.port_status = None
+                    self.rx_voa_attenuation = None
+                    self.tx_voa_attenuation = None
+                    self.ampli_gain = None
+                    self.ampli_tilt = None
+                    self.rx_power_th_configurable = None
+                    self.tx_power_th_configurable = None
+                    self.rx_voa_attenuation_config_val = None
+                    self.tx_voa_attenuation_config_val = None
+                    self.ampli_control_mode_config_val = None
+                    self.ampli_gain_range_config_val = None
+                    self.ampli_gain_config_val = None
+                    self.ampli_tilt_config_val = None
+                    self.ampli_channel_power_config_val = None
+                    self.channel_power_max_delta_config_val = None
+                    self.ampli_gain_thr_deg_low_config_val = None
+                    self.ampli_gain_thr_deg_high_config_val = None
+                    self.osri_config_val = None
+                    self.tx_config_val = None
+                    self.rx_config_val = None
+                    self.safety_control_mode_config_val = None
+                    self.total_rx_power = None
+                    self.total_tx_power = None
+                    self.is_bo_configured = None
+                    self.is_ext_param_valid = None
+                    self.alarm_detected = None
+                    self.rx_low_warning_threshold = None
+                    self.rx_high_warning_threshold = None
+                    self.tx_low_warning_threshold = None
+                    self.tx_high_warning_threshold = None
+                    self.lbc_th_high_warning_default = None
+                    self.lbc_th_low_warning_default = None
+                    self.temp_low_warning_threshold = None
+                    self.temp_high_warning_threshold = None
+                    self.volt_low_warning_threshold = None
+                    self.volt_high_warning_threshold = None
+                    self.ampli_gain_range = None
+                    self.safety_control_mode = None
+                    self.osri = None
+                    self.description = None
+                    self.is_optics_type_string_valid = None
+                    self.optics_type_str = None
+                    self.tx_enable = None
+                    self.rx_enable = None
+                    self.rx_low_threshold_current = None
 
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
@@ -2252,16 +2658,16 @@ class OpticsOper(Entity):
                     self._children_name_map["ext_param_threshold_val"] = "ext-param-threshold-val"
                     self._children_yang_names.add("ext-param-threshold-val")
 
-                    self.spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo()
-                    self.spectrum_info.parent = self
-                    self._children_name_map["spectrum_info"] = "spectrum-info"
-                    self._children_yang_names.add("spectrum-info")
+                    self.extended_alarm_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo()
+                    self.extended_alarm_alarm_info.parent = self
+                    self._children_name_map["extended_alarm_alarm_info"] = "extended-alarm-alarm-info"
+                    self._children_yang_names.add("extended-alarm-alarm-info")
 
                     self.lane_data = YList(self)
                     self._segment_path = lambda: "optics-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'ampli_gain_range', 'safety_control_mode', 'osri', 'description', 'is_optics_type_string_valid', 'optics_type_str'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'ampli_gain_range', 'safety_control_mode', 'osri', 'description', 'is_optics_type_string_valid', 'optics_type_str', 'tx_enable', 'rx_enable', 'rx_low_threshold_current'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -2287,8 +2693,10 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"network-srlg-array" : ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray))])
+                        self._leafs = OrderedDict()
 
                         self.network_srlg_array = YList(self)
                         self._segment_path = lambda: "network-srlg-info"
@@ -2329,12 +2737,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "network-srlg-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_number = YLeaf(YType.uint32, "set-number")
-
-                            self.network_srlg = YLeafList(YType.uint32, "network-srlg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('set_number', YLeaf(YType.uint32, 'set-number')),
+                                ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
+                            ])
+                            self.set_number = None
+                            self.network_srlg = []
                             self._segment_path = lambda: "network-srlg-array"
 
                         def __setattr__(self, name, value):
@@ -2369,6 +2780,26 @@ class OpticsOper(Entity):
                     
                     	High laser bias current in units of percentage
                     	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc>`
+                    
+                    .. attribute:: low_temperature
+                    
+                    	Low Temperature alarm
+                    	**type**\:  :py:class:`LowTemperature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature>`
+                    
+                    .. attribute:: high_temperature
+                    
+                    	High Temperature alarm
+                    	**type**\:  :py:class:`HighTemperature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature>`
+                    
+                    .. attribute:: low_voltage
+                    
+                    	Low Voltage alarm
+                    	**type**\:  :py:class:`LowVoltage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage>`
+                    
+                    .. attribute:: high_voltage
+                    
+                    	High Voltage alarm
+                    	**type**\:  :py:class:`HighVoltage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage>`
                     
                     .. attribute:: high_rx1_power
                     
@@ -2579,8 +3010,10 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"high-rx-power" : ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower), "low-rx-power" : ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower), "high-tx-power" : ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower), "low-tx-power" : ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower), "high-lbc" : ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc), "high-rx1-power" : ("high_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power), "high-rx2-power" : ("high_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power), "high-rx3-power" : ("high_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power), "high-rx4-power" : ("high_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power), "low-rx1-power" : ("low_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power), "low-rx2-power" : ("low_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power), "low-rx3-power" : ("low_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power), "low-rx4-power" : ("low_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power), "high-tx1-power" : ("high_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power), "high-tx2-power" : ("high_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power), "high-tx3-power" : ("high_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power), "high-tx4-power" : ("high_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power), "low-tx1-power" : ("low_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power), "low-tx2-power" : ("low_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power), "low-tx3-power" : ("low_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power), "low-tx4-power" : ("low_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power), "high-tx1lbc" : ("high_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc), "high-tx2lbc" : ("high_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc), "high-tx3lbc" : ("high_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc), "high-tx4lbc" : ("high_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc), "low-tx1lbc" : ("low_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc), "low-tx2lbc" : ("low_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc), "low-tx3lbc" : ("low_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc), "low-tx4lbc" : ("low_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc), "rx-los" : ("rx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos), "tx-los" : ("tx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos), "rx-lol" : ("rx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol), "tx-lol" : ("tx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol), "tx-fault" : ("tx_fault", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault), "hidgd" : ("hidgd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd), "oorcd" : ("oorcd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd), "osnr" : ("osnr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr), "wvlool" : ("wvlool", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool), "mea" : ("mea", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea), "imp-removal" : ("imp_removal", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval), "rx-loc" : ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc), "amp-gain-deg-low" : ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow), "amp-gain-deg-high" : ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh), "txpwr-mismatch" : ("txpwr_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc)), ("low-temperature", ("low_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature)), ("high-temperature", ("high_temperature", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature)), ("low-voltage", ("low_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage)), ("high-voltage", ("high_voltage", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage)), ("high-rx1-power", ("high_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power)), ("high-rx2-power", ("high_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power)), ("high-rx3-power", ("high_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power)), ("high-rx4-power", ("high_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power)), ("low-rx1-power", ("low_rx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power)), ("low-rx2-power", ("low_rx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power)), ("low-rx3-power", ("low_rx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power)), ("low-rx4-power", ("low_rx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power)), ("high-tx1-power", ("high_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power)), ("high-tx2-power", ("high_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power)), ("high-tx3-power", ("high_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power)), ("high-tx4-power", ("high_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power)), ("low-tx1-power", ("low_tx1_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power)), ("low-tx2-power", ("low_tx2_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power)), ("low-tx3-power", ("low_tx3_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power)), ("low-tx4-power", ("low_tx4_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power)), ("high-tx1lbc", ("high_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Lbc)), ("high-tx2lbc", ("high_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Lbc)), ("high-tx3lbc", ("high_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Lbc)), ("high-tx4lbc", ("high_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Lbc)), ("low-tx1lbc", ("low_tx1lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Lbc)), ("low-tx2lbc", ("low_tx2lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Lbc)), ("low-tx3lbc", ("low_tx3lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Lbc)), ("low-tx4lbc", ("low_tx4lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Lbc)), ("rx-los", ("rx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos)), ("tx-los", ("tx_los", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos)), ("rx-lol", ("rx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol)), ("tx-lol", ("tx_lol", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol)), ("tx-fault", ("tx_fault", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault)), ("hidgd", ("hidgd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd)), ("oorcd", ("oorcd", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd)), ("osnr", ("osnr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr)), ("wvlool", ("wvlool", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool)), ("mea", ("mea", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea)), ("imp-removal", ("imp_removal", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh)), ("txpwr-mismatch", ("txpwr_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower()
                         self.high_rx_power.parent = self
@@ -2606,6 +3039,26 @@ class OpticsOper(Entity):
                         self.high_lbc.parent = self
                         self._children_name_map["high_lbc"] = "high-lbc"
                         self._children_yang_names.add("high-lbc")
+
+                        self.low_temperature = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature()
+                        self.low_temperature.parent = self
+                        self._children_name_map["low_temperature"] = "low-temperature"
+                        self._children_yang_names.add("low-temperature")
+
+                        self.high_temperature = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature()
+                        self.high_temperature.parent = self
+                        self._children_name_map["high_temperature"] = "high-temperature"
+                        self._children_yang_names.add("high-temperature")
+
+                        self.low_voltage = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage()
+                        self.low_voltage.parent = self
+                        self._children_name_map["low_voltage"] = "low-voltage"
+                        self._children_yang_names.add("low-voltage")
+
+                        self.high_voltage = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage()
+                        self.high_voltage.parent = self
+                        self._children_name_map["high_voltage"] = "high-voltage"
+                        self._children_yang_names.add("high-voltage")
 
                         self.high_rx1_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power()
                         self.high_rx1_power.parent = self
@@ -2834,12 +3287,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-rx-power"
 
                         def __setattr__(self, name, value):
@@ -2876,12 +3332,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx-power"
 
                         def __setattr__(self, name, value):
@@ -2918,12 +3377,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx-power"
 
                         def __setattr__(self, name, value):
@@ -2960,12 +3422,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx-power"
 
                         def __setattr__(self, name, value):
@@ -3002,16 +3467,199 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-lbc"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
+
+
+                    class LowTemperature(Entity):
+                        """
+                        Low Temperature alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, self).__init__()
+
+                            self.yang_name = "low-temperature"
+                            self.yang_parent_name = "optics-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "low-temperature"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, ['is_detected', 'counter'], name, value)
+
+
+                    class HighTemperature(Entity):
+                        """
+                        High Temperature alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, self).__init__()
+
+                            self.yang_name = "high-temperature"
+                            self.yang_parent_name = "optics-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "high-temperature"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, ['is_detected', 'counter'], name, value)
+
+
+                    class LowVoltage(Entity):
+                        """
+                        Low Voltage alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, self).__init__()
+
+                            self.yang_name = "low-voltage"
+                            self.yang_parent_name = "optics-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "low-voltage"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, ['is_detected', 'counter'], name, value)
+
+
+                    class HighVoltage(Entity):
+                        """
+                        High Voltage alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, self).__init__()
+
+                            self.yang_name = "high-voltage"
+                            self.yang_parent_name = "optics-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "high-voltage"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, ['is_detected', 'counter'], name, value)
 
 
                     class HighRx1Power(Entity):
@@ -3044,12 +3692,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-rx1-power"
 
                         def __setattr__(self, name, value):
@@ -3086,12 +3737,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-rx2-power"
 
                         def __setattr__(self, name, value):
@@ -3128,12 +3782,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-rx3-power"
 
                         def __setattr__(self, name, value):
@@ -3170,12 +3827,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-rx4-power"
 
                         def __setattr__(self, name, value):
@@ -3212,12 +3872,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx1-power"
 
                         def __setattr__(self, name, value):
@@ -3254,12 +3917,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx2-power"
 
                         def __setattr__(self, name, value):
@@ -3296,12 +3962,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx3-power"
 
                         def __setattr__(self, name, value):
@@ -3338,12 +4007,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx4-power"
 
                         def __setattr__(self, name, value):
@@ -3380,12 +4052,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx1-power"
 
                         def __setattr__(self, name, value):
@@ -3422,12 +4097,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx2-power"
 
                         def __setattr__(self, name, value):
@@ -3464,12 +4142,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx3-power"
 
                         def __setattr__(self, name, value):
@@ -3506,12 +4187,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx4-power"
 
                         def __setattr__(self, name, value):
@@ -3548,12 +4232,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx1-power"
 
                         def __setattr__(self, name, value):
@@ -3590,12 +4277,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx2-power"
 
                         def __setattr__(self, name, value):
@@ -3632,12 +4322,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx3-power"
 
                         def __setattr__(self, name, value):
@@ -3674,12 +4367,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx4-power"
 
                         def __setattr__(self, name, value):
@@ -3717,12 +4413,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx1lbc"
 
                         def __setattr__(self, name, value):
@@ -3760,12 +4459,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx2lbc"
 
                         def __setattr__(self, name, value):
@@ -3803,12 +4505,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx3lbc"
 
                         def __setattr__(self, name, value):
@@ -3846,12 +4551,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "high-tx4lbc"
 
                         def __setattr__(self, name, value):
@@ -3889,12 +4597,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx1lbc"
 
                         def __setattr__(self, name, value):
@@ -3932,12 +4643,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx2lbc"
 
                         def __setattr__(self, name, value):
@@ -3975,12 +4689,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx3lbc"
 
                         def __setattr__(self, name, value):
@@ -4018,12 +4735,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx4lbc"
 
                         def __setattr__(self, name, value):
@@ -4060,12 +4780,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "rx-los"
 
                         def __setattr__(self, name, value):
@@ -4102,12 +4825,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "tx-los"
 
                         def __setattr__(self, name, value):
@@ -4144,12 +4870,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "rx-lol"
 
                         def __setattr__(self, name, value):
@@ -4186,12 +4915,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "tx-lol"
 
                         def __setattr__(self, name, value):
@@ -4228,12 +4960,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "tx-fault"
 
                         def __setattr__(self, name, value):
@@ -4270,12 +5005,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "hidgd"
 
                         def __setattr__(self, name, value):
@@ -4312,12 +5050,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "oorcd"
 
                         def __setattr__(self, name, value):
@@ -4354,12 +5095,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "osnr"
 
                         def __setattr__(self, name, value):
@@ -4396,12 +5140,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "wvlool"
 
                         def __setattr__(self, name, value):
@@ -4438,12 +5185,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "mea"
 
                         def __setattr__(self, name, value):
@@ -4480,12 +5230,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "imp-removal"
 
                         def __setattr__(self, name, value):
@@ -4522,12 +5275,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "rx-loc"
 
                         def __setattr__(self, name, value):
@@ -4564,12 +5320,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-low"
 
                         def __setattr__(self, name, value):
@@ -4606,12 +5365,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-high"
 
                         def __setattr__(self, name, value):
@@ -4648,12 +5410,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "txpwr-mismatch"
 
                         def __setattr__(self, name, value):
@@ -4738,8 +5503,10 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"low-tx-power" : ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower), "low-rx-power" : ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower), "rx-los-p" : ("rx_los_p", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP), "rx-loc" : ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc), "amp-gain-deg-low" : ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow), "amp-gain-deg-high" : ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh), "auto-laser-shut" : ("auto_laser_shut", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut), "auto-power-red" : ("auto_power_red", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed), "auto-ampli-ctrl-disabled" : ("auto_ampli_ctrl_disabled", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled), "auto-ampli-ctrl-config-mismatch" : ("auto_ampli_ctrl_config_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch), "switch-to-protect" : ("switch_to_protect", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect), "auto-ampli-ctrl-running" : ("auto_ampli_ctrl_running", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower)), ("rx-los-p", ("rx_los_p", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP)), ("rx-loc", ("rx_loc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc)), ("amp-gain-deg-low", ("amp_gain_deg_low", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow)), ("amp-gain-deg-high", ("amp_gain_deg_high", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh)), ("auto-laser-shut", ("auto_laser_shut", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut)), ("auto-power-red", ("auto_power_red", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed)), ("auto-ampli-ctrl-disabled", ("auto_ampli_ctrl_disabled", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled)), ("auto-ampli-ctrl-config-mismatch", ("auto_ampli_ctrl_config_mismatch", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch)), ("switch-to-protect", ("switch_to_protect", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect)), ("auto-ampli-ctrl-running", ("auto_ampli_ctrl_running", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower()
                         self.low_tx_power.parent = self
@@ -4833,12 +5600,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-tx-power"
 
                         def __setattr__(self, name, value):
@@ -4875,12 +5645,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "low-rx-power"
 
                         def __setattr__(self, name, value):
@@ -4917,12 +5690,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "rx-los-p"
 
                         def __setattr__(self, name, value):
@@ -4959,12 +5735,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "rx-loc"
 
                         def __setattr__(self, name, value):
@@ -5001,12 +5780,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-low"
 
                         def __setattr__(self, name, value):
@@ -5043,12 +5825,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-high"
 
                         def __setattr__(self, name, value):
@@ -5085,12 +5870,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "auto-laser-shut"
 
                         def __setattr__(self, name, value):
@@ -5127,12 +5915,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "auto-power-red"
 
                         def __setattr__(self, name, value):
@@ -5169,12 +5960,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-disabled"
 
                         def __setattr__(self, name, value):
@@ -5211,12 +6005,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-config-mismatch"
 
                         def __setattr__(self, name, value):
@@ -5253,12 +6050,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "switch-to-protect"
 
                         def __setattr__(self, name, value):
@@ -5295,12 +6095,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "ots-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.counter = YLeaf(YType.uint32, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-running"
 
                         def __setattr__(self, name, value):
@@ -5407,40 +6210,43 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vendor_info = YLeaf(YType.str, "vendor-info")
-
-                        self.adapter_vendor_info = YLeaf(YType.str, "adapter-vendor-info")
-
-                        self.date = YLeaf(YType.str, "date")
-
-                        self.optics_vendor_rev = YLeaf(YType.str, "optics-vendor-rev")
-
-                        self.optics_serial_no = YLeaf(YType.str, "optics-serial-no")
-
-                        self.optics_vendor_part = YLeaf(YType.str, "optics-vendor-part")
-
-                        self.optics_type = YLeaf(YType.str, "optics-type")
-
-                        self.vendor_name = YLeaf(YType.str, "vendor-name")
-
-                        self.oui_no = YLeaf(YType.str, "oui-no")
-
-                        self.optics_pid = YLeaf(YType.str, "optics-pid")
-
-                        self.optics_vid = YLeaf(YType.str, "optics-vid")
-
-                        self.connector_type = YLeaf(YType.enumeration, "connector-type")
-
-                        self.otn_application_code = YLeaf(YType.enumeration, "otn-application-code")
-
-                        self.sonet_application_code = YLeaf(YType.enumeration, "sonet-application-code")
-
-                        self.ethernet_compliance_code = YLeaf(YType.enumeration, "ethernet-compliance-code")
-
-                        self.internal_temperature = YLeaf(YType.int32, "internal-temperature")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vendor_info', YLeaf(YType.str, 'vendor-info')),
+                            ('adapter_vendor_info', YLeaf(YType.str, 'adapter-vendor-info')),
+                            ('date', YLeaf(YType.str, 'date')),
+                            ('optics_vendor_rev', YLeaf(YType.str, 'optics-vendor-rev')),
+                            ('optics_serial_no', YLeaf(YType.str, 'optics-serial-no')),
+                            ('optics_vendor_part', YLeaf(YType.str, 'optics-vendor-part')),
+                            ('optics_type', YLeaf(YType.str, 'optics-type')),
+                            ('vendor_name', YLeaf(YType.str, 'vendor-name')),
+                            ('oui_no', YLeaf(YType.str, 'oui-no')),
+                            ('optics_pid', YLeaf(YType.str, 'optics-pid')),
+                            ('optics_vid', YLeaf(YType.str, 'optics-vid')),
+                            ('connector_type', YLeaf(YType.enumeration, 'connector-type')),
+                            ('otn_application_code', YLeaf(YType.enumeration, 'otn-application-code')),
+                            ('sonet_application_code', YLeaf(YType.enumeration, 'sonet-application-code')),
+                            ('ethernet_compliance_code', YLeaf(YType.enumeration, 'ethernet-compliance-code')),
+                            ('internal_temperature', YLeaf(YType.int32, 'internal-temperature')),
+                        ])
+                        self.vendor_info = None
+                        self.adapter_vendor_info = None
+                        self.date = None
+                        self.optics_vendor_rev = None
+                        self.optics_serial_no = None
+                        self.optics_vendor_part = None
+                        self.optics_type = None
+                        self.vendor_name = None
+                        self.oui_no = None
+                        self.optics_pid = None
+                        self.optics_vid = None
+                        self.connector_type = None
+                        self.otn_application_code = None
+                        self.sonet_application_code = None
+                        self.ethernet_compliance_code = None
+                        self.internal_temperature = None
                         self._segment_path = lambda: "transceiver-info"
 
                     def __setattr__(self, name, value):
@@ -5619,52 +6425,55 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.snr_lane1 = YLeaf(YType.int32, "snr-lane1")
-
-                        self.snr_lane2 = YLeaf(YType.int32, "snr-lane2")
-
-                        self.isi_correction_lane1 = YLeaf(YType.int32, "isi-correction-lane1")
-
-                        self.isi_correction_lane2 = YLeaf(YType.int32, "isi-correction-lane2")
-
-                        self.pam_rate_lane1 = YLeaf(YType.int32, "pam-rate-lane1")
-
-                        self.pam_rate_lane2 = YLeaf(YType.int32, "pam-rate-lane2")
-
-                        self.pre_fec_ber = YLeaf(YType.int64, "pre-fec-ber")
-
-                        self.uncorrected_ber = YLeaf(YType.int64, "uncorrected-ber")
-
-                        self.tec_current_lane1 = YLeaf(YType.int32, "tec-current-lane1")
-
-                        self.tec_current_lane2 = YLeaf(YType.int32, "tec-current-lane2")
-
-                        self.laser_diff_frequency_lane1 = YLeaf(YType.int32, "laser-diff-frequency-lane1")
-
-                        self.laser_diff_frequency_lane2 = YLeaf(YType.int32, "laser-diff-frequency-lane2")
-
-                        self.laser_diff_temperature_lane1 = YLeaf(YType.int32, "laser-diff-temperature-lane1")
-
-                        self.laser_diff_temperature_lane2 = YLeaf(YType.int32, "laser-diff-temperature-lane2")
-
-                        self.pre_fec_ber_latched_min = YLeaf(YType.int64, "pre-fec-ber-latched-min")
-
-                        self.pre_fec_ber_latched_max = YLeaf(YType.int64, "pre-fec-ber-latched-max")
-
-                        self.pre_fec_ber_accumulated = YLeaf(YType.int64, "pre-fec-ber-accumulated")
-
-                        self.pre_fec_ber_instantaneous = YLeaf(YType.int64, "pre-fec-ber-instantaneous")
-
-                        self.uncorrected_ber_latched_min = YLeaf(YType.int64, "uncorrected-ber-latched-min")
-
-                        self.uncorrected_ber_latched_max = YLeaf(YType.int64, "uncorrected-ber-latched-max")
-
-                        self.uncorrected_ber_accumulated = YLeaf(YType.int64, "uncorrected-ber-accumulated")
-
-                        self.uncorrected_ber_instantaneous = YLeaf(YType.int64, "uncorrected-ber-instantaneous")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('snr_lane1', YLeaf(YType.int32, 'snr-lane1')),
+                            ('snr_lane2', YLeaf(YType.int32, 'snr-lane2')),
+                            ('isi_correction_lane1', YLeaf(YType.int32, 'isi-correction-lane1')),
+                            ('isi_correction_lane2', YLeaf(YType.int32, 'isi-correction-lane2')),
+                            ('pam_rate_lane1', YLeaf(YType.int32, 'pam-rate-lane1')),
+                            ('pam_rate_lane2', YLeaf(YType.int32, 'pam-rate-lane2')),
+                            ('pre_fec_ber', YLeaf(YType.int64, 'pre-fec-ber')),
+                            ('uncorrected_ber', YLeaf(YType.int64, 'uncorrected-ber')),
+                            ('tec_current_lane1', YLeaf(YType.int32, 'tec-current-lane1')),
+                            ('tec_current_lane2', YLeaf(YType.int32, 'tec-current-lane2')),
+                            ('laser_diff_frequency_lane1', YLeaf(YType.int32, 'laser-diff-frequency-lane1')),
+                            ('laser_diff_frequency_lane2', YLeaf(YType.int32, 'laser-diff-frequency-lane2')),
+                            ('laser_diff_temperature_lane1', YLeaf(YType.int32, 'laser-diff-temperature-lane1')),
+                            ('laser_diff_temperature_lane2', YLeaf(YType.int32, 'laser-diff-temperature-lane2')),
+                            ('pre_fec_ber_latched_min', YLeaf(YType.int64, 'pre-fec-ber-latched-min')),
+                            ('pre_fec_ber_latched_max', YLeaf(YType.int64, 'pre-fec-ber-latched-max')),
+                            ('pre_fec_ber_accumulated', YLeaf(YType.int64, 'pre-fec-ber-accumulated')),
+                            ('pre_fec_ber_instantaneous', YLeaf(YType.int64, 'pre-fec-ber-instantaneous')),
+                            ('uncorrected_ber_latched_min', YLeaf(YType.int64, 'uncorrected-ber-latched-min')),
+                            ('uncorrected_ber_latched_max', YLeaf(YType.int64, 'uncorrected-ber-latched-max')),
+                            ('uncorrected_ber_accumulated', YLeaf(YType.int64, 'uncorrected-ber-accumulated')),
+                            ('uncorrected_ber_instantaneous', YLeaf(YType.int64, 'uncorrected-ber-instantaneous')),
+                        ])
+                        self.snr_lane1 = None
+                        self.snr_lane2 = None
+                        self.isi_correction_lane1 = None
+                        self.isi_correction_lane2 = None
+                        self.pam_rate_lane1 = None
+                        self.pam_rate_lane2 = None
+                        self.pre_fec_ber = None
+                        self.uncorrected_ber = None
+                        self.tec_current_lane1 = None
+                        self.tec_current_lane2 = None
+                        self.laser_diff_frequency_lane1 = None
+                        self.laser_diff_frequency_lane2 = None
+                        self.laser_diff_temperature_lane1 = None
+                        self.laser_diff_temperature_lane2 = None
+                        self.pre_fec_ber_latched_min = None
+                        self.pre_fec_ber_latched_max = None
+                        self.pre_fec_ber_accumulated = None
+                        self.pre_fec_ber_instantaneous = None
+                        self.uncorrected_ber_latched_min = None
+                        self.uncorrected_ber_latched_max = None
+                        self.uncorrected_ber_accumulated = None
+                        self.uncorrected_ber_instantaneous = None
                         self._segment_path = lambda: "ext-param-val"
 
                     def __setattr__(self, name, value):
@@ -6137,171 +6946,298 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.snr_alarm_high_threshold = YLeaf(YType.int32, "snr-alarm-high-threshold")
-
-                        self.snr_alarm_low_threshold = YLeaf(YType.int32, "snr-alarm-low-threshold")
-
-                        self.snr_warn_high_threshold = YLeaf(YType.int32, "snr-warn-high-threshold")
-
-                        self.snr_warn_low_threshold = YLeaf(YType.int32, "snr-warn-low-threshold")
-
-                        self.isi_correction_alarm_high_threshold = YLeaf(YType.int32, "isi-correction-alarm-high-threshold")
-
-                        self.isi_correction_alarm_low_threshold = YLeaf(YType.int32, "isi-correction-alarm-low-threshold")
-
-                        self.isi_correction_warn_high_threshold = YLeaf(YType.int32, "isi-correction-warn-high-threshold")
-
-                        self.isi_correction_warn_low_threshold = YLeaf(YType.int32, "isi-correction-warn-low-threshold")
-
-                        self.pam_rate_alarm_high_threshold = YLeaf(YType.int32, "pam-rate-alarm-high-threshold")
-
-                        self.pam_rate_alarm_low_threshold = YLeaf(YType.int32, "pam-rate-alarm-low-threshold")
-
-                        self.pam_rate_warn_high_threshold = YLeaf(YType.int32, "pam-rate-warn-high-threshold")
-
-                        self.pam_rate_warn_low_threshold = YLeaf(YType.int32, "pam-rate-warn-low-threshold")
-
-                        self.pre_fec_ber_alarm_high_threshold = YLeaf(YType.int64, "pre-fec-ber-alarm-high-threshold")
-
-                        self.pre_fec_ber_alarm_low_threshold = YLeaf(YType.int64, "pre-fec-ber-alarm-low-threshold")
-
-                        self.pre_fec_ber_warn_high_threshold = YLeaf(YType.int64, "pre-fec-ber-warn-high-threshold")
-
-                        self.pre_fec_ber_warn_low_threshold = YLeaf(YType.int64, "pre-fec-ber-warn-low-threshold")
-
-                        self.uncorrected_ber_alarm_high_threshold = YLeaf(YType.int64, "uncorrected-ber-alarm-high-threshold")
-
-                        self.uncorrected_ber_alarm_low_threshold = YLeaf(YType.int64, "uncorrected-ber-alarm-low-threshold")
-
-                        self.uncorrected_ber_warn_high_threshold = YLeaf(YType.int64, "uncorrected-ber-warn-high-threshold")
-
-                        self.uncorrected_ber_warn_low_threshold = YLeaf(YType.int64, "uncorrected-ber-warn-low-threshold")
-
-                        self.tec_current_alarm_high_threshold = YLeaf(YType.int32, "tec-current-alarm-high-threshold")
-
-                        self.tec_current_alarm_low_threshold = YLeaf(YType.int32, "tec-current-alarm-low-threshold")
-
-                        self.tec_current_warn_high_threshold = YLeaf(YType.int32, "tec-current-warn-high-threshold")
-
-                        self.tec_current_warn_low_threshold = YLeaf(YType.int32, "tec-current-warn-low-threshold")
-
-                        self.laser_diff_frequency_alarm_high_threshold = YLeaf(YType.int32, "laser-diff-frequency-alarm-high-threshold")
-
-                        self.laser_diff_frequency_alarm_low_threshold = YLeaf(YType.int32, "laser-diff-frequency-alarm-low-threshold")
-
-                        self.laser_diff_frequency_warn_high_threshold = YLeaf(YType.int32, "laser-diff-frequency-warn-high-threshold")
-
-                        self.laser_diff_frequency_warn_low_threshold = YLeaf(YType.int32, "laser-diff-frequency-warn-low-threshold")
-
-                        self.laser_diff_temperature_alarm_high_threshold = YLeaf(YType.int32, "laser-diff-temperature-alarm-high-threshold")
-
-                        self.laser_diff_temperature_alarm_low_threshold = YLeaf(YType.int32, "laser-diff-temperature-alarm-low-threshold")
-
-                        self.laser_diff_temperature_warn_high_threshold = YLeaf(YType.int32, "laser-diff-temperature-warn-high-threshold")
-
-                        self.laser_diff_temperature_warn_low_threshold = YLeaf(YType.int32, "laser-diff-temperature-warn-low-threshold")
-
-                        self.pre_fec_ber_latched_min_alarm_high_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-min-alarm-high-threshold")
-
-                        self.pre_fec_ber_latched_min_alarm_low_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-min-alarm-low-threshold")
-
-                        self.pre_fec_ber_latched_min_warn_high_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-min-warn-high-threshold")
-
-                        self.pre_fec_ber_latched_min_warn_low_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-min-warn-low-threshold")
-
-                        self.pre_fec_ber_latched_max_alarm_high_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-max-alarm-high-threshold")
-
-                        self.pre_fec_ber_latched_max_alarm_low_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-max-alarm-low-threshold")
-
-                        self.pre_fec_ber_latched_max_warn_high_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-max-warn-high-threshold")
-
-                        self.pre_fec_ber_latched_max_warn_low_threshold = YLeaf(YType.int64, "pre-fec-ber-latched-max-warn-low-threshold")
-
-                        self.pre_fec_ber_accumulated_alarm_high_threshold = YLeaf(YType.int64, "pre-fec-ber-accumulated-alarm-high-threshold")
-
-                        self.pre_fec_ber_accumulated_alarm_low_threshold = YLeaf(YType.int64, "pre-fec-ber-accumulated-alarm-low-threshold")
-
-                        self.pre_fec_ber_accumulated_warn_high_threshold = YLeaf(YType.int64, "pre-fec-ber-accumulated-warn-high-threshold")
-
-                        self.pre_fec_ber_accumulated_warn_low_threshold = YLeaf(YType.int64, "pre-fec-ber-accumulated-warn-low-threshold")
-
-                        self.pre_fec_ber_instantaneous_alarm_high_threshold = YLeaf(YType.int64, "pre-fec-ber-instantaneous-alarm-high-threshold")
-
-                        self.pre_fec_ber_instantaneous_alarm_low_threshold = YLeaf(YType.int64, "pre-fec-ber-instantaneous-alarm-low-threshold")
-
-                        self.pre_fec_ber_instantaneous_warn_high_threshold = YLeaf(YType.int64, "pre-fec-ber-instantaneous-warn-high-threshold")
-
-                        self.pre_fec_ber_instantaneous_warn_low_threshold = YLeaf(YType.int64, "pre-fec-ber-instantaneous-warn-low-threshold")
-
-                        self.uncorrected_ber_latched_min_alarm_high_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-min-alarm-high-threshold")
-
-                        self.uncorrected_ber_latched_min_alarm_low_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-min-alarm-low-threshold")
-
-                        self.uncorrected_ber_latched_min_warn_high_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-min-warn-high-threshold")
-
-                        self.uncorrected_ber_latched_min_warn_low_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-min-warn-low-threshold")
-
-                        self.uncorrected_ber_latched_max_alarm_high_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-max-alarm-high-threshold")
-
-                        self.uncorrected_ber_latched_max_alarm_low_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-max-alarm-low-threshold")
-
-                        self.uncorrected_ber_latched_max_warn_high_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-max-warn-high-threshold")
-
-                        self.uncorrected_ber_latched_max_warn_low_threshold = YLeaf(YType.int64, "uncorrected-ber-latched-max-warn-low-threshold")
-
-                        self.uncorrected_ber_accumulated_alarm_high_threshold = YLeaf(YType.int64, "uncorrected-ber-accumulated-alarm-high-threshold")
-
-                        self.uncorrected_ber_accumulated_alarm_low_threshold = YLeaf(YType.int64, "uncorrected-ber-accumulated-alarm-low-threshold")
-
-                        self.uncorrected_ber_accumulated_warn_high_threshold = YLeaf(YType.int64, "uncorrected-ber-accumulated-warn-high-threshold")
-
-                        self.uncorrected_ber_accumulated_warn_low_threshold = YLeaf(YType.int64, "uncorrected-ber-accumulated-warn-low-threshold")
-
-                        self.uncorrected_ber_instantaneous_alarm_high_threshold = YLeaf(YType.int64, "uncorrected-ber-instantaneous-alarm-high-threshold")
-
-                        self.uncorrected_ber_instantaneous_alarm_low_threshold = YLeaf(YType.int64, "uncorrected-ber-instantaneous-alarm-low-threshold")
-
-                        self.uncorrected_ber_instantaneous_warn_high_threshold = YLeaf(YType.int64, "uncorrected-ber-instantaneous-warn-high-threshold")
-
-                        self.uncorrected_ber_instantaneous_warn_low_threshold = YLeaf(YType.int64, "uncorrected-ber-instantaneous-warn-low-threshold")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('snr_alarm_high_threshold', YLeaf(YType.int32, 'snr-alarm-high-threshold')),
+                            ('snr_alarm_low_threshold', YLeaf(YType.int32, 'snr-alarm-low-threshold')),
+                            ('snr_warn_high_threshold', YLeaf(YType.int32, 'snr-warn-high-threshold')),
+                            ('snr_warn_low_threshold', YLeaf(YType.int32, 'snr-warn-low-threshold')),
+                            ('isi_correction_alarm_high_threshold', YLeaf(YType.int32, 'isi-correction-alarm-high-threshold')),
+                            ('isi_correction_alarm_low_threshold', YLeaf(YType.int32, 'isi-correction-alarm-low-threshold')),
+                            ('isi_correction_warn_high_threshold', YLeaf(YType.int32, 'isi-correction-warn-high-threshold')),
+                            ('isi_correction_warn_low_threshold', YLeaf(YType.int32, 'isi-correction-warn-low-threshold')),
+                            ('pam_rate_alarm_high_threshold', YLeaf(YType.int32, 'pam-rate-alarm-high-threshold')),
+                            ('pam_rate_alarm_low_threshold', YLeaf(YType.int32, 'pam-rate-alarm-low-threshold')),
+                            ('pam_rate_warn_high_threshold', YLeaf(YType.int32, 'pam-rate-warn-high-threshold')),
+                            ('pam_rate_warn_low_threshold', YLeaf(YType.int32, 'pam-rate-warn-low-threshold')),
+                            ('pre_fec_ber_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-alarm-high-threshold')),
+                            ('pre_fec_ber_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-alarm-low-threshold')),
+                            ('pre_fec_ber_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-warn-high-threshold')),
+                            ('pre_fec_ber_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-warn-low-threshold')),
+                            ('uncorrected_ber_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-alarm-high-threshold')),
+                            ('uncorrected_ber_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-alarm-low-threshold')),
+                            ('uncorrected_ber_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-warn-high-threshold')),
+                            ('uncorrected_ber_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-warn-low-threshold')),
+                            ('tec_current_alarm_high_threshold', YLeaf(YType.int32, 'tec-current-alarm-high-threshold')),
+                            ('tec_current_alarm_low_threshold', YLeaf(YType.int32, 'tec-current-alarm-low-threshold')),
+                            ('tec_current_warn_high_threshold', YLeaf(YType.int32, 'tec-current-warn-high-threshold')),
+                            ('tec_current_warn_low_threshold', YLeaf(YType.int32, 'tec-current-warn-low-threshold')),
+                            ('laser_diff_frequency_alarm_high_threshold', YLeaf(YType.int32, 'laser-diff-frequency-alarm-high-threshold')),
+                            ('laser_diff_frequency_alarm_low_threshold', YLeaf(YType.int32, 'laser-diff-frequency-alarm-low-threshold')),
+                            ('laser_diff_frequency_warn_high_threshold', YLeaf(YType.int32, 'laser-diff-frequency-warn-high-threshold')),
+                            ('laser_diff_frequency_warn_low_threshold', YLeaf(YType.int32, 'laser-diff-frequency-warn-low-threshold')),
+                            ('laser_diff_temperature_alarm_high_threshold', YLeaf(YType.int32, 'laser-diff-temperature-alarm-high-threshold')),
+                            ('laser_diff_temperature_alarm_low_threshold', YLeaf(YType.int32, 'laser-diff-temperature-alarm-low-threshold')),
+                            ('laser_diff_temperature_warn_high_threshold', YLeaf(YType.int32, 'laser-diff-temperature-warn-high-threshold')),
+                            ('laser_diff_temperature_warn_low_threshold', YLeaf(YType.int32, 'laser-diff-temperature-warn-low-threshold')),
+                            ('pre_fec_ber_latched_min_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-high-threshold')),
+                            ('pre_fec_ber_latched_min_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-low-threshold')),
+                            ('pre_fec_ber_latched_min_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-high-threshold')),
+                            ('pre_fec_ber_latched_min_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-low-threshold')),
+                            ('pre_fec_ber_latched_max_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-high-threshold')),
+                            ('pre_fec_ber_latched_max_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-low-threshold')),
+                            ('pre_fec_ber_latched_max_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-high-threshold')),
+                            ('pre_fec_ber_latched_max_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-low-threshold')),
+                            ('pre_fec_ber_accumulated_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-high-threshold')),
+                            ('pre_fec_ber_accumulated_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-low-threshold')),
+                            ('pre_fec_ber_accumulated_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-high-threshold')),
+                            ('pre_fec_ber_accumulated_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-low-threshold')),
+                            ('pre_fec_ber_instantaneous_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-high-threshold')),
+                            ('pre_fec_ber_instantaneous_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-low-threshold')),
+                            ('pre_fec_ber_instantaneous_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-high-threshold')),
+                            ('pre_fec_ber_instantaneous_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-low-threshold')),
+                            ('uncorrected_ber_latched_min_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-high-threshold')),
+                            ('uncorrected_ber_latched_min_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-low-threshold')),
+                            ('uncorrected_ber_latched_min_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-high-threshold')),
+                            ('uncorrected_ber_latched_min_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-low-threshold')),
+                            ('uncorrected_ber_latched_max_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-high-threshold')),
+                            ('uncorrected_ber_latched_max_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-low-threshold')),
+                            ('uncorrected_ber_latched_max_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-high-threshold')),
+                            ('uncorrected_ber_latched_max_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-low-threshold')),
+                            ('uncorrected_ber_accumulated_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-high-threshold')),
+                            ('uncorrected_ber_accumulated_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-low-threshold')),
+                            ('uncorrected_ber_accumulated_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-high-threshold')),
+                            ('uncorrected_ber_accumulated_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-low-threshold')),
+                            ('uncorrected_ber_instantaneous_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-high-threshold')),
+                            ('uncorrected_ber_instantaneous_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-low-threshold')),
+                            ('uncorrected_ber_instantaneous_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-high-threshold')),
+                            ('uncorrected_ber_instantaneous_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-low-threshold')),
+                        ])
+                        self.snr_alarm_high_threshold = None
+                        self.snr_alarm_low_threshold = None
+                        self.snr_warn_high_threshold = None
+                        self.snr_warn_low_threshold = None
+                        self.isi_correction_alarm_high_threshold = None
+                        self.isi_correction_alarm_low_threshold = None
+                        self.isi_correction_warn_high_threshold = None
+                        self.isi_correction_warn_low_threshold = None
+                        self.pam_rate_alarm_high_threshold = None
+                        self.pam_rate_alarm_low_threshold = None
+                        self.pam_rate_warn_high_threshold = None
+                        self.pam_rate_warn_low_threshold = None
+                        self.pre_fec_ber_alarm_high_threshold = None
+                        self.pre_fec_ber_alarm_low_threshold = None
+                        self.pre_fec_ber_warn_high_threshold = None
+                        self.pre_fec_ber_warn_low_threshold = None
+                        self.uncorrected_ber_alarm_high_threshold = None
+                        self.uncorrected_ber_alarm_low_threshold = None
+                        self.uncorrected_ber_warn_high_threshold = None
+                        self.uncorrected_ber_warn_low_threshold = None
+                        self.tec_current_alarm_high_threshold = None
+                        self.tec_current_alarm_low_threshold = None
+                        self.tec_current_warn_high_threshold = None
+                        self.tec_current_warn_low_threshold = None
+                        self.laser_diff_frequency_alarm_high_threshold = None
+                        self.laser_diff_frequency_alarm_low_threshold = None
+                        self.laser_diff_frequency_warn_high_threshold = None
+                        self.laser_diff_frequency_warn_low_threshold = None
+                        self.laser_diff_temperature_alarm_high_threshold = None
+                        self.laser_diff_temperature_alarm_low_threshold = None
+                        self.laser_diff_temperature_warn_high_threshold = None
+                        self.laser_diff_temperature_warn_low_threshold = None
+                        self.pre_fec_ber_latched_min_alarm_high_threshold = None
+                        self.pre_fec_ber_latched_min_alarm_low_threshold = None
+                        self.pre_fec_ber_latched_min_warn_high_threshold = None
+                        self.pre_fec_ber_latched_min_warn_low_threshold = None
+                        self.pre_fec_ber_latched_max_alarm_high_threshold = None
+                        self.pre_fec_ber_latched_max_alarm_low_threshold = None
+                        self.pre_fec_ber_latched_max_warn_high_threshold = None
+                        self.pre_fec_ber_latched_max_warn_low_threshold = None
+                        self.pre_fec_ber_accumulated_alarm_high_threshold = None
+                        self.pre_fec_ber_accumulated_alarm_low_threshold = None
+                        self.pre_fec_ber_accumulated_warn_high_threshold = None
+                        self.pre_fec_ber_accumulated_warn_low_threshold = None
+                        self.pre_fec_ber_instantaneous_alarm_high_threshold = None
+                        self.pre_fec_ber_instantaneous_alarm_low_threshold = None
+                        self.pre_fec_ber_instantaneous_warn_high_threshold = None
+                        self.pre_fec_ber_instantaneous_warn_low_threshold = None
+                        self.uncorrected_ber_latched_min_alarm_high_threshold = None
+                        self.uncorrected_ber_latched_min_alarm_low_threshold = None
+                        self.uncorrected_ber_latched_min_warn_high_threshold = None
+                        self.uncorrected_ber_latched_min_warn_low_threshold = None
+                        self.uncorrected_ber_latched_max_alarm_high_threshold = None
+                        self.uncorrected_ber_latched_max_alarm_low_threshold = None
+                        self.uncorrected_ber_latched_max_warn_high_threshold = None
+                        self.uncorrected_ber_latched_max_warn_low_threshold = None
+                        self.uncorrected_ber_accumulated_alarm_high_threshold = None
+                        self.uncorrected_ber_accumulated_alarm_low_threshold = None
+                        self.uncorrected_ber_accumulated_warn_high_threshold = None
+                        self.uncorrected_ber_accumulated_warn_low_threshold = None
+                        self.uncorrected_ber_instantaneous_alarm_high_threshold = None
+                        self.uncorrected_ber_instantaneous_alarm_low_threshold = None
+                        self.uncorrected_ber_instantaneous_warn_high_threshold = None
+                        self.uncorrected_ber_instantaneous_warn_low_threshold = None
                         self._segment_path = lambda: "ext-param-threshold-val"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, ['snr_alarm_high_threshold', 'snr_alarm_low_threshold', 'snr_warn_high_threshold', 'snr_warn_low_threshold', 'isi_correction_alarm_high_threshold', 'isi_correction_alarm_low_threshold', 'isi_correction_warn_high_threshold', 'isi_correction_warn_low_threshold', 'pam_rate_alarm_high_threshold', 'pam_rate_alarm_low_threshold', 'pam_rate_warn_high_threshold', 'pam_rate_warn_low_threshold', 'pre_fec_ber_alarm_high_threshold', 'pre_fec_ber_alarm_low_threshold', 'pre_fec_ber_warn_high_threshold', 'pre_fec_ber_warn_low_threshold', 'uncorrected_ber_alarm_high_threshold', 'uncorrected_ber_alarm_low_threshold', 'uncorrected_ber_warn_high_threshold', 'uncorrected_ber_warn_low_threshold', 'tec_current_alarm_high_threshold', 'tec_current_alarm_low_threshold', 'tec_current_warn_high_threshold', 'tec_current_warn_low_threshold', 'laser_diff_frequency_alarm_high_threshold', 'laser_diff_frequency_alarm_low_threshold', 'laser_diff_frequency_warn_high_threshold', 'laser_diff_frequency_warn_low_threshold', 'laser_diff_temperature_alarm_high_threshold', 'laser_diff_temperature_alarm_low_threshold', 'laser_diff_temperature_warn_high_threshold', 'laser_diff_temperature_warn_low_threshold', 'pre_fec_ber_latched_min_alarm_high_threshold', 'pre_fec_ber_latched_min_alarm_low_threshold', 'pre_fec_ber_latched_min_warn_high_threshold', 'pre_fec_ber_latched_min_warn_low_threshold', 'pre_fec_ber_latched_max_alarm_high_threshold', 'pre_fec_ber_latched_max_alarm_low_threshold', 'pre_fec_ber_latched_max_warn_high_threshold', 'pre_fec_ber_latched_max_warn_low_threshold', 'pre_fec_ber_accumulated_alarm_high_threshold', 'pre_fec_ber_accumulated_alarm_low_threshold', 'pre_fec_ber_accumulated_warn_high_threshold', 'pre_fec_ber_accumulated_warn_low_threshold', 'pre_fec_ber_instantaneous_alarm_high_threshold', 'pre_fec_ber_instantaneous_alarm_low_threshold', 'pre_fec_ber_instantaneous_warn_high_threshold', 'pre_fec_ber_instantaneous_warn_low_threshold', 'uncorrected_ber_latched_min_alarm_high_threshold', 'uncorrected_ber_latched_min_alarm_low_threshold', 'uncorrected_ber_latched_min_warn_high_threshold', 'uncorrected_ber_latched_min_warn_low_threshold', 'uncorrected_ber_latched_max_alarm_high_threshold', 'uncorrected_ber_latched_max_alarm_low_threshold', 'uncorrected_ber_latched_max_warn_high_threshold', 'uncorrected_ber_latched_max_warn_low_threshold', 'uncorrected_ber_accumulated_alarm_high_threshold', 'uncorrected_ber_accumulated_alarm_low_threshold', 'uncorrected_ber_accumulated_warn_high_threshold', 'uncorrected_ber_accumulated_warn_low_threshold', 'uncorrected_ber_instantaneous_alarm_high_threshold', 'uncorrected_ber_instantaneous_alarm_low_threshold', 'uncorrected_ber_instantaneous_warn_high_threshold', 'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
 
 
-                class SpectrumInfo(Entity):
+                class ExtendedAlarmAlarmInfo(Entity):
                     """
-                    OTS Spectrum information
+                    Extended DOM alarm Information
                     
-                    .. attribute:: total_spectrum_slice_count
+                    .. attribute:: lo_snr
                     
-                    	Total number of slices in Spectrum
-                    	**type**\: int
+                    	Low SNR Alarm for Lane1
+                    	**type**\:  :py:class:`LoSnr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr>`
                     
-                    	**range:** 0..4294967295
+                    .. attribute:: hi_snr1
                     
-                    .. attribute:: spectrum_slice_spacing
+                    	High SNR Alarm for Lane1
+                    	**type**\:  :py:class:`HiSnr1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1>`
                     
-                    	Spacing between spectrum slices
-                    	**type**\: int
+                    .. attribute:: lo_snr1
                     
-                    	**range:** 0..4294967295
+                    	Low SNR Alarm for Lane2
+                    	**type**\:  :py:class:`LoSnr1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1>`
                     
-                    .. attribute:: first_slice_wavelength
+                    .. attribute:: hi_snr2
                     
-                    	Wavelength of first slice
-                    	**type**\: str
+                    	High SNR Alarm for Lane2
+                    	**type**\:  :py:class:`HiSnr2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2>`
                     
-                    	**length:** 0..32
+                    .. attribute:: lo_isi1
                     
-                    .. attribute:: spectrum_slice_power_info
+                    	Low ISI Correction Alarm for Lane1
+                    	**type**\:  :py:class:`LoIsi1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1>`
                     
-                    	Power information of spectrum slice info
-                    	**type**\: list of  		 :py:class:`SpectrumSlicePowerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo>`
+                    .. attribute:: hi_isi1
+                    
+                    	High ISI Correction Alarm for Lane1
+                    	**type**\:  :py:class:`HiIsi1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1>`
+                    
+                    .. attribute:: lo_isi2
+                    
+                    	Low ISI Correction Alarm for Lane2
+                    	**type**\:  :py:class:`LoIsi2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2>`
+                    
+                    .. attribute:: hi_isi2
+                    
+                    	High ISI Correction Alarm for Lane2
+                    	**type**\:  :py:class:`HiIsi2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2>`
+                    
+                    .. attribute:: lo_pam1
+                    
+                    	Low PAM Rate Alarm for Lane1
+                    	**type**\:  :py:class:`LoPam1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1>`
+                    
+                    .. attribute:: hi_pam1
+                    
+                    	High PAM Rate Alarm for Lane1
+                    	**type**\:  :py:class:`HiPam1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1>`
+                    
+                    .. attribute:: lo_pam2
+                    
+                    	Low PAM Rate Alarm for Lane2
+                    	**type**\:  :py:class:`LoPam2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2>`
+                    
+                    .. attribute:: hi_pam2
+                    
+                    	High PAM Rate Alarm for Lane2
+                    	**type**\:  :py:class:`HiPam2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2>`
+                    
+                    .. attribute:: lo_tec1
+                    
+                    	Low TEC Current Alarm for Lane1
+                    	**type**\:  :py:class:`LoTec1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1>`
+                    
+                    .. attribute:: hi_tec1
+                    
+                    	High TEC Current Alarm for Lane1
+                    	**type**\:  :py:class:`HiTec1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1>`
+                    
+                    .. attribute:: lo_tec2
+                    
+                    	Low TEC Current Alarm for Lane2
+                    	**type**\:  :py:class:`LoTec2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2>`
+                    
+                    .. attribute:: hi_tec2
+                    
+                    	High TEC Current Alarm for Lane2
+                    	**type**\:  :py:class:`HiTec2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2>`
+                    
+                    .. attribute:: lo_laser_freq1
+                    
+                    	Low Laser Differential Frequency Alarm for Lane1
+                    	**type**\:  :py:class:`LoLaserFreq1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1>`
+                    
+                    .. attribute:: hi_laser_freq1
+                    
+                    	High Laser Differential Frequency Alarm for Lane1
+                    	**type**\:  :py:class:`HiLaserFreq1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1>`
+                    
+                    .. attribute:: lo_laser_freq2
+                    
+                    	Low Laser Differential Frequency Alarm for Lane2
+                    	**type**\:  :py:class:`LoLaserFreq2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2>`
+                    
+                    .. attribute:: hi_laser_freq2
+                    
+                    	High Laser Differential Frequency Alarm for Lane2
+                    	**type**\:  :py:class:`HiLaserFreq2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2>`
+                    
+                    .. attribute:: hi_pre_fecber_cur_acc
+                    
+                    	High Pre FEC BER Current Accumulated Alarm
+                    	**type**\:  :py:class:`HiPreFecberCurAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc>`
+                    
+                    .. attribute:: hi_pre_fecber_min
+                    
+                    	High Pre FEC BER Min Alarm
+                    	**type**\:  :py:class:`HiPreFecberMin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin>`
+                    
+                    .. attribute:: hi_pre_fecber_max
+                    
+                    	High Pre FEC BER Max Alarm
+                    	**type**\:  :py:class:`HiPreFecberMax <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax>`
+                    
+                    .. attribute:: hi_pre_fecber_prior_acc
+                    
+                    	High Pre FEC BER Prior Accumulated Alarm
+                    	**type**\:  :py:class:`HiPreFecberPriorAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc>`
+                    
+                    .. attribute:: hi_pre_fecber_cur
+                    
+                    	High Pre FEC BER Current Alarm
+                    	**type**\:  :py:class:`HiPreFecberCur <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur>`
+                    
+                    .. attribute:: hi_uncorrected_ber_cur_acc
+                    
+                    	High Uncorrected BER Current Accumulated Alarm
+                    	**type**\:  :py:class:`HiUncorrectedBerCurAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc>`
+                    
+                    .. attribute:: hi_uncorrected_ber_min
+                    
+                    	High Uncorrected BER Min Alarm
+                    	**type**\:  :py:class:`HiUncorrectedBerMin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin>`
+                    
+                    .. attribute:: hi_uncorrected_ber_max
+                    
+                    	High Uncorrected BER Max Alarm
+                    	**type**\:  :py:class:`HiUncorrectedBerMax <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax>`
+                    
+                    .. attribute:: hi_uncorrected_ber_prior_acc
+                    
+                    	High Uncorrected BER Prior Accumulated Alarm
+                    	**type**\:  :py:class:`HiUncorrectedBerPriorAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc>`
+                    
+                    .. attribute:: hi_uncorrected_ber_cur
+                    
+                    	High Uncorrected BER Current Alarm
+                    	**type**\:  :py:class:`HiUncorrectedBerCur <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur>`
                     
                     
 
@@ -6311,80 +7247,184 @@ class OpticsOper(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo, self).__init__()
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, self).__init__()
 
-                        self.yang_name = "spectrum-info"
+                        self.yang_name = "extended-alarm-alarm-info"
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"spectrum-slice-power-info" : ("spectrum_slice_power_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("lo-snr", ("lo_snr", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr)), ("hi-snr1", ("hi_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1)), ("lo-snr1", ("lo_snr1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1)), ("hi-snr2", ("hi_snr2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2)), ("lo-isi1", ("lo_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1)), ("hi-isi1", ("hi_isi1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1)), ("lo-isi2", ("lo_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2)), ("hi-isi2", ("hi_isi2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2)), ("lo-pam1", ("lo_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1)), ("hi-pam1", ("hi_pam1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1)), ("lo-pam2", ("lo_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2)), ("hi-pam2", ("hi_pam2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2)), ("lo-tec1", ("lo_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1)), ("hi-tec1", ("hi_tec1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1)), ("lo-tec2", ("lo_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2)), ("hi-tec2", ("hi_tec2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2)), ("lo-laser-freq1", ("lo_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1)), ("hi-laser-freq1", ("hi_laser_freq1", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1)), ("lo-laser-freq2", ("lo_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2)), ("hi-laser-freq2", ("hi_laser_freq2", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2)), ("hi-pre-fecber-cur-acc", ("hi_pre_fecber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc)), ("hi-pre-fecber-min", ("hi_pre_fecber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin)), ("hi-pre-fecber-max", ("hi_pre_fecber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax)), ("hi-pre-fecber-prior-acc", ("hi_pre_fecber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc)), ("hi-pre-fecber-cur", ("hi_pre_fecber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur)), ("hi-uncorrected-ber-cur-acc", ("hi_uncorrected_ber_cur_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc)), ("hi-uncorrected-ber-min", ("hi_uncorrected_ber_min", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin)), ("hi-uncorrected-ber-max", ("hi_uncorrected_ber_max", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax)), ("hi-uncorrected-ber-prior-acc", ("hi_uncorrected_ber_prior_acc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc)), ("hi-uncorrected-ber-cur", ("hi_uncorrected_ber_cur", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.total_spectrum_slice_count = YLeaf(YType.uint32, "total-spectrum-slice-count")
+                        self.lo_snr = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr()
+                        self.lo_snr.parent = self
+                        self._children_name_map["lo_snr"] = "lo-snr"
+                        self._children_yang_names.add("lo-snr")
 
-                        self.spectrum_slice_spacing = YLeaf(YType.uint32, "spectrum-slice-spacing")
+                        self.hi_snr1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1()
+                        self.hi_snr1.parent = self
+                        self._children_name_map["hi_snr1"] = "hi-snr1"
+                        self._children_yang_names.add("hi-snr1")
 
-                        self.first_slice_wavelength = YLeaf(YType.str, "first-slice-wavelength")
+                        self.lo_snr1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1()
+                        self.lo_snr1.parent = self
+                        self._children_name_map["lo_snr1"] = "lo-snr1"
+                        self._children_yang_names.add("lo-snr1")
 
-                        self.spectrum_slice_power_info = YList(self)
-                        self._segment_path = lambda: "spectrum-info"
+                        self.hi_snr2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2()
+                        self.hi_snr2.parent = self
+                        self._children_name_map["hi_snr2"] = "hi-snr2"
+                        self._children_yang_names.add("hi-snr2")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
+                        self.lo_isi1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1()
+                        self.lo_isi1.parent = self
+                        self._children_name_map["lo_isi1"] = "lo-isi1"
+                        self._children_yang_names.add("lo-isi1")
+
+                        self.hi_isi1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1()
+                        self.hi_isi1.parent = self
+                        self._children_name_map["hi_isi1"] = "hi-isi1"
+                        self._children_yang_names.add("hi-isi1")
+
+                        self.lo_isi2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2()
+                        self.lo_isi2.parent = self
+                        self._children_name_map["lo_isi2"] = "lo-isi2"
+                        self._children_yang_names.add("lo-isi2")
+
+                        self.hi_isi2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2()
+                        self.hi_isi2.parent = self
+                        self._children_name_map["hi_isi2"] = "hi-isi2"
+                        self._children_yang_names.add("hi-isi2")
+
+                        self.lo_pam1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1()
+                        self.lo_pam1.parent = self
+                        self._children_name_map["lo_pam1"] = "lo-pam1"
+                        self._children_yang_names.add("lo-pam1")
+
+                        self.hi_pam1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1()
+                        self.hi_pam1.parent = self
+                        self._children_name_map["hi_pam1"] = "hi-pam1"
+                        self._children_yang_names.add("hi-pam1")
+
+                        self.lo_pam2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2()
+                        self.lo_pam2.parent = self
+                        self._children_name_map["lo_pam2"] = "lo-pam2"
+                        self._children_yang_names.add("lo-pam2")
+
+                        self.hi_pam2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2()
+                        self.hi_pam2.parent = self
+                        self._children_name_map["hi_pam2"] = "hi-pam2"
+                        self._children_yang_names.add("hi-pam2")
+
+                        self.lo_tec1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1()
+                        self.lo_tec1.parent = self
+                        self._children_name_map["lo_tec1"] = "lo-tec1"
+                        self._children_yang_names.add("lo-tec1")
+
+                        self.hi_tec1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1()
+                        self.hi_tec1.parent = self
+                        self._children_name_map["hi_tec1"] = "hi-tec1"
+                        self._children_yang_names.add("hi-tec1")
+
+                        self.lo_tec2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2()
+                        self.lo_tec2.parent = self
+                        self._children_name_map["lo_tec2"] = "lo-tec2"
+                        self._children_yang_names.add("lo-tec2")
+
+                        self.hi_tec2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2()
+                        self.hi_tec2.parent = self
+                        self._children_name_map["hi_tec2"] = "hi-tec2"
+                        self._children_yang_names.add("hi-tec2")
+
+                        self.lo_laser_freq1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1()
+                        self.lo_laser_freq1.parent = self
+                        self._children_name_map["lo_laser_freq1"] = "lo-laser-freq1"
+                        self._children_yang_names.add("lo-laser-freq1")
+
+                        self.hi_laser_freq1 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1()
+                        self.hi_laser_freq1.parent = self
+                        self._children_name_map["hi_laser_freq1"] = "hi-laser-freq1"
+                        self._children_yang_names.add("hi-laser-freq1")
+
+                        self.lo_laser_freq2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2()
+                        self.lo_laser_freq2.parent = self
+                        self._children_name_map["lo_laser_freq2"] = "lo-laser-freq2"
+                        self._children_yang_names.add("lo-laser-freq2")
+
+                        self.hi_laser_freq2 = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2()
+                        self.hi_laser_freq2.parent = self
+                        self._children_name_map["hi_laser_freq2"] = "hi-laser-freq2"
+                        self._children_yang_names.add("hi-laser-freq2")
+
+                        self.hi_pre_fecber_cur_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc()
+                        self.hi_pre_fecber_cur_acc.parent = self
+                        self._children_name_map["hi_pre_fecber_cur_acc"] = "hi-pre-fecber-cur-acc"
+                        self._children_yang_names.add("hi-pre-fecber-cur-acc")
+
+                        self.hi_pre_fecber_min = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin()
+                        self.hi_pre_fecber_min.parent = self
+                        self._children_name_map["hi_pre_fecber_min"] = "hi-pre-fecber-min"
+                        self._children_yang_names.add("hi-pre-fecber-min")
+
+                        self.hi_pre_fecber_max = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax()
+                        self.hi_pre_fecber_max.parent = self
+                        self._children_name_map["hi_pre_fecber_max"] = "hi-pre-fecber-max"
+                        self._children_yang_names.add("hi-pre-fecber-max")
+
+                        self.hi_pre_fecber_prior_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc()
+                        self.hi_pre_fecber_prior_acc.parent = self
+                        self._children_name_map["hi_pre_fecber_prior_acc"] = "hi-pre-fecber-prior-acc"
+                        self._children_yang_names.add("hi-pre-fecber-prior-acc")
+
+                        self.hi_pre_fecber_cur = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur()
+                        self.hi_pre_fecber_cur.parent = self
+                        self._children_name_map["hi_pre_fecber_cur"] = "hi-pre-fecber-cur"
+                        self._children_yang_names.add("hi-pre-fecber-cur")
+
+                        self.hi_uncorrected_ber_cur_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc()
+                        self.hi_uncorrected_ber_cur_acc.parent = self
+                        self._children_name_map["hi_uncorrected_ber_cur_acc"] = "hi-uncorrected-ber-cur-acc"
+                        self._children_yang_names.add("hi-uncorrected-ber-cur-acc")
+
+                        self.hi_uncorrected_ber_min = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin()
+                        self.hi_uncorrected_ber_min.parent = self
+                        self._children_name_map["hi_uncorrected_ber_min"] = "hi-uncorrected-ber-min"
+                        self._children_yang_names.add("hi-uncorrected-ber-min")
+
+                        self.hi_uncorrected_ber_max = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax()
+                        self.hi_uncorrected_ber_max.parent = self
+                        self._children_name_map["hi_uncorrected_ber_max"] = "hi-uncorrected-ber-max"
+                        self._children_yang_names.add("hi-uncorrected-ber-max")
+
+                        self.hi_uncorrected_ber_prior_acc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc()
+                        self.hi_uncorrected_ber_prior_acc.parent = self
+                        self._children_name_map["hi_uncorrected_ber_prior_acc"] = "hi-uncorrected-ber-prior-acc"
+                        self._children_yang_names.add("hi-uncorrected-ber-prior-acc")
+
+                        self.hi_uncorrected_ber_cur = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur()
+                        self.hi_uncorrected_ber_cur.parent = self
+                        self._children_name_map["hi_uncorrected_ber_cur"] = "hi-uncorrected-ber-cur"
+                        self._children_yang_names.add("hi-uncorrected-ber-cur")
+                        self._segment_path = lambda: "extended-alarm-alarm-info"
 
 
-                    class SpectrumSlicePowerInfo(Entity):
+                    class LoSnr(Entity):
                         """
-                        Power information of spectrum slice info
+                        Low SNR Alarm for Lane1
                         
-                        .. attribute:: slice_num
+                        .. attribute:: is_detected
                         
-                        	spectrum slice number
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: lower_frequency
-                        
-                        	Lower frequency of the specified PSD
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: upper_frequency
-                        
-                        	Upper frequency of the specified PSD
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: rx_power
-                        
-                        	Received Power in dBm
-                        	**type**\: str
-                        
-                        	**length:** 0..32
-                        
-                        .. attribute:: tx_power
-                        
-                        	Transmit Power in dBm
-                        	**type**\: str
-                        
-                        	**length:** 0..32
-                        
-                        .. attribute:: rx_psd
-                        
-                        	Received Power spectral density in microwatts per megahertz, uW/MHz
-                        	**type**\: str
-                        
-                        	**length:** 0..32
-                        
-                        .. attribute:: tx_psd
-                        
-                        	Transmit Power spectral density in microwatts per megahertz, uW/MHz
-                        	**type**\: str
-                        
-                        	**length:** 0..32
                         
                         
 
@@ -6394,32 +7434,1332 @@ class OpticsOper(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo, self).__init__()
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, self).__init__()
 
-                            self.yang_name = "spectrum-slice-power-info"
-                            self.yang_parent_name = "spectrum-info"
+                            self.yang_name = "lo-snr"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.slice_num = YLeaf(YType.uint32, "slice-num")
-
-                            self.lower_frequency = YLeaf(YType.uint64, "lower-frequency")
-
-                            self.upper_frequency = YLeaf(YType.uint64, "upper-frequency")
-
-                            self.rx_power = YLeaf(YType.str, "rx-power")
-
-                            self.tx_power = YLeaf(YType.str, "tx-power")
-
-                            self.rx_psd = YLeaf(YType.str, "rx-psd")
-
-                            self.tx_psd = YLeaf(YType.str, "tx-psd")
-                            self._segment_path = lambda: "spectrum-slice-power-info"
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-snr"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, ['is_detected', 'counter'], name, value)
+
+
+                    class HiSnr1(Entity):
+                        """
+                        High SNR Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, self).__init__()
+
+                            self.yang_name = "hi-snr1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-snr1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, ['is_detected', 'counter'], name, value)
+
+
+                    class LoSnr1(Entity):
+                        """
+                        Low SNR Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, self).__init__()
+
+                            self.yang_name = "lo-snr1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-snr1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, ['is_detected', 'counter'], name, value)
+
+
+                    class HiSnr2(Entity):
+                        """
+                        High SNR Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, self).__init__()
+
+                            self.yang_name = "hi-snr2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-snr2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, ['is_detected', 'counter'], name, value)
+
+
+                    class LoIsi1(Entity):
+                        """
+                        Low ISI Correction Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, self).__init__()
+
+                            self.yang_name = "lo-isi1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-isi1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, ['is_detected', 'counter'], name, value)
+
+
+                    class HiIsi1(Entity):
+                        """
+                        High ISI Correction Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, self).__init__()
+
+                            self.yang_name = "hi-isi1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-isi1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, ['is_detected', 'counter'], name, value)
+
+
+                    class LoIsi2(Entity):
+                        """
+                        Low ISI Correction Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, self).__init__()
+
+                            self.yang_name = "lo-isi2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-isi2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, ['is_detected', 'counter'], name, value)
+
+
+                    class HiIsi2(Entity):
+                        """
+                        High ISI Correction Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, self).__init__()
+
+                            self.yang_name = "hi-isi2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-isi2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, ['is_detected', 'counter'], name, value)
+
+
+                    class LoPam1(Entity):
+                        """
+                        Low PAM Rate Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, self).__init__()
+
+                            self.yang_name = "lo-pam1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-pam1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPam1(Entity):
+                        """
+                        High PAM Rate Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, self).__init__()
+
+                            self.yang_name = "hi-pam1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pam1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, ['is_detected', 'counter'], name, value)
+
+
+                    class LoPam2(Entity):
+                        """
+                        Low PAM Rate Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, self).__init__()
+
+                            self.yang_name = "lo-pam2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-pam2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPam2(Entity):
+                        """
+                        High PAM Rate Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, self).__init__()
+
+                            self.yang_name = "hi-pam2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pam2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, ['is_detected', 'counter'], name, value)
+
+
+                    class LoTec1(Entity):
+                        """
+                        Low TEC Current Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, self).__init__()
+
+                            self.yang_name = "lo-tec1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-tec1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, ['is_detected', 'counter'], name, value)
+
+
+                    class HiTec1(Entity):
+                        """
+                        High TEC Current Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, self).__init__()
+
+                            self.yang_name = "hi-tec1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-tec1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, ['is_detected', 'counter'], name, value)
+
+
+                    class LoTec2(Entity):
+                        """
+                        Low TEC Current Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, self).__init__()
+
+                            self.yang_name = "lo-tec2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-tec2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, ['is_detected', 'counter'], name, value)
+
+
+                    class HiTec2(Entity):
+                        """
+                        High TEC Current Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, self).__init__()
+
+                            self.yang_name = "hi-tec2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-tec2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, ['is_detected', 'counter'], name, value)
+
+
+                    class LoLaserFreq1(Entity):
+                        """
+                        Low Laser Differential Frequency Alarm for Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, self).__init__()
+
+                            self.yang_name = "lo-laser-freq1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-laser-freq1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, ['is_detected', 'counter'], name, value)
+
+
+                    class HiLaserFreq1(Entity):
+                        """
+                        High Laser Differential Frequency Alarm for
+                        Lane1
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, self).__init__()
+
+                            self.yang_name = "hi-laser-freq1"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-laser-freq1"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, ['is_detected', 'counter'], name, value)
+
+
+                    class LoLaserFreq2(Entity):
+                        """
+                        Low Laser Differential Frequency Alarm for Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, self).__init__()
+
+                            self.yang_name = "lo-laser-freq2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "lo-laser-freq2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, ['is_detected', 'counter'], name, value)
+
+
+                    class HiLaserFreq2(Entity):
+                        """
+                        High Laser Differential Frequency Alarm for
+                        Lane2
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, self).__init__()
+
+                            self.yang_name = "hi-laser-freq2"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-laser-freq2"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPreFecberCurAcc(Entity):
+                        """
+                        High Pre FEC BER Current Accumulated Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, self).__init__()
+
+                            self.yang_name = "hi-pre-fecber-cur-acc"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pre-fecber-cur-acc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPreFecberMin(Entity):
+                        """
+                        High Pre FEC BER Min Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, self).__init__()
+
+                            self.yang_name = "hi-pre-fecber-min"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pre-fecber-min"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPreFecberMax(Entity):
+                        """
+                        High Pre FEC BER Max Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, self).__init__()
+
+                            self.yang_name = "hi-pre-fecber-max"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pre-fecber-max"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPreFecberPriorAcc(Entity):
+                        """
+                        High Pre FEC BER Prior Accumulated Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, self).__init__()
+
+                            self.yang_name = "hi-pre-fecber-prior-acc"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pre-fecber-prior-acc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, ['is_detected', 'counter'], name, value)
+
+
+                    class HiPreFecberCur(Entity):
+                        """
+                        High Pre FEC BER Current Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, self).__init__()
+
+                            self.yang_name = "hi-pre-fecber-cur"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-pre-fecber-cur"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, ['is_detected', 'counter'], name, value)
+
+
+                    class HiUncorrectedBerCurAcc(Entity):
+                        """
+                        High Uncorrected BER Current Accumulated Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, self).__init__()
+
+                            self.yang_name = "hi-uncorrected-ber-cur-acc"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-uncorrected-ber-cur-acc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, ['is_detected', 'counter'], name, value)
+
+
+                    class HiUncorrectedBerMin(Entity):
+                        """
+                        High Uncorrected BER Min Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, self).__init__()
+
+                            self.yang_name = "hi-uncorrected-ber-min"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-uncorrected-ber-min"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, ['is_detected', 'counter'], name, value)
+
+
+                    class HiUncorrectedBerMax(Entity):
+                        """
+                        High Uncorrected BER Max Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, self).__init__()
+
+                            self.yang_name = "hi-uncorrected-ber-max"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-uncorrected-ber-max"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, ['is_detected', 'counter'], name, value)
+
+
+                    class HiUncorrectedBerPriorAcc(Entity):
+                        """
+                        High Uncorrected BER Prior Accumulated Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, self).__init__()
+
+                            self.yang_name = "hi-uncorrected-ber-prior-acc"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-uncorrected-ber-prior-acc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, ['is_detected', 'counter'], name, value)
+
+
+                    class HiUncorrectedBerCur(Entity):
+                        """
+                        High Uncorrected BER Current Alarm
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\: bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, self).__init__()
+
+                            self.yang_name = "hi-uncorrected-ber-cur"
+                            self.yang_parent_name = "extended-alarm-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('counter', YLeaf(YType.uint32, 'counter')),
+                            ])
+                            self.is_detected = None
+                            self.counter = None
+                            self._segment_path = lambda: "hi-uncorrected-ber-cur"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, ['is_detected', 'counter'], name, value)
 
 
                 class LaneData(Entity):
@@ -6510,26 +8850,29 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"lane-alarm-info" : ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo)}
-                        self._child_list_classes = {}
-
-                        self.lane_index = YLeaf(YType.uint32, "lane-index")
-
-                        self.laser_bias_current_percent = YLeaf(YType.uint32, "laser-bias-current-percent")
-
-                        self.laser_bias_current_milli_amps = YLeaf(YType.uint32, "laser-bias-current-milli-amps")
-
-                        self.transmit_power = YLeaf(YType.int32, "transmit-power")
-
-                        self.receive_power = YLeaf(YType.int32, "receive-power")
-
-                        self.receive_signal_power = YLeaf(YType.int32, "receive-signal-power")
-
-                        self.transmit_signal_power = YLeaf(YType.int32, "transmit-signal-power")
-
-                        self.output_frequency = YLeaf(YType.int32, "output-frequency")
-
-                        self.frequency_offset = YLeaf(YType.int32, "frequency-offset")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lane_index', YLeaf(YType.uint32, 'lane-index')),
+                            ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
+                            ('laser_bias_current_milli_amps', YLeaf(YType.uint32, 'laser-bias-current-milli-amps')),
+                            ('transmit_power', YLeaf(YType.int32, 'transmit-power')),
+                            ('receive_power', YLeaf(YType.int32, 'receive-power')),
+                            ('receive_signal_power', YLeaf(YType.int32, 'receive-signal-power')),
+                            ('transmit_signal_power', YLeaf(YType.int32, 'transmit-signal-power')),
+                            ('output_frequency', YLeaf(YType.int32, 'output-frequency')),
+                            ('frequency_offset', YLeaf(YType.int32, 'frequency-offset')),
+                        ])
+                        self.lane_index = None
+                        self.laser_bias_current_percent = None
+                        self.laser_bias_current_milli_amps = None
+                        self.transmit_power = None
+                        self.receive_power = None
+                        self.receive_signal_power = None
+                        self.transmit_signal_power = None
+                        self.output_frequency = None
+                        self.frequency_offset = None
 
                         self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo()
                         self.lane_alarm_info.parent = self
@@ -6584,8 +8927,10 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "lane-data"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"high-rx-power" : ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower), "low-rx-power" : ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower), "high-tx-power" : ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower), "low-tx-power" : ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower), "high-lbc" : ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower()
                             self.high_rx_power.parent = self
@@ -6644,12 +8989,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-rx-power"
 
                             def __setattr__(self, name, value):
@@ -6686,12 +9034,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "low-rx-power"
 
                             def __setattr__(self, name, value):
@@ -6728,12 +9079,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-tx-power"
 
                             def __setattr__(self, name, value):
@@ -6770,12 +9124,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "low-tx-power"
 
                             def __setattr__(self, name, value):
@@ -6812,12 +9169,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-lbc"
 
                             def __setattr__(self, name, value):
@@ -6847,8 +9207,10 @@ class OpticsOper(Entity):
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"optics-lane" : ("optics_lane", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("optics-lane", ("optics_lane", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane))])
+                    self._leafs = OrderedDict()
 
                     self.optics_lane = YList(self)
                     self._segment_path = lambda: "optics-lanes"
@@ -6861,7 +9223,7 @@ class OpticsOper(Entity):
                     """
                     Lane Information
                     
-                    .. attribute:: number  <key>
+                    .. attribute:: number  (key)
                     
                     	Lane Index
                     	**type**\: int
@@ -6952,34 +9314,37 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-lanes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"lane-alarm-info" : ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo)}
-                        self._child_list_classes = {}
-
-                        self.number = YLeaf(YType.int32, "number")
-
-                        self.lane_index = YLeaf(YType.uint32, "lane-index")
-
-                        self.laser_bias_current_percent = YLeaf(YType.uint32, "laser-bias-current-percent")
-
-                        self.laser_bias_current_milli_amps = YLeaf(YType.uint32, "laser-bias-current-milli-amps")
-
-                        self.transmit_power = YLeaf(YType.int32, "transmit-power")
-
-                        self.receive_power = YLeaf(YType.int32, "receive-power")
-
-                        self.receive_signal_power = YLeaf(YType.int32, "receive-signal-power")
-
-                        self.transmit_signal_power = YLeaf(YType.int32, "transmit-signal-power")
-
-                        self.output_frequency = YLeaf(YType.int32, "output-frequency")
-
-                        self.frequency_offset = YLeaf(YType.int32, "frequency-offset")
+                        self.ylist_key_names = ['number']
+                        self._child_container_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('number', YLeaf(YType.int32, 'number')),
+                            ('lane_index', YLeaf(YType.uint32, 'lane-index')),
+                            ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
+                            ('laser_bias_current_milli_amps', YLeaf(YType.uint32, 'laser-bias-current-milli-amps')),
+                            ('transmit_power', YLeaf(YType.int32, 'transmit-power')),
+                            ('receive_power', YLeaf(YType.int32, 'receive-power')),
+                            ('receive_signal_power', YLeaf(YType.int32, 'receive-signal-power')),
+                            ('transmit_signal_power', YLeaf(YType.int32, 'transmit-signal-power')),
+                            ('output_frequency', YLeaf(YType.int32, 'output-frequency')),
+                            ('frequency_offset', YLeaf(YType.int32, 'frequency-offset')),
+                        ])
+                        self.number = None
+                        self.lane_index = None
+                        self.laser_bias_current_percent = None
+                        self.laser_bias_current_milli_amps = None
+                        self.transmit_power = None
+                        self.receive_power = None
+                        self.receive_signal_power = None
+                        self.transmit_signal_power = None
+                        self.output_frequency = None
+                        self.frequency_offset = None
 
                         self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo()
                         self.lane_alarm_info.parent = self
                         self._children_name_map["lane_alarm_info"] = "lane-alarm-info"
                         self._children_yang_names.add("lane-alarm-info")
-                        self._segment_path = lambda: "optics-lane" + "[number='" + self.number.get() + "']"
+                        self._segment_path = lambda: "optics-lane" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', 'lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
@@ -7028,8 +9393,10 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "optics-lane"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"high-rx-power" : ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower), "low-rx-power" : ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower), "high-tx-power" : ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower), "low-tx-power" : ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower), "high-lbc" : ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("high-rx-power", ("high_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower)), ("low-rx-power", ("low_rx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower)), ("high-tx-power", ("high_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower)), ("low-tx-power", ("low_tx_power", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower)), ("high-lbc", ("high_lbc", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower()
                             self.high_rx_power.parent = self
@@ -7088,12 +9455,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-rx-power"
 
                             def __setattr__(self, name, value):
@@ -7130,12 +9500,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "low-rx-power"
 
                             def __setattr__(self, name, value):
@@ -7172,12 +9545,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-tx-power"
 
                             def __setattr__(self, name, value):
@@ -7214,12 +9590,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "low-tx-power"
 
                             def __setattr__(self, name, value):
@@ -7256,12 +9635,15 @@ class OpticsOper(Entity):
                                 self.yang_parent_name = "lane-alarm-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                                self.counter = YLeaf(YType.uint32, "counter")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                ])
+                                self.is_detected = None
+                                self.counter = None
                                 self._segment_path = lambda: "high-lbc"
 
                             def __setattr__(self, name, value):
@@ -7301,12 +9683,15 @@ class OpticsOper(Entity):
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"network-srlg-info" : ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo)}
-                    self._child_list_classes = {}
-
-                    self.transport_admin_state = YLeaf(YType.enumeration, "transport-admin-state")
-
-                    self.controller_state = YLeaf(YType.enumeration, "controller-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
+                        ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
+                    ])
+                    self.transport_admin_state = None
+                    self.controller_state = None
 
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
@@ -7341,8 +9726,10 @@ class OpticsOper(Entity):
                         self.yang_parent_name = "optics-db-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"network-srlg-array" : ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("network-srlg-array", ("network_srlg_array", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray))])
+                        self._leafs = OrderedDict()
 
                         self.network_srlg_array = YList(self)
                         self._segment_path = lambda: "network-srlg-info"
@@ -7383,12 +9770,15 @@ class OpticsOper(Entity):
                             self.yang_parent_name = "network-srlg-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_number = YLeaf(YType.uint32, "set-number")
-
-                            self.network_srlg = YLeafList(YType.uint32, "network-srlg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('set_number', YLeaf(YType.uint32, 'set-number')),
+                                ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
+                            ])
+                            self.set_number = None
+                            self.network_srlg = []
                             self._segment_path = lambda: "network-srlg-array"
 
                         def __setattr__(self, name, value):

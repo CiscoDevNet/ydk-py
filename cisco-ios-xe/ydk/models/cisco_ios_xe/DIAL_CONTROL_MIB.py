@@ -4,6 +4,8 @@ The MIB module to describe peer information for
 demand access and possibly other kinds of interfaces.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -55,8 +57,10 @@ class DIALCONTROLMIB(Entity):
         self.yang_parent_name = "DIAL-CONTROL-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dialCtlConfiguration" : ("dialctlconfiguration", DIALCONTROLMIB.Dialctlconfiguration), "callHistory" : ("callhistory", DIALCONTROLMIB.Callhistory), "dialCtlPeerCfgTable" : ("dialctlpeercfgtable", DIALCONTROLMIB.Dialctlpeercfgtable), "callActiveTable" : ("callactivetable", DIALCONTROLMIB.Callactivetable), "callHistoryTable" : ("callhistorytable", DIALCONTROLMIB.Callhistorytable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dialCtlConfiguration", ("dialctlconfiguration", DIALCONTROLMIB.Dialctlconfiguration)), ("callHistory", ("callhistory", DIALCONTROLMIB.Callhistory)), ("dialCtlPeerCfgTable", ("dialctlpeercfgtable", DIALCONTROLMIB.Dialctlpeercfgtable)), ("callActiveTable", ("callactivetable", DIALCONTROLMIB.Callactivetable)), ("callHistoryTable", ("callhistorytable", DIALCONTROLMIB.Callhistorytable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dialctlconfiguration = DIALCONTROLMIB.Dialctlconfiguration()
         self.dialctlconfiguration.parent = self
@@ -113,12 +117,15 @@ class DIALCONTROLMIB(Entity):
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.dialctlacceptmode = YLeaf(YType.enumeration, "dialCtlAcceptMode")
-
-            self.dialctltrapenable = YLeaf(YType.enumeration, "dialCtlTrapEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('dialctlacceptmode', YLeaf(YType.enumeration, 'dialCtlAcceptMode')),
+                ('dialctltrapenable', YLeaf(YType.enumeration, 'dialCtlTrapEnable')),
+            ])
+            self.dialctlacceptmode = None
+            self.dialctltrapenable = None
             self._segment_path = lambda: "dialCtlConfiguration"
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -127,7 +134,7 @@ class DIALCONTROLMIB(Entity):
 
         class Dialctlacceptmode(Enum):
             """
-            Dialctlacceptmode
+            Dialctlacceptmode (Enum Class)
 
             The security level for acceptance of incoming calls.
 
@@ -162,7 +169,7 @@ class DIALCONTROLMIB(Entity):
 
         class Dialctltrapenable(Enum):
             """
-            Dialctltrapenable
+            Dialctltrapenable (Enum Class)
 
             This object indicates whether dialCtlPeerCallInformation
 
@@ -224,12 +231,15 @@ class DIALCONTROLMIB(Entity):
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.callhistorytablemaxlength = YLeaf(YType.int32, "callHistoryTableMaxLength")
-
-            self.callhistoryretaintimer = YLeaf(YType.int32, "callHistoryRetainTimer")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('callhistorytablemaxlength', YLeaf(YType.int32, 'callHistoryTableMaxLength')),
+                ('callhistoryretaintimer', YLeaf(YType.int32, 'callHistoryRetainTimer')),
+            ])
+            self.callhistorytablemaxlength = None
+            self.callhistoryretaintimer = None
             self._segment_path = lambda: "callHistory"
             self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -261,8 +271,10 @@ class DIALCONTROLMIB(Entity):
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dialCtlPeerCfgEntry" : ("dialctlpeercfgentry", DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dialCtlPeerCfgEntry", ("dialctlpeercfgentry", DIALCONTROLMIB.Dialctlpeercfgtable.Dialctlpeercfgentry))])
+            self._leafs = OrderedDict()
 
             self.dialctlpeercfgentry = YList(self)
             self._segment_path = lambda: "dialCtlPeerCfgTable"
@@ -287,14 +299,14 @@ class DIALCONTROLMIB(Entity):
             An entry in this table can only be created if the
             associated ifEntry already exists.
             
-            .. attribute:: dialctlpeercfgid  <key>
+            .. attribute:: dialctlpeercfgid  (key)
             
             	This object identifies a single peer. There may be several entries in this table for one peer, defining different ways of reaching this peer. Thus, there may be several entries in this table with the same value of dialCtlPeerCfgId. Multiple entries for one peer may be used to support multilink as well as backup lines. A single peer will be identified by a unique value of this object. Several entries for one peer MUST have the same value of dialCtlPeerCfgId, but different ifEntries and thus different values of ifIndex
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -496,67 +508,70 @@ class DIALCONTROLMIB(Entity):
                 self.yang_parent_name = "dialCtlPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dialctlpeercfgid = YLeaf(YType.int32, "dialCtlPeerCfgId")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.dialctlpeercfgiftype = YLeaf(YType.enumeration, "dialCtlPeerCfgIfType")
-
-                self.dialctlpeercfglowerif = YLeaf(YType.int32, "dialCtlPeerCfgLowerIf")
-
-                self.dialctlpeercfgoriginateaddress = YLeaf(YType.str, "dialCtlPeerCfgOriginateAddress")
-
-                self.dialctlpeercfgansweraddress = YLeaf(YType.str, "dialCtlPeerCfgAnswerAddress")
-
-                self.dialctlpeercfgsubaddress = YLeaf(YType.str, "dialCtlPeerCfgSubAddress")
-
-                self.dialctlpeercfgclosedusergroup = YLeaf(YType.str, "dialCtlPeerCfgClosedUserGroup")
-
-                self.dialctlpeercfgspeed = YLeaf(YType.int32, "dialCtlPeerCfgSpeed")
-
-                self.dialctlpeercfginfotype = YLeaf(YType.enumeration, "dialCtlPeerCfgInfoType")
-
-                self.dialctlpeercfgpermission = YLeaf(YType.enumeration, "dialCtlPeerCfgPermission")
-
-                self.dialctlpeercfginactivitytimer = YLeaf(YType.int32, "dialCtlPeerCfgInactivityTimer")
-
-                self.dialctlpeercfgminduration = YLeaf(YType.int32, "dialCtlPeerCfgMinDuration")
-
-                self.dialctlpeercfgmaxduration = YLeaf(YType.int32, "dialCtlPeerCfgMaxDuration")
-
-                self.dialctlpeercfgcarrierdelay = YLeaf(YType.int32, "dialCtlPeerCfgCarrierDelay")
-
-                self.dialctlpeercfgcallretries = YLeaf(YType.int32, "dialCtlPeerCfgCallRetries")
-
-                self.dialctlpeercfgretrydelay = YLeaf(YType.int32, "dialCtlPeerCfgRetryDelay")
-
-                self.dialctlpeercfgfailuredelay = YLeaf(YType.int32, "dialCtlPeerCfgFailureDelay")
-
-                self.dialctlpeercfgtrapenable = YLeaf(YType.enumeration, "dialCtlPeerCfgTrapEnable")
-
-                self.dialctlpeercfgstatus = YLeaf(YType.enumeration, "dialCtlPeerCfgStatus")
-
-                self.dialctlpeerstatsconnecttime = YLeaf(YType.uint32, "dialCtlPeerStatsConnectTime")
-
-                self.dialctlpeerstatschargedunits = YLeaf(YType.uint32, "dialCtlPeerStatsChargedUnits")
-
-                self.dialctlpeerstatssuccesscalls = YLeaf(YType.uint32, "dialCtlPeerStatsSuccessCalls")
-
-                self.dialctlpeerstatsfailcalls = YLeaf(YType.uint32, "dialCtlPeerStatsFailCalls")
-
-                self.dialctlpeerstatsacceptcalls = YLeaf(YType.uint32, "dialCtlPeerStatsAcceptCalls")
-
-                self.dialctlpeerstatsrefusecalls = YLeaf(YType.uint32, "dialCtlPeerStatsRefuseCalls")
-
-                self.dialctlpeerstatslastdisconnectcause = YLeaf(YType.str, "dialCtlPeerStatsLastDisconnectCause")
-
-                self.dialctlpeerstatslastdisconnecttext = YLeaf(YType.str, "dialCtlPeerStatsLastDisconnectText")
-
-                self.dialctlpeerstatslastsetuptime = YLeaf(YType.uint32, "dialCtlPeerStatsLastSetupTime")
-                self._segment_path = lambda: "dialCtlPeerCfgEntry" + "[dialCtlPeerCfgId='" + self.dialctlpeercfgid.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['dialctlpeercfgid','ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dialctlpeercfgid', YLeaf(YType.int32, 'dialCtlPeerCfgId')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('dialctlpeercfgiftype', YLeaf(YType.enumeration, 'dialCtlPeerCfgIfType')),
+                    ('dialctlpeercfglowerif', YLeaf(YType.int32, 'dialCtlPeerCfgLowerIf')),
+                    ('dialctlpeercfgoriginateaddress', YLeaf(YType.str, 'dialCtlPeerCfgOriginateAddress')),
+                    ('dialctlpeercfgansweraddress', YLeaf(YType.str, 'dialCtlPeerCfgAnswerAddress')),
+                    ('dialctlpeercfgsubaddress', YLeaf(YType.str, 'dialCtlPeerCfgSubAddress')),
+                    ('dialctlpeercfgclosedusergroup', YLeaf(YType.str, 'dialCtlPeerCfgClosedUserGroup')),
+                    ('dialctlpeercfgspeed', YLeaf(YType.int32, 'dialCtlPeerCfgSpeed')),
+                    ('dialctlpeercfginfotype', YLeaf(YType.enumeration, 'dialCtlPeerCfgInfoType')),
+                    ('dialctlpeercfgpermission', YLeaf(YType.enumeration, 'dialCtlPeerCfgPermission')),
+                    ('dialctlpeercfginactivitytimer', YLeaf(YType.int32, 'dialCtlPeerCfgInactivityTimer')),
+                    ('dialctlpeercfgminduration', YLeaf(YType.int32, 'dialCtlPeerCfgMinDuration')),
+                    ('dialctlpeercfgmaxduration', YLeaf(YType.int32, 'dialCtlPeerCfgMaxDuration')),
+                    ('dialctlpeercfgcarrierdelay', YLeaf(YType.int32, 'dialCtlPeerCfgCarrierDelay')),
+                    ('dialctlpeercfgcallretries', YLeaf(YType.int32, 'dialCtlPeerCfgCallRetries')),
+                    ('dialctlpeercfgretrydelay', YLeaf(YType.int32, 'dialCtlPeerCfgRetryDelay')),
+                    ('dialctlpeercfgfailuredelay', YLeaf(YType.int32, 'dialCtlPeerCfgFailureDelay')),
+                    ('dialctlpeercfgtrapenable', YLeaf(YType.enumeration, 'dialCtlPeerCfgTrapEnable')),
+                    ('dialctlpeercfgstatus', YLeaf(YType.enumeration, 'dialCtlPeerCfgStatus')),
+                    ('dialctlpeerstatsconnecttime', YLeaf(YType.uint32, 'dialCtlPeerStatsConnectTime')),
+                    ('dialctlpeerstatschargedunits', YLeaf(YType.uint32, 'dialCtlPeerStatsChargedUnits')),
+                    ('dialctlpeerstatssuccesscalls', YLeaf(YType.uint32, 'dialCtlPeerStatsSuccessCalls')),
+                    ('dialctlpeerstatsfailcalls', YLeaf(YType.uint32, 'dialCtlPeerStatsFailCalls')),
+                    ('dialctlpeerstatsacceptcalls', YLeaf(YType.uint32, 'dialCtlPeerStatsAcceptCalls')),
+                    ('dialctlpeerstatsrefusecalls', YLeaf(YType.uint32, 'dialCtlPeerStatsRefuseCalls')),
+                    ('dialctlpeerstatslastdisconnectcause', YLeaf(YType.str, 'dialCtlPeerStatsLastDisconnectCause')),
+                    ('dialctlpeerstatslastdisconnecttext', YLeaf(YType.str, 'dialCtlPeerStatsLastDisconnectText')),
+                    ('dialctlpeerstatslastsetuptime', YLeaf(YType.uint32, 'dialCtlPeerStatsLastSetupTime')),
+                ])
+                self.dialctlpeercfgid = None
+                self.ifindex = None
+                self.dialctlpeercfgiftype = None
+                self.dialctlpeercfglowerif = None
+                self.dialctlpeercfgoriginateaddress = None
+                self.dialctlpeercfgansweraddress = None
+                self.dialctlpeercfgsubaddress = None
+                self.dialctlpeercfgclosedusergroup = None
+                self.dialctlpeercfgspeed = None
+                self.dialctlpeercfginfotype = None
+                self.dialctlpeercfgpermission = None
+                self.dialctlpeercfginactivitytimer = None
+                self.dialctlpeercfgminduration = None
+                self.dialctlpeercfgmaxduration = None
+                self.dialctlpeercfgcarrierdelay = None
+                self.dialctlpeercfgcallretries = None
+                self.dialctlpeercfgretrydelay = None
+                self.dialctlpeercfgfailuredelay = None
+                self.dialctlpeercfgtrapenable = None
+                self.dialctlpeercfgstatus = None
+                self.dialctlpeerstatsconnecttime = None
+                self.dialctlpeerstatschargedunits = None
+                self.dialctlpeerstatssuccesscalls = None
+                self.dialctlpeerstatsfailcalls = None
+                self.dialctlpeerstatsacceptcalls = None
+                self.dialctlpeerstatsrefusecalls = None
+                self.dialctlpeerstatslastdisconnectcause = None
+                self.dialctlpeerstatslastdisconnecttext = None
+                self.dialctlpeerstatslastsetuptime = None
+                self._segment_path = lambda: "dialCtlPeerCfgEntry" + "[dialCtlPeerCfgId='" + str(self.dialctlpeercfgid) + "']" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/dialCtlPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -564,7 +579,7 @@ class DIALCONTROLMIB(Entity):
 
             class Dialctlpeercfginfotype(Enum):
                 """
-                Dialctlpeercfginfotype
+                Dialctlpeercfginfotype (Enum Class)
 
                 The Information Transfer Capability to be used when
 
@@ -621,7 +636,7 @@ class DIALCONTROLMIB(Entity):
 
             class Dialctlpeercfgpermission(Enum):
                 """
-                Dialctlpeercfgpermission
+                Dialctlpeercfgpermission (Enum Class)
 
                 Applicable permissions. callback(4) either rejects the
 
@@ -662,7 +677,7 @@ class DIALCONTROLMIB(Entity):
 
             class Dialctlpeercfgtrapenable(Enum):
                 """
-                Dialctlpeercfgtrapenable
+                Dialctlpeercfgtrapenable (Enum Class)
 
                 This object indicates whether dialCtlPeerCallInformation
 
@@ -706,8 +721,10 @@ class DIALCONTROLMIB(Entity):
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"callActiveEntry" : ("callactiveentry", DIALCONTROLMIB.Callactivetable.Callactiveentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("callActiveEntry", ("callactiveentry", DIALCONTROLMIB.Callactivetable.Callactiveentry))])
+            self._leafs = OrderedDict()
 
             self.callactiveentry = YList(self)
             self._segment_path = lambda: "callActiveTable"
@@ -724,14 +741,14 @@ class DIALCONTROLMIB(Entity):
             started. An entry in this table will be deleted when
             an active call clears.
             
-            .. attribute:: callactivesetuptime  <key>
+            .. attribute:: callactivesetuptime  (key)
             
             	The value of sysUpTime when the call associated to this entry was started. This will be useful for an NMS to retrieve all calls after a specific time. Also, this object can be useful in finding large delays between the time the call was started and the time the call was connected. For ISDN media, this will be the time when the setup message was received from or sent to the network
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: callactiveindex  <key>
+            .. attribute:: callactiveindex  (key)
             
             	Small index variable to distinguish calls that start in the same hundredth of a second
             	**type**\: int
@@ -840,41 +857,44 @@ class DIALCONTROLMIB(Entity):
                 self.yang_parent_name = "callActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.callactivesetuptime = YLeaf(YType.uint32, "callActiveSetupTime")
-
-                self.callactiveindex = YLeaf(YType.int32, "callActiveIndex")
-
-                self.callactivepeeraddress = YLeaf(YType.str, "callActivePeerAddress")
-
-                self.callactivepeersubaddress = YLeaf(YType.str, "callActivePeerSubAddress")
-
-                self.callactivepeerid = YLeaf(YType.int32, "callActivePeerId")
-
-                self.callactivepeerifindex = YLeaf(YType.int32, "callActivePeerIfIndex")
-
-                self.callactivelogicalifindex = YLeaf(YType.int32, "callActiveLogicalIfIndex")
-
-                self.callactiveconnecttime = YLeaf(YType.uint32, "callActiveConnectTime")
-
-                self.callactivecallstate = YLeaf(YType.enumeration, "callActiveCallState")
-
-                self.callactivecallorigin = YLeaf(YType.enumeration, "callActiveCallOrigin")
-
-                self.callactivechargedunits = YLeaf(YType.uint32, "callActiveChargedUnits")
-
-                self.callactiveinfotype = YLeaf(YType.enumeration, "callActiveInfoType")
-
-                self.callactivetransmitpackets = YLeaf(YType.uint32, "callActiveTransmitPackets")
-
-                self.callactivetransmitbytes = YLeaf(YType.uint32, "callActiveTransmitBytes")
-
-                self.callactivereceivepackets = YLeaf(YType.uint32, "callActiveReceivePackets")
-
-                self.callactivereceivebytes = YLeaf(YType.uint32, "callActiveReceiveBytes")
-                self._segment_path = lambda: "callActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
+                self.ylist_key_names = ['callactivesetuptime','callactiveindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('callactivesetuptime', YLeaf(YType.uint32, 'callActiveSetupTime')),
+                    ('callactiveindex', YLeaf(YType.int32, 'callActiveIndex')),
+                    ('callactivepeeraddress', YLeaf(YType.str, 'callActivePeerAddress')),
+                    ('callactivepeersubaddress', YLeaf(YType.str, 'callActivePeerSubAddress')),
+                    ('callactivepeerid', YLeaf(YType.int32, 'callActivePeerId')),
+                    ('callactivepeerifindex', YLeaf(YType.int32, 'callActivePeerIfIndex')),
+                    ('callactivelogicalifindex', YLeaf(YType.int32, 'callActiveLogicalIfIndex')),
+                    ('callactiveconnecttime', YLeaf(YType.uint32, 'callActiveConnectTime')),
+                    ('callactivecallstate', YLeaf(YType.enumeration, 'callActiveCallState')),
+                    ('callactivecallorigin', YLeaf(YType.enumeration, 'callActiveCallOrigin')),
+                    ('callactivechargedunits', YLeaf(YType.uint32, 'callActiveChargedUnits')),
+                    ('callactiveinfotype', YLeaf(YType.enumeration, 'callActiveInfoType')),
+                    ('callactivetransmitpackets', YLeaf(YType.uint32, 'callActiveTransmitPackets')),
+                    ('callactivetransmitbytes', YLeaf(YType.uint32, 'callActiveTransmitBytes')),
+                    ('callactivereceivepackets', YLeaf(YType.uint32, 'callActiveReceivePackets')),
+                    ('callactivereceivebytes', YLeaf(YType.uint32, 'callActiveReceiveBytes')),
+                ])
+                self.callactivesetuptime = None
+                self.callactiveindex = None
+                self.callactivepeeraddress = None
+                self.callactivepeersubaddress = None
+                self.callactivepeerid = None
+                self.callactivepeerifindex = None
+                self.callactivelogicalifindex = None
+                self.callactiveconnecttime = None
+                self.callactivecallstate = None
+                self.callactivecallorigin = None
+                self.callactivechargedunits = None
+                self.callactiveinfotype = None
+                self.callactivetransmitpackets = None
+                self.callactivetransmitbytes = None
+                self.callactivereceivepackets = None
+                self.callactivereceivebytes = None
+                self._segment_path = lambda: "callActiveEntry" + "[callActiveSetupTime='" + str(self.callactivesetuptime) + "']" + "[callActiveIndex='" + str(self.callactiveindex) + "']"
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/callActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -882,7 +902,7 @@ class DIALCONTROLMIB(Entity):
 
             class Callactivecallorigin(Enum):
                 """
-                Callactivecallorigin
+                Callactivecallorigin (Enum Class)
 
                 The call origin.
 
@@ -903,7 +923,7 @@ class DIALCONTROLMIB(Entity):
 
             class Callactivecallstate(Enum):
                 """
-                Callactivecallstate
+                Callactivecallstate (Enum Class)
 
                 The current call state.
 
@@ -940,7 +960,7 @@ class DIALCONTROLMIB(Entity):
 
             class Callactiveinfotype(Enum):
                 """
-                Callactiveinfotype
+                Callactiveinfotype (Enum Class)
 
                 The information type for this call.
 
@@ -1012,8 +1032,10 @@ class DIALCONTROLMIB(Entity):
             self.yang_parent_name = "DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"callHistoryEntry" : ("callhistoryentry", DIALCONTROLMIB.Callhistorytable.Callhistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("callHistoryEntry", ("callhistoryentry", DIALCONTROLMIB.Callhistorytable.Callhistoryentry))])
+            self._leafs = OrderedDict()
 
             self.callhistoryentry = YList(self)
             self._segment_path = lambda: "callHistoryTable"
@@ -1027,7 +1049,7 @@ class DIALCONTROLMIB(Entity):
             """
             The information regarding a single Connection.
             
-            .. attribute:: callactivesetuptime  <key>
+            .. attribute:: callactivesetuptime  (key)
             
             	
             	**type**\: int
@@ -1036,7 +1058,7 @@ class DIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
-            .. attribute:: callactiveindex  <key>
+            .. attribute:: callactiveindex  (key)
             
             	
             	**type**\: int
@@ -1161,45 +1183,48 @@ class DIALCONTROLMIB(Entity):
                 self.yang_parent_name = "callHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
-
-                self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
-
-                self.callhistorypeeraddress = YLeaf(YType.str, "callHistoryPeerAddress")
-
-                self.callhistorypeersubaddress = YLeaf(YType.str, "callHistoryPeerSubAddress")
-
-                self.callhistorypeerid = YLeaf(YType.int32, "callHistoryPeerId")
-
-                self.callhistorypeerifindex = YLeaf(YType.int32, "callHistoryPeerIfIndex")
-
-                self.callhistorylogicalifindex = YLeaf(YType.int32, "callHistoryLogicalIfIndex")
-
-                self.callhistorydisconnectcause = YLeaf(YType.str, "callHistoryDisconnectCause")
-
-                self.callhistorydisconnecttext = YLeaf(YType.str, "callHistoryDisconnectText")
-
-                self.callhistoryconnecttime = YLeaf(YType.uint32, "callHistoryConnectTime")
-
-                self.callhistorydisconnecttime = YLeaf(YType.uint32, "callHistoryDisconnectTime")
-
-                self.callhistorycallorigin = YLeaf(YType.enumeration, "callHistoryCallOrigin")
-
-                self.callhistorychargedunits = YLeaf(YType.uint32, "callHistoryChargedUnits")
-
-                self.callhistoryinfotype = YLeaf(YType.enumeration, "callHistoryInfoType")
-
-                self.callhistorytransmitpackets = YLeaf(YType.uint32, "callHistoryTransmitPackets")
-
-                self.callhistorytransmitbytes = YLeaf(YType.uint32, "callHistoryTransmitBytes")
-
-                self.callhistoryreceivepackets = YLeaf(YType.uint32, "callHistoryReceivePackets")
-
-                self.callhistoryreceivebytes = YLeaf(YType.uint32, "callHistoryReceiveBytes")
-                self._segment_path = lambda: "callHistoryEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
+                self.ylist_key_names = ['callactivesetuptime','callactiveindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
+                    ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
+                    ('callhistorypeeraddress', YLeaf(YType.str, 'callHistoryPeerAddress')),
+                    ('callhistorypeersubaddress', YLeaf(YType.str, 'callHistoryPeerSubAddress')),
+                    ('callhistorypeerid', YLeaf(YType.int32, 'callHistoryPeerId')),
+                    ('callhistorypeerifindex', YLeaf(YType.int32, 'callHistoryPeerIfIndex')),
+                    ('callhistorylogicalifindex', YLeaf(YType.int32, 'callHistoryLogicalIfIndex')),
+                    ('callhistorydisconnectcause', YLeaf(YType.str, 'callHistoryDisconnectCause')),
+                    ('callhistorydisconnecttext', YLeaf(YType.str, 'callHistoryDisconnectText')),
+                    ('callhistoryconnecttime', YLeaf(YType.uint32, 'callHistoryConnectTime')),
+                    ('callhistorydisconnecttime', YLeaf(YType.uint32, 'callHistoryDisconnectTime')),
+                    ('callhistorycallorigin', YLeaf(YType.enumeration, 'callHistoryCallOrigin')),
+                    ('callhistorychargedunits', YLeaf(YType.uint32, 'callHistoryChargedUnits')),
+                    ('callhistoryinfotype', YLeaf(YType.enumeration, 'callHistoryInfoType')),
+                    ('callhistorytransmitpackets', YLeaf(YType.uint32, 'callHistoryTransmitPackets')),
+                    ('callhistorytransmitbytes', YLeaf(YType.uint32, 'callHistoryTransmitBytes')),
+                    ('callhistoryreceivepackets', YLeaf(YType.uint32, 'callHistoryReceivePackets')),
+                    ('callhistoryreceivebytes', YLeaf(YType.uint32, 'callHistoryReceiveBytes')),
+                ])
+                self.callactivesetuptime = None
+                self.callactiveindex = None
+                self.callhistorypeeraddress = None
+                self.callhistorypeersubaddress = None
+                self.callhistorypeerid = None
+                self.callhistorypeerifindex = None
+                self.callhistorylogicalifindex = None
+                self.callhistorydisconnectcause = None
+                self.callhistorydisconnecttext = None
+                self.callhistoryconnecttime = None
+                self.callhistorydisconnecttime = None
+                self.callhistorycallorigin = None
+                self.callhistorychargedunits = None
+                self.callhistoryinfotype = None
+                self.callhistorytransmitpackets = None
+                self.callhistorytransmitbytes = None
+                self.callhistoryreceivepackets = None
+                self.callhistoryreceivebytes = None
+                self._segment_path = lambda: "callHistoryEntry" + "[callActiveSetupTime='" + str(self.callactivesetuptime) + "']" + "[callActiveIndex='" + str(self.callactiveindex) + "']"
                 self._absolute_path = lambda: "DIAL-CONTROL-MIB:DIAL-CONTROL-MIB/callHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1207,7 +1232,7 @@ class DIALCONTROLMIB(Entity):
 
             class Callhistorycallorigin(Enum):
                 """
-                Callhistorycallorigin
+                Callhistorycallorigin (Enum Class)
 
                 The call origin.
 
@@ -1228,7 +1253,7 @@ class DIALCONTROLMIB(Entity):
 
             class Callhistoryinfotype(Enum):
                 """
-                Callhistoryinfotype
+                Callhistoryinfotype (Enum Class)
 
                 The information type for this call.
 

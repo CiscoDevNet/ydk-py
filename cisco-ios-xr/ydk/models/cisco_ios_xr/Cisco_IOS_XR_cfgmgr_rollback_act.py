@@ -7,6 +7,8 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -38,8 +40,10 @@ class RollBackConfigurationLast(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RollBackConfigurationLast.Input()
         self.input.parent = self
@@ -99,18 +103,21 @@ class RollBackConfigurationLast(Entity):
             self.yang_parent_name = "roll-back-configuration-last"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.count = YLeaf(YType.int32, "count")
-
-            self.force = YLeaf(YType.boolean, "force")
-
-            self.best_effort = YLeaf(YType.boolean, "best-effort")
-
-            self.label = YLeaf(YType.str, "label")
-
-            self.comment = YLeaf(YType.str, "comment")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('count', YLeaf(YType.int32, 'count')),
+                ('force', YLeaf(YType.boolean, 'force')),
+                ('best_effort', YLeaf(YType.boolean, 'best-effort')),
+                ('label', YLeaf(YType.str, 'label')),
+                ('comment', YLeaf(YType.str, 'comment')),
+            ])
+            self.count = None
+            self.force = None
+            self.best_effort = None
+            self.label = None
+            self.comment = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last/%s" % self._segment_path()
 
@@ -145,8 +152,10 @@ class RollBackConfigurationTo(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RollBackConfigurationTo.Input()
         self.input.parent = self
@@ -204,18 +213,21 @@ class RollBackConfigurationTo(Entity):
             self.yang_parent_name = "roll-back-configuration-to"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.commit_id = YLeaf(YType.str, "commit-id")
-
-            self.force = YLeaf(YType.boolean, "force")
-
-            self.best_effort = YLeaf(YType.boolean, "best-effort")
-
-            self.label = YLeaf(YType.str, "label")
-
-            self.comment = YLeaf(YType.str, "comment")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('commit_id', YLeaf(YType.str, 'commit-id')),
+                ('force', YLeaf(YType.boolean, 'force')),
+                ('best_effort', YLeaf(YType.boolean, 'best-effort')),
+                ('label', YLeaf(YType.str, 'label')),
+                ('comment', YLeaf(YType.str, 'comment')),
+            ])
+            self.commit_id = None
+            self.force = None
+            self.best_effort = None
+            self.label = None
+            self.comment = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to/%s" % self._segment_path()
 
@@ -250,8 +262,10 @@ class RollBackConfigurationToExclude(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RollBackConfigurationToExclude.Input()
         self.input.parent = self
@@ -309,18 +323,21 @@ class RollBackConfigurationToExclude(Entity):
             self.yang_parent_name = "roll-back-configuration-to-exclude"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.commit_id = YLeaf(YType.str, "commit-id")
-
-            self.force = YLeaf(YType.boolean, "force")
-
-            self.best_effort = YLeaf(YType.boolean, "best-effort")
-
-            self.label = YLeaf(YType.str, "label")
-
-            self.comment = YLeaf(YType.str, "comment")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('commit_id', YLeaf(YType.str, 'commit-id')),
+                ('force', YLeaf(YType.boolean, 'force')),
+                ('best_effort', YLeaf(YType.boolean, 'best-effort')),
+                ('label', YLeaf(YType.str, 'label')),
+                ('comment', YLeaf(YType.str, 'comment')),
+            ])
+            self.commit_id = None
+            self.force = None
+            self.best_effort = None
+            self.label = None
+            self.comment = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude/%s" % self._segment_path()
 
@@ -355,8 +372,10 @@ class RollBackConfiguration(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-cfgmgr-rollback-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RollBackConfiguration.Input()
         self.input.parent = self
@@ -414,18 +433,21 @@ class RollBackConfiguration(Entity):
             self.yang_parent_name = "roll-back-configuration"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.commit_id = YLeaf(YType.str, "commit-id")
-
-            self.force = YLeaf(YType.boolean, "force")
-
-            self.best_effort = YLeaf(YType.boolean, "best-effort")
-
-            self.label = YLeaf(YType.str, "label")
-
-            self.comment = YLeaf(YType.str, "comment")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('commit_id', YLeaf(YType.str, 'commit-id')),
+                ('force', YLeaf(YType.boolean, 'force')),
+                ('best_effort', YLeaf(YType.boolean, 'best-effort')),
+                ('label', YLeaf(YType.str, 'label')),
+                ('comment', YLeaf(YType.str, 'comment')),
+            ])
+            self.commit_id = None
+            self.force = None
+            self.best_effort = None
+            self.label = None
+            self.comment = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration/%s" % self._segment_path()
 

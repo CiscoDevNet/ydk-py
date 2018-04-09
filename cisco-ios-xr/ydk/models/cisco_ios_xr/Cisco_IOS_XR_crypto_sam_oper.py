@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CertificateIssuer(Enum):
     """
-    CertificateIssuer
+    CertificateIssuer (Enum Class)
 
     Certificate issuers
 
@@ -42,7 +44,7 @@ class CertificateIssuer(Enum):
 
 class LogCode(Enum):
     """
-    LogCode
+    LogCode (Enum Class)
 
     Log code types
 
@@ -187,7 +189,7 @@ class LogCode(Enum):
 
 class LogError(Enum):
     """
-    LogError
+    LogError (Enum Class)
 
     Log errors
 
@@ -214,7 +216,7 @@ class LogError(Enum):
 
 class LogTables(Enum):
     """
-    LogTables
+    LogTables (Enum Class)
 
     Log tables
 
@@ -296,8 +298,10 @@ class Sam(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-sam-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"system-information" : ("system_information", Sam.SystemInformation), "log-contents" : ("log_contents", Sam.LogContents), "devices" : ("devices", Sam.Devices), "packages" : ("packages", Sam.Packages), "certificate-revocations" : ("certificate_revocations", Sam.CertificateRevocations), "certificate-revocation-list-summary" : ("certificate_revocation_list_summary", Sam.CertificateRevocationListSummary)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("system-information", ("system_information", Sam.SystemInformation)), ("log-contents", ("log_contents", Sam.LogContents)), ("devices", ("devices", Sam.Devices)), ("packages", ("packages", Sam.Packages)), ("certificate-revocations", ("certificate_revocations", Sam.CertificateRevocations)), ("certificate-revocation-list-summary", ("certificate_revocation_list_summary", Sam.CertificateRevocationListSummary))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.system_information = Sam.SystemInformation()
         self.system_information.parent = self
@@ -368,14 +372,17 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.is_running = YLeaf(YType.boolean, "is-running")
-
-            self.prompt_interval = YLeaf(YType.uint32, "prompt-interval")
-
-            self.is_default_response = YLeaf(YType.boolean, "is-default-response")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('is_running', YLeaf(YType.boolean, 'is-running')),
+                ('prompt_interval', YLeaf(YType.uint32, 'prompt-interval')),
+                ('is_default_response', YLeaf(YType.boolean, 'is-default-response')),
+            ])
+            self.is_running = None
+            self.prompt_interval = None
+            self.is_default_response = None
             self._segment_path = lambda: "system-information"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
 
@@ -406,8 +413,10 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"log-content" : ("log_content", Sam.LogContents.LogContent)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("log-content", ("log_content", Sam.LogContents.LogContent))])
+            self._leafs = OrderedDict()
 
             self.log_content = YList(self)
             self._segment_path = lambda: "log-contents"
@@ -421,7 +430,7 @@ class Sam(Entity):
             """
             Number of lines for SAM log message
             
-            .. attribute:: number_of_lines  <key>
+            .. attribute:: number_of_lines  (key)
             
             	Number of lines
             	**type**\: int
@@ -461,17 +470,20 @@ class Sam(Entity):
                 self.yang_parent_name = "log-contents"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"logs" : ("logs", Sam.LogContents.LogContent.Logs)}
-
-                self.number_of_lines = YLeaf(YType.int32, "number-of-lines")
-
-                self.total_entries = YLeaf(YType.uint32, "total-entries")
-
-                self.entries_shown = YLeaf(YType.uint32, "entries-shown")
+                self.ylist_key_names = ['number_of_lines']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("logs", ("logs", Sam.LogContents.LogContent.Logs))])
+                self._leafs = OrderedDict([
+                    ('number_of_lines', YLeaf(YType.int32, 'number-of-lines')),
+                    ('total_entries', YLeaf(YType.uint32, 'total-entries')),
+                    ('entries_shown', YLeaf(YType.uint32, 'entries-shown')),
+                ])
+                self.number_of_lines = None
+                self.total_entries = None
+                self.entries_shown = None
 
                 self.logs = YList(self)
-                self._segment_path = lambda: "log-content" + "[number-of-lines='" + self.number_of_lines.get() + "']"
+                self._segment_path = lambda: "log-content" + "[number-of-lines='" + str(self.number_of_lines) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/log-contents/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -555,30 +567,33 @@ class Sam(Entity):
                     self.yang_parent_name = "log-content"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.time = YLeaf(YType.str, "time")
-
-                    self.code = YLeaf(YType.enumeration, "code")
-
-                    self.target_device = YLeaf(YType.str, "target-device")
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.error = YLeaf(YType.enumeration, "error")
-
-                    self.issuer = YLeaf(YType.enumeration, "issuer")
-
-                    self.serial_no = YLeaf(YType.str, "serial-no")
-
-                    self.sam_table_index = YLeaf(YType.uint32, "sam-table-index")
-
-                    self.update_time = YLeaf(YType.str, "update-time")
-
-                    self.source_device = YLeaf(YType.str, "source-device")
-
-                    self.table = YLeaf(YType.enumeration, "table")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('time', YLeaf(YType.str, 'time')),
+                        ('code', YLeaf(YType.enumeration, 'code')),
+                        ('target_device', YLeaf(YType.str, 'target-device')),
+                        ('index', YLeaf(YType.uint32, 'index')),
+                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('issuer', YLeaf(YType.enumeration, 'issuer')),
+                        ('serial_no', YLeaf(YType.str, 'serial-no')),
+                        ('sam_table_index', YLeaf(YType.uint32, 'sam-table-index')),
+                        ('update_time', YLeaf(YType.str, 'update-time')),
+                        ('source_device', YLeaf(YType.str, 'source-device')),
+                        ('table', YLeaf(YType.enumeration, 'table')),
+                    ])
+                    self.time = None
+                    self.code = None
+                    self.target_device = None
+                    self.index = None
+                    self.error = None
+                    self.issuer = None
+                    self.serial_no = None
+                    self.sam_table_index = None
+                    self.update_time = None
+                    self.source_device = None
+                    self.table = None
                     self._segment_path = lambda: "logs"
 
                 def __setattr__(self, name, value):
@@ -608,8 +623,10 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"device" : ("device", Sam.Devices.Device)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("device", ("device", Sam.Devices.Device))])
+            self._leafs = OrderedDict()
 
             self.device = YList(self)
             self._segment_path = lambda: "devices"
@@ -623,7 +640,7 @@ class Sam(Entity):
             """
             Certificate table device information
             
-            .. attribute:: device_name  <key>
+            .. attribute:: device_name  (key)
             
             	Specify device name
             	**type**\: str
@@ -649,16 +666,19 @@ class Sam(Entity):
                 self.yang_parent_name = "devices"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"certificate" : ("certificate", Sam.Devices.Device.Certificate)}
-                self._child_list_classes = {}
-
-                self.device_name = YLeaf(YType.str, "device-name")
+                self.ylist_key_names = ['device_name']
+                self._child_container_classes = OrderedDict([("certificate", ("certificate", Sam.Devices.Device.Certificate))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('device_name', YLeaf(YType.str, 'device-name')),
+                ])
+                self.device_name = None
 
                 self.certificate = Sam.Devices.Device.Certificate()
                 self.certificate.parent = self
                 self._children_name_map["certificate"] = "certificate"
                 self._children_yang_names.add("certificate")
-                self._segment_path = lambda: "device" + "[device-name='" + self.device_name.get() + "']"
+                self._segment_path = lambda: "device" + "[device-name='" + str(self.device_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/devices/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -693,8 +713,10 @@ class Sam(Entity):
                     self.yang_parent_name = "device"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief" : ("brief", Sam.Devices.Device.Certificate.Brief), "certificate-indexes" : ("certificate_indexes", Sam.Devices.Device.Certificate.CertificateIndexes)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief", ("brief", Sam.Devices.Device.Certificate.Brief)), ("certificate-indexes", ("certificate_indexes", Sam.Devices.Device.Certificate.CertificateIndexes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.brief = Sam.Devices.Device.Certificate.Brief()
                     self.brief.parent = self
@@ -743,12 +765,15 @@ class Sam(Entity):
                         self.yang_parent_name = "certificate"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"certificate-flags" : ("certificate_flags", Sam.Devices.Device.Certificate.Brief.CertificateFlags)}
-                        self._child_list_classes = {}
-
-                        self.location = YLeaf(YType.str, "location")
-
-                        self.certificate_index = YLeaf(YType.uint16, "certificate-index")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Devices.Device.Certificate.Brief.CertificateFlags))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('location', YLeaf(YType.str, 'location')),
+                            ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                        ])
+                        self.location = None
+                        self.certificate_index = None
 
                         self.certificate_flags = Sam.Devices.Device.Certificate.Brief.CertificateFlags()
                         self.certificate_flags.parent = self
@@ -798,16 +823,19 @@ class Sam(Entity):
                             self.yang_parent_name = "brief"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.is_trusted = YLeaf(YType.boolean, "is-trusted")
-
-                            self.is_revoked = YLeaf(YType.boolean, "is-revoked")
-
-                            self.is_expired = YLeaf(YType.boolean, "is-expired")
-
-                            self.is_validated = YLeaf(YType.boolean, "is-validated")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
+                                ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
+                                ('is_expired', YLeaf(YType.boolean, 'is-expired')),
+                                ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                            ])
+                            self.is_trusted = None
+                            self.is_revoked = None
+                            self.is_expired = None
+                            self.is_validated = None
                             self._segment_path = lambda: "certificate-flags"
 
                         def __setattr__(self, name, value):
@@ -837,8 +865,10 @@ class Sam(Entity):
                         self.yang_parent_name = "certificate"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"certificate-index" : ("certificate_index", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("certificate-index", ("certificate_index", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex))])
+                        self._leafs = OrderedDict()
 
                         self.certificate_index = YList(self)
                         self._segment_path = lambda: "certificate-indexes"
@@ -851,7 +881,7 @@ class Sam(Entity):
                         """
                         Certificate detail index information
                         
-                        .. attribute:: index  <key>
+                        .. attribute:: index  (key)
                         
                         	Specify certificate index
                         	**type**\: int
@@ -877,16 +907,19 @@ class Sam(Entity):
                             self.yang_parent_name = "certificate-indexes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"detail" : ("detail", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail)}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.int32, "index")
+                            self.ylist_key_names = ['index']
+                            self._child_container_classes = OrderedDict([("detail", ("detail", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.int32, 'index')),
+                            ])
+                            self.index = None
 
                             self.detail = Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail()
                             self.detail.parent = self
                             self._children_name_map["detail"] = "detail"
                             self._children_yang_names.add("detail")
-                            self._segment_path = lambda: "certificate-index" + "[index='" + self.index.get() + "']"
+                            self._segment_path = lambda: "certificate-index" + "[index='" + str(self.index) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex, ['index'], name, value)
@@ -927,12 +960,15 @@ class Sam(Entity):
                                 self.yang_parent_name = "certificate-index"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"certificate-flags" : ("certificate_flags", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags)}
-                                self._child_list_classes = {}
-
-                                self.location = YLeaf(YType.str, "location")
-
-                                self.certificate_index = YLeaf(YType.uint16, "certificate-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('location', YLeaf(YType.str, 'location')),
+                                    ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                                ])
+                                self.location = None
+                                self.certificate_index = None
 
                                 self.certificate_flags = Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags()
                                 self.certificate_flags.parent = self
@@ -982,16 +1018,19 @@ class Sam(Entity):
                                     self.yang_parent_name = "detail"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.is_trusted = YLeaf(YType.boolean, "is-trusted")
-
-                                    self.is_revoked = YLeaf(YType.boolean, "is-revoked")
-
-                                    self.is_expired = YLeaf(YType.boolean, "is-expired")
-
-                                    self.is_validated = YLeaf(YType.boolean, "is-validated")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
+                                        ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
+                                        ('is_expired', YLeaf(YType.boolean, 'is-expired')),
+                                        ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                                    ])
+                                    self.is_trusted = None
+                                    self.is_revoked = None
+                                    self.is_expired = None
+                                    self.is_validated = None
                                     self._segment_path = lambda: "certificate-flags"
 
                                 def __setattr__(self, name, value):
@@ -1021,8 +1060,10 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"package" : ("package", Sam.Packages.Package)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("package", ("package", Sam.Packages.Package))])
+            self._leafs = OrderedDict()
 
             self.package = YList(self)
             self._segment_path = lambda: "packages"
@@ -1037,7 +1078,7 @@ class Sam(Entity):
             SAM certificate information for a specific
             package
             
-            .. attribute:: package_name  <key>
+            .. attribute:: package_name  (key)
             
             	Specify package name
             	**type**\: str
@@ -1073,20 +1114,23 @@ class Sam(Entity):
                 self.yang_parent_name = "packages"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"certificate-flags" : ("certificate_flags", Sam.Packages.Package.CertificateFlags)}
-                self._child_list_classes = {}
-
-                self.package_name = YLeaf(YType.str, "package-name")
-
-                self.location = YLeaf(YType.str, "location")
-
-                self.certificate_index = YLeaf(YType.uint16, "certificate-index")
+                self.ylist_key_names = ['package_name']
+                self._child_container_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Packages.Package.CertificateFlags))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('package_name', YLeaf(YType.str, 'package-name')),
+                    ('location', YLeaf(YType.str, 'location')),
+                    ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                ])
+                self.package_name = None
+                self.location = None
+                self.certificate_index = None
 
                 self.certificate_flags = Sam.Packages.Package.CertificateFlags()
                 self.certificate_flags.parent = self
                 self._children_name_map["certificate_flags"] = "certificate-flags"
                 self._children_yang_names.add("certificate-flags")
-                self._segment_path = lambda: "package" + "[package-name='" + self.package_name.get() + "']"
+                self._segment_path = lambda: "package" + "[package-name='" + str(self.package_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/packages/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1131,16 +1175,19 @@ class Sam(Entity):
                     self.yang_parent_name = "package"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.is_trusted = YLeaf(YType.boolean, "is-trusted")
-
-                    self.is_revoked = YLeaf(YType.boolean, "is-revoked")
-
-                    self.is_expired = YLeaf(YType.boolean, "is-expired")
-
-                    self.is_validated = YLeaf(YType.boolean, "is-validated")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
+                        ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
+                        ('is_expired', YLeaf(YType.boolean, 'is-expired')),
+                        ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                    ])
+                    self.is_trusted = None
+                    self.is_revoked = None
+                    self.is_expired = None
+                    self.is_validated = None
                     self._segment_path = lambda: "certificate-flags"
 
                 def __setattr__(self, name, value):
@@ -1171,8 +1218,10 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"certificate-revocation" : ("certificate_revocation", Sam.CertificateRevocations.CertificateRevocation)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("certificate-revocation", ("certificate_revocation", Sam.CertificateRevocations.CertificateRevocation))])
+            self._leafs = OrderedDict()
 
             self.certificate_revocation = YList(self)
             self._segment_path = lambda: "certificate-revocations"
@@ -1186,7 +1235,7 @@ class Sam(Entity):
             """
             Certificate revocation list index information
             
-            .. attribute:: crl_index  <key>
+            .. attribute:: crl_index  (key)
             
             	CRL index
             	**type**\: int
@@ -1212,16 +1261,19 @@ class Sam(Entity):
                 self.yang_parent_name = "certificate-revocations"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"certificate-revocation-list-detail" : ("certificate_revocation_list_detail", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail)}
-                self._child_list_classes = {}
-
-                self.crl_index = YLeaf(YType.int32, "crl-index")
+                self.ylist_key_names = ['crl_index']
+                self._child_container_classes = OrderedDict([("certificate-revocation-list-detail", ("certificate_revocation_list_detail", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('crl_index', YLeaf(YType.int32, 'crl-index')),
+                ])
+                self.crl_index = None
 
                 self.certificate_revocation_list_detail = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail()
                 self.certificate_revocation_list_detail.parent = self
                 self._children_name_map["certificate_revocation_list_detail"] = "certificate-revocation-list-detail"
                 self._children_yang_names.add("certificate-revocation-list-detail")
-                self._segment_path = lambda: "certificate-revocation" + "[crl-index='" + self.crl_index.get() + "']"
+                self._segment_path = lambda: "certificate-revocation" + "[crl-index='" + str(self.crl_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1263,12 +1315,15 @@ class Sam(Entity):
                     self.yang_parent_name = "certificate-revocation"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"issuer" : ("issuer", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer)}
-                    self._child_list_classes = {}
-
-                    self.crl_index = YLeaf(YType.uint16, "crl-index")
-
-                    self.updates = YLeaf(YType.str, "updates")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("issuer", ("issuer", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('crl_index', YLeaf(YType.uint16, 'crl-index')),
+                        ('updates', YLeaf(YType.str, 'updates')),
+                    ])
+                    self.crl_index = None
+                    self.updates = None
 
                     self.issuer = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer()
                     self.issuer.parent = self
@@ -1313,14 +1368,17 @@ class Sam(Entity):
                         self.yang_parent_name = "certificate-revocation-list-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.common_name = YLeaf(YType.str, "common-name")
-
-                        self.organization = YLeaf(YType.str, "organization")
-
-                        self.country = YLeaf(YType.str, "country")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('common_name', YLeaf(YType.str, 'common-name')),
+                            ('organization', YLeaf(YType.str, 'organization')),
+                            ('country', YLeaf(YType.str, 'country')),
+                        ])
+                        self.common_name = None
+                        self.organization = None
+                        self.country = None
                         self._segment_path = lambda: "issuer"
 
                     def __setattr__(self, name, value):
@@ -1362,12 +1420,15 @@ class Sam(Entity):
             self.yang_parent_name = "sam"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"issuer" : ("issuer", Sam.CertificateRevocationListSummary.Issuer)}
-            self._child_list_classes = {}
-
-            self.crl_index = YLeaf(YType.uint16, "crl-index")
-
-            self.updates = YLeaf(YType.str, "updates")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("issuer", ("issuer", Sam.CertificateRevocationListSummary.Issuer))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('crl_index', YLeaf(YType.uint16, 'crl-index')),
+                ('updates', YLeaf(YType.str, 'updates')),
+            ])
+            self.crl_index = None
+            self.updates = None
 
             self.issuer = Sam.CertificateRevocationListSummary.Issuer()
             self.issuer.parent = self
@@ -1413,14 +1474,17 @@ class Sam(Entity):
                 self.yang_parent_name = "certificate-revocation-list-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.common_name = YLeaf(YType.str, "common-name")
-
-                self.organization = YLeaf(YType.str, "organization")
-
-                self.country = YLeaf(YType.str, "country")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('common_name', YLeaf(YType.str, 'common-name')),
+                    ('organization', YLeaf(YType.str, 'organization')),
+                    ('country', YLeaf(YType.str, 'country')),
+                ])
+                self.common_name = None
+                self.organization = None
+                self.country = None
                 self._segment_path = lambda: "issuer"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocation-list-summary/%s" % self._segment_path()
 

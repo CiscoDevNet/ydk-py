@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Action(Enum):
     """
-    Action
+    Action (Enum Class)
 
     Action type
 
@@ -52,7 +54,7 @@ class Action(Enum):
 
 class ActionOpcode(Enum):
     """
-    ActionOpcode
+    ActionOpcode (Enum Class)
 
     Action opcode
 
@@ -157,7 +159,7 @@ class ActionOpcode(Enum):
 
 class CacState(Enum):
     """
-    CacState
+    CacState (Enum Class)
 
     CAC/UBRL class states
 
@@ -190,7 +192,7 @@ class CacState(Enum):
 
 class PolicyParamUnit(Enum):
     """
-    PolicyParamUnit
+    PolicyParamUnit (Enum Class)
 
     Policy param unit
 
@@ -343,7 +345,7 @@ class PolicyParamUnit(Enum):
 
 class PolicyState(Enum):
     """
-    PolicyState
+    PolicyState (Enum Class)
 
     Different Interface states
 
@@ -364,7 +366,7 @@ class PolicyState(Enum):
 
 class QosUnit(Enum):
     """
-    QosUnit
+    QosUnit (Enum Class)
 
     QoS parameter unit
 
@@ -475,7 +477,7 @@ class QosUnit(Enum):
 
 class Queue(Enum):
     """
-    Queue
+    Queue (Enum Class)
 
     Queue type
 
@@ -714,7 +716,7 @@ class Queue(Enum):
 
 class ShapeProfiletypeV2(Enum):
     """
-    ShapeProfiletypeV2
+    ShapeProfiletypeV2 (Enum Class)
 
     SHAPE profile type
 
@@ -759,7 +761,7 @@ class ShapeProfiletypeV2(Enum):
 
 class TbAlgorithm(Enum):
     """
-    TbAlgorithm
+    TbAlgorithm (Enum Class)
 
     Tokenbucket type
 
@@ -806,7 +808,7 @@ class TbAlgorithm(Enum):
 
 class Wred(Enum):
     """
-    Wred
+    Wred (Enum Class)
 
     WRED type
 
@@ -863,7 +865,7 @@ class Wred(Enum):
 
 class Wred1(Enum):
     """
-    Wred1
+    Wred1 (Enum Class)
 
     Wred1
 
@@ -955,8 +957,10 @@ class PlatformQos(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-qos-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", PlatformQos.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", PlatformQos.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = PlatformQos.Nodes()
         self.nodes.parent = self
@@ -989,8 +993,10 @@ class PlatformQos(Entity):
             self.yang_parent_name = "platform-qos"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", PlatformQos.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", PlatformQos.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -1004,7 +1010,7 @@ class PlatformQos(Entity):
             """
             Node with platform specific QoS configuration
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -1040,10 +1046,13 @@ class PlatformQos(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"capability" : ("capability", PlatformQos.Nodes.Node.Capability), "interfaces" : ("interfaces", PlatformQos.Nodes.Node.Interfaces), "bundle-interfaces" : ("bundle_interfaces", PlatformQos.Nodes.Node.BundleInterfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("capability", ("capability", PlatformQos.Nodes.Node.Capability)), ("interfaces", ("interfaces", PlatformQos.Nodes.Node.Interfaces)), ("bundle-interfaces", ("bundle_interfaces", PlatformQos.Nodes.Node.BundleInterfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.capability = PlatformQos.Nodes.Node.Capability()
                 self.capability.parent = self
@@ -1059,7 +1068,7 @@ class PlatformQos(Entity):
                 self.bundle_interfaces.parent = self
                 self._children_name_map["bundle_interfaces"] = "bundle-interfaces"
                 self._children_yang_names.add("bundle-interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-qos-oper:platform-qos/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1168,32 +1177,35 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.max_policy_maps = YLeaf(YType.uint32, "max-policy-maps")
-
-                    self.max_policy_hierarchy = YLeaf(YType.uint32, "max-policy-hierarchy")
-
-                    self.max_policy_name_length = YLeaf(YType.uint32, "max-policy-name-length")
-
-                    self.max_classes_per_child_policy = YLeaf(YType.uint32, "max-classes-per-child-policy")
-
-                    self.max_classes_per_policy = YLeaf(YType.uint32, "max-classes-per-policy")
-
-                    self.max_classes_per_grand_parent_policy = YLeaf(YType.uint32, "max-classes-per-grand-parent-policy")
-
-                    self.max_police_actions_per_class = YLeaf(YType.uint32, "max-police-actions-per-class")
-
-                    self.max_marking_actions_per_class = YLeaf(YType.uint32, "max-marking-actions-per-class")
-
-                    self.max_matches_per_class = YLeaf(YType.uint32, "max-matches-per-class")
-
-                    self.max_classmap_name_length = YLeaf(YType.uint32, "max-classmap-name-length")
-
-                    self.max_bundle_members = YLeaf(YType.uint32, "max-bundle-members")
-
-                    self.max_instance_name_length = YLeaf(YType.uint32, "max-instance-name-length")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('max_policy_maps', YLeaf(YType.uint32, 'max-policy-maps')),
+                        ('max_policy_hierarchy', YLeaf(YType.uint32, 'max-policy-hierarchy')),
+                        ('max_policy_name_length', YLeaf(YType.uint32, 'max-policy-name-length')),
+                        ('max_classes_per_child_policy', YLeaf(YType.uint32, 'max-classes-per-child-policy')),
+                        ('max_classes_per_policy', YLeaf(YType.uint32, 'max-classes-per-policy')),
+                        ('max_classes_per_grand_parent_policy', YLeaf(YType.uint32, 'max-classes-per-grand-parent-policy')),
+                        ('max_police_actions_per_class', YLeaf(YType.uint32, 'max-police-actions-per-class')),
+                        ('max_marking_actions_per_class', YLeaf(YType.uint32, 'max-marking-actions-per-class')),
+                        ('max_matches_per_class', YLeaf(YType.uint32, 'max-matches-per-class')),
+                        ('max_classmap_name_length', YLeaf(YType.uint32, 'max-classmap-name-length')),
+                        ('max_bundle_members', YLeaf(YType.uint32, 'max-bundle-members')),
+                        ('max_instance_name_length', YLeaf(YType.uint32, 'max-instance-name-length')),
+                    ])
+                    self.max_policy_maps = None
+                    self.max_policy_hierarchy = None
+                    self.max_policy_name_length = None
+                    self.max_classes_per_child_policy = None
+                    self.max_classes_per_policy = None
+                    self.max_classes_per_grand_parent_policy = None
+                    self.max_police_actions_per_class = None
+                    self.max_marking_actions_per_class = None
+                    self.max_matches_per_class = None
+                    self.max_classmap_name_length = None
+                    self.max_bundle_members = None
+                    self.max_instance_name_length = None
                     self._segment_path = lambda: "capability"
 
                 def __setattr__(self, name, value):
@@ -1223,8 +1235,10 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", PlatformQos.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", PlatformQos.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -1237,7 +1251,7 @@ class PlatformQos(Entity):
                     """
                     QoS interface name
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	The name of the interface
                     	**type**\: str
@@ -1268,10 +1282,13 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"input" : ("input", PlatformQos.Nodes.Node.Interfaces.Interface.Input), "output" : ("output", PlatformQos.Nodes.Node.Interfaces.Interface.Output)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("input", ("input", PlatformQos.Nodes.Node.Interfaces.Interface.Input)), ("output", ("output", PlatformQos.Nodes.Node.Interfaces.Interface.Output))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.input = PlatformQos.Nodes.Node.Interfaces.Interface.Input()
                         self.input.parent = self
@@ -1282,7 +1299,7 @@ class PlatformQos(Entity):
                         self.output.parent = self
                         self._children_name_map["output"] = "output"
                         self._children_yang_names.add("output")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
@@ -1311,8 +1328,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"details" : ("details", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("details", ("details", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.details = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details()
                             self.details.parent = self
@@ -1354,8 +1373,10 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "input"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header), "policy" : ("policy", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy), "policy-typhoon" : ("policy_typhoon", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("header", ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header)), ("policy", ("policy", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy)), ("policy-typhoon", ("policy_typhoon", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.header = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header()
                                 self.header.parent = self
@@ -1416,12 +1437,15 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters), "programmed-bandwidth" : ("programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.ProgrammedBandwidth)}
-                                    self._child_list_classes = {}
-
-                                    self.classes = YLeaf(YType.uint16, "classes")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("interface-parameters", ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters)), ("programmed-bandwidth", ("programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.ProgrammedBandwidth))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('classes', YLeaf(YType.uint16, 'classes')),
+                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                    ])
+                                    self.classes = None
+                                    self.policy_name = None
 
                                     self.interface_parameters = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters()
                                     self.interface_parameters.parent = self
@@ -1476,8 +1500,10 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "header"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"port-config-bandwidth" : ("port_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.PortConfigBandwidth), "ancp-config-bandwidth" : ("ancp_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.AncpConfigBandwidth), "ancp-programmed-bandwidth" : ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.AncpProgrammedBandwidth), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.PortShaperRate)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("port-config-bandwidth", ("port_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.PortConfigBandwidth)), ("ancp-config-bandwidth", ("ancp_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.AncpConfigBandwidth)), ("ancp-programmed-bandwidth", ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.AncpProgrammedBandwidth)), ("port-shaper-rate", ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.PortShaperRate))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.port_config_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Header.InterfaceParameters.PortConfigBandwidth()
                                         self.port_config_bandwidth.parent = self
@@ -1531,12 +1557,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "port-config-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -1573,12 +1602,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "ancp-config-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -1615,12 +1647,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "ancp-programmed-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -1657,12 +1692,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "port-shaper-rate"
 
                                         def __setattr__(self, name, value):
@@ -1699,12 +1737,15 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "header"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ])
+                                        self.value = None
+                                        self.unit = None
                                         self._segment_path = lambda: "programmed-bandwidth"
 
                                     def __setattr__(self, name, value):
@@ -1734,8 +1775,10 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"qos-show-ea-st-v1" : ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("qos-show-ea-st-v1", ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1))])
+                                    self._leafs = OrderedDict()
 
                                     self.qos_show_ea_st_v1 = YList(self)
                                     self._segment_path = lambda: "policy"
@@ -1832,18 +1875,21 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "policy"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark)}
-                                        self._child_list_classes = {}
-
-                                        self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                        self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                        self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                            ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                            ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                        ])
+                                        self.class_level = None
+                                        self.class_name = None
+                                        self.policy_name = None
+                                        self.parent_policy_name = None
+                                        self.parent_class_name = None
 
                                         self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Queue()
                                         self.queue.parent = self
@@ -1922,14 +1968,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                            self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                            self.class_name = YLeaf(YType.str, "class-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ])
+                                            self.queue_id = None
+                                            self.queue_type = None
+                                            self.class_name = None
                                             self._segment_path = lambda: "queue"
 
                                         def __setattr__(self, name, value):
@@ -1978,12 +2027,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                            ])
+                                            self.profile_id = None
+                                            self.scaling_profile_id = None
 
                                             self.queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit()
                                             self.queue_limit.parent = self
@@ -2030,12 +2082,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -2072,12 +2127,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "config-queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -2134,10 +2192,13 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Pbs)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint16, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Pbs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                            ])
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.Cir()
                                             self.cir.parent = self
@@ -2199,12 +2260,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -2234,8 +2298,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.minimum_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate()
                                                 self.minimum_rate.parent = self
@@ -2274,12 +2340,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "config-bandwidth"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "minimum-rate"
 
                                                 def __setattr__(self, name, value):
@@ -2316,12 +2385,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -2358,12 +2430,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -2400,12 +2475,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -2467,12 +2545,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters)}
-                                            self._child_list_classes = {}
-
-                                            self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                            ])
+                                            self.policer_type = None
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.Cir()
                                             self.cir.parent = self
@@ -2534,12 +2615,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -2576,12 +2660,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -2618,12 +2705,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -2660,12 +2750,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -2710,8 +2803,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate()
                                                 self.average_rate.parent = self
@@ -2765,12 +2860,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "average-rate"
 
                                                 def __setattr__(self, name, value):
@@ -2807,12 +2905,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "peak-rate"
 
                                                 def __setattr__(self, name, value):
@@ -2849,12 +2950,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "conform-burst"
 
                                                 def __setattr__(self, name, value):
@@ -2891,12 +2995,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "exceed-burst"
 
                                                 def __setattr__(self, name, value):
@@ -2973,20 +3080,23 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq.Bandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                            self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                            self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                            self.level = YLeaf(YType.uint8, "level")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq.Bandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                ('level', YLeaf(YType.uint8, 'level')),
+                                            ])
+                                            self.profile_id = None
+                                            self.committed_weight = None
+                                            self.excess_weight = None
+                                            self.excess_ratio = None
+                                            self.chunk_id = None
+                                            self.level = None
 
                                             self.parent_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth()
                                             self.parent_bandwidth.parent = self
@@ -3033,12 +3143,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "parent-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -3075,12 +3188,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -3143,18 +3259,21 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve)}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.curve_xr = YLeaf(YType.uint16, "curve-xr")
-
-                                            self.table_id = YLeaf(YType.uint8, "table-id")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve))])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                ('table_id', YLeaf(YType.uint8, 'table-id')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                            ])
+                                            self.type = None
+                                            self.curve_xr = None
+                                            self.table_id = None
+                                            self.profile_id = None
+                                            self.scaling_profile_id = None
 
                                             self.curve = YList(self)
                                             self._segment_path = lambda: "wred"
@@ -3206,10 +3325,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig)}
-                                                self._child_list_classes = {}
-
-                                                self.match = YLeaf(YType.str, "match")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('match', YLeaf(YType.str, 'match')),
+                                                ])
+                                                self.match = None
 
                                                 self.min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold()
                                                 self.min_threshold.parent = self
@@ -3266,12 +3388,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -3308,12 +3433,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -3350,12 +3478,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -3392,12 +3523,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -3462,8 +3596,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.child_mark = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ChildMark()
                                             self.child_mark.parent = self
@@ -3535,10 +3671,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "child-mark"
@@ -3577,12 +3716,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "child-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -3617,10 +3759,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-conform"
@@ -3659,12 +3804,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -3699,10 +3847,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-exceed"
@@ -3741,12 +3892,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -3781,10 +3935,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-violate"
@@ -3823,12 +3980,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -3863,10 +4023,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-mark"
@@ -3905,12 +4068,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -3945,10 +4111,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-conform"
@@ -3987,12 +4156,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -4027,10 +4199,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-exceed"
@@ -4069,12 +4244,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -4109,10 +4287,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-violate"
@@ -4151,12 +4332,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -4186,8 +4370,10 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"qos-show-ea-st-v2" : ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("qos-show-ea-st-v2", ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2))])
+                                    self._leafs = OrderedDict()
 
                                     self.qos_show_ea_st_v2 = YList(self)
                                     self._segment_path = lambda: "policy-typhoon"
@@ -4284,18 +4470,21 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "policy-typhoon"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark)}
-                                        self._child_list_classes = {}
-
-                                        self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                        self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                        self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                            ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                            ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                        ])
+                                        self.class_level = None
+                                        self.class_name = None
+                                        self.policy_name = None
+                                        self.parent_policy_name = None
+                                        self.parent_class_name = None
 
                                         self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Queue()
                                         self.queue.parent = self
@@ -4374,14 +4563,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                            self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                            self.class_name = YLeaf(YType.str, "class-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ])
+                                            self.queue_id = None
+                                            self.queue_type = None
+                                            self.class_name = None
                                             self._segment_path = lambda: "queue"
 
                                         def __setattr__(self, name, value):
@@ -4437,14 +4629,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit)}
-                                            self._child_list_classes = {}
-
-                                            self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                            self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                            self.curve_id = YLeaf(YType.uint16, "curve-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                            ])
+                                            self.absolute_index = None
+                                            self.template_id = None
+                                            self.curve_id = None
 
                                             self.queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit()
                                             self.queue_limit.parent = self
@@ -4491,12 +4686,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -4533,12 +4731,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "config-queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -4583,12 +4784,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir-shape" : ("cir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape), "pir-shape" : ("pir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape)}
-                                            self._child_list_classes = {}
-
-                                            self.cir_shape_type = YLeaf(YType.enumeration, "cir-shape-type")
-
-                                            self.pir_shape_type = YLeaf(YType.enumeration, "pir-shape-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir-shape", ("cir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape)), ("pir-shape", ("pir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('cir_shape_type', YLeaf(YType.enumeration, 'cir-shape-type')),
+                                                ('pir_shape_type', YLeaf(YType.enumeration, 'pir-shape-type')),
+                                            ])
+                                            self.cir_shape_type = None
+                                            self.pir_shape_type = None
 
                                             self.cir_shape = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape()
                                             self.cir_shape.parent = self
@@ -4659,14 +4863,17 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs)}
-                                                self._child_list_classes = {}
-
-                                                self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                    ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                ])
+                                                self.chunk_id = None
+                                                self.profile_id = None
+                                                self.scale_factor = None
 
                                                 self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir()
                                                 self.cir.parent = self
@@ -4718,12 +4925,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "cir"
 
                                                 def __setattr__(self, name, value):
@@ -4753,8 +4963,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.minimum_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate()
                                                     self.minimum_rate.parent = self
@@ -4793,12 +5005,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "config-bandwidth"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "minimum-rate"
 
                                                     def __setattr__(self, name, value):
@@ -4835,12 +5050,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "cbs"
 
                                                 def __setattr__(self, name, value):
@@ -4896,14 +5114,17 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs)}
-                                                self._child_list_classes = {}
-
-                                                self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                    ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                ])
+                                                self.chunk_id = None
+                                                self.profile_id = None
+                                                self.scale_factor = None
 
                                                 self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir()
                                                 self.pir.parent = self
@@ -4950,12 +5171,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "pir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "pir"
 
                                                 def __setattr__(self, name, value):
@@ -4992,12 +5216,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "pir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "pbs"
 
                                                 def __setattr__(self, name, value):
@@ -5059,12 +5286,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters)}
-                                            self._child_list_classes = {}
-
-                                            self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                            ])
+                                            self.policer_type = None
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir()
                                             self.cir.parent = self
@@ -5126,12 +5356,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -5168,12 +5401,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -5210,12 +5446,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -5252,12 +5491,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -5302,8 +5544,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate()
                                                 self.average_rate.parent = self
@@ -5357,12 +5601,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "average-rate"
 
                                                 def __setattr__(self, name, value):
@@ -5399,12 +5646,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "peak-rate"
 
                                                 def __setattr__(self, name, value):
@@ -5441,12 +5691,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "conform-burst"
 
                                                 def __setattr__(self, name, value):
@@ -5483,12 +5736,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "exceed-burst"
 
                                                 def __setattr__(self, name, value):
@@ -5565,20 +5821,23 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                            self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                            self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                            self.level = YLeaf(YType.uint8, "level")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                ('level', YLeaf(YType.uint8, 'level')),
+                                            ])
+                                            self.profile_id = None
+                                            self.committed_weight = None
+                                            self.excess_weight = None
+                                            self.excess_ratio = None
+                                            self.chunk_id = None
+                                            self.level = None
 
                                             self.parent_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth()
                                             self.parent_bandwidth.parent = self
@@ -5625,12 +5884,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "parent-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -5667,12 +5929,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -5714,12 +5979,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve)}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.curve_xr = YLeaf(YType.uint16, "curve-xr")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve))])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                            ])
+                                            self.type = None
+                                            self.curve_xr = None
 
                                             self.curve = YList(self)
                                             self._segment_path = lambda: "wred"
@@ -5797,18 +6065,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig)}
-                                                self._child_list_classes = {}
-
-                                                self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                self.curve_id = YLeaf(YType.uint16, "curve-id")
-
-                                                self.match = YLeaf(YType.str, "match")
-
-                                                self.exp_match = YLeaf(YType.str, "exp-match")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                    ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                    ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                    ('match', YLeaf(YType.str, 'match')),
+                                                    ('exp_match', YLeaf(YType.str, 'exp-match')),
+                                                ])
+                                                self.absolute_index = None
+                                                self.template_id = None
+                                                self.curve_id = None
+                                                self.match = None
+                                                self.exp_match = None
 
                                                 self.min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold()
                                                 self.min_threshold.parent = self
@@ -5865,12 +6136,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -5907,12 +6181,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -5949,12 +6226,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -5991,12 +6271,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -6061,8 +6344,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.child_mark = PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark()
                                             self.child_mark.parent = self
@@ -6134,10 +6419,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "child-mark"
@@ -6176,12 +6464,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "child-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6216,10 +6507,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-conform"
@@ -6258,12 +6552,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6298,10 +6595,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-exceed"
@@ -6340,12 +6640,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6380,10 +6683,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-violate"
@@ -6422,12 +6728,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6462,10 +6771,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-mark"
@@ -6504,12 +6816,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6544,10 +6859,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-conform"
@@ -6586,12 +6904,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6626,10 +6947,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-exceed"
@@ -6668,12 +6992,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6708,10 +7035,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-violate"
@@ -6750,12 +7080,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -6785,8 +7118,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"details" : ("details", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("details", ("details", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.details = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details()
                             self.details.parent = self
@@ -6828,8 +7163,10 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "output"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header), "policy" : ("policy", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy), "policy-typhoon" : ("policy_typhoon", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("header", ("header", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header)), ("policy", ("policy", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy)), ("policy-typhoon", ("policy_typhoon", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.header = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header()
                                 self.header.parent = self
@@ -6890,12 +7227,15 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters), "programmed-bandwidth" : ("programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.ProgrammedBandwidth)}
-                                    self._child_list_classes = {}
-
-                                    self.classes = YLeaf(YType.uint16, "classes")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("interface-parameters", ("interface_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters)), ("programmed-bandwidth", ("programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.ProgrammedBandwidth))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('classes', YLeaf(YType.uint16, 'classes')),
+                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                    ])
+                                    self.classes = None
+                                    self.policy_name = None
 
                                     self.interface_parameters = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters()
                                     self.interface_parameters.parent = self
@@ -6950,8 +7290,10 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "header"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"port-config-bandwidth" : ("port_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.PortConfigBandwidth), "ancp-config-bandwidth" : ("ancp_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.AncpConfigBandwidth), "ancp-programmed-bandwidth" : ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.AncpProgrammedBandwidth), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.PortShaperRate)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("port-config-bandwidth", ("port_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.PortConfigBandwidth)), ("ancp-config-bandwidth", ("ancp_config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.AncpConfigBandwidth)), ("ancp-programmed-bandwidth", ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.AncpProgrammedBandwidth)), ("port-shaper-rate", ("port_shaper_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.PortShaperRate))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.port_config_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Header.InterfaceParameters.PortConfigBandwidth()
                                         self.port_config_bandwidth.parent = self
@@ -7005,12 +7347,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "port-config-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -7047,12 +7392,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "ancp-config-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -7089,12 +7437,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "ancp-programmed-bandwidth"
 
                                         def __setattr__(self, name, value):
@@ -7131,12 +7482,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "interface-parameters"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.value = YLeaf(YType.uint32, "value")
-
-                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                            ])
+                                            self.value = None
+                                            self.unit = None
                                             self._segment_path = lambda: "port-shaper-rate"
 
                                         def __setattr__(self, name, value):
@@ -7173,12 +7527,15 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "header"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.value = YLeaf(YType.uint32, "value")
-
-                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ])
+                                        self.value = None
+                                        self.unit = None
                                         self._segment_path = lambda: "programmed-bandwidth"
 
                                     def __setattr__(self, name, value):
@@ -7208,8 +7565,10 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"qos-show-ea-st-v1" : ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("qos-show-ea-st-v1", ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1))])
+                                    self._leafs = OrderedDict()
 
                                     self.qos_show_ea_st_v1 = YList(self)
                                     self._segment_path = lambda: "policy"
@@ -7306,18 +7665,21 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "policy"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark)}
-                                        self._child_list_classes = {}
-
-                                        self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                        self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                        self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                            ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                            ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                        ])
+                                        self.class_level = None
+                                        self.class_name = None
+                                        self.policy_name = None
+                                        self.parent_policy_name = None
+                                        self.parent_class_name = None
 
                                         self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Queue()
                                         self.queue.parent = self
@@ -7396,14 +7758,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                            self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                            self.class_name = YLeaf(YType.str, "class-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ])
+                                            self.queue_id = None
+                                            self.queue_type = None
+                                            self.class_name = None
                                             self._segment_path = lambda: "queue"
 
                                         def __setattr__(self, name, value):
@@ -7452,12 +7817,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                            ])
+                                            self.profile_id = None
+                                            self.scaling_profile_id = None
 
                                             self.queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit()
                                             self.queue_limit.parent = self
@@ -7504,12 +7872,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -7546,12 +7917,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "config-queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -7608,10 +7982,13 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Pbs)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint16, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Pbs))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                            ])
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.Cir()
                                             self.cir.parent = self
@@ -7673,12 +8050,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -7708,8 +8088,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.minimum_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate()
                                                 self.minimum_rate.parent = self
@@ -7748,12 +8130,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "config-bandwidth"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "minimum-rate"
 
                                                 def __setattr__(self, name, value):
@@ -7790,12 +8175,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -7832,12 +8220,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -7874,12 +8265,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -7941,12 +8335,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters)}
-                                            self._child_list_classes = {}
-
-                                            self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                            ])
+                                            self.policer_type = None
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.Cir()
                                             self.cir.parent = self
@@ -8008,12 +8405,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -8050,12 +8450,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -8092,12 +8495,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -8134,12 +8540,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -8184,8 +8593,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate()
                                                 self.average_rate.parent = self
@@ -8239,12 +8650,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "average-rate"
 
                                                 def __setattr__(self, name, value):
@@ -8281,12 +8695,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "peak-rate"
 
                                                 def __setattr__(self, name, value):
@@ -8323,12 +8740,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "conform-burst"
 
                                                 def __setattr__(self, name, value):
@@ -8365,12 +8785,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "exceed-burst"
 
                                                 def __setattr__(self, name, value):
@@ -8447,20 +8870,23 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq.Bandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                            self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                            self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                            self.level = YLeaf(YType.uint8, "level")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq.Bandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                ('level', YLeaf(YType.uint8, 'level')),
+                                            ])
+                                            self.profile_id = None
+                                            self.committed_weight = None
+                                            self.excess_weight = None
+                                            self.excess_ratio = None
+                                            self.chunk_id = None
+                                            self.level = None
 
                                             self.parent_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth()
                                             self.parent_bandwidth.parent = self
@@ -8507,12 +8933,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "parent-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -8549,12 +8978,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -8617,18 +9049,21 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve)}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.curve_xr = YLeaf(YType.uint16, "curve-xr")
-
-                                            self.table_id = YLeaf(YType.uint8, "table-id")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve))])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                ('table_id', YLeaf(YType.uint8, 'table-id')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                            ])
+                                            self.type = None
+                                            self.curve_xr = None
+                                            self.table_id = None
+                                            self.profile_id = None
+                                            self.scaling_profile_id = None
 
                                             self.curve = YList(self)
                                             self._segment_path = lambda: "wred"
@@ -8680,10 +9115,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig)}
-                                                self._child_list_classes = {}
-
-                                                self.match = YLeaf(YType.str, "match")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('match', YLeaf(YType.str, 'match')),
+                                                ])
+                                                self.match = None
 
                                                 self.min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold()
                                                 self.min_threshold.parent = self
@@ -8740,12 +9178,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -8782,12 +9223,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -8824,12 +9268,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -8866,12 +9313,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -8936,8 +9386,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v1"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.child_mark = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ChildMark()
                                             self.child_mark.parent = self
@@ -9009,10 +9461,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "child-mark"
@@ -9051,12 +9506,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "child-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9091,10 +9549,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-conform"
@@ -9133,12 +9594,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9173,10 +9637,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-exceed"
@@ -9215,12 +9682,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9255,10 +9725,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-violate"
@@ -9297,12 +9770,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9337,10 +9813,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-mark"
@@ -9379,12 +9858,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9419,10 +9901,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-conform"
@@ -9461,12 +9946,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9501,10 +9989,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-exceed"
@@ -9543,12 +10034,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9583,10 +10077,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-violate"
@@ -9625,12 +10122,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -9660,8 +10160,10 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"qos-show-ea-st-v2" : ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("qos-show-ea-st-v2", ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2))])
+                                    self._leafs = OrderedDict()
 
                                     self.qos_show_ea_st_v2 = YList(self)
                                     self._segment_path = lambda: "policy-typhoon"
@@ -9758,18 +10260,21 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "policy-typhoon"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape), "police" : ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark)}
-                                        self._child_list_classes = {}
-
-                                        self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                        self.class_name = YLeaf(YType.str, "class-name")
-
-                                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                        self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                        self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                            ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                            ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                        ])
+                                        self.class_level = None
+                                        self.class_name = None
+                                        self.policy_name = None
+                                        self.parent_policy_name = None
+                                        self.parent_class_name = None
 
                                         self.queue = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Queue()
                                         self.queue.parent = self
@@ -9848,14 +10353,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                            self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                            self.class_name = YLeaf(YType.str, "class-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                            ])
+                                            self.queue_id = None
+                                            self.queue_type = None
+                                            self.class_name = None
                                             self._segment_path = lambda: "queue"
 
                                         def __setattr__(self, name, value):
@@ -9911,14 +10419,17 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit)}
-                                            self._child_list_classes = {}
-
-                                            self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                            self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                            self.curve_id = YLeaf(YType.uint16, "curve-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                            ])
+                                            self.absolute_index = None
+                                            self.template_id = None
+                                            self.curve_id = None
 
                                             self.queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit()
                                             self.queue_limit.parent = self
@@ -9965,12 +10476,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -10007,12 +10521,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "queue-limit-parameters"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "config-queue-limit"
 
                                             def __setattr__(self, name, value):
@@ -10057,12 +10574,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir-shape" : ("cir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape), "pir-shape" : ("pir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape)}
-                                            self._child_list_classes = {}
-
-                                            self.cir_shape_type = YLeaf(YType.enumeration, "cir-shape-type")
-
-                                            self.pir_shape_type = YLeaf(YType.enumeration, "pir-shape-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir-shape", ("cir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape)), ("pir-shape", ("pir_shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('cir_shape_type', YLeaf(YType.enumeration, 'cir-shape-type')),
+                                                ('pir_shape_type', YLeaf(YType.enumeration, 'pir-shape-type')),
+                                            ])
+                                            self.cir_shape_type = None
+                                            self.pir_shape_type = None
 
                                             self.cir_shape = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape()
                                             self.cir_shape.parent = self
@@ -10133,14 +10653,17 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs)}
-                                                self._child_list_classes = {}
-
-                                                self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                    ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                ])
+                                                self.chunk_id = None
+                                                self.profile_id = None
+                                                self.scale_factor = None
 
                                                 self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir()
                                                 self.cir.parent = self
@@ -10192,12 +10715,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "cir"
 
                                                 def __setattr__(self, name, value):
@@ -10227,8 +10753,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.minimum_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate()
                                                     self.minimum_rate.parent = self
@@ -10267,12 +10795,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "config-bandwidth"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "minimum-rate"
 
                                                     def __setattr__(self, name, value):
@@ -10309,12 +10840,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "cir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "cbs"
 
                                                 def __setattr__(self, name, value):
@@ -10370,14 +10904,17 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "shape"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs)}
-                                                self._child_list_classes = {}
-
-                                                self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                    ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                ])
+                                                self.chunk_id = None
+                                                self.profile_id = None
+                                                self.scale_factor = None
 
                                                 self.pir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir()
                                                 self.pir.parent = self
@@ -10424,12 +10961,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "pir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "pir"
 
                                                 def __setattr__(self, name, value):
@@ -10466,12 +11006,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "pir-shape"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "pbs"
 
                                                 def __setattr__(self, name, value):
@@ -10533,12 +11076,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters)}
-                                            self._child_list_classes = {}
-
-                                            self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                            ])
+                                            self.policer_type = None
+                                            self.profile_id = None
 
                                             self.cir = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir()
                                             self.cir.parent = self
@@ -10600,12 +11146,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cir"
 
                                             def __setattr__(self, name, value):
@@ -10642,12 +11191,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "cbs"
 
                                             def __setattr__(self, name, value):
@@ -10684,12 +11236,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pir"
 
                                             def __setattr__(self, name, value):
@@ -10726,12 +11281,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "pbs"
 
                                             def __setattr__(self, name, value):
@@ -10776,8 +11334,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "police"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate()
                                                 self.average_rate.parent = self
@@ -10831,12 +11391,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "average-rate"
 
                                                 def __setattr__(self, name, value):
@@ -10873,12 +11436,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "peak-rate"
 
                                                 def __setattr__(self, name, value):
@@ -10915,12 +11481,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "conform-burst"
 
                                                 def __setattr__(self, name, value):
@@ -10957,12 +11526,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-config-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "exceed-burst"
 
                                                 def __setattr__(self, name, value):
@@ -11039,20 +11611,23 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                            self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                            self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                            self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                            self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                            self.level = YLeaf(YType.uint8, "level")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                ('level', YLeaf(YType.uint8, 'level')),
+                                            ])
+                                            self.profile_id = None
+                                            self.committed_weight = None
+                                            self.excess_weight = None
+                                            self.excess_ratio = None
+                                            self.chunk_id = None
+                                            self.level = None
 
                                             self.parent_bandwidth = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth()
                                             self.parent_bandwidth.parent = self
@@ -11099,12 +11674,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "parent-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -11141,12 +11719,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wfq"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -11188,12 +11769,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve)}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.curve_xr = YLeaf(YType.uint16, "curve-xr")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve))])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                            ])
+                                            self.type = None
+                                            self.curve_xr = None
 
                                             self.curve = YList(self)
                                             self._segment_path = lambda: "wred"
@@ -11271,18 +11855,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig)}
-                                                self._child_list_classes = {}
-
-                                                self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                self.curve_id = YLeaf(YType.uint16, "curve-id")
-
-                                                self.match = YLeaf(YType.str, "match")
-
-                                                self.exp_match = YLeaf(YType.str, "exp-match")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                    ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                    ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                    ('match', YLeaf(YType.str, 'match')),
+                                                    ('exp_match', YLeaf(YType.str, 'exp-match')),
+                                                ])
+                                                self.absolute_index = None
+                                                self.template_id = None
+                                                self.curve_id = None
+                                                self.match = None
+                                                self.exp_match = None
 
                                                 self.min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold()
                                                 self.min_threshold.parent = self
@@ -11339,12 +11926,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -11381,12 +11971,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "min-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -11423,12 +12016,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold"
 
                                                 def __setattr__(self, name, value):
@@ -11465,12 +12061,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "curve"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "max-threshold-user-config"
 
                                                 def __setattr__(self, name, value):
@@ -11535,8 +12134,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "qos-show-ea-st-v2"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict()
 
                                             self.child_mark = PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark()
                                             self.child_mark.parent = self
@@ -11608,10 +12209,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "child-mark"
@@ -11650,12 +12254,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "child-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -11690,10 +12297,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-conform"
@@ -11732,12 +12342,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -11772,10 +12385,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-exceed"
@@ -11814,12 +12430,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -11854,10 +12473,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "police-violate"
@@ -11896,12 +12518,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -11936,10 +12561,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-mark"
@@ -11978,12 +12606,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-mark"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -12018,10 +12649,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-conform"
@@ -12060,12 +12694,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-conform"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -12100,10 +12737,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-exceed"
@@ -12142,12 +12782,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-exceed"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -12182,10 +12825,13 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "mark"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail))])
+                                                self._leafs = OrderedDict([
+                                                    ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ])
+                                                self.action_type = None
 
                                                 self.mark_detail = YList(self)
                                                 self._segment_path = lambda: "parent-police-violate"
@@ -12224,12 +12870,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "parent-police-violate"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                    self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                        ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ])
+                                                    self.mark_value = None
+                                                    self.action_opcode = None
                                                     self._segment_path = lambda: "mark-detail"
 
                                                 def __setattr__(self, name, value):
@@ -12259,8 +12908,10 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bundle-interface" : ("bundle_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bundle-interface", ("bundle_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface))])
+                    self._leafs = OrderedDict()
 
                     self.bundle_interface = YList(self)
                     self._segment_path = lambda: "bundle-interfaces"
@@ -12273,7 +12924,7 @@ class PlatformQos(Entity):
                     """
                     QoS interface name
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Bundle interface name
                     	**type**\: str
@@ -12304,10 +12955,13 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "bundle-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"bundle-output" : ("bundle_output", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput), "bundle-input" : ("bundle_input", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("bundle-output", ("bundle_output", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput)), ("bundle-input", ("bundle_input", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.bundle_output = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput()
                         self.bundle_output.parent = self
@@ -12318,7 +12972,7 @@ class PlatformQos(Entity):
                         self.bundle_input.parent = self
                         self._children_name_map["bundle_input"] = "bundle-input"
                         self._children_yang_names.add("bundle-input")
-                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name'], name, value)
@@ -12347,8 +13001,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"member-interfaces" : ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("member-interfaces", ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces()
                             self.member_interfaces.parent = self
@@ -12380,8 +13036,10 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "bundle-output"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"member-interface" : ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("member-interface", ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface))])
+                                self._leafs = OrderedDict()
 
                                 self.member_interface = YList(self)
                                 self._segment_path = lambda: "member-interfaces"
@@ -12394,7 +13052,7 @@ class PlatformQos(Entity):
                                 """
                                 QoS interface name
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Memeber interface
                                 	**type**\: str
@@ -12420,16 +13078,19 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "member-interfaces"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"details" : ("details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("details", ("details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.interface_name = None
 
                                     self.details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details()
                                     self.details.parent = self
                                     self._children_name_map["details"] = "details"
                                     self._children_yang_names.add("details")
-                                    self._segment_path = lambda: "member-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
@@ -12468,8 +13129,10 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "member-interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header), "policy" : ("policy", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy), "policy-typhoon" : ("policy_typhoon", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("header", ("header", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header)), ("policy", ("policy", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy)), ("policy-typhoon", ("policy_typhoon", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.header = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header()
                                         self.header.parent = self
@@ -12530,12 +13193,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters), "programmed-bandwidth" : ("programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.ProgrammedBandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.classes = YLeaf(YType.uint16, "classes")
-
-                                            self.policy_name = YLeaf(YType.str, "policy-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("interface-parameters", ("interface_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters)), ("programmed-bandwidth", ("programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.ProgrammedBandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('classes', YLeaf(YType.uint16, 'classes')),
+                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ])
+                                            self.classes = None
+                                            self.policy_name = None
 
                                             self.interface_parameters = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters()
                                             self.interface_parameters.parent = self
@@ -12590,8 +13256,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "header"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"port-config-bandwidth" : ("port_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth), "ancp-config-bandwidth" : ("ancp_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpConfigBandwidth), "ancp-programmed-bandwidth" : ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpProgrammedBandwidth), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortShaperRate)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("port-config-bandwidth", ("port_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth)), ("ancp-config-bandwidth", ("ancp_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpConfigBandwidth)), ("ancp-programmed-bandwidth", ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpProgrammedBandwidth)), ("port-shaper-rate", ("port_shaper_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortShaperRate))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.port_config_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth()
                                                 self.port_config_bandwidth.parent = self
@@ -12645,12 +13313,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "port-config-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -12687,12 +13358,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "ancp-config-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -12729,12 +13403,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "ancp-programmed-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -12771,12 +13448,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "port-shaper-rate"
 
                                                 def __setattr__(self, name, value):
@@ -12813,12 +13493,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "header"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "programmed-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -12848,8 +13531,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"qos-show-ea-st-v1" : ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("qos-show-ea-st-v1", ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1))])
+                                            self._leafs = OrderedDict()
 
                                             self.qos_show_ea_st_v1 = YList(self)
                                             self._segment_path = lambda: "policy"
@@ -12946,18 +13631,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "policy"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark)}
-                                                self._child_list_classes = {}
-
-                                                self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                                self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                                self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                                    ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                                    ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                                ])
+                                                self.class_level = None
+                                                self.class_name = None
+                                                self.policy_name = None
+                                                self.parent_policy_name = None
+                                                self.parent_class_name = None
 
                                                 self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue()
                                                 self.queue.parent = self
@@ -13036,14 +13724,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                    self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                                    self.class_name = YLeaf(YType.str, "class-name")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                        ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ])
+                                                    self.queue_id = None
+                                                    self.queue_type = None
+                                                    self.class_name = None
                                                     self._segment_path = lambda: "queue"
 
                                                 def __setattr__(self, name, value):
@@ -13092,12 +13783,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.scaling_profile_id = None
 
                                                     self.queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit()
                                                     self.queue_limit.parent = self
@@ -13144,12 +13838,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -13186,12 +13883,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "config-queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -13248,10 +13948,13 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pbs)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint16, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pbs))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ])
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir()
                                                     self.cir.parent = self
@@ -13313,12 +14016,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -13348,8 +14054,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.minimum_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate()
                                                         self.minimum_rate.parent = self
@@ -13388,12 +14096,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "config-bandwidth"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "minimum-rate"
 
                                                         def __setattr__(self, name, value):
@@ -13430,12 +14141,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -13472,12 +14186,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -13514,12 +14231,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -13581,12 +14301,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters)}
-                                                    self._child_list_classes = {}
-
-                                                    self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                    ])
+                                                    self.policer_type = None
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir()
                                                     self.cir.parent = self
@@ -13648,12 +14371,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -13690,12 +14416,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -13732,12 +14461,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -13774,12 +14506,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -13824,8 +14559,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate()
                                                         self.average_rate.parent = self
@@ -13879,12 +14616,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "average-rate"
 
                                                         def __setattr__(self, name, value):
@@ -13921,12 +14661,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "peak-rate"
 
                                                         def __setattr__(self, name, value):
@@ -13963,12 +14706,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "conform-burst"
 
                                                         def __setattr__(self, name, value):
@@ -14005,12 +14751,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "exceed-burst"
 
                                                         def __setattr__(self, name, value):
@@ -14087,20 +14836,23 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.Bandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                                    self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                    self.level = YLeaf(YType.uint8, "level")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.Bandwidth))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                        ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                        ('level', YLeaf(YType.uint8, 'level')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.committed_weight = None
+                                                    self.excess_weight = None
+                                                    self.excess_ratio = None
+                                                    self.chunk_id = None
+                                                    self.level = None
 
                                                     self.parent_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth()
                                                     self.parent_bandwidth.parent = self
@@ -14147,12 +14899,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "parent-bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -14189,12 +14944,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -14257,18 +15015,21 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve)}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.curve_xr = YLeaf(YType.uint16, "curve-xr")
-
-                                                    self.table_id = YLeaf(YType.uint8, "table-id")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve))])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                        ('table_id', YLeaf(YType.uint8, 'table-id')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                                    ])
+                                                    self.type = None
+                                                    self.curve_xr = None
+                                                    self.table_id = None
+                                                    self.profile_id = None
+                                                    self.scaling_profile_id = None
 
                                                     self.curve = YList(self)
                                                     self._segment_path = lambda: "wred"
@@ -14320,10 +15081,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wred"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig)}
-                                                        self._child_list_classes = {}
-
-                                                        self.match = YLeaf(YType.str, "match")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('match', YLeaf(YType.str, 'match')),
+                                                        ])
+                                                        self.match = None
 
                                                         self.min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold()
                                                         self.min_threshold.parent = self
@@ -14380,12 +15144,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -14422,12 +15189,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -14464,12 +15234,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -14506,12 +15279,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -14576,8 +15352,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.child_mark = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark()
                                                     self.child_mark.parent = self
@@ -14649,10 +15427,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "child-mark"
@@ -14691,12 +15472,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "child-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -14731,10 +15515,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-conform"
@@ -14773,12 +15560,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -14813,10 +15603,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-exceed"
@@ -14855,12 +15648,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -14895,10 +15691,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-violate"
@@ -14937,12 +15736,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -14977,10 +15779,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-mark"
@@ -15019,12 +15824,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -15059,10 +15867,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-conform"
@@ -15101,12 +15912,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -15141,10 +15955,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-exceed"
@@ -15183,12 +16000,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -15223,10 +16043,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-violate"
@@ -15265,12 +16088,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -15300,8 +16126,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"qos-show-ea-st-v2" : ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("qos-show-ea-st-v2", ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2))])
+                                            self._leafs = OrderedDict()
 
                                             self.qos_show_ea_st_v2 = YList(self)
                                             self._segment_path = lambda: "policy-typhoon"
@@ -15398,18 +16226,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "policy-typhoon"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark)}
-                                                self._child_list_classes = {}
-
-                                                self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                                self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                                self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                                    ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                                    ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                                ])
+                                                self.class_level = None
+                                                self.class_name = None
+                                                self.policy_name = None
+                                                self.parent_policy_name = None
+                                                self.parent_class_name = None
 
                                                 self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue()
                                                 self.queue.parent = self
@@ -15488,14 +16319,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                    self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                                    self.class_name = YLeaf(YType.str, "class-name")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                        ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ])
+                                                    self.queue_id = None
+                                                    self.queue_type = None
+                                                    self.class_name = None
                                                     self._segment_path = lambda: "queue"
 
                                                 def __setattr__(self, name, value):
@@ -15551,14 +16385,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit)}
-                                                    self._child_list_classes = {}
-
-                                                    self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                    self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                    self.curve_id = YLeaf(YType.uint16, "curve-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                        ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                        ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                    ])
+                                                    self.absolute_index = None
+                                                    self.template_id = None
+                                                    self.curve_id = None
 
                                                     self.queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit()
                                                     self.queue_limit.parent = self
@@ -15605,12 +16442,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -15647,12 +16487,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "config-queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -15697,12 +16540,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir-shape" : ("cir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape), "pir-shape" : ("pir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape)}
-                                                    self._child_list_classes = {}
-
-                                                    self.cir_shape_type = YLeaf(YType.enumeration, "cir-shape-type")
-
-                                                    self.pir_shape_type = YLeaf(YType.enumeration, "pir-shape-type")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir-shape", ("cir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape)), ("pir-shape", ("pir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('cir_shape_type', YLeaf(YType.enumeration, 'cir-shape-type')),
+                                                        ('pir_shape_type', YLeaf(YType.enumeration, 'pir-shape-type')),
+                                                    ])
+                                                    self.cir_shape_type = None
+                                                    self.pir_shape_type = None
 
                                                     self.cir_shape = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape()
                                                     self.cir_shape.parent = self
@@ -15773,14 +16619,17 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs)}
-                                                        self._child_list_classes = {}
-
-                                                        self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                        self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                        self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                            ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                            ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                        ])
+                                                        self.chunk_id = None
+                                                        self.profile_id = None
+                                                        self.scale_factor = None
 
                                                         self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir()
                                                         self.cir.parent = self
@@ -15832,12 +16681,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "cir"
 
                                                         def __setattr__(self, name, value):
@@ -15867,8 +16719,10 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate)}
-                                                            self._child_list_classes = {}
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate))])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict()
 
                                                             self.minimum_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate()
                                                             self.minimum_rate.parent = self
@@ -15907,12 +16761,15 @@ class PlatformQos(Entity):
                                                                 self.yang_parent_name = "config-bandwidth"
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
-                                                                self._child_container_classes = {}
-                                                                self._child_list_classes = {}
-
-                                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                                self.ylist_key_names = []
+                                                                self._child_container_classes = OrderedDict([])
+                                                                self._child_list_classes = OrderedDict([])
+                                                                self._leafs = OrderedDict([
+                                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ])
+                                                                self.value = None
+                                                                self.unit = None
                                                                 self._segment_path = lambda: "minimum-rate"
 
                                                             def __setattr__(self, name, value):
@@ -15949,12 +16806,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "cbs"
 
                                                         def __setattr__(self, name, value):
@@ -16010,14 +16870,17 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs)}
-                                                        self._child_list_classes = {}
-
-                                                        self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                        self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                        self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                            ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                            ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                        ])
+                                                        self.chunk_id = None
+                                                        self.profile_id = None
+                                                        self.scale_factor = None
 
                                                         self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir()
                                                         self.pir.parent = self
@@ -16064,12 +16927,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "pir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "pir"
 
                                                         def __setattr__(self, name, value):
@@ -16106,12 +16972,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "pir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "pbs"
 
                                                         def __setattr__(self, name, value):
@@ -16173,12 +17042,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters)}
-                                                    self._child_list_classes = {}
-
-                                                    self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                    ])
+                                                    self.policer_type = None
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir()
                                                     self.cir.parent = self
@@ -16240,12 +17112,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -16282,12 +17157,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -16324,12 +17202,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -16366,12 +17247,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -16416,8 +17300,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate()
                                                         self.average_rate.parent = self
@@ -16471,12 +17357,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "average-rate"
 
                                                         def __setattr__(self, name, value):
@@ -16513,12 +17402,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "peak-rate"
 
                                                         def __setattr__(self, name, value):
@@ -16555,12 +17447,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "conform-burst"
 
                                                         def __setattr__(self, name, value):
@@ -16597,12 +17492,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "exceed-burst"
 
                                                         def __setattr__(self, name, value):
@@ -16679,20 +17577,23 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                                    self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                    self.level = YLeaf(YType.uint8, "level")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                        ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                        ('level', YLeaf(YType.uint8, 'level')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.committed_weight = None
+                                                    self.excess_weight = None
+                                                    self.excess_ratio = None
+                                                    self.chunk_id = None
+                                                    self.level = None
 
                                                     self.parent_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth()
                                                     self.parent_bandwidth.parent = self
@@ -16739,12 +17640,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "parent-bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -16781,12 +17685,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -16828,12 +17735,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve)}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.curve_xr = YLeaf(YType.uint16, "curve-xr")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve))])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                    ])
+                                                    self.type = None
+                                                    self.curve_xr = None
 
                                                     self.curve = YList(self)
                                                     self._segment_path = lambda: "wred"
@@ -16911,18 +17821,21 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wred"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig)}
-                                                        self._child_list_classes = {}
-
-                                                        self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                        self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                        self.curve_id = YLeaf(YType.uint16, "curve-id")
-
-                                                        self.match = YLeaf(YType.str, "match")
-
-                                                        self.exp_match = YLeaf(YType.str, "exp-match")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                            ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                            ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                            ('match', YLeaf(YType.str, 'match')),
+                                                            ('exp_match', YLeaf(YType.str, 'exp-match')),
+                                                        ])
+                                                        self.absolute_index = None
+                                                        self.template_id = None
+                                                        self.curve_id = None
+                                                        self.match = None
+                                                        self.exp_match = None
 
                                                         self.min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold()
                                                         self.min_threshold.parent = self
@@ -16979,12 +17892,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -17021,12 +17937,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -17063,12 +17982,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -17105,12 +18027,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -17175,8 +18100,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.child_mark = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark()
                                                     self.child_mark.parent = self
@@ -17248,10 +18175,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "child-mark"
@@ -17290,12 +18220,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "child-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17330,10 +18263,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-conform"
@@ -17372,12 +18308,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17412,10 +18351,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-exceed"
@@ -17454,12 +18396,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17494,10 +18439,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-violate"
@@ -17536,12 +18484,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17576,10 +18527,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-mark"
@@ -17618,12 +18572,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17658,10 +18615,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-conform"
@@ -17700,12 +18660,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17740,10 +18703,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-exceed"
@@ -17782,12 +18748,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17822,10 +18791,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleOutput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-violate"
@@ -17864,12 +18836,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -17899,8 +18874,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"member-interfaces" : ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("member-interfaces", ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces()
                             self.member_interfaces.parent = self
@@ -17932,8 +18909,10 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "bundle-input"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"member-interface" : ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("member-interface", ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface))])
+                                self._leafs = OrderedDict()
 
                                 self.member_interface = YList(self)
                                 self._segment_path = lambda: "member-interfaces"
@@ -17946,7 +18925,7 @@ class PlatformQos(Entity):
                                 """
                                 QoS interface name
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Memeber interface
                                 	**type**\: str
@@ -17972,16 +18951,19 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "member-interfaces"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"details" : ("details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("details", ("details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.interface_name = None
 
                                     self.details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details()
                                     self.details.parent = self
                                     self._children_name_map["details"] = "details"
                                     self._children_yang_names.add("details")
-                                    self._segment_path = lambda: "member-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
@@ -18020,8 +19002,10 @@ class PlatformQos(Entity):
                                         self.yang_parent_name = "member-interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"header" : ("header", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header), "policy" : ("policy", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy), "policy-typhoon" : ("policy_typhoon", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("header", ("header", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header)), ("policy", ("policy", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy)), ("policy-typhoon", ("policy_typhoon", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.header = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header()
                                         self.header.parent = self
@@ -18082,12 +19066,15 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"interface-parameters" : ("interface_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters), "programmed-bandwidth" : ("programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.ProgrammedBandwidth)}
-                                            self._child_list_classes = {}
-
-                                            self.classes = YLeaf(YType.uint16, "classes")
-
-                                            self.policy_name = YLeaf(YType.str, "policy-name")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("interface-parameters", ("interface_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters)), ("programmed-bandwidth", ("programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.ProgrammedBandwidth))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('classes', YLeaf(YType.uint16, 'classes')),
+                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                            ])
+                                            self.classes = None
+                                            self.policy_name = None
 
                                             self.interface_parameters = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters()
                                             self.interface_parameters.parent = self
@@ -18142,8 +19129,10 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "header"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"port-config-bandwidth" : ("port_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth), "ancp-config-bandwidth" : ("ancp_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpConfigBandwidth), "ancp-programmed-bandwidth" : ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpProgrammedBandwidth), "port-shaper-rate" : ("port_shaper_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortShaperRate)}
-                                                self._child_list_classes = {}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("port-config-bandwidth", ("port_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth)), ("ancp-config-bandwidth", ("ancp_config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpConfigBandwidth)), ("ancp-programmed-bandwidth", ("ancp_programmed_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.AncpProgrammedBandwidth)), ("port-shaper-rate", ("port_shaper_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortShaperRate))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict()
 
                                                 self.port_config_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Header.InterfaceParameters.PortConfigBandwidth()
                                                 self.port_config_bandwidth.parent = self
@@ -18197,12 +19186,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "port-config-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -18239,12 +19231,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "ancp-config-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -18281,12 +19276,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "ancp-programmed-bandwidth"
 
                                                 def __setattr__(self, name, value):
@@ -18323,12 +19321,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "interface-parameters"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.value = YLeaf(YType.uint32, "value")
-
-                                                    self.unit = YLeaf(YType.enumeration, "unit")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('value', YLeaf(YType.uint32, 'value')),
+                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ])
+                                                    self.value = None
+                                                    self.unit = None
                                                     self._segment_path = lambda: "port-shaper-rate"
 
                                                 def __setattr__(self, name, value):
@@ -18365,12 +19366,15 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "header"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ])
+                                                self.value = None
+                                                self.unit = None
                                                 self._segment_path = lambda: "programmed-bandwidth"
 
                                             def __setattr__(self, name, value):
@@ -18400,8 +19404,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"qos-show-ea-st-v1" : ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("qos-show-ea-st-v1", ("qos_show_ea_st_v1", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1))])
+                                            self._leafs = OrderedDict()
 
                                             self.qos_show_ea_st_v1 = YList(self)
                                             self._segment_path = lambda: "policy"
@@ -18498,18 +19504,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "policy"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark)}
-                                                self._child_list_classes = {}
-
-                                                self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                                self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                                self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                                    ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                                    ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                                ])
+                                                self.class_level = None
+                                                self.class_name = None
+                                                self.policy_name = None
+                                                self.parent_policy_name = None
+                                                self.parent_class_name = None
 
                                                 self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Queue()
                                                 self.queue.parent = self
@@ -18588,14 +19597,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                    self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                                    self.class_name = YLeaf(YType.str, "class-name")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                        ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ])
+                                                    self.queue_id = None
+                                                    self.queue_type = None
+                                                    self.class_name = None
                                                     self._segment_path = lambda: "queue"
 
                                                 def __setattr__(self, name, value):
@@ -18644,12 +19656,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.ConfigQueueLimit))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.scaling_profile_id = None
 
                                                     self.queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.QueueLimitParameters.QueueLimit()
                                                     self.queue_limit.parent = self
@@ -18696,12 +19711,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -18738,12 +19756,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "config-queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -18800,10 +19821,13 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pbs)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint16, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Pbs))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                    ])
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.Cir()
                                                     self.cir.parent = self
@@ -18865,12 +19889,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -18900,8 +19927,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.minimum_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Shape.ConfigBandwidth.MinimumRate()
                                                         self.minimum_rate.parent = self
@@ -18940,12 +19969,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "config-bandwidth"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "minimum-rate"
 
                                                         def __setattr__(self, name, value):
@@ -18982,12 +20014,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -19024,12 +20059,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -19066,12 +20104,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -19133,12 +20174,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters)}
-                                                    self._child_list_classes = {}
-
-                                                    self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                    ])
+                                                    self.policer_type = None
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.Cir()
                                                     self.cir.parent = self
@@ -19200,12 +20244,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -19242,12 +20289,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -19284,12 +20334,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -19326,12 +20379,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -19376,8 +20432,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.ExceedBurst))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Police.PoliceConfigParameters.AverageRate()
                                                         self.average_rate.parent = self
@@ -19431,12 +20489,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "average-rate"
 
                                                         def __setattr__(self, name, value):
@@ -19473,12 +20534,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "peak-rate"
 
                                                         def __setattr__(self, name, value):
@@ -19515,12 +20579,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "conform-burst"
 
                                                         def __setattr__(self, name, value):
@@ -19557,12 +20624,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "exceed-burst"
 
                                                         def __setattr__(self, name, value):
@@ -19639,20 +20709,23 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.Bandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                                    self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                    self.level = YLeaf(YType.uint8, "level")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.Bandwidth))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                        ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                        ('level', YLeaf(YType.uint8, 'level')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.committed_weight = None
+                                                    self.excess_weight = None
+                                                    self.excess_ratio = None
+                                                    self.chunk_id = None
+                                                    self.level = None
 
                                                     self.parent_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wfq.ParentBandwidth()
                                                     self.parent_bandwidth.parent = self
@@ -19699,12 +20772,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "parent-bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -19741,12 +20817,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -19809,18 +20888,21 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve)}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.curve_xr = YLeaf(YType.uint16, "curve-xr")
-
-                                                    self.table_id = YLeaf(YType.uint8, "table-id")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.scaling_profile_id = YLeaf(YType.uint32, "scaling-profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve))])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                        ('table_id', YLeaf(YType.uint8, 'table-id')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('scaling_profile_id', YLeaf(YType.uint32, 'scaling-profile-id')),
+                                                    ])
+                                                    self.type = None
+                                                    self.curve_xr = None
+                                                    self.table_id = None
+                                                    self.profile_id = None
+                                                    self.scaling_profile_id = None
 
                                                     self.curve = YList(self)
                                                     self._segment_path = lambda: "wred"
@@ -19872,10 +20954,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wred"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig)}
-                                                        self._child_list_classes = {}
-
-                                                        self.match = YLeaf(YType.str, "match")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MaxThresholdUserConfig))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('match', YLeaf(YType.str, 'match')),
+                                                        ])
+                                                        self.match = None
 
                                                         self.min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Wred.Curve.MinThreshold()
                                                         self.min_threshold.parent = self
@@ -19932,12 +21017,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -19974,12 +21062,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -20016,12 +21107,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -20058,12 +21152,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -20128,8 +21225,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v1"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.child_mark = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark()
                                                     self.child_mark.parent = self
@@ -20201,10 +21300,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ChildMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "child-mark"
@@ -20243,12 +21345,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "child-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20283,10 +21388,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-conform"
@@ -20325,12 +21433,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20365,10 +21476,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-exceed"
@@ -20407,12 +21521,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20447,10 +21564,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.PoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-violate"
@@ -20489,12 +21609,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20529,10 +21652,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-mark"
@@ -20571,12 +21697,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20611,10 +21740,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-conform"
@@ -20653,12 +21785,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20693,10 +21828,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-exceed"
@@ -20735,12 +21873,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20775,10 +21916,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.Policy.QosShowEaStV1.Mark.ParentPoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-violate"
@@ -20817,12 +21961,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -20852,8 +21999,10 @@ class PlatformQos(Entity):
                                             self.yang_parent_name = "details"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"qos-show-ea-st-v2" : ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("qos-show-ea-st-v2", ("qos_show_ea_st_v2", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2))])
+                                            self._leafs = OrderedDict()
 
                                             self.qos_show_ea_st_v2 = YList(self)
                                             self._segment_path = lambda: "policy-typhoon"
@@ -20950,18 +22099,21 @@ class PlatformQos(Entity):
                                                 self.yang_parent_name = "policy-typhoon"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"queue" : ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue), "queue-limit-parameters" : ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters), "shape" : ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape), "police" : ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police), "wfq" : ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred), "mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark)}
-                                                self._child_list_classes = {}
-
-                                                self.class_level = YLeaf(YType.uint8, "class-level")
-
-                                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                                self.parent_policy_name = YLeaf(YType.str, "parent-policy-name")
-
-                                                self.parent_class_name = YLeaf(YType.str, "parent-class-name")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue)), ("queue-limit-parameters", ("queue_limit_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred)), ("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
+                                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                                    ('parent_policy_name', YLeaf(YType.str, 'parent-policy-name')),
+                                                    ('parent_class_name', YLeaf(YType.str, 'parent-class-name')),
+                                                ])
+                                                self.class_level = None
+                                                self.class_name = None
+                                                self.policy_name = None
+                                                self.parent_policy_name = None
+                                                self.parent_class_name = None
 
                                                 self.queue = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Queue()
                                                 self.queue.parent = self
@@ -21040,14 +22192,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.queue_id = YLeaf(YType.uint32, "queue-id")
-
-                                                    self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                                    self.class_name = YLeaf(YType.str, "class-name")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('queue_id', YLeaf(YType.uint32, 'queue-id')),
+                                                        ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                                    ])
+                                                    self.queue_id = None
+                                                    self.queue_type = None
+                                                    self.class_name = None
                                                     self._segment_path = lambda: "queue"
 
                                                 def __setattr__(self, name, value):
@@ -21103,14 +22258,17 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"queue-limit" : ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit)}
-                                                    self._child_list_classes = {}
-
-                                                    self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                    self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                    self.curve_id = YLeaf(YType.uint16, "curve-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("queue-limit", ("queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.ConfigQueueLimit))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                        ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                        ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                    ])
+                                                    self.absolute_index = None
+                                                    self.template_id = None
+                                                    self.curve_id = None
 
                                                     self.queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.QueueLimitParameters.QueueLimit()
                                                     self.queue_limit.parent = self
@@ -21157,12 +22315,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -21199,12 +22360,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "queue-limit-parameters"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "config-queue-limit"
 
                                                     def __setattr__(self, name, value):
@@ -21249,12 +22413,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir-shape" : ("cir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape), "pir-shape" : ("pir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape)}
-                                                    self._child_list_classes = {}
-
-                                                    self.cir_shape_type = YLeaf(YType.enumeration, "cir-shape-type")
-
-                                                    self.pir_shape_type = YLeaf(YType.enumeration, "pir-shape-type")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir-shape", ("cir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape)), ("pir-shape", ("pir_shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('cir_shape_type', YLeaf(YType.enumeration, 'cir-shape-type')),
+                                                        ('pir_shape_type', YLeaf(YType.enumeration, 'pir-shape-type')),
+                                                    ])
+                                                    self.cir_shape_type = None
+                                                    self.pir_shape_type = None
 
                                                     self.cir_shape = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape()
                                                     self.cir_shape.parent = self
@@ -21325,14 +22492,17 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir), "config-bandwidth" : ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs)}
-                                                        self._child_list_classes = {}
-
-                                                        self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                        self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                        self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir)), ("config-bandwidth", ("config_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cbs))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                            ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                            ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                        ])
+                                                        self.chunk_id = None
+                                                        self.profile_id = None
+                                                        self.scale_factor = None
 
                                                         self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.Cir()
                                                         self.cir.parent = self
@@ -21384,12 +22554,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "cir"
 
                                                         def __setattr__(self, name, value):
@@ -21419,8 +22592,10 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {"minimum-rate" : ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate)}
-                                                            self._child_list_classes = {}
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([("minimum-rate", ("minimum_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate))])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict()
 
                                                             self.minimum_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.CirShape.ConfigBandwidth.MinimumRate()
                                                             self.minimum_rate.parent = self
@@ -21459,12 +22634,15 @@ class PlatformQos(Entity):
                                                                 self.yang_parent_name = "config-bandwidth"
                                                                 self.is_top_level_class = False
                                                                 self.has_list_ancestor = True
-                                                                self._child_container_classes = {}
-                                                                self._child_list_classes = {}
-
-                                                                self.value = YLeaf(YType.uint32, "value")
-
-                                                                self.unit = YLeaf(YType.enumeration, "unit")
+                                                                self.ylist_key_names = []
+                                                                self._child_container_classes = OrderedDict([])
+                                                                self._child_list_classes = OrderedDict([])
+                                                                self._leafs = OrderedDict([
+                                                                    ('value', YLeaf(YType.uint32, 'value')),
+                                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ])
+                                                                self.value = None
+                                                                self.unit = None
                                                                 self._segment_path = lambda: "minimum-rate"
 
                                                             def __setattr__(self, name, value):
@@ -21501,12 +22679,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "cir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "cbs"
 
                                                         def __setattr__(self, name, value):
@@ -21562,14 +22743,17 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "shape"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs)}
-                                                        self._child_list_classes = {}
-
-                                                        self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                        self.profile_id = YLeaf(YType.uint16, "profile-id")
-
-                                                        self.scale_factor = YLeaf(YType.uint16, "scale-factor")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pbs))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                            ('profile_id', YLeaf(YType.uint16, 'profile-id')),
+                                                            ('scale_factor', YLeaf(YType.uint16, 'scale-factor')),
+                                                        ])
+                                                        self.chunk_id = None
+                                                        self.profile_id = None
+                                                        self.scale_factor = None
 
                                                         self.pir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Shape.PirShape.Pir()
                                                         self.pir.parent = self
@@ -21616,12 +22800,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "pir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "pir"
 
                                                         def __setattr__(self, name, value):
@@ -21658,12 +22845,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "pir-shape"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "pbs"
 
                                                         def __setattr__(self, name, value):
@@ -21725,12 +22915,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"cir" : ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir), "cbs" : ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs), "pir" : ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir), "pbs" : ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs), "police-config-parameters" : ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters)}
-                                                    self._child_list_classes = {}
-
-                                                    self.policer_type = YLeaf(YType.enumeration, "policer-type")
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cbs)), ("pir", ("pir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pir)), ("pbs", ("pbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Pbs)), ("police-config-parameters", ("police_config_parameters", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                    ])
+                                                    self.policer_type = None
+                                                    self.profile_id = None
 
                                                     self.cir = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.Cir()
                                                     self.cir.parent = self
@@ -21792,12 +22985,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cir"
 
                                                     def __setattr__(self, name, value):
@@ -21834,12 +23030,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "cbs"
 
                                                     def __setattr__(self, name, value):
@@ -21876,12 +23075,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pir"
 
                                                     def __setattr__(self, name, value):
@@ -21918,12 +23120,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "pbs"
 
                                                     def __setattr__(self, name, value):
@@ -21968,8 +23173,10 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "police"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"average-rate" : ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate), "peak-rate" : ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate), "conform-burst" : ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst), "exceed-burst" : ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst)}
-                                                        self._child_list_classes = {}
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("average-rate", ("average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate)), ("peak-rate", ("peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.PeakRate)), ("conform-burst", ("conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ConformBurst)), ("exceed-burst", ("exceed_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.ExceedBurst))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict()
 
                                                         self.average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Police.PoliceConfigParameters.AverageRate()
                                                         self.average_rate.parent = self
@@ -22023,12 +23230,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "average-rate"
 
                                                         def __setattr__(self, name, value):
@@ -22065,12 +23275,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "peak-rate"
 
                                                         def __setattr__(self, name, value):
@@ -22107,12 +23320,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "conform-burst"
 
                                                         def __setattr__(self, name, value):
@@ -22149,12 +23365,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-config-parameters"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "exceed-burst"
 
                                                         def __setattr__(self, name, value):
@@ -22231,20 +23450,23 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"parent-bandwidth" : ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth), "bandwidth" : ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth)}
-                                                    self._child_list_classes = {}
-
-                                                    self.profile_id = YLeaf(YType.uint32, "profile-id")
-
-                                                    self.committed_weight = YLeaf(YType.uint32, "committed-weight")
-
-                                                    self.excess_weight = YLeaf(YType.uint16, "excess-weight")
-
-                                                    self.excess_ratio = YLeaf(YType.uint16, "excess-ratio")
-
-                                                    self.chunk_id = YLeaf(YType.uint32, "chunk-id")
-
-                                                    self.level = YLeaf(YType.uint8, "level")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("parent-bandwidth", ("parent_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth)), ("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.Bandwidth))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('profile_id', YLeaf(YType.uint32, 'profile-id')),
+                                                        ('committed_weight', YLeaf(YType.uint32, 'committed-weight')),
+                                                        ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('chunk_id', YLeaf(YType.uint32, 'chunk-id')),
+                                                        ('level', YLeaf(YType.uint8, 'level')),
+                                                    ])
+                                                    self.profile_id = None
+                                                    self.committed_weight = None
+                                                    self.excess_weight = None
+                                                    self.excess_ratio = None
+                                                    self.chunk_id = None
+                                                    self.level = None
 
                                                     self.parent_bandwidth = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wfq.ParentBandwidth()
                                                     self.parent_bandwidth.parent = self
@@ -22291,12 +23513,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "parent-bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -22333,12 +23558,15 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wfq"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.value = YLeaf(YType.uint32, "value")
-
-                                                        self.unit = YLeaf(YType.enumeration, "unit")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('value', YLeaf(YType.uint32, 'value')),
+                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ])
+                                                        self.value = None
+                                                        self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
 
                                                     def __setattr__(self, name, value):
@@ -22380,12 +23608,15 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {"curve" : ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve)}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.curve_xr = YLeaf(YType.uint16, "curve-xr")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([("curve", ("curve", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve))])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('curve_xr', YLeaf(YType.uint16, 'curve-xr')),
+                                                    ])
+                                                    self.type = None
+                                                    self.curve_xr = None
 
                                                     self.curve = YList(self)
                                                     self._segment_path = lambda: "wred"
@@ -22463,18 +23694,21 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "wred"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {"min-threshold" : ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold), "min-threshold-user-config" : ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig), "max-threshold" : ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold), "max-threshold-user-config" : ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig)}
-                                                        self._child_list_classes = {}
-
-                                                        self.absolute_index = YLeaf(YType.uint16, "absolute-index")
-
-                                                        self.template_id = YLeaf(YType.uint16, "template-id")
-
-                                                        self.curve_id = YLeaf(YType.uint16, "curve-id")
-
-                                                        self.match = YLeaf(YType.str, "match")
-
-                                                        self.exp_match = YLeaf(YType.str, "exp-match")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([("min-threshold", ("min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold)), ("min-threshold-user-config", ("min_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThresholdUserConfig)), ("max-threshold", ("max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThreshold)), ("max-threshold-user-config", ("max_threshold_user_config", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MaxThresholdUserConfig))])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('absolute_index', YLeaf(YType.uint16, 'absolute-index')),
+                                                            ('template_id', YLeaf(YType.uint16, 'template-id')),
+                                                            ('curve_id', YLeaf(YType.uint16, 'curve-id')),
+                                                            ('match', YLeaf(YType.str, 'match')),
+                                                            ('exp_match', YLeaf(YType.str, 'exp-match')),
+                                                        ])
+                                                        self.absolute_index = None
+                                                        self.template_id = None
+                                                        self.curve_id = None
+                                                        self.match = None
+                                                        self.exp_match = None
 
                                                         self.min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Wred.Curve.MinThreshold()
                                                         self.min_threshold.parent = self
@@ -22531,12 +23765,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -22573,12 +23810,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "min-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -22615,12 +23855,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold"
 
                                                         def __setattr__(self, name, value):
@@ -22657,12 +23900,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "curve"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.value = YLeaf(YType.uint32, "value")
-
-                                                            self.unit = YLeaf(YType.enumeration, "unit")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('value', YLeaf(YType.uint32, 'value')),
+                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ])
+                                                            self.value = None
+                                                            self.unit = None
                                                             self._segment_path = lambda: "max-threshold-user-config"
 
                                                         def __setattr__(self, name, value):
@@ -22727,8 +23973,10 @@ class PlatformQos(Entity):
                                                     self.yang_parent_name = "qos-show-ea-st-v2"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {"child-mark" : ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark), "police-conform" : ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform), "police-exceed" : ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed), "police-violate" : ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate), "parent-mark" : ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark), "parent-police-conform" : ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform), "parent-police-exceed" : ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed), "parent-police-violate" : ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate)}
-                                                    self._child_list_classes = {}
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("child-mark", ("child_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark)), ("police-conform", ("police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform)), ("police-exceed", ("police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed)), ("police-violate", ("police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate)), ("parent-mark", ("parent_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark)), ("parent-police-conform", ("parent_police_conform", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform)), ("parent-police-exceed", ("parent_police_exceed", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed)), ("parent-police-violate", ("parent_police_violate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict()
 
                                                     self.child_mark = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark()
                                                     self.child_mark.parent = self
@@ -22800,10 +24048,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ChildMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "child-mark"
@@ -22842,12 +24093,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "child-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -22882,10 +24136,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-conform"
@@ -22924,12 +24181,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -22964,10 +24224,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-exceed"
@@ -23006,12 +24269,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -23046,10 +24312,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.PoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "police-violate"
@@ -23088,12 +24357,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -23128,10 +24400,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentMark.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-mark"
@@ -23170,12 +24445,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-mark"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -23210,10 +24488,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceConform.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-conform"
@@ -23252,12 +24533,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-conform"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -23292,10 +24576,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceExceed.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-exceed"
@@ -23334,12 +24621,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-exceed"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):
@@ -23374,10 +24664,13 @@ class PlatformQos(Entity):
                                                         self.yang_parent_name = "mark"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = True
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {"mark-detail" : ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail)}
-
-                                                        self.action_type = YLeaf(YType.enumeration, "action-type")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.BundleInput.MemberInterfaces.MemberInterface.Details.PolicyTyphoon.QosShowEaStV2.Mark.ParentPoliceViolate.MarkDetail))])
+                                                        self._leafs = OrderedDict([
+                                                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ])
+                                                        self.action_type = None
 
                                                         self.mark_detail = YList(self)
                                                         self._segment_path = lambda: "parent-police-violate"
@@ -23416,12 +24709,15 @@ class PlatformQos(Entity):
                                                             self.yang_parent_name = "parent-police-violate"
                                                             self.is_top_level_class = False
                                                             self.has_list_ancestor = True
-                                                            self._child_container_classes = {}
-                                                            self._child_list_classes = {}
-
-                                                            self.mark_value = YLeaf(YType.uint8, "mark-value")
-
-                                                            self.action_opcode = YLeaf(YType.enumeration, "action-opcode")
+                                                            self.ylist_key_names = []
+                                                            self._child_container_classes = OrderedDict([])
+                                                            self._child_list_classes = OrderedDict([])
+                                                            self._leafs = OrderedDict([
+                                                                ('mark_value', YLeaf(YType.uint8, 'mark-value')),
+                                                                ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ])
+                                                            self.mark_value = None
+                                                            self.action_opcode = None
                                                             self._segment_path = lambda: "mark-detail"
 
                                                         def __setattr__(self, name, value):

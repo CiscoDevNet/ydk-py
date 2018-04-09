@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LogicalAdminState(Enum):
     """
-    LogicalAdminState
+    LogicalAdminState (Enum Class)
 
     Logical admin state
 
@@ -47,7 +49,7 @@ class LogicalAdminState(Enum):
 
 class LogicalChannelAssignment(Enum):
     """
-    LogicalChannelAssignment
+    LogicalChannelAssignment (Enum Class)
 
     Logical channel assignment
 
@@ -68,7 +70,7 @@ class LogicalChannelAssignment(Enum):
 
 class LogicalChannelOtnTtiAuto(Enum):
     """
-    LogicalChannelOtnTtiAuto
+    LogicalChannelOtnTtiAuto (Enum Class)
 
     Logical channel otn tti auto
 
@@ -89,7 +91,7 @@ class LogicalChannelOtnTtiAuto(Enum):
 
 class LogicalLoopbackMode(Enum):
     """
-    LogicalLoopbackMode
+    LogicalLoopbackMode (Enum Class)
 
     Logical loopback mode
 
@@ -116,7 +118,7 @@ class LogicalLoopbackMode(Enum):
 
 class LogicalProtocol(Enum):
     """
-    LogicalProtocol
+    LogicalProtocol (Enum Class)
 
     Logical protocol
 
@@ -137,7 +139,7 @@ class LogicalProtocol(Enum):
 
 class LogicalTribProtocol(Enum):
     """
-    LogicalTribProtocol
+    LogicalTribProtocol (Enum Class)
 
     Logical trib protocol
 
@@ -280,7 +282,7 @@ class LogicalTribProtocol(Enum):
 
 class LogicalTribRate(Enum):
     """
-    LogicalTribRate
+    LogicalTribRate (Enum Class)
 
     Logical trib rate
 
@@ -342,8 +344,10 @@ class LogicalChannels(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"channel" : ("channel", LogicalChannels.Channel)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("channel", ("channel", LogicalChannels.Channel))])
+        self._leafs = OrderedDict()
 
         self.channel = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:logical-channels"
@@ -356,7 +360,7 @@ class LogicalChannels(Entity):
         """
         Logical channel index
         
-        .. attribute:: channel_index  <key>
+        .. attribute:: channel_index  (key)
         
         	Logical Channel Index
         	**type**\: int
@@ -433,26 +437,29 @@ class LogicalChannels(Entity):
             self.yang_parent_name = "logical-channels"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"logical-channel-assignments" : ("logical_channel_assignments", LogicalChannels.Channel.LogicalChannelAssignments), "otn" : ("otn", LogicalChannels.Channel.Otn)}
-            self._child_list_classes = {}
-
-            self.channel_index = YLeaf(YType.int32, "channel-index")
-
-            self.trib_protocol = YLeaf(YType.enumeration, "trib-protocol")
-
-            self.description = YLeaf(YType.str, "description")
-
-            self.ingress_client_port = YLeaf(YType.str, "ingress-client-port")
-
-            self.ingress_physical_channel = YLeaf(YType.uint32, "ingress-physical-channel")
-
-            self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-            self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
-
-            self.logical_channel_type = YLeaf(YType.enumeration, "logical-channel-type")
-
-            self.rate_class = YLeaf(YType.enumeration, "rate-class")
+            self.ylist_key_names = ['channel_index']
+            self._child_container_classes = OrderedDict([("logical-channel-assignments", ("logical_channel_assignments", LogicalChannels.Channel.LogicalChannelAssignments)), ("otn", ("otn", LogicalChannels.Channel.Otn))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('channel_index', YLeaf(YType.int32, 'channel-index')),
+                ('trib_protocol', YLeaf(YType.enumeration, 'trib-protocol')),
+                ('description', YLeaf(YType.str, 'description')),
+                ('ingress_client_port', YLeaf(YType.str, 'ingress-client-port')),
+                ('ingress_physical_channel', YLeaf(YType.uint32, 'ingress-physical-channel')),
+                ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
+                ('logical_channel_type', YLeaf(YType.enumeration, 'logical-channel-type')),
+                ('rate_class', YLeaf(YType.enumeration, 'rate-class')),
+            ])
+            self.channel_index = None
+            self.trib_protocol = None
+            self.description = None
+            self.ingress_client_port = None
+            self.ingress_physical_channel = None
+            self.admin_state = None
+            self.loopback_mode = None
+            self.logical_channel_type = None
+            self.rate_class = None
 
             self.logical_channel_assignments = LogicalChannels.Channel.LogicalChannelAssignments()
             self.logical_channel_assignments.parent = self
@@ -463,7 +470,7 @@ class LogicalChannels(Entity):
             self.otn.parent = self
             self._children_name_map["otn"] = "otn"
             self._children_yang_names.add("otn")
-            self._segment_path = lambda: "channel" + "[channel-index='" + self.channel_index.get() + "']"
+            self._segment_path = lambda: "channel" + "[channel-index='" + str(self.channel_index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:logical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -493,8 +500,10 @@ class LogicalChannels(Entity):
                 self.yang_parent_name = "channel"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"logical-channel-assignment" : ("logical_channel_assignment", LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("logical-channel-assignment", ("logical_channel_assignment", LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment))])
+                self._leafs = OrderedDict()
 
                 self.logical_channel_assignment = YList(self)
                 self._segment_path = lambda: "logical-channel-assignments"
@@ -507,7 +516,7 @@ class LogicalChannels(Entity):
                 """
                 Logical Channel Assignment id
                 
-                .. attribute:: assignment_index  <key>
+                .. attribute:: assignment_index  (key)
                 
                 	Logical channel assignment index
                 	**type**\: int
@@ -559,21 +568,24 @@ class LogicalChannels(Entity):
                     self.yang_parent_name = "logical-channel-assignments"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.assignment_index = YLeaf(YType.int32, "assignment-index")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.logical_channel_id = YLeaf(YType.int32, "logical-channel-id")
-
-                    self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
-
-                    self.allocation = YLeaf(YType.int32, "allocation")
-
-                    self.optical_channel_id = YLeaf(YType.str, "optical-channel-id")
-                    self._segment_path = lambda: "logical-channel-assignment" + "[assignment-index='" + self.assignment_index.get() + "']"
+                    self.ylist_key_names = ['assignment_index']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('assignment_index', YLeaf(YType.int32, 'assignment-index')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('logical_channel_id', YLeaf(YType.int32, 'logical-channel-id')),
+                        ('assignment_type', YLeaf(YType.enumeration, 'assignment-type')),
+                        ('allocation', YLeaf(YType.int32, 'allocation')),
+                        ('optical_channel_id', YLeaf(YType.str, 'optical-channel-id')),
+                    ])
+                    self.assignment_index = None
+                    self.description = None
+                    self.logical_channel_id = None
+                    self.assignment_type = None
+                    self.allocation = None
+                    self.optical_channel_id = None
+                    self._segment_path = lambda: "logical-channel-assignment" + "[assignment-index='" + str(self.assignment_index) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, ['assignment_index', 'description', 'logical_channel_id', 'assignment_type', 'allocation', 'optical_channel_id'], name, value)
@@ -616,14 +628,17 @@ class LogicalChannels(Entity):
                 self.yang_parent_name = "channel"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.tti_msg_auto = YLeaf(YType.enumeration, "tti-msg-auto")
-
-                self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
-
-                self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('tti_msg_auto', YLeaf(YType.enumeration, 'tti-msg-auto')),
+                    ('tti_msg_expected', YLeaf(YType.str, 'tti-msg-expected')),
+                    ('tti_msg_transmit', YLeaf(YType.str, 'tti-msg-transmit')),
+                ])
+                self.tti_msg_auto = None
+                self.tti_msg_expected = None
+                self.tti_msg_transmit = None
                 self._segment_path = lambda: "otn"
 
             def __setattr__(self, name, value):
@@ -657,8 +672,10 @@ class OpticalChannels(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-terminal-device-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"optical-channel" : ("optical_channel", OpticalChannels.OpticalChannel)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("optical-channel", ("optical_channel", OpticalChannels.OpticalChannel))])
+        self._leafs = OrderedDict()
 
         self.optical_channel = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:optical-channels"
@@ -671,7 +688,7 @@ class OpticalChannels(Entity):
         """
         Optical Channel index
         
-        .. attribute:: ifname  <key>
+        .. attribute:: ifname  (key)
         
         	Optical Channel Name
         	**type**\: str
@@ -706,15 +723,18 @@ class OpticalChannels(Entity):
             self.yang_parent_name = "optical-channels"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifname = YLeaf(YType.str, "ifname")
-
-            self.operational_mode = YLeaf(YType.uint32, "operational-mode")
-
-            self.line_port = YLeaf(YType.str, "line-port")
-            self._segment_path = lambda: "optical-channel" + "[ifname='" + self.ifname.get() + "']"
+            self.ylist_key_names = ['ifname']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifname', YLeaf(YType.str, 'ifname')),
+                ('operational_mode', YLeaf(YType.uint32, 'operational-mode')),
+                ('line_port', YLeaf(YType.str, 'line-port')),
+            ])
+            self.ifname = None
+            self.operational_mode = None
+            self.line_port = None
+            self._segment_path = lambda: "optical-channel" + "[ifname='" + str(self.ifname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-terminal-device-cfg:optical-channels/%s" % self._segment_path()
 
         def __setattr__(self, name, value):

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Vty(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tty-vty-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vty-pools" : ("vty_pools", Vty.VtyPools)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vty-pools", ("vty_pools", Vty.VtyPools))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.vty_pools = Vty.VtyPools()
         self.vty_pools.parent = self
@@ -75,8 +79,10 @@ class Vty(Entity):
             self.yang_parent_name = "vty"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vty-pool" : ("vty_pool", Vty.VtyPools.VtyPool)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vty-pool", ("vty_pool", Vty.VtyPools.VtyPool))])
+            self._leafs = OrderedDict()
 
             self.vty_pool = YList(self)
             self._segment_path = lambda: "vty-pools"
@@ -90,7 +96,7 @@ class Vty(Entity):
             """
             VTY Pool
             
-            .. attribute:: pool_name  <key>
+            .. attribute:: pool_name  (key)
             
             	For configuring range for default pool use 'default',For configuring range for fault\-manager pool use 'fm',For configuring range for any user defined pool use any other string
             	**type**\: str
@@ -139,19 +145,22 @@ class Vty(Entity):
                 self.yang_parent_name = "vty-pools"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.pool_name = YLeaf(YType.str, "pool-name")
-
-                self.first_vty = YLeaf(YType.int32, "first-vty")
-
-                self.last_vty = YLeaf(YType.int32, "last-vty")
-
-                self.line_template = YLeaf(YType.str, "line-template")
-
-                self.none = YLeaf(YType.str, "none")
-                self._segment_path = lambda: "vty-pool" + "[pool-name='" + self.pool_name.get() + "']"
+                self.ylist_key_names = ['pool_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('pool_name', YLeaf(YType.str, 'pool-name')),
+                    ('first_vty', YLeaf(YType.int32, 'first-vty')),
+                    ('last_vty', YLeaf(YType.int32, 'last-vty')),
+                    ('line_template', YLeaf(YType.str, 'line-template')),
+                    ('none', YLeaf(YType.str, 'none')),
+                ])
+                self.pool_name = None
+                self.first_vty = None
+                self.last_vty = None
+                self.line_template = None
+                self.none = None
+                self._segment_path = lambda: "vty-pool" + "[pool-name='" + str(self.pool_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-vty-cfg:vty/vty-pools/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

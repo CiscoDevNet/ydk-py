@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class TcOperAfName(Enum):
     """
-    TcOperAfName
+    TcOperAfName (Enum Class)
 
     Tc oper af name
 
@@ -79,8 +81,10 @@ class TrafficCollector(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-tc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"external-interfaces" : ("external_interfaces", TrafficCollector.ExternalInterfaces), "summary" : ("summary", TrafficCollector.Summary), "vrf-table" : ("vrf_table", TrafficCollector.VrfTable), "afs" : ("afs", TrafficCollector.Afs)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("external-interfaces", ("external_interfaces", TrafficCollector.ExternalInterfaces)), ("summary", ("summary", TrafficCollector.Summary)), ("vrf-table", ("vrf_table", TrafficCollector.VrfTable)), ("afs", ("afs", TrafficCollector.Afs))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
@@ -127,8 +131,10 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"external-interface" : ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("external-interface", ("external_interface", TrafficCollector.ExternalInterfaces.ExternalInterface))])
+            self._leafs = OrderedDict()
 
             self.external_interface = YList(self)
             self._segment_path = lambda: "external-interfaces"
@@ -142,7 +148,7 @@ class TrafficCollector(Entity):
             """
             External Interface 
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The Interface Name
             	**type**\: str
@@ -187,19 +193,22 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "external-interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                self.vrfid = YLeaf(YType.uint32, "vrfid")
-
-                self.is_interface_enabled = YLeaf(YType.boolean, "is-interface-enabled")
-                self._segment_path = lambda: "external-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                    ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                    ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                    ('is_interface_enabled', YLeaf(YType.boolean, 'is-interface-enabled')),
+                ])
+                self.interface_name = None
+                self.interface_name_xr = None
+                self.interface_handle = None
+                self.vrfid = None
+                self.is_interface_enabled = None
+                self._segment_path = lambda: "external-interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/external-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -279,18 +288,21 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"database-statistics-external-interface" : ("database_statistics_external_interface", TrafficCollector.Summary.DatabaseStatisticsExternalInterface)}
-            self._child_list_classes = {"vrf-statistic" : ("vrf_statistic", TrafficCollector.Summary.VrfStatistic), "collection-message-statistic" : ("collection_message_statistic", TrafficCollector.Summary.CollectionMessageStatistic), "checkpoint-message-statistic" : ("checkpoint_message_statistic", TrafficCollector.Summary.CheckpointMessageStatistic)}
-
-            self.collection_interval = YLeaf(YType.uint8, "collection-interval")
-
-            self.collection_timer_is_running = YLeaf(YType.boolean, "collection-timer-is-running")
-
-            self.timeout_interval = YLeaf(YType.uint16, "timeout-interval")
-
-            self.timeout_timer_is_running = YLeaf(YType.boolean, "timeout-timer-is-running")
-
-            self.history_size = YLeaf(YType.uint8, "history-size")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("database-statistics-external-interface", ("database_statistics_external_interface", TrafficCollector.Summary.DatabaseStatisticsExternalInterface))])
+            self._child_list_classes = OrderedDict([("vrf-statistic", ("vrf_statistic", TrafficCollector.Summary.VrfStatistic)), ("collection-message-statistic", ("collection_message_statistic", TrafficCollector.Summary.CollectionMessageStatistic)), ("checkpoint-message-statistic", ("checkpoint_message_statistic", TrafficCollector.Summary.CheckpointMessageStatistic))])
+            self._leafs = OrderedDict([
+                ('collection_interval', YLeaf(YType.uint8, 'collection-interval')),
+                ('collection_timer_is_running', YLeaf(YType.boolean, 'collection-timer-is-running')),
+                ('timeout_interval', YLeaf(YType.uint16, 'timeout-interval')),
+                ('timeout_timer_is_running', YLeaf(YType.boolean, 'timeout-timer-is-running')),
+                ('history_size', YLeaf(YType.uint8, 'history-size')),
+            ])
+            self.collection_interval = None
+            self.collection_timer_is_running = None
+            self.timeout_interval = None
+            self.timeout_timer_is_running = None
+            self.history_size = None
 
             self.database_statistics_external_interface = TrafficCollector.Summary.DatabaseStatisticsExternalInterface()
             self.database_statistics_external_interface.parent = self
@@ -353,16 +365,19 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
-
-                self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
-
-                self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('number_of_entries', YLeaf(YType.uint32, 'number-of-entries')),
+                    ('number_of_stale_entries', YLeaf(YType.uint32, 'number-of-stale-entries')),
+                    ('number_of_add_o_perations', YLeaf(YType.uint64, 'number-of-add-o-perations')),
+                    ('number_of_delete_o_perations', YLeaf(YType.uint64, 'number-of-delete-o-perations')),
+                ])
+                self.number_of_entries = None
+                self.number_of_stale_entries = None
+                self.number_of_add_o_perations = None
+                self.number_of_delete_o_perations = None
                 self._segment_path = lambda: "database-statistics-external-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
 
@@ -403,10 +418,13 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"database-statistics-ipv4" : ("database_statistics_ipv4", TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4), "database-statistics-tunnel" : ("database_statistics_tunnel", TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("database-statistics-ipv4", ("database_statistics_ipv4", TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4)), ("database-statistics-tunnel", ("database_statistics_tunnel", TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
 
                 self.database_statistics_ipv4 = TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4()
                 self.database_statistics_ipv4.parent = self
@@ -470,16 +488,19 @@ class TrafficCollector(Entity):
                     self.yang_parent_name = "vrf-statistic"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
-
-                    self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
-
-                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('number_of_entries', YLeaf(YType.uint32, 'number-of-entries')),
+                        ('number_of_stale_entries', YLeaf(YType.uint32, 'number-of-stale-entries')),
+                        ('number_of_add_o_perations', YLeaf(YType.uint64, 'number-of-add-o-perations')),
+                        ('number_of_delete_o_perations', YLeaf(YType.uint64, 'number-of-delete-o-perations')),
+                    ])
+                    self.number_of_entries = None
+                    self.number_of_stale_entries = None
+                    self.number_of_add_o_perations = None
+                    self.number_of_delete_o_perations = None
                     self._segment_path = lambda: "database-statistics-ipv4"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self._segment_path()
 
@@ -533,16 +554,19 @@ class TrafficCollector(Entity):
                     self.yang_parent_name = "vrf-statistic"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
-
-                    self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
-
-                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('number_of_entries', YLeaf(YType.uint32, 'number-of-entries')),
+                        ('number_of_stale_entries', YLeaf(YType.uint32, 'number-of-stale-entries')),
+                        ('number_of_add_o_perations', YLeaf(YType.uint64, 'number-of-add-o-perations')),
+                        ('number_of_delete_o_perations', YLeaf(YType.uint64, 'number-of-delete-o-perations')),
+                    ])
+                    self.number_of_entries = None
+                    self.number_of_stale_entries = None
+                    self.number_of_add_o_perations = None
+                    self.number_of_delete_o_perations = None
                     self._segment_path = lambda: "database-statistics-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self._segment_path()
 
@@ -614,20 +638,23 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
-
-                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
-
-                self.packet_received = YLeaf(YType.uint64, "packet-received")
-
-                self.byte_received = YLeaf(YType.uint64, "byte-received")
-
-                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
-
-                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('packet_sent', YLeaf(YType.uint64, 'packet-sent')),
+                    ('byte_sent', YLeaf(YType.uint64, 'byte-sent')),
+                    ('packet_received', YLeaf(YType.uint64, 'packet-received')),
+                    ('byte_received', YLeaf(YType.uint64, 'byte-received')),
+                    ('maximum_roundtrip_latency', YLeaf(YType.uint32, 'maximum-roundtrip-latency')),
+                    ('maimum_latency_timestamp', YLeaf(YType.uint64, 'maimum-latency-timestamp')),
+                ])
+                self.packet_sent = None
+                self.byte_sent = None
+                self.packet_received = None
+                self.byte_received = None
+                self.maximum_roundtrip_latency = None
+                self.maimum_latency_timestamp = None
                 self._segment_path = lambda: "collection-message-statistic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
 
@@ -699,20 +726,23 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
-
-                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
-
-                self.packet_received = YLeaf(YType.uint64, "packet-received")
-
-                self.byte_received = YLeaf(YType.uint64, "byte-received")
-
-                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
-
-                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('packet_sent', YLeaf(YType.uint64, 'packet-sent')),
+                    ('byte_sent', YLeaf(YType.uint64, 'byte-sent')),
+                    ('packet_received', YLeaf(YType.uint64, 'packet-received')),
+                    ('byte_received', YLeaf(YType.uint64, 'byte-received')),
+                    ('maximum_roundtrip_latency', YLeaf(YType.uint32, 'maximum-roundtrip-latency')),
+                    ('maimum_latency_timestamp', YLeaf(YType.uint64, 'maimum-latency-timestamp')),
+                ])
+                self.packet_sent = None
+                self.byte_sent = None
+                self.packet_received = None
+                self.byte_received = None
+                self.maximum_roundtrip_latency = None
+                self.maimum_latency_timestamp = None
                 self._segment_path = lambda: "checkpoint-message-statistic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
 
@@ -743,8 +773,10 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"default-vrf" : ("default_vrf", TrafficCollector.VrfTable.DefaultVrf)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("default-vrf", ("default_vrf", TrafficCollector.VrfTable.DefaultVrf))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.default_vrf = TrafficCollector.VrfTable.DefaultVrf()
             self.default_vrf.parent = self
@@ -777,8 +809,10 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "vrf-table"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"afs" : ("afs", TrafficCollector.VrfTable.DefaultVrf.Afs)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("afs", ("afs", TrafficCollector.VrfTable.DefaultVrf.Afs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.afs = TrafficCollector.VrfTable.DefaultVrf.Afs()
                 self.afs.parent = self
@@ -811,8 +845,10 @@ class TrafficCollector(Entity):
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"af" : ("af", TrafficCollector.VrfTable.DefaultVrf.Afs.Af)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("af", ("af", TrafficCollector.VrfTable.DefaultVrf.Afs.Af))])
+                    self._leafs = OrderedDict()
 
                     self.af = YList(self)
                     self._segment_path = lambda: "afs"
@@ -826,7 +862,7 @@ class TrafficCollector(Entity):
                     """
                     Operational data for given Address Family
                     
-                    .. attribute:: af_name  <key>
+                    .. attribute:: af_name  (key)
                     
                     	Address Family name
                     	**type**\:  :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
@@ -850,16 +886,19 @@ class TrafficCollector(Entity):
                         self.yang_parent_name = "afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"counters" : ("counters", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters)}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
+                        self.ylist_key_names = ['af_name']
+                        self._child_container_classes = OrderedDict([("counters", ("counters", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                        ])
+                        self.af_name = None
 
                         self.counters = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters()
                         self.counters.parent = self
                         self._children_name_map["counters"] = "counters"
                         self._children_yang_names.add("counters")
-                        self._segment_path = lambda: "af" + "[af-name='" + self.af_name.get() + "']"
+                        self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/vrf-table/default-vrf/afs/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -894,8 +933,10 @@ class TrafficCollector(Entity):
                             self.yang_parent_name = "af"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefixes" : ("prefixes", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes), "tunnels" : ("tunnels", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefixes", ("prefixes", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes)), ("tunnels", ("tunnels", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefixes = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes()
                             self.prefixes.parent = self
@@ -932,8 +973,10 @@ class TrafficCollector(Entity):
                                 self.yang_parent_name = "counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"prefix" : ("prefix", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("prefix", ("prefix", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix))])
+                                self._leafs = OrderedDict()
 
                                 self.prefix = YList(self)
                                 self._segment_path = lambda: "prefixes"
@@ -1008,20 +1051,23 @@ class TrafficCollector(Entity):
                                     self.yang_parent_name = "prefixes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics), "traffic-matrix-counter-statistics" : ("traffic_matrix_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics)}
-                                    self._child_list_classes = {}
-
-                                    self.ipaddr = YLeaf(YType.str, "ipaddr")
-
-                                    self.mask = YLeaf(YType.str, "mask")
-
-                                    self.label = YLeaf(YType.uint32, "label")
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.label_xr = YLeaf(YType.uint32, "label-xr")
-
-                                    self.is_active = YLeaf(YType.boolean, "is-active")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("base-counter-statistics", ("base_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics)), ("traffic-matrix-counter-statistics", ("traffic_matrix_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipaddr', YLeaf(YType.str, 'ipaddr')),
+                                        ('mask', YLeaf(YType.str, 'mask')),
+                                        ('label', YLeaf(YType.uint32, 'label')),
+                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                        ('label_xr', YLeaf(YType.uint32, 'label-xr')),
+                                        ('is_active', YLeaf(YType.boolean, 'is-active')),
+                                    ])
+                                    self.ipaddr = None
+                                    self.mask = None
+                                    self.label = None
+                                    self.prefix = None
+                                    self.label_xr = None
+                                    self.is_active = None
 
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
@@ -1079,12 +1125,15 @@ class TrafficCollector(Entity):
                                         self.yang_parent_name = "prefix"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory)}
-
-                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory))])
+                                        self._leafs = OrderedDict([
+                                            ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                            ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                        ])
+                                        self.transmit_packets_per_second_switched = None
+                                        self.transmit_bytes_per_second_switched = None
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "base-counter-statistics"
@@ -1146,18 +1195,21 @@ class TrafficCollector(Entity):
                                             self.yang_parent_name = "base-counter-statistics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                                ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                                ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                                ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                                ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                            ])
+                                            self.event_start_timestamp = None
+                                            self.event_end_timestamp = None
+                                            self.transmit_number_of_packets_switched = None
+                                            self.transmit_number_of_bytes_switched = None
+                                            self.is_valid = None
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
@@ -1205,12 +1257,15 @@ class TrafficCollector(Entity):
                                         self.yang_parent_name = "prefix"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory)}
-
-                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory))])
+                                        self._leafs = OrderedDict([
+                                            ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                            ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                        ])
+                                        self.transmit_packets_per_second_switched = None
+                                        self.transmit_bytes_per_second_switched = None
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "traffic-matrix-counter-statistics"
@@ -1272,18 +1327,21 @@ class TrafficCollector(Entity):
                                             self.yang_parent_name = "traffic-matrix-counter-statistics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                                ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                                ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                                ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                                ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                            ])
+                                            self.event_start_timestamp = None
+                                            self.event_end_timestamp = None
+                                            self.transmit_number_of_packets_switched = None
+                                            self.transmit_number_of_bytes_switched = None
+                                            self.is_valid = None
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
@@ -1313,8 +1371,10 @@ class TrafficCollector(Entity):
                                 self.yang_parent_name = "counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"tunnel" : ("tunnel", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("tunnel", ("tunnel", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel))])
+                                self._leafs = OrderedDict()
 
                                 self.tunnel = YList(self)
                                 self._segment_path = lambda: "tunnels"
@@ -1327,7 +1387,7 @@ class TrafficCollector(Entity):
                                 """
                                 Tunnel information
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	The Interface Name
                                 	**type**\: str
@@ -1377,24 +1437,27 @@ class TrafficCollector(Entity):
                                     self.yang_parent_name = "tunnels"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                                    self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                                    self.vrfid = YLeaf(YType.uint32, "vrfid")
-
-                                    self.is_active = YLeaf(YType.boolean, "is-active")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("base-counter-statistics", ("base_counter_statistics", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                                        ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                        ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                                        ('is_active', YLeaf(YType.boolean, 'is-active')),
+                                    ])
+                                    self.interface_name = None
+                                    self.interface_name_xr = None
+                                    self.interface_handle = None
+                                    self.vrfid = None
+                                    self.is_active = None
 
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
                                     self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
                                     self._children_yang_names.add("base-counter-statistics")
-                                    self._segment_path = lambda: "tunnel" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "tunnel" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
@@ -1441,12 +1504,15 @@ class TrafficCollector(Entity):
                                         self.yang_parent_name = "tunnel"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory)}
-
-                                        self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory))])
+                                        self._leafs = OrderedDict([
+                                            ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                            ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                        ])
+                                        self.transmit_packets_per_second_switched = None
+                                        self.transmit_bytes_per_second_switched = None
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "base-counter-statistics"
@@ -1508,18 +1574,21 @@ class TrafficCollector(Entity):
                                             self.yang_parent_name = "base-counter-statistics"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                            self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                                ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                                ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                                ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                                ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                            ])
+                                            self.event_start_timestamp = None
+                                            self.event_end_timestamp = None
+                                            self.transmit_number_of_packets_switched = None
+                                            self.transmit_number_of_bytes_switched = None
+                                            self.is_valid = None
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
@@ -1549,8 +1618,10 @@ class TrafficCollector(Entity):
             self.yang_parent_name = "traffic-collector"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"af" : ("af", TrafficCollector.Afs.Af)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("af", ("af", TrafficCollector.Afs.Af))])
+            self._leafs = OrderedDict()
 
             self.af = YList(self)
             self._segment_path = lambda: "afs"
@@ -1564,7 +1635,7 @@ class TrafficCollector(Entity):
             """
             Operational data for given Address Family
             
-            .. attribute:: af_name  <key>
+            .. attribute:: af_name  (key)
             
             	Address Family name
             	**type**\:  :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
@@ -1588,16 +1659,19 @@ class TrafficCollector(Entity):
                 self.yang_parent_name = "afs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"counters" : ("counters", TrafficCollector.Afs.Af.Counters)}
-                self._child_list_classes = {}
-
-                self.af_name = YLeaf(YType.enumeration, "af-name")
+                self.ylist_key_names = ['af_name']
+                self._child_container_classes = OrderedDict([("counters", ("counters", TrafficCollector.Afs.Af.Counters))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                ])
+                self.af_name = None
 
                 self.counters = TrafficCollector.Afs.Af.Counters()
                 self.counters.parent = self
                 self._children_name_map["counters"] = "counters"
                 self._children_yang_names.add("counters")
-                self._segment_path = lambda: "af" + "[af-name='" + self.af_name.get() + "']"
+                self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1632,8 +1706,10 @@ class TrafficCollector(Entity):
                     self.yang_parent_name = "af"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"prefixes" : ("prefixes", TrafficCollector.Afs.Af.Counters.Prefixes), "tunnels" : ("tunnels", TrafficCollector.Afs.Af.Counters.Tunnels)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("prefixes", ("prefixes", TrafficCollector.Afs.Af.Counters.Prefixes)), ("tunnels", ("tunnels", TrafficCollector.Afs.Af.Counters.Tunnels))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.prefixes = TrafficCollector.Afs.Af.Counters.Prefixes()
                     self.prefixes.parent = self
@@ -1670,8 +1746,10 @@ class TrafficCollector(Entity):
                         self.yang_parent_name = "counters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix" : ("prefix", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix", ("prefix", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix))])
+                        self._leafs = OrderedDict()
 
                         self.prefix = YList(self)
                         self._segment_path = lambda: "prefixes"
@@ -1746,20 +1824,23 @@ class TrafficCollector(Entity):
                             self.yang_parent_name = "prefixes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics), "traffic-matrix-counter-statistics" : ("traffic_matrix_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics)}
-                            self._child_list_classes = {}
-
-                            self.ipaddr = YLeaf(YType.str, "ipaddr")
-
-                            self.mask = YLeaf(YType.str, "mask")
-
-                            self.label = YLeaf(YType.uint32, "label")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.label_xr = YLeaf(YType.uint32, "label-xr")
-
-                            self.is_active = YLeaf(YType.boolean, "is-active")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("base-counter-statistics", ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics)), ("traffic-matrix-counter-statistics", ("traffic_matrix_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ipaddr', YLeaf(YType.str, 'ipaddr')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('label', YLeaf(YType.uint32, 'label')),
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('label_xr', YLeaf(YType.uint32, 'label-xr')),
+                                ('is_active', YLeaf(YType.boolean, 'is-active')),
+                            ])
+                            self.ipaddr = None
+                            self.mask = None
+                            self.label = None
+                            self.prefix = None
+                            self.label_xr = None
+                            self.is_active = None
 
                             self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
                             self.base_counter_statistics.parent = self
@@ -1817,12 +1898,15 @@ class TrafficCollector(Entity):
                                 self.yang_parent_name = "prefix"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory)}
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory))])
+                                self._leafs = OrderedDict([
+                                    ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                    ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                ])
+                                self.transmit_packets_per_second_switched = None
+                                self.transmit_bytes_per_second_switched = None
 
                                 self.count_history = YList(self)
                                 self._segment_path = lambda: "base-counter-statistics"
@@ -1884,18 +1968,21 @@ class TrafficCollector(Entity):
                                     self.yang_parent_name = "base-counter-statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                        ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                        ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                        ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                        ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                    ])
+                                    self.event_start_timestamp = None
+                                    self.event_end_timestamp = None
+                                    self.transmit_number_of_packets_switched = None
+                                    self.transmit_number_of_bytes_switched = None
+                                    self.is_valid = None
                                     self._segment_path = lambda: "count-history"
 
                                 def __setattr__(self, name, value):
@@ -1943,12 +2030,15 @@ class TrafficCollector(Entity):
                                 self.yang_parent_name = "prefix"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory)}
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory))])
+                                self._leafs = OrderedDict([
+                                    ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                    ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                ])
+                                self.transmit_packets_per_second_switched = None
+                                self.transmit_bytes_per_second_switched = None
 
                                 self.count_history = YList(self)
                                 self._segment_path = lambda: "traffic-matrix-counter-statistics"
@@ -2010,18 +2100,21 @@ class TrafficCollector(Entity):
                                     self.yang_parent_name = "traffic-matrix-counter-statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                        ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                        ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                        ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                        ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                    ])
+                                    self.event_start_timestamp = None
+                                    self.event_end_timestamp = None
+                                    self.transmit_number_of_packets_switched = None
+                                    self.transmit_number_of_bytes_switched = None
+                                    self.is_valid = None
                                     self._segment_path = lambda: "count-history"
 
                                 def __setattr__(self, name, value):
@@ -2051,8 +2144,10 @@ class TrafficCollector(Entity):
                         self.yang_parent_name = "counters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"tunnel" : ("tunnel", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tunnel", ("tunnel", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel))])
+                        self._leafs = OrderedDict()
 
                         self.tunnel = YList(self)
                         self._segment_path = lambda: "tunnels"
@@ -2065,7 +2160,7 @@ class TrafficCollector(Entity):
                         """
                         Tunnel information
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	The Interface Name
                         	**type**\: str
@@ -2115,24 +2210,27 @@ class TrafficCollector(Entity):
                             self.yang_parent_name = "tunnels"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                            self.vrfid = YLeaf(YType.uint32, "vrfid")
-
-                            self.is_active = YLeaf(YType.boolean, "is-active")
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([("base-counter-statistics", ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                                ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                                ('is_active', YLeaf(YType.boolean, 'is-active')),
+                            ])
+                            self.interface_name = None
+                            self.interface_name_xr = None
+                            self.interface_handle = None
+                            self.vrfid = None
+                            self.is_active = None
 
                             self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
                             self.base_counter_statistics.parent = self
                             self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
                             self._children_yang_names.add("base-counter-statistics")
-                            self._segment_path = lambda: "tunnel" + "[interface-name='" + self.interface_name.get() + "']"
+                            self._segment_path = lambda: "tunnel" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
@@ -2179,12 +2277,15 @@ class TrafficCollector(Entity):
                                 self.yang_parent_name = "tunnel"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory)}
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("count-history", ("count_history", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory))])
+                                self._leafs = OrderedDict([
+                                    ('transmit_packets_per_second_switched', YLeaf(YType.uint64, 'transmit-packets-per-second-switched')),
+                                    ('transmit_bytes_per_second_switched', YLeaf(YType.uint64, 'transmit-bytes-per-second-switched')),
+                                ])
+                                self.transmit_packets_per_second_switched = None
+                                self.transmit_bytes_per_second_switched = None
 
                                 self.count_history = YList(self)
                                 self._segment_path = lambda: "base-counter-statistics"
@@ -2246,18 +2347,21 @@ class TrafficCollector(Entity):
                                     self.yang_parent_name = "base-counter-statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('event_start_timestamp', YLeaf(YType.uint64, 'event-start-timestamp')),
+                                        ('event_end_timestamp', YLeaf(YType.uint64, 'event-end-timestamp')),
+                                        ('transmit_number_of_packets_switched', YLeaf(YType.uint64, 'transmit-number-of-packets-switched')),
+                                        ('transmit_number_of_bytes_switched', YLeaf(YType.uint64, 'transmit-number-of-bytes-switched')),
+                                        ('is_valid', YLeaf(YType.boolean, 'is-valid')),
+                                    ])
+                                    self.event_start_timestamp = None
+                                    self.event_end_timestamp = None
+                                    self.transmit_number_of_packets_switched = None
+                                    self.transmit_number_of_bytes_switched = None
+                                    self.is_valid = None
                                     self._segment_path = lambda: "count-history"
 
                                 def __setattr__(self, name, value):

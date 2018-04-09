@@ -35,6 +35,8 @@ message and the presumption that the sending router has
 failed.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,7 +45,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class HsrpState(Enum):
     """
-    HsrpState
+    HsrpState (Enum Class)
 
     The current state of the HSRP protocol for a given
 
@@ -106,8 +108,10 @@ class CISCOHSRPMIB(Entity):
         self.yang_parent_name = "CISCO-HSRP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cHsrpGlobalConfig" : ("chsrpglobalconfig", CISCOHSRPMIB.Chsrpglobalconfig), "cHsrpGrpTable" : ("chsrpgrptable", CISCOHSRPMIB.Chsrpgrptable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cHsrpGlobalConfig", ("chsrpglobalconfig", CISCOHSRPMIB.Chsrpglobalconfig)), ("cHsrpGrpTable", ("chsrpgrptable", CISCOHSRPMIB.Chsrpgrptable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.chsrpglobalconfig = CISCOHSRPMIB.Chsrpglobalconfig()
         self.chsrpglobalconfig.parent = self
@@ -148,10 +152,13 @@ class CISCOHSRPMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.chsrpconfigtimeout = YLeaf(YType.uint32, "cHsrpConfigTimeout")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('chsrpconfigtimeout', YLeaf(YType.uint32, 'cHsrpConfigTimeout')),
+            ])
+            self.chsrpconfigtimeout = None
             self._segment_path = lambda: "cHsrpGlobalConfig"
             self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
 
@@ -183,8 +190,10 @@ class CISCOHSRPMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cHsrpGrpEntry" : ("chsrpgrpentry", CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cHsrpGrpEntry", ("chsrpgrpentry", CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry))])
+            self._leafs = OrderedDict()
 
             self.chsrpgrpentry = YList(self)
             self._segment_path = lambda: "cHsrpGrpTable"
@@ -231,7 +240,7 @@ class CISCOHSRPMIB(Entity):
             configurable period (five minutes by default). This timeout 
             period can be changed by setting cHsrpConfigTimeout.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -240,7 +249,7 @@ class CISCOHSRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: chsrpgrpnumber  <key>
+            .. attribute:: chsrpgrpnumber  (key)
             
             	This object along with the ifIndex of a particular interface uniquely identifies an HSRP group.  Group numbers 0,1 and 2 are the only valid group numbers for TokenRing interfaces. For other media types, numbers range from 0 to 255. Each interface has its own set of group numbers. There's no relationship between the groups configured on different interfaces. Using a group number on one interface doesn't preclude using the same group number on a different interface. For example, there can be a group 1 on an Ethernet and a group 1 on Token Ring. More details can be found from RFC 2281
             	**type**\: int
@@ -378,47 +387,50 @@ class CISCOHSRPMIB(Entity):
                 self.yang_parent_name = "cHsrpGrpTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.chsrpgrpnumber = YLeaf(YType.uint32, "cHsrpGrpNumber")
-
-                self.chsrpgrpauth = YLeaf(YType.str, "cHsrpGrpAuth")
-
-                self.chsrpgrppriority = YLeaf(YType.uint32, "cHsrpGrpPriority")
-
-                self.chsrpgrppreempt = YLeaf(YType.boolean, "cHsrpGrpPreempt")
-
-                self.chsrpgrppreemptdelay = YLeaf(YType.uint32, "cHsrpGrpPreemptDelay")
-
-                self.chsrpgrpuseconfiguredtimers = YLeaf(YType.boolean, "cHsrpGrpUseConfiguredTimers")
-
-                self.chsrpgrpconfiguredhellotime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHelloTime")
-
-                self.chsrpgrpconfiguredholdtime = YLeaf(YType.uint32, "cHsrpGrpConfiguredHoldTime")
-
-                self.chsrpgrplearnedhellotime = YLeaf(YType.uint32, "cHsrpGrpLearnedHelloTime")
-
-                self.chsrpgrplearnedholdtime = YLeaf(YType.uint32, "cHsrpGrpLearnedHoldTime")
-
-                self.chsrpgrpvirtualipaddr = YLeaf(YType.str, "cHsrpGrpVirtualIpAddr")
-
-                self.chsrpgrpuseconfigvirtualipaddr = YLeaf(YType.boolean, "cHsrpGrpUseConfigVirtualIpAddr")
-
-                self.chsrpgrpactiverouter = YLeaf(YType.str, "cHsrpGrpActiveRouter")
-
-                self.chsrpgrpstandbyrouter = YLeaf(YType.str, "cHsrpGrpStandbyRouter")
-
-                self.chsrpgrpstandbystate = YLeaf(YType.enumeration, "cHsrpGrpStandbyState")
-
-                self.chsrpgrpvirtualmacaddr = YLeaf(YType.str, "cHsrpGrpVirtualMacAddr")
-
-                self.chsrpgrpentryrowstatus = YLeaf(YType.enumeration, "cHsrpGrpEntryRowStatus")
-
-                self.chsrpgrpipnone = YLeaf(YType.boolean, "cHsrpGrpIpNone")
-                self._segment_path = lambda: "cHsrpGrpEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','chsrpgrpnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('chsrpgrpnumber', YLeaf(YType.uint32, 'cHsrpGrpNumber')),
+                    ('chsrpgrpauth', YLeaf(YType.str, 'cHsrpGrpAuth')),
+                    ('chsrpgrppriority', YLeaf(YType.uint32, 'cHsrpGrpPriority')),
+                    ('chsrpgrppreempt', YLeaf(YType.boolean, 'cHsrpGrpPreempt')),
+                    ('chsrpgrppreemptdelay', YLeaf(YType.uint32, 'cHsrpGrpPreemptDelay')),
+                    ('chsrpgrpuseconfiguredtimers', YLeaf(YType.boolean, 'cHsrpGrpUseConfiguredTimers')),
+                    ('chsrpgrpconfiguredhellotime', YLeaf(YType.uint32, 'cHsrpGrpConfiguredHelloTime')),
+                    ('chsrpgrpconfiguredholdtime', YLeaf(YType.uint32, 'cHsrpGrpConfiguredHoldTime')),
+                    ('chsrpgrplearnedhellotime', YLeaf(YType.uint32, 'cHsrpGrpLearnedHelloTime')),
+                    ('chsrpgrplearnedholdtime', YLeaf(YType.uint32, 'cHsrpGrpLearnedHoldTime')),
+                    ('chsrpgrpvirtualipaddr', YLeaf(YType.str, 'cHsrpGrpVirtualIpAddr')),
+                    ('chsrpgrpuseconfigvirtualipaddr', YLeaf(YType.boolean, 'cHsrpGrpUseConfigVirtualIpAddr')),
+                    ('chsrpgrpactiverouter', YLeaf(YType.str, 'cHsrpGrpActiveRouter')),
+                    ('chsrpgrpstandbyrouter', YLeaf(YType.str, 'cHsrpGrpStandbyRouter')),
+                    ('chsrpgrpstandbystate', YLeaf(YType.enumeration, 'cHsrpGrpStandbyState')),
+                    ('chsrpgrpvirtualmacaddr', YLeaf(YType.str, 'cHsrpGrpVirtualMacAddr')),
+                    ('chsrpgrpentryrowstatus', YLeaf(YType.enumeration, 'cHsrpGrpEntryRowStatus')),
+                    ('chsrpgrpipnone', YLeaf(YType.boolean, 'cHsrpGrpIpNone')),
+                ])
+                self.ifindex = None
+                self.chsrpgrpnumber = None
+                self.chsrpgrpauth = None
+                self.chsrpgrppriority = None
+                self.chsrpgrppreempt = None
+                self.chsrpgrppreemptdelay = None
+                self.chsrpgrpuseconfiguredtimers = None
+                self.chsrpgrpconfiguredhellotime = None
+                self.chsrpgrpconfiguredholdtime = None
+                self.chsrpgrplearnedhellotime = None
+                self.chsrpgrplearnedholdtime = None
+                self.chsrpgrpvirtualipaddr = None
+                self.chsrpgrpuseconfigvirtualipaddr = None
+                self.chsrpgrpactiverouter = None
+                self.chsrpgrpstandbyrouter = None
+                self.chsrpgrpstandbystate = None
+                self.chsrpgrpvirtualmacaddr = None
+                self.chsrpgrpentryrowstatus = None
+                self.chsrpgrpipnone = None
+                self._segment_path = lambda: "cHsrpGrpEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cHsrpGrpNumber='" + str(self.chsrpgrpnumber) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

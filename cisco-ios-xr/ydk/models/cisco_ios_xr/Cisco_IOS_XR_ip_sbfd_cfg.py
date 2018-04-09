@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -50,8 +52,10 @@ class Sbfd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-sbfd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"remote-target" : ("remote_target", Sbfd.RemoteTarget), "local-discriminator" : ("local_discriminator", Sbfd.LocalDiscriminator)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("remote-target", ("remote_target", Sbfd.RemoteTarget)), ("local-discriminator", ("local_discriminator", Sbfd.LocalDiscriminator))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.remote_target = Sbfd.RemoteTarget()
         self.remote_target.parent = self
@@ -93,8 +97,10 @@ class Sbfd(Entity):
             self.yang_parent_name = "sbfd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ipv4-addresses" : ("ipv4_addresses", Sbfd.RemoteTarget.Ipv4Addresses), "ipv6-addresses" : ("ipv6_addresses", Sbfd.RemoteTarget.Ipv6Addresses)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("ipv4-addresses", ("ipv4_addresses", Sbfd.RemoteTarget.Ipv4Addresses)), ("ipv6-addresses", ("ipv6_addresses", Sbfd.RemoteTarget.Ipv6Addresses))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.ipv4_addresses = Sbfd.RemoteTarget.Ipv4Addresses()
             self.ipv4_addresses.parent = self
@@ -132,8 +138,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "remote-target"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ipv4-address" : ("ipv4_address", Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ipv4-address", ("ipv4_address", Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address))])
+                self._leafs = OrderedDict()
 
                 self.ipv4_address = YList(self)
                 self._segment_path = lambda: "ipv4-addresses"
@@ -147,7 +155,7 @@ class Sbfd(Entity):
                 """
                 IP Address Value for RemoteDiscriminatorTable
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	 IPv4 address
                 	**type**\: str
@@ -173,13 +181,16 @@ class Sbfd(Entity):
                     self.yang_parent_name = "ipv4-addresses"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"remote-discriminator" : ("remote_discriminator", Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator)}
-
-                    self.address = YLeaf(YType.str, "address")
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("remote-discriminator", ("remote_discriminator", Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator))])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                    ])
+                    self.address = None
 
                     self.remote_discriminator = YList(self)
-                    self._segment_path = lambda: "ipv4-address" + "[address='" + self.address.get() + "']"
+                    self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv4-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -190,7 +201,7 @@ class Sbfd(Entity):
                     """
                     Remote Discriminator value
                     
-                    .. attribute:: remote_discriminator  <key>
+                    .. attribute:: remote_discriminator  (key)
                     
                     	Remote Discriminator Value
                     	**type**\: int
@@ -211,11 +222,14 @@ class Sbfd(Entity):
                         self.yang_parent_name = "ipv4-address"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.remote_discriminator = YLeaf(YType.uint32, "remote-discriminator")
-                        self._segment_path = lambda: "remote-discriminator" + "[remote-discriminator='" + self.remote_discriminator.get() + "']"
+                        self.ylist_key_names = ['remote_discriminator']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
+                        ])
+                        self.remote_discriminator = None
+                        self._segment_path = lambda: "remote-discriminator" + "[remote-discriminator='" + str(self.remote_discriminator) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
@@ -244,8 +258,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "remote-target"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ipv6-address" : ("ipv6_address", Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ipv6-address", ("ipv6_address", Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address))])
+                self._leafs = OrderedDict()
 
                 self.ipv6_address = YList(self)
                 self._segment_path = lambda: "ipv6-addresses"
@@ -259,7 +275,7 @@ class Sbfd(Entity):
                 """
                 IP Address Value for RemoteDiscriminatorTable
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	 IPv6 adddress
                 	**type**\: str
@@ -285,13 +301,16 @@ class Sbfd(Entity):
                     self.yang_parent_name = "ipv6-addresses"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"remote-discriminator" : ("remote_discriminator", Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator)}
-
-                    self.address = YLeaf(YType.str, "address")
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("remote-discriminator", ("remote_discriminator", Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator))])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                    ])
+                    self.address = None
 
                     self.remote_discriminator = YList(self)
-                    self._segment_path = lambda: "ipv6-address" + "[address='" + self.address.get() + "']"
+                    self._segment_path = lambda: "ipv6-address" + "[address='" + str(self.address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv6-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -302,7 +321,7 @@ class Sbfd(Entity):
                     """
                     Remote Discriminator value
                     
-                    .. attribute:: remote_discriminator  <key>
+                    .. attribute:: remote_discriminator  (key)
                     
                     	Remote Discriminator Value
                     	**type**\: int
@@ -323,11 +342,14 @@ class Sbfd(Entity):
                         self.yang_parent_name = "ipv6-address"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.remote_discriminator = YLeaf(YType.uint32, "remote-discriminator")
-                        self._segment_path = lambda: "remote-discriminator" + "[remote-discriminator='" + self.remote_discriminator.get() + "']"
+                        self.ylist_key_names = ['remote_discriminator']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
+                        ])
+                        self.remote_discriminator = None
+                        self._segment_path = lambda: "remote-discriminator" + "[remote-discriminator='" + str(self.remote_discriminator) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
@@ -371,8 +393,10 @@ class Sbfd(Entity):
             self.yang_parent_name = "sbfd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"intf-discriminators" : ("intf_discriminators", Sbfd.LocalDiscriminator.IntfDiscriminators), "dynamic-discriminators" : ("dynamic_discriminators", Sbfd.LocalDiscriminator.DynamicDiscriminators), "ipv4-discriminators" : ("ipv4_discriminators", Sbfd.LocalDiscriminator.Ipv4Discriminators), "val32-discriminators" : ("val32_discriminators", Sbfd.LocalDiscriminator.Val32Discriminators)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("intf-discriminators", ("intf_discriminators", Sbfd.LocalDiscriminator.IntfDiscriminators)), ("dynamic-discriminators", ("dynamic_discriminators", Sbfd.LocalDiscriminator.DynamicDiscriminators)), ("ipv4-discriminators", ("ipv4_discriminators", Sbfd.LocalDiscriminator.Ipv4Discriminators)), ("val32-discriminators", ("val32_discriminators", Sbfd.LocalDiscriminator.Val32Discriminators))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.intf_discriminators = Sbfd.LocalDiscriminator.IntfDiscriminators()
             self.intf_discriminators.parent = self
@@ -421,8 +445,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "local-discriminator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"intf-discriminator" : ("intf_discriminator", Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("intf-discriminator", ("intf_discriminator", Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator))])
+                self._leafs = OrderedDict()
 
                 self.intf_discriminator = YList(self)
                 self._segment_path = lambda: "intf-discriminators"
@@ -436,7 +462,7 @@ class Sbfd(Entity):
                 """
                 interface address as discriminator
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -457,11 +483,14 @@ class Sbfd(Entity):
                     self.yang_parent_name = "intf-discriminators"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-                    self._segment_path = lambda: "intf-discriminator" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ])
+                    self.interface_name = None
+                    self._segment_path = lambda: "intf-discriminator" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/intf-discriminators/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -491,8 +520,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "local-discriminator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"dynamic-discriminator" : ("dynamic_discriminator", Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("dynamic-discriminator", ("dynamic_discriminator", Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator))])
+                self._leafs = OrderedDict()
 
                 self.dynamic_discriminator = YList(self)
                 self._segment_path = lambda: "dynamic-discriminators"
@@ -506,7 +537,7 @@ class Sbfd(Entity):
                 """
                 Local discriminator value
                 
-                .. attribute:: discriminator  <key>
+                .. attribute:: discriminator  (key)
                 
                 	Dynamic discriminator value
                 	**type**\: int
@@ -527,11 +558,14 @@ class Sbfd(Entity):
                     self.yang_parent_name = "dynamic-discriminators"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.discriminator = YLeaf(YType.uint32, "discriminator")
-                    self._segment_path = lambda: "dynamic-discriminator" + "[discriminator='" + self.discriminator.get() + "']"
+                    self.ylist_key_names = ['discriminator']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('discriminator', YLeaf(YType.uint32, 'discriminator')),
+                    ])
+                    self.discriminator = None
+                    self._segment_path = lambda: "dynamic-discriminator" + "[discriminator='" + str(self.discriminator) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/dynamic-discriminators/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -562,8 +596,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "local-discriminator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ipv4-discriminator" : ("ipv4_discriminator", Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ipv4-discriminator", ("ipv4_discriminator", Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator))])
+                self._leafs = OrderedDict()
 
                 self.ipv4_discriminator = YList(self)
                 self._segment_path = lambda: "ipv4-discriminators"
@@ -577,7 +613,7 @@ class Sbfd(Entity):
                 """
                 ipv4 address as discriminator
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	 IPv4 address
                 	**type**\: union of the below types:
@@ -604,11 +640,14 @@ class Sbfd(Entity):
                     self.yang_parent_name = "ipv4-discriminators"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-                    self._segment_path = lambda: "ipv4-discriminator" + "[address='" + self.address.get() + "']"
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                    ])
+                    self.address = None
+                    self._segment_path = lambda: "ipv4-discriminator" + "[address='" + str(self.address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/ipv4-discriminators/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -638,8 +677,10 @@ class Sbfd(Entity):
                 self.yang_parent_name = "local-discriminator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"val32-discriminator" : ("val32_discriminator", Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("val32-discriminator", ("val32_discriminator", Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator))])
+                self._leafs = OrderedDict()
 
                 self.val32_discriminator = YList(self)
                 self._segment_path = lambda: "val32-discriminators"
@@ -653,7 +694,7 @@ class Sbfd(Entity):
                 """
                 Local discriminator value
                 
-                .. attribute:: discriminator  <key>
+                .. attribute:: discriminator  (key)
                 
                 	Local discriminator value
                 	**type**\: int
@@ -674,11 +715,14 @@ class Sbfd(Entity):
                     self.yang_parent_name = "val32-discriminators"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.discriminator = YLeaf(YType.uint32, "discriminator")
-                    self._segment_path = lambda: "val32-discriminator" + "[discriminator='" + self.discriminator.get() + "']"
+                    self.ylist_key_names = ['discriminator']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('discriminator', YLeaf(YType.uint32, 'discriminator')),
+                    ])
+                    self.discriminator = None
+                    self._segment_path = lambda: "val32-discriminator" + "[discriminator='" + str(self.discriminator) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/val32-discriminators/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):

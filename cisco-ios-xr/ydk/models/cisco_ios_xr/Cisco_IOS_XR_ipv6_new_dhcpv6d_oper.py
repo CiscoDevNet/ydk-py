@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BagDhcpv6DFsmState(Enum):
     """
-    BagDhcpv6DFsmState
+    BagDhcpv6DFsmState (Enum Class)
 
     Bag dhcpv6d fsm state
 
@@ -116,7 +118,7 @@ class BagDhcpv6DFsmState(Enum):
 
 class BagDhcpv6DIaId(Enum):
     """
-    BagDhcpv6DIaId
+    BagDhcpv6DIaId (Enum Class)
 
     Bag dhcpv6d ia id
 
@@ -143,7 +145,7 @@ class BagDhcpv6DIaId(Enum):
 
 class BagDhcpv6DIntfSergRole(Enum):
     """
-    BagDhcpv6DIntfSergRole
+    BagDhcpv6DIntfSergRole (Enum Class)
 
     Bag dhcpv6d intf serg role
 
@@ -170,7 +172,7 @@ class BagDhcpv6DIntfSergRole(Enum):
 
 class BagDhcpv6DIntfSrgRole(Enum):
     """
-    BagDhcpv6DIntfSrgRole
+    BagDhcpv6DIntfSrgRole (Enum Class)
 
     Bag dhcpv6d intf srg role
 
@@ -197,7 +199,7 @@ class BagDhcpv6DIntfSrgRole(Enum):
 
 class BagDhcpv6DSubMode(Enum):
     """
-    BagDhcpv6DSubMode
+    BagDhcpv6DSubMode (Enum Class)
 
     Bag dhcpv6d sub mode
 
@@ -224,7 +226,7 @@ class BagDhcpv6DSubMode(Enum):
 
 class DhcpIssuPhase(Enum):
     """
-    DhcpIssuPhase
+    DhcpIssuPhase (Enum Class)
 
     Dhcp issu phase
 
@@ -263,7 +265,7 @@ class DhcpIssuPhase(Enum):
 
 class Dhcpv6IssuRole(Enum):
     """
-    Dhcpv6IssuRole
+    Dhcpv6IssuRole (Enum Class)
 
     Dhcpv6 issu role
 
@@ -284,7 +286,7 @@ class Dhcpv6IssuRole(Enum):
 
 class Dhcpv6IssuVersion(Enum):
     """
-    Dhcpv6IssuVersion
+    Dhcpv6IssuVersion (Enum Class)
 
     Dhcpv6 issu version
 
@@ -305,7 +307,7 @@ class Dhcpv6IssuVersion(Enum):
 
 class LeaseLimit(Enum):
     """
-    LeaseLimit
+    LeaseLimit (Enum Class)
 
     Profile lease limit type
 
@@ -366,8 +368,10 @@ class Dhcpv6(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"issu-status" : ("issu_status", Dhcpv6.IssuStatus), "nodes" : ("nodes", Dhcpv6.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("issu-status", ("issu_status", Dhcpv6.IssuStatus)), ("nodes", ("nodes", Dhcpv6.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.issu_status = Dhcpv6.IssuStatus()
         self.issu_status.parent = self
@@ -473,28 +477,31 @@ class Dhcpv6(Entity):
             self.yang_parent_name = "dhcpv6"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.process_start_time = YLeaf(YType.uint64, "process-start-time")
-
-            self.issu_sync_complete_time = YLeaf(YType.uint64, "issu-sync-complete-time")
-
-            self.issu_sync_start_time = YLeaf(YType.uint64, "issu-sync-start-time")
-
-            self.issu_ready_time = YLeaf(YType.uint64, "issu-ready-time")
-
-            self.big_bang_time = YLeaf(YType.uint64, "big-bang-time")
-
-            self.primary_role_time = YLeaf(YType.uint64, "primary-role-time")
-
-            self.issu_ready_issu_mgr_connection = YLeaf(YType.boolean, "issu-ready-issu-mgr-connection")
-
-            self.role = YLeaf(YType.enumeration, "role")
-
-            self.phase = YLeaf(YType.enumeration, "phase")
-
-            self.version = YLeaf(YType.enumeration, "version")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('process_start_time', YLeaf(YType.uint64, 'process-start-time')),
+                ('issu_sync_complete_time', YLeaf(YType.uint64, 'issu-sync-complete-time')),
+                ('issu_sync_start_time', YLeaf(YType.uint64, 'issu-sync-start-time')),
+                ('issu_ready_time', YLeaf(YType.uint64, 'issu-ready-time')),
+                ('big_bang_time', YLeaf(YType.uint64, 'big-bang-time')),
+                ('primary_role_time', YLeaf(YType.uint64, 'primary-role-time')),
+                ('issu_ready_issu_mgr_connection', YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection')),
+                ('role', YLeaf(YType.enumeration, 'role')),
+                ('phase', YLeaf(YType.enumeration, 'phase')),
+                ('version', YLeaf(YType.enumeration, 'version')),
+            ])
+            self.process_start_time = None
+            self.issu_sync_complete_time = None
+            self.issu_sync_start_time = None
+            self.issu_ready_time = None
+            self.big_bang_time = None
+            self.primary_role_time = None
+            self.issu_ready_issu_mgr_connection = None
+            self.role = None
+            self.phase = None
+            self.version = None
             self._segment_path = lambda: "issu-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/%s" % self._segment_path()
 
@@ -525,8 +532,10 @@ class Dhcpv6(Entity):
             self.yang_parent_name = "dhcpv6"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Dhcpv6.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Dhcpv6.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -540,7 +549,7 @@ class Dhcpv6(Entity):
             """
             IPv6 DHCP particular node name
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -581,10 +590,13 @@ class Dhcpv6(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"proxy" : ("proxy", Dhcpv6.Nodes.Node.Proxy), "base" : ("base", Dhcpv6.Nodes.Node.Base), "server" : ("server", Dhcpv6.Nodes.Node.Server), "relay" : ("relay", Dhcpv6.Nodes.Node.Relay)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("proxy", ("proxy", Dhcpv6.Nodes.Node.Proxy)), ("base", ("base", Dhcpv6.Nodes.Node.Base)), ("server", ("server", Dhcpv6.Nodes.Node.Server)), ("relay", ("relay", Dhcpv6.Nodes.Node.Relay))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.proxy = Dhcpv6.Nodes.Node.Proxy()
                 self.proxy.parent = self
@@ -605,7 +617,7 @@ class Dhcpv6(Entity):
                 self.relay.parent = self
                 self._children_name_map["relay"] = "relay"
                 self._children_yang_names.add("relay")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -655,8 +667,10 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"vrfs" : ("vrfs", Dhcpv6.Nodes.Node.Proxy.Vrfs), "profiles" : ("profiles", Dhcpv6.Nodes.Node.Proxy.Profiles), "interfaces" : ("interfaces", Dhcpv6.Nodes.Node.Proxy.Interfaces), "statistics" : ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics), "binding" : ("binding", Dhcpv6.Nodes.Node.Proxy.Binding)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Proxy.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Proxy.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Proxy.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics)), ("binding", ("binding", Dhcpv6.Nodes.Node.Proxy.Binding))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.vrfs = Dhcpv6.Nodes.Node.Proxy.Vrfs()
                     self.vrfs.parent = self
@@ -708,8 +722,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf))])
+                        self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
@@ -722,7 +738,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP proxy VRF name
                         
-                        .. attribute:: vrf_name  <key>
+                        .. attribute:: vrf_name  (key)
                         
                         	VRF name
                         	**type**\: str
@@ -748,16 +764,19 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = ['vrf_name']
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
                             self.statistics = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -866,8 +885,10 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"solicit" : ("solicit", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit), "advertise" : ("advertise", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise), "request" : ("request", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request), "reply" : ("reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply), "confirm" : ("confirm", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm), "decline" : ("decline", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline), "renew" : ("renew", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew), "rebind" : ("rebind", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind), "release" : ("release", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release), "reconfig" : ("reconfig", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig), "inform" : ("inform", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform), "relay-forward" : ("relay_forward", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward), "relay-reply" : ("relay_reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply), "lease-query" : ("lease_query", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery), "lease-query-reply" : ("lease_query_reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply), "lease-query-done" : ("lease_query_done", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone), "lease-query-data" : ("lease_query_data", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("solicit", ("solicit", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit)), ("advertise", ("advertise", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise)), ("request", ("request", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request)), ("reply", ("reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply)), ("confirm", ("confirm", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm)), ("decline", ("decline", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline)), ("renew", ("renew", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew)), ("rebind", ("rebind", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind)), ("release", ("release", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release)), ("reconfig", ("reconfig", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig)), ("inform", ("inform", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform)), ("relay-forward", ("relay_forward", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward)), ("relay-reply", ("relay_reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply)), ("lease-query", ("lease_query", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery)), ("lease-query-reply", ("lease_query_reply", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply)), ("lease-query-done", ("lease_query_done", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone)), ("lease-query-data", ("lease_query_data", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.solicit = Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit()
                                 self.solicit.parent = self
@@ -995,14 +1016,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
 
                                 def __setattr__(self, name, value):
@@ -1048,14 +1072,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
 
                                 def __setattr__(self, name, value):
@@ -1101,14 +1128,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "request"
 
                                 def __setattr__(self, name, value):
@@ -1154,14 +1184,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
 
                                 def __setattr__(self, name, value):
@@ -1207,14 +1240,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
 
                                 def __setattr__(self, name, value):
@@ -1260,14 +1296,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
 
                                 def __setattr__(self, name, value):
@@ -1313,14 +1352,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
 
                                 def __setattr__(self, name, value):
@@ -1366,14 +1408,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
 
                                 def __setattr__(self, name, value):
@@ -1419,14 +1464,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "release"
 
                                 def __setattr__(self, name, value):
@@ -1472,14 +1520,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
 
                                 def __setattr__(self, name, value):
@@ -1525,14 +1576,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
 
                                 def __setattr__(self, name, value):
@@ -1578,14 +1632,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
 
                                 def __setattr__(self, name, value):
@@ -1631,14 +1688,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
 
                                 def __setattr__(self, name, value):
@@ -1684,14 +1744,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
 
                                 def __setattr__(self, name, value):
@@ -1737,14 +1800,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
 
                                 def __setattr__(self, name, value):
@@ -1790,14 +1856,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
 
                                 def __setattr__(self, name, value):
@@ -1843,14 +1912,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
 
                                 def __setattr__(self, name, value):
@@ -1880,8 +1952,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"profile" : ("profile", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("profile", ("profile", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile))])
+                        self._leafs = OrderedDict()
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
@@ -1894,7 +1968,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP proxy profile
                         
-                        .. attribute:: profile_name  <key>
+                        .. attribute:: profile_name  (key)
                         
                         	Profile name
                         	**type**\: str
@@ -1925,10 +1999,13 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "profiles"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"throttle-infos" : ("throttle_infos", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos), "info" : ("info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info)}
-                            self._child_list_classes = {}
-
-                            self.profile_name = YLeaf(YType.str, "profile-name")
+                            self.ylist_key_names = ['profile_name']
+                            self._child_container_classes = OrderedDict([("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos)), ("info", ("info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                            ])
+                            self.profile_name = None
 
                             self.throttle_infos = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos()
                             self.throttle_infos.parent = self
@@ -1939,7 +2016,7 @@ class Dhcpv6(Entity):
                             self.info.parent = self
                             self._children_name_map["info"] = "info"
                             self._children_yang_names.add("info")
-                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                            self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, ['profile_name'], name, value)
@@ -1968,8 +2045,10 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"throttle-info" : ("throttle_info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("throttle-info", ("throttle_info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo))])
+                                self._leafs = OrderedDict()
 
                                 self.throttle_info = YList(self)
                                 self._segment_path = lambda: "throttle-infos"
@@ -1982,7 +2061,7 @@ class Dhcpv6(Entity):
                                 """
                                 IPv6 DHCP proxy profile Throttle Info
                                 
-                                .. attribute:: mac_address  <key>
+                                .. attribute:: mac_address  (key)
                                 
                                 	MAC address
                                 	**type**\: str
@@ -2033,19 +2112,22 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "throttle-infos"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                    self.binding_chaddr = YLeaf(YType.str, "binding-chaddr")
-
-                                    self.ifname = YLeaf(YType.str, "ifname")
-
-                                    self.state = YLeaf(YType.uint32, "state")
-
-                                    self.time_left = YLeaf(YType.uint32, "time-left")
-                                    self._segment_path = lambda: "throttle-info" + "[mac-address='" + self.mac_address.get() + "']"
+                                    self.ylist_key_names = ['mac_address']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ('binding_chaddr', YLeaf(YType.str, 'binding-chaddr')),
+                                        ('ifname', YLeaf(YType.str, 'ifname')),
+                                        ('state', YLeaf(YType.uint32, 'state')),
+                                        ('time_left', YLeaf(YType.uint32, 'time-left')),
+                                    ])
+                                    self.mac_address = None
+                                    self.binding_chaddr = None
+                                    self.ifname = None
+                                    self.state = None
+                                    self.time_left = None
+                                    self._segment_path = lambda: "throttle-info" + "[mac-address='" + str(self.mac_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
@@ -2131,22 +2213,25 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"interface-id-references" : ("interface_id_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences), "vrf-references" : ("vrf_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences), "interface-references" : ("interface_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences)}
-                                self._child_list_classes = {}
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.profile_link_address = YLeaf(YType.str, "profile-link-address")
-
-                                self.proxy_profile_linkaddress_from_ra_enable = YLeaf(YType.boolean, "proxy-profile-linkaddress-from-ra-enable")
-
-                                self.profile_helper_address = YLeafList(YType.str, "profile-helper-address")
-
-                                self.vrf_name = YLeafList(YType.str, "vrf-name")
-
-                                self.interface_name = YLeafList(YType.str, "interface-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("interface-id-references", ("interface_id_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences)), ("vrf-references", ("vrf_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences)), ("interface-references", ("interface_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('profile_link_address', YLeaf(YType.str, 'profile-link-address')),
+                                    ('proxy_profile_linkaddress_from_ra_enable', YLeaf(YType.boolean, 'proxy-profile-linkaddress-from-ra-enable')),
+                                    ('profile_helper_address', YLeafList(YType.str, 'profile-helper-address')),
+                                    ('vrf_name', YLeafList(YType.str, 'vrf-name')),
+                                    ('interface_name', YLeafList(YType.str, 'interface-name')),
+                                ])
+                                self.profile_name = None
+                                self.remote_id = None
+                                self.profile_link_address = None
+                                self.proxy_profile_linkaddress_from_ra_enable = None
+                                self.profile_helper_address = []
+                                self.vrf_name = []
+                                self.interface_name = []
 
                                 self.interface_id_references = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences()
                                 self.interface_id_references.parent = self
@@ -2191,8 +2276,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ipv6-dhcpv6d-proxy-iid-reference" : ("ipv6_dhcpv6d_proxy_iid_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-proxy-iid-reference", ("ipv6_dhcpv6d_proxy_iid_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference))])
+                                    self._leafs = OrderedDict()
 
                                     self.ipv6_dhcpv6d_proxy_iid_reference = YList(self)
                                     self._segment_path = lambda: "interface-id-references"
@@ -2233,12 +2320,15 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "interface-id-references"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.proxy_iid_interface_name = YLeaf(YType.str, "proxy-iid-interface-name")
-
-                                        self.proxy_interface_id = YLeaf(YType.str, "proxy-interface-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('proxy_iid_interface_name', YLeaf(YType.str, 'proxy-iid-interface-name')),
+                                            ('proxy_interface_id', YLeaf(YType.str, 'proxy-interface-id')),
+                                        ])
+                                        self.proxy_iid_interface_name = None
+                                        self.proxy_interface_id = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-iid-reference"
 
                                     def __setattr__(self, name, value):
@@ -2268,8 +2358,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ipv6-dhcpv6d-proxy-vrf-reference" : ("ipv6_dhcpv6d_proxy_vrf_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-proxy-vrf-reference", ("ipv6_dhcpv6d_proxy_vrf_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference))])
+                                    self._leafs = OrderedDict()
 
                                     self.ipv6_dhcpv6d_proxy_vrf_reference = YList(self)
                                     self._segment_path = lambda: "vrf-references"
@@ -2303,10 +2395,13 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "vrf-references"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.proxy_reference_vrf_name = YLeaf(YType.str, "proxy-reference-vrf-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('proxy_reference_vrf_name', YLeaf(YType.str, 'proxy-reference-vrf-name')),
+                                        ])
+                                        self.proxy_reference_vrf_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-vrf-reference"
 
                                     def __setattr__(self, name, value):
@@ -2336,8 +2431,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ipv6-dhcpv6d-proxy-interface-reference" : ("ipv6_dhcpv6d_proxy_interface_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-proxy-interface-reference", ("ipv6_dhcpv6d_proxy_interface_reference", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference))])
+                                    self._leafs = OrderedDict()
 
                                     self.ipv6_dhcpv6d_proxy_interface_reference = YList(self)
                                     self._segment_path = lambda: "interface-references"
@@ -2371,10 +2468,13 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "interface-references"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.proxy_reference_interface_name = YLeaf(YType.str, "proxy-reference-interface-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('proxy_reference_interface_name', YLeaf(YType.str, 'proxy-reference-interface-name')),
+                                        ])
+                                        self.proxy_reference_interface_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-interface-reference"
 
                                     def __setattr__(self, name, value):
@@ -2404,8 +2504,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface))])
+                        self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
@@ -2418,7 +2520,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP proxy interface
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface Name
                         	**type**\: str
@@ -2504,33 +2606,36 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.proxy_vrf_name = YLeaf(YType.str, "proxy-vrf-name")
-
-                            self.proxy_interface_mode = YLeaf(YType.enumeration, "proxy-interface-mode")
-
-                            self.is_proxy_interface_ambiguous = YLeaf(YType.uint32, "is-proxy-interface-ambiguous")
-
-                            self.proxy_interface_profile_name = YLeaf(YType.str, "proxy-interface-profile-name")
-
-                            self.proxy_interface_lease_limit_type = YLeaf(YType.enumeration, "proxy-interface-lease-limit-type")
-
-                            self.proxy_interface_lease_limits = YLeaf(YType.uint32, "proxy-interface-lease-limits")
-
-                            self.srg_role = YLeaf(YType.enumeration, "srg-role")
-
-                            self.serg_role = YLeaf(YType.enumeration, "serg-role")
-
-                            self.mac_throttle = YLeaf(YType.boolean, "mac-throttle")
-
-                            self.srg_vrf_name = YLeaf(YType.str, "srg-vrf-name")
-
-                            self.srgp2p = YLeaf(YType.boolean, "srgp2p")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('proxy_vrf_name', YLeaf(YType.str, 'proxy-vrf-name')),
+                                ('proxy_interface_mode', YLeaf(YType.enumeration, 'proxy-interface-mode')),
+                                ('is_proxy_interface_ambiguous', YLeaf(YType.uint32, 'is-proxy-interface-ambiguous')),
+                                ('proxy_interface_profile_name', YLeaf(YType.str, 'proxy-interface-profile-name')),
+                                ('proxy_interface_lease_limit_type', YLeaf(YType.enumeration, 'proxy-interface-lease-limit-type')),
+                                ('proxy_interface_lease_limits', YLeaf(YType.uint32, 'proxy-interface-lease-limits')),
+                                ('srg_role', YLeaf(YType.enumeration, 'srg-role')),
+                                ('serg_role', YLeaf(YType.enumeration, 'serg-role')),
+                                ('mac_throttle', YLeaf(YType.boolean, 'mac-throttle')),
+                                ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
+                                ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                            ])
+                            self.interface_name = None
+                            self.proxy_vrf_name = None
+                            self.proxy_interface_mode = None
+                            self.is_proxy_interface_ambiguous = None
+                            self.proxy_interface_profile_name = None
+                            self.proxy_interface_lease_limit_type = None
+                            self.proxy_interface_lease_limits = None
+                            self.srg_role = None
+                            self.serg_role = None
+                            self.mac_throttle = None
+                            self.srg_vrf_name = None
+                            self.srgp2p = None
+                            self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', 'proxy_vrf_name', 'proxy_interface_mode', 'is_proxy_interface_ambiguous', 'proxy_interface_profile_name', 'proxy_interface_lease_limit_type', 'proxy_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
@@ -2559,8 +2664,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv6-dhcpv6d-proxy-stat" : ("ipv6_dhcpv6d_proxy_stat", Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-proxy-stat", ("ipv6_dhcpv6d_proxy_stat", Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat))])
+                        self._leafs = OrderedDict()
 
                         self.ipv6_dhcpv6d_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
@@ -2576,7 +2683,7 @@ class Dhcpv6(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_>`
                         
                         .. attribute:: vrf_name
                         
@@ -2599,12 +2706,15 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
@@ -2614,7 +2724,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics_(Entity):
                             """
                             Proxy statistics
                             
@@ -2647,24 +2757,27 @@ class Dhcpv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics, self).__init__()
+                                super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-proxy-stat"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                ])
+                                self.received_packets = None
+                                self.transmitted_packets = None
+                                self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                 class Binding(Entity):
@@ -2695,8 +2808,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"clients" : ("clients", Dhcpv6.Nodes.Node.Proxy.Binding.Clients), "summary" : ("summary", Dhcpv6.Nodes.Node.Proxy.Binding.Summary)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("clients", ("clients", Dhcpv6.Nodes.Node.Proxy.Binding.Clients)), ("summary", ("summary", Dhcpv6.Nodes.Node.Proxy.Binding.Summary))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.clients = Dhcpv6.Nodes.Node.Proxy.Binding.Clients()
                         self.clients.parent = self
@@ -2733,8 +2848,10 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("client", ("client", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client))])
+                            self._leafs = OrderedDict()
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
@@ -2747,7 +2864,7 @@ class Dhcpv6(Entity):
                             """
                             Single DHCPV6 proxy binding
                             
-                            .. attribute:: client_id  <key>
+                            .. attribute:: client_id  (key)
                             
                             	Client ID
                             	**type**\: str
@@ -2961,72 +3078,75 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "clients"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ia-id-pd" : ("ia_id_pd", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd)}
-                                self._child_list_classes = {}
-
-                                self.client_id = YLeaf(YType.str, "client-id")
-
-                                self.duid = YLeaf(YType.str, "duid")
-
-                                self.client_flag = YLeaf(YType.uint32, "client-flag")
-
-                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.ia_id_p_ds = YLeaf(YType.uint32, "ia-id-p-ds")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
-
-                                self.proxy_binding_tags = YLeaf(YType.uint8, "proxy-binding-tags")
-
-                                self.proxy_binding_outer_tag = YLeaf(YType.uint32, "proxy-binding-outer-tag")
-
-                                self.proxy_binding_inner_tag = YLeaf(YType.uint32, "proxy-binding-inner-tag")
-
-                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                self.pool_name = YLeaf(YType.str, "pool-name")
-
-                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
-
-                                self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
-
-                                self.rx_interface_id = YLeaf(YType.str, "rx-interface-id")
-
-                                self.tx_interface_id = YLeaf(YType.str, "tx-interface-id")
-
-                                self.server_ipv6_address = YLeaf(YType.str, "server-ipv6-address")
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.framed_ipv6_prefix = YLeaf(YType.str, "framed-ipv6-prefix")
-
-                                self.framed_prefix_length = YLeaf(YType.uint8, "framed-prefix-length")
-
-                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
-
-                                self.srg_state = YLeaf(YType.uint32, "srg-state")
-
-                                self.srg_intf_role = YLeaf(YType.uint32, "srg-intf-role")
-
-                                self.srgp2p = YLeaf(YType.boolean, "srgp2p")
-
-                                self.srg_vrf_name = YLeaf(YType.str, "srg-vrf-name")
-
-                                self.serg_state = YLeaf(YType.uint32, "serg-state")
-
-                                self.serg_intf_role = YLeaf(YType.uint32, "serg-intf-role")
+                                self.ylist_key_names = ['client_id']
+                                self._child_container_classes = OrderedDict([("ia-id-pd", ("ia_id_pd", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('client_id', YLeaf(YType.str, 'client-id')),
+                                    ('duid', YLeaf(YType.str, 'duid')),
+                                    ('client_flag', YLeaf(YType.uint32, 'client-flag')),
+                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('ia_id_p_ds', YLeaf(YType.uint32, 'ia-id-p-ds')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
+                                    ('proxy_binding_tags', YLeaf(YType.uint8, 'proxy-binding-tags')),
+                                    ('proxy_binding_outer_tag', YLeaf(YType.uint32, 'proxy-binding-outer-tag')),
+                                    ('proxy_binding_inner_tag', YLeaf(YType.uint32, 'proxy-binding-inner-tag')),
+                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
+                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
+                                    ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
+                                    ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
+                                    ('tx_interface_id', YLeaf(YType.str, 'tx-interface-id')),
+                                    ('server_ipv6_address', YLeaf(YType.str, 'server-ipv6-address')),
+                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('framed_ipv6_prefix', YLeaf(YType.str, 'framed-ipv6-prefix')),
+                                    ('framed_prefix_length', YLeaf(YType.uint8, 'framed-prefix-length')),
+                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
+                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
+                                    ('srg_intf_role', YLeaf(YType.uint32, 'srg-intf-role')),
+                                    ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                                    ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
+                                    ('serg_state', YLeaf(YType.uint32, 'serg-state')),
+                                    ('serg_intf_role', YLeaf(YType.uint32, 'serg-intf-role')),
+                                ])
+                                self.client_id = None
+                                self.duid = None
+                                self.client_flag = None
+                                self.subscriber_label = None
+                                self.vrf_name = None
+                                self.mac_address = None
+                                self.ia_id_p_ds = None
+                                self.interface_name = None
+                                self.access_vrf_name = None
+                                self.proxy_binding_tags = None
+                                self.proxy_binding_outer_tag = None
+                                self.proxy_binding_inner_tag = None
+                                self.class_name = None
+                                self.pool_name = None
+                                self.rx_remote_id = None
+                                self.tx_remote_id = None
+                                self.rx_interface_id = None
+                                self.tx_interface_id = None
+                                self.server_ipv6_address = None
+                                self.profile_name = None
+                                self.framed_ipv6_prefix = None
+                                self.framed_prefix_length = None
+                                self.is_nak_next_renew = None
+                                self.srg_state = None
+                                self.srg_intf_role = None
+                                self.srgp2p = None
+                                self.srg_vrf_name = None
+                                self.serg_state = None
+                                self.serg_intf_role = None
 
                                 self.ia_id_pd = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd()
                                 self.ia_id_pd.parent = self
                                 self._children_name_map["ia_id_pd"] = "ia-id-pd"
                                 self._children_yang_names.add("ia-id-pd")
-                                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                                self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
@@ -3055,8 +3175,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "client"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bag-dhcpv6d-ia-id-pd-info" : ("bag_dhcpv6d_ia_id_pd_info", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bag-dhcpv6d-ia-id-pd-info", ("bag_dhcpv6d_ia_id_pd_info", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo))])
+                                    self._leafs = OrderedDict()
 
                                     self.bag_dhcpv6d_ia_id_pd_info = YList(self)
                                     self._segment_path = lambda: "ia-id-pd"
@@ -3119,18 +3241,21 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "ia-id-pd"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"addresses" : ("addresses", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses)}
-                                        self._child_list_classes = {}
-
-                                        self.ia_type = YLeaf(YType.enumeration, "ia-type")
-
-                                        self.ia_id = YLeaf(YType.uint32, "ia-id")
-
-                                        self.flags = YLeaf(YType.uint32, "flags")
-
-                                        self.total_address = YLeaf(YType.uint16, "total-address")
-
-                                        self.state = YLeaf(YType.enumeration, "state")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ia_type', YLeaf(YType.enumeration, 'ia-type')),
+                                            ('ia_id', YLeaf(YType.uint32, 'ia-id')),
+                                            ('flags', YLeaf(YType.uint32, 'flags')),
+                                            ('total_address', YLeaf(YType.uint16, 'total-address')),
+                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                        ])
+                                        self.ia_type = None
+                                        self.ia_id = None
+                                        self.flags = None
+                                        self.total_address = None
+                                        self.state = None
 
                                         self.addresses = Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
@@ -3165,8 +3290,10 @@ class Dhcpv6(Entity):
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bag-dhcpv6d-addr-attrb" : ("bag_dhcpv6d_addr_attrb", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bag-dhcpv6d-addr-attrb", ("bag_dhcpv6d_addr_attrb", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb))])
+                                            self._leafs = OrderedDict()
 
                                             self.bag_dhcpv6d_addr_attrb = YList(self)
                                             self._segment_path = lambda: "addresses"
@@ -3225,16 +3352,19 @@ class Dhcpv6(Entity):
                                                 self.yang_parent_name = "addresses"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                                self.lease_time = YLeaf(YType.uint32, "lease-time")
-
-                                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
+                                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
+                                                ])
+                                                self.prefix = None
+                                                self.prefix_length = None
+                                                self.lease_time = None
+                                                self.remaining_lease_time = None
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
 
                                             def __setattr__(self, name, value):
@@ -3276,10 +3406,13 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"iana" : ("iana", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana), "iapd" : ("iapd", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd)}
-                            self._child_list_classes = {}
-
-                            self.clients = YLeaf(YType.uint32, "clients")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("iana", ("iana", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana)), ("iapd", ("iapd", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('clients', YLeaf(YType.uint32, 'clients')),
+                            ])
+                            self.clients = None
 
                             self.iana = Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana()
                             self.iana.parent = self
@@ -3363,22 +3496,25 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                                self.dpm_waiting_clients = YLeaf(YType.uint32, "dpm-waiting-clients")
-
-                                self.daps_waiting_clients = YLeaf(YType.uint32, "daps-waiting-clients")
-
-                                self.msg_waiting_clients = YLeaf(YType.uint32, "msg-waiting-clients")
-
-                                self.iedge_waiting_clients = YLeaf(YType.uint32, "iedge-waiting-clients")
-
-                                self.rib_waiting_clients = YLeaf(YType.uint32, "rib-waiting-clients")
-
-                                self.bound_clients = YLeaf(YType.uint32, "bound-clients")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
+                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
+                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
+                                    ('msg_waiting_clients', YLeaf(YType.uint32, 'msg-waiting-clients')),
+                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
+                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
+                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                ])
+                                self.initializing_clients = None
+                                self.dpm_waiting_clients = None
+                                self.daps_waiting_clients = None
+                                self.msg_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.rib_waiting_clients = None
+                                self.bound_clients = None
                                 self._segment_path = lambda: "iana"
 
                             def __setattr__(self, name, value):
@@ -3452,22 +3588,25 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                                self.dpm_waiting_clients = YLeaf(YType.uint32, "dpm-waiting-clients")
-
-                                self.daps_waiting_clients = YLeaf(YType.uint32, "daps-waiting-clients")
-
-                                self.msg_waiting_clients = YLeaf(YType.uint32, "msg-waiting-clients")
-
-                                self.iedge_waiting_clients = YLeaf(YType.uint32, "iedge-waiting-clients")
-
-                                self.rib_waiting_clients = YLeaf(YType.uint32, "rib-waiting-clients")
-
-                                self.bound_clients = YLeaf(YType.uint32, "bound-clients")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
+                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
+                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
+                                    ('msg_waiting_clients', YLeaf(YType.uint32, 'msg-waiting-clients')),
+                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
+                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
+                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                ])
+                                self.initializing_clients = None
+                                self.dpm_waiting_clients = None
+                                self.daps_waiting_clients = None
+                                self.msg_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.rib_waiting_clients = None
+                                self.bound_clients = None
                                 self._segment_path = lambda: "iapd"
 
                             def __setattr__(self, name, value):
@@ -3502,8 +3641,10 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"database" : ("database", Dhcpv6.Nodes.Node.Base.Database), "addr-bindings" : ("addr_bindings", Dhcpv6.Nodes.Node.Base.AddrBindings)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("database", ("database", Dhcpv6.Nodes.Node.Base.Database)), ("addr-bindings", ("addr_bindings", Dhcpv6.Nodes.Node.Base.AddrBindings))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.database = Dhcpv6.Nodes.Node.Base.Database()
                     self.database.parent = self
@@ -3649,40 +3790,43 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.configured = YLeaf(YType.boolean, "configured")
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.full_file_write_interval = YLeaf(YType.uint32, "full-file-write-interval")
-
-                        self.last_full_write_file_name = YLeaf(YType.str, "last-full-write-file-name")
-
-                        self.last_full_write_time = YLeaf(YType.uint32, "last-full-write-time")
-
-                        self.full_file_write_count = YLeaf(YType.uint32, "full-file-write-count")
-
-                        self.failed_full_file_write_count = YLeaf(YType.uint32, "failed-full-file-write-count")
-
-                        self.full_file_record_count = YLeaf(YType.uint32, "full-file-record-count")
-
-                        self.last_full_file_write_error_timestamp = YLeaf(YType.uint32, "last-full-file-write-error-timestamp")
-
-                        self.incremental_file_write_interval = YLeaf(YType.uint32, "incremental-file-write-interval")
-
-                        self.last_incremental_write_file_name = YLeaf(YType.str, "last-incremental-write-file-name")
-
-                        self.last_incremental_write_time = YLeaf(YType.uint32, "last-incremental-write-time")
-
-                        self.incremental_file_write_count = YLeaf(YType.uint32, "incremental-file-write-count")
-
-                        self.failed_incremental_file_write_count = YLeaf(YType.uint32, "failed-incremental-file-write-count")
-
-                        self.incremental_file_record_count = YLeaf(YType.uint32, "incremental-file-record-count")
-
-                        self.last_incremental_file_write_error_timestamp = YLeaf(YType.uint32, "last-incremental-file-write-error-timestamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('configured', YLeaf(YType.boolean, 'configured')),
+                            ('version', YLeaf(YType.uint32, 'version')),
+                            ('full_file_write_interval', YLeaf(YType.uint32, 'full-file-write-interval')),
+                            ('last_full_write_file_name', YLeaf(YType.str, 'last-full-write-file-name')),
+                            ('last_full_write_time', YLeaf(YType.uint32, 'last-full-write-time')),
+                            ('full_file_write_count', YLeaf(YType.uint32, 'full-file-write-count')),
+                            ('failed_full_file_write_count', YLeaf(YType.uint32, 'failed-full-file-write-count')),
+                            ('full_file_record_count', YLeaf(YType.uint32, 'full-file-record-count')),
+                            ('last_full_file_write_error_timestamp', YLeaf(YType.uint32, 'last-full-file-write-error-timestamp')),
+                            ('incremental_file_write_interval', YLeaf(YType.uint32, 'incremental-file-write-interval')),
+                            ('last_incremental_write_file_name', YLeaf(YType.str, 'last-incremental-write-file-name')),
+                            ('last_incremental_write_time', YLeaf(YType.uint32, 'last-incremental-write-time')),
+                            ('incremental_file_write_count', YLeaf(YType.uint32, 'incremental-file-write-count')),
+                            ('failed_incremental_file_write_count', YLeaf(YType.uint32, 'failed-incremental-file-write-count')),
+                            ('incremental_file_record_count', YLeaf(YType.uint32, 'incremental-file-record-count')),
+                            ('last_incremental_file_write_error_timestamp', YLeaf(YType.uint32, 'last-incremental-file-write-error-timestamp')),
+                        ])
+                        self.configured = None
+                        self.version = None
+                        self.full_file_write_interval = None
+                        self.last_full_write_file_name = None
+                        self.last_full_write_time = None
+                        self.full_file_write_count = None
+                        self.failed_full_file_write_count = None
+                        self.full_file_record_count = None
+                        self.last_full_file_write_error_timestamp = None
+                        self.incremental_file_write_interval = None
+                        self.last_incremental_write_file_name = None
+                        self.last_incremental_write_time = None
+                        self.incremental_file_write_count = None
+                        self.failed_incremental_file_write_count = None
+                        self.incremental_file_record_count = None
+                        self.last_incremental_file_write_error_timestamp = None
                         self._segment_path = lambda: "database"
 
                     def __setattr__(self, name, value):
@@ -3712,8 +3856,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"addr-binding" : ("addr_binding", Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("addr-binding", ("addr_binding", Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding))])
+                        self._leafs = OrderedDict()
 
                         self.addr_binding = YList(self)
                         self._segment_path = lambda: "addr-bindings"
@@ -3726,7 +3872,7 @@ class Dhcpv6(Entity):
                         """
                         DHCPv6 base stats debug
                         
-                        .. attribute:: addr_string  <key>
+                        .. attribute:: addr_string  (key)
                         
                         	Address String
                         	**type**\: str
@@ -3913,59 +4059,62 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "addr-bindings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.addr_string = YLeaf(YType.str, "addr-string")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-                            self.server_ipv6_address = YLeaf(YType.str, "server-ipv6-address")
-
-                            self.reply_server_ipv6_address = YLeaf(YType.str, "reply-server-ipv6-address")
-
-                            self.lease_time = YLeaf(YType.uint32, "lease-time")
-
-                            self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
-
-                            self.state = YLeaf(YType.enumeration, "state")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
-
-                            self.base_binding_tags = YLeaf(YType.uint8, "base-binding-tags")
-
-                            self.base_binding_outer_tag = YLeaf(YType.uint32, "base-binding-outer-tag")
-
-                            self.base_binding_inner_tag = YLeaf(YType.uint32, "base-binding-inner-tag")
-
-                            self.profile_name = YLeaf(YType.str, "profile-name")
-
-                            self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
-
-                            self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
-
-                            self.old_subscriber_label = YLeaf(YType.uint32, "old-subscriber-label")
-
-                            self.rx_client_duid = YLeaf(YType.str, "rx-client-duid")
-
-                            self.tx_client_uid = YLeaf(YType.str, "tx-client-uid")
-
-                            self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
-
-                            self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
-
-                            self.rx_interface_id = YLeaf(YType.str, "rx-interface-id")
-
-                            self.tx_interface_id = YLeaf(YType.str, "tx-interface-id")
-                            self._segment_path = lambda: "addr-binding" + "[addr-string='" + self.addr_string.get() + "']"
+                            self.ylist_key_names = ['addr_string']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('addr_string', YLeaf(YType.str, 'addr-string')),
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('server_ipv6_address', YLeaf(YType.str, 'server-ipv6-address')),
+                                ('reply_server_ipv6_address', YLeaf(YType.str, 'reply-server-ipv6-address')),
+                                ('lease_time', YLeaf(YType.uint32, 'lease-time')),
+                                ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
+                                ('state', YLeaf(YType.enumeration, 'state')),
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
+                                ('base_binding_tags', YLeaf(YType.uint8, 'base-binding-tags')),
+                                ('base_binding_outer_tag', YLeaf(YType.uint32, 'base-binding-outer-tag')),
+                                ('base_binding_inner_tag', YLeaf(YType.uint32, 'base-binding-inner-tag')),
+                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
+                                ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
+                                ('old_subscriber_label', YLeaf(YType.uint32, 'old-subscriber-label')),
+                                ('rx_client_duid', YLeaf(YType.str, 'rx-client-duid')),
+                                ('tx_client_uid', YLeaf(YType.str, 'tx-client-uid')),
+                                ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
+                                ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
+                                ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
+                                ('tx_interface_id', YLeaf(YType.str, 'tx-interface-id')),
+                            ])
+                            self.addr_string = None
+                            self.mac_address = None
+                            self.vrf_name = None
+                            self.server_vrf_name = None
+                            self.ipv6_address = None
+                            self.server_ipv6_address = None
+                            self.reply_server_ipv6_address = None
+                            self.lease_time = None
+                            self.remaining_lease_time = None
+                            self.state = None
+                            self.interface_name = None
+                            self.access_vrf_name = None
+                            self.base_binding_tags = None
+                            self.base_binding_outer_tag = None
+                            self.base_binding_inner_tag = None
+                            self.profile_name = None
+                            self.is_nak_next_renew = None
+                            self.subscriber_label = None
+                            self.old_subscriber_label = None
+                            self.rx_client_duid = None
+                            self.tx_client_uid = None
+                            self.rx_remote_id = None
+                            self.tx_remote_id = None
+                            self.rx_interface_id = None
+                            self.tx_interface_id = None
+                            self._segment_path = lambda: "addr-binding" + "[addr-string='" + str(self.addr_string) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', 'mac_address', 'vrf_name', 'server_vrf_name', 'ipv6_address', 'server_ipv6_address', 'reply_server_ipv6_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'base_binding_tags', 'base_binding_outer_tag', 'base_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'rx_client_duid', 'tx_client_uid', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id'], name, value)
@@ -4019,8 +4168,10 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"binding" : ("binding", Dhcpv6.Nodes.Node.Server.Binding), "vrfs" : ("vrfs", Dhcpv6.Nodes.Node.Server.Vrfs), "profiles" : ("profiles", Dhcpv6.Nodes.Node.Server.Profiles), "interfaces" : ("interfaces", Dhcpv6.Nodes.Node.Server.Interfaces), "statistics" : ("statistics", Dhcpv6.Nodes.Node.Server.Statistics), "binding-options" : ("binding_options", Dhcpv6.Nodes.Node.Server.BindingOptions)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("binding", ("binding", Dhcpv6.Nodes.Node.Server.Binding)), ("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Server.Vrfs)), ("profiles", ("profiles", Dhcpv6.Nodes.Node.Server.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Nodes.Node.Server.Interfaces)), ("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Statistics)), ("binding-options", ("binding_options", Dhcpv6.Nodes.Node.Server.BindingOptions))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.binding = Dhcpv6.Nodes.Node.Server.Binding()
                     self.binding.parent = self
@@ -4082,8 +4233,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"summary" : ("summary", Dhcpv6.Nodes.Node.Server.Binding.Summary), "clients" : ("clients", Dhcpv6.Nodes.Node.Server.Binding.Clients)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("summary", ("summary", Dhcpv6.Nodes.Node.Server.Binding.Summary)), ("clients", ("clients", Dhcpv6.Nodes.Node.Server.Binding.Clients))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.summary = Dhcpv6.Nodes.Node.Server.Binding.Summary()
                         self.summary.parent = self
@@ -4132,10 +4285,13 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"iana" : ("iana", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana), "iapd" : ("iapd", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd)}
-                            self._child_list_classes = {}
-
-                            self.clients = YLeaf(YType.uint32, "clients")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("iana", ("iana", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana)), ("iapd", ("iapd", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('clients', YLeaf(YType.uint32, 'clients')),
+                            ])
+                            self.clients = None
 
                             self.iana = Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana()
                             self.iana.parent = self
@@ -4219,22 +4375,25 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                                self.dpm_waiting_clients = YLeaf(YType.uint32, "dpm-waiting-clients")
-
-                                self.daps_waiting_clients = YLeaf(YType.uint32, "daps-waiting-clients")
-
-                                self.request_waiting_clients = YLeaf(YType.uint32, "request-waiting-clients")
-
-                                self.iedge_waiting_clients = YLeaf(YType.uint32, "iedge-waiting-clients")
-
-                                self.rib_waiting_clients = YLeaf(YType.uint32, "rib-waiting-clients")
-
-                                self.bound_clients = YLeaf(YType.uint32, "bound-clients")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
+                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
+                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
+                                    ('request_waiting_clients', YLeaf(YType.uint32, 'request-waiting-clients')),
+                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
+                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
+                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                ])
+                                self.initializing_clients = None
+                                self.dpm_waiting_clients = None
+                                self.daps_waiting_clients = None
+                                self.request_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.rib_waiting_clients = None
+                                self.bound_clients = None
                                 self._segment_path = lambda: "iana"
 
                             def __setattr__(self, name, value):
@@ -4308,22 +4467,25 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                                self.dpm_waiting_clients = YLeaf(YType.uint32, "dpm-waiting-clients")
-
-                                self.daps_waiting_clients = YLeaf(YType.uint32, "daps-waiting-clients")
-
-                                self.request_waiting_clients = YLeaf(YType.uint32, "request-waiting-clients")
-
-                                self.iedge_waiting_clients = YLeaf(YType.uint32, "iedge-waiting-clients")
-
-                                self.rib_waiting_clients = YLeaf(YType.uint32, "rib-waiting-clients")
-
-                                self.bound_clients = YLeaf(YType.uint32, "bound-clients")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
+                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
+                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
+                                    ('request_waiting_clients', YLeaf(YType.uint32, 'request-waiting-clients')),
+                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
+                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
+                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                ])
+                                self.initializing_clients = None
+                                self.dpm_waiting_clients = None
+                                self.daps_waiting_clients = None
+                                self.request_waiting_clients = None
+                                self.iedge_waiting_clients = None
+                                self.rib_waiting_clients = None
+                                self.bound_clients = None
                                 self._segment_path = lambda: "iapd"
 
                             def __setattr__(self, name, value):
@@ -4353,8 +4515,10 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("client", ("client", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client))])
+                            self._leafs = OrderedDict()
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
@@ -4367,7 +4531,7 @@ class Dhcpv6(Entity):
                             """
                             Single DHCPV6 server binding
                             
-                            .. attribute:: client_id  <key>
+                            .. attribute:: client_id  (key)
                             
                             	Client ID
                             	**type**\: str
@@ -4595,76 +4759,79 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "clients"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ia-id-pd" : ("ia_id_pd", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd)}
-                                self._child_list_classes = {}
-
-                                self.client_id = YLeaf(YType.str, "client-id")
-
-                                self.duid = YLeaf(YType.str, "duid")
-
-                                self.client_id_xr = YLeaf(YType.uint32, "client-id-xr")
-
-                                self.client_flag = YLeaf(YType.uint32, "client-flag")
-
-                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.ia_id_p_ds = YLeaf(YType.uint32, "ia-id-p-ds")
-
-                                self.link_local_address = YLeaf(YType.str, "link-local-address")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
-
-                                self.server_binding_tags = YLeaf(YType.uint8, "server-binding-tags")
-
-                                self.server_binding_outer_tag = YLeaf(YType.uint32, "server-binding-outer-tag")
-
-                                self.server_binding_inner_tag = YLeaf(YType.uint32, "server-binding-inner-tag")
-
-                                self.pool_name = YLeaf(YType.str, "pool-name")
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.framed_ipv6_prefix = YLeaf(YType.str, "framed-ipv6-prefix")
-
-                                self.framed_prefix_length = YLeaf(YType.uint8, "framed-prefix-length")
-
-                                self.class_name = YLeaf(YType.str, "class-name")
-
-                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
-
-                                self.rx_interface_id = YLeaf(YType.str, "rx-interface-id")
-
-                                self.prefix_pool_name = YLeaf(YType.str, "prefix-pool-name")
-
-                                self.address_pool_name = YLeaf(YType.str, "address-pool-name")
-
-                                self.dns_server_count = YLeaf(YType.uint32, "dns-server-count")
-
-                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
-
-                                self.srg_state = YLeaf(YType.uint32, "srg-state")
-
-                                self.srg_intf_role = YLeaf(YType.uint32, "srg-intf-role")
-
-                                self.srgp2p = YLeaf(YType.boolean, "srgp2p")
-
-                                self.srg_vrf_name = YLeaf(YType.str, "srg-vrf-name")
-
-                                self.sesrg_state = YLeaf(YType.uint32, "sesrg-state")
-
-                                self.serg_intf_role = YLeaf(YType.uint32, "serg-intf-role")
+                                self.ylist_key_names = ['client_id']
+                                self._child_container_classes = OrderedDict([("ia-id-pd", ("ia_id_pd", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('client_id', YLeaf(YType.str, 'client-id')),
+                                    ('duid', YLeaf(YType.str, 'duid')),
+                                    ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
+                                    ('client_flag', YLeaf(YType.uint32, 'client-flag')),
+                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('ia_id_p_ds', YLeaf(YType.uint32, 'ia-id-p-ds')),
+                                    ('link_local_address', YLeaf(YType.str, 'link-local-address')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
+                                    ('server_binding_tags', YLeaf(YType.uint8, 'server-binding-tags')),
+                                    ('server_binding_outer_tag', YLeaf(YType.uint32, 'server-binding-outer-tag')),
+                                    ('server_binding_inner_tag', YLeaf(YType.uint32, 'server-binding-inner-tag')),
+                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
+                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('framed_ipv6_prefix', YLeaf(YType.str, 'framed-ipv6-prefix')),
+                                    ('framed_prefix_length', YLeaf(YType.uint8, 'framed-prefix-length')),
+                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
+                                    ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
+                                    ('prefix_pool_name', YLeaf(YType.str, 'prefix-pool-name')),
+                                    ('address_pool_name', YLeaf(YType.str, 'address-pool-name')),
+                                    ('dns_server_count', YLeaf(YType.uint32, 'dns-server-count')),
+                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
+                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
+                                    ('srg_intf_role', YLeaf(YType.uint32, 'srg-intf-role')),
+                                    ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                                    ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
+                                    ('sesrg_state', YLeaf(YType.uint32, 'sesrg-state')),
+                                    ('serg_intf_role', YLeaf(YType.uint32, 'serg-intf-role')),
+                                ])
+                                self.client_id = None
+                                self.duid = None
+                                self.client_id_xr = None
+                                self.client_flag = None
+                                self.subscriber_label = None
+                                self.vrf_name = None
+                                self.mac_address = None
+                                self.ia_id_p_ds = None
+                                self.link_local_address = None
+                                self.interface_name = None
+                                self.access_vrf_name = None
+                                self.server_binding_tags = None
+                                self.server_binding_outer_tag = None
+                                self.server_binding_inner_tag = None
+                                self.pool_name = None
+                                self.profile_name = None
+                                self.framed_ipv6_prefix = None
+                                self.framed_prefix_length = None
+                                self.class_name = None
+                                self.rx_remote_id = None
+                                self.rx_interface_id = None
+                                self.prefix_pool_name = None
+                                self.address_pool_name = None
+                                self.dns_server_count = None
+                                self.is_nak_next_renew = None
+                                self.srg_state = None
+                                self.srg_intf_role = None
+                                self.srgp2p = None
+                                self.srg_vrf_name = None
+                                self.sesrg_state = None
+                                self.serg_intf_role = None
 
                                 self.ia_id_pd = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd()
                                 self.ia_id_pd.parent = self
                                 self._children_name_map["ia_id_pd"] = "ia-id-pd"
                                 self._children_yang_names.add("ia-id-pd")
-                                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                                self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
@@ -4693,8 +4860,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "client"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bag-dhcpv6d-ia-id-pd-info" : ("bag_dhcpv6d_ia_id_pd_info", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bag-dhcpv6d-ia-id-pd-info", ("bag_dhcpv6d_ia_id_pd_info", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo))])
+                                    self._leafs = OrderedDict()
 
                                     self.bag_dhcpv6d_ia_id_pd_info = YList(self)
                                     self._segment_path = lambda: "ia-id-pd"
@@ -4757,18 +4926,21 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "ia-id-pd"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"addresses" : ("addresses", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses)}
-                                        self._child_list_classes = {}
-
-                                        self.ia_type = YLeaf(YType.enumeration, "ia-type")
-
-                                        self.ia_id = YLeaf(YType.uint32, "ia-id")
-
-                                        self.flags = YLeaf(YType.uint32, "flags")
-
-                                        self.total_address = YLeaf(YType.uint16, "total-address")
-
-                                        self.state = YLeaf(YType.enumeration, "state")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ia_type', YLeaf(YType.enumeration, 'ia-type')),
+                                            ('ia_id', YLeaf(YType.uint32, 'ia-id')),
+                                            ('flags', YLeaf(YType.uint32, 'flags')),
+                                            ('total_address', YLeaf(YType.uint16, 'total-address')),
+                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                        ])
+                                        self.ia_type = None
+                                        self.ia_id = None
+                                        self.flags = None
+                                        self.total_address = None
+                                        self.state = None
 
                                         self.addresses = Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses()
                                         self.addresses.parent = self
@@ -4803,8 +4975,10 @@ class Dhcpv6(Entity):
                                             self.yang_parent_name = "bag-dhcpv6d-ia-id-pd-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"bag-dhcpv6d-addr-attrb" : ("bag_dhcpv6d_addr_attrb", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("bag-dhcpv6d-addr-attrb", ("bag_dhcpv6d_addr_attrb", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb))])
+                                            self._leafs = OrderedDict()
 
                                             self.bag_dhcpv6d_addr_attrb = YList(self)
                                             self._segment_path = lambda: "addresses"
@@ -4863,16 +5037,19 @@ class Dhcpv6(Entity):
                                                 self.yang_parent_name = "addresses"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                                self.lease_time = YLeaf(YType.uint32, "lease-time")
-
-                                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
+                                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
+                                                ])
+                                                self.prefix = None
+                                                self.prefix_length = None
+                                                self.lease_time = None
+                                                self.remaining_lease_time = None
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
 
                                             def __setattr__(self, name, value):
@@ -4902,8 +5079,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf))])
+                        self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
@@ -4916,7 +5095,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP server VRF name
                         
-                        .. attribute:: vrf_name  <key>
+                        .. attribute:: vrf_name  (key)
                         
                         	VRF name
                         	**type**\: str
@@ -4942,16 +5121,19 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = ['vrf_name']
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
                             self.statistics = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -5060,8 +5242,10 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"solicit" : ("solicit", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit), "advertise" : ("advertise", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise), "request" : ("request", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request), "reply" : ("reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply), "confirm" : ("confirm", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm), "decline" : ("decline", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline), "renew" : ("renew", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew), "rebind" : ("rebind", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind), "release" : ("release", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release), "reconfig" : ("reconfig", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig), "inform" : ("inform", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform), "relay-forward" : ("relay_forward", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward), "relay-reply" : ("relay_reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply), "lease-query" : ("lease_query", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery), "lease-query-reply" : ("lease_query_reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply), "lease-query-done" : ("lease_query_done", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone), "lease-query-data" : ("lease_query_data", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("solicit", ("solicit", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit)), ("advertise", ("advertise", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise)), ("request", ("request", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request)), ("reply", ("reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply)), ("confirm", ("confirm", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm)), ("decline", ("decline", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline)), ("renew", ("renew", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew)), ("rebind", ("rebind", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind)), ("release", ("release", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release)), ("reconfig", ("reconfig", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig)), ("inform", ("inform", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform)), ("relay-forward", ("relay_forward", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward)), ("relay-reply", ("relay_reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply)), ("lease-query", ("lease_query", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery)), ("lease-query-reply", ("lease_query_reply", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply)), ("lease-query-done", ("lease_query_done", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone)), ("lease-query-data", ("lease_query_data", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.solicit = Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit()
                                 self.solicit.parent = self
@@ -5189,14 +5373,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
 
                                 def __setattr__(self, name, value):
@@ -5242,14 +5429,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
 
                                 def __setattr__(self, name, value):
@@ -5295,14 +5485,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "request"
 
                                 def __setattr__(self, name, value):
@@ -5348,14 +5541,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
 
                                 def __setattr__(self, name, value):
@@ -5401,14 +5597,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
 
                                 def __setattr__(self, name, value):
@@ -5454,14 +5653,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
 
                                 def __setattr__(self, name, value):
@@ -5507,14 +5709,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
 
                                 def __setattr__(self, name, value):
@@ -5560,14 +5765,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
 
                                 def __setattr__(self, name, value):
@@ -5613,14 +5821,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "release"
 
                                 def __setattr__(self, name, value):
@@ -5666,14 +5877,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
 
                                 def __setattr__(self, name, value):
@@ -5719,14 +5933,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
 
                                 def __setattr__(self, name, value):
@@ -5772,14 +5989,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
 
                                 def __setattr__(self, name, value):
@@ -5825,14 +6045,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
 
                                 def __setattr__(self, name, value):
@@ -5878,14 +6101,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
 
                                 def __setattr__(self, name, value):
@@ -5931,14 +6157,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
 
                                 def __setattr__(self, name, value):
@@ -5984,14 +6213,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
 
                                 def __setattr__(self, name, value):
@@ -6037,14 +6269,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
 
                                 def __setattr__(self, name, value):
@@ -6074,8 +6309,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"profile" : ("profile", Dhcpv6.Nodes.Node.Server.Profiles.Profile)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("profile", ("profile", Dhcpv6.Nodes.Node.Server.Profiles.Profile))])
+                        self._leafs = OrderedDict()
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
@@ -6088,7 +6325,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP server profile
                         
-                        .. attribute:: profile_name  <key>
+                        .. attribute:: profile_name  (key)
                         
                         	Profile name
                         	**type**\: str
@@ -6119,10 +6356,13 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "profiles"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"info" : ("info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info), "throttle-infos" : ("throttle_infos", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos)}
-                            self._child_list_classes = {}
-
-                            self.profile_name = YLeaf(YType.str, "profile-name")
+                            self.ylist_key_names = ['profile_name']
+                            self._child_container_classes = OrderedDict([("info", ("info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info)), ("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                            ])
+                            self.profile_name = None
 
                             self.info = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info()
                             self.info.parent = self
@@ -6133,7 +6373,7 @@ class Dhcpv6(Entity):
                             self.throttle_infos.parent = self
                             self._children_name_map["throttle_infos"] = "throttle-infos"
                             self._children_yang_names.add("throttle-infos")
-                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                            self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile, ['profile_name'], name, value)
@@ -6221,24 +6461,27 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"lease" : ("lease", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease), "interface-references" : ("interface_references", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences)}
-                                self._child_list_classes = {}
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.domain_name = YLeaf(YType.str, "domain-name")
-
-                                self.profile_dns = YLeaf(YType.uint8, "profile-dns")
-
-                                self.aftr_name = YLeaf(YType.str, "aftr-name")
-
-                                self.framed_addr_pool_name = YLeaf(YType.str, "framed-addr-pool-name")
-
-                                self.delegated_prefix_pool_name = YLeaf(YType.str, "delegated-prefix-pool-name")
-
-                                self.rapid_commit = YLeaf(YType.boolean, "rapid-commit")
-
-                                self.profile_dns_address = YLeafList(YType.str, "profile-dns-address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("lease", ("lease", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease)), ("interface-references", ("interface_references", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('domain_name', YLeaf(YType.str, 'domain-name')),
+                                    ('profile_dns', YLeaf(YType.uint8, 'profile-dns')),
+                                    ('aftr_name', YLeaf(YType.str, 'aftr-name')),
+                                    ('framed_addr_pool_name', YLeaf(YType.str, 'framed-addr-pool-name')),
+                                    ('delegated_prefix_pool_name', YLeaf(YType.str, 'delegated-prefix-pool-name')),
+                                    ('rapid_commit', YLeaf(YType.boolean, 'rapid-commit')),
+                                    ('profile_dns_address', YLeafList(YType.str, 'profile-dns-address')),
+                                ])
+                                self.profile_name = None
+                                self.domain_name = None
+                                self.profile_dns = None
+                                self.aftr_name = None
+                                self.framed_addr_pool_name = None
+                                self.delegated_prefix_pool_name = None
+                                self.rapid_commit = None
+                                self.profile_dns_address = []
 
                                 self.lease = Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease()
                                 self.lease.parent = self
@@ -6289,12 +6532,15 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.seconds = YLeaf(YType.uint32, "seconds")
-
-                                    self.time = YLeaf(YType.str, "time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
+                                        ('time', YLeaf(YType.str, 'time')),
+                                    ])
+                                    self.seconds = None
+                                    self.time = None
                                     self._segment_path = lambda: "lease"
 
                                 def __setattr__(self, name, value):
@@ -6324,8 +6570,10 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ipv6-dhcpv6d-server-interface-reference" : ("ipv6_dhcpv6d_server_interface_reference", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-server-interface-reference", ("ipv6_dhcpv6d_server_interface_reference", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference))])
+                                    self._leafs = OrderedDict()
 
                                     self.ipv6_dhcpv6d_server_interface_reference = YList(self)
                                     self._segment_path = lambda: "interface-references"
@@ -6359,10 +6607,13 @@ class Dhcpv6(Entity):
                                         self.yang_parent_name = "interface-references"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.server_reference_interface_name = YLeaf(YType.str, "server-reference-interface-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('server_reference_interface_name', YLeaf(YType.str, 'server-reference-interface-name')),
+                                        ])
+                                        self.server_reference_interface_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-server-interface-reference"
 
                                     def __setattr__(self, name, value):
@@ -6392,8 +6643,10 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"throttle-info" : ("throttle_info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("throttle-info", ("throttle_info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo))])
+                                self._leafs = OrderedDict()
 
                                 self.throttle_info = YList(self)
                                 self._segment_path = lambda: "throttle-infos"
@@ -6406,7 +6659,7 @@ class Dhcpv6(Entity):
                                 """
                                 IPv6 DHCP server profile Throttle Info
                                 
-                                .. attribute:: mac_address  <key>
+                                .. attribute:: mac_address  (key)
                                 
                                 	MAC address
                                 	**type**\: str
@@ -6457,19 +6710,22 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "throttle-infos"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                    self.binding_chaddr = YLeaf(YType.str, "binding-chaddr")
-
-                                    self.ifname = YLeaf(YType.str, "ifname")
-
-                                    self.state = YLeaf(YType.uint32, "state")
-
-                                    self.time_left = YLeaf(YType.uint32, "time-left")
-                                    self._segment_path = lambda: "throttle-info" + "[mac-address='" + self.mac_address.get() + "']"
+                                    self.ylist_key_names = ['mac_address']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ('binding_chaddr', YLeaf(YType.str, 'binding-chaddr')),
+                                        ('ifname', YLeaf(YType.str, 'ifname')),
+                                        ('state', YLeaf(YType.uint32, 'state')),
+                                        ('time_left', YLeaf(YType.uint32, 'time-left')),
+                                    ])
+                                    self.mac_address = None
+                                    self.binding_chaddr = None
+                                    self.ifname = None
+                                    self.state = None
+                                    self.time_left = None
+                                    self._segment_path = lambda: "throttle-info" + "[mac-address='" + str(self.mac_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
@@ -6498,8 +6754,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Dhcpv6.Nodes.Node.Server.Interfaces.Interface)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", Dhcpv6.Nodes.Node.Server.Interfaces.Interface))])
+                        self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
@@ -6512,7 +6770,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP server interface
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface Name
                         	**type**\: str
@@ -6598,33 +6856,36 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
-
-                            self.server_interface_mode = YLeaf(YType.enumeration, "server-interface-mode")
-
-                            self.is_server_interface_ambiguous = YLeaf(YType.uint32, "is-server-interface-ambiguous")
-
-                            self.server_interface_profile_name = YLeaf(YType.str, "server-interface-profile-name")
-
-                            self.server_interface_lease_limit_type = YLeaf(YType.enumeration, "server-interface-lease-limit-type")
-
-                            self.server_interface_lease_limits = YLeaf(YType.uint32, "server-interface-lease-limits")
-
-                            self.srg_role = YLeaf(YType.enumeration, "srg-role")
-
-                            self.serg_role = YLeaf(YType.enumeration, "serg-role")
-
-                            self.mac_throttle = YLeaf(YType.boolean, "mac-throttle")
-
-                            self.srg_vrf_name = YLeaf(YType.str, "srg-vrf-name")
-
-                            self.srgp2p = YLeaf(YType.boolean, "srgp2p")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
+                                ('server_interface_mode', YLeaf(YType.enumeration, 'server-interface-mode')),
+                                ('is_server_interface_ambiguous', YLeaf(YType.uint32, 'is-server-interface-ambiguous')),
+                                ('server_interface_profile_name', YLeaf(YType.str, 'server-interface-profile-name')),
+                                ('server_interface_lease_limit_type', YLeaf(YType.enumeration, 'server-interface-lease-limit-type')),
+                                ('server_interface_lease_limits', YLeaf(YType.uint32, 'server-interface-lease-limits')),
+                                ('srg_role', YLeaf(YType.enumeration, 'srg-role')),
+                                ('serg_role', YLeaf(YType.enumeration, 'serg-role')),
+                                ('mac_throttle', YLeaf(YType.boolean, 'mac-throttle')),
+                                ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
+                                ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                            ])
+                            self.interface_name = None
+                            self.server_vrf_name = None
+                            self.server_interface_mode = None
+                            self.is_server_interface_ambiguous = None
+                            self.server_interface_profile_name = None
+                            self.server_interface_lease_limit_type = None
+                            self.server_interface_lease_limits = None
+                            self.srg_role = None
+                            self.serg_role = None
+                            self.mac_throttle = None
+                            self.srg_vrf_name = None
+                            self.srgp2p = None
+                            self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', 'server_vrf_name', 'server_interface_mode', 'is_server_interface_ambiguous', 'server_interface_profile_name', 'server_interface_lease_limit_type', 'server_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
@@ -6653,8 +6914,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv6-dhcpv6d-server-stat" : ("ipv6_dhcpv6d_server_stat", Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-server-stat", ("ipv6_dhcpv6d_server_stat", Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat))])
+                        self._leafs = OrderedDict()
 
                         self.ipv6_dhcpv6d_server_stat = YList(self)
                         self._segment_path = lambda: "statistics"
@@ -6670,7 +6933,7 @@ class Dhcpv6(Entity):
                         .. attribute:: statistics
                         
                         	Server statistics
-                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_>`
                         
                         .. attribute:: vrf_name
                         
@@ -6693,12 +6956,15 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.statistics = Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
@@ -6708,7 +6974,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics_(Entity):
                             """
                             Server statistics
                             
@@ -6741,24 +7007,27 @@ class Dhcpv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics, self).__init__()
+                                super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-server-stat"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                ])
+                                self.received_packets = None
+                                self.transmitted_packets = None
+                                self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                 class BindingOptions(Entity):
@@ -6789,8 +7058,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "server"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"mac-bind-options" : ("mac_bind_options", Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions), "duid-bind-options" : ("duid_bind_options", Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("mac-bind-options", ("mac_bind_options", Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions)), ("duid-bind-options", ("duid_bind_options", Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.mac_bind_options = Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions()
                         self.mac_bind_options.parent = self
@@ -6827,8 +7098,10 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding-options"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"mac-bind-option" : ("mac_bind_option", Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("mac-bind-option", ("mac_bind_option", Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption))])
+                            self._leafs = OrderedDict()
 
                             self.mac_bind_option = YList(self)
                             self._segment_path = lambda: "mac-bind-options"
@@ -6841,7 +7114,7 @@ class Dhcpv6(Entity):
                             """
                             DHCPv6 server binding with options
                             
-                            .. attribute:: mac_address  <key>
+                            .. attribute:: mac_address  (key)
                             
                             	MAC address
                             	**type**\: str
@@ -6891,21 +7164,24 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "mac-bind-options"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                                self.duid_xr = YLeaf(YType.str, "duid-xr")
-
-                                self.dns_count = YLeaf(YType.uint8, "dns-count")
-
-                                self.opt17 = YLeaf(YType.str, "opt17")
-
-                                self.dns_address = YLeafList(YType.str, "dns-address")
-                                self._segment_path = lambda: "mac-bind-option" + "[mac-address='" + self.mac_address.get() + "']"
+                                self.ylist_key_names = ['mac_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
+                                    ('duid_xr', YLeaf(YType.str, 'duid-xr')),
+                                    ('dns_count', YLeaf(YType.uint8, 'dns-count')),
+                                    ('opt17', YLeaf(YType.str, 'opt17')),
+                                    ('dns_address', YLeafList(YType.str, 'dns-address')),
+                                ])
+                                self.mac_address = None
+                                self.mac_address_xr = None
+                                self.duid_xr = None
+                                self.dns_count = None
+                                self.opt17 = None
+                                self.dns_address = []
+                                self._segment_path = lambda: "mac-bind-option" + "[mac-address='" + str(self.mac_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
@@ -6934,8 +7210,10 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding-options"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"duid-bind-option" : ("duid_bind_option", Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("duid-bind-option", ("duid_bind_option", Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption))])
+                            self._leafs = OrderedDict()
 
                             self.duid_bind_option = YList(self)
                             self._segment_path = lambda: "duid-bind-options"
@@ -6948,7 +7226,7 @@ class Dhcpv6(Entity):
                             """
                             DHCPv6 server binding with options
                             
-                            .. attribute:: duid  <key>
+                            .. attribute:: duid  (key)
                             
                             	DUID of Binding
                             	**type**\: str
@@ -6998,21 +7276,24 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "duid-bind-options"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.duid = YLeaf(YType.str, "duid")
-
-                                self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                                self.duid_xr = YLeaf(YType.str, "duid-xr")
-
-                                self.dns_count = YLeaf(YType.uint8, "dns-count")
-
-                                self.opt17 = YLeaf(YType.str, "opt17")
-
-                                self.dns_address = YLeafList(YType.str, "dns-address")
-                                self._segment_path = lambda: "duid-bind-option" + "[duid='" + self.duid.get() + "']"
+                                self.ylist_key_names = ['duid']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('duid', YLeaf(YType.str, 'duid')),
+                                    ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
+                                    ('duid_xr', YLeaf(YType.str, 'duid-xr')),
+                                    ('dns_count', YLeaf(YType.uint8, 'dns-count')),
+                                    ('opt17', YLeaf(YType.str, 'opt17')),
+                                    ('dns_address', YLeafList(YType.str, 'dns-address')),
+                                ])
+                                self.duid = None
+                                self.mac_address_xr = None
+                                self.duid_xr = None
+                                self.dns_count = None
+                                self.opt17 = None
+                                self.dns_address = []
+                                self._segment_path = lambda: "duid-bind-option" + "[duid='" + str(self.duid) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
@@ -7051,8 +7332,10 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Relay.Statistics), "binding" : ("binding", Dhcpv6.Nodes.Node.Relay.Binding), "vrfs" : ("vrfs", Dhcpv6.Nodes.Node.Relay.Vrfs)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Relay.Statistics)), ("binding", ("binding", Dhcpv6.Nodes.Node.Relay.Binding)), ("vrfs", ("vrfs", Dhcpv6.Nodes.Node.Relay.Vrfs))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics()
                     self.statistics.parent = self
@@ -7094,8 +7377,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "relay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv6-dhcpv6d-relay-stat" : ("ipv6_dhcpv6d_relay_stat", Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ipv6-dhcpv6d-relay-stat", ("ipv6_dhcpv6d_relay_stat", Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat))])
+                        self._leafs = OrderedDict()
 
                         self.ipv6_dhcpv6d_relay_stat = YList(self)
                         self._segment_path = lambda: "statistics"
@@ -7111,7 +7396,7 @@ class Dhcpv6(Entity):
                         .. attribute:: statistics
                         
                         	Relay statistics
-                        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics>`
+                        	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_>`
                         
                         .. attribute:: vrf_name
                         
@@ -7134,12 +7419,15 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics()
+                            self.statistics = Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
@@ -7149,7 +7437,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat, ['vrf_name'], name, value)
 
 
-                        class Statistics(Entity):
+                        class Statistics_(Entity):
                             """
                             Relay statistics
                             
@@ -7182,24 +7470,27 @@ class Dhcpv6(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics, self).__init__()
+                                super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv6-dhcpv6d-relay-stat"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                ])
+                                self.received_packets = None
+                                self.transmitted_packets = None
+                                self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                 class Binding(Entity):
@@ -7230,8 +7521,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "relay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"summary" : ("summary", Dhcpv6.Nodes.Node.Relay.Binding.Summary), "clients" : ("clients", Dhcpv6.Nodes.Node.Relay.Binding.Clients)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("summary", ("summary", Dhcpv6.Nodes.Node.Relay.Binding.Summary)), ("clients", ("clients", Dhcpv6.Nodes.Node.Relay.Binding.Clients))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.summary = Dhcpv6.Nodes.Node.Relay.Binding.Summary()
                         self.summary.parent = self
@@ -7270,10 +7563,13 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.clients = YLeaf(YType.uint32, "clients")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('clients', YLeaf(YType.uint32, 'clients')),
+                            ])
+                            self.clients = None
                             self._segment_path = lambda: "summary"
 
                         def __setattr__(self, name, value):
@@ -7303,8 +7599,10 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "binding"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("client", ("client", Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client))])
+                            self._leafs = OrderedDict()
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
@@ -7317,7 +7615,7 @@ class Dhcpv6(Entity):
                             """
                             Single DHCPV6 relay binding
                             
-                            .. attribute:: client_id  <key>
+                            .. attribute:: client_id  (key)
                             
                             	Client ID
                             	**type**\: str
@@ -7413,33 +7711,36 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "clients"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.client_id = YLeaf(YType.str, "client-id")
-
-                                self.duid = YLeaf(YType.str, "duid")
-
-                                self.client_id_xr = YLeaf(YType.uint32, "client-id-xr")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.lifetime = YLeaf(YType.uint32, "lifetime")
-
-                                self.rem_life_time = YLeaf(YType.uint32, "rem-life-time")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.next_hop_addr = YLeaf(YType.str, "next-hop-addr")
-
-                                self.ia_id = YLeaf(YType.uint32, "ia-id")
-
-                                self.relay_profile_name = YLeaf(YType.str, "relay-profile-name")
-                                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                                self.ylist_key_names = ['client_id']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('client_id', YLeaf(YType.str, 'client-id')),
+                                    ('duid', YLeaf(YType.str, 'duid')),
+                                    ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
+                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                                    ('rem_life_time', YLeaf(YType.uint32, 'rem-life-time')),
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('next_hop_addr', YLeaf(YType.str, 'next-hop-addr')),
+                                    ('ia_id', YLeaf(YType.uint32, 'ia-id')),
+                                    ('relay_profile_name', YLeaf(YType.str, 'relay-profile-name')),
+                                ])
+                                self.client_id = None
+                                self.duid = None
+                                self.client_id_xr = None
+                                self.prefix_length = None
+                                self.prefix = None
+                                self.vrf_name = None
+                                self.lifetime = None
+                                self.rem_life_time = None
+                                self.interface_name = None
+                                self.next_hop_addr = None
+                                self.ia_id = None
+                                self.relay_profile_name = None
+                                self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name'], name, value)
@@ -7468,8 +7769,10 @@ class Dhcpv6(Entity):
                         self.yang_parent_name = "relay"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf))])
+                        self._leafs = OrderedDict()
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
@@ -7482,7 +7785,7 @@ class Dhcpv6(Entity):
                         """
                         IPv6 DHCP relay VRF name
                         
-                        .. attribute:: vrf_name  <key>
+                        .. attribute:: vrf_name  (key)
                         
                         	VRF name
                         	**type**\: str
@@ -7508,16 +7811,19 @@ class Dhcpv6(Entity):
                             self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = ['vrf_name']
+                            self._child_container_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
 
                             self.statistics = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -7626,8 +7932,10 @@ class Dhcpv6(Entity):
                                 self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"solicit" : ("solicit", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit), "advertise" : ("advertise", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise), "request" : ("request", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request), "reply" : ("reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply), "confirm" : ("confirm", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm), "decline" : ("decline", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline), "renew" : ("renew", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew), "rebind" : ("rebind", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind), "release" : ("release", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release), "reconfig" : ("reconfig", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig), "inform" : ("inform", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform), "relay-forward" : ("relay_forward", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward), "relay-reply" : ("relay_reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply), "lease-query" : ("lease_query", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery), "lease-query-reply" : ("lease_query_reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply), "lease-query-done" : ("lease_query_done", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone), "lease-query-data" : ("lease_query_data", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("solicit", ("solicit", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit)), ("advertise", ("advertise", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise)), ("request", ("request", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request)), ("reply", ("reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply)), ("confirm", ("confirm", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm)), ("decline", ("decline", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline)), ("renew", ("renew", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew)), ("rebind", ("rebind", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind)), ("release", ("release", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release)), ("reconfig", ("reconfig", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig)), ("inform", ("inform", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform)), ("relay-forward", ("relay_forward", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward)), ("relay-reply", ("relay_reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply)), ("lease-query", ("lease_query", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery)), ("lease-query-reply", ("lease_query_reply", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply)), ("lease-query-done", ("lease_query_done", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone)), ("lease-query-data", ("lease_query_data", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.solicit = Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit()
                                 self.solicit.parent = self
@@ -7755,14 +8063,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
 
                                 def __setattr__(self, name, value):
@@ -7808,14 +8119,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
 
                                 def __setattr__(self, name, value):
@@ -7861,14 +8175,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "request"
 
                                 def __setattr__(self, name, value):
@@ -7914,14 +8231,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
 
                                 def __setattr__(self, name, value):
@@ -7967,14 +8287,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
 
                                 def __setattr__(self, name, value):
@@ -8020,14 +8343,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
 
                                 def __setattr__(self, name, value):
@@ -8073,14 +8399,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
 
                                 def __setattr__(self, name, value):
@@ -8126,14 +8455,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
 
                                 def __setattr__(self, name, value):
@@ -8179,14 +8511,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "release"
 
                                 def __setattr__(self, name, value):
@@ -8232,14 +8567,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
 
                                 def __setattr__(self, name, value):
@@ -8285,14 +8623,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
 
                                 def __setattr__(self, name, value):
@@ -8338,14 +8679,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
 
                                 def __setattr__(self, name, value):
@@ -8391,14 +8735,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
 
                                 def __setattr__(self, name, value):
@@ -8444,14 +8791,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
 
                                 def __setattr__(self, name, value):
@@ -8497,14 +8847,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
 
                                 def __setattr__(self, name, value):
@@ -8550,14 +8903,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
 
                                 def __setattr__(self, name, value):
@@ -8603,14 +8959,17 @@ class Dhcpv6(Entity):
                                     self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
+                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ])
+                                    self.received_packets = None
+                                    self.transmitted_packets = None
+                                    self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
 
                                 def __setattr__(self, name, value):

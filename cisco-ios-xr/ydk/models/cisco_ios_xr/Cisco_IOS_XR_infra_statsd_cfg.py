@@ -15,6 +15,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -46,8 +48,10 @@ class Statistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-statsd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"period" : ("period", Statistics.Period)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("period", ("period", Statistics.Period))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.period = Statistics.Period()
         self.period.parent = self
@@ -79,8 +83,10 @@ class Statistics(Entity):
             self.yang_parent_name = "statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"service-accounting" : ("service_accounting", Statistics.Period.ServiceAccounting)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("service-accounting", ("service_accounting", Statistics.Period.ServiceAccounting))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.service_accounting = Statistics.Period.ServiceAccounting()
             self.service_accounting.parent = self
@@ -102,8 +108,6 @@ class Statistics(Entity):
             
             	**range:** 30..3600
             
-            	**default value**\: 900
-            
             .. attribute:: polling_disable
             
             	Disable periodic statistics polling for service accounting collectors
@@ -123,12 +127,15 @@ class Statistics(Entity):
                 self.yang_parent_name = "period"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.polling_period = YLeaf(YType.uint32, "polling-period")
-
-                self.polling_disable = YLeaf(YType.empty, "polling-disable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('polling_period', YLeaf(YType.uint32, 'polling-period')),
+                    ('polling_disable', YLeaf(YType.empty, 'polling-disable')),
+                ])
+                self.polling_period = None
+                self.polling_disable = None
                 self._segment_path = lambda: "service-accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics/period/%s" % self._segment_path()
 

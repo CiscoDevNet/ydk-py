@@ -9,6 +9,8 @@ was taken, the MIB was modified, had new OIDs assigned,
 and then published as RFC 2982.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -65,8 +67,10 @@ class EXPRESSIONMIB(Entity):
         self.yang_parent_name = "EXPRESSION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"expResource" : ("expresource", EXPRESSIONMIB.Expresource), "expNames" : ("expnames", EXPRESSIONMIB.Expnames), "expNameTable" : ("expnametable", EXPRESSIONMIB.Expnametable), "expExpressionTable" : ("expexpressiontable", EXPRESSIONMIB.Expexpressiontable), "expObjectTable" : ("expobjecttable", EXPRESSIONMIB.Expobjecttable), "expValueTable" : ("expvaluetable", EXPRESSIONMIB.Expvaluetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("expResource", ("expresource", EXPRESSIONMIB.Expresource)), ("expNames", ("expnames", EXPRESSIONMIB.Expnames)), ("expNameTable", ("expnametable", EXPRESSIONMIB.Expnametable)), ("expExpressionTable", ("expexpressiontable", EXPRESSIONMIB.Expexpressiontable)), ("expObjectTable", ("expobjecttable", EXPRESSIONMIB.Expobjecttable)), ("expValueTable", ("expvaluetable", EXPRESSIONMIB.Expvaluetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.expresource = EXPRESSIONMIB.Expresource()
         self.expresource.parent = self
@@ -163,18 +167,21 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.expresourcedeltaminimum = YLeaf(YType.int32, "expResourceDeltaMinimum")
-
-            self.expresourcedeltawildcardinstancemaximum = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceMaximum")
-
-            self.expresourcedeltawildcardinstances = YLeaf(YType.uint32, "expResourceDeltaWildcardInstances")
-
-            self.expresourcedeltawildcardinstanceshigh = YLeaf(YType.uint32, "expResourceDeltaWildcardInstancesHigh")
-
-            self.expresourcedeltawildcardinstanceresourcelacks = YLeaf(YType.uint32, "expResourceDeltaWildcardInstanceResourceLacks")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('expresourcedeltaminimum', YLeaf(YType.int32, 'expResourceDeltaMinimum')),
+                ('expresourcedeltawildcardinstancemaximum', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceMaximum')),
+                ('expresourcedeltawildcardinstances', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstances')),
+                ('expresourcedeltawildcardinstanceshigh', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstancesHigh')),
+                ('expresourcedeltawildcardinstanceresourcelacks', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceResourceLacks')),
+            ])
+            self.expresourcedeltaminimum = None
+            self.expresourcedeltawildcardinstancemaximum = None
+            self.expresourcedeltawildcardinstances = None
+            self.expresourcedeltawildcardinstanceshigh = None
+            self.expresourcedeltawildcardinstanceresourcelacks = None
             self._segment_path = lambda: "expResource"
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
@@ -214,12 +221,15 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.expnamelastchange = YLeaf(YType.uint32, "expNameLastChange")
-
-            self.expnamehighestindex = YLeaf(YType.uint32, "expNameHighestIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('expnamelastchange', YLeaf(YType.uint32, 'expNameLastChange')),
+                ('expnamehighestindex', YLeaf(YType.uint32, 'expNameHighestIndex')),
+            ])
+            self.expnamelastchange = None
+            self.expnamehighestindex = None
             self._segment_path = lambda: "expNames"
             self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/%s" % self._segment_path()
 
@@ -251,8 +261,10 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expNameEntry" : ("expnameentry", EXPRESSIONMIB.Expnametable.Expnameentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expNameEntry", ("expnameentry", EXPRESSIONMIB.Expnametable.Expnameentry))])
+            self._leafs = OrderedDict()
 
             self.expnameentry = YList(self)
             self._segment_path = lambda: "expNameTable"
@@ -298,7 +310,7 @@ class EXPRESSIONMIB(Entity):
             under the security credentials of the creator of its
             expNameEntry.
             
-            .. attribute:: expname  <key>
+            .. attribute:: expname  (key)
             
             	The name of the expression.  Choosing names with useful lexical ordering supports using GetNext or GetBulk to retrieve a useful subset of the table
             	**type**\: str
@@ -331,15 +343,18 @@ class EXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expNameTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expname = YLeaf(YType.str, "expName")
-
-                self.expexpressionindex = YLeaf(YType.uint32, "expExpressionIndex")
-
-                self.expnamestatus = YLeaf(YType.enumeration, "expNameStatus")
-                self._segment_path = lambda: "expNameEntry" + "[expName='" + self.expname.get() + "']"
+                self.ylist_key_names = ['expname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expname', YLeaf(YType.str, 'expName')),
+                    ('expexpressionindex', YLeaf(YType.uint32, 'expExpressionIndex')),
+                    ('expnamestatus', YLeaf(YType.enumeration, 'expNameStatus')),
+                ])
+                self.expname = None
+                self.expexpressionindex = None
+                self.expnamestatus = None
+                self._segment_path = lambda: "expNameEntry" + "[expName='" + str(self.expname) + "']"
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expNameTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -369,8 +384,10 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expExpressionEntry" : ("expexpressionentry", EXPRESSIONMIB.Expexpressiontable.Expexpressionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expExpressionEntry", ("expexpressionentry", EXPRESSIONMIB.Expexpressiontable.Expexpressionentry))])
+            self._leafs = OrderedDict()
 
             self.expexpressionentry = YList(self)
             self._segment_path = lambda: "expExpressionTable"
@@ -390,7 +407,7 @@ class EXPRESSIONMIB(Entity):
             Values of read\-write objects in this table may be changed
             at any time.
             
-            .. attribute:: expexpressionindex  <key>
+            .. attribute:: expexpressionindex  (key)
             
             	
             	**type**\: int
@@ -493,35 +510,38 @@ class EXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expExpressionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionindex = YLeaf(YType.str, "expExpressionIndex")
-
-                self.expexpressionname = YLeaf(YType.str, "expExpressionName")
-
-                self.expexpression = YLeaf(YType.str, "expExpression")
-
-                self.expexpressionvaluetype = YLeaf(YType.enumeration, "expExpressionValueType")
-
-                self.expexpressioncomment = YLeaf(YType.str, "expExpressionComment")
-
-                self.expexpressiondeltainterval = YLeaf(YType.int32, "expExpressionDeltaInterval")
-
-                self.expexpressionprefix = YLeaf(YType.str, "expExpressionPrefix")
-
-                self.expexpressionerrors = YLeaf(YType.uint32, "expExpressionErrors")
-
-                self.expexpressionerrortime = YLeaf(YType.uint32, "expExpressionErrorTime")
-
-                self.expexpressionerrorindex = YLeaf(YType.int32, "expExpressionErrorIndex")
-
-                self.expexpressionerror = YLeaf(YType.enumeration, "expExpressionError")
-
-                self.expexpressioninstance = YLeaf(YType.str, "expExpressionInstance")
-
-                self.expexpressionowner = YLeaf(YType.str, "expExpressionOwner")
-                self._segment_path = lambda: "expExpressionEntry" + "[expExpressionIndex='" + self.expexpressionindex.get() + "']"
+                self.ylist_key_names = ['expexpressionindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
+                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
+                    ('expexpression', YLeaf(YType.str, 'expExpression')),
+                    ('expexpressionvaluetype', YLeaf(YType.enumeration, 'expExpressionValueType')),
+                    ('expexpressioncomment', YLeaf(YType.str, 'expExpressionComment')),
+                    ('expexpressiondeltainterval', YLeaf(YType.int32, 'expExpressionDeltaInterval')),
+                    ('expexpressionprefix', YLeaf(YType.str, 'expExpressionPrefix')),
+                    ('expexpressionerrors', YLeaf(YType.uint32, 'expExpressionErrors')),
+                    ('expexpressionerrortime', YLeaf(YType.uint32, 'expExpressionErrorTime')),
+                    ('expexpressionerrorindex', YLeaf(YType.int32, 'expExpressionErrorIndex')),
+                    ('expexpressionerror', YLeaf(YType.enumeration, 'expExpressionError')),
+                    ('expexpressioninstance', YLeaf(YType.str, 'expExpressionInstance')),
+                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
+                ])
+                self.expexpressionindex = None
+                self.expexpressionname = None
+                self.expexpression = None
+                self.expexpressionvaluetype = None
+                self.expexpressioncomment = None
+                self.expexpressiondeltainterval = None
+                self.expexpressionprefix = None
+                self.expexpressionerrors = None
+                self.expexpressionerrortime = None
+                self.expexpressionerrorindex = None
+                self.expexpressionerror = None
+                self.expexpressioninstance = None
+                self.expexpressionowner = None
+                self._segment_path = lambda: "expExpressionEntry" + "[expExpressionIndex='" + str(self.expexpressionindex) + "']"
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expExpressionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -529,7 +549,7 @@ class EXPRESSIONMIB(Entity):
 
             class Expexpressionerror(Enum):
                 """
-                Expexpressionerror
+                Expexpressionerror (Enum Class)
 
                 The error that occurred.  In the following explanations the
 
@@ -676,7 +696,7 @@ class EXPRESSIONMIB(Entity):
 
             class Expexpressionvaluetype(Enum):
                 """
-                Expexpressionvaluetype
+                Expexpressionvaluetype (Enum Class)
 
                 The type of the expression value.  One and only one of
 
@@ -759,8 +779,10 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expObjectEntry" : ("expobjectentry", EXPRESSIONMIB.Expobjecttable.Expobjectentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expObjectEntry", ("expobjectentry", EXPRESSIONMIB.Expobjecttable.Expobjectentry))])
+            self._leafs = OrderedDict()
 
             self.expobjectentry = YList(self)
             self._segment_path = lambda: "expObjectTable"
@@ -779,7 +801,7 @@ class EXPRESSIONMIB(Entity):
             Values of read\-create objects in this table may be
             changed at any time.
             
-            .. attribute:: expexpressionindex  <key>
+            .. attribute:: expexpressionindex  (key)
             
             	
             	**type**\: int
@@ -788,7 +810,7 @@ class EXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
             
-            .. attribute:: expobjectindex  <key>
+            .. attribute:: expobjectindex  (key)
             
             	Within an expression, a unique, numeric identification for an object.  Prefixed with a dollar sign ('$') this is used to reference the object in the corresponding expExpression
             	**type**\: int
@@ -860,31 +882,34 @@ class EXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionindex = YLeaf(YType.str, "expExpressionIndex")
-
-                self.expobjectindex = YLeaf(YType.uint32, "expObjectIndex")
-
-                self.expobjectid = YLeaf(YType.str, "expObjectID")
-
-                self.expobjectidwildcard = YLeaf(YType.boolean, "expObjectIDWildcard")
-
-                self.expobjectsampletype = YLeaf(YType.enumeration, "expObjectSampleType")
-
-                self.expobjectdeltadiscontinuityid = YLeaf(YType.str, "expObjectDeltaDiscontinuityID")
-
-                self.expobjectdiscontinuityidwildcard = YLeaf(YType.boolean, "expObjectDiscontinuityIDWildcard")
-
-                self.expobjectdiscontinuityidtype = YLeaf(YType.enumeration, "expObjectDiscontinuityIDType")
-
-                self.expobjectconditional = YLeaf(YType.str, "expObjectConditional")
-
-                self.expobjectconditionalwildcard = YLeaf(YType.boolean, "expObjectConditionalWildcard")
-
-                self.expobjectstatus = YLeaf(YType.enumeration, "expObjectStatus")
-                self._segment_path = lambda: "expObjectEntry" + "[expExpressionIndex='" + self.expexpressionindex.get() + "']" + "[expObjectIndex='" + self.expobjectindex.get() + "']"
+                self.ylist_key_names = ['expexpressionindex','expobjectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
+                    ('expobjectindex', YLeaf(YType.uint32, 'expObjectIndex')),
+                    ('expobjectid', YLeaf(YType.str, 'expObjectID')),
+                    ('expobjectidwildcard', YLeaf(YType.boolean, 'expObjectIDWildcard')),
+                    ('expobjectsampletype', YLeaf(YType.enumeration, 'expObjectSampleType')),
+                    ('expobjectdeltadiscontinuityid', YLeaf(YType.str, 'expObjectDeltaDiscontinuityID')),
+                    ('expobjectdiscontinuityidwildcard', YLeaf(YType.boolean, 'expObjectDiscontinuityIDWildcard')),
+                    ('expobjectdiscontinuityidtype', YLeaf(YType.enumeration, 'expObjectDiscontinuityIDType')),
+                    ('expobjectconditional', YLeaf(YType.str, 'expObjectConditional')),
+                    ('expobjectconditionalwildcard', YLeaf(YType.boolean, 'expObjectConditionalWildcard')),
+                    ('expobjectstatus', YLeaf(YType.enumeration, 'expObjectStatus')),
+                ])
+                self.expexpressionindex = None
+                self.expobjectindex = None
+                self.expobjectid = None
+                self.expobjectidwildcard = None
+                self.expobjectsampletype = None
+                self.expobjectdeltadiscontinuityid = None
+                self.expobjectdiscontinuityidwildcard = None
+                self.expobjectdiscontinuityidtype = None
+                self.expobjectconditional = None
+                self.expobjectconditionalwildcard = None
+                self.expobjectstatus = None
+                self._segment_path = lambda: "expObjectEntry" + "[expExpressionIndex='" + str(self.expexpressionindex) + "']" + "[expObjectIndex='" + str(self.expobjectindex) + "']"
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -892,7 +917,7 @@ class EXPRESSIONMIB(Entity):
 
             class Expobjectdiscontinuityidtype(Enum):
                 """
-                Expobjectdiscontinuityidtype
+                Expobjectdiscontinuityidtype (Enum Class)
 
                 The value 'timeTicks' indicates the
 
@@ -919,7 +944,7 @@ class EXPRESSIONMIB(Entity):
 
             class Expobjectsampletype(Enum):
                 """
-                Expobjectsampletype
+                Expobjectsampletype (Enum Class)
 
                 The method of sampling the selected variable.
 
@@ -978,8 +1003,10 @@ class EXPRESSIONMIB(Entity):
             self.yang_parent_name = "EXPRESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"expValueEntry" : ("expvalueentry", EXPRESSIONMIB.Expvaluetable.Expvalueentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("expValueEntry", ("expvalueentry", EXPRESSIONMIB.Expvaluetable.Expvalueentry))])
+            self._leafs = OrderedDict()
 
             self.expvalueentry = YList(self)
             self._segment_path = lambda: "expValueTable"
@@ -1013,7 +1040,7 @@ class EXPRESSIONMIB(Entity):
             evaluation is under the security credentials of the
             creator of the corresponding expNameEntry.
             
-            .. attribute:: expexpressionindex  <key>
+            .. attribute:: expexpressionindex  (key)
             
             	
             	**type**\: int
@@ -1022,7 +1049,7 @@ class EXPRESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`expexpressionindex <ydk.models.cisco_ios_xe.EXPRESSION_MIB.EXPRESSIONMIB.Expnametable.Expnameentry>`
             
-            .. attribute:: expvalueinstance  <key>
+            .. attribute:: expvalueinstance  (key)
             
             	The final instance portion of a value's OID according to the wildcarding in instances of expObjectID for the expression.  The prefix of this OID fragment is 0.0, leading to the following behavior.  If there is no wildcarding, the value is 0.0.0.  In other words, there is one value which standing alone would have been a scalar with a 0 at the end of its OID.  If there is wildcarding, the value is 0.0 followed by a value that the wildcard can take, thus defining one value instance for each real, possible value of the wildcard. So, for example, if the wildcard worked out to be an ifIndex, there is an expValueInstance for each applicable ifIndex
             	**type**\: str
@@ -1092,27 +1119,30 @@ class EXPRESSIONMIB(Entity):
                 self.yang_parent_name = "expValueTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.expexpressionindex = YLeaf(YType.str, "expExpressionIndex")
-
-                self.expvalueinstance = YLeaf(YType.str, "expValueInstance")
-
-                self.expvaluecounter32val = YLeaf(YType.uint32, "expValueCounter32Val")
-
-                self.expvalueunsigned32val = YLeaf(YType.uint32, "expValueUnsigned32Val")
-
-                self.expvalueinteger32val = YLeaf(YType.int32, "expValueInteger32Val")
-
-                self.expvalueipaddressval = YLeaf(YType.str, "expValueIpAddressVal")
-
-                self.expvalueoctetstringval = YLeaf(YType.str, "expValueOctetStringVal")
-
-                self.expvalueoidval = YLeaf(YType.str, "expValueOidVal")
-
-                self.expvaluecounter64val = YLeaf(YType.uint64, "expValueCounter64Val")
-                self._segment_path = lambda: "expValueEntry" + "[expExpressionIndex='" + self.expexpressionindex.get() + "']" + "[expValueInstance='" + self.expvalueinstance.get() + "']"
+                self.ylist_key_names = ['expexpressionindex','expvalueinstance']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('expexpressionindex', YLeaf(YType.str, 'expExpressionIndex')),
+                    ('expvalueinstance', YLeaf(YType.str, 'expValueInstance')),
+                    ('expvaluecounter32val', YLeaf(YType.uint32, 'expValueCounter32Val')),
+                    ('expvalueunsigned32val', YLeaf(YType.uint32, 'expValueUnsigned32Val')),
+                    ('expvalueinteger32val', YLeaf(YType.int32, 'expValueInteger32Val')),
+                    ('expvalueipaddressval', YLeaf(YType.str, 'expValueIpAddressVal')),
+                    ('expvalueoctetstringval', YLeaf(YType.str, 'expValueOctetStringVal')),
+                    ('expvalueoidval', YLeaf(YType.str, 'expValueOidVal')),
+                    ('expvaluecounter64val', YLeaf(YType.uint64, 'expValueCounter64Val')),
+                ])
+                self.expexpressionindex = None
+                self.expvalueinstance = None
+                self.expvaluecounter32val = None
+                self.expvalueunsigned32val = None
+                self.expvalueinteger32val = None
+                self.expvalueipaddressval = None
+                self.expvalueoctetstringval = None
+                self.expvalueoidval = None
+                self.expvaluecounter64val = None
+                self._segment_path = lambda: "expValueEntry" + "[expExpressionIndex='" + str(self.expexpressionindex) + "']" + "[expValueInstance='" + str(self.expvalueinstance) + "']"
                 self._absolute_path = lambda: "EXPRESSION-MIB:EXPRESSION-MIB/expValueTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

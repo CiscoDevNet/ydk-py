@@ -6,6 +6,8 @@ augments the original RMON MIB as specified in
 RFC 1757.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -167,8 +169,10 @@ class RMON2MIB(Entity):
         self.yang_parent_name = "RMON2-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"protocolDir" : ("protocoldir", RMON2MIB.Protocoldir), "addressMap" : ("addressmap", RMON2MIB.Addressmap), "probeConfig" : ("probeconfig", RMON2MIB.Probeconfig), "protocolDirTable" : ("protocoldirtable", RMON2MIB.Protocoldirtable), "protocolDistControlTable" : ("protocoldistcontroltable", RMON2MIB.Protocoldistcontroltable), "protocolDistStatsTable" : ("protocoldiststatstable", RMON2MIB.Protocoldiststatstable), "addressMapControlTable" : ("addressmapcontroltable", RMON2MIB.Addressmapcontroltable), "addressMapTable" : ("addressmaptable", RMON2MIB.Addressmaptable), "hlHostControlTable" : ("hlhostcontroltable", RMON2MIB.Hlhostcontroltable), "nlHostTable" : ("nlhosttable", RMON2MIB.Nlhosttable), "hlMatrixControlTable" : ("hlmatrixcontroltable", RMON2MIB.Hlmatrixcontroltable), "nlMatrixSDTable" : ("nlmatrixsdtable", RMON2MIB.Nlmatrixsdtable), "nlMatrixDSTable" : ("nlmatrixdstable", RMON2MIB.Nlmatrixdstable), "nlMatrixTopNControlTable" : ("nlmatrixtopncontroltable", RMON2MIB.Nlmatrixtopncontroltable), "nlMatrixTopNTable" : ("nlmatrixtopntable", RMON2MIB.Nlmatrixtopntable), "alHostTable" : ("alhosttable", RMON2MIB.Alhosttable), "alMatrixSDTable" : ("almatrixsdtable", RMON2MIB.Almatrixsdtable), "alMatrixDSTable" : ("almatrixdstable", RMON2MIB.Almatrixdstable), "alMatrixTopNControlTable" : ("almatrixtopncontroltable", RMON2MIB.Almatrixtopncontroltable), "alMatrixTopNTable" : ("almatrixtopntable", RMON2MIB.Almatrixtopntable), "usrHistoryControlTable" : ("usrhistorycontroltable", RMON2MIB.Usrhistorycontroltable), "usrHistoryObjectTable" : ("usrhistoryobjecttable", RMON2MIB.Usrhistoryobjecttable), "usrHistoryTable" : ("usrhistorytable", RMON2MIB.Usrhistorytable), "serialConfigTable" : ("serialconfigtable", RMON2MIB.Serialconfigtable), "netConfigTable" : ("netconfigtable", RMON2MIB.Netconfigtable), "trapDestTable" : ("trapdesttable", RMON2MIB.Trapdesttable), "serialConnectionTable" : ("serialconnectiontable", RMON2MIB.Serialconnectiontable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("protocolDir", ("protocoldir", RMON2MIB.Protocoldir)), ("addressMap", ("addressmap", RMON2MIB.Addressmap)), ("probeConfig", ("probeconfig", RMON2MIB.Probeconfig)), ("protocolDirTable", ("protocoldirtable", RMON2MIB.Protocoldirtable)), ("protocolDistControlTable", ("protocoldistcontroltable", RMON2MIB.Protocoldistcontroltable)), ("protocolDistStatsTable", ("protocoldiststatstable", RMON2MIB.Protocoldiststatstable)), ("addressMapControlTable", ("addressmapcontroltable", RMON2MIB.Addressmapcontroltable)), ("addressMapTable", ("addressmaptable", RMON2MIB.Addressmaptable)), ("hlHostControlTable", ("hlhostcontroltable", RMON2MIB.Hlhostcontroltable)), ("nlHostTable", ("nlhosttable", RMON2MIB.Nlhosttable)), ("hlMatrixControlTable", ("hlmatrixcontroltable", RMON2MIB.Hlmatrixcontroltable)), ("nlMatrixSDTable", ("nlmatrixsdtable", RMON2MIB.Nlmatrixsdtable)), ("nlMatrixDSTable", ("nlmatrixdstable", RMON2MIB.Nlmatrixdstable)), ("nlMatrixTopNControlTable", ("nlmatrixtopncontroltable", RMON2MIB.Nlmatrixtopncontroltable)), ("nlMatrixTopNTable", ("nlmatrixtopntable", RMON2MIB.Nlmatrixtopntable)), ("alHostTable", ("alhosttable", RMON2MIB.Alhosttable)), ("alMatrixSDTable", ("almatrixsdtable", RMON2MIB.Almatrixsdtable)), ("alMatrixDSTable", ("almatrixdstable", RMON2MIB.Almatrixdstable)), ("alMatrixTopNControlTable", ("almatrixtopncontroltable", RMON2MIB.Almatrixtopncontroltable)), ("alMatrixTopNTable", ("almatrixtopntable", RMON2MIB.Almatrixtopntable)), ("usrHistoryControlTable", ("usrhistorycontroltable", RMON2MIB.Usrhistorycontroltable)), ("usrHistoryObjectTable", ("usrhistoryobjecttable", RMON2MIB.Usrhistoryobjecttable)), ("usrHistoryTable", ("usrhistorytable", RMON2MIB.Usrhistorytable)), ("serialConfigTable", ("serialconfigtable", RMON2MIB.Serialconfigtable)), ("netConfigTable", ("netconfigtable", RMON2MIB.Netconfigtable)), ("trapDestTable", ("trapdesttable", RMON2MIB.Trapdesttable)), ("serialConnectionTable", ("serialconnectiontable", RMON2MIB.Serialconnectiontable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.protocoldir = RMON2MIB.Protocoldir()
         self.protocoldir.parent = self
@@ -332,10 +336,13 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.protocoldirlastchange = YLeaf(YType.uint32, "protocolDirLastChange")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('protocoldirlastchange', YLeaf(YType.uint32, 'protocolDirLastChange')),
+            ])
+            self.protocoldirlastchange = None
             self._segment_path = lambda: "protocolDir"
             self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/%s" % self._segment_path()
 
@@ -382,14 +389,17 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.addressmapinserts = YLeaf(YType.uint32, "addressMapInserts")
-
-            self.addressmapdeletes = YLeaf(YType.uint32, "addressMapDeletes")
-
-            self.addressmapmaxdesiredentries = YLeaf(YType.int32, "addressMapMaxDesiredEntries")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('addressmapinserts', YLeaf(YType.uint32, 'addressMapInserts')),
+                ('addressmapdeletes', YLeaf(YType.uint32, 'addressMapDeletes')),
+                ('addressmapmaxdesiredentries', YLeaf(YType.int32, 'addressMapMaxDesiredEntries')),
+            ])
+            self.addressmapinserts = None
+            self.addressmapdeletes = None
+            self.addressmapmaxdesiredentries = None
             self._segment_path = lambda: "addressMap"
             self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/%s" % self._segment_path()
 
@@ -479,28 +489,31 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.probecapabilities = YLeaf(YType.str, "probeCapabilities")
-
-            self.probesoftwarerev = YLeaf(YType.str, "probeSoftwareRev")
-
-            self.probehardwarerev = YLeaf(YType.str, "probeHardwareRev")
-
-            self.probedatetime = YLeaf(YType.str, "probeDateTime")
-
-            self.proberesetcontrol = YLeaf(YType.enumeration, "probeResetControl")
-
-            self.probedownloadfile = YLeaf(YType.str, "probeDownloadFile")
-
-            self.probedownloadtftpserver = YLeaf(YType.str, "probeDownloadTFTPServer")
-
-            self.probedownloadaction = YLeaf(YType.enumeration, "probeDownloadAction")
-
-            self.probedownloadstatus = YLeaf(YType.enumeration, "probeDownloadStatus")
-
-            self.netdefaultgateway = YLeaf(YType.str, "netDefaultGateway")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('probecapabilities', YLeaf(YType.str, 'probeCapabilities')),
+                ('probesoftwarerev', YLeaf(YType.str, 'probeSoftwareRev')),
+                ('probehardwarerev', YLeaf(YType.str, 'probeHardwareRev')),
+                ('probedatetime', YLeaf(YType.str, 'probeDateTime')),
+                ('proberesetcontrol', YLeaf(YType.enumeration, 'probeResetControl')),
+                ('probedownloadfile', YLeaf(YType.str, 'probeDownloadFile')),
+                ('probedownloadtftpserver', YLeaf(YType.str, 'probeDownloadTFTPServer')),
+                ('probedownloadaction', YLeaf(YType.enumeration, 'probeDownloadAction')),
+                ('probedownloadstatus', YLeaf(YType.enumeration, 'probeDownloadStatus')),
+                ('netdefaultgateway', YLeaf(YType.str, 'netDefaultGateway')),
+            ])
+            self.probecapabilities = None
+            self.probesoftwarerev = None
+            self.probehardwarerev = None
+            self.probedatetime = None
+            self.proberesetcontrol = None
+            self.probedownloadfile = None
+            self.probedownloadtftpserver = None
+            self.probedownloadaction = None
+            self.probedownloadstatus = None
+            self.netdefaultgateway = None
             self._segment_path = lambda: "probeConfig"
             self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/%s" % self._segment_path()
 
@@ -509,7 +522,7 @@ class RMON2MIB(Entity):
 
         class Probedownloadaction(Enum):
             """
-            Probedownloadaction
+            Probedownloadaction (Enum Class)
 
             When this object is set to downloadToRAM(2) or
 
@@ -556,7 +569,7 @@ class RMON2MIB(Entity):
 
         class Probedownloadstatus(Enum):
             """
-            Probedownloadstatus
+            Probedownloadstatus (Enum Class)
 
             The status of the last download procedure, if any.  This
 
@@ -601,7 +614,7 @@ class RMON2MIB(Entity):
 
         class Proberesetcontrol(Enum):
             """
-            Proberesetcontrol
+            Proberesetcontrol (Enum Class)
 
             Setting this object to warmBoot(2) causes the device to
 
@@ -667,8 +680,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"protocolDirEntry" : ("protocoldirentry", RMON2MIB.Protocoldirtable.Protocoldirentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("protocolDirEntry", ("protocoldirentry", RMON2MIB.Protocoldirtable.Protocoldirentry))])
+            self._leafs = OrderedDict()
 
             self.protocoldirentry = YList(self)
             self._segment_path = lambda: "protocolDirTable"
@@ -688,12 +703,12 @@ class RMON2MIB(Entity):
             protocolDirID of 1.2048, followed by a length of 2 and the
             2 subids encoding zero\-valued parameters.
             
-            .. attribute:: protocoldirid  <key>
+            .. attribute:: protocoldirid  (key)
             
             	A unique identifier for a particular protocol.  Standard identifiers will be defined in a manner such that they can often be used as specifications for new protocols \- i.e. a tree\-structured assignment mechanism that matches the protocol encapsulation `tree' and which has algorithmic assignment mechanisms for certain subtrees. See RFC XXX for more details.  Despite the algorithmic mechanism, the probe will only place entries in here for those protocols it chooses to collect.  In other words, it need not populate this table with all of the possible ethernet protocol types, nor need it create them on the fly when it sees them.  Whether or not it does these things is a matter of product definition (cost/benefit, usability), and is up to the designer of the product.  If an entry is written to this table with a protocolDirID that the agent doesn't understand, either directly or algorithmically, the SET request will be rejected with an inconsistentName or badValue (for SNMPv1) error
             	**type**\: str
             
-            .. attribute:: protocoldirparameters  <key>
+            .. attribute:: protocoldirparameters  (key)
             
             	A set of parameters for the associated protocolDirID. See the associated RMON2 Protocol Identifiers document for a description of the possible parameters. There will be one octet in this string for each sub\-identifier in the protocolDirID, and the parameters will appear here in the same order as the associated sub\-identifiers appear in the protocolDirID.  Every node in the protocolDirID tree has a different, optional set of parameters defined (that is, the definition of parameters for a node is optional).  The proper parameter value for each node is included in this string.  Note that the inclusion of a parameter value in this string for each node is not optional \- what is optional is that a node may have no parameters defined, in which case the parameter field for that node will be zero
             	**type**\: str
@@ -760,29 +775,32 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "protocolDirTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.protocoldirid = YLeaf(YType.str, "protocolDirID")
-
-                self.protocoldirparameters = YLeaf(YType.str, "protocolDirParameters")
-
-                self.protocoldirlocalindex = YLeaf(YType.int32, "protocolDirLocalIndex")
-
-                self.protocoldirdescr = YLeaf(YType.str, "protocolDirDescr")
-
-                self.protocoldirtype = YLeaf(YType.str, "protocolDirType")
-
-                self.protocoldiraddressmapconfig = YLeaf(YType.enumeration, "protocolDirAddressMapConfig")
-
-                self.protocoldirhostconfig = YLeaf(YType.enumeration, "protocolDirHostConfig")
-
-                self.protocoldirmatrixconfig = YLeaf(YType.enumeration, "protocolDirMatrixConfig")
-
-                self.protocoldirowner = YLeaf(YType.str, "protocolDirOwner")
-
-                self.protocoldirstatus = YLeaf(YType.enumeration, "protocolDirStatus")
-                self._segment_path = lambda: "protocolDirEntry" + "[protocolDirID='" + self.protocoldirid.get() + "']" + "[protocolDirParameters='" + self.protocoldirparameters.get() + "']"
+                self.ylist_key_names = ['protocoldirid','protocoldirparameters']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('protocoldirid', YLeaf(YType.str, 'protocolDirID')),
+                    ('protocoldirparameters', YLeaf(YType.str, 'protocolDirParameters')),
+                    ('protocoldirlocalindex', YLeaf(YType.int32, 'protocolDirLocalIndex')),
+                    ('protocoldirdescr', YLeaf(YType.str, 'protocolDirDescr')),
+                    ('protocoldirtype', YLeaf(YType.str, 'protocolDirType')),
+                    ('protocoldiraddressmapconfig', YLeaf(YType.enumeration, 'protocolDirAddressMapConfig')),
+                    ('protocoldirhostconfig', YLeaf(YType.enumeration, 'protocolDirHostConfig')),
+                    ('protocoldirmatrixconfig', YLeaf(YType.enumeration, 'protocolDirMatrixConfig')),
+                    ('protocoldirowner', YLeaf(YType.str, 'protocolDirOwner')),
+                    ('protocoldirstatus', YLeaf(YType.enumeration, 'protocolDirStatus')),
+                ])
+                self.protocoldirid = None
+                self.protocoldirparameters = None
+                self.protocoldirlocalindex = None
+                self.protocoldirdescr = None
+                self.protocoldirtype = None
+                self.protocoldiraddressmapconfig = None
+                self.protocoldirhostconfig = None
+                self.protocoldirmatrixconfig = None
+                self.protocoldirowner = None
+                self.protocoldirstatus = None
+                self._segment_path = lambda: "protocolDirEntry" + "[protocolDirID='" + str(self.protocoldirid) + "']" + "[protocolDirParameters='" + str(self.protocoldirparameters) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/protocolDirTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -790,7 +808,7 @@ class RMON2MIB(Entity):
 
             class Protocoldiraddressmapconfig(Enum):
                 """
-                Protocoldiraddressmapconfig
+                Protocoldiraddressmapconfig (Enum Class)
 
                 This object describes and configures the probe's support for
 
@@ -859,7 +877,7 @@ class RMON2MIB(Entity):
 
             class Protocoldirhostconfig(Enum):
                 """
-                Protocoldirhostconfig
+                Protocoldirhostconfig (Enum Class)
 
                 This object describes and configures the probe's support for
 
@@ -946,7 +964,7 @@ class RMON2MIB(Entity):
 
             class Protocoldirmatrixconfig(Enum):
                 """
-                Protocoldirmatrixconfig
+                Protocoldirmatrixconfig (Enum Class)
 
                 This object describes and configures the probe's support for
 
@@ -1079,8 +1097,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"protocolDistControlEntry" : ("protocoldistcontrolentry", RMON2MIB.Protocoldistcontroltable.Protocoldistcontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("protocolDistControlEntry", ("protocoldistcontrolentry", RMON2MIB.Protocoldistcontroltable.Protocoldistcontrolentry))])
+            self._leafs = OrderedDict()
 
             self.protocoldistcontrolentry = YList(self)
             self._segment_path = lambda: "protocolDistControlTable"
@@ -1102,7 +1122,7 @@ class RMON2MIB(Entity):
             
             protocolDistControlDroppedFrames.7
             
-            .. attribute:: protocoldistcontrolindex  <key>
+            .. attribute:: protocoldistcontrolindex  (key)
             
             	A unique index for this protocolDistControlEntry
             	**type**\: int
@@ -1156,21 +1176,24 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "protocolDistControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.protocoldistcontrolindex = YLeaf(YType.int32, "protocolDistControlIndex")
-
-                self.protocoldistcontroldatasource = YLeaf(YType.str, "protocolDistControlDataSource")
-
-                self.protocoldistcontroldroppedframes = YLeaf(YType.uint32, "protocolDistControlDroppedFrames")
-
-                self.protocoldistcontrolcreatetime = YLeaf(YType.uint32, "protocolDistControlCreateTime")
-
-                self.protocoldistcontrolowner = YLeaf(YType.str, "protocolDistControlOwner")
-
-                self.protocoldistcontrolstatus = YLeaf(YType.enumeration, "protocolDistControlStatus")
-                self._segment_path = lambda: "protocolDistControlEntry" + "[protocolDistControlIndex='" + self.protocoldistcontrolindex.get() + "']"
+                self.ylist_key_names = ['protocoldistcontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('protocoldistcontrolindex', YLeaf(YType.int32, 'protocolDistControlIndex')),
+                    ('protocoldistcontroldatasource', YLeaf(YType.str, 'protocolDistControlDataSource')),
+                    ('protocoldistcontroldroppedframes', YLeaf(YType.uint32, 'protocolDistControlDroppedFrames')),
+                    ('protocoldistcontrolcreatetime', YLeaf(YType.uint32, 'protocolDistControlCreateTime')),
+                    ('protocoldistcontrolowner', YLeaf(YType.str, 'protocolDistControlOwner')),
+                    ('protocoldistcontrolstatus', YLeaf(YType.enumeration, 'protocolDistControlStatus')),
+                ])
+                self.protocoldistcontrolindex = None
+                self.protocoldistcontroldatasource = None
+                self.protocoldistcontroldroppedframes = None
+                self.protocoldistcontrolcreatetime = None
+                self.protocoldistcontrolowner = None
+                self.protocoldistcontrolstatus = None
+                self._segment_path = lambda: "protocolDistControlEntry" + "[protocolDistControlIndex='" + str(self.protocoldistcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/protocolDistControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1212,8 +1235,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"protocolDistStatsEntry" : ("protocoldiststatsentry", RMON2MIB.Protocoldiststatstable.Protocoldiststatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("protocolDistStatsEntry", ("protocoldiststatsentry", RMON2MIB.Protocoldiststatstable.Protocoldiststatsentry))])
+            self._leafs = OrderedDict()
 
             self.protocoldiststatsentry = YList(self)
             self._segment_path = lambda: "protocolDistStatsTable"
@@ -1237,7 +1262,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             protocolDistStatsPkts.1.18
             
-            .. attribute:: protocoldistcontrolindex  <key>
+            .. attribute:: protocoldistcontrolindex  (key)
             
             	
             	**type**\: int
@@ -1246,7 +1271,7 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldistcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldistcontroltable.Protocoldistcontrolentry>`
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -1283,17 +1308,20 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "protocolDistStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.protocoldistcontrolindex = YLeaf(YType.str, "protocolDistControlIndex")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.protocoldiststatspkts = YLeaf(YType.uint32, "protocolDistStatsPkts")
-
-                self.protocoldiststatsoctets = YLeaf(YType.uint32, "protocolDistStatsOctets")
-                self._segment_path = lambda: "protocolDistStatsEntry" + "[protocolDistControlIndex='" + self.protocoldistcontrolindex.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']"
+                self.ylist_key_names = ['protocoldistcontrolindex','protocoldirlocalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('protocoldistcontrolindex', YLeaf(YType.str, 'protocolDistControlIndex')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('protocoldiststatspkts', YLeaf(YType.uint32, 'protocolDistStatsPkts')),
+                    ('protocoldiststatsoctets', YLeaf(YType.uint32, 'protocolDistStatsOctets')),
+                ])
+                self.protocoldistcontrolindex = None
+                self.protocoldirlocalindex = None
+                self.protocoldiststatspkts = None
+                self.protocoldiststatsoctets = None
+                self._segment_path = lambda: "protocolDistStatsEntry" + "[protocolDistControlIndex='" + str(self.protocoldistcontrolindex) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/protocolDistStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1334,8 +1362,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"addressMapControlEntry" : ("addressmapcontrolentry", RMON2MIB.Addressmapcontroltable.Addressmapcontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("addressMapControlEntry", ("addressmapcontrolentry", RMON2MIB.Addressmapcontroltable.Addressmapcontrolentry))])
+            self._leafs = OrderedDict()
 
             self.addressmapcontrolentry = YList(self)
             self._segment_path = lambda: "addressMapControlTable"
@@ -1356,7 +1386,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             addressMapControlDroppedFrames.1
             
-            .. attribute:: addressmapcontrolindex  <key>
+            .. attribute:: addressmapcontrolindex  (key)
             
             	A unique index for this entry in the addressMapControlTable
             	**type**\: int
@@ -1403,19 +1433,22 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "addressMapControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.addressmapcontrolindex = YLeaf(YType.int32, "addressMapControlIndex")
-
-                self.addressmapcontroldatasource = YLeaf(YType.str, "addressMapControlDataSource")
-
-                self.addressmapcontroldroppedframes = YLeaf(YType.uint32, "addressMapControlDroppedFrames")
-
-                self.addressmapcontrolowner = YLeaf(YType.str, "addressMapControlOwner")
-
-                self.addressmapcontrolstatus = YLeaf(YType.enumeration, "addressMapControlStatus")
-                self._segment_path = lambda: "addressMapControlEntry" + "[addressMapControlIndex='" + self.addressmapcontrolindex.get() + "']"
+                self.ylist_key_names = ['addressmapcontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('addressmapcontrolindex', YLeaf(YType.int32, 'addressMapControlIndex')),
+                    ('addressmapcontroldatasource', YLeaf(YType.str, 'addressMapControlDataSource')),
+                    ('addressmapcontroldroppedframes', YLeaf(YType.uint32, 'addressMapControlDroppedFrames')),
+                    ('addressmapcontrolowner', YLeaf(YType.str, 'addressMapControlOwner')),
+                    ('addressmapcontrolstatus', YLeaf(YType.enumeration, 'addressMapControlStatus')),
+                ])
+                self.addressmapcontrolindex = None
+                self.addressmapcontroldatasource = None
+                self.addressmapcontroldroppedframes = None
+                self.addressmapcontrolowner = None
+                self.addressmapcontrolstatus = None
+                self._segment_path = lambda: "addressMapControlEntry" + "[addressMapControlIndex='" + str(self.addressmapcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/addressMapControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1454,8 +1487,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"addressMapEntry" : ("addressmapentry", RMON2MIB.Addressmaptable.Addressmapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("addressMapEntry", ("addressmapentry", RMON2MIB.Addressmaptable.Addressmapentry))])
+            self._leafs = OrderedDict()
 
             self.addressmapentry = YList(self)
             self._segment_path = lambda: "addressMapTable"
@@ -1478,14 +1513,14 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             addressMapSource.783495.18.4.128.2.6.6.11.1.3.6.1.2.1.2.2.1.1.1
             
-            .. attribute:: addressmaptimemark  <key>
+            .. attribute:: addressmaptimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -1494,12 +1529,12 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: addressmapnetworkaddress  <key>
+            .. attribute:: addressmapnetworkaddress  (key)
             
             	The network address for this relation.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
             
-            .. attribute:: addressmapsource  <key>
+            .. attribute:: addressmapsource  (key)
             
             	The interface or port on which the associated network address was most recently seen.      If this address mapping was discovered on an interface, this object shall identify the instance of the ifIndex object, defined in [3,5], for the desired interface. For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  If this address mapping was discovered on a port, this object shall identify the instance of the rptrGroupPortIndex object, defined in [RFC1516], for the desired port. For example, if an entry were to receive data from group #1, port #1, this object would be set to rptrGroupPortIndex.1.1.  Note that while the dataSource associated with this entry may only point to index objects, this object may at times point to repeater port objects. This situation occurs when the dataSource points to an interface which is a locally attached repeater and the agent has additional information about the source port of traffic seen on that repeater
             	**type**\: str
@@ -1532,21 +1567,24 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "addressMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.addressmaptimemark = YLeaf(YType.uint32, "addressMapTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.addressmapnetworkaddress = YLeaf(YType.str, "addressMapNetworkAddress")
-
-                self.addressmapsource = YLeaf(YType.str, "addressMapSource")
-
-                self.addressmapphysicaladdress = YLeaf(YType.str, "addressMapPhysicalAddress")
-
-                self.addressmaplastchange = YLeaf(YType.uint32, "addressMapLastChange")
-                self._segment_path = lambda: "addressMapEntry" + "[addressMapTimeMark='" + self.addressmaptimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[addressMapNetworkAddress='" + self.addressmapnetworkaddress.get() + "']" + "[addressMapSource='" + self.addressmapsource.get() + "']"
+                self.ylist_key_names = ['addressmaptimemark','protocoldirlocalindex','addressmapnetworkaddress','addressmapsource']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('addressmaptimemark', YLeaf(YType.uint32, 'addressMapTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('addressmapnetworkaddress', YLeaf(YType.str, 'addressMapNetworkAddress')),
+                    ('addressmapsource', YLeaf(YType.str, 'addressMapSource')),
+                    ('addressmapphysicaladdress', YLeaf(YType.str, 'addressMapPhysicalAddress')),
+                    ('addressmaplastchange', YLeaf(YType.uint32, 'addressMapLastChange')),
+                ])
+                self.addressmaptimemark = None
+                self.protocoldirlocalindex = None
+                self.addressmapnetworkaddress = None
+                self.addressmapsource = None
+                self.addressmapphysicaladdress = None
+                self.addressmaplastchange = None
+                self._segment_path = lambda: "addressMapEntry" + "[addressMapTimeMark='" + str(self.addressmaptimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[addressMapNetworkAddress='" + str(self.addressmapnetworkaddress) + "']" + "[addressMapSource='" + str(self.addressmapsource) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/addressMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1594,8 +1632,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"hlHostControlEntry" : ("hlhostcontrolentry", RMON2MIB.Hlhostcontroltable.Hlhostcontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("hlHostControlEntry", ("hlhostcontrolentry", RMON2MIB.Hlhostcontroltable.Hlhostcontrolentry))])
+            self._leafs = OrderedDict()
 
             self.hlhostcontrolentry = YList(self)
             self._segment_path = lambda: "hlHostControlTable"
@@ -1612,7 +1652,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             hlHostControlNlDroppedFrames.1
             
-            .. attribute:: hlhostcontrolindex  <key>
+            .. attribute:: hlhostcontrolindex  (key)
             
             	An index that uniquely identifies an entry in the hlHostControlTable.  Each such entry defines a function that discovers hosts on a particular interface and places statistics about them in the nlHostTable, and optionally in the alHostTable, on behalf of this hlHostControlEntry
             	**type**\: int
@@ -1708,33 +1748,36 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "hlHostControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlhostcontrolindex = YLeaf(YType.int32, "hlHostControlIndex")
-
-                self.hlhostcontroldatasource = YLeaf(YType.str, "hlHostControlDataSource")
-
-                self.hlhostcontrolnldroppedframes = YLeaf(YType.uint32, "hlHostControlNlDroppedFrames")
-
-                self.hlhostcontrolnlinserts = YLeaf(YType.uint32, "hlHostControlNlInserts")
-
-                self.hlhostcontrolnldeletes = YLeaf(YType.uint32, "hlHostControlNlDeletes")
-
-                self.hlhostcontrolnlmaxdesiredentries = YLeaf(YType.int32, "hlHostControlNlMaxDesiredEntries")
-
-                self.hlhostcontrolaldroppedframes = YLeaf(YType.uint32, "hlHostControlAlDroppedFrames")
-
-                self.hlhostcontrolalinserts = YLeaf(YType.uint32, "hlHostControlAlInserts")
-
-                self.hlhostcontrolaldeletes = YLeaf(YType.uint32, "hlHostControlAlDeletes")
-
-                self.hlhostcontrolalmaxdesiredentries = YLeaf(YType.int32, "hlHostControlAlMaxDesiredEntries")
-
-                self.hlhostcontrolowner = YLeaf(YType.str, "hlHostControlOwner")
-
-                self.hlhostcontrolstatus = YLeaf(YType.enumeration, "hlHostControlStatus")
-                self._segment_path = lambda: "hlHostControlEntry" + "[hlHostControlIndex='" + self.hlhostcontrolindex.get() + "']"
+                self.ylist_key_names = ['hlhostcontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlhostcontrolindex', YLeaf(YType.int32, 'hlHostControlIndex')),
+                    ('hlhostcontroldatasource', YLeaf(YType.str, 'hlHostControlDataSource')),
+                    ('hlhostcontrolnldroppedframes', YLeaf(YType.uint32, 'hlHostControlNlDroppedFrames')),
+                    ('hlhostcontrolnlinserts', YLeaf(YType.uint32, 'hlHostControlNlInserts')),
+                    ('hlhostcontrolnldeletes', YLeaf(YType.uint32, 'hlHostControlNlDeletes')),
+                    ('hlhostcontrolnlmaxdesiredentries', YLeaf(YType.int32, 'hlHostControlNlMaxDesiredEntries')),
+                    ('hlhostcontrolaldroppedframes', YLeaf(YType.uint32, 'hlHostControlAlDroppedFrames')),
+                    ('hlhostcontrolalinserts', YLeaf(YType.uint32, 'hlHostControlAlInserts')),
+                    ('hlhostcontrolaldeletes', YLeaf(YType.uint32, 'hlHostControlAlDeletes')),
+                    ('hlhostcontrolalmaxdesiredentries', YLeaf(YType.int32, 'hlHostControlAlMaxDesiredEntries')),
+                    ('hlhostcontrolowner', YLeaf(YType.str, 'hlHostControlOwner')),
+                    ('hlhostcontrolstatus', YLeaf(YType.enumeration, 'hlHostControlStatus')),
+                ])
+                self.hlhostcontrolindex = None
+                self.hlhostcontroldatasource = None
+                self.hlhostcontrolnldroppedframes = None
+                self.hlhostcontrolnlinserts = None
+                self.hlhostcontrolnldeletes = None
+                self.hlhostcontrolnlmaxdesiredentries = None
+                self.hlhostcontrolaldroppedframes = None
+                self.hlhostcontrolalinserts = None
+                self.hlhostcontrolaldeletes = None
+                self.hlhostcontrolalmaxdesiredentries = None
+                self.hlhostcontrolowner = None
+                self.hlhostcontrolstatus = None
+                self._segment_path = lambda: "hlHostControlEntry" + "[hlHostControlIndex='" + str(self.hlhostcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/hlHostControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1777,8 +1820,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlHostEntry" : ("nlhostentry", RMON2MIB.Nlhosttable.Nlhostentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlHostEntry", ("nlhostentry", RMON2MIB.Nlhosttable.Nlhostentry))])
+            self._leafs = OrderedDict()
 
             self.nlhostentry = YList(self)
             self._segment_path = lambda: "nlHostTable"
@@ -1800,7 +1845,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             nlHostOutPkts.1.783495.18.4.128.2.6.6.
             
-            .. attribute:: hlhostcontrolindex  <key>
+            .. attribute:: hlhostcontrolindex  (key)
             
             	
             	**type**\: int
@@ -1809,14 +1854,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlhostcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlhostcontroltable.Hlhostcontrolentry>`
             
-            .. attribute:: nlhosttimemark  <key>
+            .. attribute:: nlhosttimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -1825,7 +1870,7 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlhostaddress  <key>
+            .. attribute:: nlhostaddress  (key)
             
             	The network address for this nlHostEntry.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
@@ -1886,29 +1931,32 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "nlHostTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlhostcontrolindex = YLeaf(YType.str, "hlHostControlIndex")
-
-                self.nlhosttimemark = YLeaf(YType.uint32, "nlHostTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlhostaddress = YLeaf(YType.str, "nlHostAddress")
-
-                self.nlhostinpkts = YLeaf(YType.uint32, "nlHostInPkts")
-
-                self.nlhostoutpkts = YLeaf(YType.uint32, "nlHostOutPkts")
-
-                self.nlhostinoctets = YLeaf(YType.uint32, "nlHostInOctets")
-
-                self.nlhostoutoctets = YLeaf(YType.uint32, "nlHostOutOctets")
-
-                self.nlhostoutmacnonunicastpkts = YLeaf(YType.uint32, "nlHostOutMacNonUnicastPkts")
-
-                self.nlhostcreatetime = YLeaf(YType.uint32, "nlHostCreateTime")
-                self._segment_path = lambda: "nlHostEntry" + "[hlHostControlIndex='" + self.hlhostcontrolindex.get() + "']" + "[nlHostTimeMark='" + self.nlhosttimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlHostAddress='" + self.nlhostaddress.get() + "']"
+                self.ylist_key_names = ['hlhostcontrolindex','nlhosttimemark','protocoldirlocalindex','nlhostaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlhostcontrolindex', YLeaf(YType.str, 'hlHostControlIndex')),
+                    ('nlhosttimemark', YLeaf(YType.uint32, 'nlHostTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlhostaddress', YLeaf(YType.str, 'nlHostAddress')),
+                    ('nlhostinpkts', YLeaf(YType.uint32, 'nlHostInPkts')),
+                    ('nlhostoutpkts', YLeaf(YType.uint32, 'nlHostOutPkts')),
+                    ('nlhostinoctets', YLeaf(YType.uint32, 'nlHostInOctets')),
+                    ('nlhostoutoctets', YLeaf(YType.uint32, 'nlHostOutOctets')),
+                    ('nlhostoutmacnonunicastpkts', YLeaf(YType.uint32, 'nlHostOutMacNonUnicastPkts')),
+                    ('nlhostcreatetime', YLeaf(YType.uint32, 'nlHostCreateTime')),
+                ])
+                self.hlhostcontrolindex = None
+                self.nlhosttimemark = None
+                self.protocoldirlocalindex = None
+                self.nlhostaddress = None
+                self.nlhostinpkts = None
+                self.nlhostoutpkts = None
+                self.nlhostinoctets = None
+                self.nlhostoutoctets = None
+                self.nlhostoutmacnonunicastpkts = None
+                self.nlhostcreatetime = None
+                self._segment_path = lambda: "nlHostEntry" + "[hlHostControlIndex='" + str(self.hlhostcontrolindex) + "']" + "[nlHostTimeMark='" + str(self.nlhosttimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlHostAddress='" + str(self.nlhostaddress) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/nlHostTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1955,8 +2003,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"hlMatrixControlEntry" : ("hlmatrixcontrolentry", RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("hlMatrixControlEntry", ("hlmatrixcontrolentry", RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry))])
+            self._leafs = OrderedDict()
 
             self.hlmatrixcontrolentry = YList(self)
             self._segment_path = lambda: "hlMatrixControlTable"
@@ -1973,7 +2023,7 @@ class RMON2MIB(Entity):
             An example of indexing of this entry is
             hlMatrixControlNlDroppedFrames.1
             
-            .. attribute:: hlmatrixcontrolindex  <key>
+            .. attribute:: hlmatrixcontrolindex  (key)
             
             	An index that uniquely identifies an entry in the hlMatrixControlTable.  Each such entry defines a function that discovers conversations on a particular interface and places statistics about them in the nlMatrixSDTable and the nlMatrixDSTable, and optionally the alMatrixSDTable and alMatrixDSTable, on behalf of this hlMatrixControlEntry
             	**type**\: int
@@ -2069,33 +2119,36 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "hlMatrixControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlmatrixcontrolindex = YLeaf(YType.int32, "hlMatrixControlIndex")
-
-                self.hlmatrixcontroldatasource = YLeaf(YType.str, "hlMatrixControlDataSource")
-
-                self.hlmatrixcontrolnldroppedframes = YLeaf(YType.uint32, "hlMatrixControlNlDroppedFrames")
-
-                self.hlmatrixcontrolnlinserts = YLeaf(YType.uint32, "hlMatrixControlNlInserts")
-
-                self.hlmatrixcontrolnldeletes = YLeaf(YType.uint32, "hlMatrixControlNlDeletes")
-
-                self.hlmatrixcontrolnlmaxdesiredentries = YLeaf(YType.int32, "hlMatrixControlNlMaxDesiredEntries")
-
-                self.hlmatrixcontrolaldroppedframes = YLeaf(YType.uint32, "hlMatrixControlAlDroppedFrames")
-
-                self.hlmatrixcontrolalinserts = YLeaf(YType.uint32, "hlMatrixControlAlInserts")
-
-                self.hlmatrixcontrolaldeletes = YLeaf(YType.uint32, "hlMatrixControlAlDeletes")
-
-                self.hlmatrixcontrolalmaxdesiredentries = YLeaf(YType.int32, "hlMatrixControlAlMaxDesiredEntries")
-
-                self.hlmatrixcontrolowner = YLeaf(YType.str, "hlMatrixControlOwner")
-
-                self.hlmatrixcontrolstatus = YLeaf(YType.enumeration, "hlMatrixControlStatus")
-                self._segment_path = lambda: "hlMatrixControlEntry" + "[hlMatrixControlIndex='" + self.hlmatrixcontrolindex.get() + "']"
+                self.ylist_key_names = ['hlmatrixcontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlmatrixcontrolindex', YLeaf(YType.int32, 'hlMatrixControlIndex')),
+                    ('hlmatrixcontroldatasource', YLeaf(YType.str, 'hlMatrixControlDataSource')),
+                    ('hlmatrixcontrolnldroppedframes', YLeaf(YType.uint32, 'hlMatrixControlNlDroppedFrames')),
+                    ('hlmatrixcontrolnlinserts', YLeaf(YType.uint32, 'hlMatrixControlNlInserts')),
+                    ('hlmatrixcontrolnldeletes', YLeaf(YType.uint32, 'hlMatrixControlNlDeletes')),
+                    ('hlmatrixcontrolnlmaxdesiredentries', YLeaf(YType.int32, 'hlMatrixControlNlMaxDesiredEntries')),
+                    ('hlmatrixcontrolaldroppedframes', YLeaf(YType.uint32, 'hlMatrixControlAlDroppedFrames')),
+                    ('hlmatrixcontrolalinserts', YLeaf(YType.uint32, 'hlMatrixControlAlInserts')),
+                    ('hlmatrixcontrolaldeletes', YLeaf(YType.uint32, 'hlMatrixControlAlDeletes')),
+                    ('hlmatrixcontrolalmaxdesiredentries', YLeaf(YType.int32, 'hlMatrixControlAlMaxDesiredEntries')),
+                    ('hlmatrixcontrolowner', YLeaf(YType.str, 'hlMatrixControlOwner')),
+                    ('hlmatrixcontrolstatus', YLeaf(YType.enumeration, 'hlMatrixControlStatus')),
+                ])
+                self.hlmatrixcontrolindex = None
+                self.hlmatrixcontroldatasource = None
+                self.hlmatrixcontrolnldroppedframes = None
+                self.hlmatrixcontrolnlinserts = None
+                self.hlmatrixcontrolnldeletes = None
+                self.hlmatrixcontrolnlmaxdesiredentries = None
+                self.hlmatrixcontrolaldroppedframes = None
+                self.hlmatrixcontrolalinserts = None
+                self.hlmatrixcontrolaldeletes = None
+                self.hlmatrixcontrolalmaxdesiredentries = None
+                self.hlmatrixcontrolowner = None
+                self.hlmatrixcontrolstatus = None
+                self._segment_path = lambda: "hlMatrixControlEntry" + "[hlMatrixControlIndex='" + str(self.hlmatrixcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/hlMatrixControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2148,8 +2201,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlMatrixSDEntry" : ("nlmatrixsdentry", RMON2MIB.Nlmatrixsdtable.Nlmatrixsdentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlMatrixSDEntry", ("nlmatrixsdentry", RMON2MIB.Nlmatrixsdtable.Nlmatrixsdentry))])
+            self._leafs = OrderedDict()
 
             self.nlmatrixsdentry = YList(self)
             self._segment_path = lambda: "nlMatrixSDTable"
@@ -2172,7 +2227,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             nlMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7
             
-            .. attribute:: hlmatrixcontrolindex  <key>
+            .. attribute:: hlmatrixcontrolindex  (key)
             
             	
             	**type**\: int
@@ -2181,14 +2236,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlmatrixcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry>`
             
-            .. attribute:: nlmatrixsdtimemark  <key>
+            .. attribute:: nlmatrixsdtimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -2197,12 +2252,12 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlmatrixsdsourceaddress  <key>
+            .. attribute:: nlmatrixsdsourceaddress  (key)
             
             	The network source address for this nlMatrixSDEntry.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
             
-            .. attribute:: nlmatrixsddestaddress  <key>
+            .. attribute:: nlmatrixsddestaddress  (key)
             
             	The network destination address for this nlMatrixSDEntry.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
@@ -2242,25 +2297,28 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "nlMatrixSDTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlmatrixcontrolindex = YLeaf(YType.str, "hlMatrixControlIndex")
-
-                self.nlmatrixsdtimemark = YLeaf(YType.uint32, "nlMatrixSDTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlmatrixsdsourceaddress = YLeaf(YType.str, "nlMatrixSDSourceAddress")
-
-                self.nlmatrixsddestaddress = YLeaf(YType.str, "nlMatrixSDDestAddress")
-
-                self.nlmatrixsdpkts = YLeaf(YType.uint32, "nlMatrixSDPkts")
-
-                self.nlmatrixsdoctets = YLeaf(YType.uint32, "nlMatrixSDOctets")
-
-                self.nlmatrixsdcreatetime = YLeaf(YType.uint32, "nlMatrixSDCreateTime")
-                self._segment_path = lambda: "nlMatrixSDEntry" + "[hlMatrixControlIndex='" + self.hlmatrixcontrolindex.get() + "']" + "[nlMatrixSDTimeMark='" + self.nlmatrixsdtimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlMatrixSDSourceAddress='" + self.nlmatrixsdsourceaddress.get() + "']" + "[nlMatrixSDDestAddress='" + self.nlmatrixsddestaddress.get() + "']"
+                self.ylist_key_names = ['hlmatrixcontrolindex','nlmatrixsdtimemark','protocoldirlocalindex','nlmatrixsdsourceaddress','nlmatrixsddestaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlmatrixcontrolindex', YLeaf(YType.str, 'hlMatrixControlIndex')),
+                    ('nlmatrixsdtimemark', YLeaf(YType.uint32, 'nlMatrixSDTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlmatrixsdsourceaddress', YLeaf(YType.str, 'nlMatrixSDSourceAddress')),
+                    ('nlmatrixsddestaddress', YLeaf(YType.str, 'nlMatrixSDDestAddress')),
+                    ('nlmatrixsdpkts', YLeaf(YType.uint32, 'nlMatrixSDPkts')),
+                    ('nlmatrixsdoctets', YLeaf(YType.uint32, 'nlMatrixSDOctets')),
+                    ('nlmatrixsdcreatetime', YLeaf(YType.uint32, 'nlMatrixSDCreateTime')),
+                ])
+                self.hlmatrixcontrolindex = None
+                self.nlmatrixsdtimemark = None
+                self.protocoldirlocalindex = None
+                self.nlmatrixsdsourceaddress = None
+                self.nlmatrixsddestaddress = None
+                self.nlmatrixsdpkts = None
+                self.nlmatrixsdoctets = None
+                self.nlmatrixsdcreatetime = None
+                self._segment_path = lambda: "nlMatrixSDEntry" + "[hlMatrixControlIndex='" + str(self.hlmatrixcontrolindex) + "']" + "[nlMatrixSDTimeMark='" + str(self.nlmatrixsdtimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlMatrixSDSourceAddress='" + str(self.nlmatrixsdsourceaddress) + "']" + "[nlMatrixSDDestAddress='" + str(self.nlmatrixsddestaddress) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/nlMatrixSDTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2314,8 +2372,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlMatrixDSEntry" : ("nlmatrixdsentry", RMON2MIB.Nlmatrixdstable.Nlmatrixdsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlMatrixDSEntry", ("nlmatrixdsentry", RMON2MIB.Nlmatrixdstable.Nlmatrixdsentry))])
+            self._leafs = OrderedDict()
 
             self.nlmatrixdsentry = YList(self)
             self._segment_path = lambda: "nlMatrixDSTable"
@@ -2338,7 +2398,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             nlMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6
             
-            .. attribute:: hlmatrixcontrolindex  <key>
+            .. attribute:: hlmatrixcontrolindex  (key)
             
             	
             	**type**\: int
@@ -2347,14 +2407,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlmatrixcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry>`
             
-            .. attribute:: nlmatrixdstimemark  <key>
+            .. attribute:: nlmatrixdstimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -2363,12 +2423,12 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlmatrixdsdestaddress  <key>
+            .. attribute:: nlmatrixdsdestaddress  (key)
             
             	The network destination address for this nlMatrixDSEntry.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
             
-            .. attribute:: nlmatrixdssourceaddress  <key>
+            .. attribute:: nlmatrixdssourceaddress  (key)
             
             	The network source address for this nlMatrixDSEntry.  This is represented as an octet string with specific semantics and length as identified by the protocolDirLocalIndex component of the index.  For example, if the protocolDirLocalIndex indicates an encapsulation of ip, this object is encoded as a length octet of 4, followed by the 4 octets of the ip address, in network byte order
             	**type**\: str
@@ -2408,25 +2468,28 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "nlMatrixDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlmatrixcontrolindex = YLeaf(YType.str, "hlMatrixControlIndex")
-
-                self.nlmatrixdstimemark = YLeaf(YType.uint32, "nlMatrixDSTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlmatrixdsdestaddress = YLeaf(YType.str, "nlMatrixDSDestAddress")
-
-                self.nlmatrixdssourceaddress = YLeaf(YType.str, "nlMatrixDSSourceAddress")
-
-                self.nlmatrixdspkts = YLeaf(YType.uint32, "nlMatrixDSPkts")
-
-                self.nlmatrixdsoctets = YLeaf(YType.uint32, "nlMatrixDSOctets")
-
-                self.nlmatrixdscreatetime = YLeaf(YType.uint32, "nlMatrixDSCreateTime")
-                self._segment_path = lambda: "nlMatrixDSEntry" + "[hlMatrixControlIndex='" + self.hlmatrixcontrolindex.get() + "']" + "[nlMatrixDSTimeMark='" + self.nlmatrixdstimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlMatrixDSDestAddress='" + self.nlmatrixdsdestaddress.get() + "']" + "[nlMatrixDSSourceAddress='" + self.nlmatrixdssourceaddress.get() + "']"
+                self.ylist_key_names = ['hlmatrixcontrolindex','nlmatrixdstimemark','protocoldirlocalindex','nlmatrixdsdestaddress','nlmatrixdssourceaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlmatrixcontrolindex', YLeaf(YType.str, 'hlMatrixControlIndex')),
+                    ('nlmatrixdstimemark', YLeaf(YType.uint32, 'nlMatrixDSTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlmatrixdsdestaddress', YLeaf(YType.str, 'nlMatrixDSDestAddress')),
+                    ('nlmatrixdssourceaddress', YLeaf(YType.str, 'nlMatrixDSSourceAddress')),
+                    ('nlmatrixdspkts', YLeaf(YType.uint32, 'nlMatrixDSPkts')),
+                    ('nlmatrixdsoctets', YLeaf(YType.uint32, 'nlMatrixDSOctets')),
+                    ('nlmatrixdscreatetime', YLeaf(YType.uint32, 'nlMatrixDSCreateTime')),
+                ])
+                self.hlmatrixcontrolindex = None
+                self.nlmatrixdstimemark = None
+                self.protocoldirlocalindex = None
+                self.nlmatrixdsdestaddress = None
+                self.nlmatrixdssourceaddress = None
+                self.nlmatrixdspkts = None
+                self.nlmatrixdsoctets = None
+                self.nlmatrixdscreatetime = None
+                self._segment_path = lambda: "nlMatrixDSEntry" + "[hlMatrixControlIndex='" + str(self.hlmatrixcontrolindex) + "']" + "[nlMatrixDSTimeMark='" + str(self.nlmatrixdstimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlMatrixDSDestAddress='" + str(self.nlmatrixdsdestaddress) + "']" + "[nlMatrixDSSourceAddress='" + str(self.nlmatrixdssourceaddress) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/nlMatrixDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2458,8 +2521,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlMatrixTopNControlEntry" : ("nlmatrixtopncontrolentry", RMON2MIB.Nlmatrixtopncontroltable.Nlmatrixtopncontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlMatrixTopNControlEntry", ("nlmatrixtopncontrolentry", RMON2MIB.Nlmatrixtopncontroltable.Nlmatrixtopncontrolentry))])
+            self._leafs = OrderedDict()
 
             self.nlmatrixtopncontrolentry = YList(self)
             self._segment_path = lambda: "nlMatrixTopNControlTable"
@@ -2476,7 +2541,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             nlMatrixTopNControlDuration.3
             
-            .. attribute:: nlmatrixtopncontrolindex  <key>
+            .. attribute:: nlmatrixtopncontrolindex  (key)
             
             	An index that uniquely identifies an entry in the nlMatrixTopNControlTable.  Each such entry defines one top N report prepared for one interface
             	**type**\: int
@@ -2563,31 +2628,34 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "nlMatrixTopNControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nlmatrixtopncontrolindex = YLeaf(YType.int32, "nlMatrixTopNControlIndex")
-
-                self.nlmatrixtopncontrolmatrixindex = YLeaf(YType.int32, "nlMatrixTopNControlMatrixIndex")
-
-                self.nlmatrixtopncontrolratebase = YLeaf(YType.enumeration, "nlMatrixTopNControlRateBase")
-
-                self.nlmatrixtopncontroltimeremaining = YLeaf(YType.int32, "nlMatrixTopNControlTimeRemaining")
-
-                self.nlmatrixtopncontrolgeneratedreports = YLeaf(YType.uint32, "nlMatrixTopNControlGeneratedReports")
-
-                self.nlmatrixtopncontrolduration = YLeaf(YType.int32, "nlMatrixTopNControlDuration")
-
-                self.nlmatrixtopncontrolrequestedsize = YLeaf(YType.int32, "nlMatrixTopNControlRequestedSize")
-
-                self.nlmatrixtopncontrolgrantedsize = YLeaf(YType.int32, "nlMatrixTopNControlGrantedSize")
-
-                self.nlmatrixtopncontrolstarttime = YLeaf(YType.uint32, "nlMatrixTopNControlStartTime")
-
-                self.nlmatrixtopncontrolowner = YLeaf(YType.str, "nlMatrixTopNControlOwner")
-
-                self.nlmatrixtopncontrolstatus = YLeaf(YType.enumeration, "nlMatrixTopNControlStatus")
-                self._segment_path = lambda: "nlMatrixTopNControlEntry" + "[nlMatrixTopNControlIndex='" + self.nlmatrixtopncontrolindex.get() + "']"
+                self.ylist_key_names = ['nlmatrixtopncontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nlmatrixtopncontrolindex', YLeaf(YType.int32, 'nlMatrixTopNControlIndex')),
+                    ('nlmatrixtopncontrolmatrixindex', YLeaf(YType.int32, 'nlMatrixTopNControlMatrixIndex')),
+                    ('nlmatrixtopncontrolratebase', YLeaf(YType.enumeration, 'nlMatrixTopNControlRateBase')),
+                    ('nlmatrixtopncontroltimeremaining', YLeaf(YType.int32, 'nlMatrixTopNControlTimeRemaining')),
+                    ('nlmatrixtopncontrolgeneratedreports', YLeaf(YType.uint32, 'nlMatrixTopNControlGeneratedReports')),
+                    ('nlmatrixtopncontrolduration', YLeaf(YType.int32, 'nlMatrixTopNControlDuration')),
+                    ('nlmatrixtopncontrolrequestedsize', YLeaf(YType.int32, 'nlMatrixTopNControlRequestedSize')),
+                    ('nlmatrixtopncontrolgrantedsize', YLeaf(YType.int32, 'nlMatrixTopNControlGrantedSize')),
+                    ('nlmatrixtopncontrolstarttime', YLeaf(YType.uint32, 'nlMatrixTopNControlStartTime')),
+                    ('nlmatrixtopncontrolowner', YLeaf(YType.str, 'nlMatrixTopNControlOwner')),
+                    ('nlmatrixtopncontrolstatus', YLeaf(YType.enumeration, 'nlMatrixTopNControlStatus')),
+                ])
+                self.nlmatrixtopncontrolindex = None
+                self.nlmatrixtopncontrolmatrixindex = None
+                self.nlmatrixtopncontrolratebase = None
+                self.nlmatrixtopncontroltimeremaining = None
+                self.nlmatrixtopncontrolgeneratedreports = None
+                self.nlmatrixtopncontrolduration = None
+                self.nlmatrixtopncontrolrequestedsize = None
+                self.nlmatrixtopncontrolgrantedsize = None
+                self.nlmatrixtopncontrolstarttime = None
+                self.nlmatrixtopncontrolowner = None
+                self.nlmatrixtopncontrolstatus = None
+                self._segment_path = lambda: "nlMatrixTopNControlEntry" + "[nlMatrixTopNControlIndex='" + str(self.nlmatrixtopncontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/nlMatrixTopNControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2595,7 +2663,7 @@ class RMON2MIB(Entity):
 
             class Nlmatrixtopncontrolratebase(Enum):
                 """
-                Nlmatrixtopncontrolratebase
+                Nlmatrixtopncontrolratebase (Enum Class)
 
                 The variable for each nlMatrix[SD/DS] entry that the
 
@@ -2641,8 +2709,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nlMatrixTopNEntry" : ("nlmatrixtopnentry", RMON2MIB.Nlmatrixtopntable.Nlmatrixtopnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nlMatrixTopNEntry", ("nlmatrixtopnentry", RMON2MIB.Nlmatrixtopntable.Nlmatrixtopnentry))])
+            self._leafs = OrderedDict()
 
             self.nlmatrixtopnentry = YList(self)
             self._segment_path = lambda: "nlMatrixTopNTable"
@@ -2663,7 +2733,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             nlMatrixTopNPktRate.3.10
             
-            .. attribute:: nlmatrixtopncontrolindex  <key>
+            .. attribute:: nlmatrixtopncontrolindex  (key)
             
             	
             	**type**\: int
@@ -2672,7 +2742,7 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`nlmatrixtopncontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlmatrixtopncontroltable.Nlmatrixtopncontrolentry>`
             
-            .. attribute:: nlmatrixtopnindex  <key>
+            .. attribute:: nlmatrixtopnindex  (key)
             
             	An index that uniquely identifies an entry in the nlMatrixTopNTable among those in the same report.      This index is between 1 and N, where N is the number of entries in this report.  If the value of nlMatrixTopNControlRateBase is equal to nlMatrixTopNPkts, increasing values of nlMatrixTopNIndex shall be assigned to entries with decreasing values of nlMatrixTopNPktRate until index N is assigned or there are no more nlMatrixTopNEntries.  If the value of nlMatrixTopNControlRateBase is equal to nlMatrixTopNOctets, increasing values of nlMatrixTopNIndex shall be assigned to entries with decreasing values of nlMatrixTopNOctetRate until index N is assigned or there are no more nlMatrixTopNEntries
             	**type**\: int
@@ -2738,27 +2808,30 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "nlMatrixTopNTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nlmatrixtopncontrolindex = YLeaf(YType.str, "nlMatrixTopNControlIndex")
-
-                self.nlmatrixtopnindex = YLeaf(YType.int32, "nlMatrixTopNIndex")
-
-                self.nlmatrixtopnprotocoldirlocalindex = YLeaf(YType.int32, "nlMatrixTopNProtocolDirLocalIndex")
-
-                self.nlmatrixtopnsourceaddress = YLeaf(YType.str, "nlMatrixTopNSourceAddress")
-
-                self.nlmatrixtopndestaddress = YLeaf(YType.str, "nlMatrixTopNDestAddress")
-
-                self.nlmatrixtopnpktrate = YLeaf(YType.uint32, "nlMatrixTopNPktRate")
-
-                self.nlmatrixtopnreversepktrate = YLeaf(YType.uint32, "nlMatrixTopNReversePktRate")
-
-                self.nlmatrixtopnoctetrate = YLeaf(YType.uint32, "nlMatrixTopNOctetRate")
-
-                self.nlmatrixtopnreverseoctetrate = YLeaf(YType.uint32, "nlMatrixTopNReverseOctetRate")
-                self._segment_path = lambda: "nlMatrixTopNEntry" + "[nlMatrixTopNControlIndex='" + self.nlmatrixtopncontrolindex.get() + "']" + "[nlMatrixTopNIndex='" + self.nlmatrixtopnindex.get() + "']"
+                self.ylist_key_names = ['nlmatrixtopncontrolindex','nlmatrixtopnindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nlmatrixtopncontrolindex', YLeaf(YType.str, 'nlMatrixTopNControlIndex')),
+                    ('nlmatrixtopnindex', YLeaf(YType.int32, 'nlMatrixTopNIndex')),
+                    ('nlmatrixtopnprotocoldirlocalindex', YLeaf(YType.int32, 'nlMatrixTopNProtocolDirLocalIndex')),
+                    ('nlmatrixtopnsourceaddress', YLeaf(YType.str, 'nlMatrixTopNSourceAddress')),
+                    ('nlmatrixtopndestaddress', YLeaf(YType.str, 'nlMatrixTopNDestAddress')),
+                    ('nlmatrixtopnpktrate', YLeaf(YType.uint32, 'nlMatrixTopNPktRate')),
+                    ('nlmatrixtopnreversepktrate', YLeaf(YType.uint32, 'nlMatrixTopNReversePktRate')),
+                    ('nlmatrixtopnoctetrate', YLeaf(YType.uint32, 'nlMatrixTopNOctetRate')),
+                    ('nlmatrixtopnreverseoctetrate', YLeaf(YType.uint32, 'nlMatrixTopNReverseOctetRate')),
+                ])
+                self.nlmatrixtopncontrolindex = None
+                self.nlmatrixtopnindex = None
+                self.nlmatrixtopnprotocoldirlocalindex = None
+                self.nlmatrixtopnsourceaddress = None
+                self.nlmatrixtopndestaddress = None
+                self.nlmatrixtopnpktrate = None
+                self.nlmatrixtopnreversepktrate = None
+                self.nlmatrixtopnoctetrate = None
+                self.nlmatrixtopnreverseoctetrate = None
+                self._segment_path = lambda: "nlMatrixTopNEntry" + "[nlMatrixTopNControlIndex='" + str(self.nlmatrixtopncontrolindex) + "']" + "[nlMatrixTopNIndex='" + str(self.nlmatrixtopnindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/nlMatrixTopNTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2804,8 +2877,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alHostEntry" : ("alhostentry", RMON2MIB.Alhosttable.Alhostentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alHostEntry", ("alhostentry", RMON2MIB.Alhosttable.Alhostentry))])
+            self._leafs = OrderedDict()
 
             self.alhostentry = YList(self)
             self._segment_path = lambda: "alHostTable"
@@ -2831,7 +2906,7 @@ class RMON2MIB(Entity):
             An example of the indexing in this entry is
             alHostOutPkts.1.783495.18.4.128.2.6.6.34
             
-            .. attribute:: hlhostcontrolindex  <key>
+            .. attribute:: hlhostcontrolindex  (key)
             
             	
             	**type**\: int
@@ -2840,14 +2915,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlhostcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlhostcontroltable.Hlhostcontrolentry>`
             
-            .. attribute:: alhosttimemark  <key>
+            .. attribute:: alhosttimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -2856,14 +2931,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlhostaddress  <key>
+            .. attribute:: nlhostaddress  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`nlhostaddress <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlhosttable.Nlhostentry>`
             
-            .. attribute:: protocoldirlocalindex_2  <key>
+            .. attribute:: protocoldirlocalindex_2  (key)
             
             	
             	**type**\: int
@@ -2921,29 +2996,32 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "alHostTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlhostcontrolindex = YLeaf(YType.str, "hlHostControlIndex")
-
-                self.alhosttimemark = YLeaf(YType.uint32, "alHostTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlhostaddress = YLeaf(YType.str, "nlHostAddress")
-
-                self.protocoldirlocalindex_2 = YLeaf(YType.str, "protocolDirLocalIndex_2")
-
-                self.alhostinpkts = YLeaf(YType.uint32, "alHostInPkts")
-
-                self.alhostoutpkts = YLeaf(YType.uint32, "alHostOutPkts")
-
-                self.alhostinoctets = YLeaf(YType.uint32, "alHostInOctets")
-
-                self.alhostoutoctets = YLeaf(YType.uint32, "alHostOutOctets")
-
-                self.alhostcreatetime = YLeaf(YType.uint32, "alHostCreateTime")
-                self._segment_path = lambda: "alHostEntry" + "[hlHostControlIndex='" + self.hlhostcontrolindex.get() + "']" + "[alHostTimeMark='" + self.alhosttimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlHostAddress='" + self.nlhostaddress.get() + "']" + "[protocolDirLocalIndex_2='" + self.protocoldirlocalindex_2.get() + "']"
+                self.ylist_key_names = ['hlhostcontrolindex','alhosttimemark','protocoldirlocalindex','nlhostaddress','protocoldirlocalindex_2']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlhostcontrolindex', YLeaf(YType.str, 'hlHostControlIndex')),
+                    ('alhosttimemark', YLeaf(YType.uint32, 'alHostTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlhostaddress', YLeaf(YType.str, 'nlHostAddress')),
+                    ('protocoldirlocalindex_2', YLeaf(YType.str, 'protocolDirLocalIndex_2')),
+                    ('alhostinpkts', YLeaf(YType.uint32, 'alHostInPkts')),
+                    ('alhostoutpkts', YLeaf(YType.uint32, 'alHostOutPkts')),
+                    ('alhostinoctets', YLeaf(YType.uint32, 'alHostInOctets')),
+                    ('alhostoutoctets', YLeaf(YType.uint32, 'alHostOutOctets')),
+                    ('alhostcreatetime', YLeaf(YType.uint32, 'alHostCreateTime')),
+                ])
+                self.hlhostcontrolindex = None
+                self.alhosttimemark = None
+                self.protocoldirlocalindex = None
+                self.nlhostaddress = None
+                self.protocoldirlocalindex_2 = None
+                self.alhostinpkts = None
+                self.alhostoutpkts = None
+                self.alhostinoctets = None
+                self.alhostoutoctets = None
+                self.alhostcreatetime = None
+                self._segment_path = lambda: "alHostEntry" + "[hlHostControlIndex='" + str(self.hlhostcontrolindex) + "']" + "[alHostTimeMark='" + str(self.alhosttimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlHostAddress='" + str(self.nlhostaddress) + "']" + "[protocolDirLocalIndex_2='" + str(self.protocoldirlocalindex_2) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/alHostTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2997,8 +3075,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alMatrixSDEntry" : ("almatrixsdentry", RMON2MIB.Almatrixsdtable.Almatrixsdentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alMatrixSDEntry", ("almatrixsdentry", RMON2MIB.Almatrixsdtable.Almatrixsdentry))])
+            self._leafs = OrderedDict()
 
             self.almatrixsdentry = YList(self)
             self._segment_path = lambda: "alMatrixSDTable"
@@ -3028,7 +3108,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             alMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7.34
             
-            .. attribute:: hlmatrixcontrolindex  <key>
+            .. attribute:: hlmatrixcontrolindex  (key)
             
             	
             	**type**\: int
@@ -3037,14 +3117,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlmatrixcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry>`
             
-            .. attribute:: almatrixsdtimemark  <key>
+            .. attribute:: almatrixsdtimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -3053,21 +3133,21 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlmatrixsdsourceaddress  <key>
+            .. attribute:: nlmatrixsdsourceaddress  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`nlmatrixsdsourceaddress <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlmatrixsdtable.Nlmatrixsdentry>`
             
-            .. attribute:: nlmatrixsddestaddress  <key>
+            .. attribute:: nlmatrixsddestaddress  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`nlmatrixsddestaddress <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlmatrixsdtable.Nlmatrixsdentry>`
             
-            .. attribute:: protocoldirlocalindex_2  <key>
+            .. attribute:: protocoldirlocalindex_2  (key)
             
             	
             	**type**\: int
@@ -3111,27 +3191,30 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "alMatrixSDTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlmatrixcontrolindex = YLeaf(YType.str, "hlMatrixControlIndex")
-
-                self.almatrixsdtimemark = YLeaf(YType.uint32, "alMatrixSDTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlmatrixsdsourceaddress = YLeaf(YType.str, "nlMatrixSDSourceAddress")
-
-                self.nlmatrixsddestaddress = YLeaf(YType.str, "nlMatrixSDDestAddress")
-
-                self.protocoldirlocalindex_2 = YLeaf(YType.str, "protocolDirLocalIndex_2")
-
-                self.almatrixsdpkts = YLeaf(YType.uint32, "alMatrixSDPkts")
-
-                self.almatrixsdoctets = YLeaf(YType.uint32, "alMatrixSDOctets")
-
-                self.almatrixsdcreatetime = YLeaf(YType.uint32, "alMatrixSDCreateTime")
-                self._segment_path = lambda: "alMatrixSDEntry" + "[hlMatrixControlIndex='" + self.hlmatrixcontrolindex.get() + "']" + "[alMatrixSDTimeMark='" + self.almatrixsdtimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlMatrixSDSourceAddress='" + self.nlmatrixsdsourceaddress.get() + "']" + "[nlMatrixSDDestAddress='" + self.nlmatrixsddestaddress.get() + "']" + "[protocolDirLocalIndex_2='" + self.protocoldirlocalindex_2.get() + "']"
+                self.ylist_key_names = ['hlmatrixcontrolindex','almatrixsdtimemark','protocoldirlocalindex','nlmatrixsdsourceaddress','nlmatrixsddestaddress','protocoldirlocalindex_2']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlmatrixcontrolindex', YLeaf(YType.str, 'hlMatrixControlIndex')),
+                    ('almatrixsdtimemark', YLeaf(YType.uint32, 'alMatrixSDTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlmatrixsdsourceaddress', YLeaf(YType.str, 'nlMatrixSDSourceAddress')),
+                    ('nlmatrixsddestaddress', YLeaf(YType.str, 'nlMatrixSDDestAddress')),
+                    ('protocoldirlocalindex_2', YLeaf(YType.str, 'protocolDirLocalIndex_2')),
+                    ('almatrixsdpkts', YLeaf(YType.uint32, 'alMatrixSDPkts')),
+                    ('almatrixsdoctets', YLeaf(YType.uint32, 'alMatrixSDOctets')),
+                    ('almatrixsdcreatetime', YLeaf(YType.uint32, 'alMatrixSDCreateTime')),
+                ])
+                self.hlmatrixcontrolindex = None
+                self.almatrixsdtimemark = None
+                self.protocoldirlocalindex = None
+                self.nlmatrixsdsourceaddress = None
+                self.nlmatrixsddestaddress = None
+                self.protocoldirlocalindex_2 = None
+                self.almatrixsdpkts = None
+                self.almatrixsdoctets = None
+                self.almatrixsdcreatetime = None
+                self._segment_path = lambda: "alMatrixSDEntry" + "[hlMatrixControlIndex='" + str(self.hlmatrixcontrolindex) + "']" + "[alMatrixSDTimeMark='" + str(self.almatrixsdtimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlMatrixSDSourceAddress='" + str(self.nlmatrixsdsourceaddress) + "']" + "[nlMatrixSDDestAddress='" + str(self.nlmatrixsddestaddress) + "']" + "[protocolDirLocalIndex_2='" + str(self.protocoldirlocalindex_2) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/alMatrixSDTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3180,8 +3263,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alMatrixDSEntry" : ("almatrixdsentry", RMON2MIB.Almatrixdstable.Almatrixdsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alMatrixDSEntry", ("almatrixdsentry", RMON2MIB.Almatrixdstable.Almatrixdsentry))])
+            self._leafs = OrderedDict()
 
             self.almatrixdsentry = YList(self)
             self._segment_path = lambda: "alMatrixDSTable"
@@ -3216,7 +3301,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this entry is
             alMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6.34
             
-            .. attribute:: hlmatrixcontrolindex  <key>
+            .. attribute:: hlmatrixcontrolindex  (key)
             
             	
             	**type**\: int
@@ -3225,14 +3310,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`hlmatrixcontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Hlmatrixcontroltable.Hlmatrixcontrolentry>`
             
-            .. attribute:: almatrixdstimemark  <key>
+            .. attribute:: almatrixdstimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: protocoldirlocalindex  <key>
+            .. attribute:: protocoldirlocalindex  (key)
             
             	
             	**type**\: int
@@ -3241,21 +3326,21 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`protocoldirlocalindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Protocoldirtable.Protocoldirentry>`
             
-            .. attribute:: nlmatrixdsdestaddress  <key>
+            .. attribute:: nlmatrixdsdestaddress  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`nlmatrixdsdestaddress <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlmatrixdstable.Nlmatrixdsentry>`
             
-            .. attribute:: nlmatrixdssourceaddress  <key>
+            .. attribute:: nlmatrixdssourceaddress  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`nlmatrixdssourceaddress <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Nlmatrixdstable.Nlmatrixdsentry>`
             
-            .. attribute:: protocoldirlocalindex_2  <key>
+            .. attribute:: protocoldirlocalindex_2  (key)
             
             	
             	**type**\: int
@@ -3299,27 +3384,30 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "alMatrixDSTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hlmatrixcontrolindex = YLeaf(YType.str, "hlMatrixControlIndex")
-
-                self.almatrixdstimemark = YLeaf(YType.uint32, "alMatrixDSTimeMark")
-
-                self.protocoldirlocalindex = YLeaf(YType.str, "protocolDirLocalIndex")
-
-                self.nlmatrixdsdestaddress = YLeaf(YType.str, "nlMatrixDSDestAddress")
-
-                self.nlmatrixdssourceaddress = YLeaf(YType.str, "nlMatrixDSSourceAddress")
-
-                self.protocoldirlocalindex_2 = YLeaf(YType.str, "protocolDirLocalIndex_2")
-
-                self.almatrixdspkts = YLeaf(YType.uint32, "alMatrixDSPkts")
-
-                self.almatrixdsoctets = YLeaf(YType.uint32, "alMatrixDSOctets")
-
-                self.almatrixdscreatetime = YLeaf(YType.uint32, "alMatrixDSCreateTime")
-                self._segment_path = lambda: "alMatrixDSEntry" + "[hlMatrixControlIndex='" + self.hlmatrixcontrolindex.get() + "']" + "[alMatrixDSTimeMark='" + self.almatrixdstimemark.get() + "']" + "[protocolDirLocalIndex='" + self.protocoldirlocalindex.get() + "']" + "[nlMatrixDSDestAddress='" + self.nlmatrixdsdestaddress.get() + "']" + "[nlMatrixDSSourceAddress='" + self.nlmatrixdssourceaddress.get() + "']" + "[protocolDirLocalIndex_2='" + self.protocoldirlocalindex_2.get() + "']"
+                self.ylist_key_names = ['hlmatrixcontrolindex','almatrixdstimemark','protocoldirlocalindex','nlmatrixdsdestaddress','nlmatrixdssourceaddress','protocoldirlocalindex_2']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hlmatrixcontrolindex', YLeaf(YType.str, 'hlMatrixControlIndex')),
+                    ('almatrixdstimemark', YLeaf(YType.uint32, 'alMatrixDSTimeMark')),
+                    ('protocoldirlocalindex', YLeaf(YType.str, 'protocolDirLocalIndex')),
+                    ('nlmatrixdsdestaddress', YLeaf(YType.str, 'nlMatrixDSDestAddress')),
+                    ('nlmatrixdssourceaddress', YLeaf(YType.str, 'nlMatrixDSSourceAddress')),
+                    ('protocoldirlocalindex_2', YLeaf(YType.str, 'protocolDirLocalIndex_2')),
+                    ('almatrixdspkts', YLeaf(YType.uint32, 'alMatrixDSPkts')),
+                    ('almatrixdsoctets', YLeaf(YType.uint32, 'alMatrixDSOctets')),
+                    ('almatrixdscreatetime', YLeaf(YType.uint32, 'alMatrixDSCreateTime')),
+                ])
+                self.hlmatrixcontrolindex = None
+                self.almatrixdstimemark = None
+                self.protocoldirlocalindex = None
+                self.nlmatrixdsdestaddress = None
+                self.nlmatrixdssourceaddress = None
+                self.protocoldirlocalindex_2 = None
+                self.almatrixdspkts = None
+                self.almatrixdsoctets = None
+                self.almatrixdscreatetime = None
+                self._segment_path = lambda: "alMatrixDSEntry" + "[hlMatrixControlIndex='" + str(self.hlmatrixcontrolindex) + "']" + "[alMatrixDSTimeMark='" + str(self.almatrixdstimemark) + "']" + "[protocolDirLocalIndex='" + str(self.protocoldirlocalindex) + "']" + "[nlMatrixDSDestAddress='" + str(self.nlmatrixdsdestaddress) + "']" + "[nlMatrixDSSourceAddress='" + str(self.nlmatrixdssourceaddress) + "']" + "[protocolDirLocalIndex_2='" + str(self.protocoldirlocalindex_2) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/alMatrixDSTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3351,8 +3439,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alMatrixTopNControlEntry" : ("almatrixtopncontrolentry", RMON2MIB.Almatrixtopncontroltable.Almatrixtopncontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alMatrixTopNControlEntry", ("almatrixtopncontrolentry", RMON2MIB.Almatrixtopncontroltable.Almatrixtopncontrolentry))])
+            self._leafs = OrderedDict()
 
             self.almatrixtopncontrolentry = YList(self)
             self._segment_path = lambda: "alMatrixTopNControlTable"
@@ -3369,7 +3459,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             alMatrixTopNControlDuration.3
             
-            .. attribute:: almatrixtopncontrolindex  <key>
+            .. attribute:: almatrixtopncontrolindex  (key)
             
             	An index that uniquely identifies an entry in the alMatrixTopNControlTable.  Each such entry defines one top N report prepared for one interface
             	**type**\: int
@@ -3456,31 +3546,34 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "alMatrixTopNControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.almatrixtopncontrolindex = YLeaf(YType.int32, "alMatrixTopNControlIndex")
-
-                self.almatrixtopncontrolmatrixindex = YLeaf(YType.int32, "alMatrixTopNControlMatrixIndex")
-
-                self.almatrixtopncontrolratebase = YLeaf(YType.enumeration, "alMatrixTopNControlRateBase")
-
-                self.almatrixtopncontroltimeremaining = YLeaf(YType.int32, "alMatrixTopNControlTimeRemaining")
-
-                self.almatrixtopncontrolgeneratedreports = YLeaf(YType.uint32, "alMatrixTopNControlGeneratedReports")
-
-                self.almatrixtopncontrolduration = YLeaf(YType.int32, "alMatrixTopNControlDuration")
-
-                self.almatrixtopncontrolrequestedsize = YLeaf(YType.int32, "alMatrixTopNControlRequestedSize")
-
-                self.almatrixtopncontrolgrantedsize = YLeaf(YType.int32, "alMatrixTopNControlGrantedSize")
-
-                self.almatrixtopncontrolstarttime = YLeaf(YType.uint32, "alMatrixTopNControlStartTime")
-
-                self.almatrixtopncontrolowner = YLeaf(YType.str, "alMatrixTopNControlOwner")
-
-                self.almatrixtopncontrolstatus = YLeaf(YType.enumeration, "alMatrixTopNControlStatus")
-                self._segment_path = lambda: "alMatrixTopNControlEntry" + "[alMatrixTopNControlIndex='" + self.almatrixtopncontrolindex.get() + "']"
+                self.ylist_key_names = ['almatrixtopncontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('almatrixtopncontrolindex', YLeaf(YType.int32, 'alMatrixTopNControlIndex')),
+                    ('almatrixtopncontrolmatrixindex', YLeaf(YType.int32, 'alMatrixTopNControlMatrixIndex')),
+                    ('almatrixtopncontrolratebase', YLeaf(YType.enumeration, 'alMatrixTopNControlRateBase')),
+                    ('almatrixtopncontroltimeremaining', YLeaf(YType.int32, 'alMatrixTopNControlTimeRemaining')),
+                    ('almatrixtopncontrolgeneratedreports', YLeaf(YType.uint32, 'alMatrixTopNControlGeneratedReports')),
+                    ('almatrixtopncontrolduration', YLeaf(YType.int32, 'alMatrixTopNControlDuration')),
+                    ('almatrixtopncontrolrequestedsize', YLeaf(YType.int32, 'alMatrixTopNControlRequestedSize')),
+                    ('almatrixtopncontrolgrantedsize', YLeaf(YType.int32, 'alMatrixTopNControlGrantedSize')),
+                    ('almatrixtopncontrolstarttime', YLeaf(YType.uint32, 'alMatrixTopNControlStartTime')),
+                    ('almatrixtopncontrolowner', YLeaf(YType.str, 'alMatrixTopNControlOwner')),
+                    ('almatrixtopncontrolstatus', YLeaf(YType.enumeration, 'alMatrixTopNControlStatus')),
+                ])
+                self.almatrixtopncontrolindex = None
+                self.almatrixtopncontrolmatrixindex = None
+                self.almatrixtopncontrolratebase = None
+                self.almatrixtopncontroltimeremaining = None
+                self.almatrixtopncontrolgeneratedreports = None
+                self.almatrixtopncontrolduration = None
+                self.almatrixtopncontrolrequestedsize = None
+                self.almatrixtopncontrolgrantedsize = None
+                self.almatrixtopncontrolstarttime = None
+                self.almatrixtopncontrolowner = None
+                self.almatrixtopncontrolstatus = None
+                self._segment_path = lambda: "alMatrixTopNControlEntry" + "[alMatrixTopNControlIndex='" + str(self.almatrixtopncontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/alMatrixTopNControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3488,7 +3581,7 @@ class RMON2MIB(Entity):
 
             class Almatrixtopncontrolratebase(Enum):
                 """
-                Almatrixtopncontrolratebase
+                Almatrixtopncontrolratebase (Enum Class)
 
                 The variable for each alMatrix[SD/DS] entry that the
 
@@ -3557,8 +3650,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alMatrixTopNEntry" : ("almatrixtopnentry", RMON2MIB.Almatrixtopntable.Almatrixtopnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alMatrixTopNEntry", ("almatrixtopnentry", RMON2MIB.Almatrixtopntable.Almatrixtopnentry))])
+            self._leafs = OrderedDict()
 
             self.almatrixtopnentry = YList(self)
             self._segment_path = lambda: "alMatrixTopNTable"
@@ -3579,7 +3674,7 @@ class RMON2MIB(Entity):
             An example of the indexing of this table is
             alMatrixTopNPktRate.3.10
             
-            .. attribute:: almatrixtopncontrolindex  <key>
+            .. attribute:: almatrixtopncontrolindex  (key)
             
             	
             	**type**\: int
@@ -3588,7 +3683,7 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`almatrixtopncontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Almatrixtopncontroltable.Almatrixtopncontrolentry>`
             
-            .. attribute:: almatrixtopnindex  <key>
+            .. attribute:: almatrixtopnindex  (key)
             
             	An index that uniquely identifies an entry in the alMatrixTopNTable among those in the same report. This index is between 1 and N, where N is the number of entries in this report.  If the value of alMatrixTopNControlRateBase is equal to alMatrixTopNTerminalsPkts or alMatrixTopNAllPkts, increasing values of alMatrixTopNIndex shall be assigned to entries with decreasing values of alMatrixTopNPktRate until index N is assigned or there are no more alMatrixTopNEntries.  If the value of alMatrixTopNControlRateBase is equal to alMatrixTopNTerminalsOctets or alMatrixTopNAllOctets, increasing values of alMatrixTopNIndex shall be assigned to entries with decreasing values of alMatrixTopNOctetRate until index N is assigned or there are no more alMatrixTopNEntries
             	**type**\: int
@@ -3661,29 +3756,32 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "alMatrixTopNTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.almatrixtopncontrolindex = YLeaf(YType.str, "alMatrixTopNControlIndex")
-
-                self.almatrixtopnindex = YLeaf(YType.int32, "alMatrixTopNIndex")
-
-                self.almatrixtopnprotocoldirlocalindex = YLeaf(YType.int32, "alMatrixTopNProtocolDirLocalIndex")
-
-                self.almatrixtopnsourceaddress = YLeaf(YType.str, "alMatrixTopNSourceAddress")
-
-                self.almatrixtopndestaddress = YLeaf(YType.str, "alMatrixTopNDestAddress")
-
-                self.almatrixtopnappprotocoldirlocalindex = YLeaf(YType.int32, "alMatrixTopNAppProtocolDirLocalIndex")
-
-                self.almatrixtopnpktrate = YLeaf(YType.uint32, "alMatrixTopNPktRate")
-
-                self.almatrixtopnreversepktrate = YLeaf(YType.uint32, "alMatrixTopNReversePktRate")
-
-                self.almatrixtopnoctetrate = YLeaf(YType.uint32, "alMatrixTopNOctetRate")
-
-                self.almatrixtopnreverseoctetrate = YLeaf(YType.uint32, "alMatrixTopNReverseOctetRate")
-                self._segment_path = lambda: "alMatrixTopNEntry" + "[alMatrixTopNControlIndex='" + self.almatrixtopncontrolindex.get() + "']" + "[alMatrixTopNIndex='" + self.almatrixtopnindex.get() + "']"
+                self.ylist_key_names = ['almatrixtopncontrolindex','almatrixtopnindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('almatrixtopncontrolindex', YLeaf(YType.str, 'alMatrixTopNControlIndex')),
+                    ('almatrixtopnindex', YLeaf(YType.int32, 'alMatrixTopNIndex')),
+                    ('almatrixtopnprotocoldirlocalindex', YLeaf(YType.int32, 'alMatrixTopNProtocolDirLocalIndex')),
+                    ('almatrixtopnsourceaddress', YLeaf(YType.str, 'alMatrixTopNSourceAddress')),
+                    ('almatrixtopndestaddress', YLeaf(YType.str, 'alMatrixTopNDestAddress')),
+                    ('almatrixtopnappprotocoldirlocalindex', YLeaf(YType.int32, 'alMatrixTopNAppProtocolDirLocalIndex')),
+                    ('almatrixtopnpktrate', YLeaf(YType.uint32, 'alMatrixTopNPktRate')),
+                    ('almatrixtopnreversepktrate', YLeaf(YType.uint32, 'alMatrixTopNReversePktRate')),
+                    ('almatrixtopnoctetrate', YLeaf(YType.uint32, 'alMatrixTopNOctetRate')),
+                    ('almatrixtopnreverseoctetrate', YLeaf(YType.uint32, 'alMatrixTopNReverseOctetRate')),
+                ])
+                self.almatrixtopncontrolindex = None
+                self.almatrixtopnindex = None
+                self.almatrixtopnprotocoldirlocalindex = None
+                self.almatrixtopnsourceaddress = None
+                self.almatrixtopndestaddress = None
+                self.almatrixtopnappprotocoldirlocalindex = None
+                self.almatrixtopnpktrate = None
+                self.almatrixtopnreversepktrate = None
+                self.almatrixtopnoctetrate = None
+                self.almatrixtopnreverseoctetrate = None
+                self._segment_path = lambda: "alMatrixTopNEntry" + "[alMatrixTopNControlIndex='" + str(self.almatrixtopncontrolindex) + "']" + "[alMatrixTopNIndex='" + str(self.almatrixtopnindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/alMatrixTopNTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3713,8 +3811,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"usrHistoryControlEntry" : ("usrhistorycontrolentry", RMON2MIB.Usrhistorycontroltable.Usrhistorycontrolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("usrHistoryControlEntry", ("usrhistorycontrolentry", RMON2MIB.Usrhistorycontroltable.Usrhistorycontrolentry))])
+            self._leafs = OrderedDict()
 
             self.usrhistorycontrolentry = YList(self)
             self._segment_path = lambda: "usrHistoryControlTable"
@@ -3733,7 +3833,7 @@ class RMON2MIB(Entity):
             For example, an instance of usrHistoryControlInterval
             might be named usrHistoryControlInterval.1
             
-            .. attribute:: usrhistorycontrolindex  <key>
+            .. attribute:: usrhistorycontrolindex  (key)
             
             	An index that uniquely identifies an entry in the usrHistoryControlTable.  Each such entry defines a set of samples at a particular interval for a specified set of MIB instances available from the managed system
             	**type**\: int
@@ -3794,23 +3894,26 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "usrHistoryControlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.usrhistorycontrolindex = YLeaf(YType.int32, "usrHistoryControlIndex")
-
-                self.usrhistorycontrolobjects = YLeaf(YType.int32, "usrHistoryControlObjects")
-
-                self.usrhistorycontrolbucketsrequested = YLeaf(YType.int32, "usrHistoryControlBucketsRequested")
-
-                self.usrhistorycontrolbucketsgranted = YLeaf(YType.int32, "usrHistoryControlBucketsGranted")
-
-                self.usrhistorycontrolinterval = YLeaf(YType.int32, "usrHistoryControlInterval")
-
-                self.usrhistorycontrolowner = YLeaf(YType.str, "usrHistoryControlOwner")
-
-                self.usrhistorycontrolstatus = YLeaf(YType.enumeration, "usrHistoryControlStatus")
-                self._segment_path = lambda: "usrHistoryControlEntry" + "[usrHistoryControlIndex='" + self.usrhistorycontrolindex.get() + "']"
+                self.ylist_key_names = ['usrhistorycontrolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('usrhistorycontrolindex', YLeaf(YType.int32, 'usrHistoryControlIndex')),
+                    ('usrhistorycontrolobjects', YLeaf(YType.int32, 'usrHistoryControlObjects')),
+                    ('usrhistorycontrolbucketsrequested', YLeaf(YType.int32, 'usrHistoryControlBucketsRequested')),
+                    ('usrhistorycontrolbucketsgranted', YLeaf(YType.int32, 'usrHistoryControlBucketsGranted')),
+                    ('usrhistorycontrolinterval', YLeaf(YType.int32, 'usrHistoryControlInterval')),
+                    ('usrhistorycontrolowner', YLeaf(YType.str, 'usrHistoryControlOwner')),
+                    ('usrhistorycontrolstatus', YLeaf(YType.enumeration, 'usrHistoryControlStatus')),
+                ])
+                self.usrhistorycontrolindex = None
+                self.usrhistorycontrolobjects = None
+                self.usrhistorycontrolbucketsrequested = None
+                self.usrhistorycontrolbucketsgranted = None
+                self.usrhistorycontrolinterval = None
+                self.usrhistorycontrolowner = None
+                self.usrhistorycontrolstatus = None
+                self._segment_path = lambda: "usrHistoryControlEntry" + "[usrHistoryControlIndex='" + str(self.usrhistorycontrolindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/usrHistoryControlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3840,8 +3943,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"usrHistoryObjectEntry" : ("usrhistoryobjectentry", RMON2MIB.Usrhistoryobjecttable.Usrhistoryobjectentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("usrHistoryObjectEntry", ("usrhistoryobjectentry", RMON2MIB.Usrhistoryobjecttable.Usrhistoryobjectentry))])
+            self._leafs = OrderedDict()
 
             self.usrhistoryobjectentry = YList(self)
             self._segment_path = lambda: "usrHistoryObjectTable"
@@ -3864,7 +3969,7 @@ class RMON2MIB(Entity):
             For example, an instance of usrHistoryObjectVariable might be
             usrHistoryObjectVariable.1.3
             
-            .. attribute:: usrhistorycontrolindex  <key>
+            .. attribute:: usrhistorycontrolindex  (key)
             
             	
             	**type**\: int
@@ -3873,7 +3978,7 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`usrhistorycontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Usrhistorycontroltable.Usrhistorycontrolentry>`
             
-            .. attribute:: usrhistoryobjectindex  <key>
+            .. attribute:: usrhistoryobjectindex  (key)
             
             	An index used to uniquely identify an entry in the usrHistoryObject table.  Each such entry defines a MIB instance to be collected periodically
             	**type**\: int
@@ -3906,17 +4011,20 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "usrHistoryObjectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.usrhistorycontrolindex = YLeaf(YType.str, "usrHistoryControlIndex")
-
-                self.usrhistoryobjectindex = YLeaf(YType.int32, "usrHistoryObjectIndex")
-
-                self.usrhistoryobjectvariable = YLeaf(YType.str, "usrHistoryObjectVariable")
-
-                self.usrhistoryobjectsampletype = YLeaf(YType.enumeration, "usrHistoryObjectSampleType")
-                self._segment_path = lambda: "usrHistoryObjectEntry" + "[usrHistoryControlIndex='" + self.usrhistorycontrolindex.get() + "']" + "[usrHistoryObjectIndex='" + self.usrhistoryobjectindex.get() + "']"
+                self.ylist_key_names = ['usrhistorycontrolindex','usrhistoryobjectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('usrhistorycontrolindex', YLeaf(YType.str, 'usrHistoryControlIndex')),
+                    ('usrhistoryobjectindex', YLeaf(YType.int32, 'usrHistoryObjectIndex')),
+                    ('usrhistoryobjectvariable', YLeaf(YType.str, 'usrHistoryObjectVariable')),
+                    ('usrhistoryobjectsampletype', YLeaf(YType.enumeration, 'usrHistoryObjectSampleType')),
+                ])
+                self.usrhistorycontrolindex = None
+                self.usrhistoryobjectindex = None
+                self.usrhistoryobjectvariable = None
+                self.usrhistoryobjectsampletype = None
+                self._segment_path = lambda: "usrHistoryObjectEntry" + "[usrHistoryControlIndex='" + str(self.usrhistorycontrolindex) + "']" + "[usrHistoryObjectIndex='" + str(self.usrhistoryobjectindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/usrHistoryObjectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3924,7 +4032,7 @@ class RMON2MIB(Entity):
 
             class Usrhistoryobjectsampletype(Enum):
                 """
-                Usrhistoryobjectsampletype
+                Usrhistoryobjectsampletype (Enum Class)
 
                 The method of sampling the selected variable for storage in
 
@@ -3991,8 +4099,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"usrHistoryEntry" : ("usrhistoryentry", RMON2MIB.Usrhistorytable.Usrhistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("usrHistoryEntry", ("usrhistoryentry", RMON2MIB.Usrhistorytable.Usrhistoryentry))])
+            self._leafs = OrderedDict()
 
             self.usrhistoryentry = YList(self)
             self._segment_path = lambda: "usrHistoryTable"
@@ -4019,7 +4129,7 @@ class RMON2MIB(Entity):
             usrHistoryControlEntry.1 and usrHistoryObjectEntry.1.5,
             would be named usrHistoryAbsValue.1.14.5
             
-            .. attribute:: usrhistorycontrolindex  <key>
+            .. attribute:: usrhistorycontrolindex  (key)
             
             	
             	**type**\: int
@@ -4028,14 +4138,14 @@ class RMON2MIB(Entity):
             
             	**refers to**\:  :py:class:`usrhistorycontrolindex <ydk.models.cisco_ios_xe.RMON2_MIB.RMON2MIB.Usrhistorycontroltable.Usrhistorycontrolentry>`
             
-            .. attribute:: usrhistorysampleindex  <key>
+            .. attribute:: usrhistorysampleindex  (key)
             
             	An index that uniquely identifies the particular sample this entry represents among all samples associated with the same usrHistoryControlEntry. This index starts at 1 and increases by one as each new sample is taken
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: usrhistoryobjectindex  <key>
+            .. attribute:: usrhistoryobjectindex  (key)
             
             	
             	**type**\: int
@@ -4084,23 +4194,26 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "usrHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.usrhistorycontrolindex = YLeaf(YType.str, "usrHistoryControlIndex")
-
-                self.usrhistorysampleindex = YLeaf(YType.int32, "usrHistorySampleIndex")
-
-                self.usrhistoryobjectindex = YLeaf(YType.str, "usrHistoryObjectIndex")
-
-                self.usrhistoryintervalstart = YLeaf(YType.uint32, "usrHistoryIntervalStart")
-
-                self.usrhistoryintervalend = YLeaf(YType.uint32, "usrHistoryIntervalEnd")
-
-                self.usrhistoryabsvalue = YLeaf(YType.uint32, "usrHistoryAbsValue")
-
-                self.usrhistoryvalstatus = YLeaf(YType.enumeration, "usrHistoryValStatus")
-                self._segment_path = lambda: "usrHistoryEntry" + "[usrHistoryControlIndex='" + self.usrhistorycontrolindex.get() + "']" + "[usrHistorySampleIndex='" + self.usrhistorysampleindex.get() + "']" + "[usrHistoryObjectIndex='" + self.usrhistoryobjectindex.get() + "']"
+                self.ylist_key_names = ['usrhistorycontrolindex','usrhistorysampleindex','usrhistoryobjectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('usrhistorycontrolindex', YLeaf(YType.str, 'usrHistoryControlIndex')),
+                    ('usrhistorysampleindex', YLeaf(YType.int32, 'usrHistorySampleIndex')),
+                    ('usrhistoryobjectindex', YLeaf(YType.str, 'usrHistoryObjectIndex')),
+                    ('usrhistoryintervalstart', YLeaf(YType.uint32, 'usrHistoryIntervalStart')),
+                    ('usrhistoryintervalend', YLeaf(YType.uint32, 'usrHistoryIntervalEnd')),
+                    ('usrhistoryabsvalue', YLeaf(YType.uint32, 'usrHistoryAbsValue')),
+                    ('usrhistoryvalstatus', YLeaf(YType.enumeration, 'usrHistoryValStatus')),
+                ])
+                self.usrhistorycontrolindex = None
+                self.usrhistorysampleindex = None
+                self.usrhistoryobjectindex = None
+                self.usrhistoryintervalstart = None
+                self.usrhistoryintervalend = None
+                self.usrhistoryabsvalue = None
+                self.usrhistoryvalstatus = None
+                self._segment_path = lambda: "usrHistoryEntry" + "[usrHistoryControlIndex='" + str(self.usrhistorycontrolindex) + "']" + "[usrHistorySampleIndex='" + str(self.usrhistorysampleindex) + "']" + "[usrHistoryObjectIndex='" + str(self.usrhistoryobjectindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/usrHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4108,7 +4221,7 @@ class RMON2MIB(Entity):
 
             class Usrhistoryvalstatus(Enum):
                 """
-                Usrhistoryvalstatus
+                Usrhistoryvalstatus (Enum Class)
 
                 This object indicates the validity and sign of the data in
 
@@ -4173,8 +4286,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"serialConfigEntry" : ("serialconfigentry", RMON2MIB.Serialconfigtable.Serialconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("serialConfigEntry", ("serialconfigentry", RMON2MIB.Serialconfigtable.Serialconfigentry))])
+            self._leafs = OrderedDict()
 
             self.serialconfigentry = YList(self)
             self._segment_path = lambda: "serialConfigTable"
@@ -4193,7 +4308,7 @@ class RMON2MIB(Entity):
             The index is composed of the ifIndex assigned to this serial
             line interface.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -4273,29 +4388,32 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "serialConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.serialmode = YLeaf(YType.enumeration, "serialMode")
-
-                self.serialprotocol = YLeaf(YType.enumeration, "serialProtocol")
-
-                self.serialtimeout = YLeaf(YType.int32, "serialTimeout")
-
-                self.serialmodeminitstring = YLeaf(YType.str, "serialModemInitString")
-
-                self.serialmodemhangupstring = YLeaf(YType.str, "serialModemHangUpString")
-
-                self.serialmodemconnectresp = YLeaf(YType.str, "serialModemConnectResp")
-
-                self.serialmodemnoconnectresp = YLeaf(YType.str, "serialModemNoConnectResp")
-
-                self.serialdialouttimeout = YLeaf(YType.int32, "serialDialoutTimeout")
-
-                self.serialstatus = YLeaf(YType.enumeration, "serialStatus")
-                self._segment_path = lambda: "serialConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('serialmode', YLeaf(YType.enumeration, 'serialMode')),
+                    ('serialprotocol', YLeaf(YType.enumeration, 'serialProtocol')),
+                    ('serialtimeout', YLeaf(YType.int32, 'serialTimeout')),
+                    ('serialmodeminitstring', YLeaf(YType.str, 'serialModemInitString')),
+                    ('serialmodemhangupstring', YLeaf(YType.str, 'serialModemHangUpString')),
+                    ('serialmodemconnectresp', YLeaf(YType.str, 'serialModemConnectResp')),
+                    ('serialmodemnoconnectresp', YLeaf(YType.str, 'serialModemNoConnectResp')),
+                    ('serialdialouttimeout', YLeaf(YType.int32, 'serialDialoutTimeout')),
+                    ('serialstatus', YLeaf(YType.enumeration, 'serialStatus')),
+                ])
+                self.ifindex = None
+                self.serialmode = None
+                self.serialprotocol = None
+                self.serialtimeout = None
+                self.serialmodeminitstring = None
+                self.serialmodemhangupstring = None
+                self.serialmodemconnectresp = None
+                self.serialmodemnoconnectresp = None
+                self.serialdialouttimeout = None
+                self.serialstatus = None
+                self._segment_path = lambda: "serialConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/serialConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4303,7 +4421,7 @@ class RMON2MIB(Entity):
 
             class Serialmode(Enum):
                 """
-                Serialmode
+                Serialmode (Enum Class)
 
                 The type of incoming connection to expect on this serial
 
@@ -4322,7 +4440,7 @@ class RMON2MIB(Entity):
 
             class Serialprotocol(Enum):
                 """
-                Serialprotocol
+                Serialprotocol (Enum Class)
 
                 The type of data link encapsulation to be used on this
 
@@ -4367,8 +4485,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"netConfigEntry" : ("netconfigentry", RMON2MIB.Netconfigtable.Netconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("netConfigEntry", ("netconfigentry", RMON2MIB.Netconfigtable.Netconfigentry))])
+            self._leafs = OrderedDict()
 
             self.netconfigentry = YList(self)
             self._segment_path = lambda: "netConfigTable"
@@ -4387,7 +4507,7 @@ class RMON2MIB(Entity):
             The index is composed of the ifIndex assigned to the
             corresponding interface.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -4429,17 +4549,20 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "netConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.netconfigipaddress = YLeaf(YType.str, "netConfigIPAddress")
-
-                self.netconfigsubnetmask = YLeaf(YType.str, "netConfigSubnetMask")
-
-                self.netconfigstatus = YLeaf(YType.enumeration, "netConfigStatus")
-                self._segment_path = lambda: "netConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('netconfigipaddress', YLeaf(YType.str, 'netConfigIPAddress')),
+                    ('netconfigsubnetmask', YLeaf(YType.str, 'netConfigSubnetMask')),
+                    ('netconfigstatus', YLeaf(YType.enumeration, 'netConfigStatus')),
+                ])
+                self.ifindex = None
+                self.netconfigipaddress = None
+                self.netconfigsubnetmask = None
+                self.netconfigstatus = None
+                self._segment_path = lambda: "netConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/netConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4469,8 +4592,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"trapDestEntry" : ("trapdestentry", RMON2MIB.Trapdesttable.Trapdestentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("trapDestEntry", ("trapdestentry", RMON2MIB.Trapdesttable.Trapdestentry))])
+            self._leafs = OrderedDict()
 
             self.trapdestentry = YList(self)
             self._segment_path = lambda: "trapDestTable"
@@ -4485,7 +4610,7 @@ class RMON2MIB(Entity):
             This entry includes a destination IP address to which to send
             traps for this community.
             
-            .. attribute:: trapdestindex  <key>
+            .. attribute:: trapdestindex  (key)
             
             	A value that uniquely identifies this trapDestEntry
             	**type**\: int
@@ -4535,21 +4660,24 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "trapDestTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.trapdestindex = YLeaf(YType.int32, "trapDestIndex")
-
-                self.trapdestcommunity = YLeaf(YType.str, "trapDestCommunity")
-
-                self.trapdestprotocol = YLeaf(YType.enumeration, "trapDestProtocol")
-
-                self.trapdestaddress = YLeaf(YType.str, "trapDestAddress")
-
-                self.trapdestowner = YLeaf(YType.str, "trapDestOwner")
-
-                self.trapdeststatus = YLeaf(YType.enumeration, "trapDestStatus")
-                self._segment_path = lambda: "trapDestEntry" + "[trapDestIndex='" + self.trapdestindex.get() + "']"
+                self.ylist_key_names = ['trapdestindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('trapdestindex', YLeaf(YType.int32, 'trapDestIndex')),
+                    ('trapdestcommunity', YLeaf(YType.str, 'trapDestCommunity')),
+                    ('trapdestprotocol', YLeaf(YType.enumeration, 'trapDestProtocol')),
+                    ('trapdestaddress', YLeaf(YType.str, 'trapDestAddress')),
+                    ('trapdestowner', YLeaf(YType.str, 'trapDestOwner')),
+                    ('trapdeststatus', YLeaf(YType.enumeration, 'trapDestStatus')),
+                ])
+                self.trapdestindex = None
+                self.trapdestcommunity = None
+                self.trapdestprotocol = None
+                self.trapdestaddress = None
+                self.trapdestowner = None
+                self.trapdeststatus = None
+                self._segment_path = lambda: "trapDestEntry" + "[trapDestIndex='" + str(self.trapdestindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/trapDestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4557,7 +4685,7 @@ class RMON2MIB(Entity):
 
             class Trapdestprotocol(Enum):
                 """
-                Trapdestprotocol
+                Trapdestprotocol (Enum Class)
 
                 The protocol with which to send this trap.
 
@@ -4596,8 +4724,10 @@ class RMON2MIB(Entity):
             self.yang_parent_name = "RMON2-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"serialConnectionEntry" : ("serialconnectionentry", RMON2MIB.Serialconnectiontable.Serialconnectionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("serialConnectionEntry", ("serialconnectionentry", RMON2MIB.Serialconnectiontable.Serialconnectionentry))])
+            self._leafs = OrderedDict()
 
             self.serialconnectionentry = YList(self)
             self._segment_path = lambda: "serialConnectionTable"
@@ -4611,7 +4741,7 @@ class RMON2MIB(Entity):
             """
             Configuration for a SLIP link over a serial line.
             
-            .. attribute:: serialconnectindex  <key>
+            .. attribute:: serialconnectindex  (key)
             
             	A value that uniquely identifies this serialConnection entry
             	**type**\: int
@@ -4684,27 +4814,30 @@ class RMON2MIB(Entity):
                 self.yang_parent_name = "serialConnectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.serialconnectindex = YLeaf(YType.int32, "serialConnectIndex")
-
-                self.serialconnectdestipaddress = YLeaf(YType.str, "serialConnectDestIpAddress")
-
-                self.serialconnecttype = YLeaf(YType.enumeration, "serialConnectType")
-
-                self.serialconnectdialstring = YLeaf(YType.str, "serialConnectDialString")
-
-                self.serialconnectswitchconnectseq = YLeaf(YType.str, "serialConnectSwitchConnectSeq")
-
-                self.serialconnectswitchdisconnectseq = YLeaf(YType.str, "serialConnectSwitchDisconnectSeq")
-
-                self.serialconnectswitchresetseq = YLeaf(YType.str, "serialConnectSwitchResetSeq")
-
-                self.serialconnectowner = YLeaf(YType.str, "serialConnectOwner")
-
-                self.serialconnectstatus = YLeaf(YType.enumeration, "serialConnectStatus")
-                self._segment_path = lambda: "serialConnectionEntry" + "[serialConnectIndex='" + self.serialconnectindex.get() + "']"
+                self.ylist_key_names = ['serialconnectindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('serialconnectindex', YLeaf(YType.int32, 'serialConnectIndex')),
+                    ('serialconnectdestipaddress', YLeaf(YType.str, 'serialConnectDestIpAddress')),
+                    ('serialconnecttype', YLeaf(YType.enumeration, 'serialConnectType')),
+                    ('serialconnectdialstring', YLeaf(YType.str, 'serialConnectDialString')),
+                    ('serialconnectswitchconnectseq', YLeaf(YType.str, 'serialConnectSwitchConnectSeq')),
+                    ('serialconnectswitchdisconnectseq', YLeaf(YType.str, 'serialConnectSwitchDisconnectSeq')),
+                    ('serialconnectswitchresetseq', YLeaf(YType.str, 'serialConnectSwitchResetSeq')),
+                    ('serialconnectowner', YLeaf(YType.str, 'serialConnectOwner')),
+                    ('serialconnectstatus', YLeaf(YType.enumeration, 'serialConnectStatus')),
+                ])
+                self.serialconnectindex = None
+                self.serialconnectdestipaddress = None
+                self.serialconnecttype = None
+                self.serialconnectdialstring = None
+                self.serialconnectswitchconnectseq = None
+                self.serialconnectswitchdisconnectseq = None
+                self.serialconnectswitchresetseq = None
+                self.serialconnectowner = None
+                self.serialconnectstatus = None
+                self._segment_path = lambda: "serialConnectionEntry" + "[serialConnectIndex='" + str(self.serialconnectindex) + "']"
                 self._absolute_path = lambda: "RMON2-MIB:RMON2-MIB/serialConnectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4712,7 +4845,7 @@ class RMON2MIB(Entity):
 
             class Serialconnecttype(Enum):
                 """
-                Serialconnecttype
+                Serialconnecttype (Enum Class)
 
                 The type of outgoing connection to make.  If this object
 

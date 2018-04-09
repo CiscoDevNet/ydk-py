@@ -1,632 +1,770 @@
 module Cisco-IOS-XR-ipv6-ospfv3-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ospfv3-cfg";
+  prefix ipv6-ospfv3-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-snmp-agent-cfg {
+    prefix a1;
+  }
 
-  prefix "ipv6-ospfv3-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-snmp-agent-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-ospfv3 package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        ospfv3: OSPFv3 configuration
-
+     
      This YANG module augments the
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-07-14" {
+  revision 2018-01-15 {
+    description
+      "Added naming-union to create sublist for distribute-out.";
+  }
+  revision 2017-11-01 {
+    description
+      "Removed external and summary LSA from rbit and v6bit container.";
+  }
+  revision 2017-07-14 {
     description
       "Trace buffer size enum name modified for intelligible.";
   }
-
-  revision "2017-06-09" {
+  revision 2017-06-09 {
     description
       "Datatype modified to Range for area id, route tag and redistribute tag.";
   }
-
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ospfv3-protocol {
     type enumeration {
-      enum all {
+      enum "all" {
         value 0;
-        description "All";
+        description
+          "All";
       }
-      enum connected {
+      enum "connected" {
         value 1;
-        description "Connected";
+        description
+          "Connected";
       }
-      enum static {
+      enum "static" {
         value 3;
-        description "Static";
+        description
+          "Static";
       }
-      enum bgp {
+      enum "bgp" {
         value 4;
-        description "BGP";
+        description
+          "BGP";
       }
-      enum isis {
+      enum "isis" {
         value 6;
-        description "ISIS";
+        description
+          "ISIS";
       }
-      enum ospfv3 {
+      enum "ospfv3" {
         value 7;
-        description "OSPFv3";
+        description
+          "OSPFv3";
       }
-      enum eigrp {
+      enum "eigrp" {
         value 8;
-        description "EIGRP";
+        description
+          "EIGRP";
       }
     }
-    description "Ospfv3 protocol";
+    description
+      "Ospfv3 protocol";
   }
+
   typedef Ospfv3-fast-reroute-tiebreakers {
     type enumeration {
-      enum downstream {
+      enum "downstream" {
         value 0;
-        description "Downstream";
+        description
+          "Downstream";
       }
-      enum line-card-disjoint {
+      enum "line-card-disjoint" {
         value 1;
-        description "LC Disjoint";
+        description
+          "LC Disjoint";
       }
-      enum lowest-metric {
+      enum "lowest-metric" {
         value 2;
-        description "Lowest metric";
+        description
+          "Lowest metric";
       }
-      enum node-protect {
+      enum "node-protect" {
         value 3;
-        description "Node protection";
+        description
+          "Node protection";
       }
-      enum primary-path {
+      enum "primary-path" {
         value 4;
-        description "Primary path";
+        description
+          "Primary path";
       }
-      enum secondary-path {
+      enum "secondary-path" {
         value 5;
-        description "Secondar path";
+        description
+          "Secondar path";
       }
-      enum srlg-disjoint {
+      enum "srlg-disjoint" {
         value 6;
-        description "SRLG";
+        description
+          "SRLG";
       }
     }
-    description "Ospfv3 fast reroute tiebreakers";
+    description
+      "Ospfv3 fast reroute tiebreakers";
   }
+
   typedef Ospfv3isis-route {
     type enumeration {
-      enum level1 {
+      enum "level1" {
         value 64;
-        description "IS-IS level-1 routes";
+        description
+          "IS-IS level-1 routes";
       }
-      enum level2 {
+      enum "level2" {
         value 128;
-        description "IS-IS level-2 routes";
+        description
+          "IS-IS level-2 routes";
       }
-      enum level1-and2 {
+      enum "level1-and2" {
         value 192;
-        description "IS-IS level-1 and level-2 routes";
+        description
+          "IS-IS level-1 and level-2 routes";
       }
     }
-    description "Ospfv3isis route";
+    description
+      "Ospfv3isis route";
   }
+
   typedef Ospfv3bfd-enable-mode {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 0;
-        description "Disable Mode - Prevent inheritance";
+        description
+          "Disable Mode - Prevent inheritance";
       }
-      enum default {
+      enum "default" {
         value 1;
-        description "Default Mode - Default BFD behavior";
+        description
+          "Default Mode - Default BFD behavior";
       }
-      enum strict {
+      enum "strict" {
         value 2;
         description
           "Strict Mode - Hold down adj until BFD sesion up";
       }
     }
-    description "Ospfv3bfd enable mode";
+    description
+      "Ospfv3bfd enable mode";
   }
+
   typedef Ospfv3-log-adj {
     type enumeration {
-      enum suppress {
+      enum "suppress" {
         value 0;
-        description "No output";
+        description
+          "No output";
       }
-      enum brief {
+      enum "brief" {
         value 1;
-        description "Limited output";
+        description
+          "Limited output";
       }
-      enum detail {
+      enum "detail" {
         value 2;
-        description "Verbose output";
+        description
+          "Verbose output";
       }
     }
-    description "Ospfv3 log adj";
+    description
+      "Ospfv3 log adj";
   }
+
   typedef Ospfv3-protocol-type2 {
     type enumeration {
-      enum connected {
+      enum "connected" {
         value 1;
-        description "Connected";
+        description
+          "Connected";
       }
-      enum static {
+      enum "static" {
         value 3;
-        description "Static";
+        description
+          "Static";
       }
-      enum bgp {
+      enum "bgp" {
         value 4;
-        description "BGP";
+        description
+          "BGP";
       }
-      enum isis {
+      enum "isis" {
         value 6;
-        description "ISIS";
+        description
+          "ISIS";
       }
-      enum ospfv3 {
+      enum "ospfv3" {
         value 7;
-        description "OSPFv3";
+        description
+          "OSPFv3";
       }
-      enum eigrp {
+      enum "eigrp" {
         value 8;
-        description "EIGRP";
+        description
+          "EIGRP";
       }
-      enum subscriber {
+      enum "subscriber" {
         value 9;
-        description "Subscriber";
+        description
+          "Subscriber";
       }
-      enum application {
+      enum "application" {
         value 10;
-        description "Application";
+        description
+          "Application";
       }
-      enum mobile {
+      enum "mobile" {
         value 11;
-        description "Mobile";
+        description
+          "Mobile";
       }
     }
-    description "Ospfv3 protocol type2";
+    description
+      "Ospfv3 protocol type2";
   }
+
   typedef Ospfv3-metric {
     type enumeration {
-      enum type1 {
+      enum "type1" {
         value 1;
-        description "OSPFv3 external type 1 metrics";
+        description
+          "OSPFv3 external type 1 metrics";
       }
-      enum type2 {
+      enum "type2" {
         value 2;
-        description "OSPFv3 external type 2 metrics";
+        description
+          "OSPFv3 external type 2 metrics";
       }
     }
-    description "Ospfv3 metric";
+    description
+      "Ospfv3 metric";
   }
+
   typedef Ospfv3-trace-buf-size {
     type enumeration {
-      enum size0 {
+      enum "size0" {
         value 0;
-        description "Disable trace";
+        description
+          "Disable trace";
       }
-      enum size256 {
+      enum "size256" {
         value 256;
-        description "trace buffer size 256";
+        description
+          "trace buffer size 256";
       }
-      enum size512 {
+      enum "size512" {
         value 512;
-        description "trace buffer size 512";
+        description
+          "trace buffer size 512";
       }
-      enum size1024 {
+      enum "size1024" {
         value 1024;
-        description "trace buffer size 1024";
+        description
+          "trace buffer size 1024";
       }
-      enum size2048 {
+      enum "size2048" {
         value 2048;
-        description "trace buffer size 2048";
+        description
+          "trace buffer size 2048";
       }
-      enum size4096 {
+      enum "size4096" {
         value 4096;
-        description "trace buffer size 4096";
+        description
+          "trace buffer size 4096";
       }
-      enum size8192 {
+      enum "size8192" {
         value 8192;
-        description "trace buffer size 8192";
+        description
+          "trace buffer size 8192";
       }
-      enum size16384 {
+      enum "size16384" {
         value 16384;
-        description "trace buffer size 16384";
+        description
+          "trace buffer size 16384";
       }
-      enum size32768 {
+      enum "size32768" {
         value 32768;
-        description "trace buffer size 32768";
+        description
+          "trace buffer size 32768";
       }
-      enum size65536 {
+      enum "size65536" {
         value 65536;
-        description "trace buffer size 65536";
+        description
+          "trace buffer size 65536";
       }
     }
-    description "Ospfv3 trace buf size";
+    description
+      "Ospfv3 trace buf size";
   }
+
   typedef Ospfv3-external-route {
     type enumeration {
-      enum external1 {
+      enum "external1" {
         value 8;
-        description "External type 1 routes";
+        description
+          "External type 1 routes";
       }
-      enum external2 {
+      enum "external2" {
         value 16;
-        description "External type 2 routes";
+        description
+          "External type 2 routes";
       }
-      enum external {
+      enum "external" {
         value 24;
-        description "External (type 1 and 2) routes";
+        description
+          "External (type 1 and 2) routes";
       }
     }
-    description "Ospfv3 external route";
+    description
+      "Ospfv3 external route";
   }
+
   typedef Ospfv3-subsequent-address-family {
     type enumeration {
-      enum unicast {
+      enum "unicast" {
         value 1;
-        description "Unicast subsequent address family";
+        description
+          "Unicast subsequent address family";
       }
     }
-    description "Ospfv3 subsequent address family";
+    description
+      "Ospfv3 subsequent address family";
   }
+
   typedef Ospfv3-internal-route {
     type enumeration {
-      enum internal {
+      enum "internal" {
         value 6;
-        description "OSPFv3 internal routes";
+        description
+          "OSPFv3 internal routes";
       }
     }
-    description "Ospfv3 internal route";
+    description
+      "Ospfv3 internal route";
   }
+
   typedef Ospfv3-fast-reroute {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "Disable";
+        description
+          "Disable";
       }
-      enum per-link {
+      enum "per-link" {
         value 1;
-        description "Per link";
+        description
+          "Per link";
       }
-      enum per-prefix {
+      enum "per-prefix" {
         value 2;
-        description "Per prefix";
+        description
+          "Per prefix";
       }
     }
-    description "Ospfv3 fast reroute";
+    description
+      "Ospfv3 fast reroute";
   }
+
   typedef Ospfv3-domain-id {
     type enumeration {
-      enum type0005 {
+      enum "type0005" {
         value 5;
-        description "Type 0x0005";
+        description
+          "Type 0x0005";
       }
-      enum type0105 {
+      enum "type0105" {
         value 261;
-        description "Type 0x0105";
+        description
+          "Type 0x0105";
       }
-      enum type0205 {
+      enum "type0205" {
         value 517;
-        description "Type 0x0205";
+        description
+          "Type 0x0205";
       }
-      enum type8005 {
+      enum "type8005" {
         value 32773;
-        description "Type 0x8005";
+        description
+          "Type 0x8005";
       }
     }
-    description "Ospfv3 domain id";
+    description
+      "Ospfv3 domain id";
   }
+
   typedef Ospfv3-authentication-type2 {
     type enumeration {
-      enum null {
+      enum "null" {
         value 0;
-        description "NULL authentication";
+        description
+          "NULL authentication";
       }
-      enum md5 {
+      enum "md5" {
         value 1;
-        description "MD5 algorithm";
+        description
+          "MD5 algorithm";
       }
-      enum sha1 {
+      enum "sha1" {
         value 2;
-        description "SHA1 algorithm";
+        description
+          "SHA1 algorithm";
       }
     }
-    description "Ospfv3 authentication type2";
+    description
+      "Ospfv3 authentication type2";
   }
+
   typedef Ospfv3-address-family {
     type enumeration {
-      enum ipv6 {
+      enum "ipv6" {
         value 1;
-        description "IPv6 address family";
+        description
+          "IPv6 address family";
       }
     }
-    description "Ospfv3 address family";
+    description
+      "Ospfv3 address family";
   }
+
   typedef Ospfv3-authentication {
     type enumeration {
-      enum md5 {
+      enum "md5" {
         value 1;
-        description "MD5 algorithm";
+        description
+          "MD5 algorithm";
       }
-      enum sha1 {
+      enum "sha1" {
         value 2;
-        description "SHA1 algorithm";
+        description
+          "SHA1 algorithm";
       }
     }
-    description "Ospfv3 authentication";
+    description
+      "Ospfv3 authentication";
   }
+
   typedef Ospfv3-encryption-algorithm {
     type enumeration {
-      enum null {
+      enum "null" {
         value 0;
-        description "Use NULL encryption";
+        description
+          "Use NULL encryption";
       }
-      enum des {
+      enum "des" {
         value 1;
-        description "Use the DES algorithm";
+        description
+          "Use the DES algorithm";
       }
-      enum 3des {
+      enum "3des" {
         value 2;
-        description "Use the triple DES algorithm";
+        description
+          "Use the triple DES algorithm";
       }
-      enum aes {
+      enum "aes" {
         value 3;
-        description "Use the AES algorithm";
+        description
+          "Use the AES algorithm";
       }
-      enum aes192 {
+      enum "aes192" {
         value 4;
-        description "Use the 192-bit AES algorithm";
+        description
+          "Use the 192-bit AES algorithm";
       }
-      enum aes256 {
+      enum "aes256" {
         value 5;
-        description "Use the 256-bit AES algorithm";
+        description
+          "Use the 256-bit AES algorithm";
       }
     }
-    description "Ospfv3 encryption algorithm";
+    description
+      "Ospfv3 encryption algorithm";
   }
+
   typedef Ospfv3nsr {
     type enumeration {
-      enum true {
+      enum "true" {
         value 1;
-        description "Enable non-stop routing";
+        description
+          "Enable non-stop routing";
       }
-      enum false {
+      enum "false" {
         value 2;
-        description "Disable non-stop routing";
+        description
+          "Disable non-stop routing";
       }
     }
-    description "Ospfv3nsr";
+    description
+      "Ospfv3nsr";
   }
+
   typedef Ospfv3nssa-external-route {
     type enumeration {
-      enum external1 {
+      enum "external1" {
         value 4096;
-        description "NSSA external type 1 routes";
+        description
+          "NSSA external type 1 routes";
       }
-      enum external2 {
+      enum "external2" {
         value 8192;
-        description "NSSA external type 2 routes";
+        description
+          "NSSA external type 2 routes";
       }
-      enum external {
+      enum "external" {
         value 12288;
-        description "NSSA external (type 1 and 2) routes";
+        description
+          "NSSA external (type 1 and 2) routes";
       }
     }
-    description "Ospfv3nssa external route";
+    description
+      "Ospfv3nssa external route";
   }
+
   typedef Ospfv3-eigrp-route {
     type enumeration {
-      enum internal {
+      enum "internal" {
         value 16384;
-        description "EIGRP internal routes";
+        description
+          "EIGRP internal routes";
       }
-      enum external {
+      enum "external" {
         value 32768;
-        description "EIGRP external routes";
+        description
+          "EIGRP external routes";
       }
     }
-    description "Ospfv3 eigrp route";
+    description
+      "Ospfv3 eigrp route";
   }
+
   typedef Ospfv3-fast-reroute-priority {
     type enumeration {
-      enum critical {
+      enum "critical" {
         value 0;
-        description "Critical";
+        description
+          "Critical";
       }
-      enum high {
+      enum "high" {
         value 1;
-        description "High";
+        description
+          "High";
       }
-      enum medium {
+      enum "medium" {
         value 2;
-        description "Medium";
+        description
+          "Medium";
       }
-      enum low {
+      enum "low" {
         value 3;
-        description "Low";
+        description
+          "Low";
       }
     }
-    description "Ospfv3 fast reroute priority";
+    description
+      "Ospfv3 fast reroute priority";
   }
+
   typedef Ospfv3-network {
     type enumeration {
-      enum broadcast {
+      enum "broadcast" {
         value 1;
-        description "Broadcast multi-access network";
+        description
+          "Broadcast multi-access network";
       }
-      enum non-broadcast {
+      enum "non-broadcast" {
         value 2;
-        description "Non-broadcast multi-access network";
+        description
+          "Non-broadcast multi-access network";
       }
-      enum point-to-point {
+      enum "point-to-point" {
         value 3;
-        description "Point-to-point network";
+        description
+          "Point-to-point network";
       }
-      enum point-to-multipoint {
+      enum "point-to-multipoint" {
         value 4;
-        description "Point-to-multipoint network";
+        description
+          "Point-to-multipoint network";
       }
-      enum non-broadcast-point-to-multipoint {
+      enum "non-broadcast-point-to-multipoint" {
         value 5;
-        description "Non-broadcast point-to-multipoint network";
+        description
+          "Non-broadcast point-to-multipoint network";
       }
     }
-    description "Ospfv3 network";
+    description
+      "Ospfv3 network";
   }
 
   grouping REDISTRIBUTE-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container redistributes {
       description
         "Redistribute information from another routing
-        protocol";
-
+         protocol";
       list redistribute {
-        must "connected-or-static-or-subscriber-or-mobile or bgp or"+
-          " ospfv3-or-isis-or-application or eigrp" {
+        must "connected-or-static-or-subscriber-or-mobile or bgp or ospfv3-or-isis-or-application or eigrp" {
           description
             "Connected-or-Static-or-Subscriber-or-Mobile or
-            BGP or OSPFv3-or-ISIS-or-Application or EIGRP
-            must be present.";
+             BGP or OSPFv3-or-ISIS-or-Application or EIGRP
+             must be present.";
         }
         key "protocol-name";
         description
           "Redistribute information from another routing
-          protocol";
+           protocol";
 
         grouping REDISTRIBUTE-CONTENT {
-          description "REDISTRIBUTE CONTENT";
+          description
+            "REDISTRIBUTE CONTENT";
           leaf internal-route-type {
             type Ospfv3-internal-route;
-            description "Redistribute OSPFv3 routes";
+            description
+              "Redistribute OSPFv3 routes";
           }
           leaf default-metric {
             type uint32 {
               range "0..16777214";
             }
-            description "OSPFv3 default metric";
+            description
+              "OSPFv3 default metric";
           }
           leaf metric-type {
             type Ospfv3-metric;
             description
               "OSPFv3 exterior metric type for redistributed
-              routes";
+               routes";
           }
           leaf tag {
             type uint32 {
               range "0..4294967295";
             }
-            description "Tag for routes redistributed into OSPFv3";
+            description
+              "Tag for routes redistributed into OSPFv3";
           }
           leaf route-policy-name {
             type string;
-            description "Route policy to redistribution";
+            description
+              "Route policy to redistribution";
           }
           leaf external-route-type {
             type Ospfv3-external-route;
-            description "Redistribute OSPFv3 external routes";
+            description
+              "Redistribute OSPFv3 external routes";
           }
           leaf nssa-external-route-type {
             type Ospfv3nssa-external-route;
-            description "Redistribute OSPFv3 NSSA external routes";
+            description
+              "Redistribute OSPFv3 NSSA external routes";
           }
           leaf redistribute-route {
             type boolean;
-            description "Redistribution of OSPFv3 routes";
+            description
+              "Redistribution of OSPFv3 routes";
           }
           leaf isis-route-type {
             type Ospfv3isis-route;
-            description "ISIS route type";
+            description
+              "ISIS route type";
           }
           leaf eigrp-route-type {
             type Ospfv3-eigrp-route;
-            description "EIGRP route type";
+            description
+              "EIGRP route type";
           }
           leaf preserve-med {
             type empty;
             description
               "Preserve (Multi-Exit Discriminator) of BGP
-              routes";
+               routes";
           }
           leaf preserve-med-info {
             type empty;
             description
               "Preserve Information (Multi-Exit
-              Discriminator) of BGP routes";
+               Discriminator) of BGP routes";
+          }
+          leaf use-rib-metric {
+            type boolean;
+            description
+              "Use metric from RIB for redistributed routes";
           }
         }
-
         container connected-or-static-or-subscriber-or-mobile {
-          when "../protocol-name = 'connected' or"+
-            " ../protocol-name = 'static' or ../protocol-name ="+
-            " 'subscriber' or ../protocol-name = 'mobile'" {
-              description
-                "../ProtocolName = Connected or .
-                ./ProtocolName = Static or ../ProtocolName =
-                Subscriber or ../ProtocolName = Mobile";
+          when "../protocol-name = 'connected' or ../protocol-name = 'static' or ../protocol-name = 'subscriber' or ../protocol-name = 'mobile'" {
+            description
+              "../ProtocolName = Connected or .
+               ./ProtocolName = Static or ../ProtocolName =
+               Subscriber or ../ProtocolName = Mobile";
           }
           presence "Indicates that this node is configured.";
-          description "connected or static or subscriber or mobile";
+          description
+            "connected or static or subscriber or mobile";
           uses REDISTRIBUTE-CONTENT;
         }
         leaf protocol-name {
           type Ospfv3-protocol-type2;
-          description "Protocol";
+          description
+            "Protocol";
         }
-
         list bgp {
           when "../protocol-name = 'bgp'" {
-            description "../ProtocolName = BGP";
+            description
+              "../ProtocolName = BGP";
           }
           key "as-xx as-yy";
-          description "bgp";
+          description
+            "bgp";
           leaf as-xx {
             type uint32 {
               range "0..65535";
             }
             description
               "4-byte AS number in asdot (X.Y) format -
-              first half (X)";
+               first half (X)";
           }
           leaf as-yy {
             type uint32 {
@@ -634,43 +772,43 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
             description
               "4-byte AS number in asdot (X.Y) format -
-              second half (Y), or 2-byte AS number, or
-              4-byte AS number in asplain format";
+               second half (Y), or 2-byte AS number, or
+               4-byte AS number in asplain format";
           }
           uses REDISTRIBUTE-CONTENT;
         }
-
         list ospfv3-or-isis-or-application {
-          when "../protocol-name = 'ospfv3' or ../protocol-name ="+
-            " 'isis' or ../protocol-name = 'application'" {
-              description
-                "../ProtocolName = OSPFv3 or ../ProtocolName
-                = ISIS or ../ProtocolName = Application";
+          when "../protocol-name = 'ospfv3' or ../protocol-name = 'isis' or ../protocol-name = 'application'" {
+            description
+              "../ProtocolName = OSPFv3 or ../ProtocolName
+               = ISIS or ../ProtocolName = Application";
           }
           key "process-name";
-          description "ospfv3 or isis or application";
+          description
+            "ospfv3 or isis or application";
           leaf process-name {
             type xr:Cisco-ios-xr-string;
             description
               "ISIS process name if protocol is ISIS, or
-              OSPFv3 process name if protocol is OSPFv3";
+               OSPFv3 process name if protocol is OSPFv3";
           }
           uses REDISTRIBUTE-CONTENT;
         }
-
         list eigrp {
           when "../protocol-name = 'eigrp'" {
-            description "../ProtocolName = EIGRP";
+            description
+              "../ProtocolName = EIGRP";
           }
           key "as-xx";
-          description "eigrp";
+          description
+            "eigrp";
           leaf as-xx {
             type uint32 {
               range "0..65535";
             }
             description
               "4-byte AS number in asdot (X.Y) format -
-              first half (X)";
+               first half (X)";
           }
           uses REDISTRIBUTE-CONTENT;
         }
@@ -679,24 +817,27 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   }
 
   grouping DISTANCE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container distance {
-      description "Define an administrative distance";
-
+      description
+        "Define an administrative distance";
       container ospfv3 {
-        description "OSPFv3 administrative distance";
+        description
+          "OSPFv3 administrative distance";
         leaf intra-area {
           type uint32 {
             range "1..255";
           }
-          description "Distance for intra-area routes";
+          description
+            "Distance for intra-area routes";
         }
         leaf inter-area {
           type uint32 {
             range "1..255";
           }
-          description "Distance for inter-area routes";
+          description
+            "Distance for inter-area routes";
         }
         leaf external {
           type uint32 {
@@ -710,21 +851,25 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         type uint32 {
           range "1..255";
         }
-        description "Define an administrative distance";
+        description
+          "Define an administrative distance";
       }
     }
   }
 
   grouping DEMAND-CIRCUIT {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf demand-circuit {
       type boolean;
-      description "Enable/disable demand circuit operation";
+      description
+        "Enable/disable demand circuit operation";
     }
   }
 
   grouping ON-PROC-RESTART {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, v6bit, max-metric";
     leaf on-proc-restart {
       type uint32 {
         range "5..86400";
@@ -732,72 +877,81 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       units "second";
       description
         "Time (in seconds) to stay in stub router
-        operational state";
+         operational state";
     }
   }
 
   grouping EXCLUDE-INTERFACE-TABLE {
-    description "Common node of per-link, per-prefix";
-
+    description
+      "Common node of per-link, per-prefix";
     container exclude-interfaces {
       description
         "Fast-reroute per-link/per-prefix exclude
-        interface configuration";
-
+         interface configuration";
       list exclude-interface {
         key "interface-name";
-        description "Exclude an interface from becoming a backup";
+        description
+          "Exclude an interface from becoming a backup";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface";
+          description
+            "Interface";
         }
       }
     }
   }
 
   grouping TRANSMIT-DELAY {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf transmit-delay {
       type uint32 {
         range "1..65535";
       }
       units "second";
-      description "Specify the transmit delay in seconds";
+      description
+        "Specify the transmit delay in seconds";
     }
   }
 
   grouping PASSIVE {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf passive {
       type boolean;
-      description "Enable/disable routing updates on an interface";
+      description
+        "Enable/disable routing updates on an interface";
     }
   }
 
   grouping ALWAYS {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, v6bit, max-metric";
     leaf always {
       type empty;
       description
         "Unconditionally enter stub router operational
-        state";
+         state";
     }
   }
 
   grouping AREA-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container area-addresses {
-      description "Area configuration";
+      description
+        "Area configuration";
 
       grouping AREA-CONTENT {
-        description "AREA CONTENT";
-
+        description
+          "AREA CONTENT";
         container authentication {
-          description "Authenticate OSPFv3 packets";
+          description
+            "Authenticate OSPFv3 packets";
           leaf enable {
             type boolean;
-            description "Authenticate packets";
+            description
+              "Authenticate packets";
           }
           leaf spi {
             type uint32 {
@@ -805,74 +959,83 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
             description
               "Use IPSec AH authentication. Specify the
-              Security Parameter Index (SPI) value";
+               Security Parameter Index (SPI) value";
           }
           leaf algorithm {
             type Ospfv3-authentication;
-            description "Use the MD5 or SHA1 algorithm";
+            description
+              "Use the MD5 or SHA1 algorithm";
           }
           leaf password {
             type xr:Proprietary-password;
-            description "Specify MD5 or SHA1 password";
+            description
+              "Specify MD5 or SHA1 password";
           }
         }
-
         container bfd {
-          description "Configure BFD parameters";
+          description
+            "Configure BFD parameters";
           leaf detection-multiplier {
             type uint32 {
               range "2..50";
             }
-            description "Detect multiplier";
+            description
+              "Detect multiplier";
           }
           leaf interval {
             type uint32 {
               range "3..30000";
             }
             units "millisecond";
-            description "Hello interval in milli-seconds";
+            description
+              "Hello interval in milli-seconds";
           }
           leaf fast-detect-mode {
             type Ospfv3bfd-enable-mode;
-            description "Enable or disable BFD fast detection";
+            description
+              "Enable or disable BFD fast detection";
           }
         }
-
         container ranges {
-          description "Range configuration";
-
+          description
+            "Range configuration";
           list range {
             key "prefix prefix-length";
             description
               "Summarize inter-area routes matching
-              prefix/length";
+               prefix/length";
             leaf prefix {
               type inet:ipv6-address-no-zone;
-              description "IPv6 prefix format";
+              description
+                "IPv6 prefix format";
             }
             leaf prefix-length {
               type xr:Ipv6-prefix-length;
-              description "IPV6 prefix length";
+              description
+                "IPV6 prefix length";
             }
             leaf not-advertise {
               type boolean;
               default "false";
-              description "Do not advertise address range";
+              description
+                "Do not advertise address range";
             }
             leaf cost {
               type uint32 {
                 range "1..16777214";
               }
-              description "Specified metric for this range";
+              description
+                "Specified metric for this range";
             }
           }
         }
-
         container encryption {
-          description "Encrypt and authenticate OSPFv3 packets";
+          description
+            "Encrypt and authenticate OSPFv3 packets";
           leaf enable {
             type boolean;
-            description "Authenticate packets";
+            description
+              "Authenticate packets";
           }
           leaf spi {
             type uint32 {
@@ -880,73 +1043,82 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
             description
               "Use IPSec ESP authentication. Specify the
-              Security Parameter Index (SPI) value";
+               Security Parameter Index (SPI) value";
           }
           leaf encryption-algorithm {
             type Ospfv3-encryption-algorithm;
-            description "Specify the encryption algorithm";
+            description
+              "Specify the encryption algorithm";
           }
           leaf encryption-password {
             type xr:Proprietary-password;
-            description "Encryption password";
+            description
+              "Encryption password";
           }
           leaf authentication-algorithm {
             type Ospfv3-authentication-type2;
-            description "Use the NULL, MD5 or SHA1 algorithm";
+            description
+              "Use the NULL, MD5 or SHA1 algorithm";
           }
           leaf authentication-password {
             type xr:Proprietary-password;
-            description "Specify MD5 or SHA1 password";
+            description
+              "Specify MD5 or SHA1 password";
           }
         }
-
         container nssa {
           description
             "Specify area as a NSSA area.  Allowed only in
-            non-backbone areas";
+             non-backbone areas";
           leaf no-redistribution {
             type boolean;
             default "false";
-            description "No redistribution into this NSSA area";
+            description
+              "No redistribution into this NSSA area";
           }
           leaf default-info-originate {
             type boolean;
             default "false";
-            description "Originate Type 7 default into NSSA area";
+            description
+              "Originate Type 7 default into NSSA area";
           }
           leaf metric {
             type uint32 {
               range "0..16777214";
             }
-            description "Only valid with DefaultInfoOriginate";
+            description
+              "Only valid with DefaultInfoOriginate";
           }
           leaf metric-type {
             type Ospfv3-metric;
-            description "Only valid with DefaultInfoOriginate";
+            description
+              "Only valid with DefaultInfoOriginate";
           }
           leaf no-summary {
             type empty;
-            description "Do not send summary LSA into NSSA";
+            description
+              "Do not send summary LSA into NSSA";
           }
         }
-
         container database-filter {
-          description "Database filter";
-
+          description
+            "Database filter";
           container all {
-            description "All";
+            description
+              "All";
             leaf out {
               type boolean;
-              description "Enable or disable database-filter";
+              description
+                "Enable or disable database-filter";
             }
           }
         }
-
         container distribute-list {
-          description "Filter prefixes to/from RIB";
-
+          description
+            "Filter prefixes to/from RIB";
           container in {
-            description "Filter prefixes installed to RIB";
+            description
+              "Filter prefixes installed to RIB";
             leaf prefix-list {
               type string;
               description
@@ -954,19 +1126,20 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
           }
         }
-
         container interfaces {
-          description "OSPFv3 interfaces";
-
+          description
+            "OSPFv3 interfaces";
           list interface {
             key "interface-name";
-            description "OSPFv3 interface";
-
+            description
+              "OSPFv3 interface";
             container authentication {
-              description "Authenticate OSPFv3 packets";
+              description
+                "Authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -974,27 +1147,30 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec AH authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf algorithm {
                 type Ospfv3-authentication;
-                description "Use the MD5 or SHA1 algorithm";
+                description
+                  "Use the MD5 or SHA1 algorithm";
               }
               leaf password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
-
             container neighbors {
-              description "Specify a neighbor router";
-
+              description
+                "Specify a neighbor router";
               list neighbor {
                 key "neighbor-address";
-                description "IPv6 address";
+                description
+                  "IPv6 address";
                 leaf neighbor-address {
                   type xr:Cisco-ios-xr-string;
-                  description "IPV6 address";
+                  description
+                    "IPV6 address";
                 }
                 leaf priority {
                   type uint32 {
@@ -1010,7 +1186,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                   units "second";
                   description
                     "OSPFv3 dead-router polling interval (in
-                    seconds)";
+                     seconds)";
                 }
                 leaf cost {
                   type uint32 {
@@ -1018,27 +1194,29 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                   }
                   description
                     "OSPFv3 cost for point-to-multipoint
-                    neighbor";
+                     neighbor";
                 }
                 leaf database-filter {
                   type boolean;
                   description
                     "Filter OSPFv3 LSA during synchronization
-                    and flooding for point-to-multipoint
-                    neighbor";
+                     and flooding for point-to-multipoint
+                     neighbor";
                 }
                 leaf zone {
                   type string;
-                  description "Zone";
+                  description
+                    "Zone";
                 }
               }
             }
-
             container encryption {
-              description "Encrypt and authenticate OSPFv3 packets";
+              description
+                "Encrypt and authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -1046,75 +1224,84 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec ESP authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf encryption-algorithm {
                 type Ospfv3-encryption-algorithm;
-                description "Specify the encryption algorithm";
+                description
+                  "Specify the encryption algorithm";
               }
               leaf encryption-password {
                 type xr:Proprietary-password;
-                description "Encryption password";
+                description
+                  "Encryption password";
               }
               leaf authentication-algorithm {
                 type Ospfv3-authentication-type2;
-                description "Use the NULL, MD5 or SHA1 algorithm";
+                description
+                  "Use the NULL, MD5 or SHA1 algorithm";
               }
               leaf authentication-password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
-
             container bfd {
-              description "Configure BFD parameters";
+              description
+                "Configure BFD parameters";
               leaf interval {
                 type uint32 {
                   range "3..30000";
                 }
                 units "millisecond";
-                description "Hello interval in milli-seconds";
+                description
+                  "Hello interval in milli-seconds";
               }
               leaf fast-detect-mode {
                 type Ospfv3bfd-enable-mode;
-                description "Enable or disable BFD fast detection";
+                description
+                  "Enable or disable BFD fast detection";
               }
               leaf detection-multiplier {
                 type uint32 {
                   range "2..50";
                 }
-                description "Detect multiplier";
+                description
+                  "Detect multiplier";
               }
             }
-
             container database-filter {
-              description "Database filter";
-
+              description
+                "Database filter";
               container all {
-                description "All";
+                description
+                  "All";
                 leaf out {
                   type boolean;
-                  description "Enable or disable database-filter";
+                  description
+                    "Enable or disable database-filter";
                 }
               }
             }
-
             container distribute-list {
-              description "Filter prefixes to/from RIB";
-
+              description
+                "Filter prefixes to/from RIB";
               container in {
-                description "Filter prefixes installed to RIB";
+                description
+                  "Filter prefixes installed to RIB";
                 leaf prefix-list {
                   type string;
                   description
                     "Filter prefixes based on an IPv6
-                    prefix-list";
+                     prefix-list";
                 }
               }
             }
             leaf enable {
               type empty;
-              description "Enable OSPFv3 interface";
+              description
+                "Enable OSPFv3 interface";
             }
             leaf dead-interval {
               type uint32 {
@@ -1123,40 +1310,45 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               units "second";
               description
                 "Interval after which a neighbor is declared
-                dead (in seconds)";
+                 dead (in seconds)";
             }
             leaf flood-reduction {
               type boolean;
-              description "Enable/disable flood reduction";
+              description
+                "Enable/disable flood reduction";
             }
             leaf cost {
               type uint32 {
                 range "1..65535";
               }
-              description "Interface cost";
+              description
+                "Interface cost";
             }
             leaf transmit-delay {
               type uint32 {
                 range "1..65535";
               }
               units "second";
-              description "Specify the transmit delay in seconds";
+              description
+                "Specify the transmit delay in seconds";
             }
             leaf instance {
               type uint32 {
                 range "0..255";
               }
-              description "Instance ID";
+              description
+                "Instance ID";
             }
             leaf ldp-sync {
               type boolean;
-              description "Enable/Disable MPLS LDP sync";
+              description
+                "Enable/Disable MPLS LDP sync";
             }
             leaf mtu-ignore {
               type boolean;
               description
                 "Enable/disable ignoring of MTU in DBD
-                packets";
+                 packets";
             }
             leaf retransmit-interval {
               type uint32 {
@@ -1171,65 +1363,72 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 range "1..65535";
               }
               units "second";
-              description "Time between HELLO packets";
+              description
+                "Time between HELLO packets";
             }
             leaf passive {
               type boolean;
               description
                 "Enable/disable routing updates on an
-                interface";
+                 interface";
             }
             leaf packet-size {
               type uint32 {
                 range "256..10000";
               }
-              description "Limit size of OSPFv3 packets";
+              description
+                "Limit size of OSPFv3 packets";
             }
             leaf prefix-suppression {
               type boolean;
               description
                 "Enable/disable prefix suppression on an
-                interface";
+                 interface";
             }
             leaf priority {
               type uint32 {
                 range "0..255";
               }
-              description "Specify router priority";
+              description
+                "Specify router priority";
             }
             leaf network {
               type Ospfv3-network;
-              description "Specify network type";
+              description
+                "Specify network type";
             }
             leaf demand-circuit {
               type boolean;
-              description "Enable/disable demand circuit operation";
+              description
+                "Enable/disable demand circuit operation";
             }
             leaf interface-name {
               type xr:Interface-name;
-              description "Interface to configure";
+              description
+                "Interface to configure";
             }
             uses IPV6-OSPFV3-INTFOBJ-CFG-FAST-REROUTE;
           }
         }
-
         container area-scope {
-          description "Area Scope Configuration";
+          description
+            "Area Scope Configuration";
           uses IPV6-OSPFV3-INTFOBJ-CFG-FAST-REROUTE;
         }
-
         container sham-links {
-          description "Sham Link sub-mode";
-
+          description
+            "Sham Link sub-mode";
           list sham-link {
             key "source-address destination-address";
-            description "ShamLink local and remote endpoints";
-
+            description
+              "ShamLink local and remote endpoints";
             container authentication {
-              description "Authenticate OSPFv3 packets";
+              description
+                "Authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -1237,23 +1436,26 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec AH authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf algorithm {
                 type Ospfv3-authentication;
-                description "Use the MD5 or SHA1 algorithm";
+                description
+                  "Use the MD5 or SHA1 algorithm";
               }
               leaf password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
-
             container encryption {
-              description "Encrypt and authenticate OSPFv3 packets";
+              description
+                "Encrypt and authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -1261,35 +1463,41 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec ESP authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf encryption-algorithm {
                 type Ospfv3-encryption-algorithm;
-                description "Specify the encryption algorithm";
+                description
+                  "Specify the encryption algorithm";
               }
               leaf encryption-password {
                 type xr:Proprietary-password;
-                description "Encryption password";
+                description
+                  "Encryption password";
               }
               leaf authentication-algorithm {
                 type Ospfv3-authentication-type2;
-                description "Use the NULL, MD5 or SHA1 algorithm";
+                description
+                  "Use the NULL, MD5 or SHA1 algorithm";
               }
               leaf authentication-password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
             leaf enable {
               type empty;
-              description "Enable sham link";
+              description
+                "Enable sham link";
             }
             leaf hello-interval {
               type uint32 {
                 range "1..65535";
               }
               units "second";
-              description "Time between HELLO packets";
+              description
+                "Time between HELLO packets";
             }
             leaf dead-interval {
               type uint32 {
@@ -1298,7 +1506,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               units "second";
               description
                 "Interval after which a neighbor is declared
-                dead (in seconds)";
+                 dead (in seconds)";
             }
             leaf retransmit-interval {
               type uint32 {
@@ -1313,31 +1521,35 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 range "1..65535";
               }
               units "second";
-              description "Specify the transmit delay in seconds";
+              description
+                "Specify the transmit delay in seconds";
             }
             leaf source-address {
               type inet:ipv6-address-no-zone;
-              description "Local sham-link endpoint";
+              description
+                "Local sham-link endpoint";
             }
             leaf destination-address {
               type inet:ipv6-address-no-zone;
-              description "Remote sham-link endpoint";
+              description
+                "Remote sham-link endpoint";
             }
           }
         }
-
         container virtual-links {
-          description "Virtual link sub-mode";
-
+          description
+            "Virtual link sub-mode";
           list virtual-link {
             key "virtual-link-address";
-            description "Router ID of virtual link neighbor";
-
+            description
+              "Router ID of virtual link neighbor";
             container authentication {
-              description "Authenticate OSPFv3 packets";
+              description
+                "Authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -1345,23 +1557,26 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec AH authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf algorithm {
                 type Ospfv3-authentication;
-                description "Use the MD5 or SHA1 algorithm";
+                description
+                  "Use the MD5 or SHA1 algorithm";
               }
               leaf password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
-
             container encryption {
-              description "Encrypt and authenticate OSPFv3 packets";
+              description
+                "Encrypt and authenticate OSPFv3 packets";
               leaf enable {
                 type boolean;
-                description "Authenticate packets";
+                description
+                  "Authenticate packets";
               }
               leaf spi {
                 type uint32 {
@@ -1369,35 +1584,41 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 }
                 description
                   "Use IPSec ESP authentication. Specify the
-                  Security Parameter Index (SPI) value";
+                   Security Parameter Index (SPI) value";
               }
               leaf encryption-algorithm {
                 type Ospfv3-encryption-algorithm;
-                description "Specify the encryption algorithm";
+                description
+                  "Specify the encryption algorithm";
               }
               leaf encryption-password {
                 type xr:Proprietary-password;
-                description "Encryption password";
+                description
+                  "Encryption password";
               }
               leaf authentication-algorithm {
                 type Ospfv3-authentication-type2;
-                description "Use the NULL, MD5 or SHA1 algorithm";
+                description
+                  "Use the NULL, MD5 or SHA1 algorithm";
               }
               leaf authentication-password {
                 type xr:Proprietary-password;
-                description "Specify MD5 or SHA1 password";
+                description
+                  "Specify MD5 or SHA1 password";
               }
             }
             leaf enable {
               type empty;
-              description "Enabled virtual link";
+              description
+                "Enabled virtual link";
             }
             leaf hello-interval {
               type uint32 {
                 range "1..65535";
               }
               units "second";
-              description "Time between HELLO packets";
+              description
+                "Time between HELLO packets";
             }
             leaf dead-interval {
               type uint32 {
@@ -1406,7 +1627,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               units "second";
               description
                 "Interval after which a neighbor is declared
-                dead (in seconds)";
+                 dead (in seconds)";
             }
             leaf retransmit-interval {
               type uint32 {
@@ -1421,11 +1642,13 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
                 range "1..65535";
               }
               units "second";
-              description "Specify the transmit delay in seconds";
+              description
+                "Specify the transmit delay in seconds";
             }
             leaf virtual-link-address {
               type inet:ipv4-address-no-zone;
-              description "Router ID of virtual link neighbor";
+              description
+                "Router ID of virtual link neighbor";
             }
           }
         }
@@ -1433,39 +1656,44 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           type boolean;
           description
             "Specify area as a stub area.  Allowed only in
-            non-backbone areas";
+             non-backbone areas";
         }
         leaf packet-size {
           type uint32 {
             range "256..10000";
           }
-          description "Limit size of OSPFv3 packets";
+          description
+            "Limit size of OSPFv3 packets";
         }
         leaf instance {
           type uint32 {
             range "0..255";
           }
-          description "Instance ID";
+          description
+            "Instance ID";
         }
         leaf demand-circuit {
           type boolean;
-          description "Enable/disable demand circuit operation";
+          description
+            "Enable/disable demand circuit operation";
         }
         leaf priority {
           type uint32 {
             range "0..255";
           }
-          description "Specify router priority";
+          description
+            "Specify router priority";
         }
         leaf prefix-suppression {
           type boolean;
           description
             "Enable/disable prefix suppression on an
-            interface";
+             interface";
         }
         leaf enable {
           type empty;
-          description "Enable OSPFv3 area";
+          description
+            "Enable OSPFv3 area";
         }
         leaf mtu-ignore {
           type boolean;
@@ -1482,7 +1710,8 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             range "1..65535";
           }
           units "second";
-          description "Time between HELLO packets";
+          description
+            "Time between HELLO packets";
         }
         leaf dead-interval {
           type uint32 {
@@ -1491,7 +1720,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           units "second";
           description
             "Interval after which a neighbor is declared
-            dead (in seconds)";
+             dead (in seconds)";
         }
         leaf default-cost {
           type uint32 {
@@ -1499,60 +1728,68 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           }
           description
             "Set the summary default-cost of a NSSA/stub
-            area";
+             area";
         }
         leaf flood-reduction {
           type boolean;
-          description "Enable/disable flood reduction";
+          description
+            "Enable/disable flood reduction";
         }
         leaf retransmit-interval {
           type uint32 {
             range "1..65535";
           }
           units "second";
-          description "Specify the transmit interval in seconds";
+          description
+            "Specify the transmit interval in seconds";
         }
         leaf ldp-sync {
           type boolean;
-          description "Enable/Disable MPLS LDP sync";
+          description
+            "Enable/Disable MPLS LDP sync";
         }
         leaf network {
           type Ospfv3-network;
-          description "Specify network type";
+          description
+            "Specify network type";
         }
         leaf transmit-delay {
           type uint32 {
             range "1..65535";
           }
           units "second";
-          description "Specify the transmit delay in seconds";
+          description
+            "Specify the transmit delay in seconds";
         }
         leaf cost {
           type uint32 {
             range "1..65535";
           }
-          description "Interface cost";
+          description
+            "Interface cost";
         }
       }
-
       list area-address {
         key "address";
-        description "Configuration for a particular area";
+        description
+          "Configuration for a particular area";
         leaf address {
           type inet:ipv4-address-no-zone;
-          description "Area ID if in IP address format";
+          description
+            "Area ID if in IP address format";
         }
         uses AREA-CONTENT;
       }
-
       list area-area-id {
         key "area-id";
-        description "Configuration for a particular area";
+        description
+          "Configuration for a particular area";
         leaf area-id {
           type uint32 {
             range "0..4294967295";
           }
-          description "Area ID if in integer format";
+          description
+            "Area ID if in integer format";
         }
         uses AREA-CONTENT;
       }
@@ -1560,16 +1797,17 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   }
 
   grouping AUTO-COST {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container auto-cost {
       presence "enable auto-cost";
-      description "Calculate interface cost according to bandwidth";
+      description
+        "Calculate interface cost according to bandwidth";
       leaf disable {
         type empty;
         description
           "Specify 'true' to assign cost based on
-          interface type";
+           interface type";
       }
       leaf reference-bandwidth {
         type uint32 {
@@ -1578,19 +1816,20 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         units "Mbit/s";
         description
           "Specify reference bandwidth for cost
-          computations in terms of Mbits per second";
+           computations in terms of Mbits per second";
       }
     }
   }
 
   grouping TIMERS {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container timers {
-      description "Adjust routing timers";
-
+      description
+        "Adjust routing timers";
       container pacing {
-        description "Pacing timers";
+        description
+          "Pacing timers";
         leaf flood {
           type uint32 {
             range "5..100";
@@ -1598,7 +1837,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           units "millisecond";
           description
             "The minimum interval in milliseconds to pace
-            limit flooding on interface";
+             limit flooding on interface";
         }
         leaf retransmission {
           type uint32 {
@@ -1606,7 +1845,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           }
           description
             "The minimum interval in msec between neighbor
-            retransmissions";
+             retransmissions";
         }
         leaf lsa-group {
           type uint32 {
@@ -1615,12 +1854,12 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           units "second";
           description
             "Interval in seconds at which LSAs are grouped
-            and refreshed, checksummed, or aged";
+             and refreshed, checksummed, or aged";
         }
       }
-
       container lsa-timers {
-        description "LSA timers";
+        description
+          "LSA timers";
         leaf arrival {
           type uint32 {
             range "0..60000";
@@ -1628,13 +1867,12 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           units "millisecond";
           description
             "The minimum interval in milliseconds between
-            accepting the same LSA";
+             accepting the same LSA";
         }
       }
-
       container throttle {
-        description "Throttle timers";
-
+        description
+          "Throttle timers";
         container lsa {
           description
             "LSA throttle timers for all types of OSPF LSAs";
@@ -1645,7 +1883,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             units "millisecond";
             description
               "Delay to generate first occurrence of LSA in
-              milliseconds";
+               milliseconds";
           }
           leaf minimum-delay {
             type uint32 {
@@ -1654,7 +1892,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             units "millisecond";
             description
               "Minimum delay between originating the same
-              LSA in milliseconds";
+               LSA in milliseconds";
           }
           leaf maximum-delay {
             type uint32 {
@@ -1663,19 +1901,19 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             units "millisecond";
             description
               "Maximum delay between originating the same
-              LSA in milliseconds";
+               LSA in milliseconds";
           }
         }
-
         container spf {
-          description "SPF throttle timers";
+          description
+            "SPF throttle timers";
           leaf first-delay {
             type uint32 {
               range "1..600000";
             }
             description
               "Initial delay between receiving a change and
-              starting SPF in ms";
+               starting SPF in ms";
           }
           leaf minimum-delay {
             type uint32 {
@@ -1683,7 +1921,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
             description
               "Minimum hold time between consecutive SPF
-              calculations in ms";
+               calculations in ms";
           }
           leaf maximum-delay {
             type uint32 {
@@ -1691,7 +1929,7 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             }
             description
               "Maximum wait time between consecutive SPF
-              calculations in ms";
+               calculations in ms";
           }
         }
       }
@@ -1699,15 +1937,18 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   }
 
   grouping LOG-ADJACENCY-CHANGES {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf log-adjacency-changes {
       type Ospfv3-log-adj;
-      description "Log changes in adjacency state";
+      description
+        "Log changes in adjacency state";
     }
   }
 
   grouping ON-PROC-MIGRATION {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, v6bit, max-metric";
     leaf on-proc-migration {
       type uint32 {
         range "5..86400";
@@ -1715,170 +1956,194 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       units "second";
       description
         "Time (in seconds) to stay in stub router
-        operational state";
+         operational state";
     }
   }
 
   grouping DEFAULT-INFORMATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container default-information {
-      description "Control distribution of default information";
-
+      description
+        "Control distribution of default information";
       container originate {
         presence "Indicates a originate node is configured.";
-        description "Distribute a default route";
+        description
+          "Distribute a default route";
         leaf always {
           type boolean;
           mandatory true;
-          description "Always advertise default route";
+          description
+            "Always advertise default route";
         }
         leaf metric {
           type uint32 {
             range "0..16777214";
           }
-          description "OSPFv3 default metric";
+          description
+            "OSPFv3 default metric";
         }
         leaf metric-type {
           type uint32 {
             range "1..2";
           }
-          description "OSPFv3 metric type for default routes";
+          description
+            "OSPFv3 metric type for default routes";
         }
         leaf tag {
           type uint32 {
             range "0..4294967295";
           }
-          description "Tag for default route";
+          description
+            "Tag for default route";
         }
         leaf route-policy-name {
           type string;
           description
             "Route policy to default-information
-            origination";
+             origination";
         }
       }
     }
   }
 
   grouping STUB-ROUTER {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container stub-router {
-      description "Stub router configuration";
-
+      description
+        "Stub router configuration";
       container rbit {
-        description "Stub router R-bit configuration";
+        description
+          "Stub router R-bit configuration";
         uses ON-SWITCHOVER;
         uses ALWAYS;
-        uses EXTERNAL-LSA;
         uses ON-STARTUP;
         uses INCLUDE-STUB;
         uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
-        uses SUMMARY-LSA;
       }
-
       container v6bit {
-        description "Stub router V6-bit configuration";
+        description
+          "Stub router V6-bit configuration";
         uses ON-SWITCHOVER;
         uses ALWAYS;
-        uses EXTERNAL-LSA;
         uses ON-STARTUP;
-        uses INCLUDE-STUB;
         uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
-        uses SUMMARY-LSA;
       }
-
       container max-metric {
-        description "Stub router max-metric configuration";
+        description
+          "Stub router max-metric configuration";
+        leaf external-lsa {
+          type uint32 {
+            range "1..16777214";
+          }
+          default "16711680";
+          description
+            "Advertise external LSAs with modified metric
+             in stub router mode";
+        }
+        leaf summary-lsa {
+          type uint32 {
+            range "1..16777214";
+          }
+          default "16711680";
+          description
+            "Advertise summary LSAs with modified metric in
+             stub router mode";
+        }
         uses ON-SWITCHOVER;
         uses ALWAYS;
-        uses EXTERNAL-LSA;
         uses ON-STARTUP;
         uses INCLUDE-STUB;
         uses ENABLE;
         uses ON-PROC-MIGRATION;
         uses ON-PROC-RESTART;
-        uses SUMMARY-LSA;
       }
     }
   }
 
   grouping INCLUDE-STUB {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, max-metric";
     leaf include-stub {
       type empty;
       description
         "Advertise stub links with maximum metric in stub
-        router mode";
+         router mode";
     }
   }
 
   grouping IGNORE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container ignore {
-      description "Do not complain about a specified event";
-
+      description
+        "Do not complain about a specified event";
       container lsa {
         description
           "Do not complain upon receiving LSA of the
-          specified type";
+           specified type";
         leaf mospf {
           type empty;
-          description "Enable ignore of MOSPF type 6 LSA";
+          description
+            "Enable ignore of MOSPF type 6 LSA";
         }
       }
     }
   }
 
   grouping DATABASE-FILTER {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container database-filter {
-      description "Database filter";
-
+      description
+        "Database filter";
       container all {
-        description "All";
+        description
+          "All";
         leaf out {
           type empty;
-          description "Enable out";
+          description
+            "Enable out";
         }
       }
     }
   }
 
   grouping CANDIDATE-INTERFACE-TABLE {
-    description "Common node of per-link, per-prefix";
-
+    description
+      "Common node of per-link, per-prefix";
     container candidate-interfaces {
       description
         "Fast-reroute per-link/per-prefix candidate
-        interface configuration";
-
+         interface configuration";
       list candidate-interface {
         key "interface-name";
-        description "Candidate backup interface";
+        description
+          "Candidate backup interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface";
+          description
+            "Interface";
         }
       }
     }
   }
 
   grouping ENCRYPTION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container encryption {
-      description "Encrypt and authenticate OSPFv3 packets";
+      description
+        "Encrypt and authenticate OSPFv3 packets";
       leaf enable {
         type boolean;
-        description "Authenticate packets";
+        description
+          "Authenticate packets";
       }
       leaf spi {
         type uint32 {
@@ -1886,35 +2151,41 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         }
         description
           "Use IPSec ESP authentication. Specify the
-          Security Parameter Index (SPI) value";
+           Security Parameter Index (SPI) value";
       }
       leaf encryption-algorithm {
         type Ospfv3-encryption-algorithm;
-        description "Specify the encryption algorithm";
+        description
+          "Specify the encryption algorithm";
       }
       leaf encryption-password {
         type xr:Proprietary-password;
-        description "Encryption password";
+        description
+          "Encryption password";
       }
       leaf authentication-algorithm {
         type Ospfv3-authentication-type2;
-        description "Use the NULL, MD5 or SHA1 algorithm";
+        description
+          "Use the NULL, MD5 or SHA1 algorithm";
       }
       leaf authentication-password {
         type xr:Proprietary-password;
-        description "Specify MD5 or SHA1 password";
+        description
+          "Specify MD5 or SHA1 password";
       }
     }
   }
 
   grouping AUTHENTICATION {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container authentication {
-      description "Authenticate OSPFv3 packets";
+      description
+        "Authenticate OSPFv3 packets";
       leaf enable {
         type boolean;
-        description "Authenticate packets";
+        description
+          "Authenticate packets";
       }
       leaf spi {
         type uint32 {
@@ -1922,87 +2193,124 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         }
         description
           "Use IPSec AH authentication. Specify the
-          Security Parameter Index (SPI) value";
+           Security Parameter Index (SPI) value";
       }
       leaf algorithm {
         type Ospfv3-authentication;
-        description "Use the MD5 or SHA1 algorithm";
+        description
+          "Use the MD5 or SHA1 algorithm";
       }
       leaf password {
         type xr:Proprietary-password;
-        description "Specify MD5 or SHA1 password";
+        description
+          "Specify MD5 or SHA1 password";
       }
-    }
-  }
-
-  grouping SUMMARY-LSA {
-    description "Common node of rbit, v6bit, max-metric";
-    leaf summary-lsa {
-      type uint32 {
-        range "1..16777214";
-      }
-      default "16711680";
-      description
-        "Advertise summary LSAs with modified metric in
-        stub router mode";
     }
   }
 
   grouping DISTRIBUTE-LIST-OUT {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container distribute-list-out {
-      description "Filter prefixes from RIB ";
-
+      description
+        "Filter prefixes from RIB ";
       container distribute-outs {
-        description "Filter generated type-5 LSAs";
-
+        description
+          "Filter generated type-5 LSAs";
         list distribute-out {
-          must "as-yy-and-as-xx-and-process-name" {
+          must "all-or-connected-or-static-prefix-list or bgp or ospfv3-or-isis or eigrp" {
             description
-              "as-yy-and-as-xx-and-process-name must be
-              present.";
+              "All-or-Connected-or-Static or BGP or
+               OSPFv3-or-ISIS or EIGRP must be present.";
           }
           key "protocol-name";
-          description "Filter generated type-5 LSAs";
+          description
+            "Filter generated type-5 LSAs";
+
+          grouping DISTRIBUTE-OUT-CONTENT {
+            description
+              "DISTRIBUTE OUT CONTENT";
+            leaf prefix-list {
+              type string;
+              description
+                "Prefix-list name";
+            }
+          }
+          leaf all-or-connected-or-static-prefix-list {
+            when "../protocol-name = 'all' or ../protocol-name = 'connected' or ../protocol-name = 'static'" {
+              description
+                "../ProtocolName = All or ../ProtocolName =
+                 Connected or ../ProtocolName = Static";
+            }
+            type string;
+            description
+              "Prefix-list name";
+          }
           leaf protocol-name {
             type Ospfv3-protocol;
-            description "none";
+            description
+              "none";
           }
-
-          list as-yy-and-as-xx-and-process-name {
-            when "../protocol-name = 'all'" {
-              description "../protocol-name = all";
-            }
-            key "as-yy as-xx process-name";
-            description "keys: as-yy, as-xx, process-name";
-            leaf as-yy {
-              type uint32 {
-                range "0..4294967295";
-              }
+          list bgp {
+            when "../protocol-name = 'bgp'" {
               description
-                "4-byte AS number in asdot (X.Y) format -
-                second half (Y), or 2-byte AS number, or
-                4-byte AS number in asplain format";
+                "../ProtocolName = BGP";
             }
+            key "as-xx as-yy";
+            description
+              "bgp";
             leaf as-xx {
               type uint32 {
                 range "1..65535";
               }
               description
                 "4-byte AS number in asdot (X.Y) format -
-                first half (X)";
+                 first half (X)";
             }
+            leaf as-yy {
+              type uint32 {
+                range "0..4294967295";
+              }
+              description
+                "4-byte AS number in asdot (X.Y) format -
+                 second half (Y), or 2-byte AS number, or
+                 4-byte AS number in asplain format";
+            }
+            uses DISTRIBUTE-OUT-CONTENT;
+          }
+          list ospfv3-or-isis {
+            when "../protocol-name = 'ospfv3' or ../protocol-name = 'isis'" {
+              description
+                "../ProtocolName = OSPFv3 or ../ProtocolName
+                 = ISIS";
+            }
+            key "process-name";
+            description
+              "ospfv3 or isis";
             leaf process-name {
               type xr:Cisco-ios-xr-string;
               description
                 "If ISIS or OSPFv3, specify the instance name";
             }
-            leaf prefix-list {
-              type string;
-              mandatory true;
-              description "Prefix-list name";
+            uses DISTRIBUTE-OUT-CONTENT;
+          }
+          list eigrp {
+            when "../protocol-name = 'eigrp'" {
+              description
+                "../ProtocolName = EIGRP";
             }
+            key "as-xx";
+            description
+              "eigrp";
+            leaf as-xx {
+              type uint32 {
+                range "1..65535";
+              }
+              description
+                "4-byte AS number in asdot (X.Y) format -
+                 first half (X)";
+            }
+            uses DISTRIBUTE-OUT-CONTENT;
           }
         }
       }
@@ -2012,13 +2320,13 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   grouping DISTRIBUTE-LIST {
     description
       "Common node of default-vrf, vrfCommon node of
-      default-vrf, vrf";
-
+       default-vrf, vrf";
     container distribute-list {
-      description "Filter prefixes to/from RIB";
-
+      description
+        "Filter prefixes to/from RIB";
       container in {
-        description "Filter prefixes installed to RIB";
+        description
+          "Filter prefixes installed to RIB";
         leaf prefix-list {
           type string;
           description
@@ -2029,55 +2337,62 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   }
 
   grouping COST {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf cost {
       type uint32 {
         range "1..65535";
       }
-      description "Interface cost";
+      description
+        "Interface cost";
     }
   }
 
   grouping PACKET-SIZE {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf packet-size {
       type uint32 {
         range "256..10000";
       }
-      description "Limit size of OSPFv3 packets";
+      description
+        "Limit size of OSPFv3 packets";
     }
   }
 
   grouping FAST-REROUTE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container fast-reroute {
-      description "Fast-reroute instance scoped parameters";
-
+      description
+        "Fast-reroute instance scoped parameters";
       container per-link {
-        description "Fast-reroute per-link global configuration";
+        description
+          "Fast-reroute per-link global configuration";
         uses PRIORITY;
       }
-
       container per-prefix {
-        description "Fast-reroute per-prefix global configuration";
-
+        description
+          "Fast-reroute per-prefix global configuration";
         container tiebreakers {
-          description "Fast-reroute tiebreakers configurations";
-
+          description
+            "Fast-reroute tiebreakers configurations";
           list tiebreaker {
             key "tiebreaker-type";
-            description "Fast-reroute tiebreakers configuration";
+            description
+              "Fast-reroute tiebreakers configuration";
             leaf tiebreaker-type {
               type Ospfv3-fast-reroute-tiebreakers;
-              description "Tiebreaker type";
+              description
+                "Tiebreaker type";
             }
             leaf tiebreaker-index {
               type uint32 {
                 range "1..255";
               }
               mandatory true;
-              description "Index value for a tiebreaker";
+              description
+                "Index value for a tiebreaker";
             }
           }
         }
@@ -2094,20 +2409,20 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
   grouping IPV6-OSPFV3-INTFOBJ-CFG-FAST-REROUTE {
     description
       "Common node of default-vrf, vrfCommon node of
-      process-scope, area-scope, interface";
-
+       process-scope, area-scope, interface";
     container fast-reroute {
-      description "Fast-reroute configuration";
-
+      description
+        "Fast-reroute configuration";
       container per-link {
-        description "Fast-reroute per-link configuration";
+        description
+          "Fast-reroute per-link configuration";
         uses FAST-REROUTE-USE-CANDIDATE-ONLY;
         uses CANDIDATE-INTERFACE-TABLE;
         uses EXCLUDE-INTERFACE-TABLE;
       }
-
       container per-prefix {
-        description "Fast-reroute per-link configuration";
+        description
+          "Fast-reroute per-link configuration";
         uses FAST-REROUTE-USE-CANDIDATE-ONLY;
         uses CANDIDATE-INTERFACE-TABLE;
         uses EXCLUDE-INTERFACE-TABLE;
@@ -2116,67 +2431,74 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         type Ospfv3-fast-reroute;
         description
           "Enable/Disable Fast-reroute per-link or
-          per-prefix";
+           per-prefix";
       }
     }
   }
 
   grouping SUMMARY-PREFIX-TABLE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container summary-prefixes {
       description
         "Summarize redistributed routes matching
-        prefix/length";
-
+         prefix/length";
       list summary-prefix {
         key "prefix prefix-length";
-        description "IPv6 address";
+        description
+          "IPv6 address";
         leaf prefix {
           type xr:Cisco-ios-xr-string;
-          description "IPv6 prefix string format";
+          description
+            "IPv6 prefix string format";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
-          description "IPV6 prefix length";
+          description
+            "IPV6 prefix length";
         }
         leaf not-advertise {
           type boolean;
-          description "Suppress routes matching prefix/length";
+          description
+            "Suppress routes matching prefix/length";
         }
         leaf tag {
           type uint32 {
             range "1..4294967295";
           }
-          description "Tag";
+          description
+            "Tag";
         }
       }
     }
   }
 
   grouping ENABLE {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, v6bit, max-metric";
     leaf enable {
       type empty;
-      description "Enabled stub router configuration mode";
+      description
+        "Enabled stub router configuration mode";
     }
   }
 
   grouping MAXIMUM {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container maximum {
-      description "Set OSPFv3 limits";
-
+      description
+        "Set OSPFv3 limits";
       container redistributed-prefixes {
-        description "Limit number of redistributed prefixes";
+        description
+          "Limit number of redistributed prefixes";
         leaf prefixes {
           type uint32 {
             range "1..4294967295";
           }
           description
             "Maximum number of prefixes redistributed to
-            protocol";
+             protocol";
         }
         leaf threshold {
           type uint32 {
@@ -2184,103 +2506,103 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           }
           description
             "Threshold value (%) at which to generate a
-            warning message";
+             warning message";
         }
         leaf warning-only {
           type empty;
           description
             "Only give warning message when limit is
-            exceeded";
+             exceeded";
         }
       }
       leaf interfaces {
         type uint32 {
           range "1..4294967295";
         }
-        description "Specify maximum number of interfaces";
+        description
+          "Specify maximum number of interfaces";
       }
       leaf paths {
         type uint32 {
           range "1..64";
         }
-        description "Specify maximum number of paths per route";
+        description
+          "Specify maximum number of paths per route";
       }
     }
   }
 
   grouping NETWORK {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf network {
       type Ospfv3-network;
-      description "Specify network type";
-    }
-  }
-
-  grouping EXTERNAL-LSA {
-    description "Common node of rbit, v6bit, max-metric";
-    leaf external-lsa {
-      type uint32 {
-        range "1..16777214";
-      }
-      default "16711680";
       description
-        "Advertise external LSAs with modified metric in
-        stub router mode";
+        "Specify network type";
     }
   }
 
   grouping HELLO-INTERVAL {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf hello-interval {
       type uint32 {
         range "1..65535";
       }
       units "second";
-      description "Time between HELLO packets";
+      description
+        "Time between HELLO packets";
     }
   }
 
   grouping PROCESS-SCOPE {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container process-scope {
-      description "Process scope configuration";
+      description
+        "Process scope configuration";
       uses IPV6-OSPFV3-INTFOBJ-CFG-FAST-REROUTE;
     }
   }
 
   grouping SPF-PREFIX-PRIORITY-POLICY {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf spf-prefix-priority-policy {
       type string;
-      description "Route policy for SPF prefix prioritization";
+      description
+        "Route policy for SPF prefix prioritization";
     }
   }
 
   grouping MTU-IGNORE {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf mtu-ignore {
       type boolean;
-      description "Enable/disable ignoring of MTU in DBD packets";
+      description
+        "Enable/disable ignoring of MTU in DBD packets";
     }
   }
 
   grouping FAST-REROUTE-USE-CANDIDATE-ONLY {
-    description "Common node of per-link, per-prefix";
+    description
+      "Common node of per-link, per-prefix";
     leaf fast-reroute-use-candidate-only {
       type boolean;
       default "false";
       description
         "Use only interfaces on the candidate list as a
-        backup path";
+         backup path";
     }
   }
 
   grouping GRACEFUL-RESTART {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container graceful-restart {
-      description "Graceful restart configuration";
+      description
+        "Graceful restart configuration";
       leaf interval {
         type uint32 {
           range "90..3600";
@@ -2288,21 +2610,23 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         units "second";
         description
           "Minimum interval between graceful restarts
-          (seconds)";
+           (seconds)";
       }
       leaf strict-lsa-checking {
         type empty;
         description
           "Terminate graceful restart helper mode if LSA
-          changed";
+           changed";
       }
       leaf helper {
         type empty;
-        description "Disable router's helper support";
+        description
+          "Disable router's helper support";
       }
       leaf enable {
         type empty;
-        description "Enable graceful restart";
+        description
+          "Enable graceful restart";
       }
       leaf lifetime {
         type uint32 {
@@ -2311,79 +2635,89 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         units "second";
         description
           "Maximum route lifetime following restart
-          (seconds)";
+           (seconds)";
       }
     }
   }
 
   grouping BFD {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container bfd {
-      description "Configure BFD parameters";
+      description
+        "Configure BFD parameters";
       leaf interval {
         type uint32 {
           range "3..30000";
         }
         units "millisecond";
-        description "Hello interval in milli-seconds";
+        description
+          "Hello interval in milli-seconds";
       }
       leaf detection-multiplier {
         type uint32 {
           range "2..50";
         }
-        description "Detect multiplier";
+        description
+          "Detect multiplier";
       }
       leaf fast-detect-mode {
         type Ospfv3bfd-enable-mode;
-        description "Enable or disable BFD fast detection";
+        description
+          "Enable or disable BFD fast detection";
       }
     }
   }
 
   grouping SNMP {
-    description "Common node of default-vrf, vrf";
-
+    description
+      "Common node of default-vrf, vrf";
     container snmp {
-      description "SNMP configuration";
-
+      description
+        "SNMP configuration";
       container trap-rate-limit {
-        description "SNMP trap rate configuration";
+        description
+          "SNMP trap rate configuration";
         leaf window-size {
           type uint32 {
             range "2..60";
           }
-          description "Trap rate limit sliding window size";
+          description
+            "Trap rate limit sliding window size";
         }
         leaf max-window-traps {
           type uint32 {
             range "0..300";
           }
-          description "Max number of traps sent in window time";
+          description
+            "Max number of traps sent in window time";
         }
       }
       leaf context {
         type string;
-        description "SNMP context configuration";
+        description
+          "SNMP context configuration";
       }
     }
   }
 
   grouping ON-STARTUP {
-    description "Common node of rbit, v6bit, max-metric";
-
+    description
+      "Common node of rbit, v6bit, max-metric";
     container on-startup {
-      description "Enter stub router operational state on startup";
+      description
+        "Enter stub router operational state on startup";
       leaf wait-for-bgp {
         type boolean;
         default "false";
         description
           "Wait until BGP converges (only applicable to
-          default VRF)";
+           default VRF)";
       }
       leaf wait-time {
         when "../wait-for-bgp = 0" {
-          description "../WaitForBGP = <expr>";
+          description
+            "../WaitForBGP = <expr>";
         }
         type uint32 {
           range "5..86400";
@@ -2391,21 +2725,24 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
         units "second";
         description
           "Time (in seconds) to stay in stub router
-          operational state";
+           operational state";
       }
     }
   }
 
   grouping FLOOD-REDUCTION {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf flood-reduction {
       type boolean;
-      description "Enable/disable flood reduction";
+      description
+        "Enable/disable flood reduction";
     }
   }
 
   grouping ON-SWITCHOVER {
-    description "Common node of rbit, v6bit, max-metric";
+    description
+      "Common node of rbit, v6bit, max-metric";
     leaf on-switchover {
       type uint32 {
         range "5..86400";
@@ -2413,12 +2750,13 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       units "second";
       description
         "Time (in seconds) to stay in stub router
-        operational state";
+         operational state";
     }
   }
 
   grouping DEAD-INTERVAL {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf dead-interval {
       type uint32 {
         range "1..65535";
@@ -2426,98 +2764,190 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
       units "second";
       description
         "Interval after which a neighbor is declared dead
-        (in seconds)";
+         (in seconds)";
     }
   }
 
   grouping INSTANCE {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf instance {
       type uint32 {
         range "0..255";
       }
-      description "Instance ID";
+      description
+        "Instance ID";
     }
   }
 
   grouping ROUTER-ID {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf router-id {
       type inet:ipv4-address-no-zone;
       description
         "Specify the router ID for this OSPFv3 process in
-        IPv4 address format";
+         IPv4 address format";
     }
   }
 
   grouping DEFAULT-METRIC {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf default-metric {
       type uint32 {
         range "1..16777214";
       }
-      description "Set metric of redistributed routes";
+      description
+        "Set metric of redistributed routes";
     }
   }
 
   grouping RETRANSMIT-INTERVAL {
-    description "Common node of default-vrf, vrf";
+    description
+      "Common node of default-vrf, vrf";
     leaf retransmit-interval {
       type uint32 {
         range "1..65535";
       }
       units "second";
-      description "Specify the transmit interval in seconds";
+      description
+        "Specify the transmit interval in seconds";
     }
   }
 
   grouping PRIORITY {
-    description "Common node of per-link, per-prefix";
+    description
+      "Common node of per-link, per-prefix";
     leaf priority {
       type Ospfv3-fast-reroute-priority;
       description
         "Fast-reroute per-link/per-prefix priority-limit
-        command";
+         command";
     }
   }
 
   grouping IPV6-OSPFV3-CFG-PRIORITY {
     description
       "Common node of per-link, per-prefixCommon node of
-      default-vrf, vrf";
+       default-vrf, vrf";
     leaf priority {
       type uint32 {
         range "0..255";
       }
-      description "Specify router priority";
+      description
+        "Specify router priority";
     }
   }
 
+  augment "/a1:snmp/a1:notification" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-snmp-agent-cfg'";
+    container ospfv3 {
+      description
+        "OSPFv3-MIB notification configuration";
+      container error {
+        description
+          "SNMP notifications for OSPF errors";
+        leaf config-error {
+          type empty;
+          description
+            "Enable ospfv3IfConfigError notification";
+        }
+        leaf bad-packet {
+          type empty;
+          description
+            "Enable ospfv3IfRxBadPacket notification";
+        }
+        leaf virtual-bad-packet {
+          type empty;
+          description
+            "Enable ospfv3VirtIfRxBadPacket notification";
+        }
+        leaf virtual-config-error {
+          type empty;
+          description
+            "Enable ospfv3VirtIfConfigError notification";
+        }
+      }
+      container state-change {
+        description
+          "SNMP notifications for OSPF state change";
+        leaf restart-virtual-helper {
+          type empty;
+          description
+            "Enable ospfv3VirtNbrRestartHelperStatusChange
+             notification";
+        }
+        leaf nssa-translator {
+          type empty;
+          description
+            "Enable ospfv3NssaTranslatorStatusChange
+             notification";
+        }
+        leaf interface {
+          type empty;
+          description
+            "Enable ospfv3IfStateChange notification";
+        }
+        leaf restart {
+          type empty;
+          description
+            "Enable ospfv3RestartStatusChange notification";
+        }
+        leaf neighbor {
+          type empty;
+          description
+            "Enable ospfv3NbrStateChange notification";
+        }
+        leaf virtual-interface {
+          type empty;
+          description
+            "Enable ospfv3VirtIfStateChange notification";
+        }
+        leaf restart-helper {
+          type empty;
+          description
+            "Enable ospfv3NbrRestartHelperStatusChange
+             notification";
+        }
+        leaf virtual-neighbor {
+          type empty;
+          description
+            "Enable ospfv3VirtNbrStateChange notification";
+        }
+      }
+    }
+  }
   container ospfv3 {
-    description "OSPFv3 configuration";
-
+    description
+      "OSPFv3 configuration";
     container processes {
-      description "OSPFv3 processes";
-
+      description
+        "OSPFv3 processes";
       list process {
         key "process-name";
-        description "An OSPFv3 process";
-
+        description
+          "An OSPFv3 process";
         container default-vrf {
-          description "Default VRF related configuration";
+          description
+            "Default VRF related configuration";
           leaf ldp-sync {
             type boolean;
-            description "Enable/Disable MPLS LDP sync";
+            description
+              "Enable/Disable MPLS LDP sync";
           }
           leaf prefix-suppression {
             type boolean;
             description
               "Enable/disable prefix suppression on an
-              interface";
+               interface";
           }
           leaf spf-prefix-priority-disable {
             type empty;
-            description "SPF prefix prioritization disabled";
+            description
+              "SPF prefix prioritization disabled";
           }
           uses AREA-TABLE;
           uses TIMERS;
@@ -2557,71 +2987,79 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
           uses AUTO-COST;
           uses TRANSMIT-DELAY;
         }
-
         container vrfs {
-          description "VRF related configuration";
-
+          description
+            "VRF related configuration";
           list vrf {
             key "vrf-name";
-            description "Configuration for a particular OSPF VRF";
-
+            description
+              "Configuration for a particular OSPF VRF";
             container capability {
-              description "OSPFv3 Capability";
+              description
+                "OSPFv3 Capability";
               leaf vrf-lite {
                 type boolean;
-                description "Enable VRF Lite";
+                description
+                  "Enable VRF Lite";
               }
             }
-
             container domain-id {
-              description "OSPFv3 Domain ID";
-
+              description
+                "OSPFv3 Domain ID";
               container secondary-domain-ids {
-                description "Secondary domain ID Table";
-
+                description
+                  "Secondary domain ID Table";
                 list secondary-domain-id {
                   key "domain-id-type domain-id-name";
-                  description "OSPF Secondary domain ID";
+                  description
+                    "OSPF Secondary domain ID";
                   leaf domain-id-type {
                     type Ospfv3-domain-id;
-                    description "Secondary domain ID type";
+                    description
+                      "Secondary domain ID type";
                   }
                   leaf domain-id-name {
                     type xr:Cisco-ios-xr-string;
-                    description "Secondary domain ID value";
+                    description
+                      "Secondary domain ID value";
                   }
                 }
               }
-
               container primary-domain-id {
-                description "OSPF Primary domain ID";
+                description
+                  "OSPF Primary domain ID";
                 leaf domain-id-type {
                   type Ospfv3-domain-id;
-                  description "Primary domain ID type";
+                  description
+                    "Primary domain ID type";
                 }
                 leaf domain-id-name {
                   type string;
-                  description "Primary domain ID value";
+                  description
+                    "Primary domain ID value";
                 }
               }
             }
             leaf enable {
               type empty;
-              description "Enable OSPFv3 VRF configuration";
+              description
+                "Enable OSPFv3 VRF configuration";
             }
             leaf snmpvrf-trap {
               type empty;
-              description "Enable SNMP trap configuration in a VRF";
+              description
+                "Enable SNMP trap configuration in a VRF";
             }
             leaf prefix-suppression {
               type boolean;
               description
                 "Enable/disable prefix suppression on an
-                interface";
+                 interface";
             }
             leaf vrf-name {
               type xr:Cisco-ios-xr-string;
-              description "Name for this VRF";
+              description
+                "Name for this VRF";
             }
             uses AREA-TABLE;
             uses TIMERS;
@@ -2662,14 +3100,15 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
             uses TRANSMIT-DELAY;
           }
         }
-
         container af {
           presence "Indicates a af node is configured.";
-          description "Address Family (AF)";
+          description
+            "Address Family (AF)";
           leaf af-name {
             type Ospfv3-address-family;
             mandatory true;
-            description "Address Family (AF) identifier";
+            description
+              "Address Family (AF) identifier";
           }
           leaf saf-name {
             type Ospfv3-subsequent-address-family;
@@ -2677,125 +3116,56 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
               "Subsequent Address Family (SAF) identifier";
           }
         }
-
         container trace-bufs {
           description
             "Configuration to change size of trace buffer";
-
           list trace-buf {
             key "trace-buf-name";
             description
               "Changes the size of the specified trace
-              buffer";
+               buffer";
             leaf trace-buf-name {
               type xr:Cisco-ios-xr-string;
-              description "Name for this trace buffer";
+              description
+                "Name for this trace buffer";
             }
             leaf bufsize {
               type Ospfv3-trace-buf-size;
               mandatory true;
-              description "Buffer size";
+              description
+                "Buffer size";
             }
           }
         }
         leaf nsr {
           type Ospfv3nsr;
           default "true";
-          description "Enable non-stop routing";
+          description
+            "Enable non-stop routing";
         }
         leaf protocol-shutdown {
           type empty;
-          description "Enable protocol shutdown";
+          description
+            "Enable protocol shutdown";
         }
         leaf enable {
           type empty;
-          description "Enable OSPFv3";
+          description
+            "Enable OSPFv3";
         }
         leaf process-name {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
-          description "OSPFv3 process name";
+          description
+            "OSPFv3 process name";
         }
       }
     }
     leaf dns-name-lookup {
       type empty;
-      description "Enable OSPFv3 router IDs as DNS names";
+      description
+        "Enable OSPFv3 router IDs as DNS names";
     }
-  }
-
-  augment "/a1:snmp/a1:notification" {
-
-    container ospfv3 {
-      description "OSPFv3-MIB notification configuration";
-
-      container error {
-        description "SNMP notifications for OSPF errors";
-        leaf config-error {
-          type empty;
-          description "Enable ospfv3IfConfigError notification";
-        }
-        leaf bad-packet {
-          type empty;
-          description "Enable ospfv3IfRxBadPacket notification";
-        }
-        leaf virtual-bad-packet {
-          type empty;
-          description "Enable ospfv3VirtIfRxBadPacket notification";
-        }
-        leaf virtual-config-error {
-          type empty;
-          description "Enable ospfv3VirtIfConfigError notification";
-        }
-      }
-
-      container state-change {
-        description "SNMP notifications for OSPF state change";
-        leaf restart-virtual-helper {
-          type empty;
-          description
-            "Enable ospfv3VirtNbrRestartHelperStatusChange
-            notification";
-        }
-        leaf nssa-translator {
-          type empty;
-          description
-            "Enable ospfv3NssaTranslatorStatusChange
-            notification";
-        }
-        leaf interface {
-          type empty;
-          description "Enable ospfv3IfStateChange notification";
-        }
-        leaf restart {
-          type empty;
-          description
-            "Enable ospfv3RestartStatusChange notification";
-        }
-        leaf neighbor {
-          type empty;
-          description "Enable ospfv3NbrStateChange notification";
-        }
-        leaf virtual-interface {
-          type empty;
-          description "Enable ospfv3VirtIfStateChange notification";
-        }
-        leaf restart-helper {
-          type empty;
-          description
-            "Enable ospfv3NbrRestartHelperStatusChange
-            notification";
-        }
-        leaf virtual-neighbor {
-          type empty;
-          description
-            "Enable ospfv3VirtNbrStateChange notification";
-        }
-      }
-    }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-snmp-agent-cfg'";
   }
 }

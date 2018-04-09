@@ -7,6 +7,8 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,8 +45,10 @@ class Ping(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ping-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Ping.Input()
         self.input.parent = self
@@ -91,8 +95,10 @@ class Ping(Entity):
             self.yang_parent_name = "ping"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"destination" : ("destination", Ping.Input.Destination), "ipv6" : ("ipv6", Ping.Input.Ipv6)}
-            self._child_list_classes = {"ipv4" : ("ipv4", Ping.Input.Ipv4)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("destination", ("destination", Ping.Input.Destination)), ("ipv6", ("ipv6", Ping.Input.Ipv6))])
+            self._child_list_classes = OrderedDict([("ipv4", ("ipv4", Ping.Input.Ipv4))])
+            self._leafs = OrderedDict()
 
             self.destination = Ping.Input.Destination()
             self.destination.parent = self
@@ -229,38 +235,41 @@ class Ping(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.destination = YLeaf(YType.str, "destination")
-
-                self.repeat_count = YLeaf(YType.uint64, "repeat-count")
-
-                self.data_size = YLeaf(YType.uint64, "data-size")
-
-                self.timeout = YLeaf(YType.uint64, "timeout")
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.pattern = YLeaf(YType.str, "pattern")
-
-                self.sweep = YLeaf(YType.boolean, "sweep")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.source = YLeaf(YType.str, "source")
-
-                self.verbose = YLeaf(YType.boolean, "verbose")
-
-                self.type_of_service = YLeaf(YType.uint8, "type-of-service")
-
-                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
-
-                self.validate = YLeaf(YType.boolean, "validate")
-
-                self.priority = YLeaf(YType.uint8, "priority")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('destination', YLeaf(YType.str, 'destination')),
+                    ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
+                    ('data_size', YLeaf(YType.uint64, 'data-size')),
+                    ('timeout', YLeaf(YType.uint64, 'timeout')),
+                    ('interval', YLeaf(YType.uint32, 'interval')),
+                    ('pattern', YLeaf(YType.str, 'pattern')),
+                    ('sweep', YLeaf(YType.boolean, 'sweep')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source', YLeaf(YType.str, 'source')),
+                    ('verbose', YLeaf(YType.boolean, 'verbose')),
+                    ('type_of_service', YLeaf(YType.uint8, 'type-of-service')),
+                    ('do_not_frag', YLeaf(YType.boolean, 'do-not-frag')),
+                    ('validate', YLeaf(YType.boolean, 'validate')),
+                    ('priority', YLeaf(YType.uint8, 'priority')),
+                    ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                ])
+                self.destination = None
+                self.repeat_count = None
+                self.data_size = None
+                self.timeout = None
+                self.interval = None
+                self.pattern = None
+                self.sweep = None
+                self.vrf_name = None
+                self.source = None
+                self.verbose = None
+                self.type_of_service = None
+                self.do_not_frag = None
+                self.validate = None
+                self.priority = None
+                self.outgoing_interface = None
                 self._segment_path = lambda: "destination"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
@@ -272,7 +281,7 @@ class Ping(Entity):
             """
             
             
-            .. attribute:: destination  <key>
+            .. attribute:: destination  (key)
             
             	Ping destination address or hostname
             	**type**\: str
@@ -373,35 +382,38 @@ class Ping(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.destination = YLeaf(YType.str, "destination")
-
-                self.repeat_count = YLeaf(YType.uint64, "repeat-count")
-
-                self.data_size = YLeaf(YType.uint64, "data-size")
-
-                self.timeout = YLeaf(YType.uint64, "timeout")
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.pattern = YLeaf(YType.str, "pattern")
-
-                self.sweep = YLeaf(YType.boolean, "sweep")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.source = YLeaf(YType.str, "source")
-
-                self.verbose = YLeaf(YType.boolean, "verbose")
-
-                self.type_of_service = YLeaf(YType.uint8, "type-of-service")
-
-                self.do_not_frag = YLeaf(YType.boolean, "do-not-frag")
-
-                self.validate = YLeaf(YType.boolean, "validate")
-                self._segment_path = lambda: "ipv4" + "[destination='" + self.destination.get() + "']"
+                self.ylist_key_names = ['destination']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('destination', YLeaf(YType.str, 'destination')),
+                    ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
+                    ('data_size', YLeaf(YType.uint64, 'data-size')),
+                    ('timeout', YLeaf(YType.uint64, 'timeout')),
+                    ('interval', YLeaf(YType.uint32, 'interval')),
+                    ('pattern', YLeaf(YType.str, 'pattern')),
+                    ('sweep', YLeaf(YType.boolean, 'sweep')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source', YLeaf(YType.str, 'source')),
+                    ('verbose', YLeaf(YType.boolean, 'verbose')),
+                    ('type_of_service', YLeaf(YType.uint8, 'type-of-service')),
+                    ('do_not_frag', YLeaf(YType.boolean, 'do-not-frag')),
+                    ('validate', YLeaf(YType.boolean, 'validate')),
+                ])
+                self.destination = None
+                self.repeat_count = None
+                self.data_size = None
+                self.timeout = None
+                self.interval = None
+                self.pattern = None
+                self.sweep = None
+                self.vrf_name = None
+                self.source = None
+                self.verbose = None
+                self.type_of_service = None
+                self.do_not_frag = None
+                self.validate = None
+                self._segment_path = lambda: "ipv4" + "[destination='" + str(self.destination) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -508,32 +520,35 @@ class Ping(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.destination = YLeaf(YType.str, "destination")
-
-                self.repeat_count = YLeaf(YType.uint64, "repeat-count")
-
-                self.data_size = YLeaf(YType.uint64, "data-size")
-
-                self.timeout = YLeaf(YType.uint64, "timeout")
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.pattern = YLeaf(YType.str, "pattern")
-
-                self.sweep = YLeaf(YType.boolean, "sweep")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.source = YLeaf(YType.str, "source")
-
-                self.verbose = YLeaf(YType.boolean, "verbose")
-
-                self.priority = YLeaf(YType.uint8, "priority")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('destination', YLeaf(YType.str, 'destination')),
+                    ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
+                    ('data_size', YLeaf(YType.uint64, 'data-size')),
+                    ('timeout', YLeaf(YType.uint64, 'timeout')),
+                    ('interval', YLeaf(YType.uint32, 'interval')),
+                    ('pattern', YLeaf(YType.str, 'pattern')),
+                    ('sweep', YLeaf(YType.boolean, 'sweep')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source', YLeaf(YType.str, 'source')),
+                    ('verbose', YLeaf(YType.boolean, 'verbose')),
+                    ('priority', YLeaf(YType.uint8, 'priority')),
+                    ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                ])
+                self.destination = None
+                self.repeat_count = None
+                self.data_size = None
+                self.timeout = None
+                self.interval = None
+                self.pattern = None
+                self.sweep = None
+                self.vrf_name = None
+                self.source = None
+                self.verbose = None
+                self.priority = None
+                self.outgoing_interface = None
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/input/%s" % self._segment_path()
 
@@ -564,8 +579,10 @@ class Ping(Entity):
             self.yang_parent_name = "ping"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ping-response" : ("ping_response", Ping.Output.PingResponse)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("ping-response", ("ping_response", Ping.Output.PingResponse))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.ping_response = Ping.Output.PingResponse()
             self.ping_response.parent = self
@@ -603,8 +620,10 @@ class Ping(Entity):
                 self.yang_parent_name = "output"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ipv6" : ("ipv6", Ping.Output.PingResponse.Ipv6)}
-                self._child_list_classes = {"ipv4" : ("ipv4", Ping.Output.PingResponse.Ipv4)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Ping.Output.PingResponse.Ipv6))])
+                self._child_list_classes = OrderedDict([("ipv4", ("ipv4", Ping.Output.PingResponse.Ipv4))])
+                self._leafs = OrderedDict()
 
                 self.ipv6 = Ping.Output.PingResponse.Ipv6()
                 self.ipv6.parent = self
@@ -623,7 +642,7 @@ class Ping(Entity):
                 """
                 
                 
-                .. attribute:: destination  <key>
+                .. attribute:: destination  (key)
                 
                 	Ping destination address or hostname
                 	**type**\: str
@@ -763,48 +782,51 @@ class Ping(Entity):
                     self.yang_parent_name = "ping-response"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"replies" : ("replies", Ping.Output.PingResponse.Ipv4.Replies)}
-                    self._child_list_classes = {}
-
-                    self.destination = YLeaf(YType.str, "destination")
-
-                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
-
-                    self.data_size = YLeaf(YType.uint64, "data-size")
-
-                    self.timeout = YLeaf(YType.uint64, "timeout")
-
-                    self.interval = YLeaf(YType.uint32, "interval")
-
-                    self.pattern = YLeaf(YType.str, "pattern")
-
-                    self.sweep = YLeaf(YType.boolean, "sweep")
-
-                    self.hits = YLeaf(YType.uint64, "hits")
-
-                    self.total = YLeaf(YType.uint64, "total")
-
-                    self.success_rate = YLeaf(YType.uint64, "success-rate")
-
-                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
-
-                    self.rtt_avg = YLeaf(YType.uint64, "rtt-avg")
-
-                    self.rtt_max = YLeaf(YType.uint64, "rtt-max")
-
-                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
-
-                    self.sweep_max = YLeaf(YType.uint64, "sweep-max")
-
-                    self.rotate_pattern = YLeaf(YType.boolean, "rotate-pattern")
-
-                    self.ping_error_response = YLeaf(YType.str, "ping-error-response")
+                    self.ylist_key_names = ['destination']
+                    self._child_container_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv4.Replies))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('destination', YLeaf(YType.str, 'destination')),
+                        ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
+                        ('data_size', YLeaf(YType.uint64, 'data-size')),
+                        ('timeout', YLeaf(YType.uint64, 'timeout')),
+                        ('interval', YLeaf(YType.uint32, 'interval')),
+                        ('pattern', YLeaf(YType.str, 'pattern')),
+                        ('sweep', YLeaf(YType.boolean, 'sweep')),
+                        ('hits', YLeaf(YType.uint64, 'hits')),
+                        ('total', YLeaf(YType.uint64, 'total')),
+                        ('success_rate', YLeaf(YType.uint64, 'success-rate')),
+                        ('rtt_min', YLeaf(YType.uint64, 'rtt-min')),
+                        ('rtt_avg', YLeaf(YType.uint64, 'rtt-avg')),
+                        ('rtt_max', YLeaf(YType.uint64, 'rtt-max')),
+                        ('sweep_min', YLeaf(YType.uint32, 'sweep-min')),
+                        ('sweep_max', YLeaf(YType.uint64, 'sweep-max')),
+                        ('rotate_pattern', YLeaf(YType.boolean, 'rotate-pattern')),
+                        ('ping_error_response', YLeaf(YType.str, 'ping-error-response')),
+                    ])
+                    self.destination = None
+                    self.repeat_count = None
+                    self.data_size = None
+                    self.timeout = None
+                    self.interval = None
+                    self.pattern = None
+                    self.sweep = None
+                    self.hits = None
+                    self.total = None
+                    self.success_rate = None
+                    self.rtt_min = None
+                    self.rtt_avg = None
+                    self.rtt_max = None
+                    self.sweep_min = None
+                    self.sweep_max = None
+                    self.rotate_pattern = None
+                    self.ping_error_response = None
 
                     self.replies = Ping.Output.PingResponse.Ipv4.Replies()
                     self.replies.parent = self
                     self._children_name_map["replies"] = "replies"
                     self._children_yang_names.add("replies")
-                    self._segment_path = lambda: "ipv4" + "[destination='" + self.destination.get() + "']"
+                    self._segment_path = lambda: "ipv4" + "[destination='" + str(self.destination) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -834,8 +856,10 @@ class Ping(Entity):
                         self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"reply" : ("reply", Ping.Output.PingResponse.Ipv4.Replies.Reply)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv4.Replies.Reply))])
+                        self._leafs = OrderedDict()
 
                         self.reply = YList(self)
                         self._segment_path = lambda: "replies"
@@ -848,7 +872,7 @@ class Ping(Entity):
                         """
                         
                         
-                        .. attribute:: reply_index  <key>
+                        .. attribute:: reply_index  (key)
                         
                         	Index of the reply list
                         	**type**\: int
@@ -879,18 +903,21 @@ class Ping(Entity):
                             self.yang_parent_name = "replies"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"broadcast-reply-addresses" : ("broadcast_reply_addresses", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses)}
-                            self._child_list_classes = {}
-
-                            self.reply_index = YLeaf(YType.uint64, "reply-index")
-
-                            self.result = YLeaf(YType.str, "result")
+                            self.ylist_key_names = ['reply_index']
+                            self._child_container_classes = OrderedDict([("broadcast-reply-addresses", ("broadcast_reply_addresses", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reply_index', YLeaf(YType.uint64, 'reply-index')),
+                                ('result', YLeaf(YType.str, 'result')),
+                            ])
+                            self.reply_index = None
+                            self.result = None
 
                             self.broadcast_reply_addresses = Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses()
                             self.broadcast_reply_addresses.parent = self
                             self._children_name_map["broadcast_reply_addresses"] = "broadcast-reply-addresses"
                             self._children_yang_names.add("broadcast-reply-addresses")
-                            self._segment_path = lambda: "reply" + "[reply-index='" + self.reply_index.get() + "']"
+                            self._segment_path = lambda: "reply" + "[reply-index='" + str(self.reply_index) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply, ['reply_index', 'result'], name, value)
@@ -919,8 +946,10 @@ class Ping(Entity):
                                 self.yang_parent_name = "reply"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"broadcast-reply-address" : ("broadcast_reply_address", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("broadcast-reply-address", ("broadcast_reply_address", Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress))])
+                                self._leafs = OrderedDict()
 
                                 self.broadcast_reply_address = YList(self)
                                 self._segment_path = lambda: "broadcast-reply-addresses"
@@ -933,7 +962,7 @@ class Ping(Entity):
                                 """
                                 
                                 
-                                .. attribute:: reply_address  <key>
+                                .. attribute:: reply_address  (key)
                                 
                                 	Broadcast reply address
                                 	**type**\: str
@@ -957,13 +986,16 @@ class Ping(Entity):
                                     self.yang_parent_name = "broadcast-reply-addresses"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.reply_address = YLeaf(YType.str, "reply-address")
-
-                                    self.result = YLeaf(YType.str, "result")
-                                    self._segment_path = lambda: "broadcast-reply-address" + "[reply-address='" + self.reply_address.get() + "']"
+                                    self.ylist_key_names = ['reply_address']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('reply_address', YLeaf(YType.str, 'reply-address')),
+                                        ('result', YLeaf(YType.str, 'result')),
+                                    ])
+                                    self.reply_address = None
+                                    self.result = None
+                                    self._segment_path = lambda: "broadcast-reply-address" + "[reply-address='" + str(self.reply_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ping.Output.PingResponse.Ipv4.Replies.Reply.BroadcastReplyAddresses.BroadcastReplyAddress, ['reply_address', 'result'], name, value)
@@ -1108,40 +1140,43 @@ class Ping(Entity):
                     self.yang_parent_name = "ping-response"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"replies" : ("replies", Ping.Output.PingResponse.Ipv6.Replies)}
-                    self._child_list_classes = {}
-
-                    self.destination = YLeaf(YType.str, "destination")
-
-                    self.repeat_count = YLeaf(YType.uint64, "repeat-count")
-
-                    self.data_size = YLeaf(YType.uint64, "data-size")
-
-                    self.timeout = YLeaf(YType.uint64, "timeout")
-
-                    self.interval = YLeaf(YType.uint32, "interval")
-
-                    self.pattern = YLeaf(YType.str, "pattern")
-
-                    self.sweep = YLeaf(YType.boolean, "sweep")
-
-                    self.sweep_min = YLeaf(YType.uint32, "sweep-min")
-
-                    self.sweep_max = YLeaf(YType.uint64, "sweep-max")
-
-                    self.rotate_pattern = YLeaf(YType.boolean, "rotate-pattern")
-
-                    self.hits = YLeaf(YType.uint64, "hits")
-
-                    self.total = YLeaf(YType.uint64, "total")
-
-                    self.success_rate = YLeaf(YType.uint64, "success-rate")
-
-                    self.rtt_min = YLeaf(YType.uint64, "rtt-min")
-
-                    self.rtt_avg = YLeaf(YType.uint64, "rtt-avg")
-
-                    self.rtt_max = YLeaf(YType.uint64, "rtt-max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("replies", ("replies", Ping.Output.PingResponse.Ipv6.Replies))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('destination', YLeaf(YType.str, 'destination')),
+                        ('repeat_count', YLeaf(YType.uint64, 'repeat-count')),
+                        ('data_size', YLeaf(YType.uint64, 'data-size')),
+                        ('timeout', YLeaf(YType.uint64, 'timeout')),
+                        ('interval', YLeaf(YType.uint32, 'interval')),
+                        ('pattern', YLeaf(YType.str, 'pattern')),
+                        ('sweep', YLeaf(YType.boolean, 'sweep')),
+                        ('sweep_min', YLeaf(YType.uint32, 'sweep-min')),
+                        ('sweep_max', YLeaf(YType.uint64, 'sweep-max')),
+                        ('rotate_pattern', YLeaf(YType.boolean, 'rotate-pattern')),
+                        ('hits', YLeaf(YType.uint64, 'hits')),
+                        ('total', YLeaf(YType.uint64, 'total')),
+                        ('success_rate', YLeaf(YType.uint64, 'success-rate')),
+                        ('rtt_min', YLeaf(YType.uint64, 'rtt-min')),
+                        ('rtt_avg', YLeaf(YType.uint64, 'rtt-avg')),
+                        ('rtt_max', YLeaf(YType.uint64, 'rtt-max')),
+                    ])
+                    self.destination = None
+                    self.repeat_count = None
+                    self.data_size = None
+                    self.timeout = None
+                    self.interval = None
+                    self.pattern = None
+                    self.sweep = None
+                    self.sweep_min = None
+                    self.sweep_max = None
+                    self.rotate_pattern = None
+                    self.hits = None
+                    self.total = None
+                    self.success_rate = None
+                    self.rtt_min = None
+                    self.rtt_avg = None
+                    self.rtt_max = None
 
                     self.replies = Ping.Output.PingResponse.Ipv6.Replies()
                     self.replies.parent = self
@@ -1177,8 +1212,10 @@ class Ping(Entity):
                         self.yang_parent_name = "ipv6"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"reply" : ("reply", Ping.Output.PingResponse.Ipv6.Replies.Reply)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("reply", ("reply", Ping.Output.PingResponse.Ipv6.Replies.Reply))])
+                        self._leafs = OrderedDict()
 
                         self.reply = YList(self)
                         self._segment_path = lambda: "replies"
@@ -1192,7 +1229,7 @@ class Ping(Entity):
                         """
                         
                         
-                        .. attribute:: reply_index  <key>
+                        .. attribute:: reply_index  (key)
                         
                         	Index of the reply list
                         	**type**\: int
@@ -1218,13 +1255,16 @@ class Ping(Entity):
                             self.yang_parent_name = "replies"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reply_index = YLeaf(YType.uint64, "reply-index")
-
-                            self.result = YLeaf(YType.str, "result")
-                            self._segment_path = lambda: "reply" + "[reply-index='" + self.reply_index.get() + "']"
+                            self.ylist_key_names = ['reply_index']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reply_index', YLeaf(YType.uint64, 'reply-index')),
+                                ('result', YLeaf(YType.str, 'result')),
+                            ])
+                            self.reply_index = None
+                            self.result = None
+                            self._segment_path = lambda: "reply" + "[reply-index='" + str(self.reply_index) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/replies/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):

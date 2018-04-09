@@ -14,6 +14,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -22,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LspSetup(Enum):
     """
-    LspSetup
+    LspSetup (Enum Class)
 
     LSP setup type
 
@@ -49,7 +51,7 @@ class LspSetup(Enum):
 
 class LspState(Enum):
     """
-    LspState
+    LspState (Enum Class)
 
     LSP setup type
 
@@ -70,7 +72,7 @@ class LspState(Enum):
 
 class PceAfId(Enum):
     """
-    PceAfId
+    PceAfId (Enum Class)
 
     Pce af id
 
@@ -97,7 +99,7 @@ class PceAfId(Enum):
 
 class PceAsso(Enum):
     """
-    PceAsso
+    PceAsso (Enum Class)
 
     Pce asso
 
@@ -130,7 +132,7 @@ class PceAsso(Enum):
 
 class PceCspfRc(Enum):
     """
-    PceCspfRc
+    PceCspfRc (Enum Class)
 
     PCE CSPF Result Code
 
@@ -253,7 +255,7 @@ class PceCspfRc(Enum):
 
 class PceHeadendSwap(Enum):
     """
-    PceHeadendSwap
+    PceHeadendSwap (Enum Class)
 
     PCE Headends Swap Code
 
@@ -280,7 +282,7 @@ class PceHeadendSwap(Enum):
 
 class PceIgpInfoId(Enum):
     """
-    PceIgpInfoId
+    PceIgpInfoId (Enum Class)
 
     IGP IDs
 
@@ -307,7 +309,7 @@ class PceIgpInfoId(Enum):
 
 class PceProto(Enum):
     """
-    PceProto
+    PceProto (Enum Class)
 
     PCE peer protocol
 
@@ -328,7 +330,7 @@ class PceProto(Enum):
 
 class PceRro(Enum):
     """
-    PceRro
+    PceRro (Enum Class)
 
     PCE RRO type
 
@@ -367,7 +369,7 @@ class PceRro(Enum):
 
 class PceSrSid(Enum):
     """
-    PceSrSid
+    PceSrSid (Enum Class)
 
     PCE SR SID type
 
@@ -394,7 +396,7 @@ class PceSrSid(Enum):
 
 class PcepLspState(Enum):
     """
-    PcepLspState
+    PcepLspState (Enum Class)
 
     PCEP operation protocol
 
@@ -433,7 +435,7 @@ class PcepLspState(Enum):
 
 class PcepState(Enum):
     """
-    PcepState
+    PcepState (Enum Class)
 
     PCEP State
 
@@ -478,7 +480,7 @@ class PcepState(Enum):
 
 class Sid(Enum):
     """
-    Sid
+    Sid (Enum Class)
 
     SID Types
 
@@ -540,7 +542,7 @@ class PceLspData(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-06-26'
+    _revision = '2017-08-24'
 
     def __init__(self):
         super(PceLspData, self).__init__()
@@ -550,8 +552,10 @@ class PceLspData(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-xtc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"tunnel-infos" : ("tunnel_infos", PceLspData.TunnelInfos), "lsp-summary" : ("lsp_summary", PceLspData.LspSummary), "tunnel-detail-infos" : ("tunnel_detail_infos", PceLspData.TunnelDetailInfos)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("tunnel-infos", ("tunnel_infos", PceLspData.TunnelInfos)), ("lsp-summary", ("lsp_summary", PceLspData.LspSummary)), ("tunnel-detail-infos", ("tunnel_detail_infos", PceLspData.TunnelDetailInfos))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.tunnel_infos = PceLspData.TunnelInfos()
         self.tunnel_infos.parent = self
@@ -584,7 +588,7 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceLspData.TunnelInfos, self).__init__()
@@ -593,8 +597,10 @@ class PceLspData(Entity):
             self.yang_parent_name = "pce-lsp-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tunnel-info" : ("tunnel_info", PceLspData.TunnelInfos.TunnelInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tunnel-info", ("tunnel_info", PceLspData.TunnelInfos.TunnelInfo))])
+            self._leafs = OrderedDict()
 
             self.tunnel_info = YList(self)
             self._segment_path = lambda: "tunnel-infos"
@@ -608,7 +614,7 @@ class PceLspData(Entity):
             """
             Tunnel information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -621,14 +627,14 @@ class PceLspData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: plsp_id  <key>
+            .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: tunnel_name  <key>
+            .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
@@ -657,7 +663,7 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceLspData.TunnelInfos.TunnelInfo, self).__init__()
@@ -666,21 +672,24 @@ class PceLspData(Entity):
                 self.yang_parent_name = "tunnel-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"brief-lsp-information" : ("brief_lsp_information", PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation)}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.plsp_id = YLeaf(YType.int32, "plsp-id")
-
-                self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                self.pcc_address = YLeaf(YType.str, "pcc-address")
-
-                self.tunnel_name_xr = YLeaf(YType.str, "tunnel-name-xr")
+                self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation))])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('plsp_id', YLeaf(YType.int32, 'plsp-id')),
+                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                    ('pcc_address', YLeaf(YType.str, 'pcc-address')),
+                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                ])
+                self.peer_address = None
+                self.plsp_id = None
+                self.tunnel_name = None
+                self.pcc_address = None
+                self.tunnel_name_xr = None
 
                 self.brief_lsp_information = YList(self)
-                self._segment_path = lambda: "tunnel-info" + "[peer-address='" + self.peer_address.get() + "']" + "[plsp-id='" + self.plsp_id.get() + "']" + "[tunnel-name='" + self.tunnel_name.get() + "']"
+                self._segment_path = lambda: "tunnel-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/tunnel-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -746,7 +755,7 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
@@ -755,24 +764,27 @@ class PceLspData(Entity):
                     self.yang_parent_name = "tunnel-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.source_address = YLeaf(YType.str, "source-address")
-
-                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                    self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                    self.lspid = YLeaf(YType.uint32, "lspid")
-
-                    self.binding_sid = YLeaf(YType.uint32, "binding-sid")
-
-                    self.lsp_setup_type = YLeaf(YType.enumeration, "lsp-setup-type")
-
-                    self.operational_state = YLeaf(YType.enumeration, "operational-state")
-
-                    self.administrative_state = YLeaf(YType.enumeration, "administrative-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('source_address', YLeaf(YType.str, 'source-address')),
+                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ('lspid', YLeaf(YType.uint32, 'lspid')),
+                        ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
+                        ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
+                        ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
+                        ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                    ])
+                    self.source_address = None
+                    self.destination_address = None
+                    self.tunnel_id = None
+                    self.lspid = None
+                    self.binding_sid = None
+                    self.lsp_setup_type = None
+                    self.operational_state = None
+                    self.administrative_state = None
                     self._segment_path = lambda: "brief-lsp-information"
 
                 def __setattr__(self, name, value):
@@ -798,7 +810,7 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceLspData.LspSummary, self).__init__()
@@ -807,8 +819,10 @@ class PceLspData(Entity):
             self.yang_parent_name = "pce-lsp-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"all-ls-ps" : ("all_ls_ps", PceLspData.LspSummary.AllLsPs)}
-            self._child_list_classes = {"peer-ls-ps-info" : ("peer_ls_ps_info", PceLspData.LspSummary.PeerLsPsInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("all-ls-ps", ("all_ls_ps", PceLspData.LspSummary.AllLsPs))])
+            self._child_list_classes = OrderedDict([("peer-ls-ps-info", ("peer_ls_ps_info", PceLspData.LspSummary.PeerLsPsInfo))])
+            self._leafs = OrderedDict()
 
             self.all_ls_ps = PceLspData.LspSummary.AllLsPs()
             self.all_ls_ps.parent = self
@@ -867,7 +881,7 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceLspData.LspSummary.AllLsPs, self).__init__()
@@ -876,18 +890,21 @@ class PceLspData(Entity):
                 self.yang_parent_name = "lsp-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.all_ls_ps = YLeaf(YType.uint32, "all-ls-ps")
-
-                self.up_ls_ps = YLeaf(YType.uint32, "up-ls-ps")
-
-                self.admin_up_ls_ps = YLeaf(YType.uint32, "admin-up-ls-ps")
-
-                self.sr_ls_ps = YLeaf(YType.uint32, "sr-ls-ps")
-
-                self.rsvp_ls_ps = YLeaf(YType.uint32, "rsvp-ls-ps")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
+                    ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
+                    ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
+                    ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
+                    ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                ])
+                self.all_ls_ps = None
+                self.up_ls_ps = None
+                self.admin_up_ls_ps = None
+                self.sr_ls_ps = None
+                self.rsvp_ls_ps = None
                 self._segment_path = lambda: "all-ls-ps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/%s" % self._segment_path()
 
@@ -902,7 +919,7 @@ class PceLspData(Entity):
             .. attribute:: lsp_summary
             
             	Number of LSPs for specific peer
-            	**type**\:  :py:class:`LspSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.PeerLsPsInfo.LspSummary>`
+            	**type**\:  :py:class:`LspSummary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.PeerLsPsInfo.LspSummary_>`
             
             .. attribute:: peer_address
             
@@ -916,7 +933,7 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceLspData.LspSummary.PeerLsPsInfo, self).__init__()
@@ -925,12 +942,15 @@ class PceLspData(Entity):
                 self.yang_parent_name = "lsp-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"lsp-summary" : ("lsp_summary", PceLspData.LspSummary.PeerLsPsInfo.LspSummary)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("lsp-summary", ("lsp_summary", PceLspData.LspSummary.PeerLsPsInfo.LspSummary_))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                ])
+                self.peer_address = None
 
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.lsp_summary = PceLspData.LspSummary.PeerLsPsInfo.LspSummary()
+                self.lsp_summary = PceLspData.LspSummary.PeerLsPsInfo.LspSummary_()
                 self.lsp_summary.parent = self
                 self._children_name_map["lsp_summary"] = "lsp-summary"
                 self._children_yang_names.add("lsp-summary")
@@ -941,7 +961,7 @@ class PceLspData(Entity):
                 self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo, ['peer_address'], name, value)
 
 
-            class LspSummary(Entity):
+            class LspSummary_(Entity):
                 """
                 Number of LSPs for specific peer
                 
@@ -985,32 +1005,35 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
-                    super(PceLspData.LspSummary.PeerLsPsInfo.LspSummary, self).__init__()
+                    super(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
 
                     self.yang_name = "lsp-summary"
                     self.yang_parent_name = "peer-ls-ps-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.all_ls_ps = YLeaf(YType.uint32, "all-ls-ps")
-
-                    self.up_ls_ps = YLeaf(YType.uint32, "up-ls-ps")
-
-                    self.admin_up_ls_ps = YLeaf(YType.uint32, "admin-up-ls-ps")
-
-                    self.sr_ls_ps = YLeaf(YType.uint32, "sr-ls-ps")
-
-                    self.rsvp_ls_ps = YLeaf(YType.uint32, "rsvp-ls-ps")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
+                        ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
+                        ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
+                        ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
+                        ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                    ])
+                    self.all_ls_ps = None
+                    self.up_ls_ps = None
+                    self.admin_up_ls_ps = None
+                    self.sr_ls_ps = None
+                    self.rsvp_ls_ps = None
                     self._segment_path = lambda: "lsp-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
+                    self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
     class TunnelDetailInfos(Entity):
@@ -1027,7 +1050,7 @@ class PceLspData(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceLspData.TunnelDetailInfos, self).__init__()
@@ -1036,8 +1059,10 @@ class PceLspData(Entity):
             self.yang_parent_name = "pce-lsp-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tunnel-detail-info" : ("tunnel_detail_info", PceLspData.TunnelDetailInfos.TunnelDetailInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tunnel-detail-info", ("tunnel_detail_info", PceLspData.TunnelDetailInfos.TunnelDetailInfo))])
+            self._leafs = OrderedDict()
 
             self.tunnel_detail_info = YList(self)
             self._segment_path = lambda: "tunnel-detail-infos"
@@ -1051,7 +1076,7 @@ class PceLspData(Entity):
             """
             Detailed tunnel information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -1064,14 +1089,14 @@ class PceLspData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: plsp_id  <key>
+            .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: tunnel_name  <key>
+            .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
@@ -1105,7 +1130,7 @@ class PceLspData(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceLspData.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
@@ -1114,18 +1139,21 @@ class PceLspData(Entity):
                 self.yang_parent_name = "tunnel-detail-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"private-lsp-information" : ("private_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation)}
-                self._child_list_classes = {"detail-lsp-information" : ("detail_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation)}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.plsp_id = YLeaf(YType.int32, "plsp-id")
-
-                self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                self.pcc_address = YLeaf(YType.str, "pcc-address")
-
-                self.tunnel_name_xr = YLeaf(YType.str, "tunnel-name-xr")
+                self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
+                self._child_container_classes = OrderedDict([("private-lsp-information", ("private_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation))])
+                self._child_list_classes = OrderedDict([("detail-lsp-information", ("detail_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation))])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('plsp_id', YLeaf(YType.int32, 'plsp-id')),
+                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                    ('pcc_address', YLeaf(YType.str, 'pcc-address')),
+                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                ])
+                self.peer_address = None
+                self.plsp_id = None
+                self.tunnel_name = None
+                self.pcc_address = None
+                self.tunnel_name_xr = None
 
                 self.private_lsp_information = PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation()
                 self.private_lsp_information.parent = self
@@ -1133,7 +1161,7 @@ class PceLspData(Entity):
                 self._children_yang_names.add("private-lsp-information")
 
                 self.detail_lsp_information = YList(self)
-                self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + self.peer_address.get() + "']" + "[plsp-id='" + self.plsp_id.get() + "']" + "[tunnel-name='" + self.tunnel_name.get() + "']"
+                self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/tunnel-detail-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1154,7 +1182,7 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
@@ -1163,8 +1191,10 @@ class PceLspData(Entity):
                     self.yang_parent_name = "tunnel-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"event-buffer" : ("event_buffer", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("event-buffer", ("event_buffer", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer))])
+                    self._leafs = OrderedDict()
 
                     self.event_buffer = YList(self)
                     self._segment_path = lambda: "private-lsp-information"
@@ -1194,7 +1224,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
@@ -1203,12 +1233,15 @@ class PceLspData(Entity):
                         self.yang_parent_name = "private-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.event_message = YLeaf(YType.str, "event-message")
-
-                        self.time_stamp = YLeaf(YType.uint32, "time-stamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('event_message', YLeaf(YType.str, 'event-message')),
+                            ('time_stamp', YLeaf(YType.uint32, 'time-stamp')),
+                        ])
+                        self.event_message = None
+                        self.time_stamp = None
                         self._segment_path = lambda: "event-buffer"
 
                     def __setattr__(self, name, value):
@@ -1320,7 +1353,7 @@ class PceLspData(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
@@ -1329,28 +1362,31 @@ class PceLspData(Entity):
                     self.yang_parent_name = "tunnel-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief-lsp-information" : ("brief_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation), "er-os" : ("er_os", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs), "lsppcep-information" : ("lsppcep_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation), "lsp-association-info" : ("lsp_association_info", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo), "lsp-attributes" : ("lsp_attributes", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes)}
-                    self._child_list_classes = {"rro" : ("rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro)}
-
-                    self.signaled_bandwidth_specified = YLeaf(YType.boolean, "signaled-bandwidth-specified")
-
-                    self.signaled_bandwidth = YLeaf(YType.uint64, "signaled-bandwidth")
-
-                    self.actual_bandwidth_specified = YLeaf(YType.boolean, "actual-bandwidth-specified")
-
-                    self.actual_bandwidth = YLeaf(YType.uint64, "actual-bandwidth")
-
-                    self.lsp_role = YLeaf(YType.uint32, "lsp-role")
-
-                    self.computing_pce = YLeaf(YType.uint32, "computing-pce")
-
-                    self.sub_delegated_pce = YLeaf(YType.str, "sub-delegated-pce")
-
-                    self.state_sync_pce = YLeaf(YType.str, "state-sync-pce")
-
-                    self.reporting_pcc_address = YLeaf(YType.str, "reporting-pcc-address")
-
-                    self.srlg_info = YLeafList(YType.uint32, "srlg-info")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation)), ("er-os", ("er_os", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs)), ("lsppcep-information", ("lsppcep_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation)), ("lsp-association-info", ("lsp_association_info", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo)), ("lsp-attributes", ("lsp_attributes", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes))])
+                    self._child_list_classes = OrderedDict([("rro", ("rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro))])
+                    self._leafs = OrderedDict([
+                        ('signaled_bandwidth_specified', YLeaf(YType.boolean, 'signaled-bandwidth-specified')),
+                        ('signaled_bandwidth', YLeaf(YType.uint64, 'signaled-bandwidth')),
+                        ('actual_bandwidth_specified', YLeaf(YType.boolean, 'actual-bandwidth-specified')),
+                        ('actual_bandwidth', YLeaf(YType.uint64, 'actual-bandwidth')),
+                        ('lsp_role', YLeaf(YType.uint32, 'lsp-role')),
+                        ('computing_pce', YLeaf(YType.uint32, 'computing-pce')),
+                        ('sub_delegated_pce', YLeaf(YType.str, 'sub-delegated-pce')),
+                        ('state_sync_pce', YLeaf(YType.str, 'state-sync-pce')),
+                        ('reporting_pcc_address', YLeaf(YType.str, 'reporting-pcc-address')),
+                        ('srlg_info', YLeafList(YType.uint32, 'srlg-info')),
+                    ])
+                    self.signaled_bandwidth_specified = None
+                    self.signaled_bandwidth = None
+                    self.actual_bandwidth_specified = None
+                    self.actual_bandwidth = None
+                    self.lsp_role = None
+                    self.computing_pce = None
+                    self.sub_delegated_pce = None
+                    self.state_sync_pce = None
+                    self.reporting_pcc_address = None
+                    self.srlg_info = []
 
                     self.brief_lsp_information = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation()
                     self.brief_lsp_information.parent = self
@@ -1443,7 +1479,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
@@ -1452,24 +1488,27 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                        self.lspid = YLeaf(YType.uint32, "lspid")
-
-                        self.binding_sid = YLeaf(YType.uint32, "binding-sid")
-
-                        self.lsp_setup_type = YLeaf(YType.enumeration, "lsp-setup-type")
-
-                        self.operational_state = YLeaf(YType.enumeration, "operational-state")
-
-                        self.administrative_state = YLeaf(YType.enumeration, "administrative-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('lspid', YLeaf(YType.uint32, 'lspid')),
+                            ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
+                            ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
+                            ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
+                            ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                        ])
+                        self.source_address = None
+                        self.destination_address = None
+                        self.tunnel_id = None
+                        self.lspid = None
+                        self.binding_sid = None
+                        self.lsp_setup_type = None
+                        self.operational_state = None
+                        self.administrative_state = None
                         self._segment_path = lambda: "brief-lsp-information"
 
                     def __setattr__(self, name, value):
@@ -1540,7 +1579,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
@@ -1549,18 +1588,21 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"reported-rsvp-path" : ("reported_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath), "reported-sr-path" : ("reported_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath), "computed-rsvp-path" : ("computed_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath), "computed-sr-path" : ("computed_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath)}
-
-                        self.reported_metric_type = YLeaf(YType.uint32, "reported-metric-type")
-
-                        self.reported_metric_value = YLeaf(YType.uint32, "reported-metric-value")
-
-                        self.computed_metric_type = YLeaf(YType.uint32, "computed-metric-type")
-
-                        self.computed_metric_value = YLeaf(YType.uint32, "computed-metric-value")
-
-                        self.computed_hop_list_time = YLeaf(YType.uint32, "computed-hop-list-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("reported-rsvp-path", ("reported_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath)), ("reported-sr-path", ("reported_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath)), ("computed-rsvp-path", ("computed_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath)), ("computed-sr-path", ("computed_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath))])
+                        self._leafs = OrderedDict([
+                            ('reported_metric_type', YLeaf(YType.uint32, 'reported-metric-type')),
+                            ('reported_metric_value', YLeaf(YType.uint32, 'reported-metric-value')),
+                            ('computed_metric_type', YLeaf(YType.uint32, 'computed-metric-type')),
+                            ('computed_metric_value', YLeaf(YType.uint32, 'computed-metric-value')),
+                            ('computed_hop_list_time', YLeaf(YType.uint32, 'computed-hop-list-time')),
+                        ])
+                        self.reported_metric_type = None
+                        self.reported_metric_value = None
+                        self.computed_metric_type = None
+                        self.computed_metric_value = None
+                        self.computed_hop_list_time = None
 
                         self.reported_rsvp_path = YList(self)
                         self.reported_sr_path = YList(self)
@@ -1588,7 +1630,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
@@ -1597,10 +1639,13 @@ class PceLspData(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hop_address = YLeaf(YType.str, "hop-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                            ])
+                            self.hop_address = None
                             self._segment_path = lambda: "reported-rsvp-path"
 
                         def __setattr__(self, name, value):
@@ -1642,7 +1687,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
@@ -1651,16 +1696,19 @@ class PceLspData(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "reported-sr-path"
 
                         def __setattr__(self, name, value):
@@ -1683,7 +1731,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
@@ -1692,10 +1740,13 @@ class PceLspData(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hop_address = YLeaf(YType.str, "hop-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                            ])
+                            self.hop_address = None
                             self._segment_path = lambda: "computed-rsvp-path"
 
                         def __setattr__(self, name, value):
@@ -1737,7 +1788,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
@@ -1746,16 +1797,19 @@ class PceLspData(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "computed-sr-path"
 
                         def __setattr__(self, name, value):
@@ -1805,12 +1859,19 @@ class PceLspData(Entity):
                     
                     	**range:** 0..255
                     
+                    .. attribute:: pcep_flag_c
+                    
+                    	PCEP LSP initiated flag
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
                     
 
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
@@ -1819,20 +1880,25 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rsvp-error" : ("rsvp_error", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError)}
-                        self._child_list_classes = {}
-
-                        self.pcepid = YLeaf(YType.uint32, "pcepid")
-
-                        self.pcep_flag_d = YLeaf(YType.boolean, "pcep-flag-d")
-
-                        self.pcep_flag_s = YLeaf(YType.boolean, "pcep-flag-s")
-
-                        self.pcep_flag_r = YLeaf(YType.boolean, "pcep-flag-r")
-
-                        self.pcep_flag_a = YLeaf(YType.boolean, "pcep-flag-a")
-
-                        self.pcep_flag_o = YLeaf(YType.uint8, "pcep-flag-o")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rsvp-error", ("rsvp_error", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcepid', YLeaf(YType.uint32, 'pcepid')),
+                            ('pcep_flag_d', YLeaf(YType.boolean, 'pcep-flag-d')),
+                            ('pcep_flag_s', YLeaf(YType.boolean, 'pcep-flag-s')),
+                            ('pcep_flag_r', YLeaf(YType.boolean, 'pcep-flag-r')),
+                            ('pcep_flag_a', YLeaf(YType.boolean, 'pcep-flag-a')),
+                            ('pcep_flag_o', YLeaf(YType.uint8, 'pcep-flag-o')),
+                            ('pcep_flag_c', YLeaf(YType.uint8, 'pcep-flag-c')),
+                        ])
+                        self.pcepid = None
+                        self.pcep_flag_d = None
+                        self.pcep_flag_s = None
+                        self.pcep_flag_r = None
+                        self.pcep_flag_a = None
+                        self.pcep_flag_o = None
+                        self.pcep_flag_c = None
 
                         self.rsvp_error = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError()
                         self.rsvp_error.parent = self
@@ -1841,7 +1907,7 @@ class PceLspData(Entity):
                         self._segment_path = lambda: "lsppcep-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
                     class RsvpError(Entity):
@@ -1881,7 +1947,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
@@ -1890,16 +1956,19 @@ class PceLspData(Entity):
                             self.yang_parent_name = "lsppcep-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.node_address = YLeaf(YType.str, "node-address")
-
-                            self.error_flags = YLeaf(YType.uint8, "error-flags")
-
-                            self.error_code = YLeaf(YType.uint8, "error-code")
-
-                            self.error_value = YLeaf(YType.uint16, "error-value")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('node_address', YLeaf(YType.str, 'node-address')),
+                                ('error_flags', YLeaf(YType.uint8, 'error-flags')),
+                                ('error_code', YLeaf(YType.uint8, 'error-code')),
+                                ('error_value', YLeaf(YType.uint16, 'error-value')),
+                            ])
+                            self.node_address = None
+                            self.error_flags = None
+                            self.error_code = None
+                            self.error_value = None
                             self._segment_path = lambda: "rsvp-error"
 
                         def __setattr__(self, name, value):
@@ -1936,7 +2005,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
@@ -1945,14 +2014,17 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.association_type = YLeaf(YType.uint32, "association-type")
-
-                        self.association_id = YLeaf(YType.uint32, "association-id")
-
-                        self.association_source = YLeaf(YType.str, "association-source")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('association_type', YLeaf(YType.uint32, 'association-type')),
+                            ('association_id', YLeaf(YType.uint32, 'association-id')),
+                            ('association_source', YLeaf(YType.str, 'association-source')),
+                        ])
+                        self.association_type = None
+                        self.association_id = None
+                        self.association_source = None
                         self._segment_path = lambda: "lsp-association-info"
 
                     def __setattr__(self, name, value):
@@ -2008,7 +2080,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
@@ -2017,20 +2089,23 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.affinity_exclude_any = YLeaf(YType.uint32, "affinity-exclude-any")
-
-                        self.affinity_include_any = YLeaf(YType.uint32, "affinity-include-any")
-
-                        self.affinity_include_all = YLeaf(YType.uint32, "affinity-include-all")
-
-                        self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                        self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                        self.local_protection = YLeaf(YType.boolean, "local-protection")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('affinity_exclude_any', YLeaf(YType.uint32, 'affinity-exclude-any')),
+                            ('affinity_include_any', YLeaf(YType.uint32, 'affinity-include-any')),
+                            ('affinity_include_all', YLeaf(YType.uint32, 'affinity-include-all')),
+                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                            ('local_protection', YLeaf(YType.boolean, 'local-protection')),
+                        ])
+                        self.affinity_exclude_any = None
+                        self.affinity_include_any = None
+                        self.affinity_include_all = None
+                        self.setup_priority = None
+                        self.hold_priority = None
+                        self.local_protection = None
                         self._segment_path = lambda: "lsp-attributes"
 
                     def __setattr__(self, name, value):
@@ -2077,7 +2152,7 @@ class PceLspData(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
@@ -2086,16 +2161,19 @@ class PceLspData(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sr-rro" : ("sr_rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro)}
-                        self._child_list_classes = {}
-
-                        self.rro_type = YLeaf(YType.enumeration, "rro-type")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.flags = YLeaf(YType.uint8, "flags")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sr-rro", ("sr_rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rro_type', YLeaf(YType.enumeration, 'rro-type')),
+                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('flags', YLeaf(YType.uint8, 'flags')),
+                        ])
+                        self.rro_type = None
+                        self.ipv4_address = None
+                        self.mpls_label = None
+                        self.flags = None
 
                         self.sr_rro = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro()
                         self.sr_rro.parent = self
@@ -2142,7 +2220,7 @@ class PceLspData(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
@@ -2151,16 +2229,19 @@ class PceLspData(Entity):
                             self.yang_parent_name = "rro"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "sr-rro"
 
                         def __setattr__(self, name, value):
@@ -2189,7 +2270,7 @@ class PcePeer(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-06-26'
+    _revision = '2017-08-24'
 
     def __init__(self):
         super(PcePeer, self).__init__()
@@ -2199,8 +2280,10 @@ class PcePeer(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-xtc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"peer-detail-infos" : ("peer_detail_infos", PcePeer.PeerDetailInfos), "peer-infos" : ("peer_infos", PcePeer.PeerInfos)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("peer-detail-infos", ("peer_detail_infos", PcePeer.PeerDetailInfos)), ("peer-infos", ("peer_infos", PcePeer.PeerInfos))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.peer_detail_infos = PcePeer.PeerDetailInfos()
         self.peer_detail_infos.parent = self
@@ -2228,7 +2311,7 @@ class PcePeer(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PcePeer.PeerDetailInfos, self).__init__()
@@ -2237,8 +2320,10 @@ class PcePeer(Entity):
             self.yang_parent_name = "pce-peer"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"peer-detail-info" : ("peer_detail_info", PcePeer.PeerDetailInfos.PeerDetailInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", PcePeer.PeerDetailInfos.PeerDetailInfo))])
+            self._leafs = OrderedDict()
 
             self.peer_detail_info = YList(self)
             self._segment_path = lambda: "peer-detail-infos"
@@ -2252,7 +2337,7 @@ class PcePeer(Entity):
             """
             Detailed PCE peer information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -2287,7 +2372,7 @@ class PcePeer(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PcePeer.PeerDetailInfos.PeerDetailInfo, self).__init__()
@@ -2296,20 +2381,23 @@ class PcePeer(Entity):
                 self.yang_parent_name = "peer-detail-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"detail-pcep-information" : ("detail_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation)}
-                self._child_list_classes = {}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.peer_address_xr = YLeaf(YType.str, "peer-address-xr")
-
-                self.peer_protocol = YLeaf(YType.enumeration, "peer-protocol")
+                self.ylist_key_names = ['peer_address']
+                self._child_container_classes = OrderedDict([("detail-pcep-information", ("detail_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('peer_address_xr', YLeaf(YType.str, 'peer-address-xr')),
+                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                ])
+                self.peer_address = None
+                self.peer_address_xr = None
+                self.peer_protocol = None
 
                 self.detail_pcep_information = PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation()
                 self.detail_pcep_information.parent = self
                 self._children_name_map["detail_pcep_information"] = "detail-pcep-information"
                 self._children_yang_names.add("detail-pcep-information")
-                self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + self.peer_address.get() + "']"
+                self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/peer-detail-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2535,7 +2623,7 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
@@ -2544,66 +2632,69 @@ class PcePeer(Entity):
                     self.yang_parent_name = "peer-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief-pcep-information" : ("brief_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation), "last-error-rx" : ("last_error_rx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx), "last-error-tx" : ("last_error_tx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx)}
-                    self._child_list_classes = {}
-
-                    self.error = YLeaf(YType.str, "error")
-
-                    self.speaker_id = YLeaf(YType.str, "speaker-id")
-
-                    self.pcep_up_time = YLeaf(YType.uint32, "pcep-up-time")
-
-                    self.keepalives = YLeaf(YType.uint32, "keepalives")
-
-                    self.md5_enabled = YLeaf(YType.boolean, "md5-enabled")
-
-                    self.keychain_enabled = YLeaf(YType.boolean, "keychain-enabled")
-
-                    self.negotiated_local_keepalive = YLeaf(YType.uint32, "negotiated-local-keepalive")
-
-                    self.negotiated_remote_keepalive = YLeaf(YType.uint32, "negotiated-remote-keepalive")
-
-                    self.negotiated_dead_time = YLeaf(YType.uint32, "negotiated-dead-time")
-
-                    self.pce_request_rx = YLeaf(YType.uint32, "pce-request-rx")
-
-                    self.pce_request_tx = YLeaf(YType.uint32, "pce-request-tx")
-
-                    self.pce_reply_rx = YLeaf(YType.uint32, "pce-reply-rx")
-
-                    self.pce_reply_tx = YLeaf(YType.uint32, "pce-reply-tx")
-
-                    self.pce_error_rx = YLeaf(YType.uint32, "pce-error-rx")
-
-                    self.pce_error_tx = YLeaf(YType.uint32, "pce-error-tx")
-
-                    self.pce_open_tx = YLeaf(YType.uint32, "pce-open-tx")
-
-                    self.pce_open_rx = YLeaf(YType.uint32, "pce-open-rx")
-
-                    self.pce_report_rx = YLeaf(YType.uint32, "pce-report-rx")
-
-                    self.pce_report_tx = YLeaf(YType.uint32, "pce-report-tx")
-
-                    self.pce_update_rx = YLeaf(YType.uint32, "pce-update-rx")
-
-                    self.pce_update_tx = YLeaf(YType.uint32, "pce-update-tx")
-
-                    self.pce_initiate_rx = YLeaf(YType.uint32, "pce-initiate-rx")
-
-                    self.pce_initiate_tx = YLeaf(YType.uint32, "pce-initiate-tx")
-
-                    self.pce_keepalive_tx = YLeaf(YType.uint64, "pce-keepalive-tx")
-
-                    self.pce_keepalive_rx = YLeaf(YType.uint64, "pce-keepalive-rx")
-
-                    self.local_session_id = YLeaf(YType.uint8, "local-session-id")
-
-                    self.remote_session_id = YLeaf(YType.uint8, "remote-session-id")
-
-                    self.minimum_keepalive_interval = YLeaf(YType.uint8, "minimum-keepalive-interval")
-
-                    self.maximum_dead_interval = YLeaf(YType.uint8, "maximum-dead-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation)), ("last-error-rx", ("last_error_rx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx)), ("last-error-tx", ("last_error_tx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('error', YLeaf(YType.str, 'error')),
+                        ('speaker_id', YLeaf(YType.str, 'speaker-id')),
+                        ('pcep_up_time', YLeaf(YType.uint32, 'pcep-up-time')),
+                        ('keepalives', YLeaf(YType.uint32, 'keepalives')),
+                        ('md5_enabled', YLeaf(YType.boolean, 'md5-enabled')),
+                        ('keychain_enabled', YLeaf(YType.boolean, 'keychain-enabled')),
+                        ('negotiated_local_keepalive', YLeaf(YType.uint32, 'negotiated-local-keepalive')),
+                        ('negotiated_remote_keepalive', YLeaf(YType.uint32, 'negotiated-remote-keepalive')),
+                        ('negotiated_dead_time', YLeaf(YType.uint32, 'negotiated-dead-time')),
+                        ('pce_request_rx', YLeaf(YType.uint32, 'pce-request-rx')),
+                        ('pce_request_tx', YLeaf(YType.uint32, 'pce-request-tx')),
+                        ('pce_reply_rx', YLeaf(YType.uint32, 'pce-reply-rx')),
+                        ('pce_reply_tx', YLeaf(YType.uint32, 'pce-reply-tx')),
+                        ('pce_error_rx', YLeaf(YType.uint32, 'pce-error-rx')),
+                        ('pce_error_tx', YLeaf(YType.uint32, 'pce-error-tx')),
+                        ('pce_open_tx', YLeaf(YType.uint32, 'pce-open-tx')),
+                        ('pce_open_rx', YLeaf(YType.uint32, 'pce-open-rx')),
+                        ('pce_report_rx', YLeaf(YType.uint32, 'pce-report-rx')),
+                        ('pce_report_tx', YLeaf(YType.uint32, 'pce-report-tx')),
+                        ('pce_update_rx', YLeaf(YType.uint32, 'pce-update-rx')),
+                        ('pce_update_tx', YLeaf(YType.uint32, 'pce-update-tx')),
+                        ('pce_initiate_rx', YLeaf(YType.uint32, 'pce-initiate-rx')),
+                        ('pce_initiate_tx', YLeaf(YType.uint32, 'pce-initiate-tx')),
+                        ('pce_keepalive_tx', YLeaf(YType.uint64, 'pce-keepalive-tx')),
+                        ('pce_keepalive_rx', YLeaf(YType.uint64, 'pce-keepalive-rx')),
+                        ('local_session_id', YLeaf(YType.uint8, 'local-session-id')),
+                        ('remote_session_id', YLeaf(YType.uint8, 'remote-session-id')),
+                        ('minimum_keepalive_interval', YLeaf(YType.uint8, 'minimum-keepalive-interval')),
+                        ('maximum_dead_interval', YLeaf(YType.uint8, 'maximum-dead-interval')),
+                    ])
+                    self.error = None
+                    self.speaker_id = None
+                    self.pcep_up_time = None
+                    self.keepalives = None
+                    self.md5_enabled = None
+                    self.keychain_enabled = None
+                    self.negotiated_local_keepalive = None
+                    self.negotiated_remote_keepalive = None
+                    self.negotiated_dead_time = None
+                    self.pce_request_rx = None
+                    self.pce_request_tx = None
+                    self.pce_reply_rx = None
+                    self.pce_reply_tx = None
+                    self.pce_error_rx = None
+                    self.pce_error_tx = None
+                    self.pce_open_tx = None
+                    self.pce_open_rx = None
+                    self.pce_report_rx = None
+                    self.pce_report_tx = None
+                    self.pce_update_rx = None
+                    self.pce_update_tx = None
+                    self.pce_initiate_rx = None
+                    self.pce_initiate_tx = None
+                    self.pce_keepalive_tx = None
+                    self.pce_keepalive_rx = None
+                    self.local_session_id = None
+                    self.remote_session_id = None
+                    self.minimum_keepalive_interval = None
+                    self.maximum_dead_interval = None
 
                     self.brief_pcep_information = PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation()
                     self.brief_pcep_information.parent = self
@@ -2674,7 +2765,7 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
@@ -2683,24 +2774,27 @@ class PcePeer(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pcep_state = YLeaf(YType.enumeration, "pcep-state")
-
-                        self.stateful = YLeaf(YType.boolean, "stateful")
-
-                        self.capability_update = YLeaf(YType.boolean, "capability-update")
-
-                        self.capability_instantiate = YLeaf(YType.boolean, "capability-instantiate")
-
-                        self.capability_segment_routing = YLeaf(YType.boolean, "capability-segment-routing")
-
-                        self.capability_triggered_sync = YLeaf(YType.boolean, "capability-triggered-sync")
-
-                        self.capability_db_version = YLeaf(YType.boolean, "capability-db-version")
-
-                        self.capability_delta_sync = YLeaf(YType.boolean, "capability-delta-sync")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
+                            ('stateful', YLeaf(YType.boolean, 'stateful')),
+                            ('capability_update', YLeaf(YType.boolean, 'capability-update')),
+                            ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
+                            ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
+                            ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
+                            ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
+                            ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                        ])
+                        self.pcep_state = None
+                        self.stateful = None
+                        self.capability_update = None
+                        self.capability_instantiate = None
+                        self.capability_segment_routing = None
+                        self.capability_triggered_sync = None
+                        self.capability_db_version = None
+                        self.capability_delta_sync = None
                         self._segment_path = lambda: "brief-pcep-information"
 
                     def __setattr__(self, name, value):
@@ -2730,7 +2824,7 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
@@ -2739,12 +2833,15 @@ class PcePeer(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pc_error_type = YLeaf(YType.uint8, "pc-error-type")
-
-                        self.pc_error_value = YLeaf(YType.uint8, "pc-error-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
+                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                        ])
+                        self.pc_error_type = None
+                        self.pc_error_value = None
                         self._segment_path = lambda: "last-error-rx"
 
                     def __setattr__(self, name, value):
@@ -2774,7 +2871,7 @@ class PcePeer(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
@@ -2783,12 +2880,15 @@ class PcePeer(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pc_error_type = YLeaf(YType.uint8, "pc-error-type")
-
-                        self.pc_error_value = YLeaf(YType.uint8, "pc-error-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
+                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                        ])
+                        self.pc_error_type = None
+                        self.pc_error_value = None
                         self._segment_path = lambda: "last-error-tx"
 
                     def __setattr__(self, name, value):
@@ -2809,7 +2909,7 @@ class PcePeer(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PcePeer.PeerInfos, self).__init__()
@@ -2818,8 +2918,10 @@ class PcePeer(Entity):
             self.yang_parent_name = "pce-peer"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"peer-info" : ("peer_info", PcePeer.PeerInfos.PeerInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("peer-info", ("peer_info", PcePeer.PeerInfos.PeerInfo))])
+            self._leafs = OrderedDict()
 
             self.peer_info = YList(self)
             self._segment_path = lambda: "peer-infos"
@@ -2833,7 +2935,7 @@ class PcePeer(Entity):
             """
             PCE peer information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -2868,7 +2970,7 @@ class PcePeer(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PcePeer.PeerInfos.PeerInfo, self).__init__()
@@ -2877,20 +2979,23 @@ class PcePeer(Entity):
                 self.yang_parent_name = "peer-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"brief-pcep-information" : ("brief_pcep_information", PcePeer.PeerInfos.PeerInfo.BriefPcepInformation)}
-                self._child_list_classes = {}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.peer_address_xr = YLeaf(YType.str, "peer-address-xr")
-
-                self.peer_protocol = YLeaf(YType.enumeration, "peer-protocol")
+                self.ylist_key_names = ['peer_address']
+                self._child_container_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", PcePeer.PeerInfos.PeerInfo.BriefPcepInformation))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('peer_address_xr', YLeaf(YType.str, 'peer-address-xr')),
+                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                ])
+                self.peer_address = None
+                self.peer_address_xr = None
+                self.peer_protocol = None
 
                 self.brief_pcep_information = PcePeer.PeerInfos.PeerInfo.BriefPcepInformation()
                 self.brief_pcep_information.parent = self
                 self._children_name_map["brief_pcep_information"] = "brief-pcep-information"
                 self._children_yang_names.add("brief-pcep-information")
-                self._segment_path = lambda: "peer-info" + "[peer-address='" + self.peer_address.get() + "']"
+                self._segment_path = lambda: "peer-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/peer-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2946,7 +3051,7 @@ class PcePeer(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
@@ -2955,24 +3060,27 @@ class PcePeer(Entity):
                     self.yang_parent_name = "peer-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.pcep_state = YLeaf(YType.enumeration, "pcep-state")
-
-                    self.stateful = YLeaf(YType.boolean, "stateful")
-
-                    self.capability_update = YLeaf(YType.boolean, "capability-update")
-
-                    self.capability_instantiate = YLeaf(YType.boolean, "capability-instantiate")
-
-                    self.capability_segment_routing = YLeaf(YType.boolean, "capability-segment-routing")
-
-                    self.capability_triggered_sync = YLeaf(YType.boolean, "capability-triggered-sync")
-
-                    self.capability_db_version = YLeaf(YType.boolean, "capability-db-version")
-
-                    self.capability_delta_sync = YLeaf(YType.boolean, "capability-delta-sync")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
+                        ('stateful', YLeaf(YType.boolean, 'stateful')),
+                        ('capability_update', YLeaf(YType.boolean, 'capability-update')),
+                        ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
+                        ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
+                        ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
+                        ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
+                        ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                    ])
+                    self.pcep_state = None
+                    self.stateful = None
+                    self.capability_update = None
+                    self.capability_instantiate = None
+                    self.capability_segment_routing = None
+                    self.capability_triggered_sync = None
+                    self.capability_db_version = None
+                    self.capability_delta_sync = None
                     self._segment_path = lambda: "brief-pcep-information"
 
                 def __setattr__(self, name, value):
@@ -3006,7 +3114,7 @@ class PceTopology(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-06-26'
+    _revision = '2017-08-24'
 
     def __init__(self):
         super(PceTopology, self).__init__()
@@ -3016,8 +3124,10 @@ class PceTopology(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-xtc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"topology-summary" : ("topology_summary", PceTopology.TopologySummary), "topology-nodes" : ("topology_nodes", PceTopology.TopologyNodes), "prefix-infos" : ("prefix_infos", PceTopology.PrefixInfos)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("topology-summary", ("topology_summary", PceTopology.TopologySummary)), ("topology-nodes", ("topology_nodes", PceTopology.TopologyNodes)), ("prefix-infos", ("prefix_infos", PceTopology.PrefixInfos))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.topology_summary = PceTopology.TopologySummary()
         self.topology_summary.parent = self
@@ -3139,7 +3249,7 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceTopology.TopologySummary, self).__init__()
@@ -3148,34 +3258,37 @@ class PceTopology(Entity):
             self.yang_parent_name = "pce-topology"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"stats-topology-update" : ("stats_topology_update", PceTopology.TopologySummary.StatsTopologyUpdate)}
-            self._child_list_classes = {}
-
-            self.nodes = YLeaf(YType.uint32, "nodes")
-
-            self.lookup_nodes = YLeaf(YType.uint32, "lookup-nodes")
-
-            self.prefixes = YLeaf(YType.uint32, "prefixes")
-
-            self.prefix_sids = YLeaf(YType.uint32, "prefix-sids")
-
-            self.regular_prefix_sids = YLeaf(YType.uint32, "regular-prefix-sids")
-
-            self.strict_prefix_sids = YLeaf(YType.uint32, "strict-prefix-sids")
-
-            self.links = YLeaf(YType.uint32, "links")
-
-            self.epe_links = YLeaf(YType.uint32, "epe-links")
-
-            self.adjacency_sids = YLeaf(YType.uint32, "adjacency-sids")
-
-            self.epesids = YLeaf(YType.uint32, "epesids")
-
-            self.protected_adjacency_sids = YLeaf(YType.uint32, "protected-adjacency-sids")
-
-            self.un_protected_adjacency_sids = YLeaf(YType.uint32, "un-protected-adjacency-sids")
-
-            self.topology_consistent = YLeaf(YType.boolean, "topology-consistent")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", PceTopology.TopologySummary.StatsTopologyUpdate))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('nodes', YLeaf(YType.uint32, 'nodes')),
+                ('lookup_nodes', YLeaf(YType.uint32, 'lookup-nodes')),
+                ('prefixes', YLeaf(YType.uint32, 'prefixes')),
+                ('prefix_sids', YLeaf(YType.uint32, 'prefix-sids')),
+                ('regular_prefix_sids', YLeaf(YType.uint32, 'regular-prefix-sids')),
+                ('strict_prefix_sids', YLeaf(YType.uint32, 'strict-prefix-sids')),
+                ('links', YLeaf(YType.uint32, 'links')),
+                ('epe_links', YLeaf(YType.uint32, 'epe-links')),
+                ('adjacency_sids', YLeaf(YType.uint32, 'adjacency-sids')),
+                ('epesids', YLeaf(YType.uint32, 'epesids')),
+                ('protected_adjacency_sids', YLeaf(YType.uint32, 'protected-adjacency-sids')),
+                ('un_protected_adjacency_sids', YLeaf(YType.uint32, 'un-protected-adjacency-sids')),
+                ('topology_consistent', YLeaf(YType.boolean, 'topology-consistent')),
+            ])
+            self.nodes = None
+            self.lookup_nodes = None
+            self.prefixes = None
+            self.prefix_sids = None
+            self.regular_prefix_sids = None
+            self.strict_prefix_sids = None
+            self.links = None
+            self.epe_links = None
+            self.adjacency_sids = None
+            self.epesids = None
+            self.protected_adjacency_sids = None
+            self.un_protected_adjacency_sids = None
+            self.topology_consistent = None
 
             self.stats_topology_update = PceTopology.TopologySummary.StatsTopologyUpdate()
             self.stats_topology_update.parent = self
@@ -3239,7 +3352,7 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceTopology.TopologySummary.StatsTopologyUpdate, self).__init__()
@@ -3248,20 +3361,23 @@ class PceTopology(Entity):
                 self.yang_parent_name = "topology-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.num_nodes_added = YLeaf(YType.uint32, "num-nodes-added")
-
-                self.num_nodes_deleted = YLeaf(YType.uint32, "num-nodes-deleted")
-
-                self.num_links_added = YLeaf(YType.uint32, "num-links-added")
-
-                self.num_links_deleted = YLeaf(YType.uint32, "num-links-deleted")
-
-                self.num_prefixes_added = YLeaf(YType.uint32, "num-prefixes-added")
-
-                self.num_prefixes_deleted = YLeaf(YType.uint32, "num-prefixes-deleted")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('num_nodes_added', YLeaf(YType.uint32, 'num-nodes-added')),
+                    ('num_nodes_deleted', YLeaf(YType.uint32, 'num-nodes-deleted')),
+                    ('num_links_added', YLeaf(YType.uint32, 'num-links-added')),
+                    ('num_links_deleted', YLeaf(YType.uint32, 'num-links-deleted')),
+                    ('num_prefixes_added', YLeaf(YType.uint32, 'num-prefixes-added')),
+                    ('num_prefixes_deleted', YLeaf(YType.uint32, 'num-prefixes-deleted')),
+                ])
+                self.num_nodes_added = None
+                self.num_nodes_deleted = None
+                self.num_links_added = None
+                self.num_links_deleted = None
+                self.num_prefixes_added = None
+                self.num_prefixes_deleted = None
                 self._segment_path = lambda: "stats-topology-update"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summary/%s" % self._segment_path()
 
@@ -3283,7 +3399,7 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceTopology.TopologyNodes, self).__init__()
@@ -3292,8 +3408,10 @@ class PceTopology(Entity):
             self.yang_parent_name = "pce-topology"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"topology-node" : ("topology_node", PceTopology.TopologyNodes.TopologyNode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("topology-node", ("topology_node", PceTopology.TopologyNodes.TopologyNode))])
+            self._leafs = OrderedDict()
 
             self.topology_node = YList(self)
             self._segment_path = lambda: "topology-nodes"
@@ -3307,7 +3425,7 @@ class PceTopology(Entity):
             """
             Node information
             
-            .. attribute:: node_identifier  <key>
+            .. attribute:: node_identifier  (key)
             
             	Node Identifier
             	**type**\: int
@@ -3351,7 +3469,7 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceTopology.TopologyNodes.TopologyNode, self).__init__()
@@ -3360,14 +3478,17 @@ class PceTopology(Entity):
                 self.yang_parent_name = "topology-nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-protocol-identifier" : ("node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier)}
-                self._child_list_classes = {"prefix-sid" : ("prefix_sid", PceTopology.TopologyNodes.TopologyNode.PrefixSid), "ipv4-link" : ("ipv4_link", PceTopology.TopologyNodes.TopologyNode.Ipv4Link), "ipv6-link" : ("ipv6_link", PceTopology.TopologyNodes.TopologyNode.Ipv6Link)}
-
-                self.node_identifier = YLeaf(YType.int32, "node-identifier")
-
-                self.node_identifier_xr = YLeaf(YType.uint32, "node-identifier-xr")
-
-                self.overload = YLeaf(YType.boolean, "overload")
+                self.ylist_key_names = ['node_identifier']
+                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier))])
+                self._child_list_classes = OrderedDict([("prefix-sid", ("prefix_sid", PceTopology.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", PceTopology.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", PceTopology.TopologyNodes.TopologyNode.Ipv6Link))])
+                self._leafs = OrderedDict([
+                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                    ('overload', YLeaf(YType.boolean, 'overload')),
+                ])
+                self.node_identifier = None
+                self.node_identifier_xr = None
+                self.overload = None
 
                 self.node_protocol_identifier = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
@@ -3377,7 +3498,7 @@ class PceTopology(Entity):
                 self.prefix_sid = YList(self)
                 self.ipv4_link = YList(self)
                 self.ipv6_link = YList(self)
-                self._segment_path = lambda: "topology-node" + "[node-identifier='" + self.node_identifier.get() + "']"
+                self._segment_path = lambda: "topology-node" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3432,7 +3553,7 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
@@ -3441,18 +3562,21 @@ class PceTopology(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"igp-information" : ("igp_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation)}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
-
-                    self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                    self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                    self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                    self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation))])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                    ])
+                    self.node_name = None
+                    self.ipv4_bgp_router_id_set = None
+                    self.ipv4_bgp_router_id = None
+                    self.ipv4te_router_id_set = None
+                    self.ipv4te_router_id = None
 
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
@@ -3490,7 +3614,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -3499,12 +3623,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
@@ -3545,7 +3672,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -3554,10 +3681,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -3600,7 +3730,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -3609,12 +3739,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -3644,7 +3777,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -3653,12 +3786,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -3688,7 +3824,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -3697,12 +3833,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -3737,7 +3876,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -3746,12 +3885,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp-srgb" : ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.uint32, "start")
-
-                        self.size = YLeaf(YType.uint32, "size")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.uint32, 'start')),
+                            ('size', YLeaf(YType.uint32, 'size')),
+                        ])
+                        self.start = None
+                        self.size = None
 
                         self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                         self.igp_srgb.parent = self
@@ -3792,7 +3934,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -3801,10 +3943,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                             self.isis.parent = self
@@ -3847,7 +3992,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -3856,12 +4001,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -3891,7 +4039,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -3900,12 +4048,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -3935,7 +4086,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -3944,12 +4095,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -4019,7 +4173,7 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.TopologyNodes.TopologyNode.PrefixSid, self).__init__()
@@ -4028,26 +4182,29 @@ class PceTopology(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sid-prefix" : ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix)}
-                    self._child_list_classes = {}
-
-                    self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                    self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                    self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                    self.rflag = YLeaf(YType.boolean, "rflag")
-
-                    self.nflag = YLeaf(YType.boolean, "nflag")
-
-                    self.pflag = YLeaf(YType.boolean, "pflag")
-
-                    self.eflag = YLeaf(YType.boolean, "eflag")
-
-                    self.vflag = YLeaf(YType.boolean, "vflag")
-
-                    self.lflag = YLeaf(YType.boolean, "lflag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                        ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                        ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                        ('rflag', YLeaf(YType.boolean, 'rflag')),
+                        ('nflag', YLeaf(YType.boolean, 'nflag')),
+                        ('pflag', YLeaf(YType.boolean, 'pflag')),
+                        ('eflag', YLeaf(YType.boolean, 'eflag')),
+                        ('vflag', YLeaf(YType.boolean, 'vflag')),
+                        ('lflag', YLeaf(YType.boolean, 'lflag')),
+                    ])
+                    self.sid_type = None
+                    self.mpls_label = None
+                    self.domain_identifier = None
+                    self.rflag = None
+                    self.nflag = None
+                    self.pflag = None
+                    self.eflag = None
+                    self.vflag = None
+                    self.lflag = None
 
                     self.sid_prefix = PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix()
                     self.sid_prefix.parent = self
@@ -4087,7 +4244,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, self).__init__()
@@ -4096,14 +4253,17 @@ class PceTopology(Entity):
                         self.yang_parent_name = "prefix-sid"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                        self.ipv6 = YLeaf(YType.str, "ipv6")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
                         self._segment_path = lambda: "sid-prefix"
 
                     def __setattr__(self, name, value):
@@ -4183,7 +4343,7 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
@@ -4192,22 +4352,25 @@ class PceTopology(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local-igp-information" : ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation), "remote-node-protocol-identifier" : ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)}
-                    self._child_list_classes = {"adjacency-sid" : ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid)}
-
-                    self.local_ipv4_address = YLeaf(YType.str, "local-ipv4-address")
-
-                    self.remote_ipv4_address = YLeaf(YType.str, "remote-ipv4-address")
-
-                    self.igp_metric = YLeaf(YType.uint32, "igp-metric")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.maximum_link_bandwidth = YLeaf(YType.uint64, "maximum-link-bandwidth")
-
-                    self.max_reservable_bandwidth = YLeaf(YType.uint64, "max-reservable-bandwidth")
-
-                    self.srlgs = YLeafList(YType.uint32, "srlgs")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier))])
+                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
+                    self._leafs = OrderedDict([
+                        ('local_ipv4_address', YLeaf(YType.str, 'local-ipv4-address')),
+                        ('remote_ipv4_address', YLeaf(YType.str, 'remote-ipv4-address')),
+                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
+                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                        ('srlgs', YLeafList(YType.uint32, 'srlgs')),
+                    ])
+                    self.local_ipv4_address = None
+                    self.remote_ipv4_address = None
+                    self.igp_metric = None
+                    self.te_metric = None
+                    self.maximum_link_bandwidth = None
+                    self.max_reservable_bandwidth = None
+                    self.srlgs = []
 
                     self.local_igp_information = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
@@ -4254,7 +4417,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
@@ -4263,12 +4426,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
@@ -4309,7 +4475,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, self).__init__()
@@ -4318,10 +4484,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -4364,7 +4533,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -4373,12 +4542,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -4408,7 +4580,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -4417,12 +4589,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -4452,7 +4627,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -4461,12 +4636,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -4521,7 +4699,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -4530,18 +4708,21 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"igp-information" : ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                        self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                        self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                        self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ])
+                        self.node_name = None
+                        self.ipv4_bgp_router_id_set = None
+                        self.ipv4_bgp_router_id = None
+                        self.ipv4te_router_id_set = None
+                        self.ipv4te_router_id = None
 
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
@@ -4579,7 +4760,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -4588,12 +4769,15 @@ class PceTopology(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp" : ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp)}
-                            self._child_list_classes = {}
-
-                            self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                            self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ])
+                            self.domain_identifier = None
+                            self.autonomous_system_number = None
 
                             self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
@@ -4634,7 +4818,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -4643,10 +4827,13 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
@@ -4689,7 +4876,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -4698,12 +4885,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -4733,7 +4923,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -4742,12 +4932,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -4777,7 +4970,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -4786,12 +4979,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -4826,7 +5022,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -4835,12 +5031,15 @@ class PceTopology(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp-srgb" : ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.size = YLeaf(YType.uint32, "size")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('size', YLeaf(YType.uint32, 'size')),
+                            ])
+                            self.start = None
+                            self.size = None
 
                             self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                             self.igp_srgb.parent = self
@@ -4881,7 +5080,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -4890,10 +5089,13 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                                 self.isis.parent = self
@@ -4936,7 +5138,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -4945,12 +5147,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -4980,7 +5185,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -4989,12 +5194,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -5024,7 +5232,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -5033,12 +5241,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -5108,7 +5319,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
@@ -5117,26 +5328,29 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sid-prefix" : ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix)}
-                        self._child_list_classes = {}
-
-                        self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.rflag = YLeaf(YType.boolean, "rflag")
-
-                        self.nflag = YLeaf(YType.boolean, "nflag")
-
-                        self.pflag = YLeaf(YType.boolean, "pflag")
-
-                        self.eflag = YLeaf(YType.boolean, "eflag")
-
-                        self.vflag = YLeaf(YType.boolean, "vflag")
-
-                        self.lflag = YLeaf(YType.boolean, "lflag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('rflag', YLeaf(YType.boolean, 'rflag')),
+                            ('nflag', YLeaf(YType.boolean, 'nflag')),
+                            ('pflag', YLeaf(YType.boolean, 'pflag')),
+                            ('eflag', YLeaf(YType.boolean, 'eflag')),
+                            ('vflag', YLeaf(YType.boolean, 'vflag')),
+                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.domain_identifier = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
 
                         self.sid_prefix = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
@@ -5176,7 +5390,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
@@ -5185,14 +5399,17 @@ class PceTopology(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
 
                         def __setattr__(self, name, value):
@@ -5265,7 +5482,7 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
@@ -5274,20 +5491,23 @@ class PceTopology(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local-igp-information" : ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation), "remote-node-protocol-identifier" : ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier)}
-                    self._child_list_classes = {"adjacency-sid" : ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid)}
-
-                    self.local_ipv6_address = YLeaf(YType.str, "local-ipv6-address")
-
-                    self.remote_ipv6_address = YLeaf(YType.str, "remote-ipv6-address")
-
-                    self.igp_metric = YLeaf(YType.uint32, "igp-metric")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.maximum_link_bandwidth = YLeaf(YType.uint64, "maximum-link-bandwidth")
-
-                    self.max_reservable_bandwidth = YLeaf(YType.uint64, "max-reservable-bandwidth")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier))])
+                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
+                    self._leafs = OrderedDict([
+                        ('local_ipv6_address', YLeaf(YType.str, 'local-ipv6-address')),
+                        ('remote_ipv6_address', YLeaf(YType.str, 'remote-ipv6-address')),
+                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
+                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                    ])
+                    self.local_ipv6_address = None
+                    self.remote_ipv6_address = None
+                    self.igp_metric = None
+                    self.te_metric = None
+                    self.maximum_link_bandwidth = None
+                    self.max_reservable_bandwidth = None
 
                     self.local_igp_information = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
@@ -5334,7 +5554,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
@@ -5343,12 +5563,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
@@ -5389,7 +5612,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, self).__init__()
@@ -5398,10 +5621,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -5444,7 +5670,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -5453,12 +5679,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -5488,7 +5717,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -5497,12 +5726,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -5532,7 +5764,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -5541,12 +5773,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -5601,7 +5836,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -5610,18 +5845,21 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"igp-information" : ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                        self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                        self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                        self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ])
+                        self.node_name = None
+                        self.ipv4_bgp_router_id_set = None
+                        self.ipv4_bgp_router_id = None
+                        self.ipv4te_router_id_set = None
+                        self.ipv4te_router_id = None
 
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
@@ -5659,7 +5897,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -5668,12 +5906,15 @@ class PceTopology(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp" : ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp)}
-                            self._child_list_classes = {}
-
-                            self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                            self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ])
+                            self.domain_identifier = None
+                            self.autonomous_system_number = None
 
                             self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
@@ -5714,7 +5955,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -5723,10 +5964,13 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
@@ -5769,7 +6013,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -5778,12 +6022,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -5813,7 +6060,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -5822,12 +6069,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -5857,7 +6107,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -5866,12 +6116,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -5906,7 +6159,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -5915,12 +6168,15 @@ class PceTopology(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp-srgb" : ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.size = YLeaf(YType.uint32, "size")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('size', YLeaf(YType.uint32, 'size')),
+                            ])
+                            self.start = None
+                            self.size = None
 
                             self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                             self.igp_srgb.parent = self
@@ -5961,7 +6217,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -5970,10 +6226,13 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                                 self.isis.parent = self
@@ -6016,7 +6275,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -6025,12 +6284,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -6060,7 +6322,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -6069,12 +6331,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -6104,7 +6369,7 @@ class PceTopology(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -6113,12 +6378,15 @@ class PceTopology(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -6188,7 +6456,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
@@ -6197,26 +6465,29 @@ class PceTopology(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sid-prefix" : ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix)}
-                        self._child_list_classes = {}
-
-                        self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.rflag = YLeaf(YType.boolean, "rflag")
-
-                        self.nflag = YLeaf(YType.boolean, "nflag")
-
-                        self.pflag = YLeaf(YType.boolean, "pflag")
-
-                        self.eflag = YLeaf(YType.boolean, "eflag")
-
-                        self.vflag = YLeaf(YType.boolean, "vflag")
-
-                        self.lflag = YLeaf(YType.boolean, "lflag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('rflag', YLeaf(YType.boolean, 'rflag')),
+                            ('nflag', YLeaf(YType.boolean, 'nflag')),
+                            ('pflag', YLeaf(YType.boolean, 'pflag')),
+                            ('eflag', YLeaf(YType.boolean, 'eflag')),
+                            ('vflag', YLeaf(YType.boolean, 'vflag')),
+                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.domain_identifier = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
 
                         self.sid_prefix = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
@@ -6256,7 +6527,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
@@ -6265,14 +6536,17 @@ class PceTopology(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
 
                         def __setattr__(self, name, value):
@@ -6293,7 +6567,7 @@ class PceTopology(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(PceTopology.PrefixInfos, self).__init__()
@@ -6302,8 +6576,10 @@ class PceTopology(Entity):
             self.yang_parent_name = "pce-topology"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"prefix-info" : ("prefix_info", PceTopology.PrefixInfos.PrefixInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("prefix-info", ("prefix_info", PceTopology.PrefixInfos.PrefixInfo))])
+            self._leafs = OrderedDict()
 
             self.prefix_info = YList(self)
             self._segment_path = lambda: "prefix-infos"
@@ -6317,7 +6593,7 @@ class PceTopology(Entity):
             """
             PCE prefix information
             
-            .. attribute:: node_identifier  <key>
+            .. attribute:: node_identifier  (key)
             
             	Node ID
             	**type**\: int
@@ -6346,7 +6622,7 @@ class PceTopology(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(PceTopology.PrefixInfos.PrefixInfo, self).__init__()
@@ -6355,12 +6631,15 @@ class PceTopology(Entity):
                 self.yang_parent_name = "prefix-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-protocol-identifier" : ("node_protocol_identifier", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier)}
-                self._child_list_classes = {"address" : ("address", PceTopology.PrefixInfos.PrefixInfo.Address)}
-
-                self.node_identifier = YLeaf(YType.int32, "node-identifier")
-
-                self.node_identifier_xr = YLeaf(YType.uint32, "node-identifier-xr")
+                self.ylist_key_names = ['node_identifier']
+                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier))])
+                self._child_list_classes = OrderedDict([("address", ("address", PceTopology.PrefixInfos.PrefixInfo.Address))])
+                self._leafs = OrderedDict([
+                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                ])
+                self.node_identifier = None
+                self.node_identifier_xr = None
 
                 self.node_protocol_identifier = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
@@ -6368,7 +6647,7 @@ class PceTopology(Entity):
                 self._children_yang_names.add("node-protocol-identifier")
 
                 self.address = YList(self)
-                self._segment_path = lambda: "prefix-info" + "[node-identifier='" + self.node_identifier.get() + "']"
+                self._segment_path = lambda: "prefix-info" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/prefix-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6423,7 +6702,7 @@ class PceTopology(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
@@ -6432,18 +6711,21 @@ class PceTopology(Entity):
                     self.yang_parent_name = "prefix-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"igp-information" : ("igp_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation)}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
-
-                    self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                    self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                    self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                    self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation))])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                    ])
+                    self.node_name = None
+                    self.ipv4_bgp_router_id_set = None
+                    self.ipv4_bgp_router_id = None
+                    self.ipv4te_router_id_set = None
+                    self.ipv4te_router_id = None
 
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
@@ -6481,7 +6763,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -6490,12 +6772,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
@@ -6536,7 +6821,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -6545,10 +6830,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -6591,7 +6879,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -6600,12 +6888,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -6635,7 +6926,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -6644,12 +6935,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -6679,7 +6973,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -6688,12 +6982,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -6728,7 +7025,7 @@ class PceTopology(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -6737,12 +7034,15 @@ class PceTopology(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp-srgb" : ("igp_srgb", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.uint32, "start")
-
-                        self.size = YLeaf(YType.uint32, "size")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.uint32, 'start')),
+                            ('size', YLeaf(YType.uint32, 'size')),
+                        ])
+                        self.start = None
+                        self.size = None
 
                         self.igp_srgb = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                         self.igp_srgb.parent = self
@@ -6783,7 +7083,7 @@ class PceTopology(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -6792,10 +7092,13 @@ class PceTopology(Entity):
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                             self.isis.parent = self
@@ -6838,7 +7141,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -6847,12 +7150,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -6882,7 +7188,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -6891,12 +7197,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -6926,7 +7235,7 @@ class PceTopology(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -6935,12 +7244,15 @@ class PceTopology(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -6951,31 +7263,17 @@ class PceTopology(Entity):
                 """
                 Prefix address
                 
-                .. attribute:: af_name
+                .. attribute:: ip
                 
-                	AFName
-                	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                
-                .. attribute:: ipv4
-                
-                	IPv4 address type
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6
-                
-                	IPv6 address type
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                	Prefix IP address
+                	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.Address.Ip>`
                 
                 
 
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(PceTopology.PrefixInfos.PrefixInfo.Address, self).__init__()
@@ -6984,18 +7282,70 @@ class PceTopology(Entity):
                     self.yang_parent_name = "prefix-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ip", ("ip", PceTopology.PrefixInfos.PrefixInfo.Address.Ip))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                    self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                    self.ipv6 = YLeaf(YType.str, "ipv6")
+                    self.ip = PceTopology.PrefixInfos.PrefixInfo.Address.Ip()
+                    self.ip.parent = self
+                    self._children_name_map["ip"] = "ip"
+                    self._children_yang_names.add("ip")
                     self._segment_path = lambda: "address"
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+                class Ip(Entity):
+                    """
+                    Prefix IP address
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPv4 address type
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address type
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-08-24'
+
+                    def __init__(self):
+                        super(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+
+                        self.yang_name = "ip"
+                        self.yang_parent_name = "address"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "ip"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PceTopology()
@@ -7060,7 +7410,7 @@ class Pce(Entity):
     """
 
     _prefix = 'infra-xtc-oper'
-    _revision = '2017-06-26'
+    _revision = '2017-08-24'
 
     def __init__(self):
         super(Pce, self).__init__()
@@ -7070,8 +7420,10 @@ class Pce(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-xtc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"association-infos" : ("association_infos", Pce.AssociationInfos), "cspf" : ("cspf", Pce.Cspf), "topology-summary" : ("topology_summary", Pce.TopologySummary), "tunnel-infos" : ("tunnel_infos", Pce.TunnelInfos), "peer-detail-infos" : ("peer_detail_infos", Pce.PeerDetailInfos), "topology-nodes" : ("topology_nodes", Pce.TopologyNodes), "prefix-infos" : ("prefix_infos", Pce.PrefixInfos), "lsp-summary" : ("lsp_summary", Pce.LspSummary), "peer-infos" : ("peer_infos", Pce.PeerInfos), "tunnel-detail-infos" : ("tunnel_detail_infos", Pce.TunnelDetailInfos)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("association-infos", ("association_infos", Pce.AssociationInfos)), ("cspf", ("cspf", Pce.Cspf)), ("topology-summary", ("topology_summary", Pce.TopologySummary)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.association_infos = Pce.AssociationInfos()
         self.association_infos.parent = self
@@ -7139,7 +7491,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.AssociationInfos, self).__init__()
@@ -7148,8 +7500,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"association-info" : ("association_info", Pce.AssociationInfos.AssociationInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("association-info", ("association_info", Pce.AssociationInfos.AssociationInfo))])
+            self._leafs = OrderedDict()
 
             self.association_info = YList(self)
             self._segment_path = lambda: "association-infos"
@@ -7163,7 +7517,7 @@ class Pce(Entity):
             """
             PCE Association information
             
-            .. attribute:: group_id  <key>
+            .. attribute:: group_id  (key)
             
             	Group ID
             	**type**\: int
@@ -7232,7 +7586,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.AssociationInfos.AssociationInfo, self).__init__()
@@ -7241,29 +7595,32 @@ class Pce(Entity):
                 self.yang_parent_name = "association-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"association-lsp" : ("association_lsp", Pce.AssociationInfos.AssociationInfo.AssociationLsp)}
-
-                self.group_id = YLeaf(YType.int32, "group-id")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.sub_id = YLeaf(YType.int32, "sub-id")
-
-                self.association_type = YLeaf(YType.uint32, "association-type")
-
-                self.association_id = YLeaf(YType.uint32, "association-id")
-
-                self.association_source = YLeaf(YType.str, "association-source")
-
-                self.strict = YLeaf(YType.boolean, "strict")
-
-                self.status = YLeaf(YType.uint32, "status")
-
-                self.headends_swapped = YLeaf(YType.uint32, "headends-swapped")
+                self.ylist_key_names = ['group_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("association-lsp", ("association_lsp", Pce.AssociationInfos.AssociationInfo.AssociationLsp))])
+                self._leafs = OrderedDict([
+                    ('group_id', YLeaf(YType.int32, 'group-id')),
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('sub_id', YLeaf(YType.int32, 'sub-id')),
+                    ('association_type', YLeaf(YType.uint32, 'association-type')),
+                    ('association_id', YLeaf(YType.uint32, 'association-id')),
+                    ('association_source', YLeaf(YType.str, 'association-source')),
+                    ('strict', YLeaf(YType.boolean, 'strict')),
+                    ('status', YLeaf(YType.uint32, 'status')),
+                    ('headends_swapped', YLeaf(YType.uint32, 'headends-swapped')),
+                ])
+                self.group_id = None
+                self.type = None
+                self.sub_id = None
+                self.association_type = None
+                self.association_id = None
+                self.association_source = None
+                self.strict = None
+                self.status = None
+                self.headends_swapped = None
 
                 self.association_lsp = YList(self)
-                self._segment_path = lambda: "association-info" + "[group-id='" + self.group_id.get() + "']"
+                self._segment_path = lambda: "association-info" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/association-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -7317,7 +7674,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.AssociationInfos.AssociationInfo.AssociationLsp, self).__init__()
@@ -7326,20 +7683,23 @@ class Pce(Entity):
                     self.yang_parent_name = "association-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.pcc_address = YLeaf(YType.str, "pcc-address")
-
-                    self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                    self.lspid = YLeaf(YType.uint32, "lspid")
-
-                    self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                    self.pce_based = YLeaf(YType.boolean, "pce-based")
-
-                    self.plsp_id = YLeaf(YType.uint32, "plsp-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('pcc_address', YLeaf(YType.str, 'pcc-address')),
+                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ('lspid', YLeaf(YType.uint32, 'lspid')),
+                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                        ('pce_based', YLeaf(YType.boolean, 'pce-based')),
+                        ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
+                    ])
+                    self.pcc_address = None
+                    self.tunnel_id = None
+                    self.lspid = None
+                    self.tunnel_name = None
+                    self.pce_based = None
+                    self.plsp_id = None
                     self._segment_path = lambda: "association-lsp"
 
                 def __setattr__(self, name, value):
@@ -7360,7 +7720,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.Cspf, self).__init__()
@@ -7369,8 +7729,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"cspf-paths" : ("cspf_paths", Pce.Cspf.CspfPaths)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("cspf-paths", ("cspf_paths", Pce.Cspf.CspfPaths))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.cspf_paths = Pce.Cspf.CspfPaths()
             self.cspf_paths.parent = self
@@ -7396,7 +7758,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.Cspf.CspfPaths, self).__init__()
@@ -7405,8 +7767,10 @@ class Pce(Entity):
                 self.yang_parent_name = "cspf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"cspf-path" : ("cspf_path", Pce.Cspf.CspfPaths.CspfPath)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("cspf-path", ("cspf_path", Pce.Cspf.CspfPaths.CspfPath))])
+                self._leafs = OrderedDict()
 
                 self.cspf_path = YList(self)
                 self._segment_path = lambda: "cspf-paths"
@@ -7421,14 +7785,14 @@ class Pce(Entity):
                 A GET operation on this class returns the path
                 .
                 
-                .. attribute:: af  <key>
+                .. attribute:: af  (key)
                 
                 	Address Family
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: source1  <key>
+                .. attribute:: source1  (key)
                 
                 	Source of path 1
                 	**type**\: union of the below types:
@@ -7441,7 +7805,7 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: destination1  <key>
+                .. attribute:: destination1  (key)
                 
                 	Destination of path 1
                 	**type**\: union of the below types:
@@ -7454,14 +7818,14 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: metric_type  <key>
+                .. attribute:: metric_type  (key)
                 
                 	Metric type
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: source2  <key>
+                .. attribute:: source2  (key)
                 
                 	Source of path 2
                 	**type**\: union of the below types:
@@ -7474,7 +7838,7 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: destination2  <key>
+                .. attribute:: destination2  (key)
                 
                 	Destination of path 2
                 	**type**\: union of the below types:
@@ -7487,21 +7851,21 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: disjoint_level  <key>
+                .. attribute:: disjoint_level  (key)
                 
                 	Disjointness level
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: disjoint_strict  <key>
+                .. attribute:: disjoint_strict  (key)
                 
                 	Strict disjointness required
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
-                .. attribute:: shortest_path  <key>
+                .. attribute:: shortest_path  (key)
                 
                 	Whether path 1 or 2 should be shortest
                 	**type**\: int
@@ -7528,7 +7892,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.Cspf.CspfPaths.CspfPath, self).__init__()
@@ -7537,33 +7901,36 @@ class Pce(Entity):
                     self.yang_parent_name = "cspf-paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"output-path" : ("output_path", Pce.Cspf.CspfPaths.CspfPath.OutputPath)}
-
-                    self.af = YLeaf(YType.int32, "af")
-
-                    self.source1 = YLeaf(YType.str, "source1")
-
-                    self.destination1 = YLeaf(YType.str, "destination1")
-
-                    self.metric_type = YLeaf(YType.int32, "metric-type")
-
-                    self.source2 = YLeaf(YType.str, "source2")
-
-                    self.destination2 = YLeaf(YType.str, "destination2")
-
-                    self.disjoint_level = YLeaf(YType.int32, "disjoint-level")
-
-                    self.disjoint_strict = YLeaf(YType.int32, "disjoint-strict")
-
-                    self.shortest_path = YLeaf(YType.int32, "shortest-path")
-
-                    self.headends_swapped = YLeaf(YType.enumeration, "headends-swapped")
-
-                    self.cspf_result = YLeaf(YType.enumeration, "cspf-result")
+                    self.ylist_key_names = ['af','source1','destination1','metric_type','source2','destination2','disjoint_level','disjoint_strict','shortest_path']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("output-path", ("output_path", Pce.Cspf.CspfPaths.CspfPath.OutputPath))])
+                    self._leafs = OrderedDict([
+                        ('af', YLeaf(YType.int32, 'af')),
+                        ('source1', YLeaf(YType.str, 'source1')),
+                        ('destination1', YLeaf(YType.str, 'destination1')),
+                        ('metric_type', YLeaf(YType.int32, 'metric-type')),
+                        ('source2', YLeaf(YType.str, 'source2')),
+                        ('destination2', YLeaf(YType.str, 'destination2')),
+                        ('disjoint_level', YLeaf(YType.int32, 'disjoint-level')),
+                        ('disjoint_strict', YLeaf(YType.int32, 'disjoint-strict')),
+                        ('shortest_path', YLeaf(YType.int32, 'shortest-path')),
+                        ('headends_swapped', YLeaf(YType.enumeration, 'headends-swapped')),
+                        ('cspf_result', YLeaf(YType.enumeration, 'cspf-result')),
+                    ])
+                    self.af = None
+                    self.source1 = None
+                    self.destination1 = None
+                    self.metric_type = None
+                    self.source2 = None
+                    self.destination2 = None
+                    self.disjoint_level = None
+                    self.disjoint_strict = None
+                    self.shortest_path = None
+                    self.headends_swapped = None
+                    self.cspf_result = None
 
                     self.output_path = YList(self)
-                    self._segment_path = lambda: "cspf-path" + "[af='" + self.af.get() + "']" + "[source1='" + self.source1.get() + "']" + "[destination1='" + self.destination1.get() + "']" + "[metric-type='" + self.metric_type.get() + "']" + "[source2='" + self.source2.get() + "']" + "[destination2='" + self.destination2.get() + "']" + "[disjoint-level='" + self.disjoint_level.get() + "']" + "[disjoint-strict='" + self.disjoint_strict.get() + "']" + "[shortest-path='" + self.shortest_path.get() + "']"
+                    self._segment_path = lambda: "cspf-path" + "[af='" + str(self.af) + "']" + "[source1='" + str(self.source1) + "']" + "[destination1='" + str(self.destination1) + "']" + "[metric-type='" + str(self.metric_type) + "']" + "[source2='" + str(self.source2) + "']" + "[destination2='" + str(self.destination2) + "']" + "[disjoint-level='" + str(self.disjoint_level) + "']" + "[disjoint-strict='" + str(self.disjoint_strict) + "']" + "[shortest-path='" + str(self.shortest_path) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -7601,7 +7968,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.Cspf.CspfPaths.CspfPath.OutputPath, self).__init__()
@@ -7610,10 +7977,13 @@ class Pce(Entity):
                         self.yang_parent_name = "cspf-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"source" : ("source", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source), "destination" : ("destination", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination)}
-                        self._child_list_classes = {"hops" : ("hops", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops)}
-
-                        self.cost = YLeaf(YType.uint64, "cost")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("source", ("source", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source)), ("destination", ("destination", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination))])
+                        self._child_list_classes = OrderedDict([("hops", ("hops", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops))])
+                        self._leafs = OrderedDict([
+                            ('cost', YLeaf(YType.uint64, 'cost')),
+                        ])
+                        self.cost = None
 
                         self.source = Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source()
                         self.source.parent = self
@@ -7660,7 +8030,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source, self).__init__()
@@ -7669,14 +8039,17 @@ class Pce(Entity):
                             self.yang_parent_name = "output-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "source"
 
                         def __setattr__(self, name, value):
@@ -7711,7 +8084,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination, self).__init__()
@@ -7720,14 +8093,17 @@ class Pce(Entity):
                             self.yang_parent_name = "output-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "destination"
 
                         def __setattr__(self, name, value):
@@ -7764,7 +8140,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, self).__init__()
@@ -7773,14 +8149,17 @@ class Pce(Entity):
                             self.yang_parent_name = "output-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address_family = YLeaf(YType.uint8, "address-family")
-
-                            self.ipv4_prefix = YLeaf(YType.str, "ipv4-prefix")
-
-                            self.ipv6_prefix = YLeaf(YType.str, "ipv6-prefix")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address_family', YLeaf(YType.uint8, 'address-family')),
+                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
+                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                            ])
+                            self.address_family = None
+                            self.ipv4_prefix = None
+                            self.ipv6_prefix = None
                             self._segment_path = lambda: "hops"
 
                         def __setattr__(self, name, value):
@@ -7890,7 +8269,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.TopologySummary, self).__init__()
@@ -7899,34 +8278,37 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"stats-topology-update" : ("stats_topology_update", Pce.TopologySummary.StatsTopologyUpdate)}
-            self._child_list_classes = {}
-
-            self.nodes = YLeaf(YType.uint32, "nodes")
-
-            self.lookup_nodes = YLeaf(YType.uint32, "lookup-nodes")
-
-            self.prefixes = YLeaf(YType.uint32, "prefixes")
-
-            self.prefix_sids = YLeaf(YType.uint32, "prefix-sids")
-
-            self.regular_prefix_sids = YLeaf(YType.uint32, "regular-prefix-sids")
-
-            self.strict_prefix_sids = YLeaf(YType.uint32, "strict-prefix-sids")
-
-            self.links = YLeaf(YType.uint32, "links")
-
-            self.epe_links = YLeaf(YType.uint32, "epe-links")
-
-            self.adjacency_sids = YLeaf(YType.uint32, "adjacency-sids")
-
-            self.epesids = YLeaf(YType.uint32, "epesids")
-
-            self.protected_adjacency_sids = YLeaf(YType.uint32, "protected-adjacency-sids")
-
-            self.un_protected_adjacency_sids = YLeaf(YType.uint32, "un-protected-adjacency-sids")
-
-            self.topology_consistent = YLeaf(YType.boolean, "topology-consistent")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", Pce.TopologySummary.StatsTopologyUpdate))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('nodes', YLeaf(YType.uint32, 'nodes')),
+                ('lookup_nodes', YLeaf(YType.uint32, 'lookup-nodes')),
+                ('prefixes', YLeaf(YType.uint32, 'prefixes')),
+                ('prefix_sids', YLeaf(YType.uint32, 'prefix-sids')),
+                ('regular_prefix_sids', YLeaf(YType.uint32, 'regular-prefix-sids')),
+                ('strict_prefix_sids', YLeaf(YType.uint32, 'strict-prefix-sids')),
+                ('links', YLeaf(YType.uint32, 'links')),
+                ('epe_links', YLeaf(YType.uint32, 'epe-links')),
+                ('adjacency_sids', YLeaf(YType.uint32, 'adjacency-sids')),
+                ('epesids', YLeaf(YType.uint32, 'epesids')),
+                ('protected_adjacency_sids', YLeaf(YType.uint32, 'protected-adjacency-sids')),
+                ('un_protected_adjacency_sids', YLeaf(YType.uint32, 'un-protected-adjacency-sids')),
+                ('topology_consistent', YLeaf(YType.boolean, 'topology-consistent')),
+            ])
+            self.nodes = None
+            self.lookup_nodes = None
+            self.prefixes = None
+            self.prefix_sids = None
+            self.regular_prefix_sids = None
+            self.strict_prefix_sids = None
+            self.links = None
+            self.epe_links = None
+            self.adjacency_sids = None
+            self.epesids = None
+            self.protected_adjacency_sids = None
+            self.un_protected_adjacency_sids = None
+            self.topology_consistent = None
 
             self.stats_topology_update = Pce.TopologySummary.StatsTopologyUpdate()
             self.stats_topology_update.parent = self
@@ -7990,7 +8372,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.TopologySummary.StatsTopologyUpdate, self).__init__()
@@ -7999,20 +8381,23 @@ class Pce(Entity):
                 self.yang_parent_name = "topology-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.num_nodes_added = YLeaf(YType.uint32, "num-nodes-added")
-
-                self.num_nodes_deleted = YLeaf(YType.uint32, "num-nodes-deleted")
-
-                self.num_links_added = YLeaf(YType.uint32, "num-links-added")
-
-                self.num_links_deleted = YLeaf(YType.uint32, "num-links-deleted")
-
-                self.num_prefixes_added = YLeaf(YType.uint32, "num-prefixes-added")
-
-                self.num_prefixes_deleted = YLeaf(YType.uint32, "num-prefixes-deleted")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('num_nodes_added', YLeaf(YType.uint32, 'num-nodes-added')),
+                    ('num_nodes_deleted', YLeaf(YType.uint32, 'num-nodes-deleted')),
+                    ('num_links_added', YLeaf(YType.uint32, 'num-links-added')),
+                    ('num_links_deleted', YLeaf(YType.uint32, 'num-links-deleted')),
+                    ('num_prefixes_added', YLeaf(YType.uint32, 'num-prefixes-added')),
+                    ('num_prefixes_deleted', YLeaf(YType.uint32, 'num-prefixes-deleted')),
+                ])
+                self.num_nodes_added = None
+                self.num_nodes_deleted = None
+                self.num_links_added = None
+                self.num_links_deleted = None
+                self.num_prefixes_added = None
+                self.num_prefixes_deleted = None
                 self._segment_path = lambda: "stats-topology-update"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summary/%s" % self._segment_path()
 
@@ -8034,7 +8419,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.TunnelInfos, self).__init__()
@@ -8043,8 +8428,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tunnel-info" : ("tunnel_info", Pce.TunnelInfos.TunnelInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tunnel-info", ("tunnel_info", Pce.TunnelInfos.TunnelInfo))])
+            self._leafs = OrderedDict()
 
             self.tunnel_info = YList(self)
             self._segment_path = lambda: "tunnel-infos"
@@ -8058,7 +8445,7 @@ class Pce(Entity):
             """
             Tunnel information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -8071,14 +8458,14 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: plsp_id  <key>
+            .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: tunnel_name  <key>
+            .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
@@ -8107,7 +8494,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.TunnelInfos.TunnelInfo, self).__init__()
@@ -8116,21 +8503,24 @@ class Pce(Entity):
                 self.yang_parent_name = "tunnel-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"brief-lsp-information" : ("brief_lsp_information", Pce.TunnelInfos.TunnelInfo.BriefLspInformation)}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.plsp_id = YLeaf(YType.int32, "plsp-id")
-
-                self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                self.pcc_address = YLeaf(YType.str, "pcc-address")
-
-                self.tunnel_name_xr = YLeaf(YType.str, "tunnel-name-xr")
+                self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", Pce.TunnelInfos.TunnelInfo.BriefLspInformation))])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('plsp_id', YLeaf(YType.int32, 'plsp-id')),
+                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                    ('pcc_address', YLeaf(YType.str, 'pcc-address')),
+                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                ])
+                self.peer_address = None
+                self.plsp_id = None
+                self.tunnel_name = None
+                self.pcc_address = None
+                self.tunnel_name_xr = None
 
                 self.brief_lsp_information = YList(self)
-                self._segment_path = lambda: "tunnel-info" + "[peer-address='" + self.peer_address.get() + "']" + "[plsp-id='" + self.plsp_id.get() + "']" + "[tunnel-name='" + self.tunnel_name.get() + "']"
+                self._segment_path = lambda: "tunnel-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/tunnel-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -8196,7 +8586,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, self).__init__()
@@ -8205,24 +8595,27 @@ class Pce(Entity):
                     self.yang_parent_name = "tunnel-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.source_address = YLeaf(YType.str, "source-address")
-
-                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                    self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                    self.lspid = YLeaf(YType.uint32, "lspid")
-
-                    self.binding_sid = YLeaf(YType.uint32, "binding-sid")
-
-                    self.lsp_setup_type = YLeaf(YType.enumeration, "lsp-setup-type")
-
-                    self.operational_state = YLeaf(YType.enumeration, "operational-state")
-
-                    self.administrative_state = YLeaf(YType.enumeration, "administrative-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('source_address', YLeaf(YType.str, 'source-address')),
+                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ('lspid', YLeaf(YType.uint32, 'lspid')),
+                        ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
+                        ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
+                        ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
+                        ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                    ])
+                    self.source_address = None
+                    self.destination_address = None
+                    self.tunnel_id = None
+                    self.lspid = None
+                    self.binding_sid = None
+                    self.lsp_setup_type = None
+                    self.operational_state = None
+                    self.administrative_state = None
                     self._segment_path = lambda: "brief-lsp-information"
 
                 def __setattr__(self, name, value):
@@ -8243,7 +8636,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.PeerDetailInfos, self).__init__()
@@ -8252,8 +8645,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"peer-detail-info" : ("peer_detail_info", Pce.PeerDetailInfos.PeerDetailInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("peer-detail-info", ("peer_detail_info", Pce.PeerDetailInfos.PeerDetailInfo))])
+            self._leafs = OrderedDict()
 
             self.peer_detail_info = YList(self)
             self._segment_path = lambda: "peer-detail-infos"
@@ -8267,7 +8662,7 @@ class Pce(Entity):
             """
             Detailed PCE peer information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -8302,7 +8697,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.PeerDetailInfos.PeerDetailInfo, self).__init__()
@@ -8311,20 +8706,23 @@ class Pce(Entity):
                 self.yang_parent_name = "peer-detail-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"detail-pcep-information" : ("detail_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation)}
-                self._child_list_classes = {}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.peer_address_xr = YLeaf(YType.str, "peer-address-xr")
-
-                self.peer_protocol = YLeaf(YType.enumeration, "peer-protocol")
+                self.ylist_key_names = ['peer_address']
+                self._child_container_classes = OrderedDict([("detail-pcep-information", ("detail_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('peer_address_xr', YLeaf(YType.str, 'peer-address-xr')),
+                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                ])
+                self.peer_address = None
+                self.peer_address_xr = None
+                self.peer_protocol = None
 
                 self.detail_pcep_information = Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation()
                 self.detail_pcep_information.parent = self
                 self._children_name_map["detail_pcep_information"] = "detail-pcep-information"
                 self._children_yang_names.add("detail-pcep-information")
-                self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + self.peer_address.get() + "']"
+                self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/peer-detail-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -8550,7 +8948,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, self).__init__()
@@ -8559,66 +8957,69 @@ class Pce(Entity):
                     self.yang_parent_name = "peer-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief-pcep-information" : ("brief_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation), "last-error-rx" : ("last_error_rx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx), "last-error-tx" : ("last_error_tx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx)}
-                    self._child_list_classes = {}
-
-                    self.error = YLeaf(YType.str, "error")
-
-                    self.speaker_id = YLeaf(YType.str, "speaker-id")
-
-                    self.pcep_up_time = YLeaf(YType.uint32, "pcep-up-time")
-
-                    self.keepalives = YLeaf(YType.uint32, "keepalives")
-
-                    self.md5_enabled = YLeaf(YType.boolean, "md5-enabled")
-
-                    self.keychain_enabled = YLeaf(YType.boolean, "keychain-enabled")
-
-                    self.negotiated_local_keepalive = YLeaf(YType.uint32, "negotiated-local-keepalive")
-
-                    self.negotiated_remote_keepalive = YLeaf(YType.uint32, "negotiated-remote-keepalive")
-
-                    self.negotiated_dead_time = YLeaf(YType.uint32, "negotiated-dead-time")
-
-                    self.pce_request_rx = YLeaf(YType.uint32, "pce-request-rx")
-
-                    self.pce_request_tx = YLeaf(YType.uint32, "pce-request-tx")
-
-                    self.pce_reply_rx = YLeaf(YType.uint32, "pce-reply-rx")
-
-                    self.pce_reply_tx = YLeaf(YType.uint32, "pce-reply-tx")
-
-                    self.pce_error_rx = YLeaf(YType.uint32, "pce-error-rx")
-
-                    self.pce_error_tx = YLeaf(YType.uint32, "pce-error-tx")
-
-                    self.pce_open_tx = YLeaf(YType.uint32, "pce-open-tx")
-
-                    self.pce_open_rx = YLeaf(YType.uint32, "pce-open-rx")
-
-                    self.pce_report_rx = YLeaf(YType.uint32, "pce-report-rx")
-
-                    self.pce_report_tx = YLeaf(YType.uint32, "pce-report-tx")
-
-                    self.pce_update_rx = YLeaf(YType.uint32, "pce-update-rx")
-
-                    self.pce_update_tx = YLeaf(YType.uint32, "pce-update-tx")
-
-                    self.pce_initiate_rx = YLeaf(YType.uint32, "pce-initiate-rx")
-
-                    self.pce_initiate_tx = YLeaf(YType.uint32, "pce-initiate-tx")
-
-                    self.pce_keepalive_tx = YLeaf(YType.uint64, "pce-keepalive-tx")
-
-                    self.pce_keepalive_rx = YLeaf(YType.uint64, "pce-keepalive-rx")
-
-                    self.local_session_id = YLeaf(YType.uint8, "local-session-id")
-
-                    self.remote_session_id = YLeaf(YType.uint8, "remote-session-id")
-
-                    self.minimum_keepalive_interval = YLeaf(YType.uint8, "minimum-keepalive-interval")
-
-                    self.maximum_dead_interval = YLeaf(YType.uint8, "maximum-dead-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation)), ("last-error-rx", ("last_error_rx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx)), ("last-error-tx", ("last_error_tx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('error', YLeaf(YType.str, 'error')),
+                        ('speaker_id', YLeaf(YType.str, 'speaker-id')),
+                        ('pcep_up_time', YLeaf(YType.uint32, 'pcep-up-time')),
+                        ('keepalives', YLeaf(YType.uint32, 'keepalives')),
+                        ('md5_enabled', YLeaf(YType.boolean, 'md5-enabled')),
+                        ('keychain_enabled', YLeaf(YType.boolean, 'keychain-enabled')),
+                        ('negotiated_local_keepalive', YLeaf(YType.uint32, 'negotiated-local-keepalive')),
+                        ('negotiated_remote_keepalive', YLeaf(YType.uint32, 'negotiated-remote-keepalive')),
+                        ('negotiated_dead_time', YLeaf(YType.uint32, 'negotiated-dead-time')),
+                        ('pce_request_rx', YLeaf(YType.uint32, 'pce-request-rx')),
+                        ('pce_request_tx', YLeaf(YType.uint32, 'pce-request-tx')),
+                        ('pce_reply_rx', YLeaf(YType.uint32, 'pce-reply-rx')),
+                        ('pce_reply_tx', YLeaf(YType.uint32, 'pce-reply-tx')),
+                        ('pce_error_rx', YLeaf(YType.uint32, 'pce-error-rx')),
+                        ('pce_error_tx', YLeaf(YType.uint32, 'pce-error-tx')),
+                        ('pce_open_tx', YLeaf(YType.uint32, 'pce-open-tx')),
+                        ('pce_open_rx', YLeaf(YType.uint32, 'pce-open-rx')),
+                        ('pce_report_rx', YLeaf(YType.uint32, 'pce-report-rx')),
+                        ('pce_report_tx', YLeaf(YType.uint32, 'pce-report-tx')),
+                        ('pce_update_rx', YLeaf(YType.uint32, 'pce-update-rx')),
+                        ('pce_update_tx', YLeaf(YType.uint32, 'pce-update-tx')),
+                        ('pce_initiate_rx', YLeaf(YType.uint32, 'pce-initiate-rx')),
+                        ('pce_initiate_tx', YLeaf(YType.uint32, 'pce-initiate-tx')),
+                        ('pce_keepalive_tx', YLeaf(YType.uint64, 'pce-keepalive-tx')),
+                        ('pce_keepalive_rx', YLeaf(YType.uint64, 'pce-keepalive-rx')),
+                        ('local_session_id', YLeaf(YType.uint8, 'local-session-id')),
+                        ('remote_session_id', YLeaf(YType.uint8, 'remote-session-id')),
+                        ('minimum_keepalive_interval', YLeaf(YType.uint8, 'minimum-keepalive-interval')),
+                        ('maximum_dead_interval', YLeaf(YType.uint8, 'maximum-dead-interval')),
+                    ])
+                    self.error = None
+                    self.speaker_id = None
+                    self.pcep_up_time = None
+                    self.keepalives = None
+                    self.md5_enabled = None
+                    self.keychain_enabled = None
+                    self.negotiated_local_keepalive = None
+                    self.negotiated_remote_keepalive = None
+                    self.negotiated_dead_time = None
+                    self.pce_request_rx = None
+                    self.pce_request_tx = None
+                    self.pce_reply_rx = None
+                    self.pce_reply_tx = None
+                    self.pce_error_rx = None
+                    self.pce_error_tx = None
+                    self.pce_open_tx = None
+                    self.pce_open_rx = None
+                    self.pce_report_rx = None
+                    self.pce_report_tx = None
+                    self.pce_update_rx = None
+                    self.pce_update_tx = None
+                    self.pce_initiate_rx = None
+                    self.pce_initiate_tx = None
+                    self.pce_keepalive_tx = None
+                    self.pce_keepalive_rx = None
+                    self.local_session_id = None
+                    self.remote_session_id = None
+                    self.minimum_keepalive_interval = None
+                    self.maximum_dead_interval = None
 
                     self.brief_pcep_information = Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation()
                     self.brief_pcep_information.parent = self
@@ -8689,7 +9090,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, self).__init__()
@@ -8698,24 +9099,27 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pcep_state = YLeaf(YType.enumeration, "pcep-state")
-
-                        self.stateful = YLeaf(YType.boolean, "stateful")
-
-                        self.capability_update = YLeaf(YType.boolean, "capability-update")
-
-                        self.capability_instantiate = YLeaf(YType.boolean, "capability-instantiate")
-
-                        self.capability_segment_routing = YLeaf(YType.boolean, "capability-segment-routing")
-
-                        self.capability_triggered_sync = YLeaf(YType.boolean, "capability-triggered-sync")
-
-                        self.capability_db_version = YLeaf(YType.boolean, "capability-db-version")
-
-                        self.capability_delta_sync = YLeaf(YType.boolean, "capability-delta-sync")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
+                            ('stateful', YLeaf(YType.boolean, 'stateful')),
+                            ('capability_update', YLeaf(YType.boolean, 'capability-update')),
+                            ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
+                            ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
+                            ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
+                            ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
+                            ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                        ])
+                        self.pcep_state = None
+                        self.stateful = None
+                        self.capability_update = None
+                        self.capability_instantiate = None
+                        self.capability_segment_routing = None
+                        self.capability_triggered_sync = None
+                        self.capability_db_version = None
+                        self.capability_delta_sync = None
                         self._segment_path = lambda: "brief-pcep-information"
 
                     def __setattr__(self, name, value):
@@ -8745,7 +9149,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, self).__init__()
@@ -8754,12 +9158,15 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pc_error_type = YLeaf(YType.uint8, "pc-error-type")
-
-                        self.pc_error_value = YLeaf(YType.uint8, "pc-error-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
+                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                        ])
+                        self.pc_error_type = None
+                        self.pc_error_value = None
                         self._segment_path = lambda: "last-error-rx"
 
                     def __setattr__(self, name, value):
@@ -8789,7 +9196,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, self).__init__()
@@ -8798,12 +9205,15 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-pcep-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pc_error_type = YLeaf(YType.uint8, "pc-error-type")
-
-                        self.pc_error_value = YLeaf(YType.uint8, "pc-error-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
+                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                        ])
+                        self.pc_error_type = None
+                        self.pc_error_value = None
                         self._segment_path = lambda: "last-error-tx"
 
                     def __setattr__(self, name, value):
@@ -8824,7 +9234,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.TopologyNodes, self).__init__()
@@ -8833,8 +9243,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"topology-node" : ("topology_node", Pce.TopologyNodes.TopologyNode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("topology-node", ("topology_node", Pce.TopologyNodes.TopologyNode))])
+            self._leafs = OrderedDict()
 
             self.topology_node = YList(self)
             self._segment_path = lambda: "topology-nodes"
@@ -8848,7 +9260,7 @@ class Pce(Entity):
             """
             Node information
             
-            .. attribute:: node_identifier  <key>
+            .. attribute:: node_identifier  (key)
             
             	Node Identifier
             	**type**\: int
@@ -8892,7 +9304,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.TopologyNodes.TopologyNode, self).__init__()
@@ -8901,14 +9313,17 @@ class Pce(Entity):
                 self.yang_parent_name = "topology-nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-protocol-identifier" : ("node_protocol_identifier", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier)}
-                self._child_list_classes = {"prefix-sid" : ("prefix_sid", Pce.TopologyNodes.TopologyNode.PrefixSid), "ipv4-link" : ("ipv4_link", Pce.TopologyNodes.TopologyNode.Ipv4Link), "ipv6-link" : ("ipv6_link", Pce.TopologyNodes.TopologyNode.Ipv6Link)}
-
-                self.node_identifier = YLeaf(YType.int32, "node-identifier")
-
-                self.node_identifier_xr = YLeaf(YType.uint32, "node-identifier-xr")
-
-                self.overload = YLeaf(YType.boolean, "overload")
+                self.ylist_key_names = ['node_identifier']
+                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier))])
+                self._child_list_classes = OrderedDict([("prefix-sid", ("prefix_sid", Pce.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", Pce.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", Pce.TopologyNodes.TopologyNode.Ipv6Link))])
+                self._leafs = OrderedDict([
+                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                    ('overload', YLeaf(YType.boolean, 'overload')),
+                ])
+                self.node_identifier = None
+                self.node_identifier_xr = None
+                self.overload = None
 
                 self.node_protocol_identifier = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
@@ -8918,7 +9333,7 @@ class Pce(Entity):
                 self.prefix_sid = YList(self)
                 self.ipv4_link = YList(self)
                 self.ipv6_link = YList(self)
-                self._segment_path = lambda: "topology-node" + "[node-identifier='" + self.node_identifier.get() + "']"
+                self._segment_path = lambda: "topology-node" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -8973,7 +9388,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, self).__init__()
@@ -8982,18 +9397,21 @@ class Pce(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"igp-information" : ("igp_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation)}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
-
-                    self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                    self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                    self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                    self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation))])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                    ])
+                    self.node_name = None
+                    self.ipv4_bgp_router_id_set = None
+                    self.ipv4_bgp_router_id = None
+                    self.ipv4te_router_id_set = None
+                    self.ipv4te_router_id = None
 
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
@@ -9031,7 +9449,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -9040,12 +9458,15 @@ class Pce(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
@@ -9086,7 +9507,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -9095,10 +9516,13 @@ class Pce(Entity):
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -9141,7 +9565,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -9150,12 +9574,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -9185,7 +9612,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -9194,12 +9621,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -9229,7 +9659,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -9238,12 +9668,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -9278,7 +9711,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -9287,12 +9720,15 @@ class Pce(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp-srgb" : ("igp_srgb", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.uint32, "start")
-
-                        self.size = YLeaf(YType.uint32, "size")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.uint32, 'start')),
+                            ('size', YLeaf(YType.uint32, 'size')),
+                        ])
+                        self.start = None
+                        self.size = None
 
                         self.igp_srgb = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                         self.igp_srgb.parent = self
@@ -9333,7 +9769,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -9342,10 +9778,13 @@ class Pce(Entity):
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                             self.isis.parent = self
@@ -9388,7 +9827,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -9397,12 +9836,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -9432,7 +9874,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -9441,12 +9883,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -9476,7 +9921,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -9485,12 +9930,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -9560,7 +10008,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TopologyNodes.TopologyNode.PrefixSid, self).__init__()
@@ -9569,26 +10017,29 @@ class Pce(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sid-prefix" : ("sid_prefix", Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix)}
-                    self._child_list_classes = {}
-
-                    self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                    self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                    self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                    self.rflag = YLeaf(YType.boolean, "rflag")
-
-                    self.nflag = YLeaf(YType.boolean, "nflag")
-
-                    self.pflag = YLeaf(YType.boolean, "pflag")
-
-                    self.eflag = YLeaf(YType.boolean, "eflag")
-
-                    self.vflag = YLeaf(YType.boolean, "vflag")
-
-                    self.lflag = YLeaf(YType.boolean, "lflag")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                        ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                        ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                        ('rflag', YLeaf(YType.boolean, 'rflag')),
+                        ('nflag', YLeaf(YType.boolean, 'nflag')),
+                        ('pflag', YLeaf(YType.boolean, 'pflag')),
+                        ('eflag', YLeaf(YType.boolean, 'eflag')),
+                        ('vflag', YLeaf(YType.boolean, 'vflag')),
+                        ('lflag', YLeaf(YType.boolean, 'lflag')),
+                    ])
+                    self.sid_type = None
+                    self.mpls_label = None
+                    self.domain_identifier = None
+                    self.rflag = None
+                    self.nflag = None
+                    self.pflag = None
+                    self.eflag = None
+                    self.vflag = None
+                    self.lflag = None
 
                     self.sid_prefix = Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix()
                     self.sid_prefix.parent = self
@@ -9628,7 +10079,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, self).__init__()
@@ -9637,14 +10088,17 @@ class Pce(Entity):
                         self.yang_parent_name = "prefix-sid"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                        self.ipv6 = YLeaf(YType.str, "ipv6")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
                         self._segment_path = lambda: "sid-prefix"
 
                     def __setattr__(self, name, value):
@@ -9724,7 +10178,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link, self).__init__()
@@ -9733,22 +10187,25 @@ class Pce(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local-igp-information" : ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation), "remote-node-protocol-identifier" : ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)}
-                    self._child_list_classes = {"adjacency-sid" : ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid)}
-
-                    self.local_ipv4_address = YLeaf(YType.str, "local-ipv4-address")
-
-                    self.remote_ipv4_address = YLeaf(YType.str, "remote-ipv4-address")
-
-                    self.igp_metric = YLeaf(YType.uint32, "igp-metric")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.maximum_link_bandwidth = YLeaf(YType.uint64, "maximum-link-bandwidth")
-
-                    self.max_reservable_bandwidth = YLeaf(YType.uint64, "max-reservable-bandwidth")
-
-                    self.srlgs = YLeafList(YType.uint32, "srlgs")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier))])
+                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
+                    self._leafs = OrderedDict([
+                        ('local_ipv4_address', YLeaf(YType.str, 'local-ipv4-address')),
+                        ('remote_ipv4_address', YLeaf(YType.str, 'remote-ipv4-address')),
+                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
+                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                        ('srlgs', YLeafList(YType.uint32, 'srlgs')),
+                    ])
+                    self.local_ipv4_address = None
+                    self.remote_ipv4_address = None
+                    self.igp_metric = None
+                    self.te_metric = None
+                    self.maximum_link_bandwidth = None
+                    self.max_reservable_bandwidth = None
+                    self.srlgs = []
 
                     self.local_igp_information = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
@@ -9795,7 +10252,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, self).__init__()
@@ -9804,12 +10261,15 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
@@ -9850,7 +10310,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, self).__init__()
@@ -9859,10 +10319,13 @@ class Pce(Entity):
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -9905,7 +10368,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -9914,12 +10377,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -9949,7 +10415,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -9958,12 +10424,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -9993,7 +10462,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -10002,12 +10471,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -10062,7 +10534,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -10071,18 +10543,21 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"igp-information" : ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                        self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                        self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                        self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ])
+                        self.node_name = None
+                        self.ipv4_bgp_router_id_set = None
+                        self.ipv4_bgp_router_id = None
+                        self.ipv4te_router_id_set = None
+                        self.ipv4te_router_id = None
 
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
@@ -10120,7 +10595,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -10129,12 +10604,15 @@ class Pce(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp" : ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp)}
-                            self._child_list_classes = {}
-
-                            self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                            self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ])
+                            self.domain_identifier = None
+                            self.autonomous_system_number = None
 
                             self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
@@ -10175,7 +10653,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -10184,10 +10662,13 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
@@ -10230,7 +10711,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -10239,12 +10720,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -10274,7 +10758,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -10283,12 +10767,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -10318,7 +10805,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -10327,12 +10814,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -10367,7 +10857,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -10376,12 +10866,15 @@ class Pce(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp-srgb" : ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.size = YLeaf(YType.uint32, "size")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('size', YLeaf(YType.uint32, 'size')),
+                            ])
+                            self.start = None
+                            self.size = None
 
                             self.igp_srgb = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                             self.igp_srgb.parent = self
@@ -10422,7 +10915,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -10431,10 +10924,13 @@ class Pce(Entity):
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                                 self.isis.parent = self
@@ -10477,7 +10973,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -10486,12 +10982,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -10521,7 +11020,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -10530,12 +11029,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -10565,7 +11067,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -10574,12 +11076,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -10649,7 +11154,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, self).__init__()
@@ -10658,26 +11163,29 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv4-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sid-prefix" : ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix)}
-                        self._child_list_classes = {}
-
-                        self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.rflag = YLeaf(YType.boolean, "rflag")
-
-                        self.nflag = YLeaf(YType.boolean, "nflag")
-
-                        self.pflag = YLeaf(YType.boolean, "pflag")
-
-                        self.eflag = YLeaf(YType.boolean, "eflag")
-
-                        self.vflag = YLeaf(YType.boolean, "vflag")
-
-                        self.lflag = YLeaf(YType.boolean, "lflag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('rflag', YLeaf(YType.boolean, 'rflag')),
+                            ('nflag', YLeaf(YType.boolean, 'nflag')),
+                            ('pflag', YLeaf(YType.boolean, 'pflag')),
+                            ('eflag', YLeaf(YType.boolean, 'eflag')),
+                            ('vflag', YLeaf(YType.boolean, 'vflag')),
+                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.domain_identifier = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
 
                         self.sid_prefix = Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
@@ -10717,7 +11225,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, self).__init__()
@@ -10726,14 +11234,17 @@ class Pce(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
 
                         def __setattr__(self, name, value):
@@ -10806,7 +11317,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link, self).__init__()
@@ -10815,20 +11326,23 @@ class Pce(Entity):
                     self.yang_parent_name = "topology-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local-igp-information" : ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation), "remote-node-protocol-identifier" : ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier)}
-                    self._child_list_classes = {"adjacency-sid" : ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid)}
-
-                    self.local_ipv6_address = YLeaf(YType.str, "local-ipv6-address")
-
-                    self.remote_ipv6_address = YLeaf(YType.str, "remote-ipv6-address")
-
-                    self.igp_metric = YLeaf(YType.uint32, "igp-metric")
-
-                    self.te_metric = YLeaf(YType.uint32, "te-metric")
-
-                    self.maximum_link_bandwidth = YLeaf(YType.uint64, "maximum-link-bandwidth")
-
-                    self.max_reservable_bandwidth = YLeaf(YType.uint64, "max-reservable-bandwidth")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("local-igp-information", ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier))])
+                    self._child_list_classes = OrderedDict([("adjacency-sid", ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
+                    self._leafs = OrderedDict([
+                        ('local_ipv6_address', YLeaf(YType.str, 'local-ipv6-address')),
+                        ('remote_ipv6_address', YLeaf(YType.str, 'remote-ipv6-address')),
+                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
+                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
+                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
+                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                    ])
+                    self.local_ipv6_address = None
+                    self.remote_ipv6_address = None
+                    self.igp_metric = None
+                    self.te_metric = None
+                    self.maximum_link_bandwidth = None
+                    self.max_reservable_bandwidth = None
 
                     self.local_igp_information = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation()
                     self.local_igp_information.parent = self
@@ -10875,7 +11389,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, self).__init__()
@@ -10884,12 +11398,15 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp()
                         self.igp.parent = self
@@ -10930,7 +11447,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, self).__init__()
@@ -10939,10 +11456,13 @@ class Pce(Entity):
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -10985,7 +11505,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, self).__init__()
@@ -10994,12 +11514,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -11029,7 +11552,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, self).__init__()
@@ -11038,12 +11561,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -11073,7 +11599,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, self).__init__()
@@ -11082,12 +11608,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -11142,7 +11671,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, self).__init__()
@@ -11151,18 +11680,21 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"igp-information" : ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                        self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                        self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                        self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ])
+                        self.node_name = None
+                        self.ipv4_bgp_router_id_set = None
+                        self.ipv4_bgp_router_id = None
+                        self.ipv4te_router_id_set = None
+                        self.ipv4te_router_id = None
 
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
@@ -11200,7 +11732,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -11209,12 +11741,15 @@ class Pce(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp" : ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp)}
-                            self._child_list_classes = {}
-
-                            self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                            self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ])
+                            self.domain_identifier = None
+                            self.autonomous_system_number = None
 
                             self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
                             self.igp.parent = self
@@ -11255,7 +11790,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -11264,10 +11799,13 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
                                 self.isis.parent = self
@@ -11310,7 +11848,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -11319,12 +11857,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -11354,7 +11895,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -11363,12 +11904,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -11398,7 +11942,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -11407,12 +11951,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -11447,7 +11994,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -11456,12 +12003,15 @@ class Pce(Entity):
                             self.yang_parent_name = "remote-node-protocol-identifier"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"igp-srgb" : ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                            self._child_list_classes = {}
-
-                            self.start = YLeaf(YType.uint32, "start")
-
-                            self.size = YLeaf(YType.uint32, "size")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start', YLeaf(YType.uint32, 'start')),
+                                ('size', YLeaf(YType.uint32, 'size')),
+                            ])
+                            self.start = None
+                            self.size = None
 
                             self.igp_srgb = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                             self.igp_srgb.parent = self
@@ -11502,7 +12052,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -11511,10 +12061,13 @@ class Pce(Entity):
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"isis" : ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                                self._child_list_classes = {}
-
-                                self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ])
+                                self.igp_id = None
 
                                 self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                                 self.isis.parent = self
@@ -11557,7 +12110,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -11566,12 +12119,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.level = YLeaf(YType.uint32, "level")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('level', YLeaf(YType.uint32, 'level')),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
                                     self._segment_path = lambda: "isis"
 
                                 def __setattr__(self, name, value):
@@ -11601,7 +12157,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -11610,12 +12166,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.area = YLeaf(YType.uint32, "area")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('area', YLeaf(YType.uint32, 'area')),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
                                     self._segment_path = lambda: "ospf"
 
                                 def __setattr__(self, name, value):
@@ -11645,7 +12204,7 @@ class Pce(Entity):
                                 """
 
                                 _prefix = 'infra-xtc-oper'
-                                _revision = '2017-06-26'
+                                _revision = '2017-08-24'
 
                                 def __init__(self):
                                     super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -11654,12 +12213,15 @@ class Pce(Entity):
                                     self.yang_parent_name = "igp-srgb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
                                     self._segment_path = lambda: "bgp"
 
                                 def __setattr__(self, name, value):
@@ -11729,7 +12291,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, self).__init__()
@@ -11738,26 +12300,29 @@ class Pce(Entity):
                         self.yang_parent_name = "ipv6-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sid-prefix" : ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix)}
-                        self._child_list_classes = {}
-
-                        self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.rflag = YLeaf(YType.boolean, "rflag")
-
-                        self.nflag = YLeaf(YType.boolean, "nflag")
-
-                        self.pflag = YLeaf(YType.boolean, "pflag")
-
-                        self.eflag = YLeaf(YType.boolean, "eflag")
-
-                        self.vflag = YLeaf(YType.boolean, "vflag")
-
-                        self.lflag = YLeaf(YType.boolean, "lflag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('rflag', YLeaf(YType.boolean, 'rflag')),
+                            ('nflag', YLeaf(YType.boolean, 'nflag')),
+                            ('pflag', YLeaf(YType.boolean, 'pflag')),
+                            ('eflag', YLeaf(YType.boolean, 'eflag')),
+                            ('vflag', YLeaf(YType.boolean, 'vflag')),
+                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.domain_identifier = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
 
                         self.sid_prefix = Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix()
                         self.sid_prefix.parent = self
@@ -11797,7 +12362,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, self).__init__()
@@ -11806,14 +12371,17 @@ class Pce(Entity):
                             self.yang_parent_name = "adjacency-sid"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
 
                         def __setattr__(self, name, value):
@@ -11834,7 +12402,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.PrefixInfos, self).__init__()
@@ -11843,8 +12411,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"prefix-info" : ("prefix_info", Pce.PrefixInfos.PrefixInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("prefix-info", ("prefix_info", Pce.PrefixInfos.PrefixInfo))])
+            self._leafs = OrderedDict()
 
             self.prefix_info = YList(self)
             self._segment_path = lambda: "prefix-infos"
@@ -11858,7 +12428,7 @@ class Pce(Entity):
             """
             PCE prefix information
             
-            .. attribute:: node_identifier  <key>
+            .. attribute:: node_identifier  (key)
             
             	Node ID
             	**type**\: int
@@ -11887,7 +12457,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.PrefixInfos.PrefixInfo, self).__init__()
@@ -11896,12 +12466,15 @@ class Pce(Entity):
                 self.yang_parent_name = "prefix-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"node-protocol-identifier" : ("node_protocol_identifier", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier)}
-                self._child_list_classes = {"address" : ("address", Pce.PrefixInfos.PrefixInfo.Address)}
-
-                self.node_identifier = YLeaf(YType.int32, "node-identifier")
-
-                self.node_identifier_xr = YLeaf(YType.uint32, "node-identifier-xr")
+                self.ylist_key_names = ['node_identifier']
+                self._child_container_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier))])
+                self._child_list_classes = OrderedDict([("address", ("address", Pce.PrefixInfos.PrefixInfo.Address))])
+                self._leafs = OrderedDict([
+                    ('node_identifier', YLeaf(YType.int32, 'node-identifier')),
+                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                ])
+                self.node_identifier = None
+                self.node_identifier_xr = None
 
                 self.node_protocol_identifier = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier()
                 self.node_protocol_identifier.parent = self
@@ -11909,7 +12482,7 @@ class Pce(Entity):
                 self._children_yang_names.add("node-protocol-identifier")
 
                 self.address = YList(self)
-                self._segment_path = lambda: "prefix-info" + "[node-identifier='" + self.node_identifier.get() + "']"
+                self._segment_path = lambda: "prefix-info" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/prefix-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -11964,7 +12537,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, self).__init__()
@@ -11973,18 +12546,21 @@ class Pce(Entity):
                     self.yang_parent_name = "prefix-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"igp-information" : ("igp_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation), "srgb-information" : ("srgb_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation)}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
-
-                    self.ipv4_bgp_router_id_set = YLeaf(YType.boolean, "ipv4-bgp-router-id-set")
-
-                    self.ipv4_bgp_router_id = YLeaf(YType.str, "ipv4-bgp-router-id")
-
-                    self.ipv4te_router_id_set = YLeaf(YType.boolean, "ipv4te-router-id-set")
-
-                    self.ipv4te_router_id = YLeaf(YType.str, "ipv4te-router-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("igp-information", ("igp_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation))])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
+                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
+                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
+                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                    ])
+                    self.node_name = None
+                    self.ipv4_bgp_router_id_set = None
+                    self.ipv4_bgp_router_id = None
+                    self.ipv4te_router_id_set = None
+                    self.ipv4te_router_id = None
 
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
@@ -12022,7 +12598,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, self).__init__()
@@ -12031,12 +12607,15 @@ class Pce(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp" : ("igp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp)}
-                        self._child_list_classes = {}
-
-                        self.domain_identifier = YLeaf(YType.uint64, "domain-identifier")
-
-                        self.autonomous_system_number = YLeaf(YType.uint32, "autonomous-system-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp", ("igp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
+                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                        ])
+                        self.domain_identifier = None
+                        self.autonomous_system_number = None
 
                         self.igp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp()
                         self.igp.parent = self
@@ -12077,7 +12656,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
@@ -12086,10 +12665,13 @@ class Pce(Entity):
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis), "ospf" : ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf), "bgp" : ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
                             self.isis.parent = self
@@ -12132,7 +12714,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
@@ -12141,12 +12723,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -12176,7 +12761,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
@@ -12185,12 +12770,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -12220,7 +12808,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
@@ -12229,12 +12817,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -12269,7 +12860,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, self).__init__()
@@ -12278,12 +12869,15 @@ class Pce(Entity):
                         self.yang_parent_name = "node-protocol-identifier"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"igp-srgb" : ("igp_srgb", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb)}
-                        self._child_list_classes = {}
-
-                        self.start = YLeaf(YType.uint32, "start")
-
-                        self.size = YLeaf(YType.uint32, "size")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('start', YLeaf(YType.uint32, 'start')),
+                            ('size', YLeaf(YType.uint32, 'size')),
+                        ])
+                        self.start = None
+                        self.size = None
 
                         self.igp_srgb = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
                         self.igp_srgb.parent = self
@@ -12324,7 +12918,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
@@ -12333,10 +12927,13 @@ class Pce(Entity):
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"isis" : ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis), "ospf" : ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf), "bgp" : ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp)}
-                            self._child_list_classes = {}
-
-                            self.igp_id = YLeaf(YType.enumeration, "igp-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                            ])
+                            self.igp_id = None
 
                             self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
                             self.isis.parent = self
@@ -12379,7 +12976,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
@@ -12388,12 +12985,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.system_id = None
+                                self.level = None
                                 self._segment_path = lambda: "isis"
 
                             def __setattr__(self, name, value):
@@ -12423,7 +13023,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
@@ -12432,12 +13032,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.area = YLeaf(YType.uint32, "area")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('area', YLeaf(YType.uint32, 'area')),
+                                ])
+                                self.router_id = None
+                                self.area = None
                                 self._segment_path = lambda: "ospf"
 
                             def __setattr__(self, name, value):
@@ -12467,7 +13070,7 @@ class Pce(Entity):
                             """
 
                             _prefix = 'infra-xtc-oper'
-                            _revision = '2017-06-26'
+                            _revision = '2017-08-24'
 
                             def __init__(self):
                                 super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
@@ -12476,12 +13079,15 @@ class Pce(Entity):
                                 self.yang_parent_name = "igp-srgb"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.confed_asn = YLeaf(YType.uint32, "confed-asn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                ])
+                                self.router_id = None
+                                self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
 
                             def __setattr__(self, name, value):
@@ -12492,31 +13098,17 @@ class Pce(Entity):
                 """
                 Prefix address
                 
-                .. attribute:: af_name
+                .. attribute:: ip
                 
-                	AFName
-                	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                
-                .. attribute:: ipv4
-                
-                	IPv4 address type
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6
-                
-                	IPv6 address type
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                	Prefix IP address
+                	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.Address.Ip>`
                 
                 
 
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.PrefixInfos.PrefixInfo.Address, self).__init__()
@@ -12525,18 +13117,70 @@ class Pce(Entity):
                     self.yang_parent_name = "prefix-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ip", ("ip", Pce.PrefixInfos.PrefixInfo.Address.Ip))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                    self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                    self.ipv6 = YLeaf(YType.str, "ipv6")
+                    self.ip = Pce.PrefixInfos.PrefixInfo.Address.Ip()
+                    self.ip.parent = self
+                    self._children_name_map["ip"] = "ip"
+                    self._children_yang_names.add("ip")
                     self._segment_path = lambda: "address"
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address, ['af_name', 'ipv4', 'ipv6'], name, value)
+
+                class Ip(Entity):
+                    """
+                    Prefix IP address
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPv4 address type
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address type
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-08-24'
+
+                    def __init__(self):
+                        super(Pce.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+
+                        self.yang_name = "ip"
+                        self.yang_parent_name = "address"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
+                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "ip"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
     class LspSummary(Entity):
@@ -12558,7 +13202,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.LspSummary, self).__init__()
@@ -12567,8 +13211,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"all-ls-ps" : ("all_ls_ps", Pce.LspSummary.AllLsPs)}
-            self._child_list_classes = {"peer-ls-ps-info" : ("peer_ls_ps_info", Pce.LspSummary.PeerLsPsInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("all-ls-ps", ("all_ls_ps", Pce.LspSummary.AllLsPs))])
+            self._child_list_classes = OrderedDict([("peer-ls-ps-info", ("peer_ls_ps_info", Pce.LspSummary.PeerLsPsInfo))])
+            self._leafs = OrderedDict()
 
             self.all_ls_ps = Pce.LspSummary.AllLsPs()
             self.all_ls_ps.parent = self
@@ -12627,7 +13273,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.LspSummary.AllLsPs, self).__init__()
@@ -12636,18 +13282,21 @@ class Pce(Entity):
                 self.yang_parent_name = "lsp-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.all_ls_ps = YLeaf(YType.uint32, "all-ls-ps")
-
-                self.up_ls_ps = YLeaf(YType.uint32, "up-ls-ps")
-
-                self.admin_up_ls_ps = YLeaf(YType.uint32, "admin-up-ls-ps")
-
-                self.sr_ls_ps = YLeaf(YType.uint32, "sr-ls-ps")
-
-                self.rsvp_ls_ps = YLeaf(YType.uint32, "rsvp-ls-ps")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
+                    ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
+                    ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
+                    ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
+                    ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                ])
+                self.all_ls_ps = None
+                self.up_ls_ps = None
+                self.admin_up_ls_ps = None
+                self.sr_ls_ps = None
+                self.rsvp_ls_ps = None
                 self._segment_path = lambda: "all-ls-ps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/%s" % self._segment_path()
 
@@ -12662,7 +13311,7 @@ class Pce(Entity):
             .. attribute:: lsp_summary
             
             	Number of LSPs for specific peer
-            	**type**\:  :py:class:`LspSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.PeerLsPsInfo.LspSummary>`
+            	**type**\:  :py:class:`LspSummary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.PeerLsPsInfo.LspSummary_>`
             
             .. attribute:: peer_address
             
@@ -12676,7 +13325,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.LspSummary.PeerLsPsInfo, self).__init__()
@@ -12685,12 +13334,15 @@ class Pce(Entity):
                 self.yang_parent_name = "lsp-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"lsp-summary" : ("lsp_summary", Pce.LspSummary.PeerLsPsInfo.LspSummary)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("lsp-summary", ("lsp_summary", Pce.LspSummary.PeerLsPsInfo.LspSummary_))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                ])
+                self.peer_address = None
 
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.lsp_summary = Pce.LspSummary.PeerLsPsInfo.LspSummary()
+                self.lsp_summary = Pce.LspSummary.PeerLsPsInfo.LspSummary_()
                 self.lsp_summary.parent = self
                 self._children_name_map["lsp_summary"] = "lsp-summary"
                 self._children_yang_names.add("lsp-summary")
@@ -12701,7 +13353,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.LspSummary.PeerLsPsInfo, ['peer_address'], name, value)
 
 
-            class LspSummary(Entity):
+            class LspSummary_(Entity):
                 """
                 Number of LSPs for specific peer
                 
@@ -12745,32 +13397,35 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
-                    super(Pce.LspSummary.PeerLsPsInfo.LspSummary, self).__init__()
+                    super(Pce.LspSummary.PeerLsPsInfo.LspSummary_, self).__init__()
 
                     self.yang_name = "lsp-summary"
                     self.yang_parent_name = "peer-ls-ps-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.all_ls_ps = YLeaf(YType.uint32, "all-ls-ps")
-
-                    self.up_ls_ps = YLeaf(YType.uint32, "up-ls-ps")
-
-                    self.admin_up_ls_ps = YLeaf(YType.uint32, "admin-up-ls-ps")
-
-                    self.sr_ls_ps = YLeaf(YType.uint32, "sr-ls-ps")
-
-                    self.rsvp_ls_ps = YLeaf(YType.uint32, "rsvp-ls-ps")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
+                        ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
+                        ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
+                        ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
+                        ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                    ])
+                    self.all_ls_ps = None
+                    self.up_ls_ps = None
+                    self.admin_up_ls_ps = None
+                    self.sr_ls_ps = None
+                    self.rsvp_ls_ps = None
                     self._segment_path = lambda: "lsp-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
+                    self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, ['all_ls_ps', 'up_ls_ps', 'admin_up_ls_ps', 'sr_ls_ps', 'rsvp_ls_ps'], name, value)
 
 
     class PeerInfos(Entity):
@@ -12787,7 +13442,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.PeerInfos, self).__init__()
@@ -12796,8 +13451,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"peer-info" : ("peer_info", Pce.PeerInfos.PeerInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("peer-info", ("peer_info", Pce.PeerInfos.PeerInfo))])
+            self._leafs = OrderedDict()
 
             self.peer_info = YList(self)
             self._segment_path = lambda: "peer-infos"
@@ -12811,7 +13468,7 @@ class Pce(Entity):
             """
             PCE peer information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -12846,7 +13503,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.PeerInfos.PeerInfo, self).__init__()
@@ -12855,20 +13512,23 @@ class Pce(Entity):
                 self.yang_parent_name = "peer-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"brief-pcep-information" : ("brief_pcep_information", Pce.PeerInfos.PeerInfo.BriefPcepInformation)}
-                self._child_list_classes = {}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.peer_address_xr = YLeaf(YType.str, "peer-address-xr")
-
-                self.peer_protocol = YLeaf(YType.enumeration, "peer-protocol")
+                self.ylist_key_names = ['peer_address']
+                self._child_container_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", Pce.PeerInfos.PeerInfo.BriefPcepInformation))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('peer_address_xr', YLeaf(YType.str, 'peer-address-xr')),
+                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                ])
+                self.peer_address = None
+                self.peer_address_xr = None
+                self.peer_protocol = None
 
                 self.brief_pcep_information = Pce.PeerInfos.PeerInfo.BriefPcepInformation()
                 self.brief_pcep_information.parent = self
                 self._children_name_map["brief_pcep_information"] = "brief-pcep-information"
                 self._children_yang_names.add("brief-pcep-information")
-                self._segment_path = lambda: "peer-info" + "[peer-address='" + self.peer_address.get() + "']"
+                self._segment_path = lambda: "peer-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/peer-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -12924,7 +13584,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.PeerInfos.PeerInfo.BriefPcepInformation, self).__init__()
@@ -12933,24 +13593,27 @@ class Pce(Entity):
                     self.yang_parent_name = "peer-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.pcep_state = YLeaf(YType.enumeration, "pcep-state")
-
-                    self.stateful = YLeaf(YType.boolean, "stateful")
-
-                    self.capability_update = YLeaf(YType.boolean, "capability-update")
-
-                    self.capability_instantiate = YLeaf(YType.boolean, "capability-instantiate")
-
-                    self.capability_segment_routing = YLeaf(YType.boolean, "capability-segment-routing")
-
-                    self.capability_triggered_sync = YLeaf(YType.boolean, "capability-triggered-sync")
-
-                    self.capability_db_version = YLeaf(YType.boolean, "capability-db-version")
-
-                    self.capability_delta_sync = YLeaf(YType.boolean, "capability-delta-sync")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
+                        ('stateful', YLeaf(YType.boolean, 'stateful')),
+                        ('capability_update', YLeaf(YType.boolean, 'capability-update')),
+                        ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
+                        ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
+                        ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
+                        ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
+                        ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                    ])
+                    self.pcep_state = None
+                    self.stateful = None
+                    self.capability_update = None
+                    self.capability_instantiate = None
+                    self.capability_segment_routing = None
+                    self.capability_triggered_sync = None
+                    self.capability_db_version = None
+                    self.capability_delta_sync = None
                     self._segment_path = lambda: "brief-pcep-information"
 
                 def __setattr__(self, name, value):
@@ -12971,7 +13634,7 @@ class Pce(Entity):
         """
 
         _prefix = 'infra-xtc-oper'
-        _revision = '2017-06-26'
+        _revision = '2017-08-24'
 
         def __init__(self):
             super(Pce.TunnelDetailInfos, self).__init__()
@@ -12980,8 +13643,10 @@ class Pce(Entity):
             self.yang_parent_name = "pce"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"tunnel-detail-info" : ("tunnel_detail_info", Pce.TunnelDetailInfos.TunnelDetailInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("tunnel-detail-info", ("tunnel_detail_info", Pce.TunnelDetailInfos.TunnelDetailInfo))])
+            self._leafs = OrderedDict()
 
             self.tunnel_detail_info = YList(self)
             self._segment_path = lambda: "tunnel-detail-infos"
@@ -12995,7 +13660,7 @@ class Pce(Entity):
             """
             Detailed tunnel information
             
-            .. attribute:: peer_address  <key>
+            .. attribute:: peer_address  (key)
             
             	Peer Address
             	**type**\: union of the below types:
@@ -13008,14 +13673,14 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: plsp_id  <key>
+            .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: tunnel_name  <key>
+            .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
@@ -13049,7 +13714,7 @@ class Pce(Entity):
             """
 
             _prefix = 'infra-xtc-oper'
-            _revision = '2017-06-26'
+            _revision = '2017-08-24'
 
             def __init__(self):
                 super(Pce.TunnelDetailInfos.TunnelDetailInfo, self).__init__()
@@ -13058,18 +13723,21 @@ class Pce(Entity):
                 self.yang_parent_name = "tunnel-detail-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"private-lsp-information" : ("private_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation)}
-                self._child_list_classes = {"detail-lsp-information" : ("detail_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation)}
-
-                self.peer_address = YLeaf(YType.str, "peer-address")
-
-                self.plsp_id = YLeaf(YType.int32, "plsp-id")
-
-                self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                self.pcc_address = YLeaf(YType.str, "pcc-address")
-
-                self.tunnel_name_xr = YLeaf(YType.str, "tunnel-name-xr")
+                self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
+                self._child_container_classes = OrderedDict([("private-lsp-information", ("private_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation))])
+                self._child_list_classes = OrderedDict([("detail-lsp-information", ("detail_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation))])
+                self._leafs = OrderedDict([
+                    ('peer_address', YLeaf(YType.str, 'peer-address')),
+                    ('plsp_id', YLeaf(YType.int32, 'plsp-id')),
+                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                    ('pcc_address', YLeaf(YType.str, 'pcc-address')),
+                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                ])
+                self.peer_address = None
+                self.plsp_id = None
+                self.tunnel_name = None
+                self.pcc_address = None
+                self.tunnel_name_xr = None
 
                 self.private_lsp_information = Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation()
                 self.private_lsp_information.parent = self
@@ -13077,7 +13745,7 @@ class Pce(Entity):
                 self._children_yang_names.add("private-lsp-information")
 
                 self.detail_lsp_information = YList(self)
-                self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + self.peer_address.get() + "']" + "[plsp-id='" + self.plsp_id.get() + "']" + "[tunnel-name='" + self.tunnel_name.get() + "']"
+                self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/tunnel-detail-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -13098,7 +13766,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, self).__init__()
@@ -13107,8 +13775,10 @@ class Pce(Entity):
                     self.yang_parent_name = "tunnel-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"event-buffer" : ("event_buffer", Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("event-buffer", ("event_buffer", Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer))])
+                    self._leafs = OrderedDict()
 
                     self.event_buffer = YList(self)
                     self._segment_path = lambda: "private-lsp-information"
@@ -13138,7 +13808,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, self).__init__()
@@ -13147,12 +13817,15 @@ class Pce(Entity):
                         self.yang_parent_name = "private-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.event_message = YLeaf(YType.str, "event-message")
-
-                        self.time_stamp = YLeaf(YType.uint32, "time-stamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('event_message', YLeaf(YType.str, 'event-message')),
+                            ('time_stamp', YLeaf(YType.uint32, 'time-stamp')),
+                        ])
+                        self.event_message = None
+                        self.time_stamp = None
                         self._segment_path = lambda: "event-buffer"
 
                     def __setattr__(self, name, value):
@@ -13264,7 +13937,7 @@ class Pce(Entity):
                 """
 
                 _prefix = 'infra-xtc-oper'
-                _revision = '2017-06-26'
+                _revision = '2017-08-24'
 
                 def __init__(self):
                     super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, self).__init__()
@@ -13273,28 +13946,31 @@ class Pce(Entity):
                     self.yang_parent_name = "tunnel-detail-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"brief-lsp-information" : ("brief_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation), "er-os" : ("er_os", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs), "lsppcep-information" : ("lsppcep_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation), "lsp-association-info" : ("lsp_association_info", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo), "lsp-attributes" : ("lsp_attributes", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes)}
-                    self._child_list_classes = {"rro" : ("rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro)}
-
-                    self.signaled_bandwidth_specified = YLeaf(YType.boolean, "signaled-bandwidth-specified")
-
-                    self.signaled_bandwidth = YLeaf(YType.uint64, "signaled-bandwidth")
-
-                    self.actual_bandwidth_specified = YLeaf(YType.boolean, "actual-bandwidth-specified")
-
-                    self.actual_bandwidth = YLeaf(YType.uint64, "actual-bandwidth")
-
-                    self.lsp_role = YLeaf(YType.uint32, "lsp-role")
-
-                    self.computing_pce = YLeaf(YType.uint32, "computing-pce")
-
-                    self.sub_delegated_pce = YLeaf(YType.str, "sub-delegated-pce")
-
-                    self.state_sync_pce = YLeaf(YType.str, "state-sync-pce")
-
-                    self.reporting_pcc_address = YLeaf(YType.str, "reporting-pcc-address")
-
-                    self.srlg_info = YLeafList(YType.uint32, "srlg-info")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation)), ("er-os", ("er_os", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs)), ("lsppcep-information", ("lsppcep_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation)), ("lsp-association-info", ("lsp_association_info", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo)), ("lsp-attributes", ("lsp_attributes", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes))])
+                    self._child_list_classes = OrderedDict([("rro", ("rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro))])
+                    self._leafs = OrderedDict([
+                        ('signaled_bandwidth_specified', YLeaf(YType.boolean, 'signaled-bandwidth-specified')),
+                        ('signaled_bandwidth', YLeaf(YType.uint64, 'signaled-bandwidth')),
+                        ('actual_bandwidth_specified', YLeaf(YType.boolean, 'actual-bandwidth-specified')),
+                        ('actual_bandwidth', YLeaf(YType.uint64, 'actual-bandwidth')),
+                        ('lsp_role', YLeaf(YType.uint32, 'lsp-role')),
+                        ('computing_pce', YLeaf(YType.uint32, 'computing-pce')),
+                        ('sub_delegated_pce', YLeaf(YType.str, 'sub-delegated-pce')),
+                        ('state_sync_pce', YLeaf(YType.str, 'state-sync-pce')),
+                        ('reporting_pcc_address', YLeaf(YType.str, 'reporting-pcc-address')),
+                        ('srlg_info', YLeafList(YType.uint32, 'srlg-info')),
+                    ])
+                    self.signaled_bandwidth_specified = None
+                    self.signaled_bandwidth = None
+                    self.actual_bandwidth_specified = None
+                    self.actual_bandwidth = None
+                    self.lsp_role = None
+                    self.computing_pce = None
+                    self.sub_delegated_pce = None
+                    self.state_sync_pce = None
+                    self.reporting_pcc_address = None
+                    self.srlg_info = []
 
                     self.brief_lsp_information = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation()
                     self.brief_lsp_information.parent = self
@@ -13387,7 +14063,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, self).__init__()
@@ -13396,24 +14072,27 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                        self.lspid = YLeaf(YType.uint32, "lspid")
-
-                        self.binding_sid = YLeaf(YType.uint32, "binding-sid")
-
-                        self.lsp_setup_type = YLeaf(YType.enumeration, "lsp-setup-type")
-
-                        self.operational_state = YLeaf(YType.enumeration, "operational-state")
-
-                        self.administrative_state = YLeaf(YType.enumeration, "administrative-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('lspid', YLeaf(YType.uint32, 'lspid')),
+                            ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
+                            ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
+                            ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
+                            ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                        ])
+                        self.source_address = None
+                        self.destination_address = None
+                        self.tunnel_id = None
+                        self.lspid = None
+                        self.binding_sid = None
+                        self.lsp_setup_type = None
+                        self.operational_state = None
+                        self.administrative_state = None
                         self._segment_path = lambda: "brief-lsp-information"
 
                     def __setattr__(self, name, value):
@@ -13484,7 +14163,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, self).__init__()
@@ -13493,18 +14172,21 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"reported-rsvp-path" : ("reported_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath), "reported-sr-path" : ("reported_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath), "computed-rsvp-path" : ("computed_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath), "computed-sr-path" : ("computed_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath)}
-
-                        self.reported_metric_type = YLeaf(YType.uint32, "reported-metric-type")
-
-                        self.reported_metric_value = YLeaf(YType.uint32, "reported-metric-value")
-
-                        self.computed_metric_type = YLeaf(YType.uint32, "computed-metric-type")
-
-                        self.computed_metric_value = YLeaf(YType.uint32, "computed-metric-value")
-
-                        self.computed_hop_list_time = YLeaf(YType.uint32, "computed-hop-list-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("reported-rsvp-path", ("reported_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath)), ("reported-sr-path", ("reported_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath)), ("computed-rsvp-path", ("computed_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath)), ("computed-sr-path", ("computed_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath))])
+                        self._leafs = OrderedDict([
+                            ('reported_metric_type', YLeaf(YType.uint32, 'reported-metric-type')),
+                            ('reported_metric_value', YLeaf(YType.uint32, 'reported-metric-value')),
+                            ('computed_metric_type', YLeaf(YType.uint32, 'computed-metric-type')),
+                            ('computed_metric_value', YLeaf(YType.uint32, 'computed-metric-value')),
+                            ('computed_hop_list_time', YLeaf(YType.uint32, 'computed-hop-list-time')),
+                        ])
+                        self.reported_metric_type = None
+                        self.reported_metric_value = None
+                        self.computed_metric_type = None
+                        self.computed_metric_value = None
+                        self.computed_hop_list_time = None
 
                         self.reported_rsvp_path = YList(self)
                         self.reported_sr_path = YList(self)
@@ -13532,7 +14214,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, self).__init__()
@@ -13541,10 +14223,13 @@ class Pce(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hop_address = YLeaf(YType.str, "hop-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                            ])
+                            self.hop_address = None
                             self._segment_path = lambda: "reported-rsvp-path"
 
                         def __setattr__(self, name, value):
@@ -13586,7 +14271,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, self).__init__()
@@ -13595,16 +14280,19 @@ class Pce(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "reported-sr-path"
 
                         def __setattr__(self, name, value):
@@ -13627,7 +14315,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, self).__init__()
@@ -13636,10 +14324,13 @@ class Pce(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.hop_address = YLeaf(YType.str, "hop-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                            ])
+                            self.hop_address = None
                             self._segment_path = lambda: "computed-rsvp-path"
 
                         def __setattr__(self, name, value):
@@ -13681,7 +14372,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, self).__init__()
@@ -13690,16 +14381,19 @@ class Pce(Entity):
                             self.yang_parent_name = "er-os"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "computed-sr-path"
 
                         def __setattr__(self, name, value):
@@ -13749,12 +14443,19 @@ class Pce(Entity):
                     
                     	**range:** 0..255
                     
+                    .. attribute:: pcep_flag_c
+                    
+                    	PCEP LSP initiated flag
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
                     
 
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, self).__init__()
@@ -13763,20 +14464,25 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rsvp-error" : ("rsvp_error", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError)}
-                        self._child_list_classes = {}
-
-                        self.pcepid = YLeaf(YType.uint32, "pcepid")
-
-                        self.pcep_flag_d = YLeaf(YType.boolean, "pcep-flag-d")
-
-                        self.pcep_flag_s = YLeaf(YType.boolean, "pcep-flag-s")
-
-                        self.pcep_flag_r = YLeaf(YType.boolean, "pcep-flag-r")
-
-                        self.pcep_flag_a = YLeaf(YType.boolean, "pcep-flag-a")
-
-                        self.pcep_flag_o = YLeaf(YType.uint8, "pcep-flag-o")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rsvp-error", ("rsvp_error", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pcepid', YLeaf(YType.uint32, 'pcepid')),
+                            ('pcep_flag_d', YLeaf(YType.boolean, 'pcep-flag-d')),
+                            ('pcep_flag_s', YLeaf(YType.boolean, 'pcep-flag-s')),
+                            ('pcep_flag_r', YLeaf(YType.boolean, 'pcep-flag-r')),
+                            ('pcep_flag_a', YLeaf(YType.boolean, 'pcep-flag-a')),
+                            ('pcep_flag_o', YLeaf(YType.uint8, 'pcep-flag-o')),
+                            ('pcep_flag_c', YLeaf(YType.uint8, 'pcep-flag-c')),
+                        ])
+                        self.pcepid = None
+                        self.pcep_flag_d = None
+                        self.pcep_flag_s = None
+                        self.pcep_flag_r = None
+                        self.pcep_flag_a = None
+                        self.pcep_flag_o = None
+                        self.pcep_flag_c = None
 
                         self.rsvp_error = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError()
                         self.rsvp_error.parent = self
@@ -13785,7 +14491,7 @@ class Pce(Entity):
                         self._segment_path = lambda: "lsppcep-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, ['pcepid', 'pcep_flag_d', 'pcep_flag_s', 'pcep_flag_r', 'pcep_flag_a', 'pcep_flag_o', 'pcep_flag_c'], name, value)
 
 
                     class RsvpError(Entity):
@@ -13825,7 +14531,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, self).__init__()
@@ -13834,16 +14540,19 @@ class Pce(Entity):
                             self.yang_parent_name = "lsppcep-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.node_address = YLeaf(YType.str, "node-address")
-
-                            self.error_flags = YLeaf(YType.uint8, "error-flags")
-
-                            self.error_code = YLeaf(YType.uint8, "error-code")
-
-                            self.error_value = YLeaf(YType.uint16, "error-value")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('node_address', YLeaf(YType.str, 'node-address')),
+                                ('error_flags', YLeaf(YType.uint8, 'error-flags')),
+                                ('error_code', YLeaf(YType.uint8, 'error-code')),
+                                ('error_value', YLeaf(YType.uint16, 'error-value')),
+                            ])
+                            self.node_address = None
+                            self.error_flags = None
+                            self.error_code = None
+                            self.error_value = None
                             self._segment_path = lambda: "rsvp-error"
 
                         def __setattr__(self, name, value):
@@ -13880,7 +14589,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, self).__init__()
@@ -13889,14 +14598,17 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.association_type = YLeaf(YType.uint32, "association-type")
-
-                        self.association_id = YLeaf(YType.uint32, "association-id")
-
-                        self.association_source = YLeaf(YType.str, "association-source")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('association_type', YLeaf(YType.uint32, 'association-type')),
+                            ('association_id', YLeaf(YType.uint32, 'association-id')),
+                            ('association_source', YLeaf(YType.str, 'association-source')),
+                        ])
+                        self.association_type = None
+                        self.association_id = None
+                        self.association_source = None
                         self._segment_path = lambda: "lsp-association-info"
 
                     def __setattr__(self, name, value):
@@ -13952,7 +14664,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, self).__init__()
@@ -13961,20 +14673,23 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.affinity_exclude_any = YLeaf(YType.uint32, "affinity-exclude-any")
-
-                        self.affinity_include_any = YLeaf(YType.uint32, "affinity-include-any")
-
-                        self.affinity_include_all = YLeaf(YType.uint32, "affinity-include-all")
-
-                        self.setup_priority = YLeaf(YType.uint8, "setup-priority")
-
-                        self.hold_priority = YLeaf(YType.uint8, "hold-priority")
-
-                        self.local_protection = YLeaf(YType.boolean, "local-protection")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('affinity_exclude_any', YLeaf(YType.uint32, 'affinity-exclude-any')),
+                            ('affinity_include_any', YLeaf(YType.uint32, 'affinity-include-any')),
+                            ('affinity_include_all', YLeaf(YType.uint32, 'affinity-include-all')),
+                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
+                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
+                            ('local_protection', YLeaf(YType.boolean, 'local-protection')),
+                        ])
+                        self.affinity_exclude_any = None
+                        self.affinity_include_any = None
+                        self.affinity_include_all = None
+                        self.setup_priority = None
+                        self.hold_priority = None
+                        self.local_protection = None
                         self._segment_path = lambda: "lsp-attributes"
 
                     def __setattr__(self, name, value):
@@ -14021,7 +14736,7 @@ class Pce(Entity):
                     """
 
                     _prefix = 'infra-xtc-oper'
-                    _revision = '2017-06-26'
+                    _revision = '2017-08-24'
 
                     def __init__(self):
                         super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, self).__init__()
@@ -14030,16 +14745,19 @@ class Pce(Entity):
                         self.yang_parent_name = "detail-lsp-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sr-rro" : ("sr_rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro)}
-                        self._child_list_classes = {}
-
-                        self.rro_type = YLeaf(YType.enumeration, "rro-type")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                        self.flags = YLeaf(YType.uint8, "flags")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sr-rro", ("sr_rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rro_type', YLeaf(YType.enumeration, 'rro-type')),
+                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                            ('flags', YLeaf(YType.uint8, 'flags')),
+                        ])
+                        self.rro_type = None
+                        self.ipv4_address = None
+                        self.mpls_label = None
+                        self.flags = None
 
                         self.sr_rro = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro()
                         self.sr_rro.parent = self
@@ -14086,7 +14804,7 @@ class Pce(Entity):
                         """
 
                         _prefix = 'infra-xtc-oper'
-                        _revision = '2017-06-26'
+                        _revision = '2017-08-24'
 
                         def __init__(self):
                             super(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, self).__init__()
@@ -14095,16 +14813,19 @@ class Pce(Entity):
                             self.yang_parent_name = "rro"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sid_type = YLeaf(YType.enumeration, "sid-type")
-
-                            self.mpls_label = YLeaf(YType.uint32, "mpls-label")
-
-                            self.local_addr = YLeaf(YType.str, "local-addr")
-
-                            self.remote_addr = YLeaf(YType.str, "remote-addr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
+                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('local_addr', YLeaf(YType.str, 'local-addr')),
+                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
+                            ])
+                            self.sid_type = None
+                            self.mpls_label = None
+                            self.local_addr = None
+                            self.remote_addr = None
                             self._segment_path = lambda: "sr-rro"
 
                         def __setattr__(self, name, value):

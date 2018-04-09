@@ -20,6 +20,8 @@ run.  Developers write and customize Embedded Event Manager
 policies to handle faults and events.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -28,7 +30,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class NotifySource(Enum):
     """
-    NotifySource
+    NotifySource (Enum Class)
 
     The notification source of the history entry.
 
@@ -91,8 +93,10 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
         self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ceemHistory" : ("ceemhistory", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory), "ceemEventMapTable" : ("ceemeventmaptable", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable), "ceemHistoryEventTable" : ("ceemhistoryeventtable", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable), "ceemRegisteredPolicyTable" : ("ceemregisteredpolicytable", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ceemHistory", ("ceemhistory", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory)), ("ceemEventMapTable", ("ceemeventmaptable", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable)), ("ceemHistoryEventTable", ("ceemhistoryeventtable", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable)), ("ceemRegisteredPolicyTable", ("ceemregisteredpolicytable", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ceemhistory = CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory()
         self.ceemhistory.parent = self
@@ -148,12 +152,15 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ceemhistorymaxevententries = YLeaf(YType.int32, "ceemHistoryMaxEventEntries")
-
-            self.ceemhistorylastevententry = YLeaf(YType.uint32, "ceemHistoryLastEventEntry")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ceemhistorymaxevententries', YLeaf(YType.int32, 'ceemHistoryMaxEventEntries')),
+                ('ceemhistorylastevententry', YLeaf(YType.uint32, 'ceemHistoryLastEventEntry')),
+            ])
+            self.ceemhistorymaxevententries = None
+            self.ceemhistorylastevententry = None
             self._segment_path = lambda: "ceemHistory"
             self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self._segment_path()
 
@@ -191,8 +198,10 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceemEventMapEntry" : ("ceemeventmapentry", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable.Ceemeventmapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceemEventMapEntry", ("ceemeventmapentry", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable.Ceemeventmapentry))])
+            self._leafs = OrderedDict()
 
             self.ceemeventmapentry = YList(self)
             self._segment_path = lambda: "ceemEventMapTable"
@@ -206,7 +215,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             """
             A mapping between an event type and an event description.
             
-            .. attribute:: ceemeventindex  <key>
+            .. attribute:: ceemeventindex  (key)
             
             	This object uniquely identifies an event.  Events are not persisted across reloads
             	**type**\: int
@@ -239,15 +248,18 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
                 self.yang_parent_name = "ceemEventMapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceemeventindex = YLeaf(YType.uint32, "ceemEventIndex")
-
-                self.ceemeventname = YLeaf(YType.str, "ceemEventName")
-
-                self.ceemeventdescrtext = YLeaf(YType.str, "ceemEventDescrText")
-                self._segment_path = lambda: "ceemEventMapEntry" + "[ceemEventIndex='" + self.ceemeventindex.get() + "']"
+                self.ylist_key_names = ['ceemeventindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceemeventindex', YLeaf(YType.uint32, 'ceemEventIndex')),
+                    ('ceemeventname', YLeaf(YType.str, 'ceemEventName')),
+                    ('ceemeventdescrtext', YLeaf(YType.str, 'ceemEventDescrText')),
+                ])
+                self.ceemeventindex = None
+                self.ceemeventname = None
+                self.ceemeventdescrtext = None
+                self._segment_path = lambda: "ceemEventMapEntry" + "[ceemEventIndex='" + str(self.ceemeventindex) + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemEventMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -287,8 +299,10 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceemHistoryEventEntry" : ("ceemhistoryevententry", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable.Ceemhistoryevententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceemHistoryEventEntry", ("ceemhistoryevententry", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable.Ceemhistoryevententry))])
+            self._leafs = OrderedDict()
 
             self.ceemhistoryevententry = YList(self)
             self._segment_path = lambda: "ceemHistoryEventTable"
@@ -306,7 +320,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             triggered when multiple events are published within a certain
             period of time.
             
-            .. attribute:: ceemhistoryeventindex  <key>
+            .. attribute:: ceemhistoryeventindex  (key)
             
             	A monotonically increasing non\-zero integer uniquely identifying a generated event.  When it reaches the  maximum value, the agent wraps the value back to 1  and may flush all existing entries in the event table
             	**type**\: int
@@ -430,41 +444,44 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
                 self.yang_parent_name = "ceemHistoryEventTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceemhistoryeventindex = YLeaf(YType.uint32, "ceemHistoryEventIndex")
-
-                self.ceemhistoryeventtype1 = YLeaf(YType.uint32, "ceemHistoryEventType1")
-
-                self.ceemhistoryeventtype2 = YLeaf(YType.uint32, "ceemHistoryEventType2")
-
-                self.ceemhistoryeventtype3 = YLeaf(YType.uint32, "ceemHistoryEventType3")
-
-                self.ceemhistoryeventtype4 = YLeaf(YType.uint32, "ceemHistoryEventType4")
-
-                self.ceemhistorypolicypath = YLeaf(YType.str, "ceemHistoryPolicyPath")
-
-                self.ceemhistorypolicyname = YLeaf(YType.str, "ceemHistoryPolicyName")
-
-                self.ceemhistorypolicyexitstatus = YLeaf(YType.int32, "ceemHistoryPolicyExitStatus")
-
-                self.ceemhistorypolicyintdata1 = YLeaf(YType.int32, "ceemHistoryPolicyIntData1")
-
-                self.ceemhistorypolicyintdata2 = YLeaf(YType.int32, "ceemHistoryPolicyIntData2")
-
-                self.ceemhistorypolicystrdata = YLeaf(YType.str, "ceemHistoryPolicyStrData")
-
-                self.ceemhistorynotifytype = YLeaf(YType.enumeration, "ceemHistoryNotifyType")
-
-                self.ceemhistoryeventtype5 = YLeaf(YType.uint32, "ceemHistoryEventType5")
-
-                self.ceemhistoryeventtype6 = YLeaf(YType.uint32, "ceemHistoryEventType6")
-
-                self.ceemhistoryeventtype7 = YLeaf(YType.uint32, "ceemHistoryEventType7")
-
-                self.ceemhistoryeventtype8 = YLeaf(YType.uint32, "ceemHistoryEventType8")
-                self._segment_path = lambda: "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + self.ceemhistoryeventindex.get() + "']"
+                self.ylist_key_names = ['ceemhistoryeventindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceemhistoryeventindex', YLeaf(YType.uint32, 'ceemHistoryEventIndex')),
+                    ('ceemhistoryeventtype1', YLeaf(YType.uint32, 'ceemHistoryEventType1')),
+                    ('ceemhistoryeventtype2', YLeaf(YType.uint32, 'ceemHistoryEventType2')),
+                    ('ceemhistoryeventtype3', YLeaf(YType.uint32, 'ceemHistoryEventType3')),
+                    ('ceemhistoryeventtype4', YLeaf(YType.uint32, 'ceemHistoryEventType4')),
+                    ('ceemhistorypolicypath', YLeaf(YType.str, 'ceemHistoryPolicyPath')),
+                    ('ceemhistorypolicyname', YLeaf(YType.str, 'ceemHistoryPolicyName')),
+                    ('ceemhistorypolicyexitstatus', YLeaf(YType.int32, 'ceemHistoryPolicyExitStatus')),
+                    ('ceemhistorypolicyintdata1', YLeaf(YType.int32, 'ceemHistoryPolicyIntData1')),
+                    ('ceemhistorypolicyintdata2', YLeaf(YType.int32, 'ceemHistoryPolicyIntData2')),
+                    ('ceemhistorypolicystrdata', YLeaf(YType.str, 'ceemHistoryPolicyStrData')),
+                    ('ceemhistorynotifytype', YLeaf(YType.enumeration, 'ceemHistoryNotifyType')),
+                    ('ceemhistoryeventtype5', YLeaf(YType.uint32, 'ceemHistoryEventType5')),
+                    ('ceemhistoryeventtype6', YLeaf(YType.uint32, 'ceemHistoryEventType6')),
+                    ('ceemhistoryeventtype7', YLeaf(YType.uint32, 'ceemHistoryEventType7')),
+                    ('ceemhistoryeventtype8', YLeaf(YType.uint32, 'ceemHistoryEventType8')),
+                ])
+                self.ceemhistoryeventindex = None
+                self.ceemhistoryeventtype1 = None
+                self.ceemhistoryeventtype2 = None
+                self.ceemhistoryeventtype3 = None
+                self.ceemhistoryeventtype4 = None
+                self.ceemhistorypolicypath = None
+                self.ceemhistorypolicyname = None
+                self.ceemhistorypolicyexitstatus = None
+                self.ceemhistorypolicyintdata1 = None
+                self.ceemhistorypolicyintdata2 = None
+                self.ceemhistorypolicystrdata = None
+                self.ceemhistorynotifytype = None
+                self.ceemhistoryeventtype5 = None
+                self.ceemhistoryeventtype6 = None
+                self.ceemhistoryeventtype7 = None
+                self.ceemhistoryeventtype8 = None
+                self._segment_path = lambda: "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + str(self.ceemhistoryeventindex) + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemHistoryEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -496,8 +513,10 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ceemRegisteredPolicyEntry" : ("ceemregisteredpolicyentry", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ceemRegisteredPolicyEntry", ("ceemregisteredpolicyentry", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry))])
+            self._leafs = OrderedDict()
 
             self.ceemregisteredpolicyentry = YList(self)
             self._segment_path = lambda: "ceemRegisteredPolicyTable"
@@ -516,7 +535,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             cannot be created or deleted by SNMP operations on columns of the 
             table.
             
-            .. attribute:: ceemregisteredpolicyindex  <key>
+            .. attribute:: ceemregisteredpolicyindex  (key)
             
             	A monotonically increasing non\-zero integer uniquely identifying a policy registration.  When it reaches the maximum value, the agent wraps the value back to 1 upon  receiving the next policy registration
             	**type**\: int
@@ -637,43 +656,46 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
                 self.yang_parent_name = "ceemRegisteredPolicyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ceemregisteredpolicyindex = YLeaf(YType.uint32, "ceemRegisteredPolicyIndex")
-
-                self.ceemregisteredpolicyname = YLeaf(YType.str, "ceemRegisteredPolicyName")
-
-                self.ceemregisteredpolicyeventtype1 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType1")
-
-                self.ceemregisteredpolicyeventtype2 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType2")
-
-                self.ceemregisteredpolicyeventtype3 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType3")
-
-                self.ceemregisteredpolicyeventtype4 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType4")
-
-                self.ceemregisteredpolicystatus = YLeaf(YType.enumeration, "ceemRegisteredPolicyStatus")
-
-                self.ceemregisteredpolicytype = YLeaf(YType.enumeration, "ceemRegisteredPolicyType")
-
-                self.ceemregisteredpolicynotifflag = YLeaf(YType.boolean, "ceemRegisteredPolicyNotifFlag")
-
-                self.ceemregisteredpolicyregtime = YLeaf(YType.str, "ceemRegisteredPolicyRegTime")
-
-                self.ceemregisteredpolicyenabledtime = YLeaf(YType.str, "ceemRegisteredPolicyEnabledTime")
-
-                self.ceemregisteredpolicyruntime = YLeaf(YType.str, "ceemRegisteredPolicyRunTime")
-
-                self.ceemregisteredpolicyruncount = YLeaf(YType.uint32, "ceemRegisteredPolicyRunCount")
-
-                self.ceemregisteredpolicyeventtype5 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType5")
-
-                self.ceemregisteredpolicyeventtype6 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType6")
-
-                self.ceemregisteredpolicyeventtype7 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType7")
-
-                self.ceemregisteredpolicyeventtype8 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType8")
-                self._segment_path = lambda: "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + self.ceemregisteredpolicyindex.get() + "']"
+                self.ylist_key_names = ['ceemregisteredpolicyindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ceemregisteredpolicyindex', YLeaf(YType.uint32, 'ceemRegisteredPolicyIndex')),
+                    ('ceemregisteredpolicyname', YLeaf(YType.str, 'ceemRegisteredPolicyName')),
+                    ('ceemregisteredpolicyeventtype1', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType1')),
+                    ('ceemregisteredpolicyeventtype2', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType2')),
+                    ('ceemregisteredpolicyeventtype3', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType3')),
+                    ('ceemregisteredpolicyeventtype4', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType4')),
+                    ('ceemregisteredpolicystatus', YLeaf(YType.enumeration, 'ceemRegisteredPolicyStatus')),
+                    ('ceemregisteredpolicytype', YLeaf(YType.enumeration, 'ceemRegisteredPolicyType')),
+                    ('ceemregisteredpolicynotifflag', YLeaf(YType.boolean, 'ceemRegisteredPolicyNotifFlag')),
+                    ('ceemregisteredpolicyregtime', YLeaf(YType.str, 'ceemRegisteredPolicyRegTime')),
+                    ('ceemregisteredpolicyenabledtime', YLeaf(YType.str, 'ceemRegisteredPolicyEnabledTime')),
+                    ('ceemregisteredpolicyruntime', YLeaf(YType.str, 'ceemRegisteredPolicyRunTime')),
+                    ('ceemregisteredpolicyruncount', YLeaf(YType.uint32, 'ceemRegisteredPolicyRunCount')),
+                    ('ceemregisteredpolicyeventtype5', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType5')),
+                    ('ceemregisteredpolicyeventtype6', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType6')),
+                    ('ceemregisteredpolicyeventtype7', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType7')),
+                    ('ceemregisteredpolicyeventtype8', YLeaf(YType.uint32, 'ceemRegisteredPolicyEventType8')),
+                ])
+                self.ceemregisteredpolicyindex = None
+                self.ceemregisteredpolicyname = None
+                self.ceemregisteredpolicyeventtype1 = None
+                self.ceemregisteredpolicyeventtype2 = None
+                self.ceemregisteredpolicyeventtype3 = None
+                self.ceemregisteredpolicyeventtype4 = None
+                self.ceemregisteredpolicystatus = None
+                self.ceemregisteredpolicytype = None
+                self.ceemregisteredpolicynotifflag = None
+                self.ceemregisteredpolicyregtime = None
+                self.ceemregisteredpolicyenabledtime = None
+                self.ceemregisteredpolicyruntime = None
+                self.ceemregisteredpolicyruncount = None
+                self.ceemregisteredpolicyeventtype5 = None
+                self.ceemregisteredpolicyeventtype6 = None
+                self.ceemregisteredpolicyeventtype7 = None
+                self.ceemregisteredpolicyeventtype8 = None
+                self._segment_path = lambda: "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + str(self.ceemregisteredpolicyindex) + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemRegisteredPolicyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -681,7 +703,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
             class Ceemregisteredpolicystatus(Enum):
                 """
-                Ceemregisteredpolicystatus
+                Ceemregisteredpolicystatus (Enum Class)
 
                 This status indicates whether the policy is enabled or disabled.
 
@@ -698,7 +720,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
             class Ceemregisteredpolicytype(Enum):
                 """
-                Ceemregisteredpolicytype
+                Ceemregisteredpolicytype (Enum Class)
 
                 This variable indicates whether this is a user or system policy.
 

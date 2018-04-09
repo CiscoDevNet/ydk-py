@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class AsicErrors(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asic-errors-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", AsicErrors.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", AsicErrors.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = AsicErrors.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class AsicErrors(Entity):
             self.yang_parent_name = "asic-errors"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", AsicErrors.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", AsicErrors.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class AsicErrors(Entity):
             """
             Asic error for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -116,13 +122,16 @@ class AsicErrors(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"asic-information" : ("asic_information", AsicErrors.Nodes.Node.AsicInformation)}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("asic-information", ("asic_information", AsicErrors.Nodes.Node.AsicInformation))])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.asic_information = YList(self)
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -133,7 +142,7 @@ class AsicErrors(Entity):
                 """
                 Asic on the node
                 
-                .. attribute:: asic  <key>
+                .. attribute:: asic  (key)
                 
                 	Asic string
                 	**type**\: str
@@ -164,10 +173,13 @@ class AsicErrors(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"all-instances" : ("all_instances", AsicErrors.Nodes.Node.AsicInformation.AllInstances), "instances" : ("instances", AsicErrors.Nodes.Node.AsicInformation.Instances)}
-                    self._child_list_classes = {}
-
-                    self.asic = YLeaf(YType.str, "asic")
+                    self.ylist_key_names = ['asic']
+                    self._child_container_classes = OrderedDict([("all-instances", ("all_instances", AsicErrors.Nodes.Node.AsicInformation.AllInstances)), ("instances", ("instances", AsicErrors.Nodes.Node.AsicInformation.Instances))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('asic', YLeaf(YType.str, 'asic')),
+                    ])
+                    self.asic = None
 
                     self.all_instances = AsicErrors.Nodes.Node.AsicInformation.AllInstances()
                     self.all_instances.parent = self
@@ -178,7 +190,7 @@ class AsicErrors(Entity):
                     self.instances.parent = self
                     self._children_name_map["instances"] = "instances"
                     self._children_yang_names.add("instances")
-                    self._segment_path = lambda: "asic-information" + "[asic='" + self.asic.get() + "']"
+                    self._segment_path = lambda: "asic-information" + "[asic='" + str(self.asic) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation, ['asic'], name, value)
@@ -207,8 +219,10 @@ class AsicErrors(Entity):
                         self.yang_parent_name = "asic-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"all-error-path" : ("all_error_path", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("all-error-path", ("all_error_path", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.all_error_path = AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath()
                         self.all_error_path.parent = self
@@ -240,8 +254,10 @@ class AsicErrors(Entity):
                             self.yang_parent_name = "all-instances"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"summary" : ("summary", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("summary", ("summary", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.summary = AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary()
                             self.summary.parent = self
@@ -283,12 +299,15 @@ class AsicErrors(Entity):
                                 self.yang_parent_name = "all-error-path"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"sum-data" : ("sum_data", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData)}
-
-                                self.legacy_client = YLeaf(YType.boolean, "legacy-client")
-
-                                self.cih_client = YLeaf(YType.boolean, "cih-client")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData))])
+                                self._leafs = OrderedDict([
+                                    ('legacy_client', YLeaf(YType.boolean, 'legacy-client')),
+                                    ('cih_client', YLeaf(YType.boolean, 'cih-client')),
+                                ])
+                                self.legacy_client = None
+                                self.cih_client = None
 
                                 self.sum_data = YList(self)
                                 self._segment_path = lambda: "summary"
@@ -385,28 +404,31 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "summary"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.num_nodes = YLeaf(YType.uint32, "num-nodes")
-
-                                    self.crc_err_count = YLeaf(YType.uint32, "crc-err-count")
-
-                                    self.sbe_err_count = YLeaf(YType.uint32, "sbe-err-count")
-
-                                    self.mbe_err_count = YLeaf(YType.uint32, "mbe-err-count")
-
-                                    self.par_err_count = YLeaf(YType.uint32, "par-err-count")
-
-                                    self.gen_err_count = YLeaf(YType.uint32, "gen-err-count")
-
-                                    self.reset_err_count = YLeaf(YType.uint32, "reset-err-count")
-
-                                    self.err_count = YLeafList(YType.uint32, "err-count")
-
-                                    self.pcie_err_count = YLeafList(YType.uint32, "pcie-err-count")
-
-                                    self.node_key = YLeafList(YType.uint32, "node-key")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('num_nodes', YLeaf(YType.uint32, 'num-nodes')),
+                                        ('crc_err_count', YLeaf(YType.uint32, 'crc-err-count')),
+                                        ('sbe_err_count', YLeaf(YType.uint32, 'sbe-err-count')),
+                                        ('mbe_err_count', YLeaf(YType.uint32, 'mbe-err-count')),
+                                        ('par_err_count', YLeaf(YType.uint32, 'par-err-count')),
+                                        ('gen_err_count', YLeaf(YType.uint32, 'gen-err-count')),
+                                        ('reset_err_count', YLeaf(YType.uint32, 'reset-err-count')),
+                                        ('err_count', YLeafList(YType.uint32, 'err-count')),
+                                        ('pcie_err_count', YLeafList(YType.uint32, 'pcie-err-count')),
+                                        ('node_key', YLeafList(YType.uint32, 'node-key')),
+                                    ])
+                                    self.num_nodes = None
+                                    self.crc_err_count = None
+                                    self.sbe_err_count = None
+                                    self.mbe_err_count = None
+                                    self.par_err_count = None
+                                    self.gen_err_count = None
+                                    self.reset_err_count = None
+                                    self.err_count = []
+                                    self.pcie_err_count = []
+                                    self.node_key = []
                                     self._segment_path = lambda: "sum-data"
 
                                 def __setattr__(self, name, value):
@@ -436,8 +458,10 @@ class AsicErrors(Entity):
                         self.yang_parent_name = "asic-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"instance" : ("instance", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("instance", ("instance", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance))])
+                        self._leafs = OrderedDict()
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "instances"
@@ -450,7 +474,7 @@ class AsicErrors(Entity):
                         """
                         Particular asic instance on the node
                         
-                        .. attribute:: asic_instance  <key>
+                        .. attribute:: asic_instance  (key)
                         
                         	asic instance
                         	**type**\: int
@@ -476,16 +500,19 @@ class AsicErrors(Entity):
                             self.yang_parent_name = "instances"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"error-path" : ("error_path", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath)}
-                            self._child_list_classes = {}
-
-                            self.asic_instance = YLeaf(YType.int32, "asic-instance")
+                            self.ylist_key_names = ['asic_instance']
+                            self._child_container_classes = OrderedDict([("error-path", ("error_path", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('asic_instance', YLeaf(YType.int32, 'asic-instance')),
+                            ])
+                            self.asic_instance = None
 
                             self.error_path = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath()
                             self.error_path.parent = self
                             self._children_name_map["error_path"] = "error-path"
                             self._children_yang_names.add("error-path")
-                            self._segment_path = lambda: "instance" + "[asic-instance='" + self.asic_instance.get() + "']"
+                            self._segment_path = lambda: "instance" + "[asic-instance='" + str(self.asic_instance) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance, ['asic_instance'], name, value)
@@ -764,8 +791,10 @@ class AsicErrors(Entity):
                                 self.yang_parent_name = "instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"multiple-bit-soft-errors" : ("multiple_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors), "asic-error-generic-soft" : ("asic_error_generic_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft), "crc-hard-errors" : ("crc_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors), "asic-error-sbe-soft" : ("asic_error_sbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft), "hardware-soft-errors" : ("hardware_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors), "asic-error-crc-soft" : ("asic_error_crc_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft), "asic-error-parity-soft" : ("asic_error_parity_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft), "io-soft-errors" : ("io_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors), "reset-soft-errors" : ("reset_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors), "barrier-hard-errors" : ("barrier_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors), "ucode-soft-errors" : ("ucode_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors), "asic-error-reset-hard" : ("asic_error_reset_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard), "single-bit-hard-errors" : ("single_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors), "indirect-hard-errors" : ("indirect_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors), "outof-resource-soft" : ("outof_resource_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft), "crc-soft-errors" : ("crc_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors), "time-out-hard-errors" : ("time_out_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors), "barrier-soft-errors" : ("barrier_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors), "asic-error-mbe-soft" : ("asic_error_mbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft), "back-pressure-hard-errors" : ("back_pressure_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors), "single-bit-soft-errors" : ("single_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors), "indirect-soft-errors" : ("indirect_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors), "generic-hard-errors" : ("generic_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors), "link-hard-errors" : ("link_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors), "configuration-hard-errors" : ("configuration_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors), "instance-summary" : ("instance_summary", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary), "unexpected-hard-errors" : ("unexpected_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors), "time-out-soft-errors" : ("time_out_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors), "asic-error-generic-hard" : ("asic_error_generic_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard), "parity-hard-errors" : ("parity_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors), "descriptor-hard-errors" : ("descriptor_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors), "interface-hard-errors" : ("interface_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors), "asic-error-sbe-hard" : ("asic_error_sbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard), "asic-error-crc-hard" : ("asic_error_crc_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard), "asic-error-parity-hard" : ("asic_error_parity_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard), "asic-error-reset-soft" : ("asic_error_reset_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft), "back-pressure-soft-errors" : ("back_pressure_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors), "generic-soft-errors" : ("generic_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors), "link-soft-errors" : ("link_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors), "configuration-soft-errors" : ("configuration_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors), "multiple-bit-hard-errors" : ("multiple_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors), "unexpected-soft-errors" : ("unexpected_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors), "outof-resource-hard" : ("outof_resource_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard), "hardware-hard-errors" : ("hardware_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors), "parity-soft-errors" : ("parity_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors), "descriptor-soft-errors" : ("descriptor_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors), "interface-soft-errors" : ("interface_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors), "io-hard-errors" : ("io_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors), "reset-hard-errors" : ("reset_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors), "ucode-hard-errors" : ("ucode_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors), "asic-error-mbe-hard" : ("asic_error_mbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("multiple-bit-soft-errors", ("multiple_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors)), ("asic-error-generic-soft", ("asic_error_generic_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft)), ("crc-hard-errors", ("crc_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors)), ("asic-error-sbe-soft", ("asic_error_sbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft)), ("hardware-soft-errors", ("hardware_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors)), ("asic-error-crc-soft", ("asic_error_crc_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft)), ("asic-error-parity-soft", ("asic_error_parity_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft)), ("io-soft-errors", ("io_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors)), ("reset-soft-errors", ("reset_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors)), ("barrier-hard-errors", ("barrier_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors)), ("ucode-soft-errors", ("ucode_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors)), ("asic-error-reset-hard", ("asic_error_reset_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard)), ("single-bit-hard-errors", ("single_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors)), ("indirect-hard-errors", ("indirect_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors)), ("outof-resource-soft", ("outof_resource_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft)), ("crc-soft-errors", ("crc_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors)), ("time-out-hard-errors", ("time_out_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors)), ("barrier-soft-errors", ("barrier_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors)), ("asic-error-mbe-soft", ("asic_error_mbe_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft)), ("back-pressure-hard-errors", ("back_pressure_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors)), ("single-bit-soft-errors", ("single_bit_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors)), ("indirect-soft-errors", ("indirect_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors)), ("generic-hard-errors", ("generic_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors)), ("link-hard-errors", ("link_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors)), ("configuration-hard-errors", ("configuration_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors)), ("instance-summary", ("instance_summary", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary)), ("unexpected-hard-errors", ("unexpected_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors)), ("time-out-soft-errors", ("time_out_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors)), ("asic-error-generic-hard", ("asic_error_generic_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard)), ("parity-hard-errors", ("parity_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors)), ("descriptor-hard-errors", ("descriptor_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors)), ("interface-hard-errors", ("interface_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors)), ("asic-error-sbe-hard", ("asic_error_sbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard)), ("asic-error-crc-hard", ("asic_error_crc_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard)), ("asic-error-parity-hard", ("asic_error_parity_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard)), ("asic-error-reset-soft", ("asic_error_reset_soft", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft)), ("back-pressure-soft-errors", ("back_pressure_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors)), ("generic-soft-errors", ("generic_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors)), ("link-soft-errors", ("link_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors)), ("configuration-soft-errors", ("configuration_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors)), ("multiple-bit-hard-errors", ("multiple_bit_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors)), ("unexpected-soft-errors", ("unexpected_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors)), ("outof-resource-hard", ("outof_resource_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard)), ("hardware-hard-errors", ("hardware_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors)), ("parity-soft-errors", ("parity_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors)), ("descriptor-soft-errors", ("descriptor_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors)), ("interface-soft-errors", ("interface_soft_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors)), ("io-hard-errors", ("io_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors)), ("reset-hard-errors", ("reset_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors)), ("ucode-hard-errors", ("ucode_hard_errors", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors)), ("asic-error-mbe-hard", ("asic_error_mbe_hard", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.multiple_bit_soft_errors = AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors()
                                 self.multiple_bit_soft_errors.parent = self
@@ -1047,8 +1076,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "multiple-bit-soft-errors"
@@ -1163,32 +1194,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "multiple-bit-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -1235,14 +1269,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -1300,18 +1337,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -1341,8 +1381,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-generic-soft"
@@ -1457,32 +1499,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-generic-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -1529,14 +1574,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -1594,18 +1642,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -1635,8 +1686,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "crc-hard-errors"
@@ -1751,32 +1804,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "crc-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -1823,14 +1879,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -1888,18 +1947,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -1929,8 +1991,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-sbe-soft"
@@ -2045,32 +2109,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-sbe-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -2117,14 +2184,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -2182,18 +2252,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -2223,8 +2296,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "hardware-soft-errors"
@@ -2339,32 +2414,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "hardware-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -2411,14 +2489,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -2476,18 +2557,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -2517,8 +2601,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-crc-soft"
@@ -2633,32 +2719,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-crc-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -2705,14 +2794,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -2770,18 +2862,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -2811,8 +2906,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-parity-soft"
@@ -2927,32 +3024,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-parity-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -2999,14 +3099,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -3064,18 +3167,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -3105,8 +3211,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "io-soft-errors"
@@ -3221,32 +3329,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "io-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -3293,14 +3404,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -3358,18 +3472,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -3399,8 +3516,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "reset-soft-errors"
@@ -3515,32 +3634,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "reset-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -3587,14 +3709,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -3652,18 +3777,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -3693,8 +3821,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "barrier-hard-errors"
@@ -3809,32 +3939,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "barrier-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -3881,14 +4014,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -3946,18 +4082,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -3987,8 +4126,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "ucode-soft-errors"
@@ -4103,32 +4244,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "ucode-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -4175,14 +4319,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -4240,18 +4387,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -4281,8 +4431,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-reset-hard"
@@ -4397,32 +4549,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-reset-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -4469,14 +4624,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -4534,18 +4692,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -4575,8 +4736,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "single-bit-hard-errors"
@@ -4691,32 +4854,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "single-bit-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -4763,14 +4929,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -4828,18 +4997,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -4869,8 +5041,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "indirect-hard-errors"
@@ -4985,32 +5159,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "indirect-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -5057,14 +5234,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -5122,18 +5302,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -5163,8 +5346,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "outof-resource-soft"
@@ -5279,32 +5464,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "outof-resource-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -5351,14 +5539,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -5416,18 +5607,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -5457,8 +5651,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "crc-soft-errors"
@@ -5573,32 +5769,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "crc-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -5645,14 +5844,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -5710,18 +5912,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -5751,8 +5956,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "time-out-hard-errors"
@@ -5867,32 +6074,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "time-out-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -5939,14 +6149,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -6004,18 +6217,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -6045,8 +6261,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "barrier-soft-errors"
@@ -6161,32 +6379,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "barrier-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -6233,14 +6454,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -6298,18 +6522,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -6339,8 +6566,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-mbe-soft"
@@ -6455,32 +6684,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-mbe-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -6527,14 +6759,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -6592,18 +6827,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -6633,8 +6871,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "back-pressure-hard-errors"
@@ -6749,32 +6989,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "back-pressure-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -6821,14 +7064,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -6886,18 +7132,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -6927,8 +7176,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "single-bit-soft-errors"
@@ -7043,32 +7294,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "single-bit-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -7115,14 +7369,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -7180,18 +7437,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -7221,8 +7481,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "indirect-soft-errors"
@@ -7337,32 +7599,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "indirect-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -7409,14 +7674,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -7474,18 +7742,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -7515,8 +7786,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "generic-hard-errors"
@@ -7631,32 +7904,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "generic-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -7703,14 +7979,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -7768,18 +8047,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -7809,8 +8091,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "link-hard-errors"
@@ -7925,32 +8209,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "link-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -7997,14 +8284,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -8062,18 +8352,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -8103,8 +8396,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "configuration-hard-errors"
@@ -8219,32 +8514,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "configuration-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -8291,14 +8589,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -8356,18 +8657,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -8407,12 +8711,15 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"sum-data" : ("sum_data", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData)}
-
-                                    self.legacy_client = YLeaf(YType.boolean, "legacy-client")
-
-                                    self.cih_client = YLeaf(YType.boolean, "cih-client")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("sum-data", ("sum_data", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData))])
+                                    self._leafs = OrderedDict([
+                                        ('legacy_client', YLeaf(YType.boolean, 'legacy-client')),
+                                        ('cih_client', YLeaf(YType.boolean, 'cih-client')),
+                                    ])
+                                    self.legacy_client = None
+                                    self.cih_client = None
 
                                     self.sum_data = YList(self)
                                     self._segment_path = lambda: "instance-summary"
@@ -8509,28 +8816,31 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "instance-summary"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_nodes = YLeaf(YType.uint32, "num-nodes")
-
-                                        self.crc_err_count = YLeaf(YType.uint32, "crc-err-count")
-
-                                        self.sbe_err_count = YLeaf(YType.uint32, "sbe-err-count")
-
-                                        self.mbe_err_count = YLeaf(YType.uint32, "mbe-err-count")
-
-                                        self.par_err_count = YLeaf(YType.uint32, "par-err-count")
-
-                                        self.gen_err_count = YLeaf(YType.uint32, "gen-err-count")
-
-                                        self.reset_err_count = YLeaf(YType.uint32, "reset-err-count")
-
-                                        self.err_count = YLeafList(YType.uint32, "err-count")
-
-                                        self.pcie_err_count = YLeafList(YType.uint32, "pcie-err-count")
-
-                                        self.node_key = YLeafList(YType.uint32, "node-key")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_nodes', YLeaf(YType.uint32, 'num-nodes')),
+                                            ('crc_err_count', YLeaf(YType.uint32, 'crc-err-count')),
+                                            ('sbe_err_count', YLeaf(YType.uint32, 'sbe-err-count')),
+                                            ('mbe_err_count', YLeaf(YType.uint32, 'mbe-err-count')),
+                                            ('par_err_count', YLeaf(YType.uint32, 'par-err-count')),
+                                            ('gen_err_count', YLeaf(YType.uint32, 'gen-err-count')),
+                                            ('reset_err_count', YLeaf(YType.uint32, 'reset-err-count')),
+                                            ('err_count', YLeafList(YType.uint32, 'err-count')),
+                                            ('pcie_err_count', YLeafList(YType.uint32, 'pcie-err-count')),
+                                            ('node_key', YLeafList(YType.uint32, 'node-key')),
+                                        ])
+                                        self.num_nodes = None
+                                        self.crc_err_count = None
+                                        self.sbe_err_count = None
+                                        self.mbe_err_count = None
+                                        self.par_err_count = None
+                                        self.gen_err_count = None
+                                        self.reset_err_count = None
+                                        self.err_count = []
+                                        self.pcie_err_count = []
+                                        self.node_key = []
                                         self._segment_path = lambda: "sum-data"
 
                                     def __setattr__(self, name, value):
@@ -8560,8 +8870,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "unexpected-hard-errors"
@@ -8676,32 +8988,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "unexpected-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -8748,14 +9063,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -8813,18 +9131,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -8854,8 +9175,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "time-out-soft-errors"
@@ -8970,32 +9293,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "time-out-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -9042,14 +9368,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -9107,18 +9436,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -9148,8 +9480,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-generic-hard"
@@ -9264,32 +9598,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-generic-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -9336,14 +9673,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -9401,18 +9741,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -9442,8 +9785,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "parity-hard-errors"
@@ -9558,32 +9903,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "parity-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -9630,14 +9978,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -9695,18 +10046,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -9736,8 +10090,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "descriptor-hard-errors"
@@ -9852,32 +10208,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "descriptor-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -9924,14 +10283,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -9989,18 +10351,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -10030,8 +10395,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "interface-hard-errors"
@@ -10146,32 +10513,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "interface-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -10218,14 +10588,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -10283,18 +10656,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -10324,8 +10700,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-sbe-hard"
@@ -10440,32 +10818,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-sbe-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -10512,14 +10893,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -10577,18 +10961,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -10618,8 +11005,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-crc-hard"
@@ -10734,32 +11123,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-crc-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -10806,14 +11198,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -10871,18 +11266,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -10912,8 +11310,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-parity-hard"
@@ -11028,32 +11428,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-parity-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -11100,14 +11503,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -11165,18 +11571,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -11206,8 +11615,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-reset-soft"
@@ -11322,32 +11733,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-reset-soft"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -11394,14 +11808,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -11459,18 +11876,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -11500,8 +11920,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "back-pressure-soft-errors"
@@ -11616,32 +12038,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "back-pressure-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -11688,14 +12113,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -11753,18 +12181,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -11794,8 +12225,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "generic-soft-errors"
@@ -11910,32 +12343,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "generic-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -11982,14 +12418,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -12047,18 +12486,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -12088,8 +12530,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "link-soft-errors"
@@ -12204,32 +12648,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "link-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -12276,14 +12723,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -12341,18 +12791,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -12382,8 +12835,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "configuration-soft-errors"
@@ -12498,32 +12953,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "configuration-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -12570,14 +13028,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -12635,18 +13096,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -12676,8 +13140,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "multiple-bit-hard-errors"
@@ -12792,32 +13258,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "multiple-bit-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -12864,14 +13333,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -12929,18 +13401,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -12970,8 +13445,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "unexpected-soft-errors"
@@ -13086,32 +13563,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "unexpected-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -13158,14 +13638,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -13223,18 +13706,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -13264,8 +13750,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "outof-resource-hard"
@@ -13380,32 +13868,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "outof-resource-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -13452,14 +13943,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -13517,18 +14011,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -13558,8 +14055,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "hardware-hard-errors"
@@ -13674,32 +14173,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "hardware-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -13746,14 +14248,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -13811,18 +14316,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -13852,8 +14360,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "parity-soft-errors"
@@ -13968,32 +14478,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "parity-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -14040,14 +14553,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -14105,18 +14621,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -14146,8 +14665,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "descriptor-soft-errors"
@@ -14262,32 +14783,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "descriptor-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -14334,14 +14858,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -14399,18 +14926,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -14440,8 +14970,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "interface-soft-errors"
@@ -14556,32 +15088,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "interface-soft-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -14628,14 +15163,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -14693,18 +15231,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -14734,8 +15275,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "io-hard-errors"
@@ -14850,32 +15393,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "io-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -14922,14 +15468,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -14987,18 +15536,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -15028,8 +15580,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "reset-hard-errors"
@@ -15144,32 +15698,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "reset-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -15216,14 +15773,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -15281,18 +15841,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -15322,8 +15885,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "ucode-hard-errors"
@@ -15438,32 +16003,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "ucode-hard-errors"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -15510,14 +16078,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -15575,18 +16146,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):
@@ -15616,8 +16190,10 @@ class AsicErrors(Entity):
                                     self.yang_parent_name = "error-path"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"error" : ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("error", ("error", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error))])
+                                    self._leafs = OrderedDict()
 
                                     self.error = YList(self)
                                     self._segment_path = lambda: "asic-error-mbe-hard"
@@ -15732,32 +16308,35 @@ class AsicErrors(Entity):
                                         self.yang_parent_name = "asic-error-mbe-hard"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"csrs-info" : ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo), "last-err" : ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr)}
-
-                                        self.name = YLeaf(YType.str, "name")
-
-                                        self.asic_info = YLeaf(YType.str, "asic-info")
-
-                                        self.node_key = YLeaf(YType.uint32, "node-key")
-
-                                        self.alarm_on = YLeaf(YType.boolean, "alarm-on")
-
-                                        self.thresh_hi = YLeaf(YType.uint32, "thresh-hi")
-
-                                        self.period_hi = YLeaf(YType.uint32, "period-hi")
-
-                                        self.thresh_lo = YLeaf(YType.uint32, "thresh-lo")
-
-                                        self.period_lo = YLeaf(YType.uint32, "period-lo")
-
-                                        self.count = YLeaf(YType.uint32, "count")
-
-                                        self.intr_type = YLeaf(YType.uint32, "intr-type")
-
-                                        self.leaf_id = YLeaf(YType.uint32, "leaf-id")
-
-                                        self.last_cleared = YLeaf(YType.uint64, "last-cleared")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("csrs-info", ("csrs_info", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo)), ("last-err", ("last_err", AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr))])
+                                        self._leafs = OrderedDict([
+                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('asic_info', YLeaf(YType.str, 'asic-info')),
+                                            ('node_key', YLeaf(YType.uint32, 'node-key')),
+                                            ('alarm_on', YLeaf(YType.boolean, 'alarm-on')),
+                                            ('thresh_hi', YLeaf(YType.uint32, 'thresh-hi')),
+                                            ('period_hi', YLeaf(YType.uint32, 'period-hi')),
+                                            ('thresh_lo', YLeaf(YType.uint32, 'thresh-lo')),
+                                            ('period_lo', YLeaf(YType.uint32, 'period-lo')),
+                                            ('count', YLeaf(YType.uint32, 'count')),
+                                            ('intr_type', YLeaf(YType.uint32, 'intr-type')),
+                                            ('leaf_id', YLeaf(YType.uint32, 'leaf-id')),
+                                            ('last_cleared', YLeaf(YType.uint64, 'last-cleared')),
+                                        ])
+                                        self.name = None
+                                        self.asic_info = None
+                                        self.node_key = None
+                                        self.alarm_on = None
+                                        self.thresh_hi = None
+                                        self.period_hi = None
+                                        self.thresh_lo = None
+                                        self.period_lo = None
+                                        self.count = None
+                                        self.intr_type = None
+                                        self.leaf_id = None
+                                        self.last_cleared = None
 
                                         self.csrs_info = YList(self)
                                         self.last_err = YList(self)
@@ -15804,14 +16383,17 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.name = YLeaf(YType.str, "name")
-
-                                            self.address = YLeaf(YType.uint64, "address")
-
-                                            self.width = YLeaf(YType.uint32, "width")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('address', YLeaf(YType.uint64, 'address')),
+                                                ('width', YLeaf(YType.uint32, 'width')),
+                                            ])
+                                            self.name = None
+                                            self.address = None
+                                            self.width = None
                                             self._segment_path = lambda: "csrs-info"
 
                                         def __setattr__(self, name, value):
@@ -15869,18 +16451,21 @@ class AsicErrors(Entity):
                                             self.yang_parent_name = "error"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.at_time = YLeaf(YType.uint64, "at-time")
-
-                                            self.at_time_nsec = YLeaf(YType.uint64, "at-time-nsec")
-
-                                            self.counter_val = YLeaf(YType.uint32, "counter-val")
-
-                                            self.error_desc = YLeaf(YType.str, "error-desc")
-
-                                            self.error_regval = YLeafList(YType.uint8, "error-regval")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('at_time', YLeaf(YType.uint64, 'at-time')),
+                                                ('at_time_nsec', YLeaf(YType.uint64, 'at-time-nsec')),
+                                                ('counter_val', YLeaf(YType.uint32, 'counter-val')),
+                                                ('error_desc', YLeaf(YType.str, 'error-desc')),
+                                                ('error_regval', YLeafList(YType.uint8, 'error-regval')),
+                                            ])
+                                            self.at_time = None
+                                            self.at_time_nsec = None
+                                            self.counter_val = None
+                                            self.error_desc = None
+                                            self.error_regval = []
                                             self._segment_path = lambda: "last-err"
 
                                         def __setattr__(self, name, value):

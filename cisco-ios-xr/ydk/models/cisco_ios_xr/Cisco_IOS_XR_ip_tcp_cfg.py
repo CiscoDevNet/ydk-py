@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -121,24 +123,27 @@ class IpTcp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"directory" : ("directory", IpTcp.Directory), "throttle" : ("throttle", IpTcp.Throttle), "num-thread" : ("num_thread", IpTcp.NumThread)}
-        self._child_list_classes = {}
-
-        self.accept_rate = YLeaf(YType.uint32, "accept-rate")
-
-        self.selective_ack = YLeaf(YType.empty, "selective-ack")
-
-        self.window_size = YLeaf(YType.uint32, "window-size")
-
-        self.receive_q = YLeaf(YType.uint32, "receive-q")
-
-        self.maximum_segment_size = YLeaf(YType.uint32, "maximum-segment-size")
-
-        self.syn_wait_time = YLeaf(YType.uint32, "syn-wait-time")
-
-        self.timestamp = YLeaf(YType.empty, "timestamp")
-
-        self.path_mtu_discovery = YLeaf(YType.int32, "path-mtu-discovery")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("directory", ("directory", IpTcp.Directory)), ("throttle", ("throttle", IpTcp.Throttle)), ("num-thread", ("num_thread", IpTcp.NumThread))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('accept_rate', YLeaf(YType.uint32, 'accept-rate')),
+            ('selective_ack', YLeaf(YType.empty, 'selective-ack')),
+            ('window_size', YLeaf(YType.uint32, 'window-size')),
+            ('receive_q', YLeaf(YType.uint32, 'receive-q')),
+            ('maximum_segment_size', YLeaf(YType.uint32, 'maximum-segment-size')),
+            ('syn_wait_time', YLeaf(YType.uint32, 'syn-wait-time')),
+            ('timestamp', YLeaf(YType.empty, 'timestamp')),
+            ('path_mtu_discovery', YLeaf(YType.int32, 'path-mtu-discovery')),
+        ])
+        self.accept_rate = None
+        self.selective_ack = None
+        self.window_size = None
+        self.receive_q = None
+        self.maximum_segment_size = None
+        self.syn_wait_time = None
+        self.timestamp = None
+        self.path_mtu_discovery = None
 
         self.directory = None
         self._children_name_map["directory"] = "directory"
@@ -175,7 +180,7 @@ class IpTcp(Entity):
         
         	**range:** 1..10000
         
-        	**mandatory**\: True
+        	**default value**\: 256
         
         .. attribute:: max_file_size_files
         
@@ -183,8 +188,6 @@ class IpTcp(Entity):
         	**type**\: int
         
         	**range:** 1024..4294967295
-        
-        	**mandatory**\: True
         
         	**units**\: byte
         
@@ -204,15 +207,18 @@ class IpTcp(Entity):
             self.yang_parent_name = "ip-tcp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.directoryname = YLeaf(YType.str, "directoryname")
-
-            self.max_debug_files = YLeaf(YType.uint32, "max-debug-files")
-
-            self.max_file_size_files = YLeaf(YType.uint32, "max-file-size-files")
+            self._leafs = OrderedDict([
+                ('directoryname', YLeaf(YType.str, 'directoryname')),
+                ('max_debug_files', YLeaf(YType.uint32, 'max-debug-files')),
+                ('max_file_size_files', YLeaf(YType.uint32, 'max-file-size-files')),
+            ])
+            self.directoryname = None
+            self.max_debug_files = None
+            self.max_file_size_files = None
             self._segment_path = lambda: "directory"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self._segment_path()
 
@@ -258,13 +264,16 @@ class IpTcp(Entity):
             self.yang_parent_name = "ip-tcp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.tcpmin_throttle = YLeaf(YType.uint32, "tcpmin-throttle")
-
-            self.tcpmaxthrottle = YLeaf(YType.uint32, "tcpmaxthrottle")
+            self._leafs = OrderedDict([
+                ('tcpmin_throttle', YLeaf(YType.uint32, 'tcpmin-throttle')),
+                ('tcpmaxthrottle', YLeaf(YType.uint32, 'tcpmaxthrottle')),
+            ])
+            self.tcpmin_throttle = None
+            self.tcpmaxthrottle = None
             self._segment_path = lambda: "throttle"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self._segment_path()
 
@@ -310,13 +319,16 @@ class IpTcp(Entity):
             self.yang_parent_name = "ip-tcp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.tcp_in_q_threads = YLeaf(YType.uint32, "tcp-in-q-threads")
-
-            self.tcp_out_q_threads = YLeaf(YType.uint32, "tcp-out-q-threads")
+            self._leafs = OrderedDict([
+                ('tcp_in_q_threads', YLeaf(YType.uint32, 'tcp-in-q-threads')),
+                ('tcp_out_q_threads', YLeaf(YType.uint32, 'tcp-out-q-threads')),
+            ])
+            self.tcp_in_q_threads = None
+            self.tcp_out_q_threads = None
             self._segment_path = lambda: "num-thread"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/%s" % self._segment_path()
 
@@ -356,8 +368,10 @@ class Ip(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-tcp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cinetd" : ("cinetd", Ip.Cinetd), "Cisco-IOS-XR-ip-udp-cfg:forward-protocol" : ("forward_protocol", Ip.ForwardProtocol)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cinetd", ("cinetd", Ip.Cinetd)), ("Cisco-IOS-XR-ip-udp-cfg:forward-protocol", ("forward_protocol", Ip.ForwardProtocol))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cinetd = Ip.Cinetd()
         self.cinetd.parent = self
@@ -366,8 +380,8 @@ class Ip(Entity):
 
         self.forward_protocol = Ip.ForwardProtocol()
         self.forward_protocol.parent = self
-        self._children_name_map["forward_protocol"] = "forward-protocol"
-        self._children_yang_names.add("forward-protocol")
+        self._children_name_map["forward_protocol"] = "Cisco-IOS-XR-ip-udp-cfg:forward-protocol"
+        self._children_yang_names.add("Cisco-IOS-XR-ip-udp-cfg:forward-protocol")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip"
 
 
@@ -403,10 +417,13 @@ class Ip(Entity):
             self.yang_parent_name = "ip"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"services" : ("services", Ip.Cinetd.Services)}
-            self._child_list_classes = {}
-
-            self.rate_limit = YLeaf(YType.uint32, "Cisco-IOS-XR-ipv4-cinetd-cfg:rate-limit")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("services", ("services", Ip.Cinetd.Services))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('rate_limit', YLeaf(YType.uint32, 'Cisco-IOS-XR-ipv4-cinetd-cfg:rate-limit')),
+            ])
+            self.rate_limit = None
 
             self.services = Ip.Cinetd.Services()
             self.services.parent = self
@@ -452,8 +469,10 @@ class Ip(Entity):
                 self.yang_parent_name = "cinetd"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ipv4" : ("ipv4", Ip.Cinetd.Services.Ipv4), "vrfs" : ("vrfs", Ip.Cinetd.Services.Vrfs), "ipv6" : ("ipv6", Ip.Cinetd.Services.Ipv6)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Ip.Cinetd.Services.Ipv4)), ("vrfs", ("vrfs", Ip.Cinetd.Services.Vrfs)), ("ipv6", ("ipv6", Ip.Cinetd.Services.Ipv6))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.ipv4 = Ip.Cinetd.Services.Ipv4()
                 self.ipv4.parent = self
@@ -496,8 +515,10 @@ class Ip(Entity):
                     self.yang_parent_name = "services"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"small-servers" : ("small_servers", Ip.Cinetd.Services.Ipv4.SmallServers)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("small-servers", ("small_servers", Ip.Cinetd.Services.Ipv4.SmallServers))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.small_servers = Ip.Cinetd.Services.Ipv4.SmallServers()
                     self.small_servers.parent = self
@@ -539,16 +560,18 @@ class Ip(Entity):
                         self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"tcp-small-servers" : ("tcp_small_servers", Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers), "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers" : ("udp_small_servers", Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("tcp-small-servers", ("tcp_small_servers", Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers)), ("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers", ("udp_small_servers", Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.tcp_small_servers = None
                         self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
                         self._children_yang_names.add("tcp-small-servers")
 
                         self.udp_small_servers = None
-                        self._children_name_map["udp_small_servers"] = "udp-small-servers"
-                        self._children_yang_names.add("udp-small-servers")
+                        self._children_name_map["udp_small_servers"] = "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
+                        self._children_yang_names.add("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers")
                         self._segment_path = lambda: "small-servers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/%s" % self._segment_path()
 
@@ -566,9 +589,13 @@ class Ip(Entity):
                         .. attribute:: small_server
                         
                         	Set number of allowable TCP small servers, specify 0 for no\-limit
-                        	**type**\: int
+                        	**type**\: union of the below types:
                         
-                        	**range:** 1..2147483647
+                        		**type**\:  :py:class:`SmallServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers.SmallServer>`
+                        
+                        		**type**\: int
+                        
+                        			**range:** 0..2147483647
                         
                         	**mandatory**\: True
                         
@@ -588,18 +615,38 @@ class Ip(Entity):
                             self.yang_parent_name = "small-servers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
-
-                            self.small_server = YLeaf(YType.uint32, "small-server")
+                            self._leafs = OrderedDict([
+                                ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
+                                ('small_server', YLeaf(YType.str, 'small-server')),
+                            ])
+                            self.access_control_list_name = None
+                            self.small_server = None
                             self._segment_path = lambda: "tcp-small-servers"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+
+                        class SmallServer(Enum):
+                            """
+                            SmallServer (Enum Class)
+
+                            Set number of allowable TCP small servers,
+
+                            specify 0 for no\-limit
+
+                            .. data:: no_limit = 0
+
+                            	Unlimited Servers
+
+                            """
+
+                            no_limit = Enum.YLeaf(0, "no-limit")
+
 
 
                     class UdpSmallServers(Entity):
@@ -614,9 +661,13 @@ class Ip(Entity):
                         .. attribute:: small_server
                         
                         	Set number of allowable small servers, specify 0 for no\-limit
-                        	**type**\: int
+                        	**type**\: union of the below types:
                         
-                        	**range:** 1..2147483647
+                        		**type**\:  :py:class:`SmallServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers.SmallServer>`
+                        
+                        		**type**\: int
+                        
+                        			**range:** 0..2147483647
                         
                         	**mandatory**\: True
                         
@@ -627,7 +678,7 @@ class Ip(Entity):
                         """
 
                         _prefix = 'ip-udp-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-07-31'
 
                         def __init__(self):
                             super(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, self).__init__()
@@ -636,18 +687,38 @@ class Ip(Entity):
                             self.yang_parent_name = "small-servers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
-
-                            self.small_server = YLeaf(YType.uint32, "small-server")
+                            self._leafs = OrderedDict([
+                                ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
+                                ('small_server', YLeaf(YType.str, 'small-server')),
+                            ])
+                            self.access_control_list_name = None
+                            self.small_server = None
                             self._segment_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv4/small-servers/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+
+                        class SmallServer(Enum):
+                            """
+                            SmallServer (Enum Class)
+
+                            Set number of allowable small servers, specify
+
+                            0 for no\-limit
+
+                            .. data:: no_limit = 0
+
+                            	Unlimited Servers
+
+                            """
+
+                            no_limit = Enum.YLeaf(0, "no-limit")
+
 
 
             class Vrfs(Entity):
@@ -673,8 +744,10 @@ class Ip(Entity):
                     self.yang_parent_name = "services"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vrf" : ("vrf", Ip.Cinetd.Services.Vrfs.Vrf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vrf", ("vrf", Ip.Cinetd.Services.Vrfs.Vrf))])
+                    self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
@@ -688,7 +761,7 @@ class Ip(Entity):
                     """
                     VRF specific data
                     
-                    .. attribute:: vrf_name  <key>
+                    .. attribute:: vrf_name  (key)
                     
                     	Name of the VRF instance
                     	**type**\: str
@@ -719,10 +792,13 @@ class Ip(Entity):
                         self.yang_parent_name = "vrfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"ipv6" : ("ipv6", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6), "ipv4" : ("ipv4", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4)}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+                        self.ylist_key_names = ['vrf_name']
+                        self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ])
+                        self.vrf_name = None
 
                         self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
                         self.ipv6.parent = self
@@ -733,7 +809,7 @@ class Ip(Entity):
                         self.ipv4.parent = self
                         self._children_name_map["ipv4"] = "ipv4"
                         self._children_yang_names.add("ipv4")
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/vrfs/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -768,8 +844,10 @@ class Ip(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"telnet" : ("telnet", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet), "tftp" : ("tftp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("telnet", ("telnet", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet)), ("tftp", ("tftp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet()
                             self.telnet.parent = self
@@ -808,8 +886,10 @@ class Ip(Entity):
                                 self.yang_parent_name = "ipv6"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tcp" : ("tcp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("tcp", ("tcp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.tcp = None
                                 self._children_name_map["tcp"] = "tcp"
@@ -851,13 +931,16 @@ class Ip(Entity):
                                     self.yang_parent_name = "telnet"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
+                                    self._leafs = OrderedDict([
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                        ('maximum_server', YLeaf(YType.uint32, 'maximum-server')),
+                                    ])
+                                    self.access_list_name = None
+                                    self.maximum_server = None
                                     self._segment_path = lambda: "tcp"
 
                                 def __setattr__(self, name, value):
@@ -889,8 +972,10 @@ class Ip(Entity):
                                 self.yang_parent_name = "ipv6"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"udp" : ("udp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("udp", ("udp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.udp = None
                                 self._children_name_map["udp"] = "udp"
@@ -944,17 +1029,20 @@ class Ip(Entity):
                                     self.yang_parent_name = "tftp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
-
-                                    self.home_directory = YLeaf(YType.str, "home-directory")
-
-                                    self.dscp_value = YLeaf(YType.int32, "dscp-value")
+                                    self._leafs = OrderedDict([
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                        ('maximum_server', YLeaf(YType.uint32, 'maximum-server')),
+                                        ('home_directory', YLeaf(YType.str, 'home-directory')),
+                                        ('dscp_value', YLeaf(YType.int32, 'dscp-value')),
+                                    ])
+                                    self.access_list_name = None
+                                    self.maximum_server = None
+                                    self.home_directory = None
+                                    self.dscp_value = None
                                     self._segment_path = lambda: "udp"
 
                                 def __setattr__(self, name, value):
@@ -989,8 +1077,10 @@ class Ip(Entity):
                             self.yang_parent_name = "vrf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"telnet" : ("telnet", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet), "tftp" : ("tftp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("telnet", ("telnet", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet)), ("tftp", ("tftp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet()
                             self.telnet.parent = self
@@ -1029,8 +1119,10 @@ class Ip(Entity):
                                 self.yang_parent_name = "ipv4"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tcp" : ("tcp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("tcp", ("tcp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.tcp = None
                                 self._children_name_map["tcp"] = "tcp"
@@ -1072,13 +1164,16 @@ class Ip(Entity):
                                     self.yang_parent_name = "telnet"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
+                                    self._leafs = OrderedDict([
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                        ('maximum_server', YLeaf(YType.uint32, 'maximum-server')),
+                                    ])
+                                    self.access_list_name = None
+                                    self.maximum_server = None
                                     self._segment_path = lambda: "tcp"
 
                                 def __setattr__(self, name, value):
@@ -1110,8 +1205,10 @@ class Ip(Entity):
                                 self.yang_parent_name = "ipv4"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"udp" : ("udp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("udp", ("udp", Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.udp = None
                                 self._children_name_map["udp"] = "udp"
@@ -1165,17 +1262,20 @@ class Ip(Entity):
                                     self.yang_parent_name = "tftp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-
-                                    self.maximum_server = YLeaf(YType.uint32, "maximum-server")
-
-                                    self.home_directory = YLeaf(YType.str, "home-directory")
-
-                                    self.dscp_value = YLeaf(YType.int32, "dscp-value")
+                                    self._leafs = OrderedDict([
+                                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                        ('maximum_server', YLeaf(YType.uint32, 'maximum-server')),
+                                        ('home_directory', YLeaf(YType.str, 'home-directory')),
+                                        ('dscp_value', YLeaf(YType.int32, 'dscp-value')),
+                                    ])
+                                    self.access_list_name = None
+                                    self.maximum_server = None
+                                    self.home_directory = None
+                                    self.dscp_value = None
                                     self._segment_path = lambda: "udp"
 
                                 def __setattr__(self, name, value):
@@ -1205,8 +1305,10 @@ class Ip(Entity):
                     self.yang_parent_name = "services"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"small-servers" : ("small_servers", Ip.Cinetd.Services.Ipv6.SmallServers)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("small-servers", ("small_servers", Ip.Cinetd.Services.Ipv6.SmallServers))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.small_servers = Ip.Cinetd.Services.Ipv6.SmallServers()
                     self.small_servers.parent = self
@@ -1227,6 +1329,13 @@ class Ip(Entity):
                     
                     	**presence node**\: True
                     
+                    .. attribute:: udp_small_servers
+                    
+                    	UDP small servers configuration
+                    	**type**\:  :py:class:`UdpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers>`
+                    
+                    	**presence node**\: True
+                    
                     
 
                     """
@@ -1241,12 +1350,18 @@ class Ip(Entity):
                         self.yang_parent_name = "ipv6"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"tcp-small-servers" : ("tcp_small_servers", Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("tcp-small-servers", ("tcp_small_servers", Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers)), ("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers", ("udp_small_servers", Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.tcp_small_servers = None
                         self._children_name_map["tcp_small_servers"] = "tcp-small-servers"
                         self._children_yang_names.add("tcp-small-servers")
+
+                        self.udp_small_servers = None
+                        self._children_name_map["udp_small_servers"] = "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
+                        self._children_yang_names.add("Cisco-IOS-XR-ip-udp-cfg:udp-small-servers")
                         self._segment_path = lambda: "small-servers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/%s" % self._segment_path()
 
@@ -1264,9 +1379,13 @@ class Ip(Entity):
                         .. attribute:: small_server
                         
                         	Set number of allowable TCP small servers, specify 0 for no\-limit
-                        	**type**\: int
+                        	**type**\: union of the below types:
                         
-                        	**range:** 1..2147483647
+                        		**type**\:  :py:class:`SmallServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers.SmallServer>`
+                        
+                        		**type**\: int
+                        
+                        			**range:** 0..2147483647
                         
                         	**mandatory**\: True
                         
@@ -1286,18 +1405,110 @@ class Ip(Entity):
                             self.yang_parent_name = "small-servers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.access_control_list_name = YLeaf(YType.str, "access-control-list-name")
-
-                            self.small_server = YLeaf(YType.uint32, "small-server")
+                            self._leafs = OrderedDict([
+                                ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
+                                ('small_server', YLeaf(YType.str, 'small-server')),
+                            ])
+                            self.access_control_list_name = None
+                            self.small_server = None
                             self._segment_path = lambda: "tcp-small-servers"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/small-servers/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+
+                        class SmallServer(Enum):
+                            """
+                            SmallServer (Enum Class)
+
+                            Set number of allowable TCP small servers,
+
+                            specify 0 for no\-limit
+
+                            .. data:: no_limit = 0
+
+                            	Unlimited Servers
+
+                            """
+
+                            no_limit = Enum.YLeaf(0, "no-limit")
+
+
+
+                    class UdpSmallServers(Entity):
+                        """
+                        UDP small servers configuration
+                        
+                        .. attribute:: access_control_list_name
+                        
+                        	Specify the access list
+                        	**type**\: str
+                        
+                        .. attribute:: small_server
+                        
+                        	Set number of allowable small servers, specify 0 for no\-limit
+                        	**type**\: union of the below types:
+                        
+                        		**type**\:  :py:class:`SmallServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers.SmallServer>`
+                        
+                        		**type**\: int
+                        
+                        			**range:** 0..2147483647
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ip-udp-cfg'
+                        _revision = '2017-07-31'
+
+                        def __init__(self):
+                            super(Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers, self).__init__()
+
+                            self.yang_name = "udp-small-servers"
+                            self.yang_parent_name = "small-servers"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self.is_presence_container = True
+                            self._leafs = OrderedDict([
+                                ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
+                                ('small_server', YLeaf(YType.str, 'small-server')),
+                            ])
+                            self.access_control_list_name = None
+                            self.small_server = None
+                            self._segment_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:udp-small-servers"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/cinetd/services/ipv6/small-servers/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ip.Cinetd.Services.Ipv6.SmallServers.UdpSmallServers, ['access_control_list_name', 'small_server'], name, value)
+
+                        class SmallServer(Enum):
+                            """
+                            SmallServer (Enum Class)
+
+                            Set number of allowable small servers, specify
+
+                            0 for no\-limit
+
+                            .. data:: no_limit = 0
+
+                            	Unlimited Servers
+
+                            """
+
+                            no_limit = Enum.YLeaf(0, "no-limit")
+
 
 
     class ForwardProtocol(Entity):
@@ -1315,7 +1526,7 @@ class Ip(Entity):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-07-31'
 
         def __init__(self):
             super(Ip.ForwardProtocol, self).__init__()
@@ -1324,8 +1535,10 @@ class Ip(Entity):
             self.yang_parent_name = "ip"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"udp" : ("udp", Ip.ForwardProtocol.Udp)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("udp", ("udp", Ip.ForwardProtocol.Udp))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.udp = Ip.ForwardProtocol.Udp()
             self.udp.parent = self
@@ -1354,7 +1567,7 @@ class Ip(Entity):
             """
 
             _prefix = 'ip-udp-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-07-31'
 
             def __init__(self):
                 super(Ip.ForwardProtocol.Udp, self).__init__()
@@ -1363,10 +1576,13 @@ class Ip(Entity):
                 self.yang_parent_name = "forward-protocol"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ports" : ("ports", Ip.ForwardProtocol.Udp.Ports)}
-                self._child_list_classes = {}
-
-                self.disable = YLeaf(YType.empty, "disable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ports", ("ports", Ip.ForwardProtocol.Udp.Ports))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('disable', YLeaf(YType.empty, 'disable')),
+                ])
+                self.disable = None
 
                 self.ports = Ip.ForwardProtocol.Udp.Ports()
                 self.ports.parent = self
@@ -1393,7 +1609,7 @@ class Ip(Entity):
                 """
 
                 _prefix = 'ip-udp-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-07-31'
 
                 def __init__(self):
                     super(Ip.ForwardProtocol.Udp.Ports, self).__init__()
@@ -1402,8 +1618,10 @@ class Ip(Entity):
                     self.yang_parent_name = "udp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"port" : ("port", Ip.ForwardProtocol.Udp.Ports.Port)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("port", ("port", Ip.ForwardProtocol.Udp.Ports.Port))])
+                    self._leafs = OrderedDict()
 
                     self.port = YList(self)
                     self._segment_path = lambda: "ports"
@@ -1419,7 +1637,7 @@ class Ip(Entity):
                     non well\-known ports are disabled by default.
                     It is not allowed to configure the default.
                     
-                    .. attribute:: port_id  <key>
+                    .. attribute:: port_id  (key)
                     
                     	Port number
                     	**type**\: int
@@ -1438,7 +1656,7 @@ class Ip(Entity):
                     """
 
                     _prefix = 'ip-udp-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-07-31'
 
                     def __init__(self):
                         super(Ip.ForwardProtocol.Udp.Ports.Port, self).__init__()
@@ -1447,13 +1665,16 @@ class Ip(Entity):
                         self.yang_parent_name = "ports"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.port_id = YLeaf(YType.uint16, "port-id")
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-                        self._segment_path = lambda: "port" + "[port-id='" + self.port_id.get() + "']"
+                        self.ylist_key_names = ['port_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('port_id', YLeaf(YType.uint16, 'port-id')),
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                        ])
+                        self.port_id = None
+                        self.enable = None
+                        self._segment_path = lambda: "port" + "[port-id='" + str(self.port_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-udp-cfg:forward-protocol/udp/ports/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):

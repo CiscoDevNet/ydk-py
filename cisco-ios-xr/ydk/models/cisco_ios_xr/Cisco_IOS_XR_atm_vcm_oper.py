@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ClassLinkOamInheritLevel(Enum):
     """
-    ClassLinkOamInheritLevel
+    ClassLinkOamInheritLevel (Enum Class)
 
     ATM VC\-class inheritence level for class\-link
 
@@ -64,7 +66,7 @@ class ClassLinkOamInheritLevel(Enum):
 
 class Vc(Enum):
     """
-    Vc
+    Vc (Enum Class)
 
      ATM VC type
 
@@ -97,7 +99,7 @@ class Vc(Enum):
 
 class VcCellPackingMode(Enum):
     """
-    VcCellPackingMode
+    VcCellPackingMode (Enum Class)
 
     ATM VC cell packing mode
 
@@ -124,7 +126,7 @@ class VcCellPackingMode(Enum):
 
 class VcEncap(Enum):
     """
-    VcEncap
+    VcEncap (Enum Class)
 
     VC Encapsulation Type
 
@@ -187,7 +189,7 @@ class VcEncap(Enum):
 
 class VcInheritLevel(Enum):
     """
-    VcInheritLevel
+    VcInheritLevel (Enum Class)
 
     ATM vc\-class inheritence level
 
@@ -240,7 +242,7 @@ class VcInheritLevel(Enum):
 
 class VcManageLevel(Enum):
     """
-    VcManageLevel
+    VcManageLevel (Enum Class)
 
     ATM Class link manage level
 
@@ -261,7 +263,7 @@ class VcManageLevel(Enum):
 
 class VcState(Enum):
     """
-    VcState
+    VcState (Enum Class)
 
     VC State
 
@@ -348,7 +350,7 @@ class VcState(Enum):
 
 class VcTestMode(Enum):
     """
-    VcTestMode
+    VcTestMode (Enum Class)
 
     VC Test Mode Type
 
@@ -375,7 +377,7 @@ class VcTestMode(Enum):
 
 class VcTrafShaping(Enum):
     """
-    VcTrafShaping
+    VcTrafShaping (Enum Class)
 
     VC traffic shaping type
 
@@ -426,7 +428,7 @@ class VcTrafShaping(Enum):
 
 class VcmPort(Enum):
     """
-    VcmPort
+    VcmPort (Enum Class)
 
     ATM port type
 
@@ -453,7 +455,7 @@ class VcmPort(Enum):
 
 class VpState(Enum):
     """
-    VpState
+    VpState (Enum Class)
 
     VP\-Tunnel State
 
@@ -504,7 +506,7 @@ class VpState(Enum):
 
 class VpTrafShaping(Enum):
     """
-    VpTrafShaping
+    VpTrafShaping (Enum Class)
 
     VP\-Tunnel traffic shaping type
 
@@ -580,8 +582,10 @@ class AtmVcm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-atm-vcm-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", AtmVcm.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", AtmVcm.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = AtmVcm.Nodes()
         self.nodes.parent = self
@@ -613,8 +617,10 @@ class AtmVcm(Entity):
             self.yang_parent_name = "atm-vcm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", AtmVcm.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", AtmVcm.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -629,7 +635,7 @@ class AtmVcm(Entity):
             The node on which ATM Interfaces/VCs/VPs are
             located
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node name
             	**type**\: str
@@ -680,10 +686,13 @@ class AtmVcm(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"vcs" : ("vcs", AtmVcm.Nodes.Node.Vcs), "cell-packs" : ("cell_packs", AtmVcm.Nodes.Node.CellPacks), "pvps" : ("pvps", AtmVcm.Nodes.Node.Pvps), "class-links" : ("class_links", AtmVcm.Nodes.Node.ClassLinks), "interfaces" : ("interfaces", AtmVcm.Nodes.Node.Interfaces), "vp-tunnels" : ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("vcs", ("vcs", AtmVcm.Nodes.Node.Vcs)), ("cell-packs", ("cell_packs", AtmVcm.Nodes.Node.CellPacks)), ("pvps", ("pvps", AtmVcm.Nodes.Node.Pvps)), ("class-links", ("class_links", AtmVcm.Nodes.Node.ClassLinks)), ("interfaces", ("interfaces", AtmVcm.Nodes.Node.Interfaces)), ("vp-tunnels", ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.vcs = AtmVcm.Nodes.Node.Vcs()
                 self.vcs.parent = self
@@ -714,7 +723,7 @@ class AtmVcm(Entity):
                 self.vp_tunnels.parent = self
                 self._children_name_map["vp_tunnels"] = "vp-tunnels"
                 self._children_yang_names.add("vp-tunnels")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-atm-vcm-oper:atm-vcm/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -744,8 +753,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vc" : ("vc", AtmVcm.Nodes.Node.Vcs.Vc)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vc", ("vc", AtmVcm.Nodes.Node.Vcs.Vc))])
+                    self._leafs = OrderedDict()
 
                     self.vc = YList(self)
                     self._segment_path = lambda: "vcs"
@@ -758,7 +769,7 @@ class AtmVcm(Entity):
                     """
                     All VC information on a node
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -934,64 +945,67 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "vcs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.vpi = YLeaf(YType.uint32, "vpi")
-
-                        self.vci = YLeaf(YType.uint32, "vci")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.sub_interface = YLeaf(YType.str, "sub-interface")
-
-                        self.vc_interface = YLeaf(YType.str, "vc-interface")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
-
-                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
-
-                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
-
-                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
-
-                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
-
-                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
-
-                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
-
-                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
-
-                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
-
-                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
-
-                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('vpi', YLeaf(YType.uint32, 'vpi')),
+                            ('vci', YLeaf(YType.uint32, 'vci')),
+                            ('main_interface', YLeaf(YType.str, 'main-interface')),
+                            ('sub_interface', YLeaf(YType.str, 'sub-interface')),
+                            ('vc_interface', YLeaf(YType.str, 'vc-interface')),
+                            ('vpi_xr', YLeaf(YType.uint16, 'vpi-xr')),
+                            ('vci_xr', YLeaf(YType.uint16, 'vci-xr')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                            ('shape', YLeaf(YType.enumeration, 'shape')),
+                            ('peak_cell_rate', YLeaf(YType.uint32, 'peak-cell-rate')),
+                            ('sustained_cell_rate', YLeaf(YType.uint32, 'sustained-cell-rate')),
+                            ('burst_rate', YLeaf(YType.uint32, 'burst-rate')),
+                            ('encaps_inherit_level', YLeaf(YType.enumeration, 'encaps-inherit-level')),
+                            ('qos_inherit_level', YLeaf(YType.enumeration, 'qos-inherit-level')),
+                            ('transmit_mtu', YLeaf(YType.uint32, 'transmit-mtu')),
+                            ('receive_mtu', YLeaf(YType.uint32, 'receive-mtu')),
+                            ('vc_onvp_tunnel', YLeaf(YType.boolean, 'vc-onvp-tunnel')),
+                            ('vc_on_p2p_sub_interface', YLeaf(YType.boolean, 'vc-on-p2p-sub-interface')),
+                            ('oper_status', YLeaf(YType.boolean, 'oper-status')),
+                            ('amin_status', YLeaf(YType.boolean, 'amin-status')),
+                            ('internal_state', YLeaf(YType.enumeration, 'internal-state')),
+                            ('last_state_change_time', YLeaf(YType.uint32, 'last-state-change-time')),
+                            ('test_mode', YLeaf(YType.enumeration, 'test-mode')),
+                        ])
+                        self.interface_name = None
+                        self.vpi = None
+                        self.vci = None
+                        self.main_interface = None
+                        self.sub_interface = None
+                        self.vc_interface = None
+                        self.vpi_xr = None
+                        self.vci_xr = None
+                        self.type = None
+                        self.encapsulation = None
+                        self.shape = None
+                        self.peak_cell_rate = None
+                        self.sustained_cell_rate = None
+                        self.burst_rate = None
+                        self.encaps_inherit_level = None
+                        self.qos_inherit_level = None
+                        self.transmit_mtu = None
+                        self.receive_mtu = None
+                        self.vc_onvp_tunnel = None
+                        self.vc_on_p2p_sub_interface = None
+                        self.oper_status = None
+                        self.amin_status = None
+                        self.internal_state = None
+                        self.last_state_change_time = None
+                        self.test_mode = None
 
                         self.cell_packing_data = AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
                         self._children_yang_names.add("cell-packing-data")
-                        self._segment_path = lambda: "vc" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "vc" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'vpi', 'vci', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
@@ -1038,14 +1052,17 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "vc"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
+                                ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
+                                ('max_cell_packed_timeout', YLeaf(YType.uint16, 'max-cell-packed-timeout')),
+                            ])
+                            self.local_max_cells_packed_per_packet = None
+                            self.negotiated_max_cells_packed_per_packet = None
+                            self.max_cell_packed_timeout = None
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
@@ -1075,8 +1092,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"cell-pack" : ("cell_pack", AtmVcm.Nodes.Node.CellPacks.CellPack)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("cell-pack", ("cell_pack", AtmVcm.Nodes.Node.CellPacks.CellPack))])
+                    self._leafs = OrderedDict()
 
                     self.cell_pack = YList(self)
                     self._segment_path = lambda: "cell-packs"
@@ -1162,24 +1181,27 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "cell-packs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing" : ("cell_packing", AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.pci = YLeaf(YType.int32, "pci")
-
-                        self.sub_interface_name = YLeaf(YType.str, "sub-interface-name")
-
-                        self.cell_packing_mode = YLeaf(YType.enumeration, "cell-packing-mode")
-
-                        self.vpi = YLeaf(YType.uint32, "vpi")
-
-                        self.vci = YLeaf(YType.uint32, "vci")
-
-                        self.received_average_cells_packets = YLeaf(YType.uint64, "received-average-cells-packets")
-
-                        self.sent_cells_packets = YLeaf(YType.uint64, "sent-cells-packets")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("cell-packing", ("cell_packing", AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('pci', YLeaf(YType.int32, 'pci')),
+                            ('sub_interface_name', YLeaf(YType.str, 'sub-interface-name')),
+                            ('cell_packing_mode', YLeaf(YType.enumeration, 'cell-packing-mode')),
+                            ('vpi', YLeaf(YType.uint32, 'vpi')),
+                            ('vci', YLeaf(YType.uint32, 'vci')),
+                            ('received_average_cells_packets', YLeaf(YType.uint64, 'received-average-cells-packets')),
+                            ('sent_cells_packets', YLeaf(YType.uint64, 'sent-cells-packets')),
+                        ])
+                        self.interface_name = None
+                        self.pci = None
+                        self.sub_interface_name = None
+                        self.cell_packing_mode = None
+                        self.vpi = None
+                        self.vci = None
+                        self.received_average_cells_packets = None
+                        self.sent_cells_packets = None
 
                         self.cell_packing = AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking()
                         self.cell_packing.parent = self
@@ -1232,14 +1254,17 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "cell-pack"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
+                                ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
+                                ('max_cell_packed_timeout', YLeaf(YType.uint16, 'max-cell-packed-timeout')),
+                            ])
+                            self.local_max_cells_packed_per_packet = None
+                            self.negotiated_max_cells_packed_per_packet = None
+                            self.max_cell_packed_timeout = None
                             self._segment_path = lambda: "cell-packing"
 
                         def __setattr__(self, name, value):
@@ -1269,8 +1294,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"pvp" : ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("pvp", ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp))])
+                    self._leafs = OrderedDict()
 
                     self.pvp = YList(self)
                     self._segment_path = lambda: "pvps"
@@ -1283,7 +1310,7 @@ class AtmVcm(Entity):
                     """
                     All L2 PVP information on a node
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -1452,62 +1479,65 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "pvps"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.vpi = YLeaf(YType.int32, "vpi")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.sub_interface = YLeaf(YType.str, "sub-interface")
-
-                        self.vc_interface = YLeaf(YType.str, "vc-interface")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
-
-                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
-
-                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
-
-                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
-
-                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
-
-                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
-
-                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
-
-                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
-
-                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
-
-                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
-
-                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('vpi', YLeaf(YType.int32, 'vpi')),
+                            ('main_interface', YLeaf(YType.str, 'main-interface')),
+                            ('sub_interface', YLeaf(YType.str, 'sub-interface')),
+                            ('vc_interface', YLeaf(YType.str, 'vc-interface')),
+                            ('vpi_xr', YLeaf(YType.uint16, 'vpi-xr')),
+                            ('vci_xr', YLeaf(YType.uint16, 'vci-xr')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                            ('shape', YLeaf(YType.enumeration, 'shape')),
+                            ('peak_cell_rate', YLeaf(YType.uint32, 'peak-cell-rate')),
+                            ('sustained_cell_rate', YLeaf(YType.uint32, 'sustained-cell-rate')),
+                            ('burst_rate', YLeaf(YType.uint32, 'burst-rate')),
+                            ('encaps_inherit_level', YLeaf(YType.enumeration, 'encaps-inherit-level')),
+                            ('qos_inherit_level', YLeaf(YType.enumeration, 'qos-inherit-level')),
+                            ('transmit_mtu', YLeaf(YType.uint32, 'transmit-mtu')),
+                            ('receive_mtu', YLeaf(YType.uint32, 'receive-mtu')),
+                            ('vc_onvp_tunnel', YLeaf(YType.boolean, 'vc-onvp-tunnel')),
+                            ('vc_on_p2p_sub_interface', YLeaf(YType.boolean, 'vc-on-p2p-sub-interface')),
+                            ('oper_status', YLeaf(YType.boolean, 'oper-status')),
+                            ('amin_status', YLeaf(YType.boolean, 'amin-status')),
+                            ('internal_state', YLeaf(YType.enumeration, 'internal-state')),
+                            ('last_state_change_time', YLeaf(YType.uint32, 'last-state-change-time')),
+                            ('test_mode', YLeaf(YType.enumeration, 'test-mode')),
+                        ])
+                        self.interface_name = None
+                        self.vpi = None
+                        self.main_interface = None
+                        self.sub_interface = None
+                        self.vc_interface = None
+                        self.vpi_xr = None
+                        self.vci_xr = None
+                        self.type = None
+                        self.encapsulation = None
+                        self.shape = None
+                        self.peak_cell_rate = None
+                        self.sustained_cell_rate = None
+                        self.burst_rate = None
+                        self.encaps_inherit_level = None
+                        self.qos_inherit_level = None
+                        self.transmit_mtu = None
+                        self.receive_mtu = None
+                        self.vc_onvp_tunnel = None
+                        self.vc_on_p2p_sub_interface = None
+                        self.oper_status = None
+                        self.amin_status = None
+                        self.internal_state = None
+                        self.last_state_change_time = None
+                        self.test_mode = None
 
                         self.cell_packing_data = AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
                         self._children_yang_names.add("cell-packing-data")
-                        self._segment_path = lambda: "pvp" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "pvp" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'vpi', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
@@ -1554,14 +1584,17 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "pvp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
+                                ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
+                                ('max_cell_packed_timeout', YLeaf(YType.uint16, 'max-cell-packed-timeout')),
+                            ])
+                            self.local_max_cells_packed_per_packet = None
+                            self.negotiated_max_cells_packed_per_packet = None
+                            self.max_cell_packed_timeout = None
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
@@ -1591,8 +1624,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"class-link" : ("class_link", AtmVcm.Nodes.Node.ClassLinks.ClassLink)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("class-link", ("class_link", AtmVcm.Nodes.Node.ClassLinks.ClassLink))])
+                    self._leafs = OrderedDict()
 
                     self.class_link = YList(self)
                     self._segment_path = lambda: "class-links"
@@ -1605,7 +1640,7 @@ class AtmVcm(Entity):
                     """
                     All ATM VC information on a node
                     
-                    .. attribute:: vpi  <key>
+                    .. attribute:: vpi  (key)
                     
                     	VPI
                     	**type**\: int
@@ -1650,14 +1685,17 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "class-links"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"vc-class-not-supported" : ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported), "oam-config" : ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig)}
-                        self._child_list_classes = {}
-
-                        self.vpi = YLeaf(YType.int32, "vpi")
-
-                        self.vci = YLeaf(YType.int32, "vci")
-
-                        self.sub_interface_name = YLeaf(YType.str, "sub-interface-name")
+                        self.ylist_key_names = ['vpi']
+                        self._child_container_classes = OrderedDict([("vc-class-not-supported", ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported)), ("oam-config", ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vpi', YLeaf(YType.int32, 'vpi')),
+                            ('vci', YLeaf(YType.int32, 'vci')),
+                            ('sub_interface_name', YLeaf(YType.str, 'sub-interface-name')),
+                        ])
+                        self.vpi = None
+                        self.vci = None
+                        self.sub_interface_name = None
 
                         self.vc_class_not_supported = AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported()
                         self.vc_class_not_supported.parent = self
@@ -1668,7 +1706,7 @@ class AtmVcm(Entity):
                         self.oam_config.parent = self
                         self._children_name_map["oam_config"] = "oam-config"
                         self._children_yang_names.add("oam-config")
-                        self._segment_path = lambda: "class-link" + "[vpi='" + self.vpi.get() + "']"
+                        self._segment_path = lambda: "class-link" + "[vpi='" + str(self.vpi) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', 'sub_interface_name'], name, value)
@@ -1702,12 +1740,15 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "class-link"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.encapsulation_not_supported = YLeaf(YType.enumeration, "encapsulation-not-supported")
-
-                            self.not_supported_inherit_level = YLeaf(YType.enumeration, "not-supported-inherit-level")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('encapsulation_not_supported', YLeaf(YType.enumeration, 'encapsulation-not-supported')),
+                                ('not_supported_inherit_level', YLeaf(YType.enumeration, 'not-supported-inherit-level')),
+                            ])
+                            self.encapsulation_not_supported = None
+                            self.not_supported_inherit_level = None
                             self._segment_path = lambda: "vc-class-not-supported"
 
                         def __setattr__(self, name, value):
@@ -1757,8 +1798,10 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "class-link"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"class-link-shaping" : ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping), "class-link-encapsulation" : ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation), "oam-pvc" : ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc), "oam-retry" : ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry), "ais-rdi" : ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("class-link-shaping", ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping)), ("class-link-encapsulation", ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation)), ("oam-pvc", ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc)), ("oam-retry", ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry)), ("ais-rdi", ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
                             self.class_link_shaping.parent = self
@@ -1838,18 +1881,21 @@ class AtmVcm(Entity):
                                 self.yang_parent_name = "oam-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.shaping_type = YLeaf(YType.enumeration, "shaping-type")
-
-                                self.peak_output_rate = YLeaf(YType.uint32, "peak-output-rate")
-
-                                self.average_output_rate = YLeaf(YType.uint32, "average-output-rate")
-
-                                self.burst_output_rate = YLeaf(YType.uint32, "burst-output-rate")
-
-                                self.shaping_inherit_level = YLeaf(YType.enumeration, "shaping-inherit-level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('shaping_type', YLeaf(YType.enumeration, 'shaping-type')),
+                                    ('peak_output_rate', YLeaf(YType.uint32, 'peak-output-rate')),
+                                    ('average_output_rate', YLeaf(YType.uint32, 'average-output-rate')),
+                                    ('burst_output_rate', YLeaf(YType.uint32, 'burst-output-rate')),
+                                    ('shaping_inherit_level', YLeaf(YType.enumeration, 'shaping-inherit-level')),
+                                ])
+                                self.shaping_type = None
+                                self.peak_output_rate = None
+                                self.average_output_rate = None
+                                self.burst_output_rate = None
+                                self.shaping_inherit_level = None
                                 self._segment_path = lambda: "class-link-shaping"
 
                             def __setattr__(self, name, value):
@@ -1884,12 +1930,15 @@ class AtmVcm(Entity):
                                 self.yang_parent_name = "oam-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-
-                                self.encapsulation_inherit_level = YLeaf(YType.enumeration, "encapsulation-inherit-level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                                    ('encapsulation_inherit_level', YLeaf(YType.enumeration, 'encapsulation-inherit-level')),
+                                ])
+                                self.encapsulation_type = None
+                                self.encapsulation_inherit_level = None
                                 self._segment_path = lambda: "class-link-encapsulation"
 
                             def __setattr__(self, name, value):
@@ -1941,18 +1990,21 @@ class AtmVcm(Entity):
                                 self.yang_parent_name = "oam-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.manage_level = YLeaf(YType.enumeration, "manage-level")
-
-                                self.pvc_frequency = YLeaf(YType.uint32, "pvc-frequency")
-
-                                self.keep_vc_up = YLeaf(YType.boolean, "keep-vc-up")
-
-                                self.ais_rdi_failure = YLeaf(YType.boolean, "ais-rdi-failure")
-
-                                self.manage_inherit_level = YLeaf(YType.enumeration, "manage-inherit-level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('manage_level', YLeaf(YType.enumeration, 'manage-level')),
+                                    ('pvc_frequency', YLeaf(YType.uint32, 'pvc-frequency')),
+                                    ('keep_vc_up', YLeaf(YType.boolean, 'keep-vc-up')),
+                                    ('ais_rdi_failure', YLeaf(YType.boolean, 'ais-rdi-failure')),
+                                    ('manage_inherit_level', YLeaf(YType.enumeration, 'manage-inherit-level')),
+                                ])
+                                self.manage_level = None
+                                self.pvc_frequency = None
+                                self.keep_vc_up = None
+                                self.ais_rdi_failure = None
+                                self.manage_inherit_level = None
                                 self._segment_path = lambda: "oam-pvc"
 
                             def __setattr__(self, name, value):
@@ -2003,16 +2055,19 @@ class AtmVcm(Entity):
                                 self.yang_parent_name = "oam-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.retry_up_count = YLeaf(YType.uint32, "retry-up-count")
-
-                                self.down_count = YLeaf(YType.uint32, "down-count")
-
-                                self.retry_frequency = YLeaf(YType.uint32, "retry-frequency")
-
-                                self.retry_inherit_level = YLeaf(YType.enumeration, "retry-inherit-level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('retry_up_count', YLeaf(YType.uint32, 'retry-up-count')),
+                                    ('down_count', YLeaf(YType.uint32, 'down-count')),
+                                    ('retry_frequency', YLeaf(YType.uint32, 'retry-frequency')),
+                                    ('retry_inherit_level', YLeaf(YType.enumeration, 'retry-inherit-level')),
+                                ])
+                                self.retry_up_count = None
+                                self.down_count = None
+                                self.retry_frequency = None
+                                self.retry_inherit_level = None
                                 self._segment_path = lambda: "oam-retry"
 
                             def __setattr__(self, name, value):
@@ -2058,14 +2113,17 @@ class AtmVcm(Entity):
                                 self.yang_parent_name = "oam-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ais_rdi_up_count = YLeaf(YType.uint32, "ais-rdi-up-count")
-
-                                self.ais_rdi_up_time = YLeaf(YType.uint32, "ais-rdi-up-time")
-
-                                self.ais_rdi_inherit_level = YLeaf(YType.enumeration, "ais-rdi-inherit-level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ais_rdi_up_count', YLeaf(YType.uint32, 'ais-rdi-up-count')),
+                                    ('ais_rdi_up_time', YLeaf(YType.uint32, 'ais-rdi-up-time')),
+                                    ('ais_rdi_inherit_level', YLeaf(YType.enumeration, 'ais-rdi-inherit-level')),
+                                ])
+                                self.ais_rdi_up_count = None
+                                self.ais_rdi_up_time = None
+                                self.ais_rdi_inherit_level = None
                                 self._segment_path = lambda: "ais-rdi"
 
                             def __setattr__(self, name, value):
@@ -2095,8 +2153,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", AtmVcm.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", AtmVcm.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -2109,7 +2169,7 @@ class AtmVcm(Entity):
                     """
                     ATM Interface data
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -2243,48 +2303,51 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.ilmi_vpi = YLeaf(YType.uint32, "ilmi-vpi")
-
-                        self.ilmi_vci = YLeaf(YType.uint32, "ilmi-vci")
-
-                        self.pvc_failures = YLeaf(YType.uint32, "pvc-failures")
-
-                        self.currently_failing_layer2pv_ps = YLeaf(YType.uint32, "currently-failing-layer2pv-ps")
-
-                        self.currently_failing_layer2pv_cs = YLeaf(YType.uint32, "currently-failing-layer2pv-cs")
-
-                        self.currently_failing_layer3vp_tunnels = YLeaf(YType.uint32, "currently-failing-layer3vp-tunnels")
-
-                        self.currently_failing_layer3pv_cs = YLeaf(YType.uint32, "currently-failing-layer3pv-cs")
-
-                        self.pvc_failures_trap_enable = YLeaf(YType.boolean, "pvc-failures-trap-enable")
-
-                        self.pvc_notification_interval = YLeaf(YType.uint32, "pvc-notification-interval")
-
-                        self.configured_layer2pv_ps = YLeaf(YType.uint32, "configured-layer2pv-ps")
-
-                        self.configured_layer2pv_cs = YLeaf(YType.uint32, "configured-layer2pv-cs")
-
-                        self.configured_layer3vp_tunnels = YLeaf(YType.uint32, "configured-layer3vp-tunnels")
-
-                        self.configured_layer3pv_cs = YLeaf(YType.uint32, "configured-layer3pv-cs")
-
-                        self.port_type = YLeaf(YType.enumeration, "port-type")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.l2_cell_packing_count = YLeaf(YType.uint16, "l2-cell-packing-count")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("cell-packing-data", ("cell_packing_data", AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('ilmi_vpi', YLeaf(YType.uint32, 'ilmi-vpi')),
+                            ('ilmi_vci', YLeaf(YType.uint32, 'ilmi-vci')),
+                            ('pvc_failures', YLeaf(YType.uint32, 'pvc-failures')),
+                            ('currently_failing_layer2pv_ps', YLeaf(YType.uint32, 'currently-failing-layer2pv-ps')),
+                            ('currently_failing_layer2pv_cs', YLeaf(YType.uint32, 'currently-failing-layer2pv-cs')),
+                            ('currently_failing_layer3vp_tunnels', YLeaf(YType.uint32, 'currently-failing-layer3vp-tunnels')),
+                            ('currently_failing_layer3pv_cs', YLeaf(YType.uint32, 'currently-failing-layer3pv-cs')),
+                            ('pvc_failures_trap_enable', YLeaf(YType.boolean, 'pvc-failures-trap-enable')),
+                            ('pvc_notification_interval', YLeaf(YType.uint32, 'pvc-notification-interval')),
+                            ('configured_layer2pv_ps', YLeaf(YType.uint32, 'configured-layer2pv-ps')),
+                            ('configured_layer2pv_cs', YLeaf(YType.uint32, 'configured-layer2pv-cs')),
+                            ('configured_layer3vp_tunnels', YLeaf(YType.uint32, 'configured-layer3vp-tunnels')),
+                            ('configured_layer3pv_cs', YLeaf(YType.uint32, 'configured-layer3pv-cs')),
+                            ('port_type', YLeaf(YType.enumeration, 'port-type')),
+                            ('main_interface', YLeaf(YType.str, 'main-interface')),
+                            ('l2_cell_packing_count', YLeaf(YType.uint16, 'l2-cell-packing-count')),
+                        ])
+                        self.interface_name = None
+                        self.ilmi_vpi = None
+                        self.ilmi_vci = None
+                        self.pvc_failures = None
+                        self.currently_failing_layer2pv_ps = None
+                        self.currently_failing_layer2pv_cs = None
+                        self.currently_failing_layer3vp_tunnels = None
+                        self.currently_failing_layer3pv_cs = None
+                        self.pvc_failures_trap_enable = None
+                        self.pvc_notification_interval = None
+                        self.configured_layer2pv_ps = None
+                        self.configured_layer2pv_cs = None
+                        self.configured_layer3vp_tunnels = None
+                        self.configured_layer3pv_cs = None
+                        self.port_type = None
+                        self.main_interface = None
+                        self.l2_cell_packing_count = None
 
                         self.cell_packing_data = AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData()
                         self.cell_packing_data.parent = self
                         self._children_name_map["cell_packing_data"] = "cell-packing-data"
                         self._children_yang_names.add("cell-packing-data")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'ilmi_vpi', 'ilmi_vci', 'pvc_failures', 'currently_failing_layer2pv_ps', 'currently_failing_layer2pv_cs', 'currently_failing_layer3vp_tunnels', 'currently_failing_layer3pv_cs', 'pvc_failures_trap_enable', 'pvc_notification_interval', 'configured_layer2pv_ps', 'configured_layer2pv_cs', 'configured_layer3vp_tunnels', 'configured_layer3pv_cs', 'port_type', 'main_interface', 'l2_cell_packing_count'], name, value)
@@ -2331,14 +2394,17 @@ class AtmVcm(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('local_max_cells_packed_per_packet', YLeaf(YType.uint16, 'local-max-cells-packed-per-packet')),
+                                ('negotiated_max_cells_packed_per_packet', YLeaf(YType.uint16, 'negotiated-max-cells-packed-per-packet')),
+                                ('max_cell_packed_timeout', YLeaf(YType.uint16, 'max-cell-packed-timeout')),
+                            ])
+                            self.local_max_cells_packed_per_packet = None
+                            self.negotiated_max_cells_packed_per_packet = None
+                            self.max_cell_packed_timeout = None
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
@@ -2368,8 +2434,10 @@ class AtmVcm(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vp-tunnel" : ("vp_tunnel", AtmVcm.Nodes.Node.VpTunnels.VpTunnel)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vp-tunnel", ("vp_tunnel", AtmVcm.Nodes.Node.VpTunnels.VpTunnel))])
+                    self._leafs = OrderedDict()
 
                     self.vp_tunnel = YList(self)
                     self._segment_path = lambda: "vp-tunnels"
@@ -2382,7 +2450,7 @@ class AtmVcm(Entity):
                     """
                     All VP\-tunnel information on a node
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -2495,39 +2563,42 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "vp-tunnels"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.vpi = YLeaf(YType.int32, "vpi")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.vp_interface = YLeaf(YType.str, "vp-interface")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
-
-                        self.f4oam_enabled = YLeaf(YType.boolean, "f4oam-enabled")
-
-                        self.data_vc_count = YLeaf(YType.uint32, "data-vc-count")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
-
-                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
-
-                        self.last_vp_state_change_time = YLeaf(YType.uint32, "last-vp-state-change-time")
-                        self._segment_path = lambda: "vp-tunnel" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('vpi', YLeaf(YType.int32, 'vpi')),
+                            ('main_interface', YLeaf(YType.str, 'main-interface')),
+                            ('vp_interface', YLeaf(YType.str, 'vp-interface')),
+                            ('vpi_xr', YLeaf(YType.uint16, 'vpi-xr')),
+                            ('shape', YLeaf(YType.enumeration, 'shape')),
+                            ('peak_cell_rate', YLeaf(YType.uint32, 'peak-cell-rate')),
+                            ('sustained_cell_rate', YLeaf(YType.uint32, 'sustained-cell-rate')),
+                            ('burst_rate', YLeaf(YType.uint32, 'burst-rate')),
+                            ('f4oam_enabled', YLeaf(YType.boolean, 'f4oam-enabled')),
+                            ('data_vc_count', YLeaf(YType.uint32, 'data-vc-count')),
+                            ('oper_status', YLeaf(YType.boolean, 'oper-status')),
+                            ('amin_status', YLeaf(YType.boolean, 'amin-status')),
+                            ('internal_state', YLeaf(YType.enumeration, 'internal-state')),
+                            ('last_vp_state_change_time', YLeaf(YType.uint32, 'last-vp-state-change-time')),
+                        ])
+                        self.interface_name = None
+                        self.vpi = None
+                        self.main_interface = None
+                        self.vp_interface = None
+                        self.vpi_xr = None
+                        self.shape = None
+                        self.peak_cell_rate = None
+                        self.sustained_cell_rate = None
+                        self.burst_rate = None
+                        self.f4oam_enabled = None
+                        self.data_vc_count = None
+                        self.oper_status = None
+                        self.amin_status = None
+                        self.internal_state = None
+                        self.last_vp_state_change_time = None
+                        self._segment_path = lambda: "vp-tunnel" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'vpi', 'main_interface', 'vp_interface', 'vpi_xr', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'f4oam_enabled', 'data_vc_count', 'oper_status', 'amin_status', 'internal_state', 'last_vp_state_change_time'], name, value)

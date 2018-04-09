@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Grid(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-fretta-grid-svr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Grid.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Grid.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Grid.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class Grid(Entity):
             self.yang_parent_name = "grid"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Grid.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Grid.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class Grid(Entity):
             """
             Operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -121,10 +127,13 @@ class Grid(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"client-xr" : ("client_xr", Grid.Nodes.Node.ClientXr), "clients" : ("clients", Grid.Nodes.Node.Clients)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("client-xr", ("client_xr", Grid.Nodes.Node.ClientXr)), ("clients", ("clients", Grid.Nodes.Node.Clients))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.client_xr = Grid.Nodes.Node.ClientXr()
                 self.client_xr.parent = self
@@ -135,7 +144,7 @@ class Grid(Entity):
                 self.clients.parent = self
                 self._children_name_map["clients"] = "clients"
                 self._children_yang_names.add("clients")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -165,8 +174,10 @@ class Grid(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"client" : ("client", Grid.Nodes.Node.ClientXr.Client)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("client", ("client", Grid.Nodes.Node.ClientXr.Client))])
+                    self._leafs = OrderedDict()
 
                     self.client = YList(self)
                     self._segment_path = lambda: "client-xr"
@@ -179,7 +190,7 @@ class Grid(Entity):
                     """
                     GRID Client Database
                     
-                    .. attribute:: client_name  <key>
+                    .. attribute:: client_name  (key)
                     
                     	Client name
                     	**type**\: str
@@ -205,13 +216,16 @@ class Grid(Entity):
                         self.yang_parent_name = "client-xr"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"client-data" : ("client_data", Grid.Nodes.Node.ClientXr.Client.ClientData)}
-
-                        self.client_name = YLeaf(YType.str, "client-name")
+                        self.ylist_key_names = ['client_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("client-data", ("client_data", Grid.Nodes.Node.ClientXr.Client.ClientData))])
+                        self._leafs = OrderedDict([
+                            ('client_name', YLeaf(YType.str, 'client-name')),
+                        ])
+                        self.client_name = None
 
                         self.client_data = YList(self)
-                        self._segment_path = lambda: "client" + "[client-name='" + self.client_name.get() + "']"
+                        self._segment_path = lambda: "client" + "[client-name='" + str(self.client_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Grid.Nodes.Node.ClientXr.Client, ['client_name'], name, value)
@@ -242,10 +256,13 @@ class Grid(Entity):
                             self.yang_parent_name = "client"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.res_id = YLeaf(YType.uint32, "res-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('res_id', YLeaf(YType.uint32, 'res-id')),
+                            ])
+                            self.res_id = None
                             self._segment_path = lambda: "client-data"
 
                         def __setattr__(self, name, value):
@@ -275,8 +292,10 @@ class Grid(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"client" : ("client", Grid.Nodes.Node.Clients.Client)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("client", ("client", Grid.Nodes.Node.Clients.Client))])
+                    self._leafs = OrderedDict()
 
                     self.client = YList(self)
                     self._segment_path = lambda: "clients"
@@ -289,7 +308,7 @@ class Grid(Entity):
                     """
                     GRID Client Consistency Check
                     
-                    .. attribute:: client_name  <key>
+                    .. attribute:: client_name  (key)
                     
                     	Client name
                     	**type**\: str
@@ -315,13 +334,16 @@ class Grid(Entity):
                         self.yang_parent_name = "clients"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"client-data" : ("client_data", Grid.Nodes.Node.Clients.Client.ClientData)}
-
-                        self.client_name = YLeaf(YType.str, "client-name")
+                        self.ylist_key_names = ['client_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("client-data", ("client_data", Grid.Nodes.Node.Clients.Client.ClientData))])
+                        self._leafs = OrderedDict([
+                            ('client_name', YLeaf(YType.str, 'client-name')),
+                        ])
+                        self.client_name = None
 
                         self.client_data = YList(self)
-                        self._segment_path = lambda: "client" + "[client-name='" + self.client_name.get() + "']"
+                        self._segment_path = lambda: "client" + "[client-name='" + str(self.client_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Grid.Nodes.Node.Clients.Client, ['client_name'], name, value)
@@ -352,10 +374,13 @@ class Grid(Entity):
                             self.yang_parent_name = "client"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.res_id = YLeaf(YType.uint32, "res-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('res_id', YLeaf(YType.uint32, 'res-id')),
+                            ])
+                            self.res_id = None
                             self._segment_path = lambda: "client-data"
 
                         def __setattr__(self, name, value):

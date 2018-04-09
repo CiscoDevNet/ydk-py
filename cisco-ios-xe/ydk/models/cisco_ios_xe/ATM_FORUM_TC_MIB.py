@@ -2,6 +2,8 @@
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -10,7 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AtmServiceCategory(Enum):
     """
-    AtmServiceCategory
+    AtmServiceCategory (Enum Class)
 
     ATM Service Categories use this data type
 
@@ -43,7 +45,7 @@ class AtmServiceCategory(Enum):
 
 class TruthValue(Enum):
     """
-    TruthValue
+    TruthValue (Enum Class)
 
     Boolean values use this data type from RFC\-1903
 

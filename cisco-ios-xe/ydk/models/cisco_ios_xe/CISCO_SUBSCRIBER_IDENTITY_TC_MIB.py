@@ -7,6 +7,8 @@ credentials used to determine authority, status, rights, or
 entitlement to privileges.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class SubSessionIdentity(Enum):
     """
-    SubSessionIdentity
+    SubSessionIdentity (Enum Class)
 
     An enumerated integer\-value describing a subscriber session
 
@@ -258,7 +260,7 @@ class SubSessionIdentity(Enum):
 
 class SubscriberMediaType(Enum):
     """
-    SubscriberMediaType
+    SubscriberMediaType (Enum Class)
 
     An enumerated integer\-value describing the type of media
 
@@ -349,7 +351,7 @@ class SubscriberMediaType(Enum):
 
 class SubscriberProtocolType(Enum):
     """
-    SubscriberProtocolType
+    SubscriberProtocolType (Enum Class)
 
     An enumerated integer\-value describing the type of protocol
 

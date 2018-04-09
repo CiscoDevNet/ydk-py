@@ -3,6 +3,8 @@
 The MIB module to describe the RSVP Protocol
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -11,7 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class RsvpEncapsulation(Enum):
     """
-    RsvpEncapsulation
+    RsvpEncapsulation (Enum Class)
 
     This indicates the encapsulation that an  RSVP
 
@@ -92,8 +94,10 @@ class RSVPMIB(Entity):
         self.yang_parent_name = "RSVP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"rsvpGenObjects" : ("rsvpgenobjects", RSVPMIB.Rsvpgenobjects), "rsvpSessionTable" : ("rsvpsessiontable", RSVPMIB.Rsvpsessiontable), "rsvpSenderTable" : ("rsvpsendertable", RSVPMIB.Rsvpsendertable), "rsvpSenderOutInterfaceTable" : ("rsvpsenderoutinterfacetable", RSVPMIB.Rsvpsenderoutinterfacetable), "rsvpResvTable" : ("rsvpresvtable", RSVPMIB.Rsvpresvtable), "rsvpResvFwdTable" : ("rsvpresvfwdtable", RSVPMIB.Rsvpresvfwdtable), "rsvpIfTable" : ("rsvpiftable", RSVPMIB.Rsvpiftable), "rsvpNbrTable" : ("rsvpnbrtable", RSVPMIB.Rsvpnbrtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("rsvpGenObjects", ("rsvpgenobjects", RSVPMIB.Rsvpgenobjects)), ("rsvpSessionTable", ("rsvpsessiontable", RSVPMIB.Rsvpsessiontable)), ("rsvpSenderTable", ("rsvpsendertable", RSVPMIB.Rsvpsendertable)), ("rsvpSenderOutInterfaceTable", ("rsvpsenderoutinterfacetable", RSVPMIB.Rsvpsenderoutinterfacetable)), ("rsvpResvTable", ("rsvpresvtable", RSVPMIB.Rsvpresvtable)), ("rsvpResvFwdTable", ("rsvpresvfwdtable", RSVPMIB.Rsvpresvfwdtable)), ("rsvpIfTable", ("rsvpiftable", RSVPMIB.Rsvpiftable)), ("rsvpNbrTable", ("rsvpnbrtable", RSVPMIB.Rsvpnbrtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.rsvpgenobjects = RSVPMIB.Rsvpgenobjects()
         self.rsvpgenobjects.parent = self
@@ -190,18 +194,21 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.rsvpbadpackets = YLeaf(YType.uint32, "rsvpBadPackets")
-
-            self.rsvpsendernewindex = YLeaf(YType.int32, "rsvpSenderNewIndex")
-
-            self.rsvpresvnewindex = YLeaf(YType.int32, "rsvpResvNewIndex")
-
-            self.rsvpresvfwdnewindex = YLeaf(YType.int32, "rsvpResvFwdNewIndex")
-
-            self.rsvpsessionnewindex = YLeaf(YType.int32, "rsvpSessionNewIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('rsvpbadpackets', YLeaf(YType.uint32, 'rsvpBadPackets')),
+                ('rsvpsendernewindex', YLeaf(YType.int32, 'rsvpSenderNewIndex')),
+                ('rsvpresvnewindex', YLeaf(YType.int32, 'rsvpResvNewIndex')),
+                ('rsvpresvfwdnewindex', YLeaf(YType.int32, 'rsvpResvFwdNewIndex')),
+                ('rsvpsessionnewindex', YLeaf(YType.int32, 'rsvpSessionNewIndex')),
+            ])
+            self.rsvpbadpackets = None
+            self.rsvpsendernewindex = None
+            self.rsvpresvnewindex = None
+            self.rsvpresvfwdnewindex = None
+            self.rsvpsessionnewindex = None
             self._segment_path = lambda: "rsvpGenObjects"
             self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/%s" % self._segment_path()
 
@@ -233,8 +240,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpSessionEntry" : ("rsvpsessionentry", RSVPMIB.Rsvpsessiontable.Rsvpsessionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpSessionEntry", ("rsvpsessionentry", RSVPMIB.Rsvpsessiontable.Rsvpsessionentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpsessionentry = YList(self)
             self._segment_path = lambda: "rsvpSessionTable"
@@ -248,7 +257,7 @@ class RSVPMIB(Entity):
             """
             A single session seen by a given system.
             
-            .. attribute:: rsvpsessionnumber  <key>
+            .. attribute:: rsvpsessionnumber  (key)
             
             	The	number of this session.	 This is for  SNMP Indexing  purposes  only and	has no relation	to any protocol	value
             	**type**\: int
@@ -325,27 +334,30 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpSessionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rsvpsessionnumber = YLeaf(YType.int32, "rsvpSessionNumber")
-
-                self.rsvpsessiontype = YLeaf(YType.int32, "rsvpSessionType")
-
-                self.rsvpsessiondestaddr = YLeaf(YType.str, "rsvpSessionDestAddr")
-
-                self.rsvpsessiondestaddrlength = YLeaf(YType.int32, "rsvpSessionDestAddrLength")
-
-                self.rsvpsessionprotocol = YLeaf(YType.int32, "rsvpSessionProtocol")
-
-                self.rsvpsessionport = YLeaf(YType.str, "rsvpSessionPort")
-
-                self.rsvpsessionsenders = YLeaf(YType.uint32, "rsvpSessionSenders")
-
-                self.rsvpsessionreceivers = YLeaf(YType.uint32, "rsvpSessionReceivers")
-
-                self.rsvpsessionrequests = YLeaf(YType.uint32, "rsvpSessionRequests")
-                self._segment_path = lambda: "rsvpSessionEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']"
+                self.ylist_key_names = ['rsvpsessionnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rsvpsessionnumber', YLeaf(YType.int32, 'rsvpSessionNumber')),
+                    ('rsvpsessiontype', YLeaf(YType.int32, 'rsvpSessionType')),
+                    ('rsvpsessiondestaddr', YLeaf(YType.str, 'rsvpSessionDestAddr')),
+                    ('rsvpsessiondestaddrlength', YLeaf(YType.int32, 'rsvpSessionDestAddrLength')),
+                    ('rsvpsessionprotocol', YLeaf(YType.int32, 'rsvpSessionProtocol')),
+                    ('rsvpsessionport', YLeaf(YType.str, 'rsvpSessionPort')),
+                    ('rsvpsessionsenders', YLeaf(YType.uint32, 'rsvpSessionSenders')),
+                    ('rsvpsessionreceivers', YLeaf(YType.uint32, 'rsvpSessionReceivers')),
+                    ('rsvpsessionrequests', YLeaf(YType.uint32, 'rsvpSessionRequests')),
+                ])
+                self.rsvpsessionnumber = None
+                self.rsvpsessiontype = None
+                self.rsvpsessiondestaddr = None
+                self.rsvpsessiondestaddrlength = None
+                self.rsvpsessionprotocol = None
+                self.rsvpsessionport = None
+                self.rsvpsessionsenders = None
+                self.rsvpsessionreceivers = None
+                self.rsvpsessionrequests = None
+                self._segment_path = lambda: "rsvpSessionEntry" + "[rsvpSessionNumber='" + str(self.rsvpsessionnumber) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSessionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -376,8 +388,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpSenderEntry" : ("rsvpsenderentry", RSVPMIB.Rsvpsendertable.Rsvpsenderentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpSenderEntry", ("rsvpsenderentry", RSVPMIB.Rsvpsendertable.Rsvpsenderentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpsenderentry = YList(self)
             self._segment_path = lambda: "rsvpSenderTable"
@@ -392,7 +406,7 @@ class RSVPMIB(Entity):
             Information	describing the	state  information
             displayed by	a single sender's PATH message.
             
-            .. attribute:: rsvpsessionnumber  <key>
+            .. attribute:: rsvpsessionnumber  (key)
             
             	
             	**type**\: int
@@ -401,7 +415,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
             
-            .. attribute:: rsvpsendernumber  <key>
+            .. attribute:: rsvpsendernumber  (key)
             
             	The	number of this sender.	This is	 for  SNMP Indexing  purposes  only and	has no relation	to any protocol	value
             	**type**\: int
@@ -748,101 +762,104 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpSenderTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
-
-                self.rsvpsendernumber = YLeaf(YType.int32, "rsvpSenderNumber")
-
-                self.rsvpsendertype = YLeaf(YType.int32, "rsvpSenderType")
-
-                self.rsvpsenderdestaddr = YLeaf(YType.str, "rsvpSenderDestAddr")
-
-                self.rsvpsenderaddr = YLeaf(YType.str, "rsvpSenderAddr")
-
-                self.rsvpsenderdestaddrlength = YLeaf(YType.int32, "rsvpSenderDestAddrLength")
-
-                self.rsvpsenderaddrlength = YLeaf(YType.int32, "rsvpSenderAddrLength")
-
-                self.rsvpsenderprotocol = YLeaf(YType.int32, "rsvpSenderProtocol")
-
-                self.rsvpsenderdestport = YLeaf(YType.str, "rsvpSenderDestPort")
-
-                self.rsvpsenderport = YLeaf(YType.str, "rsvpSenderPort")
-
-                self.rsvpsenderflowid = YLeaf(YType.int32, "rsvpSenderFlowId")
-
-                self.rsvpsenderhopaddr = YLeaf(YType.str, "rsvpSenderHopAddr")
-
-                self.rsvpsenderhoplih = YLeaf(YType.int32, "rsvpSenderHopLih")
-
-                self.rsvpsenderinterface = YLeaf(YType.int32, "rsvpSenderInterface")
-
-                self.rsvpsendertspecrate = YLeaf(YType.int32, "rsvpSenderTSpecRate")
-
-                self.rsvpsendertspecpeakrate = YLeaf(YType.int32, "rsvpSenderTSpecPeakRate")
-
-                self.rsvpsendertspecburst = YLeaf(YType.int32, "rsvpSenderTSpecBurst")
-
-                self.rsvpsendertspecmintu = YLeaf(YType.int32, "rsvpSenderTSpecMinTU")
-
-                self.rsvpsendertspecmaxtu = YLeaf(YType.int32, "rsvpSenderTSpecMaxTU")
-
-                self.rsvpsenderinterval = YLeaf(YType.int32, "rsvpSenderInterval")
-
-                self.rsvpsenderrsvphop = YLeaf(YType.boolean, "rsvpSenderRSVPHop")
-
-                self.rsvpsenderlastchange = YLeaf(YType.uint32, "rsvpSenderLastChange")
-
-                self.rsvpsenderpolicy = YLeaf(YType.str, "rsvpSenderPolicy")
-
-                self.rsvpsenderadspecbreak = YLeaf(YType.boolean, "rsvpSenderAdspecBreak")
-
-                self.rsvpsenderadspechopcount = YLeaf(YType.int32, "rsvpSenderAdspecHopCount")
-
-                self.rsvpsenderadspecpathbw = YLeaf(YType.int32, "rsvpSenderAdspecPathBw")
-
-                self.rsvpsenderadspecminlatency = YLeaf(YType.int32, "rsvpSenderAdspecMinLatency")
-
-                self.rsvpsenderadspecmtu = YLeaf(YType.int32, "rsvpSenderAdspecMtu")
-
-                self.rsvpsenderadspecguaranteedsvc = YLeaf(YType.boolean, "rsvpSenderAdspecGuaranteedSvc")
-
-                self.rsvpsenderadspecguaranteedbreak = YLeaf(YType.boolean, "rsvpSenderAdspecGuaranteedBreak")
-
-                self.rsvpsenderadspecguaranteedctot = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedCtot")
-
-                self.rsvpsenderadspecguaranteeddtot = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedDtot")
-
-                self.rsvpsenderadspecguaranteedcsum = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedCsum")
-
-                self.rsvpsenderadspecguaranteeddsum = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedDsum")
-
-                self.rsvpsenderadspecguaranteedhopcount = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedHopCount")
-
-                self.rsvpsenderadspecguaranteedpathbw = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedPathBw")
-
-                self.rsvpsenderadspecguaranteedminlatency = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedMinLatency")
-
-                self.rsvpsenderadspecguaranteedmtu = YLeaf(YType.int32, "rsvpSenderAdspecGuaranteedMtu")
-
-                self.rsvpsenderadspecctrlloadsvc = YLeaf(YType.boolean, "rsvpSenderAdspecCtrlLoadSvc")
-
-                self.rsvpsenderadspecctrlloadbreak = YLeaf(YType.boolean, "rsvpSenderAdspecCtrlLoadBreak")
-
-                self.rsvpsenderadspecctrlloadhopcount = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadHopCount")
-
-                self.rsvpsenderadspecctrlloadpathbw = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadPathBw")
-
-                self.rsvpsenderadspecctrlloadminlatency = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadMinLatency")
-
-                self.rsvpsenderadspecctrlloadmtu = YLeaf(YType.int32, "rsvpSenderAdspecCtrlLoadMtu")
-
-                self.rsvpsenderstatus = YLeaf(YType.enumeration, "rsvpSenderStatus")
-
-                self.rsvpsenderttl = YLeaf(YType.int32, "rsvpSenderTTL")
-                self._segment_path = lambda: "rsvpSenderEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpSenderNumber='" + self.rsvpsendernumber.get() + "']"
+                self.ylist_key_names = ['rsvpsessionnumber','rsvpsendernumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
+                    ('rsvpsendernumber', YLeaf(YType.int32, 'rsvpSenderNumber')),
+                    ('rsvpsendertype', YLeaf(YType.int32, 'rsvpSenderType')),
+                    ('rsvpsenderdestaddr', YLeaf(YType.str, 'rsvpSenderDestAddr')),
+                    ('rsvpsenderaddr', YLeaf(YType.str, 'rsvpSenderAddr')),
+                    ('rsvpsenderdestaddrlength', YLeaf(YType.int32, 'rsvpSenderDestAddrLength')),
+                    ('rsvpsenderaddrlength', YLeaf(YType.int32, 'rsvpSenderAddrLength')),
+                    ('rsvpsenderprotocol', YLeaf(YType.int32, 'rsvpSenderProtocol')),
+                    ('rsvpsenderdestport', YLeaf(YType.str, 'rsvpSenderDestPort')),
+                    ('rsvpsenderport', YLeaf(YType.str, 'rsvpSenderPort')),
+                    ('rsvpsenderflowid', YLeaf(YType.int32, 'rsvpSenderFlowId')),
+                    ('rsvpsenderhopaddr', YLeaf(YType.str, 'rsvpSenderHopAddr')),
+                    ('rsvpsenderhoplih', YLeaf(YType.int32, 'rsvpSenderHopLih')),
+                    ('rsvpsenderinterface', YLeaf(YType.int32, 'rsvpSenderInterface')),
+                    ('rsvpsendertspecrate', YLeaf(YType.int32, 'rsvpSenderTSpecRate')),
+                    ('rsvpsendertspecpeakrate', YLeaf(YType.int32, 'rsvpSenderTSpecPeakRate')),
+                    ('rsvpsendertspecburst', YLeaf(YType.int32, 'rsvpSenderTSpecBurst')),
+                    ('rsvpsendertspecmintu', YLeaf(YType.int32, 'rsvpSenderTSpecMinTU')),
+                    ('rsvpsendertspecmaxtu', YLeaf(YType.int32, 'rsvpSenderTSpecMaxTU')),
+                    ('rsvpsenderinterval', YLeaf(YType.int32, 'rsvpSenderInterval')),
+                    ('rsvpsenderrsvphop', YLeaf(YType.boolean, 'rsvpSenderRSVPHop')),
+                    ('rsvpsenderlastchange', YLeaf(YType.uint32, 'rsvpSenderLastChange')),
+                    ('rsvpsenderpolicy', YLeaf(YType.str, 'rsvpSenderPolicy')),
+                    ('rsvpsenderadspecbreak', YLeaf(YType.boolean, 'rsvpSenderAdspecBreak')),
+                    ('rsvpsenderadspechopcount', YLeaf(YType.int32, 'rsvpSenderAdspecHopCount')),
+                    ('rsvpsenderadspecpathbw', YLeaf(YType.int32, 'rsvpSenderAdspecPathBw')),
+                    ('rsvpsenderadspecminlatency', YLeaf(YType.int32, 'rsvpSenderAdspecMinLatency')),
+                    ('rsvpsenderadspecmtu', YLeaf(YType.int32, 'rsvpSenderAdspecMtu')),
+                    ('rsvpsenderadspecguaranteedsvc', YLeaf(YType.boolean, 'rsvpSenderAdspecGuaranteedSvc')),
+                    ('rsvpsenderadspecguaranteedbreak', YLeaf(YType.boolean, 'rsvpSenderAdspecGuaranteedBreak')),
+                    ('rsvpsenderadspecguaranteedctot', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedCtot')),
+                    ('rsvpsenderadspecguaranteeddtot', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedDtot')),
+                    ('rsvpsenderadspecguaranteedcsum', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedCsum')),
+                    ('rsvpsenderadspecguaranteeddsum', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedDsum')),
+                    ('rsvpsenderadspecguaranteedhopcount', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedHopCount')),
+                    ('rsvpsenderadspecguaranteedpathbw', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedPathBw')),
+                    ('rsvpsenderadspecguaranteedminlatency', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedMinLatency')),
+                    ('rsvpsenderadspecguaranteedmtu', YLeaf(YType.int32, 'rsvpSenderAdspecGuaranteedMtu')),
+                    ('rsvpsenderadspecctrlloadsvc', YLeaf(YType.boolean, 'rsvpSenderAdspecCtrlLoadSvc')),
+                    ('rsvpsenderadspecctrlloadbreak', YLeaf(YType.boolean, 'rsvpSenderAdspecCtrlLoadBreak')),
+                    ('rsvpsenderadspecctrlloadhopcount', YLeaf(YType.int32, 'rsvpSenderAdspecCtrlLoadHopCount')),
+                    ('rsvpsenderadspecctrlloadpathbw', YLeaf(YType.int32, 'rsvpSenderAdspecCtrlLoadPathBw')),
+                    ('rsvpsenderadspecctrlloadminlatency', YLeaf(YType.int32, 'rsvpSenderAdspecCtrlLoadMinLatency')),
+                    ('rsvpsenderadspecctrlloadmtu', YLeaf(YType.int32, 'rsvpSenderAdspecCtrlLoadMtu')),
+                    ('rsvpsenderstatus', YLeaf(YType.enumeration, 'rsvpSenderStatus')),
+                    ('rsvpsenderttl', YLeaf(YType.int32, 'rsvpSenderTTL')),
+                ])
+                self.rsvpsessionnumber = None
+                self.rsvpsendernumber = None
+                self.rsvpsendertype = None
+                self.rsvpsenderdestaddr = None
+                self.rsvpsenderaddr = None
+                self.rsvpsenderdestaddrlength = None
+                self.rsvpsenderaddrlength = None
+                self.rsvpsenderprotocol = None
+                self.rsvpsenderdestport = None
+                self.rsvpsenderport = None
+                self.rsvpsenderflowid = None
+                self.rsvpsenderhopaddr = None
+                self.rsvpsenderhoplih = None
+                self.rsvpsenderinterface = None
+                self.rsvpsendertspecrate = None
+                self.rsvpsendertspecpeakrate = None
+                self.rsvpsendertspecburst = None
+                self.rsvpsendertspecmintu = None
+                self.rsvpsendertspecmaxtu = None
+                self.rsvpsenderinterval = None
+                self.rsvpsenderrsvphop = None
+                self.rsvpsenderlastchange = None
+                self.rsvpsenderpolicy = None
+                self.rsvpsenderadspecbreak = None
+                self.rsvpsenderadspechopcount = None
+                self.rsvpsenderadspecpathbw = None
+                self.rsvpsenderadspecminlatency = None
+                self.rsvpsenderadspecmtu = None
+                self.rsvpsenderadspecguaranteedsvc = None
+                self.rsvpsenderadspecguaranteedbreak = None
+                self.rsvpsenderadspecguaranteedctot = None
+                self.rsvpsenderadspecguaranteeddtot = None
+                self.rsvpsenderadspecguaranteedcsum = None
+                self.rsvpsenderadspecguaranteeddsum = None
+                self.rsvpsenderadspecguaranteedhopcount = None
+                self.rsvpsenderadspecguaranteedpathbw = None
+                self.rsvpsenderadspecguaranteedminlatency = None
+                self.rsvpsenderadspecguaranteedmtu = None
+                self.rsvpsenderadspecctrlloadsvc = None
+                self.rsvpsenderadspecctrlloadbreak = None
+                self.rsvpsenderadspecctrlloadhopcount = None
+                self.rsvpsenderadspecctrlloadpathbw = None
+                self.rsvpsenderadspecctrlloadminlatency = None
+                self.rsvpsenderadspecctrlloadmtu = None
+                self.rsvpsenderstatus = None
+                self.rsvpsenderttl = None
+                self._segment_path = lambda: "rsvpSenderEntry" + "[rsvpSessionNumber='" + str(self.rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + str(self.rsvpsendernumber) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSenderTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -874,8 +891,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpSenderOutInterfaceEntry" : ("rsvpsenderoutinterfaceentry", RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpSenderOutInterfaceEntry", ("rsvpsenderoutinterfaceentry", RSVPMIB.Rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpsenderoutinterfaceentry = YList(self)
             self._segment_path = lambda: "rsvpSenderOutInterfaceTable"
@@ -890,7 +909,7 @@ class RSVPMIB(Entity):
             List of outgoing interfaces	that a	particular
             PATH	message	has.
             
-            .. attribute:: rsvpsessionnumber  <key>
+            .. attribute:: rsvpsessionnumber  (key)
             
             	
             	**type**\: int
@@ -899,7 +918,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
             
-            .. attribute:: rsvpsendernumber  <key>
+            .. attribute:: rsvpsendernumber  (key)
             
             	
             	**type**\: int
@@ -908,7 +927,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`rsvpsendernumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsendertable.Rsvpsenderentry>`
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -936,17 +955,20 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpSenderOutInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
-
-                self.rsvpsendernumber = YLeaf(YType.str, "rsvpSenderNumber")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.rsvpsenderoutinterfacestatus = YLeaf(YType.enumeration, "rsvpSenderOutInterfaceStatus")
-                self._segment_path = lambda: "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpSenderNumber='" + self.rsvpsendernumber.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['rsvpsessionnumber','rsvpsendernumber','ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
+                    ('rsvpsendernumber', YLeaf(YType.str, 'rsvpSenderNumber')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('rsvpsenderoutinterfacestatus', YLeaf(YType.enumeration, 'rsvpSenderOutInterfaceStatus')),
+                ])
+                self.rsvpsessionnumber = None
+                self.rsvpsendernumber = None
+                self.ifindex = None
+                self.rsvpsenderoutinterfacestatus = None
+                self._segment_path = lambda: "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + str(self.rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + str(self.rsvpsendernumber) + "']" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpSenderOutInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -977,8 +999,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpResvEntry" : ("rsvpresventry", RSVPMIB.Rsvpresvtable.Rsvpresventry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpResvEntry", ("rsvpresventry", RSVPMIB.Rsvpresvtable.Rsvpresventry))])
+            self._leafs = OrderedDict()
 
             self.rsvpresventry = YList(self)
             self._segment_path = lambda: "rsvpResvTable"
@@ -994,7 +1018,7 @@ class RSVPMIB(Entity):
             displayed  by  a single receiver's RESV message
             concerning a	single sender.
             
-            .. attribute:: rsvpsessionnumber  <key>
+            .. attribute:: rsvpsessionnumber  (key)
             
             	
             	**type**\: int
@@ -1003,7 +1027,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
             
-            .. attribute:: rsvpresvnumber  <key>
+            .. attribute:: rsvpresvnumber  (key)
             
             	The	number of this reservation request.   This is  for  SNMP Indexing purposes only	and has	no relation to any protocol value
             	**type**\: int
@@ -1227,71 +1251,74 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpResvTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
-
-                self.rsvpresvnumber = YLeaf(YType.int32, "rsvpResvNumber")
-
-                self.rsvpresvtype = YLeaf(YType.int32, "rsvpResvType")
-
-                self.rsvpresvdestaddr = YLeaf(YType.str, "rsvpResvDestAddr")
-
-                self.rsvpresvsenderaddr = YLeaf(YType.str, "rsvpResvSenderAddr")
-
-                self.rsvpresvdestaddrlength = YLeaf(YType.int32, "rsvpResvDestAddrLength")
-
-                self.rsvpresvsenderaddrlength = YLeaf(YType.int32, "rsvpResvSenderAddrLength")
-
-                self.rsvpresvprotocol = YLeaf(YType.int32, "rsvpResvProtocol")
-
-                self.rsvpresvdestport = YLeaf(YType.str, "rsvpResvDestPort")
-
-                self.rsvpresvport = YLeaf(YType.str, "rsvpResvPort")
-
-                self.rsvpresvhopaddr = YLeaf(YType.str, "rsvpResvHopAddr")
-
-                self.rsvpresvhoplih = YLeaf(YType.int32, "rsvpResvHopLih")
-
-                self.rsvpresvinterface = YLeaf(YType.int32, "rsvpResvInterface")
-
-                self.rsvpresvservice = YLeaf(YType.enumeration, "rsvpResvService")
-
-                self.rsvpresvtspecrate = YLeaf(YType.int32, "rsvpResvTSpecRate")
-
-                self.rsvpresvtspecpeakrate = YLeaf(YType.int32, "rsvpResvTSpecPeakRate")
-
-                self.rsvpresvtspecburst = YLeaf(YType.int32, "rsvpResvTSpecBurst")
-
-                self.rsvpresvtspecmintu = YLeaf(YType.int32, "rsvpResvTSpecMinTU")
-
-                self.rsvpresvtspecmaxtu = YLeaf(YType.int32, "rsvpResvTSpecMaxTU")
-
-                self.rsvpresvrspecrate = YLeaf(YType.int32, "rsvpResvRSpecRate")
-
-                self.rsvpresvrspecslack = YLeaf(YType.int32, "rsvpResvRSpecSlack")
-
-                self.rsvpresvinterval = YLeaf(YType.int32, "rsvpResvInterval")
-
-                self.rsvpresvscope = YLeaf(YType.str, "rsvpResvScope")
-
-                self.rsvpresvshared = YLeaf(YType.boolean, "rsvpResvShared")
-
-                self.rsvpresvexplicit = YLeaf(YType.boolean, "rsvpResvExplicit")
-
-                self.rsvpresvrsvphop = YLeaf(YType.boolean, "rsvpResvRSVPHop")
-
-                self.rsvpresvlastchange = YLeaf(YType.uint32, "rsvpResvLastChange")
-
-                self.rsvpresvpolicy = YLeaf(YType.str, "rsvpResvPolicy")
-
-                self.rsvpresvstatus = YLeaf(YType.enumeration, "rsvpResvStatus")
-
-                self.rsvpresvttl = YLeaf(YType.int32, "rsvpResvTTL")
-
-                self.rsvpresvflowid = YLeaf(YType.int32, "rsvpResvFlowId")
-                self._segment_path = lambda: "rsvpResvEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpResvNumber='" + self.rsvpresvnumber.get() + "']"
+                self.ylist_key_names = ['rsvpsessionnumber','rsvpresvnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
+                    ('rsvpresvnumber', YLeaf(YType.int32, 'rsvpResvNumber')),
+                    ('rsvpresvtype', YLeaf(YType.int32, 'rsvpResvType')),
+                    ('rsvpresvdestaddr', YLeaf(YType.str, 'rsvpResvDestAddr')),
+                    ('rsvpresvsenderaddr', YLeaf(YType.str, 'rsvpResvSenderAddr')),
+                    ('rsvpresvdestaddrlength', YLeaf(YType.int32, 'rsvpResvDestAddrLength')),
+                    ('rsvpresvsenderaddrlength', YLeaf(YType.int32, 'rsvpResvSenderAddrLength')),
+                    ('rsvpresvprotocol', YLeaf(YType.int32, 'rsvpResvProtocol')),
+                    ('rsvpresvdestport', YLeaf(YType.str, 'rsvpResvDestPort')),
+                    ('rsvpresvport', YLeaf(YType.str, 'rsvpResvPort')),
+                    ('rsvpresvhopaddr', YLeaf(YType.str, 'rsvpResvHopAddr')),
+                    ('rsvpresvhoplih', YLeaf(YType.int32, 'rsvpResvHopLih')),
+                    ('rsvpresvinterface', YLeaf(YType.int32, 'rsvpResvInterface')),
+                    ('rsvpresvservice', YLeaf(YType.enumeration, 'rsvpResvService')),
+                    ('rsvpresvtspecrate', YLeaf(YType.int32, 'rsvpResvTSpecRate')),
+                    ('rsvpresvtspecpeakrate', YLeaf(YType.int32, 'rsvpResvTSpecPeakRate')),
+                    ('rsvpresvtspecburst', YLeaf(YType.int32, 'rsvpResvTSpecBurst')),
+                    ('rsvpresvtspecmintu', YLeaf(YType.int32, 'rsvpResvTSpecMinTU')),
+                    ('rsvpresvtspecmaxtu', YLeaf(YType.int32, 'rsvpResvTSpecMaxTU')),
+                    ('rsvpresvrspecrate', YLeaf(YType.int32, 'rsvpResvRSpecRate')),
+                    ('rsvpresvrspecslack', YLeaf(YType.int32, 'rsvpResvRSpecSlack')),
+                    ('rsvpresvinterval', YLeaf(YType.int32, 'rsvpResvInterval')),
+                    ('rsvpresvscope', YLeaf(YType.str, 'rsvpResvScope')),
+                    ('rsvpresvshared', YLeaf(YType.boolean, 'rsvpResvShared')),
+                    ('rsvpresvexplicit', YLeaf(YType.boolean, 'rsvpResvExplicit')),
+                    ('rsvpresvrsvphop', YLeaf(YType.boolean, 'rsvpResvRSVPHop')),
+                    ('rsvpresvlastchange', YLeaf(YType.uint32, 'rsvpResvLastChange')),
+                    ('rsvpresvpolicy', YLeaf(YType.str, 'rsvpResvPolicy')),
+                    ('rsvpresvstatus', YLeaf(YType.enumeration, 'rsvpResvStatus')),
+                    ('rsvpresvttl', YLeaf(YType.int32, 'rsvpResvTTL')),
+                    ('rsvpresvflowid', YLeaf(YType.int32, 'rsvpResvFlowId')),
+                ])
+                self.rsvpsessionnumber = None
+                self.rsvpresvnumber = None
+                self.rsvpresvtype = None
+                self.rsvpresvdestaddr = None
+                self.rsvpresvsenderaddr = None
+                self.rsvpresvdestaddrlength = None
+                self.rsvpresvsenderaddrlength = None
+                self.rsvpresvprotocol = None
+                self.rsvpresvdestport = None
+                self.rsvpresvport = None
+                self.rsvpresvhopaddr = None
+                self.rsvpresvhoplih = None
+                self.rsvpresvinterface = None
+                self.rsvpresvservice = None
+                self.rsvpresvtspecrate = None
+                self.rsvpresvtspecpeakrate = None
+                self.rsvpresvtspecburst = None
+                self.rsvpresvtspecmintu = None
+                self.rsvpresvtspecmaxtu = None
+                self.rsvpresvrspecrate = None
+                self.rsvpresvrspecslack = None
+                self.rsvpresvinterval = None
+                self.rsvpresvscope = None
+                self.rsvpresvshared = None
+                self.rsvpresvexplicit = None
+                self.rsvpresvrsvphop = None
+                self.rsvpresvlastchange = None
+                self.rsvpresvpolicy = None
+                self.rsvpresvstatus = None
+                self.rsvpresvttl = None
+                self.rsvpresvflowid = None
+                self._segment_path = lambda: "rsvpResvEntry" + "[rsvpSessionNumber='" + str(self.rsvpsessionnumber) + "']" + "[rsvpResvNumber='" + str(self.rsvpresvnumber) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpResvTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1322,8 +1349,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpResvFwdEntry" : ("rsvpresvfwdentry", RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpResvFwdEntry", ("rsvpresvfwdentry", RSVPMIB.Rsvpresvfwdtable.Rsvpresvfwdentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpresvfwdentry = YList(self)
             self._segment_path = lambda: "rsvpResvFwdTable"
@@ -1339,7 +1368,7 @@ class RSVPMIB(Entity):
             displayed   upstream	  in   an   RESV   message
             concerning a	single sender.
             
-            .. attribute:: rsvpsessionnumber  <key>
+            .. attribute:: rsvpsessionnumber  (key)
             
             	
             	**type**\: int
@@ -1348,7 +1377,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`rsvpsessionnumber <ydk.models.cisco_ios_xe.RSVP_MIB.RSVPMIB.Rsvpsessiontable.Rsvpsessionentry>`
             
-            .. attribute:: rsvpresvfwdnumber  <key>
+            .. attribute:: rsvpresvfwdnumber  (key)
             
             	The	number of this reservation request.   This is  for  SNMP Indexing purposes only	and has	no relation to any protocol value
             	**type**\: int
@@ -1572,71 +1601,74 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpResvFwdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rsvpsessionnumber = YLeaf(YType.str, "rsvpSessionNumber")
-
-                self.rsvpresvfwdnumber = YLeaf(YType.int32, "rsvpResvFwdNumber")
-
-                self.rsvpresvfwdtype = YLeaf(YType.int32, "rsvpResvFwdType")
-
-                self.rsvpresvfwddestaddr = YLeaf(YType.str, "rsvpResvFwdDestAddr")
-
-                self.rsvpresvfwdsenderaddr = YLeaf(YType.str, "rsvpResvFwdSenderAddr")
-
-                self.rsvpresvfwddestaddrlength = YLeaf(YType.int32, "rsvpResvFwdDestAddrLength")
-
-                self.rsvpresvfwdsenderaddrlength = YLeaf(YType.int32, "rsvpResvFwdSenderAddrLength")
-
-                self.rsvpresvfwdprotocol = YLeaf(YType.int32, "rsvpResvFwdProtocol")
-
-                self.rsvpresvfwddestport = YLeaf(YType.str, "rsvpResvFwdDestPort")
-
-                self.rsvpresvfwdport = YLeaf(YType.str, "rsvpResvFwdPort")
-
-                self.rsvpresvfwdhopaddr = YLeaf(YType.str, "rsvpResvFwdHopAddr")
-
-                self.rsvpresvfwdhoplih = YLeaf(YType.int32, "rsvpResvFwdHopLih")
-
-                self.rsvpresvfwdinterface = YLeaf(YType.int32, "rsvpResvFwdInterface")
-
-                self.rsvpresvfwdservice = YLeaf(YType.enumeration, "rsvpResvFwdService")
-
-                self.rsvpresvfwdtspecrate = YLeaf(YType.int32, "rsvpResvFwdTSpecRate")
-
-                self.rsvpresvfwdtspecpeakrate = YLeaf(YType.int32, "rsvpResvFwdTSpecPeakRate")
-
-                self.rsvpresvfwdtspecburst = YLeaf(YType.int32, "rsvpResvFwdTSpecBurst")
-
-                self.rsvpresvfwdtspecmintu = YLeaf(YType.int32, "rsvpResvFwdTSpecMinTU")
-
-                self.rsvpresvfwdtspecmaxtu = YLeaf(YType.int32, "rsvpResvFwdTSpecMaxTU")
-
-                self.rsvpresvfwdrspecrate = YLeaf(YType.int32, "rsvpResvFwdRSpecRate")
-
-                self.rsvpresvfwdrspecslack = YLeaf(YType.int32, "rsvpResvFwdRSpecSlack")
-
-                self.rsvpresvfwdinterval = YLeaf(YType.int32, "rsvpResvFwdInterval")
-
-                self.rsvpresvfwdscope = YLeaf(YType.str, "rsvpResvFwdScope")
-
-                self.rsvpresvfwdshared = YLeaf(YType.boolean, "rsvpResvFwdShared")
-
-                self.rsvpresvfwdexplicit = YLeaf(YType.boolean, "rsvpResvFwdExplicit")
-
-                self.rsvpresvfwdrsvphop = YLeaf(YType.boolean, "rsvpResvFwdRSVPHop")
-
-                self.rsvpresvfwdlastchange = YLeaf(YType.uint32, "rsvpResvFwdLastChange")
-
-                self.rsvpresvfwdpolicy = YLeaf(YType.str, "rsvpResvFwdPolicy")
-
-                self.rsvpresvfwdstatus = YLeaf(YType.enumeration, "rsvpResvFwdStatus")
-
-                self.rsvpresvfwdttl = YLeaf(YType.int32, "rsvpResvFwdTTL")
-
-                self.rsvpresvfwdflowid = YLeaf(YType.int32, "rsvpResvFwdFlowId")
-                self._segment_path = lambda: "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + self.rsvpsessionnumber.get() + "']" + "[rsvpResvFwdNumber='" + self.rsvpresvfwdnumber.get() + "']"
+                self.ylist_key_names = ['rsvpsessionnumber','rsvpresvfwdnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rsvpsessionnumber', YLeaf(YType.str, 'rsvpSessionNumber')),
+                    ('rsvpresvfwdnumber', YLeaf(YType.int32, 'rsvpResvFwdNumber')),
+                    ('rsvpresvfwdtype', YLeaf(YType.int32, 'rsvpResvFwdType')),
+                    ('rsvpresvfwddestaddr', YLeaf(YType.str, 'rsvpResvFwdDestAddr')),
+                    ('rsvpresvfwdsenderaddr', YLeaf(YType.str, 'rsvpResvFwdSenderAddr')),
+                    ('rsvpresvfwddestaddrlength', YLeaf(YType.int32, 'rsvpResvFwdDestAddrLength')),
+                    ('rsvpresvfwdsenderaddrlength', YLeaf(YType.int32, 'rsvpResvFwdSenderAddrLength')),
+                    ('rsvpresvfwdprotocol', YLeaf(YType.int32, 'rsvpResvFwdProtocol')),
+                    ('rsvpresvfwddestport', YLeaf(YType.str, 'rsvpResvFwdDestPort')),
+                    ('rsvpresvfwdport', YLeaf(YType.str, 'rsvpResvFwdPort')),
+                    ('rsvpresvfwdhopaddr', YLeaf(YType.str, 'rsvpResvFwdHopAddr')),
+                    ('rsvpresvfwdhoplih', YLeaf(YType.int32, 'rsvpResvFwdHopLih')),
+                    ('rsvpresvfwdinterface', YLeaf(YType.int32, 'rsvpResvFwdInterface')),
+                    ('rsvpresvfwdservice', YLeaf(YType.enumeration, 'rsvpResvFwdService')),
+                    ('rsvpresvfwdtspecrate', YLeaf(YType.int32, 'rsvpResvFwdTSpecRate')),
+                    ('rsvpresvfwdtspecpeakrate', YLeaf(YType.int32, 'rsvpResvFwdTSpecPeakRate')),
+                    ('rsvpresvfwdtspecburst', YLeaf(YType.int32, 'rsvpResvFwdTSpecBurst')),
+                    ('rsvpresvfwdtspecmintu', YLeaf(YType.int32, 'rsvpResvFwdTSpecMinTU')),
+                    ('rsvpresvfwdtspecmaxtu', YLeaf(YType.int32, 'rsvpResvFwdTSpecMaxTU')),
+                    ('rsvpresvfwdrspecrate', YLeaf(YType.int32, 'rsvpResvFwdRSpecRate')),
+                    ('rsvpresvfwdrspecslack', YLeaf(YType.int32, 'rsvpResvFwdRSpecSlack')),
+                    ('rsvpresvfwdinterval', YLeaf(YType.int32, 'rsvpResvFwdInterval')),
+                    ('rsvpresvfwdscope', YLeaf(YType.str, 'rsvpResvFwdScope')),
+                    ('rsvpresvfwdshared', YLeaf(YType.boolean, 'rsvpResvFwdShared')),
+                    ('rsvpresvfwdexplicit', YLeaf(YType.boolean, 'rsvpResvFwdExplicit')),
+                    ('rsvpresvfwdrsvphop', YLeaf(YType.boolean, 'rsvpResvFwdRSVPHop')),
+                    ('rsvpresvfwdlastchange', YLeaf(YType.uint32, 'rsvpResvFwdLastChange')),
+                    ('rsvpresvfwdpolicy', YLeaf(YType.str, 'rsvpResvFwdPolicy')),
+                    ('rsvpresvfwdstatus', YLeaf(YType.enumeration, 'rsvpResvFwdStatus')),
+                    ('rsvpresvfwdttl', YLeaf(YType.int32, 'rsvpResvFwdTTL')),
+                    ('rsvpresvfwdflowid', YLeaf(YType.int32, 'rsvpResvFwdFlowId')),
+                ])
+                self.rsvpsessionnumber = None
+                self.rsvpresvfwdnumber = None
+                self.rsvpresvfwdtype = None
+                self.rsvpresvfwddestaddr = None
+                self.rsvpresvfwdsenderaddr = None
+                self.rsvpresvfwddestaddrlength = None
+                self.rsvpresvfwdsenderaddrlength = None
+                self.rsvpresvfwdprotocol = None
+                self.rsvpresvfwddestport = None
+                self.rsvpresvfwdport = None
+                self.rsvpresvfwdhopaddr = None
+                self.rsvpresvfwdhoplih = None
+                self.rsvpresvfwdinterface = None
+                self.rsvpresvfwdservice = None
+                self.rsvpresvfwdtspecrate = None
+                self.rsvpresvfwdtspecpeakrate = None
+                self.rsvpresvfwdtspecburst = None
+                self.rsvpresvfwdtspecmintu = None
+                self.rsvpresvfwdtspecmaxtu = None
+                self.rsvpresvfwdrspecrate = None
+                self.rsvpresvfwdrspecslack = None
+                self.rsvpresvfwdinterval = None
+                self.rsvpresvfwdscope = None
+                self.rsvpresvfwdshared = None
+                self.rsvpresvfwdexplicit = None
+                self.rsvpresvfwdrsvphop = None
+                self.rsvpresvfwdlastchange = None
+                self.rsvpresvfwdpolicy = None
+                self.rsvpresvfwdstatus = None
+                self.rsvpresvfwdttl = None
+                self.rsvpresvfwdflowid = None
+                self._segment_path = lambda: "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + str(self.rsvpsessionnumber) + "']" + "[rsvpResvFwdNumber='" + str(self.rsvpresvfwdnumber) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpResvFwdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1667,8 +1699,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpIfEntry" : ("rsvpifentry", RSVPMIB.Rsvpiftable.Rsvpifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpIfEntry", ("rsvpifentry", RSVPMIB.Rsvpiftable.Rsvpifentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpifentry = YList(self)
             self._segment_path = lambda: "rsvpIfTable"
@@ -1683,7 +1717,7 @@ class RSVPMIB(Entity):
             The	RSVP\-specific attributes of  the  a  given
             interface.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1781,33 +1815,36 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.rsvpifudpnbrs = YLeaf(YType.uint32, "rsvpIfUdpNbrs")
-
-                self.rsvpifipnbrs = YLeaf(YType.uint32, "rsvpIfIpNbrs")
-
-                self.rsvpifnbrs = YLeaf(YType.uint32, "rsvpIfNbrs")
-
-                self.rsvpifrefreshblockademultiple = YLeaf(YType.int32, "rsvpIfRefreshBlockadeMultiple")
-
-                self.rsvpifrefreshmultiple = YLeaf(YType.int32, "rsvpIfRefreshMultiple")
-
-                self.rsvpifttl = YLeaf(YType.int32, "rsvpIfTTL")
-
-                self.rsvpifrefreshinterval = YLeaf(YType.int32, "rsvpIfRefreshInterval")
-
-                self.rsvpifroutedelay = YLeaf(YType.int32, "rsvpIfRouteDelay")
-
-                self.rsvpifenabled = YLeaf(YType.boolean, "rsvpIfEnabled")
-
-                self.rsvpifudprequired = YLeaf(YType.boolean, "rsvpIfUdpRequired")
-
-                self.rsvpifstatus = YLeaf(YType.enumeration, "rsvpIfStatus")
-                self._segment_path = lambda: "rsvpIfEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('rsvpifudpnbrs', YLeaf(YType.uint32, 'rsvpIfUdpNbrs')),
+                    ('rsvpifipnbrs', YLeaf(YType.uint32, 'rsvpIfIpNbrs')),
+                    ('rsvpifnbrs', YLeaf(YType.uint32, 'rsvpIfNbrs')),
+                    ('rsvpifrefreshblockademultiple', YLeaf(YType.int32, 'rsvpIfRefreshBlockadeMultiple')),
+                    ('rsvpifrefreshmultiple', YLeaf(YType.int32, 'rsvpIfRefreshMultiple')),
+                    ('rsvpifttl', YLeaf(YType.int32, 'rsvpIfTTL')),
+                    ('rsvpifrefreshinterval', YLeaf(YType.int32, 'rsvpIfRefreshInterval')),
+                    ('rsvpifroutedelay', YLeaf(YType.int32, 'rsvpIfRouteDelay')),
+                    ('rsvpifenabled', YLeaf(YType.boolean, 'rsvpIfEnabled')),
+                    ('rsvpifudprequired', YLeaf(YType.boolean, 'rsvpIfUdpRequired')),
+                    ('rsvpifstatus', YLeaf(YType.enumeration, 'rsvpIfStatus')),
+                ])
+                self.ifindex = None
+                self.rsvpifudpnbrs = None
+                self.rsvpifipnbrs = None
+                self.rsvpifnbrs = None
+                self.rsvpifrefreshblockademultiple = None
+                self.rsvpifrefreshmultiple = None
+                self.rsvpifttl = None
+                self.rsvpifrefreshinterval = None
+                self.rsvpifroutedelay = None
+                self.rsvpifenabled = None
+                self.rsvpifudprequired = None
+                self.rsvpifstatus = None
+                self._segment_path = lambda: "rsvpIfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1838,8 +1875,10 @@ class RSVPMIB(Entity):
             self.yang_parent_name = "RSVP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rsvpNbrEntry" : ("rsvpnbrentry", RSVPMIB.Rsvpnbrtable.Rsvpnbrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rsvpNbrEntry", ("rsvpnbrentry", RSVPMIB.Rsvpnbrtable.Rsvpnbrentry))])
+            self._leafs = OrderedDict()
 
             self.rsvpnbrentry = YList(self)
             self._segment_path = lambda: "rsvpNbrTable"
@@ -1854,7 +1893,7 @@ class RSVPMIB(Entity):
             Information	  describing   a    single    RSVP
             Neighbor.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1863,7 +1902,7 @@ class RSVPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: rsvpnbraddress  <key>
+            .. attribute:: rsvpnbraddress  (key)
             
             	The	IP4 or IP6 Address used	by this	 neighbor. This	 object	 may not be changed when the value of the RowStatus object is 'active'
             	**type**\: str
@@ -1894,17 +1933,20 @@ class RSVPMIB(Entity):
                 self.yang_parent_name = "rsvpNbrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.rsvpnbraddress = YLeaf(YType.str, "rsvpNbrAddress")
-
-                self.rsvpnbrprotocol = YLeaf(YType.enumeration, "rsvpNbrProtocol")
-
-                self.rsvpnbrstatus = YLeaf(YType.enumeration, "rsvpNbrStatus")
-                self._segment_path = lambda: "rsvpNbrEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[rsvpNbrAddress='" + self.rsvpnbraddress.get() + "']"
+                self.ylist_key_names = ['ifindex','rsvpnbraddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('rsvpnbraddress', YLeaf(YType.str, 'rsvpNbrAddress')),
+                    ('rsvpnbrprotocol', YLeaf(YType.enumeration, 'rsvpNbrProtocol')),
+                    ('rsvpnbrstatus', YLeaf(YType.enumeration, 'rsvpNbrStatus')),
+                ])
+                self.ifindex = None
+                self.rsvpnbraddress = None
+                self.rsvpnbrprotocol = None
+                self.rsvpnbrstatus = None
+                self._segment_path = lambda: "rsvpNbrEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[rsvpNbrAddress='" + str(self.rsvpnbraddress) + "']"
                 self._absolute_path = lambda: "RSVP-MIB:RSVP-MIB/rsvpNbrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

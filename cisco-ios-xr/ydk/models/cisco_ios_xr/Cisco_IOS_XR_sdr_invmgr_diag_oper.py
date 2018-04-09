@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Diag(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-sdr-invmgr-diag-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"racks" : ("racks", Diag.Racks)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("racks", ("racks", Diag.Racks))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.racks = Diag.Racks()
         self.racks.parent = self
@@ -75,8 +79,10 @@ class Diag(Entity):
             self.yang_parent_name = "diag"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rack" : ("rack", Diag.Racks.Rack)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rack", ("rack", Diag.Racks.Rack))])
+            self._leafs = OrderedDict()
 
             self.rack = YList(self)
             self._segment_path = lambda: "racks"
@@ -90,7 +96,7 @@ class Diag(Entity):
             """
             Rack name
             
-            .. attribute:: rack_name  <key>
+            .. attribute:: rack_name  (key)
             
             	Rack name
             	**type**\: str
@@ -131,10 +137,13 @@ class Diag(Entity):
                 self.yang_parent_name = "racks"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"power-shelfs" : ("power_shelfs", Diag.Racks.Rack.PowerShelfs), "fan-traies" : ("fan_traies", Diag.Racks.Rack.FanTraies), "slots" : ("slots", Diag.Racks.Rack.Slots), "chassis" : ("chassis", Diag.Racks.Rack.Chassis)}
-                self._child_list_classes = {}
-
-                self.rack_name = YLeaf(YType.str, "rack-name")
+                self.ylist_key_names = ['rack_name']
+                self._child_container_classes = OrderedDict([("power-shelfs", ("power_shelfs", Diag.Racks.Rack.PowerShelfs)), ("fan-traies", ("fan_traies", Diag.Racks.Rack.FanTraies)), ("slots", ("slots", Diag.Racks.Rack.Slots)), ("chassis", ("chassis", Diag.Racks.Rack.Chassis))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rack_name', YLeaf(YType.str, 'rack-name')),
+                ])
+                self.rack_name = None
 
                 self.power_shelfs = Diag.Racks.Rack.PowerShelfs()
                 self.power_shelfs.parent = self
@@ -155,7 +164,7 @@ class Diag(Entity):
                 self.chassis.parent = self
                 self._children_name_map["chassis"] = "chassis"
                 self._children_yang_names.add("chassis")
-                self._segment_path = lambda: "rack" + "[rack-name='" + self.rack_name.get() + "']"
+                self._segment_path = lambda: "rack" + "[rack-name='" + str(self.rack_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -185,8 +194,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"power-shelf" : ("power_shelf", Diag.Racks.Rack.PowerShelfs.PowerShelf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("power-shelf", ("power_shelf", Diag.Racks.Rack.PowerShelfs.PowerShelf))])
+                    self._leafs = OrderedDict()
 
                     self.power_shelf = YList(self)
                     self._segment_path = lambda: "power-shelfs"
@@ -199,7 +210,7 @@ class Diag(Entity):
                     """
                     Power shelf name
                     
-                    .. attribute:: power_shelf_name  <key>
+                    .. attribute:: power_shelf_name  (key)
                     
                     	Power Shelf name
                     	**type**\: str
@@ -225,16 +236,19 @@ class Diag(Entity):
                         self.yang_parent_name = "power-shelfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"power-supplies" : ("power_supplies", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies)}
-                        self._child_list_classes = {}
-
-                        self.power_shelf_name = YLeaf(YType.str, "power-shelf-name")
+                        self.ylist_key_names = ['power_shelf_name']
+                        self._child_container_classes = OrderedDict([("power-supplies", ("power_supplies", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('power_shelf_name', YLeaf(YType.str, 'power-shelf-name')),
+                        ])
+                        self.power_shelf_name = None
 
                         self.power_supplies = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies()
                         self.power_supplies.parent = self
                         self._children_name_map["power_supplies"] = "power-supplies"
                         self._children_yang_names.add("power-supplies")
-                        self._segment_path = lambda: "power-shelf" + "[power-shelf-name='" + self.power_shelf_name.get() + "']"
+                        self._segment_path = lambda: "power-shelf" + "[power-shelf-name='" + str(self.power_shelf_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf, ['power_shelf_name'], name, value)
@@ -263,8 +277,10 @@ class Diag(Entity):
                             self.yang_parent_name = "power-shelf"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"power-supply" : ("power_supply", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("power-supply", ("power_supply", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply))])
+                            self._leafs = OrderedDict()
 
                             self.power_supply = YList(self)
                             self._segment_path = lambda: "power-supplies"
@@ -277,7 +293,7 @@ class Diag(Entity):
                             """
                             Power Supply name
                             
-                            .. attribute:: power_supply_name  <key>
+                            .. attribute:: power_supply_name  (key)
                             
                             	Power Supply name
                             	**type**\: str
@@ -303,16 +319,19 @@ class Diag(Entity):
                                 self.yang_parent_name = "power-supplies"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"information" : ("information", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information)}
-                                self._child_list_classes = {}
-
-                                self.power_supply_name = YLeaf(YType.str, "power-supply-name")
+                                self.ylist_key_names = ['power_supply_name']
+                                self._child_container_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('power_supply_name', YLeaf(YType.str, 'power-supply-name')),
+                                ])
+                                self.power_supply_name = None
 
                                 self.information = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information()
                                 self.information.parent = self
                                 self._children_name_map["information"] = "information"
                                 self._children_yang_names.add("information")
-                                self._segment_path = lambda: "power-supply" + "[power-supply-name='" + self.power_supply_name.get() + "']"
+                                self._segment_path = lambda: "power-supply" + "[power-supply-name='" + str(self.power_supply_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply, ['power_supply_name'], name, value)
@@ -733,120 +752,123 @@ class Diag(Entity):
                                     self.yang_parent_name = "power-supply"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"rma" : ("rma", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma)}
-                                    self._child_list_classes = {}
-
-                                    self.description = YLeaf(YType.str, "description")
-
-                                    self.idprom_format_rev = YLeaf(YType.str, "idprom-format-rev")
-
-                                    self.controller_family = YLeaf(YType.str, "controller-family")
-
-                                    self.controller_type = YLeaf(YType.str, "controller-type")
-
-                                    self.vid = YLeaf(YType.str, "vid")
-
-                                    self.hwid = YLeaf(YType.str, "hwid")
-
-                                    self.pid = YLeaf(YType.str, "pid")
-
-                                    self.udi_description = YLeaf(YType.str, "udi-description")
-
-                                    self.udi_name = YLeaf(YType.str, "udi-name")
-
-                                    self.clei = YLeaf(YType.str, "clei")
-
-                                    self.eci = YLeaf(YType.str, "eci")
-
-                                    self.top_assem_part_num = YLeaf(YType.str, "top-assem-part-num")
-
-                                    self.top_assem_vid = YLeaf(YType.str, "top-assem-vid")
-
-                                    self.pca_num = YLeaf(YType.str, "pca-num")
-
-                                    self.pcavid = YLeaf(YType.str, "pcavid")
-
-                                    self.chassis_sid = YLeaf(YType.str, "chassis-sid")
-
-                                    self.dev_num1 = YLeaf(YType.str, "dev-num1")
-
-                                    self.dev_num2 = YLeaf(YType.str, "dev-num2")
-
-                                    self.dev_num3 = YLeaf(YType.str, "dev-num3")
-
-                                    self.dev_num4 = YLeaf(YType.str, "dev-num4")
-
-                                    self.dev_num5 = YLeaf(YType.str, "dev-num5")
-
-                                    self.dev_num6 = YLeaf(YType.str, "dev-num6")
-
-                                    self.dev_num7 = YLeaf(YType.str, "dev-num7")
-
-                                    self.manu_test_data = YLeaf(YType.str, "manu-test-data")
-
-                                    self.asset_id = YLeaf(YType.str, "asset-id")
-
-                                    self.asset_alias = YLeaf(YType.str, "asset-alias")
-
-                                    self.base_mac_address1 = YLeaf(YType.str, "base-mac-address1")
-
-                                    self.mac_add_blk_size1 = YLeaf(YType.str, "mac-add-blk-size1")
-
-                                    self.base_mac_address2 = YLeaf(YType.str, "base-mac-address2")
-
-                                    self.mac_add_blk_size2 = YLeaf(YType.str, "mac-add-blk-size2")
-
-                                    self.base_mac_address3 = YLeaf(YType.str, "base-mac-address3")
-
-                                    self.mac_add_blk_size3 = YLeaf(YType.str, "mac-add-blk-size3")
-
-                                    self.base_mac_address4 = YLeaf(YType.str, "base-mac-address4")
-
-                                    self.mac_add_blk_size4 = YLeaf(YType.str, "mac-add-blk-size4")
-
-                                    self.pcb_serial_num = YLeaf(YType.str, "pcb-serial-num")
-
-                                    self.power_supply_type = YLeaf(YType.str, "power-supply-type")
-
-                                    self.power_consumption = YLeaf(YType.str, "power-consumption")
-
-                                    self.block_signature = YLeaf(YType.str, "block-signature")
-
-                                    self.block_version = YLeaf(YType.str, "block-version")
-
-                                    self.block_length = YLeaf(YType.str, "block-length")
-
-                                    self.block_checksum = YLeaf(YType.str, "block-checksum")
-
-                                    self.eeprom_size = YLeaf(YType.str, "eeprom-size")
-
-                                    self.block_count = YLeaf(YType.str, "block-count")
-
-                                    self.fru_major_type = YLeaf(YType.str, "fru-major-type")
-
-                                    self.fru_minor_type = YLeaf(YType.str, "fru-minor-type")
-
-                                    self.oem_string = YLeaf(YType.str, "oem-string")
-
-                                    self.product_id = YLeaf(YType.str, "product-id")
-
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                    self.part_number = YLeaf(YType.str, "part-number")
-
-                                    self.part_revision = YLeaf(YType.str, "part-revision")
-
-                                    self.mfg_deviation = YLeaf(YType.str, "mfg-deviation")
-
-                                    self.hw_version = YLeaf(YType.str, "hw-version")
-
-                                    self.mfg_bits = YLeaf(YType.str, "mfg-bits")
-
-                                    self.engineer_use = YLeaf(YType.str, "engineer-use")
-
-                                    self.snmpoid = YLeaf(YType.str, "snmpoid")
-
-                                    self.rma_code = YLeaf(YType.str, "rma-code")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('description', YLeaf(YType.str, 'description')),
+                                        ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
+                                        ('controller_family', YLeaf(YType.str, 'controller-family')),
+                                        ('controller_type', YLeaf(YType.str, 'controller-type')),
+                                        ('vid', YLeaf(YType.str, 'vid')),
+                                        ('hwid', YLeaf(YType.str, 'hwid')),
+                                        ('pid', YLeaf(YType.str, 'pid')),
+                                        ('udi_description', YLeaf(YType.str, 'udi-description')),
+                                        ('udi_name', YLeaf(YType.str, 'udi-name')),
+                                        ('clei', YLeaf(YType.str, 'clei')),
+                                        ('eci', YLeaf(YType.str, 'eci')),
+                                        ('top_assem_part_num', YLeaf(YType.str, 'top-assem-part-num')),
+                                        ('top_assem_vid', YLeaf(YType.str, 'top-assem-vid')),
+                                        ('pca_num', YLeaf(YType.str, 'pca-num')),
+                                        ('pcavid', YLeaf(YType.str, 'pcavid')),
+                                        ('chassis_sid', YLeaf(YType.str, 'chassis-sid')),
+                                        ('dev_num1', YLeaf(YType.str, 'dev-num1')),
+                                        ('dev_num2', YLeaf(YType.str, 'dev-num2')),
+                                        ('dev_num3', YLeaf(YType.str, 'dev-num3')),
+                                        ('dev_num4', YLeaf(YType.str, 'dev-num4')),
+                                        ('dev_num5', YLeaf(YType.str, 'dev-num5')),
+                                        ('dev_num6', YLeaf(YType.str, 'dev-num6')),
+                                        ('dev_num7', YLeaf(YType.str, 'dev-num7')),
+                                        ('manu_test_data', YLeaf(YType.str, 'manu-test-data')),
+                                        ('asset_id', YLeaf(YType.str, 'asset-id')),
+                                        ('asset_alias', YLeaf(YType.str, 'asset-alias')),
+                                        ('base_mac_address1', YLeaf(YType.str, 'base-mac-address1')),
+                                        ('mac_add_blk_size1', YLeaf(YType.str, 'mac-add-blk-size1')),
+                                        ('base_mac_address2', YLeaf(YType.str, 'base-mac-address2')),
+                                        ('mac_add_blk_size2', YLeaf(YType.str, 'mac-add-blk-size2')),
+                                        ('base_mac_address3', YLeaf(YType.str, 'base-mac-address3')),
+                                        ('mac_add_blk_size3', YLeaf(YType.str, 'mac-add-blk-size3')),
+                                        ('base_mac_address4', YLeaf(YType.str, 'base-mac-address4')),
+                                        ('mac_add_blk_size4', YLeaf(YType.str, 'mac-add-blk-size4')),
+                                        ('pcb_serial_num', YLeaf(YType.str, 'pcb-serial-num')),
+                                        ('power_supply_type', YLeaf(YType.str, 'power-supply-type')),
+                                        ('power_consumption', YLeaf(YType.str, 'power-consumption')),
+                                        ('block_signature', YLeaf(YType.str, 'block-signature')),
+                                        ('block_version', YLeaf(YType.str, 'block-version')),
+                                        ('block_length', YLeaf(YType.str, 'block-length')),
+                                        ('block_checksum', YLeaf(YType.str, 'block-checksum')),
+                                        ('eeprom_size', YLeaf(YType.str, 'eeprom-size')),
+                                        ('block_count', YLeaf(YType.str, 'block-count')),
+                                        ('fru_major_type', YLeaf(YType.str, 'fru-major-type')),
+                                        ('fru_minor_type', YLeaf(YType.str, 'fru-minor-type')),
+                                        ('oem_string', YLeaf(YType.str, 'oem-string')),
+                                        ('product_id', YLeaf(YType.str, 'product-id')),
+                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                        ('part_number', YLeaf(YType.str, 'part-number')),
+                                        ('part_revision', YLeaf(YType.str, 'part-revision')),
+                                        ('mfg_deviation', YLeaf(YType.str, 'mfg-deviation')),
+                                        ('hw_version', YLeaf(YType.str, 'hw-version')),
+                                        ('mfg_bits', YLeaf(YType.str, 'mfg-bits')),
+                                        ('engineer_use', YLeaf(YType.str, 'engineer-use')),
+                                        ('snmpoid', YLeaf(YType.str, 'snmpoid')),
+                                        ('rma_code', YLeaf(YType.str, 'rma-code')),
+                                    ])
+                                    self.description = None
+                                    self.idprom_format_rev = None
+                                    self.controller_family = None
+                                    self.controller_type = None
+                                    self.vid = None
+                                    self.hwid = None
+                                    self.pid = None
+                                    self.udi_description = None
+                                    self.udi_name = None
+                                    self.clei = None
+                                    self.eci = None
+                                    self.top_assem_part_num = None
+                                    self.top_assem_vid = None
+                                    self.pca_num = None
+                                    self.pcavid = None
+                                    self.chassis_sid = None
+                                    self.dev_num1 = None
+                                    self.dev_num2 = None
+                                    self.dev_num3 = None
+                                    self.dev_num4 = None
+                                    self.dev_num5 = None
+                                    self.dev_num6 = None
+                                    self.dev_num7 = None
+                                    self.manu_test_data = None
+                                    self.asset_id = None
+                                    self.asset_alias = None
+                                    self.base_mac_address1 = None
+                                    self.mac_add_blk_size1 = None
+                                    self.base_mac_address2 = None
+                                    self.mac_add_blk_size2 = None
+                                    self.base_mac_address3 = None
+                                    self.mac_add_blk_size3 = None
+                                    self.base_mac_address4 = None
+                                    self.mac_add_blk_size4 = None
+                                    self.pcb_serial_num = None
+                                    self.power_supply_type = None
+                                    self.power_consumption = None
+                                    self.block_signature = None
+                                    self.block_version = None
+                                    self.block_length = None
+                                    self.block_checksum = None
+                                    self.eeprom_size = None
+                                    self.block_count = None
+                                    self.fru_major_type = None
+                                    self.fru_minor_type = None
+                                    self.oem_string = None
+                                    self.product_id = None
+                                    self.serial_number = None
+                                    self.part_number = None
+                                    self.part_revision = None
+                                    self.mfg_deviation = None
+                                    self.hw_version = None
+                                    self.mfg_bits = None
+                                    self.engineer_use = None
+                                    self.snmpoid = None
+                                    self.rma_code = None
 
                                     self.rma = Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma()
                                     self.rma.parent = self
@@ -897,14 +919,17 @@ class Diag(Entity):
                                         self.yang_parent_name = "information"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.test_history = YLeaf(YType.str, "test-history")
-
-                                        self.rma_number = YLeaf(YType.str, "rma-number")
-
-                                        self.rma_history = YLeaf(YType.str, "rma-history")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('test_history', YLeaf(YType.str, 'test-history')),
+                                            ('rma_number', YLeaf(YType.str, 'rma-number')),
+                                            ('rma_history', YLeaf(YType.str, 'rma-history')),
+                                        ])
+                                        self.test_history = None
+                                        self.rma_number = None
+                                        self.rma_history = None
                                         self._segment_path = lambda: "rma"
 
                                     def __setattr__(self, name, value):
@@ -934,8 +959,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"fan-tray" : ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("fan-tray", ("fan_tray", Diag.Racks.Rack.FanTraies.FanTray))])
+                    self._leafs = OrderedDict()
 
                     self.fan_tray = YList(self)
                     self._segment_path = lambda: "fan-traies"
@@ -948,7 +975,7 @@ class Diag(Entity):
                     """
                     Fan tray name
                     
-                    .. attribute:: fan_tray_name  <key>
+                    .. attribute:: fan_tray_name  (key)
                     
                     	Fan tray name
                     	**type**\: str
@@ -974,16 +1001,19 @@ class Diag(Entity):
                         self.yang_parent_name = "fan-traies"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"fanses" : ("fanses", Diag.Racks.Rack.FanTraies.FanTray.Fanses)}
-                        self._child_list_classes = {}
-
-                        self.fan_tray_name = YLeaf(YType.str, "fan-tray-name")
+                        self.ylist_key_names = ['fan_tray_name']
+                        self._child_container_classes = OrderedDict([("fanses", ("fanses", Diag.Racks.Rack.FanTraies.FanTray.Fanses))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('fan_tray_name', YLeaf(YType.str, 'fan-tray-name')),
+                        ])
+                        self.fan_tray_name = None
 
                         self.fanses = Diag.Racks.Rack.FanTraies.FanTray.Fanses()
                         self.fanses.parent = self
                         self._children_name_map["fanses"] = "fanses"
                         self._children_yang_names.add("fanses")
-                        self._segment_path = lambda: "fan-tray" + "[fan-tray-name='" + self.fan_tray_name.get() + "']"
+                        self._segment_path = lambda: "fan-tray" + "[fan-tray-name='" + str(self.fan_tray_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray, ['fan_tray_name'], name, value)
@@ -1012,8 +1042,10 @@ class Diag(Entity):
                             self.yang_parent_name = "fan-tray"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"fans" : ("fans", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("fans", ("fans", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans))])
+                            self._leafs = OrderedDict()
 
                             self.fans = YList(self)
                             self._segment_path = lambda: "fanses"
@@ -1026,7 +1058,7 @@ class Diag(Entity):
                             """
                             Fan name
                             
-                            .. attribute:: fans_name  <key>
+                            .. attribute:: fans_name  (key)
                             
                             	Fans name
                             	**type**\: str
@@ -1052,16 +1084,19 @@ class Diag(Entity):
                                 self.yang_parent_name = "fanses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"information" : ("information", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information)}
-                                self._child_list_classes = {}
-
-                                self.fans_name = YLeaf(YType.str, "fans-name")
+                                self.ylist_key_names = ['fans_name']
+                                self._child_container_classes = OrderedDict([("information", ("information", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('fans_name', YLeaf(YType.str, 'fans-name')),
+                                ])
+                                self.fans_name = None
 
                                 self.information = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information()
                                 self.information.parent = self
                                 self._children_name_map["information"] = "information"
                                 self._children_yang_names.add("information")
-                                self._segment_path = lambda: "fans" + "[fans-name='" + self.fans_name.get() + "']"
+                                self._segment_path = lambda: "fans" + "[fans-name='" + str(self.fans_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans, ['fans_name'], name, value)
@@ -1482,120 +1517,123 @@ class Diag(Entity):
                                     self.yang_parent_name = "fans"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"rma" : ("rma", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma)}
-                                    self._child_list_classes = {}
-
-                                    self.description = YLeaf(YType.str, "description")
-
-                                    self.idprom_format_rev = YLeaf(YType.str, "idprom-format-rev")
-
-                                    self.controller_family = YLeaf(YType.str, "controller-family")
-
-                                    self.controller_type = YLeaf(YType.str, "controller-type")
-
-                                    self.vid = YLeaf(YType.str, "vid")
-
-                                    self.hwid = YLeaf(YType.str, "hwid")
-
-                                    self.pid = YLeaf(YType.str, "pid")
-
-                                    self.udi_description = YLeaf(YType.str, "udi-description")
-
-                                    self.udi_name = YLeaf(YType.str, "udi-name")
-
-                                    self.clei = YLeaf(YType.str, "clei")
-
-                                    self.eci = YLeaf(YType.str, "eci")
-
-                                    self.top_assem_part_num = YLeaf(YType.str, "top-assem-part-num")
-
-                                    self.top_assem_vid = YLeaf(YType.str, "top-assem-vid")
-
-                                    self.pca_num = YLeaf(YType.str, "pca-num")
-
-                                    self.pcavid = YLeaf(YType.str, "pcavid")
-
-                                    self.chassis_sid = YLeaf(YType.str, "chassis-sid")
-
-                                    self.dev_num1 = YLeaf(YType.str, "dev-num1")
-
-                                    self.dev_num2 = YLeaf(YType.str, "dev-num2")
-
-                                    self.dev_num3 = YLeaf(YType.str, "dev-num3")
-
-                                    self.dev_num4 = YLeaf(YType.str, "dev-num4")
-
-                                    self.dev_num5 = YLeaf(YType.str, "dev-num5")
-
-                                    self.dev_num6 = YLeaf(YType.str, "dev-num6")
-
-                                    self.dev_num7 = YLeaf(YType.str, "dev-num7")
-
-                                    self.manu_test_data = YLeaf(YType.str, "manu-test-data")
-
-                                    self.asset_id = YLeaf(YType.str, "asset-id")
-
-                                    self.asset_alias = YLeaf(YType.str, "asset-alias")
-
-                                    self.base_mac_address1 = YLeaf(YType.str, "base-mac-address1")
-
-                                    self.mac_add_blk_size1 = YLeaf(YType.str, "mac-add-blk-size1")
-
-                                    self.base_mac_address2 = YLeaf(YType.str, "base-mac-address2")
-
-                                    self.mac_add_blk_size2 = YLeaf(YType.str, "mac-add-blk-size2")
-
-                                    self.base_mac_address3 = YLeaf(YType.str, "base-mac-address3")
-
-                                    self.mac_add_blk_size3 = YLeaf(YType.str, "mac-add-blk-size3")
-
-                                    self.base_mac_address4 = YLeaf(YType.str, "base-mac-address4")
-
-                                    self.mac_add_blk_size4 = YLeaf(YType.str, "mac-add-blk-size4")
-
-                                    self.pcb_serial_num = YLeaf(YType.str, "pcb-serial-num")
-
-                                    self.power_supply_type = YLeaf(YType.str, "power-supply-type")
-
-                                    self.power_consumption = YLeaf(YType.str, "power-consumption")
-
-                                    self.block_signature = YLeaf(YType.str, "block-signature")
-
-                                    self.block_version = YLeaf(YType.str, "block-version")
-
-                                    self.block_length = YLeaf(YType.str, "block-length")
-
-                                    self.block_checksum = YLeaf(YType.str, "block-checksum")
-
-                                    self.eeprom_size = YLeaf(YType.str, "eeprom-size")
-
-                                    self.block_count = YLeaf(YType.str, "block-count")
-
-                                    self.fru_major_type = YLeaf(YType.str, "fru-major-type")
-
-                                    self.fru_minor_type = YLeaf(YType.str, "fru-minor-type")
-
-                                    self.oem_string = YLeaf(YType.str, "oem-string")
-
-                                    self.product_id = YLeaf(YType.str, "product-id")
-
-                                    self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                    self.part_number = YLeaf(YType.str, "part-number")
-
-                                    self.part_revision = YLeaf(YType.str, "part-revision")
-
-                                    self.mfg_deviation = YLeaf(YType.str, "mfg-deviation")
-
-                                    self.hw_version = YLeaf(YType.str, "hw-version")
-
-                                    self.mfg_bits = YLeaf(YType.str, "mfg-bits")
-
-                                    self.engineer_use = YLeaf(YType.str, "engineer-use")
-
-                                    self.snmpoid = YLeaf(YType.str, "snmpoid")
-
-                                    self.rma_code = YLeaf(YType.str, "rma-code")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('description', YLeaf(YType.str, 'description')),
+                                        ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
+                                        ('controller_family', YLeaf(YType.str, 'controller-family')),
+                                        ('controller_type', YLeaf(YType.str, 'controller-type')),
+                                        ('vid', YLeaf(YType.str, 'vid')),
+                                        ('hwid', YLeaf(YType.str, 'hwid')),
+                                        ('pid', YLeaf(YType.str, 'pid')),
+                                        ('udi_description', YLeaf(YType.str, 'udi-description')),
+                                        ('udi_name', YLeaf(YType.str, 'udi-name')),
+                                        ('clei', YLeaf(YType.str, 'clei')),
+                                        ('eci', YLeaf(YType.str, 'eci')),
+                                        ('top_assem_part_num', YLeaf(YType.str, 'top-assem-part-num')),
+                                        ('top_assem_vid', YLeaf(YType.str, 'top-assem-vid')),
+                                        ('pca_num', YLeaf(YType.str, 'pca-num')),
+                                        ('pcavid', YLeaf(YType.str, 'pcavid')),
+                                        ('chassis_sid', YLeaf(YType.str, 'chassis-sid')),
+                                        ('dev_num1', YLeaf(YType.str, 'dev-num1')),
+                                        ('dev_num2', YLeaf(YType.str, 'dev-num2')),
+                                        ('dev_num3', YLeaf(YType.str, 'dev-num3')),
+                                        ('dev_num4', YLeaf(YType.str, 'dev-num4')),
+                                        ('dev_num5', YLeaf(YType.str, 'dev-num5')),
+                                        ('dev_num6', YLeaf(YType.str, 'dev-num6')),
+                                        ('dev_num7', YLeaf(YType.str, 'dev-num7')),
+                                        ('manu_test_data', YLeaf(YType.str, 'manu-test-data')),
+                                        ('asset_id', YLeaf(YType.str, 'asset-id')),
+                                        ('asset_alias', YLeaf(YType.str, 'asset-alias')),
+                                        ('base_mac_address1', YLeaf(YType.str, 'base-mac-address1')),
+                                        ('mac_add_blk_size1', YLeaf(YType.str, 'mac-add-blk-size1')),
+                                        ('base_mac_address2', YLeaf(YType.str, 'base-mac-address2')),
+                                        ('mac_add_blk_size2', YLeaf(YType.str, 'mac-add-blk-size2')),
+                                        ('base_mac_address3', YLeaf(YType.str, 'base-mac-address3')),
+                                        ('mac_add_blk_size3', YLeaf(YType.str, 'mac-add-blk-size3')),
+                                        ('base_mac_address4', YLeaf(YType.str, 'base-mac-address4')),
+                                        ('mac_add_blk_size4', YLeaf(YType.str, 'mac-add-blk-size4')),
+                                        ('pcb_serial_num', YLeaf(YType.str, 'pcb-serial-num')),
+                                        ('power_supply_type', YLeaf(YType.str, 'power-supply-type')),
+                                        ('power_consumption', YLeaf(YType.str, 'power-consumption')),
+                                        ('block_signature', YLeaf(YType.str, 'block-signature')),
+                                        ('block_version', YLeaf(YType.str, 'block-version')),
+                                        ('block_length', YLeaf(YType.str, 'block-length')),
+                                        ('block_checksum', YLeaf(YType.str, 'block-checksum')),
+                                        ('eeprom_size', YLeaf(YType.str, 'eeprom-size')),
+                                        ('block_count', YLeaf(YType.str, 'block-count')),
+                                        ('fru_major_type', YLeaf(YType.str, 'fru-major-type')),
+                                        ('fru_minor_type', YLeaf(YType.str, 'fru-minor-type')),
+                                        ('oem_string', YLeaf(YType.str, 'oem-string')),
+                                        ('product_id', YLeaf(YType.str, 'product-id')),
+                                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                        ('part_number', YLeaf(YType.str, 'part-number')),
+                                        ('part_revision', YLeaf(YType.str, 'part-revision')),
+                                        ('mfg_deviation', YLeaf(YType.str, 'mfg-deviation')),
+                                        ('hw_version', YLeaf(YType.str, 'hw-version')),
+                                        ('mfg_bits', YLeaf(YType.str, 'mfg-bits')),
+                                        ('engineer_use', YLeaf(YType.str, 'engineer-use')),
+                                        ('snmpoid', YLeaf(YType.str, 'snmpoid')),
+                                        ('rma_code', YLeaf(YType.str, 'rma-code')),
+                                    ])
+                                    self.description = None
+                                    self.idprom_format_rev = None
+                                    self.controller_family = None
+                                    self.controller_type = None
+                                    self.vid = None
+                                    self.hwid = None
+                                    self.pid = None
+                                    self.udi_description = None
+                                    self.udi_name = None
+                                    self.clei = None
+                                    self.eci = None
+                                    self.top_assem_part_num = None
+                                    self.top_assem_vid = None
+                                    self.pca_num = None
+                                    self.pcavid = None
+                                    self.chassis_sid = None
+                                    self.dev_num1 = None
+                                    self.dev_num2 = None
+                                    self.dev_num3 = None
+                                    self.dev_num4 = None
+                                    self.dev_num5 = None
+                                    self.dev_num6 = None
+                                    self.dev_num7 = None
+                                    self.manu_test_data = None
+                                    self.asset_id = None
+                                    self.asset_alias = None
+                                    self.base_mac_address1 = None
+                                    self.mac_add_blk_size1 = None
+                                    self.base_mac_address2 = None
+                                    self.mac_add_blk_size2 = None
+                                    self.base_mac_address3 = None
+                                    self.mac_add_blk_size3 = None
+                                    self.base_mac_address4 = None
+                                    self.mac_add_blk_size4 = None
+                                    self.pcb_serial_num = None
+                                    self.power_supply_type = None
+                                    self.power_consumption = None
+                                    self.block_signature = None
+                                    self.block_version = None
+                                    self.block_length = None
+                                    self.block_checksum = None
+                                    self.eeprom_size = None
+                                    self.block_count = None
+                                    self.fru_major_type = None
+                                    self.fru_minor_type = None
+                                    self.oem_string = None
+                                    self.product_id = None
+                                    self.serial_number = None
+                                    self.part_number = None
+                                    self.part_revision = None
+                                    self.mfg_deviation = None
+                                    self.hw_version = None
+                                    self.mfg_bits = None
+                                    self.engineer_use = None
+                                    self.snmpoid = None
+                                    self.rma_code = None
 
                                     self.rma = Diag.Racks.Rack.FanTraies.FanTray.Fanses.Fans.Information.Rma()
                                     self.rma.parent = self
@@ -1646,14 +1684,17 @@ class Diag(Entity):
                                         self.yang_parent_name = "information"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.test_history = YLeaf(YType.str, "test-history")
-
-                                        self.rma_number = YLeaf(YType.str, "rma-number")
-
-                                        self.rma_history = YLeaf(YType.str, "rma-history")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('test_history', YLeaf(YType.str, 'test-history')),
+                                            ('rma_number', YLeaf(YType.str, 'rma-number')),
+                                            ('rma_history', YLeaf(YType.str, 'rma-history')),
+                                        ])
+                                        self.test_history = None
+                                        self.rma_number = None
+                                        self.rma_history = None
                                         self._segment_path = lambda: "rma"
 
                                     def __setattr__(self, name, value):
@@ -1683,8 +1724,10 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"slot" : ("slot", Diag.Racks.Rack.Slots.Slot)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("slot", ("slot", Diag.Racks.Rack.Slots.Slot))])
+                    self._leafs = OrderedDict()
 
                     self.slot = YList(self)
                     self._segment_path = lambda: "slots"
@@ -1697,7 +1740,7 @@ class Diag(Entity):
                     """
                     Slot name
                     
-                    .. attribute:: slot_name  <key>
+                    .. attribute:: slot_name  (key)
                     
                     	Slot name
                     	**type**\: str
@@ -1723,16 +1766,19 @@ class Diag(Entity):
                         self.yang_parent_name = "slots"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"instances" : ("instances", Diag.Racks.Rack.Slots.Slot.Instances)}
-                        self._child_list_classes = {}
-
-                        self.slot_name = YLeaf(YType.str, "slot-name")
+                        self.ylist_key_names = ['slot_name']
+                        self._child_container_classes = OrderedDict([("instances", ("instances", Diag.Racks.Rack.Slots.Slot.Instances))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('slot_name', YLeaf(YType.str, 'slot-name')),
+                        ])
+                        self.slot_name = None
 
                         self.instances = Diag.Racks.Rack.Slots.Slot.Instances()
                         self.instances.parent = self
                         self._children_name_map["instances"] = "instances"
                         self._children_yang_names.add("instances")
-                        self._segment_path = lambda: "slot" + "[slot-name='" + self.slot_name.get() + "']"
+                        self._segment_path = lambda: "slot" + "[slot-name='" + str(self.slot_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Racks.Rack.Slots.Slot, ['slot_name'], name, value)
@@ -1761,8 +1807,10 @@ class Diag(Entity):
                             self.yang_parent_name = "slot"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"instance" : ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("instance", ("instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance))])
+                            self._leafs = OrderedDict()
 
                             self.instance = YList(self)
                             self._segment_path = lambda: "instances"
@@ -1775,7 +1823,7 @@ class Diag(Entity):
                             """
                             instance number
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	Instance name
                             	**type**\: str
@@ -1801,16 +1849,19 @@ class Diag(Entity):
                                 self.yang_parent_name = "instances"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"detail" : ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail)}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([("detail", ("detail", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
 
                                 self.detail = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail()
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._children_yang_names.add("detail")
-                                self._segment_path = lambda: "instance" + "[name='" + self.name.get() + "']"
+                                self._segment_path = lambda: "instance" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance, ['name'], name, value)
@@ -1846,10 +1897,13 @@ class Diag(Entity):
                                     self.yang_parent_name = "instance"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"card-instance" : ("card_instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance)}
-                                    self._child_list_classes = {}
-
-                                    self.node_operational_state = YLeaf(YType.str, "node-operational-state")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("card-instance", ("card_instance", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('node_operational_state', YLeaf(YType.str, 'node-operational-state')),
+                                    ])
+                                    self.node_operational_state = None
 
                                     self.card_instance = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance()
                                     self.card_instance.parent = self
@@ -2276,120 +2330,123 @@ class Diag(Entity):
                                         self.yang_parent_name = "detail"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"rma" : ("rma", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma)}
-                                        self._child_list_classes = {}
-
-                                        self.description = YLeaf(YType.str, "description")
-
-                                        self.idprom_format_rev = YLeaf(YType.str, "idprom-format-rev")
-
-                                        self.controller_family = YLeaf(YType.str, "controller-family")
-
-                                        self.controller_type = YLeaf(YType.str, "controller-type")
-
-                                        self.vid = YLeaf(YType.str, "vid")
-
-                                        self.hwid = YLeaf(YType.str, "hwid")
-
-                                        self.pid = YLeaf(YType.str, "pid")
-
-                                        self.udi_description = YLeaf(YType.str, "udi-description")
-
-                                        self.udi_name = YLeaf(YType.str, "udi-name")
-
-                                        self.clei = YLeaf(YType.str, "clei")
-
-                                        self.eci = YLeaf(YType.str, "eci")
-
-                                        self.top_assem_part_num = YLeaf(YType.str, "top-assem-part-num")
-
-                                        self.top_assem_vid = YLeaf(YType.str, "top-assem-vid")
-
-                                        self.pca_num = YLeaf(YType.str, "pca-num")
-
-                                        self.pcavid = YLeaf(YType.str, "pcavid")
-
-                                        self.chassis_sid = YLeaf(YType.str, "chassis-sid")
-
-                                        self.dev_num1 = YLeaf(YType.str, "dev-num1")
-
-                                        self.dev_num2 = YLeaf(YType.str, "dev-num2")
-
-                                        self.dev_num3 = YLeaf(YType.str, "dev-num3")
-
-                                        self.dev_num4 = YLeaf(YType.str, "dev-num4")
-
-                                        self.dev_num5 = YLeaf(YType.str, "dev-num5")
-
-                                        self.dev_num6 = YLeaf(YType.str, "dev-num6")
-
-                                        self.dev_num7 = YLeaf(YType.str, "dev-num7")
-
-                                        self.manu_test_data = YLeaf(YType.str, "manu-test-data")
-
-                                        self.asset_id = YLeaf(YType.str, "asset-id")
-
-                                        self.asset_alias = YLeaf(YType.str, "asset-alias")
-
-                                        self.base_mac_address1 = YLeaf(YType.str, "base-mac-address1")
-
-                                        self.mac_add_blk_size1 = YLeaf(YType.str, "mac-add-blk-size1")
-
-                                        self.base_mac_address2 = YLeaf(YType.str, "base-mac-address2")
-
-                                        self.mac_add_blk_size2 = YLeaf(YType.str, "mac-add-blk-size2")
-
-                                        self.base_mac_address3 = YLeaf(YType.str, "base-mac-address3")
-
-                                        self.mac_add_blk_size3 = YLeaf(YType.str, "mac-add-blk-size3")
-
-                                        self.base_mac_address4 = YLeaf(YType.str, "base-mac-address4")
-
-                                        self.mac_add_blk_size4 = YLeaf(YType.str, "mac-add-blk-size4")
-
-                                        self.pcb_serial_num = YLeaf(YType.str, "pcb-serial-num")
-
-                                        self.power_supply_type = YLeaf(YType.str, "power-supply-type")
-
-                                        self.power_consumption = YLeaf(YType.str, "power-consumption")
-
-                                        self.block_signature = YLeaf(YType.str, "block-signature")
-
-                                        self.block_version = YLeaf(YType.str, "block-version")
-
-                                        self.block_length = YLeaf(YType.str, "block-length")
-
-                                        self.block_checksum = YLeaf(YType.str, "block-checksum")
-
-                                        self.eeprom_size = YLeaf(YType.str, "eeprom-size")
-
-                                        self.block_count = YLeaf(YType.str, "block-count")
-
-                                        self.fru_major_type = YLeaf(YType.str, "fru-major-type")
-
-                                        self.fru_minor_type = YLeaf(YType.str, "fru-minor-type")
-
-                                        self.oem_string = YLeaf(YType.str, "oem-string")
-
-                                        self.product_id = YLeaf(YType.str, "product-id")
-
-                                        self.serial_number = YLeaf(YType.str, "serial-number")
-
-                                        self.part_number = YLeaf(YType.str, "part-number")
-
-                                        self.part_revision = YLeaf(YType.str, "part-revision")
-
-                                        self.mfg_deviation = YLeaf(YType.str, "mfg-deviation")
-
-                                        self.hw_version = YLeaf(YType.str, "hw-version")
-
-                                        self.mfg_bits = YLeaf(YType.str, "mfg-bits")
-
-                                        self.engineer_use = YLeaf(YType.str, "engineer-use")
-
-                                        self.snmpoid = YLeaf(YType.str, "snmpoid")
-
-                                        self.rma_code = YLeaf(YType.str, "rma-code")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('description', YLeaf(YType.str, 'description')),
+                                            ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
+                                            ('controller_family', YLeaf(YType.str, 'controller-family')),
+                                            ('controller_type', YLeaf(YType.str, 'controller-type')),
+                                            ('vid', YLeaf(YType.str, 'vid')),
+                                            ('hwid', YLeaf(YType.str, 'hwid')),
+                                            ('pid', YLeaf(YType.str, 'pid')),
+                                            ('udi_description', YLeaf(YType.str, 'udi-description')),
+                                            ('udi_name', YLeaf(YType.str, 'udi-name')),
+                                            ('clei', YLeaf(YType.str, 'clei')),
+                                            ('eci', YLeaf(YType.str, 'eci')),
+                                            ('top_assem_part_num', YLeaf(YType.str, 'top-assem-part-num')),
+                                            ('top_assem_vid', YLeaf(YType.str, 'top-assem-vid')),
+                                            ('pca_num', YLeaf(YType.str, 'pca-num')),
+                                            ('pcavid', YLeaf(YType.str, 'pcavid')),
+                                            ('chassis_sid', YLeaf(YType.str, 'chassis-sid')),
+                                            ('dev_num1', YLeaf(YType.str, 'dev-num1')),
+                                            ('dev_num2', YLeaf(YType.str, 'dev-num2')),
+                                            ('dev_num3', YLeaf(YType.str, 'dev-num3')),
+                                            ('dev_num4', YLeaf(YType.str, 'dev-num4')),
+                                            ('dev_num5', YLeaf(YType.str, 'dev-num5')),
+                                            ('dev_num6', YLeaf(YType.str, 'dev-num6')),
+                                            ('dev_num7', YLeaf(YType.str, 'dev-num7')),
+                                            ('manu_test_data', YLeaf(YType.str, 'manu-test-data')),
+                                            ('asset_id', YLeaf(YType.str, 'asset-id')),
+                                            ('asset_alias', YLeaf(YType.str, 'asset-alias')),
+                                            ('base_mac_address1', YLeaf(YType.str, 'base-mac-address1')),
+                                            ('mac_add_blk_size1', YLeaf(YType.str, 'mac-add-blk-size1')),
+                                            ('base_mac_address2', YLeaf(YType.str, 'base-mac-address2')),
+                                            ('mac_add_blk_size2', YLeaf(YType.str, 'mac-add-blk-size2')),
+                                            ('base_mac_address3', YLeaf(YType.str, 'base-mac-address3')),
+                                            ('mac_add_blk_size3', YLeaf(YType.str, 'mac-add-blk-size3')),
+                                            ('base_mac_address4', YLeaf(YType.str, 'base-mac-address4')),
+                                            ('mac_add_blk_size4', YLeaf(YType.str, 'mac-add-blk-size4')),
+                                            ('pcb_serial_num', YLeaf(YType.str, 'pcb-serial-num')),
+                                            ('power_supply_type', YLeaf(YType.str, 'power-supply-type')),
+                                            ('power_consumption', YLeaf(YType.str, 'power-consumption')),
+                                            ('block_signature', YLeaf(YType.str, 'block-signature')),
+                                            ('block_version', YLeaf(YType.str, 'block-version')),
+                                            ('block_length', YLeaf(YType.str, 'block-length')),
+                                            ('block_checksum', YLeaf(YType.str, 'block-checksum')),
+                                            ('eeprom_size', YLeaf(YType.str, 'eeprom-size')),
+                                            ('block_count', YLeaf(YType.str, 'block-count')),
+                                            ('fru_major_type', YLeaf(YType.str, 'fru-major-type')),
+                                            ('fru_minor_type', YLeaf(YType.str, 'fru-minor-type')),
+                                            ('oem_string', YLeaf(YType.str, 'oem-string')),
+                                            ('product_id', YLeaf(YType.str, 'product-id')),
+                                            ('serial_number', YLeaf(YType.str, 'serial-number')),
+                                            ('part_number', YLeaf(YType.str, 'part-number')),
+                                            ('part_revision', YLeaf(YType.str, 'part-revision')),
+                                            ('mfg_deviation', YLeaf(YType.str, 'mfg-deviation')),
+                                            ('hw_version', YLeaf(YType.str, 'hw-version')),
+                                            ('mfg_bits', YLeaf(YType.str, 'mfg-bits')),
+                                            ('engineer_use', YLeaf(YType.str, 'engineer-use')),
+                                            ('snmpoid', YLeaf(YType.str, 'snmpoid')),
+                                            ('rma_code', YLeaf(YType.str, 'rma-code')),
+                                        ])
+                                        self.description = None
+                                        self.idprom_format_rev = None
+                                        self.controller_family = None
+                                        self.controller_type = None
+                                        self.vid = None
+                                        self.hwid = None
+                                        self.pid = None
+                                        self.udi_description = None
+                                        self.udi_name = None
+                                        self.clei = None
+                                        self.eci = None
+                                        self.top_assem_part_num = None
+                                        self.top_assem_vid = None
+                                        self.pca_num = None
+                                        self.pcavid = None
+                                        self.chassis_sid = None
+                                        self.dev_num1 = None
+                                        self.dev_num2 = None
+                                        self.dev_num3 = None
+                                        self.dev_num4 = None
+                                        self.dev_num5 = None
+                                        self.dev_num6 = None
+                                        self.dev_num7 = None
+                                        self.manu_test_data = None
+                                        self.asset_id = None
+                                        self.asset_alias = None
+                                        self.base_mac_address1 = None
+                                        self.mac_add_blk_size1 = None
+                                        self.base_mac_address2 = None
+                                        self.mac_add_blk_size2 = None
+                                        self.base_mac_address3 = None
+                                        self.mac_add_blk_size3 = None
+                                        self.base_mac_address4 = None
+                                        self.mac_add_blk_size4 = None
+                                        self.pcb_serial_num = None
+                                        self.power_supply_type = None
+                                        self.power_consumption = None
+                                        self.block_signature = None
+                                        self.block_version = None
+                                        self.block_length = None
+                                        self.block_checksum = None
+                                        self.eeprom_size = None
+                                        self.block_count = None
+                                        self.fru_major_type = None
+                                        self.fru_minor_type = None
+                                        self.oem_string = None
+                                        self.product_id = None
+                                        self.serial_number = None
+                                        self.part_number = None
+                                        self.part_revision = None
+                                        self.mfg_deviation = None
+                                        self.hw_version = None
+                                        self.mfg_bits = None
+                                        self.engineer_use = None
+                                        self.snmpoid = None
+                                        self.rma_code = None
 
                                         self.rma = Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma()
                                         self.rma.parent = self
@@ -2440,14 +2497,17 @@ class Diag(Entity):
                                             self.yang_parent_name = "card-instance"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.test_history = YLeaf(YType.str, "test-history")
-
-                                            self.rma_number = YLeaf(YType.str, "rma-number")
-
-                                            self.rma_history = YLeaf(YType.str, "rma-history")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('test_history', YLeaf(YType.str, 'test-history')),
+                                                ('rma_number', YLeaf(YType.str, 'rma-number')),
+                                                ('rma_history', YLeaf(YType.str, 'rma-history')),
+                                            ])
+                                            self.test_history = None
+                                            self.rma_number = None
+                                            self.rma_history = None
                                             self._segment_path = lambda: "rma"
 
                                         def __setattr__(self, name, value):
@@ -2869,120 +2929,123 @@ class Diag(Entity):
                     self.yang_parent_name = "rack"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"rma" : ("rma", Diag.Racks.Rack.Chassis.Rma)}
-                    self._child_list_classes = {}
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.idprom_format_rev = YLeaf(YType.str, "idprom-format-rev")
-
-                    self.controller_family = YLeaf(YType.str, "controller-family")
-
-                    self.controller_type = YLeaf(YType.str, "controller-type")
-
-                    self.vid = YLeaf(YType.str, "vid")
-
-                    self.hwid = YLeaf(YType.str, "hwid")
-
-                    self.pid = YLeaf(YType.str, "pid")
-
-                    self.udi_description = YLeaf(YType.str, "udi-description")
-
-                    self.udi_name = YLeaf(YType.str, "udi-name")
-
-                    self.clei = YLeaf(YType.str, "clei")
-
-                    self.eci = YLeaf(YType.str, "eci")
-
-                    self.top_assem_part_num = YLeaf(YType.str, "top-assem-part-num")
-
-                    self.top_assem_vid = YLeaf(YType.str, "top-assem-vid")
-
-                    self.pca_num = YLeaf(YType.str, "pca-num")
-
-                    self.pcavid = YLeaf(YType.str, "pcavid")
-
-                    self.chassis_sid = YLeaf(YType.str, "chassis-sid")
-
-                    self.dev_num1 = YLeaf(YType.str, "dev-num1")
-
-                    self.dev_num2 = YLeaf(YType.str, "dev-num2")
-
-                    self.dev_num3 = YLeaf(YType.str, "dev-num3")
-
-                    self.dev_num4 = YLeaf(YType.str, "dev-num4")
-
-                    self.dev_num5 = YLeaf(YType.str, "dev-num5")
-
-                    self.dev_num6 = YLeaf(YType.str, "dev-num6")
-
-                    self.dev_num7 = YLeaf(YType.str, "dev-num7")
-
-                    self.manu_test_data = YLeaf(YType.str, "manu-test-data")
-
-                    self.asset_id = YLeaf(YType.str, "asset-id")
-
-                    self.asset_alias = YLeaf(YType.str, "asset-alias")
-
-                    self.base_mac_address1 = YLeaf(YType.str, "base-mac-address1")
-
-                    self.mac_add_blk_size1 = YLeaf(YType.str, "mac-add-blk-size1")
-
-                    self.base_mac_address2 = YLeaf(YType.str, "base-mac-address2")
-
-                    self.mac_add_blk_size2 = YLeaf(YType.str, "mac-add-blk-size2")
-
-                    self.base_mac_address3 = YLeaf(YType.str, "base-mac-address3")
-
-                    self.mac_add_blk_size3 = YLeaf(YType.str, "mac-add-blk-size3")
-
-                    self.base_mac_address4 = YLeaf(YType.str, "base-mac-address4")
-
-                    self.mac_add_blk_size4 = YLeaf(YType.str, "mac-add-blk-size4")
-
-                    self.pcb_serial_num = YLeaf(YType.str, "pcb-serial-num")
-
-                    self.power_supply_type = YLeaf(YType.str, "power-supply-type")
-
-                    self.power_consumption = YLeaf(YType.str, "power-consumption")
-
-                    self.block_signature = YLeaf(YType.str, "block-signature")
-
-                    self.block_version = YLeaf(YType.str, "block-version")
-
-                    self.block_length = YLeaf(YType.str, "block-length")
-
-                    self.block_checksum = YLeaf(YType.str, "block-checksum")
-
-                    self.eeprom_size = YLeaf(YType.str, "eeprom-size")
-
-                    self.block_count = YLeaf(YType.str, "block-count")
-
-                    self.fru_major_type = YLeaf(YType.str, "fru-major-type")
-
-                    self.fru_minor_type = YLeaf(YType.str, "fru-minor-type")
-
-                    self.oem_string = YLeaf(YType.str, "oem-string")
-
-                    self.product_id = YLeaf(YType.str, "product-id")
-
-                    self.serial_number = YLeaf(YType.str, "serial-number")
-
-                    self.part_number = YLeaf(YType.str, "part-number")
-
-                    self.part_revision = YLeaf(YType.str, "part-revision")
-
-                    self.mfg_deviation = YLeaf(YType.str, "mfg-deviation")
-
-                    self.hw_version = YLeaf(YType.str, "hw-version")
-
-                    self.mfg_bits = YLeaf(YType.str, "mfg-bits")
-
-                    self.engineer_use = YLeaf(YType.str, "engineer-use")
-
-                    self.snmpoid = YLeaf(YType.str, "snmpoid")
-
-                    self.rma_code = YLeaf(YType.str, "rma-code")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("rma", ("rma", Diag.Racks.Rack.Chassis.Rma))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('idprom_format_rev', YLeaf(YType.str, 'idprom-format-rev')),
+                        ('controller_family', YLeaf(YType.str, 'controller-family')),
+                        ('controller_type', YLeaf(YType.str, 'controller-type')),
+                        ('vid', YLeaf(YType.str, 'vid')),
+                        ('hwid', YLeaf(YType.str, 'hwid')),
+                        ('pid', YLeaf(YType.str, 'pid')),
+                        ('udi_description', YLeaf(YType.str, 'udi-description')),
+                        ('udi_name', YLeaf(YType.str, 'udi-name')),
+                        ('clei', YLeaf(YType.str, 'clei')),
+                        ('eci', YLeaf(YType.str, 'eci')),
+                        ('top_assem_part_num', YLeaf(YType.str, 'top-assem-part-num')),
+                        ('top_assem_vid', YLeaf(YType.str, 'top-assem-vid')),
+                        ('pca_num', YLeaf(YType.str, 'pca-num')),
+                        ('pcavid', YLeaf(YType.str, 'pcavid')),
+                        ('chassis_sid', YLeaf(YType.str, 'chassis-sid')),
+                        ('dev_num1', YLeaf(YType.str, 'dev-num1')),
+                        ('dev_num2', YLeaf(YType.str, 'dev-num2')),
+                        ('dev_num3', YLeaf(YType.str, 'dev-num3')),
+                        ('dev_num4', YLeaf(YType.str, 'dev-num4')),
+                        ('dev_num5', YLeaf(YType.str, 'dev-num5')),
+                        ('dev_num6', YLeaf(YType.str, 'dev-num6')),
+                        ('dev_num7', YLeaf(YType.str, 'dev-num7')),
+                        ('manu_test_data', YLeaf(YType.str, 'manu-test-data')),
+                        ('asset_id', YLeaf(YType.str, 'asset-id')),
+                        ('asset_alias', YLeaf(YType.str, 'asset-alias')),
+                        ('base_mac_address1', YLeaf(YType.str, 'base-mac-address1')),
+                        ('mac_add_blk_size1', YLeaf(YType.str, 'mac-add-blk-size1')),
+                        ('base_mac_address2', YLeaf(YType.str, 'base-mac-address2')),
+                        ('mac_add_blk_size2', YLeaf(YType.str, 'mac-add-blk-size2')),
+                        ('base_mac_address3', YLeaf(YType.str, 'base-mac-address3')),
+                        ('mac_add_blk_size3', YLeaf(YType.str, 'mac-add-blk-size3')),
+                        ('base_mac_address4', YLeaf(YType.str, 'base-mac-address4')),
+                        ('mac_add_blk_size4', YLeaf(YType.str, 'mac-add-blk-size4')),
+                        ('pcb_serial_num', YLeaf(YType.str, 'pcb-serial-num')),
+                        ('power_supply_type', YLeaf(YType.str, 'power-supply-type')),
+                        ('power_consumption', YLeaf(YType.str, 'power-consumption')),
+                        ('block_signature', YLeaf(YType.str, 'block-signature')),
+                        ('block_version', YLeaf(YType.str, 'block-version')),
+                        ('block_length', YLeaf(YType.str, 'block-length')),
+                        ('block_checksum', YLeaf(YType.str, 'block-checksum')),
+                        ('eeprom_size', YLeaf(YType.str, 'eeprom-size')),
+                        ('block_count', YLeaf(YType.str, 'block-count')),
+                        ('fru_major_type', YLeaf(YType.str, 'fru-major-type')),
+                        ('fru_minor_type', YLeaf(YType.str, 'fru-minor-type')),
+                        ('oem_string', YLeaf(YType.str, 'oem-string')),
+                        ('product_id', YLeaf(YType.str, 'product-id')),
+                        ('serial_number', YLeaf(YType.str, 'serial-number')),
+                        ('part_number', YLeaf(YType.str, 'part-number')),
+                        ('part_revision', YLeaf(YType.str, 'part-revision')),
+                        ('mfg_deviation', YLeaf(YType.str, 'mfg-deviation')),
+                        ('hw_version', YLeaf(YType.str, 'hw-version')),
+                        ('mfg_bits', YLeaf(YType.str, 'mfg-bits')),
+                        ('engineer_use', YLeaf(YType.str, 'engineer-use')),
+                        ('snmpoid', YLeaf(YType.str, 'snmpoid')),
+                        ('rma_code', YLeaf(YType.str, 'rma-code')),
+                    ])
+                    self.description = None
+                    self.idprom_format_rev = None
+                    self.controller_family = None
+                    self.controller_type = None
+                    self.vid = None
+                    self.hwid = None
+                    self.pid = None
+                    self.udi_description = None
+                    self.udi_name = None
+                    self.clei = None
+                    self.eci = None
+                    self.top_assem_part_num = None
+                    self.top_assem_vid = None
+                    self.pca_num = None
+                    self.pcavid = None
+                    self.chassis_sid = None
+                    self.dev_num1 = None
+                    self.dev_num2 = None
+                    self.dev_num3 = None
+                    self.dev_num4 = None
+                    self.dev_num5 = None
+                    self.dev_num6 = None
+                    self.dev_num7 = None
+                    self.manu_test_data = None
+                    self.asset_id = None
+                    self.asset_alias = None
+                    self.base_mac_address1 = None
+                    self.mac_add_blk_size1 = None
+                    self.base_mac_address2 = None
+                    self.mac_add_blk_size2 = None
+                    self.base_mac_address3 = None
+                    self.mac_add_blk_size3 = None
+                    self.base_mac_address4 = None
+                    self.mac_add_blk_size4 = None
+                    self.pcb_serial_num = None
+                    self.power_supply_type = None
+                    self.power_consumption = None
+                    self.block_signature = None
+                    self.block_version = None
+                    self.block_length = None
+                    self.block_checksum = None
+                    self.eeprom_size = None
+                    self.block_count = None
+                    self.fru_major_type = None
+                    self.fru_minor_type = None
+                    self.oem_string = None
+                    self.product_id = None
+                    self.serial_number = None
+                    self.part_number = None
+                    self.part_revision = None
+                    self.mfg_deviation = None
+                    self.hw_version = None
+                    self.mfg_bits = None
+                    self.engineer_use = None
+                    self.snmpoid = None
+                    self.rma_code = None
 
                     self.rma = Diag.Racks.Rack.Chassis.Rma()
                     self.rma.parent = self
@@ -3033,14 +3096,17 @@ class Diag(Entity):
                         self.yang_parent_name = "chassis"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.test_history = YLeaf(YType.str, "test-history")
-
-                        self.rma_number = YLeaf(YType.str, "rma-number")
-
-                        self.rma_history = YLeaf(YType.str, "rma-history")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('test_history', YLeaf(YType.str, 'test-history')),
+                            ('rma_number', YLeaf(YType.str, 'rma-number')),
+                            ('rma_history', YLeaf(YType.str, 'rma-history')),
+                        ])
+                        self.test_history = None
+                        self.rma_number = None
+                        self.rma_history = None
                         self._segment_path = lambda: "rma"
 
                     def __setattr__(self, name, value):

@@ -4,6 +4,8 @@ The MIB module for defining event triggers and actions
 for network management purposes.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,7 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class FailureReason(Enum):
     """
-    FailureReason
+    FailureReason (Enum Class)
 
     Reasons for failures in an attempt to perform a management
 
@@ -243,8 +245,10 @@ class DISMANEVENTMIB(Entity):
         self.yang_parent_name = "DISMAN-EVENT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mteResource" : ("mteresource", DISMANEVENTMIB.Mteresource), "mteTrigger" : ("mtetrigger", DISMANEVENTMIB.Mtetrigger), "mteEvent" : ("mteevent", DISMANEVENTMIB.Mteevent), "mteTriggerTable" : ("mtetriggertable", DISMANEVENTMIB.Mtetriggertable), "mteTriggerDeltaTable" : ("mtetriggerdeltatable", DISMANEVENTMIB.Mtetriggerdeltatable), "mteTriggerExistenceTable" : ("mtetriggerexistencetable", DISMANEVENTMIB.Mtetriggerexistencetable), "mteTriggerBooleanTable" : ("mtetriggerbooleantable", DISMANEVENTMIB.Mtetriggerbooleantable), "mteTriggerThresholdTable" : ("mtetriggerthresholdtable", DISMANEVENTMIB.Mtetriggerthresholdtable), "mteObjectsTable" : ("mteobjectstable", DISMANEVENTMIB.Mteobjectstable), "mteEventTable" : ("mteeventtable", DISMANEVENTMIB.Mteeventtable), "mteEventNotificationTable" : ("mteeventnotificationtable", DISMANEVENTMIB.Mteeventnotificationtable), "mteEventSetTable" : ("mteeventsettable", DISMANEVENTMIB.Mteeventsettable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mteResource", ("mteresource", DISMANEVENTMIB.Mteresource)), ("mteTrigger", ("mtetrigger", DISMANEVENTMIB.Mtetrigger)), ("mteEvent", ("mteevent", DISMANEVENTMIB.Mteevent)), ("mteTriggerTable", ("mtetriggertable", DISMANEVENTMIB.Mtetriggertable)), ("mteTriggerDeltaTable", ("mtetriggerdeltatable", DISMANEVENTMIB.Mtetriggerdeltatable)), ("mteTriggerExistenceTable", ("mtetriggerexistencetable", DISMANEVENTMIB.Mtetriggerexistencetable)), ("mteTriggerBooleanTable", ("mtetriggerbooleantable", DISMANEVENTMIB.Mtetriggerbooleantable)), ("mteTriggerThresholdTable", ("mtetriggerthresholdtable", DISMANEVENTMIB.Mtetriggerthresholdtable)), ("mteObjectsTable", ("mteobjectstable", DISMANEVENTMIB.Mteobjectstable)), ("mteEventTable", ("mteeventtable", DISMANEVENTMIB.Mteeventtable)), ("mteEventNotificationTable", ("mteeventnotificationtable", DISMANEVENTMIB.Mteeventnotificationtable)), ("mteEventSetTable", ("mteeventsettable", DISMANEVENTMIB.Mteeventsettable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mteresource = DISMANEVENTMIB.Mteresource()
         self.mteresource.parent = self
@@ -371,18 +375,21 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mteresourcesampleminimum = YLeaf(YType.int32, "mteResourceSampleMinimum")
-
-            self.mteresourcesampleinstancemaximum = YLeaf(YType.uint32, "mteResourceSampleInstanceMaximum")
-
-            self.mteresourcesampleinstances = YLeaf(YType.uint32, "mteResourceSampleInstances")
-
-            self.mteresourcesampleinstanceshigh = YLeaf(YType.uint32, "mteResourceSampleInstancesHigh")
-
-            self.mteresourcesampleinstancelacks = YLeaf(YType.uint32, "mteResourceSampleInstanceLacks")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mteresourcesampleminimum', YLeaf(YType.int32, 'mteResourceSampleMinimum')),
+                ('mteresourcesampleinstancemaximum', YLeaf(YType.uint32, 'mteResourceSampleInstanceMaximum')),
+                ('mteresourcesampleinstances', YLeaf(YType.uint32, 'mteResourceSampleInstances')),
+                ('mteresourcesampleinstanceshigh', YLeaf(YType.uint32, 'mteResourceSampleInstancesHigh')),
+                ('mteresourcesampleinstancelacks', YLeaf(YType.uint32, 'mteResourceSampleInstanceLacks')),
+            ])
+            self.mteresourcesampleminimum = None
+            self.mteresourcesampleinstancemaximum = None
+            self.mteresourcesampleinstances = None
+            self.mteresourcesampleinstanceshigh = None
+            self.mteresourcesampleinstancelacks = None
             self._segment_path = lambda: "mteResource"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
@@ -417,10 +424,13 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mtetriggerfailures = YLeaf(YType.uint32, "mteTriggerFailures")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mtetriggerfailures', YLeaf(YType.uint32, 'mteTriggerFailures')),
+            ])
+            self.mtetriggerfailures = None
             self._segment_path = lambda: "mteTrigger"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
@@ -453,10 +463,13 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mteeventfailures = YLeaf(YType.uint32, "mteEventFailures")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mteeventfailures', YLeaf(YType.uint32, 'mteEventFailures')),
+            ])
+            self.mteeventfailures = None
             self._segment_path = lambda: "mteEvent"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
 
@@ -487,8 +500,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerEntry" : ("mtetriggerentry", DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteTriggerEntry", ("mtetriggerentry", DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry))])
+            self._leafs = OrderedDict()
 
             self.mtetriggerentry = YList(self)
             self._segment_path = lambda: "mteTriggerTable"
@@ -503,14 +518,14 @@ class DISMANEVENTMIB(Entity):
             Information about a single trigger.  Applications create and
             delete entries using mteTriggerEntryStatus.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	The owner of this entry. The exact semantics of this string are subject to the security policy defined by the security administrator
             	**type**\: str
             
             	**length:** 0..32
             
-            .. attribute:: mtetriggername  <key>
+            .. attribute:: mtetriggername  (key)
             
             	A locally\-unique, administratively assigned name for the trigger within the scope of mteOwner
             	**type**\: str
@@ -606,39 +621,42 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteTriggerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
-
-                self.mtetriggercomment = YLeaf(YType.str, "mteTriggerComment")
-
-                self.mtetriggertest = YLeaf(YType.bits, "mteTriggerTest")
-
-                self.mtetriggersampletype = YLeaf(YType.enumeration, "mteTriggerSampleType")
-
-                self.mtetriggervalueid = YLeaf(YType.str, "mteTriggerValueID")
-
-                self.mtetriggervalueidwildcard = YLeaf(YType.boolean, "mteTriggerValueIDWildcard")
-
-                self.mtetriggertargettag = YLeaf(YType.str, "mteTriggerTargetTag")
-
-                self.mtetriggercontextname = YLeaf(YType.str, "mteTriggerContextName")
-
-                self.mtetriggercontextnamewildcard = YLeaf(YType.boolean, "mteTriggerContextNameWildcard")
-
-                self.mtetriggerfrequency = YLeaf(YType.uint32, "mteTriggerFrequency")
-
-                self.mtetriggerobjectsowner = YLeaf(YType.str, "mteTriggerObjectsOwner")
-
-                self.mtetriggerobjects = YLeaf(YType.str, "mteTriggerObjects")
-
-                self.mtetriggerenabled = YLeaf(YType.boolean, "mteTriggerEnabled")
-
-                self.mtetriggerentrystatus = YLeaf(YType.enumeration, "mteTriggerEntryStatus")
-                self._segment_path = lambda: "mteTriggerEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self.ylist_key_names = ['mteowner','mtetriggername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
+                    ('mtetriggercomment', YLeaf(YType.str, 'mteTriggerComment')),
+                    ('mtetriggertest', YLeaf(YType.bits, 'mteTriggerTest')),
+                    ('mtetriggersampletype', YLeaf(YType.enumeration, 'mteTriggerSampleType')),
+                    ('mtetriggervalueid', YLeaf(YType.str, 'mteTriggerValueID')),
+                    ('mtetriggervalueidwildcard', YLeaf(YType.boolean, 'mteTriggerValueIDWildcard')),
+                    ('mtetriggertargettag', YLeaf(YType.str, 'mteTriggerTargetTag')),
+                    ('mtetriggercontextname', YLeaf(YType.str, 'mteTriggerContextName')),
+                    ('mtetriggercontextnamewildcard', YLeaf(YType.boolean, 'mteTriggerContextNameWildcard')),
+                    ('mtetriggerfrequency', YLeaf(YType.uint32, 'mteTriggerFrequency')),
+                    ('mtetriggerobjectsowner', YLeaf(YType.str, 'mteTriggerObjectsOwner')),
+                    ('mtetriggerobjects', YLeaf(YType.str, 'mteTriggerObjects')),
+                    ('mtetriggerenabled', YLeaf(YType.boolean, 'mteTriggerEnabled')),
+                    ('mtetriggerentrystatus', YLeaf(YType.enumeration, 'mteTriggerEntryStatus')),
+                ])
+                self.mteowner = None
+                self.mtetriggername = None
+                self.mtetriggercomment = None
+                self.mtetriggertest = Bits()
+                self.mtetriggersampletype = None
+                self.mtetriggervalueid = None
+                self.mtetriggervalueidwildcard = None
+                self.mtetriggertargettag = None
+                self.mtetriggercontextname = None
+                self.mtetriggercontextnamewildcard = None
+                self.mtetriggerfrequency = None
+                self.mtetriggerobjectsowner = None
+                self.mtetriggerobjects = None
+                self.mtetriggerenabled = None
+                self.mtetriggerentrystatus = None
+                self._segment_path = lambda: "mteTriggerEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -646,7 +664,7 @@ class DISMANEVENTMIB(Entity):
 
             class Mtetriggersampletype(Enum):
                 """
-                Mtetriggersampletype
+                Mtetriggersampletype (Enum Class)
 
                 The type of sampling to perform.
 
@@ -716,8 +734,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerDeltaEntry" : ("mtetriggerdeltaentry", DISMANEVENTMIB.Mtetriggerdeltatable.Mtetriggerdeltaentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteTriggerDeltaEntry", ("mtetriggerdeltaentry", DISMANEVENTMIB.Mtetriggerdeltatable.Mtetriggerdeltaentry))])
+            self._leafs = OrderedDict()
 
             self.mtetriggerdeltaentry = YList(self)
             self._segment_path = lambda: "mteTriggerDeltaTable"
@@ -733,7 +753,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this this table for each mteTriggerEntry
             that has mteTriggerSampleType set to 'deltaValue'.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -742,7 +762,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggername  <key>
+            .. attribute:: mtetriggername  (key)
             
             	
             	**type**\: str
@@ -782,19 +802,22 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteTriggerDeltaTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
-
-                self.mtetriggerdeltadiscontinuityid = YLeaf(YType.str, "mteTriggerDeltaDiscontinuityID")
-
-                self.mtetriggerdeltadiscontinuityidwildcard = YLeaf(YType.boolean, "mteTriggerDeltaDiscontinuityIDWildcard")
-
-                self.mtetriggerdeltadiscontinuityidtype = YLeaf(YType.enumeration, "mteTriggerDeltaDiscontinuityIDType")
-                self._segment_path = lambda: "mteTriggerDeltaEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self.ylist_key_names = ['mteowner','mtetriggername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
+                    ('mtetriggerdeltadiscontinuityid', YLeaf(YType.str, 'mteTriggerDeltaDiscontinuityID')),
+                    ('mtetriggerdeltadiscontinuityidwildcard', YLeaf(YType.boolean, 'mteTriggerDeltaDiscontinuityIDWildcard')),
+                    ('mtetriggerdeltadiscontinuityidtype', YLeaf(YType.enumeration, 'mteTriggerDeltaDiscontinuityIDType')),
+                ])
+                self.mteowner = None
+                self.mtetriggername = None
+                self.mtetriggerdeltadiscontinuityid = None
+                self.mtetriggerdeltadiscontinuityidwildcard = None
+                self.mtetriggerdeltadiscontinuityidtype = None
+                self._segment_path = lambda: "mteTriggerDeltaEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerDeltaTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -802,7 +825,7 @@ class DISMANEVENTMIB(Entity):
 
             class Mtetriggerdeltadiscontinuityidtype(Enum):
                 """
-                Mtetriggerdeltadiscontinuityidtype
+                Mtetriggerdeltadiscontinuityidtype (Enum Class)
 
                 The value 'timeTicks' indicates the
 
@@ -852,8 +875,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerExistenceEntry" : ("mtetriggerexistenceentry", DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteTriggerExistenceEntry", ("mtetriggerexistenceentry", DISMANEVENTMIB.Mtetriggerexistencetable.Mtetriggerexistenceentry))])
+            self._leafs = OrderedDict()
 
             self.mtetriggerexistenceentry = YList(self)
             self._segment_path = lambda: "mteTriggerExistenceTable"
@@ -869,7 +894,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this this table for each mteTriggerEntry
             that has 'existence' set in mteTriggerTest.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -878,7 +903,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggername  <key>
+            .. attribute:: mtetriggername  (key)
             
             	
             	**type**\: str
@@ -939,25 +964,28 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteTriggerExistenceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
-
-                self.mtetriggerexistencetest = YLeaf(YType.bits, "mteTriggerExistenceTest")
-
-                self.mtetriggerexistencestartup = YLeaf(YType.bits, "mteTriggerExistenceStartup")
-
-                self.mtetriggerexistenceobjectsowner = YLeaf(YType.str, "mteTriggerExistenceObjectsOwner")
-
-                self.mtetriggerexistenceobjects = YLeaf(YType.str, "mteTriggerExistenceObjects")
-
-                self.mtetriggerexistenceeventowner = YLeaf(YType.str, "mteTriggerExistenceEventOwner")
-
-                self.mtetriggerexistenceevent = YLeaf(YType.str, "mteTriggerExistenceEvent")
-                self._segment_path = lambda: "mteTriggerExistenceEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self.ylist_key_names = ['mteowner','mtetriggername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
+                    ('mtetriggerexistencetest', YLeaf(YType.bits, 'mteTriggerExistenceTest')),
+                    ('mtetriggerexistencestartup', YLeaf(YType.bits, 'mteTriggerExistenceStartup')),
+                    ('mtetriggerexistenceobjectsowner', YLeaf(YType.str, 'mteTriggerExistenceObjectsOwner')),
+                    ('mtetriggerexistenceobjects', YLeaf(YType.str, 'mteTriggerExistenceObjects')),
+                    ('mtetriggerexistenceeventowner', YLeaf(YType.str, 'mteTriggerExistenceEventOwner')),
+                    ('mtetriggerexistenceevent', YLeaf(YType.str, 'mteTriggerExistenceEvent')),
+                ])
+                self.mteowner = None
+                self.mtetriggername = None
+                self.mtetriggerexistencetest = Bits()
+                self.mtetriggerexistencestartup = Bits()
+                self.mtetriggerexistenceobjectsowner = None
+                self.mtetriggerexistenceobjects = None
+                self.mtetriggerexistenceeventowner = None
+                self.mtetriggerexistenceevent = None
+                self._segment_path = lambda: "mteTriggerExistenceEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerExistenceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -988,8 +1016,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerBooleanEntry" : ("mtetriggerbooleanentry", DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteTriggerBooleanEntry", ("mtetriggerbooleanentry", DISMANEVENTMIB.Mtetriggerbooleantable.Mtetriggerbooleanentry))])
+            self._leafs = OrderedDict()
 
             self.mtetriggerbooleanentry = YList(self)
             self._segment_path = lambda: "mteTriggerBooleanTable"
@@ -1005,7 +1035,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this this table for each mteTriggerEntry
             that has 'boolean' set in mteTriggerTest.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1014,7 +1044,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggername  <key>
+            .. attribute:: mtetriggername  (key)
             
             	
             	**type**\: str
@@ -1082,27 +1112,30 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteTriggerBooleanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
-
-                self.mtetriggerbooleancomparison = YLeaf(YType.enumeration, "mteTriggerBooleanComparison")
-
-                self.mtetriggerbooleanvalue = YLeaf(YType.int32, "mteTriggerBooleanValue")
-
-                self.mtetriggerbooleanstartup = YLeaf(YType.boolean, "mteTriggerBooleanStartup")
-
-                self.mtetriggerbooleanobjectsowner = YLeaf(YType.str, "mteTriggerBooleanObjectsOwner")
-
-                self.mtetriggerbooleanobjects = YLeaf(YType.str, "mteTriggerBooleanObjects")
-
-                self.mtetriggerbooleaneventowner = YLeaf(YType.str, "mteTriggerBooleanEventOwner")
-
-                self.mtetriggerbooleanevent = YLeaf(YType.str, "mteTriggerBooleanEvent")
-                self._segment_path = lambda: "mteTriggerBooleanEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self.ylist_key_names = ['mteowner','mtetriggername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
+                    ('mtetriggerbooleancomparison', YLeaf(YType.enumeration, 'mteTriggerBooleanComparison')),
+                    ('mtetriggerbooleanvalue', YLeaf(YType.int32, 'mteTriggerBooleanValue')),
+                    ('mtetriggerbooleanstartup', YLeaf(YType.boolean, 'mteTriggerBooleanStartup')),
+                    ('mtetriggerbooleanobjectsowner', YLeaf(YType.str, 'mteTriggerBooleanObjectsOwner')),
+                    ('mtetriggerbooleanobjects', YLeaf(YType.str, 'mteTriggerBooleanObjects')),
+                    ('mtetriggerbooleaneventowner', YLeaf(YType.str, 'mteTriggerBooleanEventOwner')),
+                    ('mtetriggerbooleanevent', YLeaf(YType.str, 'mteTriggerBooleanEvent')),
+                ])
+                self.mteowner = None
+                self.mtetriggername = None
+                self.mtetriggerbooleancomparison = None
+                self.mtetriggerbooleanvalue = None
+                self.mtetriggerbooleanstartup = None
+                self.mtetriggerbooleanobjectsowner = None
+                self.mtetriggerbooleanobjects = None
+                self.mtetriggerbooleaneventowner = None
+                self.mtetriggerbooleanevent = None
+                self._segment_path = lambda: "mteTriggerBooleanEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerBooleanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1110,7 +1143,7 @@ class DISMANEVENTMIB(Entity):
 
             class Mtetriggerbooleancomparison(Enum):
                 """
-                Mtetriggerbooleancomparison
+                Mtetriggerbooleancomparison (Enum Class)
 
                 The type of boolean comparison to perform.
 
@@ -1176,8 +1209,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteTriggerThresholdEntry" : ("mtetriggerthresholdentry", DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteTriggerThresholdEntry", ("mtetriggerthresholdentry", DISMANEVENTMIB.Mtetriggerthresholdtable.Mtetriggerthresholdentry))])
+            self._leafs = OrderedDict()
 
             self.mtetriggerthresholdentry = YList(self)
             self._segment_path = lambda: "mteTriggerThresholdTable"
@@ -1193,7 +1228,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this table for each mteTriggerEntry
             that has 'threshold' set in mteTriggerTest.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1202,7 +1237,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mtetriggername  <key>
+            .. attribute:: mtetriggername  (key)
             
             	
             	**type**\: str
@@ -1328,43 +1363,46 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteTriggerThresholdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mtetriggername = YLeaf(YType.str, "mteTriggerName")
-
-                self.mtetriggerthresholdstartup = YLeaf(YType.enumeration, "mteTriggerThresholdStartup")
-
-                self.mtetriggerthresholdrising = YLeaf(YType.int32, "mteTriggerThresholdRising")
-
-                self.mtetriggerthresholdfalling = YLeaf(YType.int32, "mteTriggerThresholdFalling")
-
-                self.mtetriggerthresholddeltarising = YLeaf(YType.int32, "mteTriggerThresholdDeltaRising")
-
-                self.mtetriggerthresholddeltafalling = YLeaf(YType.int32, "mteTriggerThresholdDeltaFalling")
-
-                self.mtetriggerthresholdobjectsowner = YLeaf(YType.str, "mteTriggerThresholdObjectsOwner")
-
-                self.mtetriggerthresholdobjects = YLeaf(YType.str, "mteTriggerThresholdObjects")
-
-                self.mtetriggerthresholdrisingeventowner = YLeaf(YType.str, "mteTriggerThresholdRisingEventOwner")
-
-                self.mtetriggerthresholdrisingevent = YLeaf(YType.str, "mteTriggerThresholdRisingEvent")
-
-                self.mtetriggerthresholdfallingeventowner = YLeaf(YType.str, "mteTriggerThresholdFallingEventOwner")
-
-                self.mtetriggerthresholdfallingevent = YLeaf(YType.str, "mteTriggerThresholdFallingEvent")
-
-                self.mtetriggerthresholddeltarisingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEventOwner")
-
-                self.mtetriggerthresholddeltarisingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaRisingEvent")
-
-                self.mtetriggerthresholddeltafallingeventowner = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEventOwner")
-
-                self.mtetriggerthresholddeltafallingevent = YLeaf(YType.str, "mteTriggerThresholdDeltaFallingEvent")
-                self._segment_path = lambda: "mteTriggerThresholdEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteTriggerName='" + self.mtetriggername.get() + "']"
+                self.ylist_key_names = ['mteowner','mtetriggername']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
+                    ('mtetriggerthresholdstartup', YLeaf(YType.enumeration, 'mteTriggerThresholdStartup')),
+                    ('mtetriggerthresholdrising', YLeaf(YType.int32, 'mteTriggerThresholdRising')),
+                    ('mtetriggerthresholdfalling', YLeaf(YType.int32, 'mteTriggerThresholdFalling')),
+                    ('mtetriggerthresholddeltarising', YLeaf(YType.int32, 'mteTriggerThresholdDeltaRising')),
+                    ('mtetriggerthresholddeltafalling', YLeaf(YType.int32, 'mteTriggerThresholdDeltaFalling')),
+                    ('mtetriggerthresholdobjectsowner', YLeaf(YType.str, 'mteTriggerThresholdObjectsOwner')),
+                    ('mtetriggerthresholdobjects', YLeaf(YType.str, 'mteTriggerThresholdObjects')),
+                    ('mtetriggerthresholdrisingeventowner', YLeaf(YType.str, 'mteTriggerThresholdRisingEventOwner')),
+                    ('mtetriggerthresholdrisingevent', YLeaf(YType.str, 'mteTriggerThresholdRisingEvent')),
+                    ('mtetriggerthresholdfallingeventowner', YLeaf(YType.str, 'mteTriggerThresholdFallingEventOwner')),
+                    ('mtetriggerthresholdfallingevent', YLeaf(YType.str, 'mteTriggerThresholdFallingEvent')),
+                    ('mtetriggerthresholddeltarisingeventowner', YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEventOwner')),
+                    ('mtetriggerthresholddeltarisingevent', YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEvent')),
+                    ('mtetriggerthresholddeltafallingeventowner', YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEventOwner')),
+                    ('mtetriggerthresholddeltafallingevent', YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEvent')),
+                ])
+                self.mteowner = None
+                self.mtetriggername = None
+                self.mtetriggerthresholdstartup = None
+                self.mtetriggerthresholdrising = None
+                self.mtetriggerthresholdfalling = None
+                self.mtetriggerthresholddeltarising = None
+                self.mtetriggerthresholddeltafalling = None
+                self.mtetriggerthresholdobjectsowner = None
+                self.mtetriggerthresholdobjects = None
+                self.mtetriggerthresholdrisingeventowner = None
+                self.mtetriggerthresholdrisingevent = None
+                self.mtetriggerthresholdfallingeventowner = None
+                self.mtetriggerthresholdfallingevent = None
+                self.mtetriggerthresholddeltarisingeventowner = None
+                self.mtetriggerthresholddeltarisingevent = None
+                self.mtetriggerthresholddeltafallingeventowner = None
+                self.mtetriggerthresholddeltafallingevent = None
+                self._segment_path = lambda: "mteTriggerThresholdEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerThresholdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1372,7 +1410,7 @@ class DISMANEVENTMIB(Entity):
 
             class Mtetriggerthresholdstartup(Enum):
                 """
-                Mtetriggerthresholdstartup
+                Mtetriggerthresholdstartup (Enum Class)
 
                 The event that may be triggered when this entry is first
 
@@ -1439,8 +1477,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteObjectsEntry" : ("mteobjectsentry", DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteObjectsEntry", ("mteobjectsentry", DISMANEVENTMIB.Mteobjectstable.Mteobjectsentry))])
+            self._leafs = OrderedDict()
 
             self.mteobjectsentry = YList(self)
             self._segment_path = lambda: "mteObjectsTable"
@@ -1459,7 +1499,7 @@ class DISMANEVENTMIB(Entity):
             lexical order of their index in this table.  Those associated
             with a trigger come first, then trigger test, then event.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1468,14 +1508,14 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mteobjectsname  <key>
+            .. attribute:: mteobjectsname  (key)
             
             	A locally\-unique, administratively assigned name for a group of objects
             	**type**\: str
             
             	**length:** 1..32
             
-            .. attribute:: mteobjectsindex  <key>
+            .. attribute:: mteobjectsindex  (key)
             
             	An arbitrary integer for the purpose of identifying individual objects within a mteObjectsName group.  Objects within a group are placed in the notification in the numerical order of this index.  Groups are placed in the notification in the order of the selections for overall trigger, trigger test, and event. Within trigger test they are in the same order as the numerical values of the bits defined for mteTriggerTest.  Bad object identifiers or a mismatch between truncating the identifier and the value of mteDeltaDiscontinuityIDWildcard result in operation as one would expect when providing the wrong identifier to a Get operation.  The Get will fail or get the wrong object.  If the object is not available it is omitted from the notification
             	**type**\: int
@@ -1513,21 +1553,24 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteObjectsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteobjectsname = YLeaf(YType.str, "mteObjectsName")
-
-                self.mteobjectsindex = YLeaf(YType.uint32, "mteObjectsIndex")
-
-                self.mteobjectsid = YLeaf(YType.str, "mteObjectsID")
-
-                self.mteobjectsidwildcard = YLeaf(YType.boolean, "mteObjectsIDWildcard")
-
-                self.mteobjectsentrystatus = YLeaf(YType.enumeration, "mteObjectsEntryStatus")
-                self._segment_path = lambda: "mteObjectsEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteObjectsName='" + self.mteobjectsname.get() + "']" + "[mteObjectsIndex='" + self.mteobjectsindex.get() + "']"
+                self.ylist_key_names = ['mteowner','mteobjectsname','mteobjectsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mteobjectsname', YLeaf(YType.str, 'mteObjectsName')),
+                    ('mteobjectsindex', YLeaf(YType.uint32, 'mteObjectsIndex')),
+                    ('mteobjectsid', YLeaf(YType.str, 'mteObjectsID')),
+                    ('mteobjectsidwildcard', YLeaf(YType.boolean, 'mteObjectsIDWildcard')),
+                    ('mteobjectsentrystatus', YLeaf(YType.enumeration, 'mteObjectsEntryStatus')),
+                ])
+                self.mteowner = None
+                self.mteobjectsname = None
+                self.mteobjectsindex = None
+                self.mteobjectsid = None
+                self.mteobjectsidwildcard = None
+                self.mteobjectsentrystatus = None
+                self._segment_path = lambda: "mteObjectsEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteObjectsName='" + str(self.mteobjectsname) + "']" + "[mteObjectsIndex='" + str(self.mteobjectsindex) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteObjectsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1557,8 +1600,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventEntry" : ("mteevententry", DISMANEVENTMIB.Mteeventtable.Mteevententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteEventEntry", ("mteevententry", DISMANEVENTMIB.Mteeventtable.Mteevententry))])
+            self._leafs = OrderedDict()
 
             self.mteevententry = YList(self)
             self._segment_path = lambda: "mteEventTable"
@@ -1573,7 +1618,7 @@ class DISMANEVENTMIB(Entity):
             Information about a single event.  Applications create and
             delete entries using mteEventEntryStatus.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1582,7 +1627,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mteeventname  <key>
+            .. attribute:: mteeventname  (key)
             
             	A locally\-unique, administratively assigned name for the event
             	**type**\: str
@@ -1623,21 +1668,24 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteEventTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventcomment = YLeaf(YType.str, "mteEventComment")
-
-                self.mteeventactions = YLeaf(YType.bits, "mteEventActions")
-
-                self.mteeventenabled = YLeaf(YType.boolean, "mteEventEnabled")
-
-                self.mteevententrystatus = YLeaf(YType.enumeration, "mteEventEntryStatus")
-                self._segment_path = lambda: "mteEventEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self.ylist_key_names = ['mteowner','mteeventname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
+                    ('mteeventcomment', YLeaf(YType.str, 'mteEventComment')),
+                    ('mteeventactions', YLeaf(YType.bits, 'mteEventActions')),
+                    ('mteeventenabled', YLeaf(YType.boolean, 'mteEventEnabled')),
+                    ('mteevententrystatus', YLeaf(YType.enumeration, 'mteEventEntryStatus')),
+                ])
+                self.mteowner = None
+                self.mteeventname = None
+                self.mteeventcomment = None
+                self.mteeventactions = Bits()
+                self.mteeventenabled = None
+                self.mteevententrystatus = None
+                self._segment_path = lambda: "mteEventEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1668,8 +1716,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventNotificationEntry" : ("mteeventnotificationentry", DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteEventNotificationEntry", ("mteeventnotificationentry", DISMANEVENTMIB.Mteeventnotificationtable.Mteeventnotificationentry))])
+            self._leafs = OrderedDict()
 
             self.mteeventnotificationentry = YList(self)
             self._segment_path = lambda: "mteEventNotificationTable"
@@ -1685,7 +1735,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this this table for each mteEventEntry
             that has 'notification' set in mteEventActions.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1694,7 +1744,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mteeventname  <key>
+            .. attribute:: mteeventname  (key)
             
             	
             	**type**\: str
@@ -1738,19 +1788,22 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteEventNotificationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventnotification = YLeaf(YType.str, "mteEventNotification")
-
-                self.mteeventnotificationobjectsowner = YLeaf(YType.str, "mteEventNotificationObjectsOwner")
-
-                self.mteeventnotificationobjects = YLeaf(YType.str, "mteEventNotificationObjects")
-                self._segment_path = lambda: "mteEventNotificationEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self.ylist_key_names = ['mteowner','mteeventname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
+                    ('mteeventnotification', YLeaf(YType.str, 'mteEventNotification')),
+                    ('mteeventnotificationobjectsowner', YLeaf(YType.str, 'mteEventNotificationObjectsOwner')),
+                    ('mteeventnotificationobjects', YLeaf(YType.str, 'mteEventNotificationObjects')),
+                ])
+                self.mteowner = None
+                self.mteeventname = None
+                self.mteeventnotification = None
+                self.mteeventnotificationobjectsowner = None
+                self.mteeventnotificationobjects = None
+                self._segment_path = lambda: "mteEventNotificationEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventNotificationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1780,8 +1833,10 @@ class DISMANEVENTMIB(Entity):
             self.yang_parent_name = "DISMAN-EVENT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mteEventSetEntry" : ("mteeventsetentry", DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mteEventSetEntry", ("mteeventsetentry", DISMANEVENTMIB.Mteeventsettable.Mteeventsetentry))])
+            self._leafs = OrderedDict()
 
             self.mteeventsetentry = YList(self)
             self._segment_path = lambda: "mteEventSetTable"
@@ -1797,7 +1852,7 @@ class DISMANEVENTMIB(Entity):
             automatically exist in this this table for each mteEventEntry
             that has 'set' set in mteEventActions.
             
-            .. attribute:: mteowner  <key>
+            .. attribute:: mteowner  (key)
             
             	
             	**type**\: str
@@ -1806,7 +1861,7 @@ class DISMANEVENTMIB(Entity):
             
             	**refers to**\:  :py:class:`mteowner <ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB.DISMANEVENTMIB.Mtetriggertable.Mtetriggerentry>`
             
-            .. attribute:: mteeventname  <key>
+            .. attribute:: mteeventname  (key)
             
             	
             	**type**\: str
@@ -1863,25 +1918,28 @@ class DISMANEVENTMIB(Entity):
                 self.yang_parent_name = "mteEventSetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mteowner = YLeaf(YType.str, "mteOwner")
-
-                self.mteeventname = YLeaf(YType.str, "mteEventName")
-
-                self.mteeventsetobject = YLeaf(YType.str, "mteEventSetObject")
-
-                self.mteeventsetobjectwildcard = YLeaf(YType.boolean, "mteEventSetObjectWildcard")
-
-                self.mteeventsetvalue = YLeaf(YType.int32, "mteEventSetValue")
-
-                self.mteeventsettargettag = YLeaf(YType.str, "mteEventSetTargetTag")
-
-                self.mteeventsetcontextname = YLeaf(YType.str, "mteEventSetContextName")
-
-                self.mteeventsetcontextnamewildcard = YLeaf(YType.boolean, "mteEventSetContextNameWildcard")
-                self._segment_path = lambda: "mteEventSetEntry" + "[mteOwner='" + self.mteowner.get() + "']" + "[mteEventName='" + self.mteeventname.get() + "']"
+                self.ylist_key_names = ['mteowner','mteeventname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
+                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
+                    ('mteeventsetobject', YLeaf(YType.str, 'mteEventSetObject')),
+                    ('mteeventsetobjectwildcard', YLeaf(YType.boolean, 'mteEventSetObjectWildcard')),
+                    ('mteeventsetvalue', YLeaf(YType.int32, 'mteEventSetValue')),
+                    ('mteeventsettargettag', YLeaf(YType.str, 'mteEventSetTargetTag')),
+                    ('mteeventsetcontextname', YLeaf(YType.str, 'mteEventSetContextName')),
+                    ('mteeventsetcontextnamewildcard', YLeaf(YType.boolean, 'mteEventSetContextNameWildcard')),
+                ])
+                self.mteowner = None
+                self.mteeventname = None
+                self.mteeventsetobject = None
+                self.mteeventsetobjectwildcard = None
+                self.mteeventsetvalue = None
+                self.mteeventsettargettag = None
+                self.mteeventsetcontextname = None
+                self.mteeventsetcontextnamewildcard = None
+                self._segment_path = lambda: "mteEventSetEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventSetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

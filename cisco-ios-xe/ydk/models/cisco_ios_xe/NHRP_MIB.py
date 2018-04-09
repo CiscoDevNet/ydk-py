@@ -4,6 +4,8 @@ This MIB contains managed object definitions for the Next
 Hop Resolution Procol, NHRP, as defined in RFC 2332 [17].
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -85,8 +87,10 @@ class NHRPMIB(Entity):
         self.yang_parent_name = "NHRP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nhrpGeneralObjects" : ("nhrpgeneralobjects", NHRPMIB.Nhrpgeneralobjects), "nhrpCacheTable" : ("nhrpcachetable", NHRPMIB.Nhrpcachetable), "nhrpPurgeReqTable" : ("nhrppurgereqtable", NHRPMIB.Nhrppurgereqtable), "nhrpClientTable" : ("nhrpclienttable", NHRPMIB.Nhrpclienttable), "nhrpClientRegistrationTable" : ("nhrpclientregistrationtable", NHRPMIB.Nhrpclientregistrationtable), "nhrpClientNhsTable" : ("nhrpclientnhstable", NHRPMIB.Nhrpclientnhstable), "nhrpClientStatTable" : ("nhrpclientstattable", NHRPMIB.Nhrpclientstattable), "nhrpServerTable" : ("nhrpservertable", NHRPMIB.Nhrpservertable), "nhrpServerCacheTable" : ("nhrpservercachetable", NHRPMIB.Nhrpservercachetable), "nhrpServerNhcTable" : ("nhrpservernhctable", NHRPMIB.Nhrpservernhctable), "nhrpServerStatTable" : ("nhrpserverstattable", NHRPMIB.Nhrpserverstattable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nhrpGeneralObjects", ("nhrpgeneralobjects", NHRPMIB.Nhrpgeneralobjects)), ("nhrpCacheTable", ("nhrpcachetable", NHRPMIB.Nhrpcachetable)), ("nhrpPurgeReqTable", ("nhrppurgereqtable", NHRPMIB.Nhrppurgereqtable)), ("nhrpClientTable", ("nhrpclienttable", NHRPMIB.Nhrpclienttable)), ("nhrpClientRegistrationTable", ("nhrpclientregistrationtable", NHRPMIB.Nhrpclientregistrationtable)), ("nhrpClientNhsTable", ("nhrpclientnhstable", NHRPMIB.Nhrpclientnhstable)), ("nhrpClientStatTable", ("nhrpclientstattable", NHRPMIB.Nhrpclientstattable)), ("nhrpServerTable", ("nhrpservertable", NHRPMIB.Nhrpservertable)), ("nhrpServerCacheTable", ("nhrpservercachetable", NHRPMIB.Nhrpservercachetable)), ("nhrpServerNhcTable", ("nhrpservernhctable", NHRPMIB.Nhrpservernhctable)), ("nhrpServerStatTable", ("nhrpserverstattable", NHRPMIB.Nhrpserverstattable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nhrpgeneralobjects = NHRPMIB.Nhrpgeneralobjects()
         self.nhrpgeneralobjects.parent = self
@@ -170,10 +174,13 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.nhrpnextindex = YLeaf(YType.uint32, "nhrpNextIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('nhrpnextindex', YLeaf(YType.uint32, 'nhrpNextIndex')),
+            ])
+            self.nhrpnextindex = None
             self._segment_path = lambda: "nhrpGeneralObjects"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
@@ -205,8 +212,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpCacheEntry" : ("nhrpcacheentry", NHRPMIB.Nhrpcachetable.Nhrpcacheentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpCacheEntry", ("nhrpcacheentry", NHRPMIB.Nhrpcachetable.Nhrpcacheentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpcacheentry = YList(self)
             self._segment_path = lambda: "nhrpCacheTable"
@@ -234,19 +243,19 @@ class NHRPMIB(Entity):
             of the CIE, refer to Section 5.2.0.1 of
             RFC 2332 [17].
             
-            .. attribute:: nhrpcacheinternetworkaddrtype  <key>
+            .. attribute:: nhrpcacheinternetworkaddrtype  (key)
             
             	The internetwork layer address type of this Next Hop Resolution Cache entry. The value of this object indicates how to interpret the values of nhrpCacheInternetworkAddr and nhrpCacheNextHopInternetworkAddr
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: nhrpcacheinternetworkaddr  <key>
+            .. attribute:: nhrpcacheinternetworkaddr  (key)
             
             	The value of the internetwork address of the destination
             	**type**\: str
             
             	**length:** 0..64
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -255,7 +264,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: nhrpcacheindex  <key>
+            .. attribute:: nhrpcacheindex  (key)
             
             	An identifier for this entry that has local significance within the scope of the General Group.  This identifier is used here to uniquely identify this row, and also used in the 'nhrpPurgeTable' for the value of the 'nhrpPurgeCacheIdentifier'
             	**type**\: int
@@ -357,43 +366,46 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpcacheinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpCacheInternetworkAddrType")
-
-                self.nhrpcacheinternetworkaddr = YLeaf(YType.str, "nhrpCacheInternetworkAddr")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.nhrpcacheindex = YLeaf(YType.uint32, "nhrpCacheIndex")
-
-                self.nhrpcacheprefixlength = YLeaf(YType.int32, "nhrpCachePrefixLength")
-
-                self.nhrpcachenexthopinternetworkaddr = YLeaf(YType.str, "nhrpCacheNextHopInternetworkAddr")
-
-                self.nhrpcachenbmaaddrtype = YLeaf(YType.enumeration, "nhrpCacheNbmaAddrType")
-
-                self.nhrpcachenbmaaddr = YLeaf(YType.str, "nhrpCacheNbmaAddr")
-
-                self.nhrpcachenbmasubaddr = YLeaf(YType.str, "nhrpCacheNbmaSubaddr")
-
-                self.nhrpcachetype = YLeaf(YType.enumeration, "nhrpCacheType")
-
-                self.nhrpcachestate = YLeaf(YType.enumeration, "nhrpCacheState")
-
-                self.nhrpcacheholdingtimevalid = YLeaf(YType.boolean, "nhrpCacheHoldingTimeValid")
-
-                self.nhrpcacheholdingtime = YLeaf(YType.uint32, "nhrpCacheHoldingTime")
-
-                self.nhrpcachenegotiatedmtu = YLeaf(YType.int32, "nhrpCacheNegotiatedMtu")
-
-                self.nhrpcachepreference = YLeaf(YType.int32, "nhrpCachePreference")
-
-                self.nhrpcachestoragetype = YLeaf(YType.enumeration, "nhrpCacheStorageType")
-
-                self.nhrpcacherowstatus = YLeaf(YType.enumeration, "nhrpCacheRowStatus")
-                self._segment_path = lambda: "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + self.nhrpcacheinternetworkaddrtype.get() + "']" + "[nhrpCacheInternetworkAddr='" + self.nhrpcacheinternetworkaddr.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + "[nhrpCacheIndex='" + self.nhrpcacheindex.get() + "']"
+                self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
+                    ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('nhrpcacheindex', YLeaf(YType.uint32, 'nhrpCacheIndex')),
+                    ('nhrpcacheprefixlength', YLeaf(YType.int32, 'nhrpCachePrefixLength')),
+                    ('nhrpcachenexthopinternetworkaddr', YLeaf(YType.str, 'nhrpCacheNextHopInternetworkAddr')),
+                    ('nhrpcachenbmaaddrtype', YLeaf(YType.enumeration, 'nhrpCacheNbmaAddrType')),
+                    ('nhrpcachenbmaaddr', YLeaf(YType.str, 'nhrpCacheNbmaAddr')),
+                    ('nhrpcachenbmasubaddr', YLeaf(YType.str, 'nhrpCacheNbmaSubaddr')),
+                    ('nhrpcachetype', YLeaf(YType.enumeration, 'nhrpCacheType')),
+                    ('nhrpcachestate', YLeaf(YType.enumeration, 'nhrpCacheState')),
+                    ('nhrpcacheholdingtimevalid', YLeaf(YType.boolean, 'nhrpCacheHoldingTimeValid')),
+                    ('nhrpcacheholdingtime', YLeaf(YType.uint32, 'nhrpCacheHoldingTime')),
+                    ('nhrpcachenegotiatedmtu', YLeaf(YType.int32, 'nhrpCacheNegotiatedMtu')),
+                    ('nhrpcachepreference', YLeaf(YType.int32, 'nhrpCachePreference')),
+                    ('nhrpcachestoragetype', YLeaf(YType.enumeration, 'nhrpCacheStorageType')),
+                    ('nhrpcacherowstatus', YLeaf(YType.enumeration, 'nhrpCacheRowStatus')),
+                ])
+                self.nhrpcacheinternetworkaddrtype = None
+                self.nhrpcacheinternetworkaddr = None
+                self.ifindex = None
+                self.nhrpcacheindex = None
+                self.nhrpcacheprefixlength = None
+                self.nhrpcachenexthopinternetworkaddr = None
+                self.nhrpcachenbmaaddrtype = None
+                self.nhrpcachenbmaaddr = None
+                self.nhrpcachenbmasubaddr = None
+                self.nhrpcachetype = None
+                self.nhrpcachestate = None
+                self.nhrpcacheholdingtimevalid = None
+                self.nhrpcacheholdingtime = None
+                self.nhrpcachenegotiatedmtu = None
+                self.nhrpcachepreference = None
+                self.nhrpcachestoragetype = None
+                self.nhrpcacherowstatus = None
+                self._segment_path = lambda: "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + str(self.nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + str(self.nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[nhrpCacheIndex='" + str(self.nhrpcacheindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -401,7 +413,7 @@ class NHRPMIB(Entity):
 
             class Nhrpcachestate(Enum):
                 """
-                Nhrpcachestate
+                Nhrpcachestate (Enum Class)
 
                 An indication of the state of this entry. The values are\:
 
@@ -436,7 +448,7 @@ class NHRPMIB(Entity):
 
             class Nhrpcachetype(Enum):
                 """
-                Nhrpcachetype
+                Nhrpcachetype (Enum Class)
 
                 An indication of how this cache entry
 
@@ -559,8 +571,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpPurgeReqEntry" : ("nhrppurgereqentry", NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpPurgeReqEntry", ("nhrppurgereqentry", NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry))])
+            self._leafs = OrderedDict()
 
             self.nhrppurgereqentry = YList(self)
             self._segment_path = lambda: "nhrpPurgeReqTable"
@@ -574,7 +588,7 @@ class NHRPMIB(Entity):
             """
             Information regarding a Purge Request.
             
-            .. attribute:: nhrppurgeindex  <key>
+            .. attribute:: nhrppurgeindex  (key)
             
             	An index for this entry that has local significance within the scope of this table
             	**type**\: int
@@ -626,21 +640,24 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpPurgeReqTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrppurgeindex = YLeaf(YType.uint32, "nhrpPurgeIndex")
-
-                self.nhrppurgecacheidentifier = YLeaf(YType.uint32, "nhrpPurgeCacheIdentifier")
-
-                self.nhrppurgeprefixlength = YLeaf(YType.int32, "nhrpPurgePrefixLength")
-
-                self.nhrppurgerequestid = YLeaf(YType.uint32, "nhrpPurgeRequestID")
-
-                self.nhrppurgereplyexpected = YLeaf(YType.boolean, "nhrpPurgeReplyExpected")
-
-                self.nhrppurgerowstatus = YLeaf(YType.enumeration, "nhrpPurgeRowStatus")
-                self._segment_path = lambda: "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + self.nhrppurgeindex.get() + "']"
+                self.ylist_key_names = ['nhrppurgeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrppurgeindex', YLeaf(YType.uint32, 'nhrpPurgeIndex')),
+                    ('nhrppurgecacheidentifier', YLeaf(YType.uint32, 'nhrpPurgeCacheIdentifier')),
+                    ('nhrppurgeprefixlength', YLeaf(YType.int32, 'nhrpPurgePrefixLength')),
+                    ('nhrppurgerequestid', YLeaf(YType.uint32, 'nhrpPurgeRequestID')),
+                    ('nhrppurgereplyexpected', YLeaf(YType.boolean, 'nhrpPurgeReplyExpected')),
+                    ('nhrppurgerowstatus', YLeaf(YType.enumeration, 'nhrpPurgeRowStatus')),
+                ])
+                self.nhrppurgeindex = None
+                self.nhrppurgecacheidentifier = None
+                self.nhrppurgeprefixlength = None
+                self.nhrppurgerequestid = None
+                self.nhrppurgereplyexpected = None
+                self.nhrppurgerowstatus = None
+                self._segment_path = lambda: "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + str(self.nhrppurgeindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -671,8 +688,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientEntry" : ("nhrpcliententry", NHRPMIB.Nhrpclienttable.Nhrpcliententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpClientEntry", ("nhrpcliententry", NHRPMIB.Nhrpclienttable.Nhrpcliententry))])
+            self._leafs = OrderedDict()
 
             self.nhrpcliententry = YList(self)
             self._segment_path = lambda: "nhrpClientTable"
@@ -686,7 +705,7 @@ class NHRPMIB(Entity):
             """
             Information about a single NHC.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrpclientindex  (key)
             
             	An identifier for the NHRP client that is unique within the scope of this agent.  The 'nhrpNextIndex' value should be consulted (read), prior to creating a row in this table, and the value returned from reading 'nhrpNextIndex' should be used as this object's value
             	**type**\: int
@@ -801,39 +820,42 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpClientTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpclientindex = YLeaf(YType.uint32, "nhrpClientIndex")
-
-                self.nhrpclientinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientInternetworkAddrType")
-
-                self.nhrpclientinternetworkaddr = YLeaf(YType.str, "nhrpClientInternetworkAddr")
-
-                self.nhrpclientnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNbmaAddrType")
-
-                self.nhrpclientnbmaaddr = YLeaf(YType.str, "nhrpClientNbmaAddr")
-
-                self.nhrpclientnbmasubaddr = YLeaf(YType.str, "nhrpClientNbmaSubaddr")
-
-                self.nhrpclientinitialrequesttimeout = YLeaf(YType.int32, "nhrpClientInitialRequestTimeout")
-
-                self.nhrpclientregistrationrequestretries = YLeaf(YType.int32, "nhrpClientRegistrationRequestRetries")
-
-                self.nhrpclientresolutionrequestretries = YLeaf(YType.int32, "nhrpClientResolutionRequestRetries")
-
-                self.nhrpclientpurgerequestretries = YLeaf(YType.int32, "nhrpClientPurgeRequestRetries")
-
-                self.nhrpclientdefaultmtu = YLeaf(YType.uint32, "nhrpClientDefaultMtu")
-
-                self.nhrpclientholdtime = YLeaf(YType.uint32, "nhrpClientHoldTime")
-
-                self.nhrpclientrequestid = YLeaf(YType.uint32, "nhrpClientRequestID")
-
-                self.nhrpclientstoragetype = YLeaf(YType.enumeration, "nhrpClientStorageType")
-
-                self.nhrpclientrowstatus = YLeaf(YType.enumeration, "nhrpClientRowStatus")
-                self._segment_path = lambda: "nhrpClientEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']"
+                self.ylist_key_names = ['nhrpclientindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpclientindex', YLeaf(YType.uint32, 'nhrpClientIndex')),
+                    ('nhrpclientinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpClientInternetworkAddrType')),
+                    ('nhrpclientinternetworkaddr', YLeaf(YType.str, 'nhrpClientInternetworkAddr')),
+                    ('nhrpclientnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpClientNbmaAddrType')),
+                    ('nhrpclientnbmaaddr', YLeaf(YType.str, 'nhrpClientNbmaAddr')),
+                    ('nhrpclientnbmasubaddr', YLeaf(YType.str, 'nhrpClientNbmaSubaddr')),
+                    ('nhrpclientinitialrequesttimeout', YLeaf(YType.int32, 'nhrpClientInitialRequestTimeout')),
+                    ('nhrpclientregistrationrequestretries', YLeaf(YType.int32, 'nhrpClientRegistrationRequestRetries')),
+                    ('nhrpclientresolutionrequestretries', YLeaf(YType.int32, 'nhrpClientResolutionRequestRetries')),
+                    ('nhrpclientpurgerequestretries', YLeaf(YType.int32, 'nhrpClientPurgeRequestRetries')),
+                    ('nhrpclientdefaultmtu', YLeaf(YType.uint32, 'nhrpClientDefaultMtu')),
+                    ('nhrpclientholdtime', YLeaf(YType.uint32, 'nhrpClientHoldTime')),
+                    ('nhrpclientrequestid', YLeaf(YType.uint32, 'nhrpClientRequestID')),
+                    ('nhrpclientstoragetype', YLeaf(YType.enumeration, 'nhrpClientStorageType')),
+                    ('nhrpclientrowstatus', YLeaf(YType.enumeration, 'nhrpClientRowStatus')),
+                ])
+                self.nhrpclientindex = None
+                self.nhrpclientinternetworkaddrtype = None
+                self.nhrpclientinternetworkaddr = None
+                self.nhrpclientnbmaaddrtype = None
+                self.nhrpclientnbmaaddr = None
+                self.nhrpclientnbmasubaddr = None
+                self.nhrpclientinitialrequesttimeout = None
+                self.nhrpclientregistrationrequestretries = None
+                self.nhrpclientresolutionrequestretries = None
+                self.nhrpclientpurgerequestretries = None
+                self.nhrpclientdefaultmtu = None
+                self.nhrpclientholdtime = None
+                self.nhrpclientrequestid = None
+                self.nhrpclientstoragetype = None
+                self.nhrpclientrowstatus = None
+                self._segment_path = lambda: "nhrpClientEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -864,8 +886,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientRegistrationEntry" : ("nhrpclientregistrationentry", NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpClientRegistrationEntry", ("nhrpclientregistrationentry", NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpclientregistrationentry = YList(self)
             self._segment_path = lambda: "nhrpClientRegistrationTable"
@@ -881,7 +905,7 @@ class NHRPMIB(Entity):
             between the NHC and the NHS.  An entry in this table
             represents information for a single registration request.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrpclientindex  (key)
             
             	
             	**type**\: int
@@ -890,7 +914,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
             
-            .. attribute:: nhrpclientregindex  <key>
+            .. attribute:: nhrpclientregindex  (key)
             
             	An identifier for this entry such that it identifies a specific Registration Request from the NHC represented by the nhrpClientIndex
             	**type**\: int
@@ -926,19 +950,22 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpClientRegistrationTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
-
-                self.nhrpclientregindex = YLeaf(YType.uint32, "nhrpClientRegIndex")
-
-                self.nhrpclientreguniqueness = YLeaf(YType.enumeration, "nhrpClientRegUniqueness")
-
-                self.nhrpclientregstate = YLeaf(YType.enumeration, "nhrpClientRegState")
-
-                self.nhrpclientregrowstatus = YLeaf(YType.enumeration, "nhrpClientRegRowStatus")
-                self._segment_path = lambda: "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']" + "[nhrpClientRegIndex='" + self.nhrpclientregindex.get() + "']"
+                self.ylist_key_names = ['nhrpclientindex','nhrpclientregindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
+                    ('nhrpclientregindex', YLeaf(YType.uint32, 'nhrpClientRegIndex')),
+                    ('nhrpclientreguniqueness', YLeaf(YType.enumeration, 'nhrpClientRegUniqueness')),
+                    ('nhrpclientregstate', YLeaf(YType.enumeration, 'nhrpClientRegState')),
+                    ('nhrpclientregrowstatus', YLeaf(YType.enumeration, 'nhrpClientRegRowStatus')),
+                ])
+                self.nhrpclientindex = None
+                self.nhrpclientregindex = None
+                self.nhrpclientreguniqueness = None
+                self.nhrpclientregstate = None
+                self.nhrpclientregrowstatus = None
+                self._segment_path = lambda: "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']" + "[nhrpClientRegIndex='" + str(self.nhrpclientregindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientRegistrationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -946,7 +973,7 @@ class NHRPMIB(Entity):
 
             class Nhrpclientregstate(Enum):
                 """
-                Nhrpclientregstate
+                Nhrpclientregstate (Enum Class)
 
                 The registration state of this client. The values are\:
 
@@ -997,7 +1024,7 @@ class NHRPMIB(Entity):
 
             class Nhrpclientreguniqueness(Enum):
                 """
-                Nhrpclientreguniqueness
+                Nhrpclientreguniqueness (Enum Class)
 
                 The Uniqueness indicator for this Registration Request.
 
@@ -1046,8 +1073,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientNhsEntry" : ("nhrpclientnhsentry", NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpClientNhsEntry", ("nhrpclientnhsentry", NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpclientnhsentry = YList(self)
             self._segment_path = lambda: "nhrpClientNhsTable"
@@ -1061,7 +1090,7 @@ class NHRPMIB(Entity):
             """
             An NHS that may be used by an NHC.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrpclientindex  (key)
             
             	
             	**type**\: int
@@ -1070,7 +1099,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
             
-            .. attribute:: nhrpclientnhsindex  <key>
+            .. attribute:: nhrpclientnhsindex  (key)
             
             	An identifier for an NHS available to an NHC
             	**type**\: int
@@ -1132,27 +1161,30 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpClientNhsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
-
-                self.nhrpclientnhsindex = YLeaf(YType.uint32, "nhrpClientNhsIndex")
-
-                self.nhrpclientnhsinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsInternetworkAddrType")
-
-                self.nhrpclientnhsinternetworkaddr = YLeaf(YType.str, "nhrpClientNhsInternetworkAddr")
-
-                self.nhrpclientnhsnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsNbmaAddrType")
-
-                self.nhrpclientnhsnbmaaddr = YLeaf(YType.str, "nhrpClientNhsNbmaAddr")
-
-                self.nhrpclientnhsnbmasubaddr = YLeaf(YType.str, "nhrpClientNhsNbmaSubaddr")
-
-                self.nhrpclientnhsinuse = YLeaf(YType.boolean, "nhrpClientNhsInUse")
-
-                self.nhrpclientnhsrowstatus = YLeaf(YType.enumeration, "nhrpClientNhsRowStatus")
-                self._segment_path = lambda: "nhrpClientNhsEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']" + "[nhrpClientNhsIndex='" + self.nhrpclientnhsindex.get() + "']"
+                self.ylist_key_names = ['nhrpclientindex','nhrpclientnhsindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
+                    ('nhrpclientnhsindex', YLeaf(YType.uint32, 'nhrpClientNhsIndex')),
+                    ('nhrpclientnhsinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpClientNhsInternetworkAddrType')),
+                    ('nhrpclientnhsinternetworkaddr', YLeaf(YType.str, 'nhrpClientNhsInternetworkAddr')),
+                    ('nhrpclientnhsnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpClientNhsNbmaAddrType')),
+                    ('nhrpclientnhsnbmaaddr', YLeaf(YType.str, 'nhrpClientNhsNbmaAddr')),
+                    ('nhrpclientnhsnbmasubaddr', YLeaf(YType.str, 'nhrpClientNhsNbmaSubaddr')),
+                    ('nhrpclientnhsinuse', YLeaf(YType.boolean, 'nhrpClientNhsInUse')),
+                    ('nhrpclientnhsrowstatus', YLeaf(YType.enumeration, 'nhrpClientNhsRowStatus')),
+                ])
+                self.nhrpclientindex = None
+                self.nhrpclientnhsindex = None
+                self.nhrpclientnhsinternetworkaddrtype = None
+                self.nhrpclientnhsinternetworkaddr = None
+                self.nhrpclientnhsnbmaaddrtype = None
+                self.nhrpclientnhsnbmaaddr = None
+                self.nhrpclientnhsnbmasubaddr = None
+                self.nhrpclientnhsinuse = None
+                self.nhrpclientnhsrowstatus = None
+                self._segment_path = lambda: "nhrpClientNhsEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']" + "[nhrpClientNhsIndex='" + str(self.nhrpclientnhsindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1183,8 +1215,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientStatEntry" : ("nhrpclientstatentry", NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpClientStatEntry", ("nhrpclientstatentry", NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpclientstatentry = YList(self)
             self._segment_path = lambda: "nhrpClientStatTable"
@@ -1198,7 +1232,7 @@ class NHRPMIB(Entity):
             """
             Statistics collected by a NHRP client.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrpclientindex  (key)
             
             	
             	**type**\: int
@@ -1396,61 +1430,64 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpClientStatTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
-
-                self.nhrpclientstattxresolvereq = YLeaf(YType.uint32, "nhrpClientStatTxResolveReq")
-
-                self.nhrpclientstatrxresolvereplyack = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyAck")
-
-                self.nhrpclientstatrxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakProhibited")
-
-                self.nhrpclientstatrxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakInsufResources")
-
-                self.nhrpclientstatrxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNoBinding")
-
-                self.nhrpclientstatrxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNotUnique")
-
-                self.nhrpclientstattxregisterreq = YLeaf(YType.uint32, "nhrpClientStatTxRegisterReq")
-
-                self.nhrpclientstatrxregisterack = YLeaf(YType.uint32, "nhrpClientStatRxRegisterAck")
-
-                self.nhrpclientstatrxregisternakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakProhibited")
-
-                self.nhrpclientstatrxregisternakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakInsufResources")
-
-                self.nhrpclientstatrxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakAlreadyReg")
-
-                self.nhrpclientstatrxpurgereq = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReq")
-
-                self.nhrpclientstattxpurgereq = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReq")
-
-                self.nhrpclientstatrxpurgereply = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReply")
-
-                self.nhrpclientstattxpurgereply = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReply")
-
-                self.nhrpclientstattxerrorindication = YLeaf(YType.uint32, "nhrpClientStatTxErrorIndication")
-
-                self.nhrpclientstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpClientStatRxErrUnrecognizedExtension")
-
-                self.nhrpclientstatrxerrloopdetected = YLeaf(YType.uint32, "nhrpClientStatRxErrLoopDetected")
-
-                self.nhrpclientstatrxerrprotoaddrunreachable = YLeaf(YType.uint32, "nhrpClientStatRxErrProtoAddrUnreachable")
-
-                self.nhrpclientstatrxerrprotoerror = YLeaf(YType.uint32, "nhrpClientStatRxErrProtoError")
-
-                self.nhrpclientstatrxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpClientStatRxErrSduSizeExceeded")
-
-                self.nhrpclientstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpClientStatRxErrInvalidExtension")
-
-                self.nhrpclientstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpClientStatRxErrAuthenticationFailure")
-
-                self.nhrpclientstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpClientStatRxErrHopCountExceeded")
-
-                self.nhrpclientstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpClientStatDiscontinuityTime")
-                self._segment_path = lambda: "nhrpClientStatEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']"
+                self.ylist_key_names = ['nhrpclientindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
+                    ('nhrpclientstattxresolvereq', YLeaf(YType.uint32, 'nhrpClientStatTxResolveReq')),
+                    ('nhrpclientstatrxresolvereplyack', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyAck')),
+                    ('nhrpclientstatrxresolvereplynakprohibited', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakProhibited')),
+                    ('nhrpclientstatrxresolvereplynakinsufresources', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakInsufResources')),
+                    ('nhrpclientstatrxresolvereplynaknobinding', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNoBinding')),
+                    ('nhrpclientstatrxresolvereplynaknotunique', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNotUnique')),
+                    ('nhrpclientstattxregisterreq', YLeaf(YType.uint32, 'nhrpClientStatTxRegisterReq')),
+                    ('nhrpclientstatrxregisterack', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterAck')),
+                    ('nhrpclientstatrxregisternakprohibited', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakProhibited')),
+                    ('nhrpclientstatrxregisternakinsufresources', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakInsufResources')),
+                    ('nhrpclientstatrxregisternakalreadyreg', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakAlreadyReg')),
+                    ('nhrpclientstatrxpurgereq', YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReq')),
+                    ('nhrpclientstattxpurgereq', YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReq')),
+                    ('nhrpclientstatrxpurgereply', YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReply')),
+                    ('nhrpclientstattxpurgereply', YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReply')),
+                    ('nhrpclientstattxerrorindication', YLeaf(YType.uint32, 'nhrpClientStatTxErrorIndication')),
+                    ('nhrpclientstatrxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpClientStatRxErrUnrecognizedExtension')),
+                    ('nhrpclientstatrxerrloopdetected', YLeaf(YType.uint32, 'nhrpClientStatRxErrLoopDetected')),
+                    ('nhrpclientstatrxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoAddrUnreachable')),
+                    ('nhrpclientstatrxerrprotoerror', YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoError')),
+                    ('nhrpclientstatrxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpClientStatRxErrSduSizeExceeded')),
+                    ('nhrpclientstatrxerrinvalidextension', YLeaf(YType.uint32, 'nhrpClientStatRxErrInvalidExtension')),
+                    ('nhrpclientstatrxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpClientStatRxErrAuthenticationFailure')),
+                    ('nhrpclientstatrxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpClientStatRxErrHopCountExceeded')),
+                    ('nhrpclientstatdiscontinuitytime', YLeaf(YType.uint32, 'nhrpClientStatDiscontinuityTime')),
+                ])
+                self.nhrpclientindex = None
+                self.nhrpclientstattxresolvereq = None
+                self.nhrpclientstatrxresolvereplyack = None
+                self.nhrpclientstatrxresolvereplynakprohibited = None
+                self.nhrpclientstatrxresolvereplynakinsufresources = None
+                self.nhrpclientstatrxresolvereplynaknobinding = None
+                self.nhrpclientstatrxresolvereplynaknotunique = None
+                self.nhrpclientstattxregisterreq = None
+                self.nhrpclientstatrxregisterack = None
+                self.nhrpclientstatrxregisternakprohibited = None
+                self.nhrpclientstatrxregisternakinsufresources = None
+                self.nhrpclientstatrxregisternakalreadyreg = None
+                self.nhrpclientstatrxpurgereq = None
+                self.nhrpclientstattxpurgereq = None
+                self.nhrpclientstatrxpurgereply = None
+                self.nhrpclientstattxpurgereply = None
+                self.nhrpclientstattxerrorindication = None
+                self.nhrpclientstatrxerrunrecognizedextension = None
+                self.nhrpclientstatrxerrloopdetected = None
+                self.nhrpclientstatrxerrprotoaddrunreachable = None
+                self.nhrpclientstatrxerrprotoerror = None
+                self.nhrpclientstatrxerrsdusizeexceeded = None
+                self.nhrpclientstatrxerrinvalidextension = None
+                self.nhrpclientstatrxerrauthenticationfailure = None
+                self.nhrpclientstatrxerrhopcountexceeded = None
+                self.nhrpclientstatdiscontinuitytime = None
+                self._segment_path = lambda: "nhrpClientStatEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1481,8 +1518,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpServerEntry" : ("nhrpserverentry", NHRPMIB.Nhrpservertable.Nhrpserverentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpServerEntry", ("nhrpserverentry", NHRPMIB.Nhrpservertable.Nhrpserverentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpserverentry = YList(self)
             self._segment_path = lambda: "nhrpServerTable"
@@ -1496,7 +1535,7 @@ class NHRPMIB(Entity):
             """
             Information about a single NHS.
             
-            .. attribute:: nhrpserverindex  <key>
+            .. attribute:: nhrpserverindex  (key)
             
             	An identifier for the server that is unique within the scope of this agent
             	**type**\: int
@@ -1558,25 +1597,28 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpServerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpserverindex = YLeaf(YType.uint32, "nhrpServerIndex")
-
-                self.nhrpserverinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpServerInternetworkAddrType")
-
-                self.nhrpserverinternetworkaddr = YLeaf(YType.str, "nhrpServerInternetworkAddr")
-
-                self.nhrpservernbmaaddrtype = YLeaf(YType.enumeration, "nhrpServerNbmaAddrType")
-
-                self.nhrpservernbmaaddr = YLeaf(YType.str, "nhrpServerNbmaAddr")
-
-                self.nhrpservernbmasubaddr = YLeaf(YType.str, "nhrpServerNbmaSubaddr")
-
-                self.nhrpserverstoragetype = YLeaf(YType.enumeration, "nhrpServerStorageType")
-
-                self.nhrpserverrowstatus = YLeaf(YType.enumeration, "nhrpServerRowStatus")
-                self._segment_path = lambda: "nhrpServerEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']"
+                self.ylist_key_names = ['nhrpserverindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpserverindex', YLeaf(YType.uint32, 'nhrpServerIndex')),
+                    ('nhrpserverinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpServerInternetworkAddrType')),
+                    ('nhrpserverinternetworkaddr', YLeaf(YType.str, 'nhrpServerInternetworkAddr')),
+                    ('nhrpservernbmaaddrtype', YLeaf(YType.enumeration, 'nhrpServerNbmaAddrType')),
+                    ('nhrpservernbmaaddr', YLeaf(YType.str, 'nhrpServerNbmaAddr')),
+                    ('nhrpservernbmasubaddr', YLeaf(YType.str, 'nhrpServerNbmaSubaddr')),
+                    ('nhrpserverstoragetype', YLeaf(YType.enumeration, 'nhrpServerStorageType')),
+                    ('nhrpserverrowstatus', YLeaf(YType.enumeration, 'nhrpServerRowStatus')),
+                ])
+                self.nhrpserverindex = None
+                self.nhrpserverinternetworkaddrtype = None
+                self.nhrpserverinternetworkaddr = None
+                self.nhrpservernbmaaddrtype = None
+                self.nhrpservernbmaaddr = None
+                self.nhrpservernbmasubaddr = None
+                self.nhrpserverstoragetype = None
+                self.nhrpserverrowstatus = None
+                self._segment_path = lambda: "nhrpServerEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1617,8 +1659,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpServerCacheEntry" : ("nhrpservercacheentry", NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpServerCacheEntry", ("nhrpservercacheentry", NHRPMIB.Nhrpservercachetable.Nhrpservercacheentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpservercacheentry = YList(self)
             self._segment_path = lambda: "nhrpServerCacheTable"
@@ -1633,12 +1677,12 @@ class NHRPMIB(Entity):
             Additional information kept by a NHS for a relevant
             Next Hop Resolution Cache entry.
             
-            .. attribute:: nhrpcacheinternetworkaddrtype  <key>
+            .. attribute:: nhrpcacheinternetworkaddrtype  (key)
             
             	
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: nhrpcacheinternetworkaddr  <key>
+            .. attribute:: nhrpcacheinternetworkaddr  (key)
             
             	
             	**type**\: str
@@ -1647,7 +1691,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpcacheinternetworkaddr <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry>`
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1656,7 +1700,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: nhrpcacheindex  <key>
+            .. attribute:: nhrpcacheindex  (key)
             
             	
             	**type**\: int
@@ -1689,21 +1733,24 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpServerCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpcacheinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpCacheInternetworkAddrType")
-
-                self.nhrpcacheinternetworkaddr = YLeaf(YType.str, "nhrpCacheInternetworkAddr")
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.nhrpcacheindex = YLeaf(YType.str, "nhrpCacheIndex")
-
-                self.nhrpservercacheauthoritative = YLeaf(YType.boolean, "nhrpServerCacheAuthoritative")
-
-                self.nhrpservercacheuniqueness = YLeaf(YType.boolean, "nhrpServerCacheUniqueness")
-                self._segment_path = lambda: "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + self.nhrpcacheinternetworkaddrtype.get() + "']" + "[nhrpCacheInternetworkAddr='" + self.nhrpcacheinternetworkaddr.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + "[nhrpCacheIndex='" + self.nhrpcacheindex.get() + "']"
+                self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
+                    ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('nhrpcacheindex', YLeaf(YType.str, 'nhrpCacheIndex')),
+                    ('nhrpservercacheauthoritative', YLeaf(YType.boolean, 'nhrpServerCacheAuthoritative')),
+                    ('nhrpservercacheuniqueness', YLeaf(YType.boolean, 'nhrpServerCacheUniqueness')),
+                ])
+                self.nhrpcacheinternetworkaddrtype = None
+                self.nhrpcacheinternetworkaddr = None
+                self.ifindex = None
+                self.nhrpcacheindex = None
+                self.nhrpservercacheauthoritative = None
+                self.nhrpservercacheuniqueness = None
+                self._segment_path = lambda: "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + str(self.nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + str(self.nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[nhrpCacheIndex='" + str(self.nhrpcacheindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1734,8 +1781,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpServerNhcEntry" : ("nhrpservernhcentry", NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpServerNhcEntry", ("nhrpservernhcentry", NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpservernhcentry = YList(self)
             self._segment_path = lambda: "nhrpServerNhcTable"
@@ -1749,7 +1798,7 @@ class NHRPMIB(Entity):
             """
             An NHC that may be used by an NHS.
             
-            .. attribute:: nhrpserverindex  <key>
+            .. attribute:: nhrpserverindex  (key)
             
             	
             	**type**\: int
@@ -1758,7 +1807,7 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
             
-            .. attribute:: nhrpservernhcindex  <key>
+            .. attribute:: nhrpservernhcindex  (key)
             
             	An identifier for an NHC available to an NHS
             	**type**\: int
@@ -1827,29 +1876,32 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpServerNhcTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpserverindex = YLeaf(YType.str, "nhrpServerIndex")
-
-                self.nhrpservernhcindex = YLeaf(YType.uint32, "nhrpServerNhcIndex")
-
-                self.nhrpservernhcprefixlength = YLeaf(YType.int32, "nhrpServerNhcPrefixLength")
-
-                self.nhrpservernhcinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpServerNhcInternetworkAddrType")
-
-                self.nhrpservernhcinternetworkaddr = YLeaf(YType.str, "nhrpServerNhcInternetworkAddr")
-
-                self.nhrpservernhcnbmaaddrtype = YLeaf(YType.enumeration, "nhrpServerNhcNbmaAddrType")
-
-                self.nhrpservernhcnbmaaddr = YLeaf(YType.str, "nhrpServerNhcNbmaAddr")
-
-                self.nhrpservernhcnbmasubaddr = YLeaf(YType.str, "nhrpServerNhcNbmaSubaddr")
-
-                self.nhrpservernhcinuse = YLeaf(YType.boolean, "nhrpServerNhcInUse")
-
-                self.nhrpservernhcrowstatus = YLeaf(YType.enumeration, "nhrpServerNhcRowStatus")
-                self._segment_path = lambda: "nhrpServerNhcEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']" + "[nhrpServerNhcIndex='" + self.nhrpservernhcindex.get() + "']"
+                self.ylist_key_names = ['nhrpserverindex','nhrpservernhcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
+                    ('nhrpservernhcindex', YLeaf(YType.uint32, 'nhrpServerNhcIndex')),
+                    ('nhrpservernhcprefixlength', YLeaf(YType.int32, 'nhrpServerNhcPrefixLength')),
+                    ('nhrpservernhcinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpServerNhcInternetworkAddrType')),
+                    ('nhrpservernhcinternetworkaddr', YLeaf(YType.str, 'nhrpServerNhcInternetworkAddr')),
+                    ('nhrpservernhcnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpServerNhcNbmaAddrType')),
+                    ('nhrpservernhcnbmaaddr', YLeaf(YType.str, 'nhrpServerNhcNbmaAddr')),
+                    ('nhrpservernhcnbmasubaddr', YLeaf(YType.str, 'nhrpServerNhcNbmaSubaddr')),
+                    ('nhrpservernhcinuse', YLeaf(YType.boolean, 'nhrpServerNhcInUse')),
+                    ('nhrpservernhcrowstatus', YLeaf(YType.enumeration, 'nhrpServerNhcRowStatus')),
+                ])
+                self.nhrpserverindex = None
+                self.nhrpservernhcindex = None
+                self.nhrpservernhcprefixlength = None
+                self.nhrpservernhcinternetworkaddrtype = None
+                self.nhrpservernhcinternetworkaddr = None
+                self.nhrpservernhcnbmaaddrtype = None
+                self.nhrpservernhcnbmaaddr = None
+                self.nhrpservernhcnbmasubaddr = None
+                self.nhrpservernhcinuse = None
+                self.nhrpservernhcrowstatus = None
+                self._segment_path = lambda: "nhrpServerNhcEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']" + "[nhrpServerNhcIndex='" + str(self.nhrpservernhcindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerNhcTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1879,8 +1931,10 @@ class NHRPMIB(Entity):
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpServerStatEntry" : ("nhrpserverstatentry", NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("nhrpServerStatEntry", ("nhrpserverstatentry", NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry))])
+            self._leafs = OrderedDict()
 
             self.nhrpserverstatentry = YList(self)
             self._segment_path = lambda: "nhrpServerStatTable"
@@ -1897,7 +1951,7 @@ class NHRPMIB(Entity):
             and forwarded (Fw).  Forwarded (Fw) would be done
             by a transit NHS.
             
-            .. attribute:: nhrpserverindex  <key>
+            .. attribute:: nhrpserverindex  (key)
             
             	
             	**type**\: int
@@ -2200,91 +2254,94 @@ class NHRPMIB(Entity):
                 self.yang_parent_name = "nhrpServerStatTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpserverindex = YLeaf(YType.str, "nhrpServerIndex")
-
-                self.nhrpserverstatrxresolvereq = YLeaf(YType.uint32, "nhrpServerStatRxResolveReq")
-
-                self.nhrpserverstattxresolvereplyack = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyAck")
-
-                self.nhrpserverstattxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakProhibited")
-
-                self.nhrpserverstattxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakInsufResources")
-
-                self.nhrpserverstattxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNoBinding")
-
-                self.nhrpserverstattxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNotUnique")
-
-                self.nhrpserverstatrxregisterreq = YLeaf(YType.uint32, "nhrpServerStatRxRegisterReq")
-
-                self.nhrpserverstattxregisterack = YLeaf(YType.uint32, "nhrpServerStatTxRegisterAck")
-
-                self.nhrpserverstattxregisternakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakProhibited")
-
-                self.nhrpserverstattxregisternakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakInsufResources")
-
-                self.nhrpserverstattxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakAlreadyReg")
-
-                self.nhrpserverstatrxpurgereq = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReq")
-
-                self.nhrpserverstattxpurgereq = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReq")
-
-                self.nhrpserverstatrxpurgereply = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReply")
-
-                self.nhrpserverstattxpurgereply = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReply")
-
-                self.nhrpserverstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatRxErrUnrecognizedExtension")
-
-                self.nhrpserverstatrxerrloopdetected = YLeaf(YType.uint32, "nhrpServerStatRxErrLoopDetected")
-
-                self.nhrpserverstatrxerrprotoaddrunreachable = YLeaf(YType.uint32, "nhrpServerStatRxErrProtoAddrUnreachable")
-
-                self.nhrpserverstatrxerrprotoerror = YLeaf(YType.uint32, "nhrpServerStatRxErrProtoError")
-
-                self.nhrpserverstatrxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpServerStatRxErrSduSizeExceeded")
-
-                self.nhrpserverstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidExtension")
-
-                self.nhrpserverstatrxerrinvalidresreplyreceived = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidResReplyReceived")
-
-                self.nhrpserverstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatRxErrAuthenticationFailure")
-
-                self.nhrpserverstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatRxErrHopCountExceeded")
-
-                self.nhrpserverstattxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatTxErrUnrecognizedExtension")
-
-                self.nhrpserverstattxerrloopdetected = YLeaf(YType.uint32, "nhrpServerStatTxErrLoopDetected")
-
-                self.nhrpserverstattxerrprotoaddrunreachable = YLeaf(YType.uint32, "nhrpServerStatTxErrProtoAddrUnreachable")
-
-                self.nhrpserverstattxerrprotoerror = YLeaf(YType.uint32, "nhrpServerStatTxErrProtoError")
-
-                self.nhrpserverstattxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpServerStatTxErrSduSizeExceeded")
-
-                self.nhrpserverstattxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatTxErrInvalidExtension")
-
-                self.nhrpserverstattxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatTxErrAuthenticationFailure")
-
-                self.nhrpserverstattxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatTxErrHopCountExceeded")
-
-                self.nhrpserverstatfwresolvereq = YLeaf(YType.uint32, "nhrpServerStatFwResolveReq")
-
-                self.nhrpserverstatfwresolvereply = YLeaf(YType.uint32, "nhrpServerStatFwResolveReply")
-
-                self.nhrpserverstatfwregisterreq = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReq")
-
-                self.nhrpserverstatfwregisterreply = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReply")
-
-                self.nhrpserverstatfwpurgereq = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReq")
-
-                self.nhrpserverstatfwpurgereply = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReply")
-
-                self.nhrpserverstatfwerrorindication = YLeaf(YType.uint32, "nhrpServerStatFwErrorIndication")
-
-                self.nhrpserverstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpServerStatDiscontinuityTime")
-                self._segment_path = lambda: "nhrpServerStatEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']"
+                self.ylist_key_names = ['nhrpserverindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
+                    ('nhrpserverstatrxresolvereq', YLeaf(YType.uint32, 'nhrpServerStatRxResolveReq')),
+                    ('nhrpserverstattxresolvereplyack', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyAck')),
+                    ('nhrpserverstattxresolvereplynakprohibited', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakProhibited')),
+                    ('nhrpserverstattxresolvereplynakinsufresources', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakInsufResources')),
+                    ('nhrpserverstattxresolvereplynaknobinding', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNoBinding')),
+                    ('nhrpserverstattxresolvereplynaknotunique', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNotUnique')),
+                    ('nhrpserverstatrxregisterreq', YLeaf(YType.uint32, 'nhrpServerStatRxRegisterReq')),
+                    ('nhrpserverstattxregisterack', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterAck')),
+                    ('nhrpserverstattxregisternakprohibited', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakProhibited')),
+                    ('nhrpserverstattxregisternakinsufresources', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakInsufResources')),
+                    ('nhrpserverstattxregisternakalreadyreg', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakAlreadyReg')),
+                    ('nhrpserverstatrxpurgereq', YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReq')),
+                    ('nhrpserverstattxpurgereq', YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReq')),
+                    ('nhrpserverstatrxpurgereply', YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReply')),
+                    ('nhrpserverstattxpurgereply', YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReply')),
+                    ('nhrpserverstatrxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpServerStatRxErrUnrecognizedExtension')),
+                    ('nhrpserverstatrxerrloopdetected', YLeaf(YType.uint32, 'nhrpServerStatRxErrLoopDetected')),
+                    ('nhrpserverstatrxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoAddrUnreachable')),
+                    ('nhrpserverstatrxerrprotoerror', YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoError')),
+                    ('nhrpserverstatrxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpServerStatRxErrSduSizeExceeded')),
+                    ('nhrpserverstatrxerrinvalidextension', YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidExtension')),
+                    ('nhrpserverstatrxerrinvalidresreplyreceived', YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidResReplyReceived')),
+                    ('nhrpserverstatrxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpServerStatRxErrAuthenticationFailure')),
+                    ('nhrpserverstatrxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpServerStatRxErrHopCountExceeded')),
+                    ('nhrpserverstattxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpServerStatTxErrUnrecognizedExtension')),
+                    ('nhrpserverstattxerrloopdetected', YLeaf(YType.uint32, 'nhrpServerStatTxErrLoopDetected')),
+                    ('nhrpserverstattxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoAddrUnreachable')),
+                    ('nhrpserverstattxerrprotoerror', YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoError')),
+                    ('nhrpserverstattxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpServerStatTxErrSduSizeExceeded')),
+                    ('nhrpserverstattxerrinvalidextension', YLeaf(YType.uint32, 'nhrpServerStatTxErrInvalidExtension')),
+                    ('nhrpserverstattxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpServerStatTxErrAuthenticationFailure')),
+                    ('nhrpserverstattxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpServerStatTxErrHopCountExceeded')),
+                    ('nhrpserverstatfwresolvereq', YLeaf(YType.uint32, 'nhrpServerStatFwResolveReq')),
+                    ('nhrpserverstatfwresolvereply', YLeaf(YType.uint32, 'nhrpServerStatFwResolveReply')),
+                    ('nhrpserverstatfwregisterreq', YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReq')),
+                    ('nhrpserverstatfwregisterreply', YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReply')),
+                    ('nhrpserverstatfwpurgereq', YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReq')),
+                    ('nhrpserverstatfwpurgereply', YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReply')),
+                    ('nhrpserverstatfwerrorindication', YLeaf(YType.uint32, 'nhrpServerStatFwErrorIndication')),
+                    ('nhrpserverstatdiscontinuitytime', YLeaf(YType.uint32, 'nhrpServerStatDiscontinuityTime')),
+                ])
+                self.nhrpserverindex = None
+                self.nhrpserverstatrxresolvereq = None
+                self.nhrpserverstattxresolvereplyack = None
+                self.nhrpserverstattxresolvereplynakprohibited = None
+                self.nhrpserverstattxresolvereplynakinsufresources = None
+                self.nhrpserverstattxresolvereplynaknobinding = None
+                self.nhrpserverstattxresolvereplynaknotunique = None
+                self.nhrpserverstatrxregisterreq = None
+                self.nhrpserverstattxregisterack = None
+                self.nhrpserverstattxregisternakprohibited = None
+                self.nhrpserverstattxregisternakinsufresources = None
+                self.nhrpserverstattxregisternakalreadyreg = None
+                self.nhrpserverstatrxpurgereq = None
+                self.nhrpserverstattxpurgereq = None
+                self.nhrpserverstatrxpurgereply = None
+                self.nhrpserverstattxpurgereply = None
+                self.nhrpserverstatrxerrunrecognizedextension = None
+                self.nhrpserverstatrxerrloopdetected = None
+                self.nhrpserverstatrxerrprotoaddrunreachable = None
+                self.nhrpserverstatrxerrprotoerror = None
+                self.nhrpserverstatrxerrsdusizeexceeded = None
+                self.nhrpserverstatrxerrinvalidextension = None
+                self.nhrpserverstatrxerrinvalidresreplyreceived = None
+                self.nhrpserverstatrxerrauthenticationfailure = None
+                self.nhrpserverstatrxerrhopcountexceeded = None
+                self.nhrpserverstattxerrunrecognizedextension = None
+                self.nhrpserverstattxerrloopdetected = None
+                self.nhrpserverstattxerrprotoaddrunreachable = None
+                self.nhrpserverstattxerrprotoerror = None
+                self.nhrpserverstattxerrsdusizeexceeded = None
+                self.nhrpserverstattxerrinvalidextension = None
+                self.nhrpserverstattxerrauthenticationfailure = None
+                self.nhrpserverstattxerrhopcountexceeded = None
+                self.nhrpserverstatfwresolvereq = None
+                self.nhrpserverstatfwresolvereply = None
+                self.nhrpserverstatfwregisterreq = None
+                self.nhrpserverstatfwregisterreply = None
+                self.nhrpserverstatfwpurgereq = None
+                self.nhrpserverstatfwpurgereply = None
+                self.nhrpserverstatfwerrorindication = None
+                self.nhrpserverstatdiscontinuitytime = None
+                self._segment_path = lambda: "nhrpServerStatEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

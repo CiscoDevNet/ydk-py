@@ -7,6 +7,8 @@ key\-chain configuration parameters.
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ class KeyChains(Entity):
     A key\-chain is a sequence of keys that are collectively
     managed for authentication.
     
-    .. attribute:: name  <key>
+    .. attribute:: name  (key)
     
     	Name of the key\-chain
     	**type**\: str
@@ -49,10 +51,13 @@ class KeyChains(Entity):
         self.yang_parent_name = "ietf-key-chain"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"accept-tolerance" : ("accept_tolerance", KeyChains.AcceptTolerance)}
-        self._child_list_classes = {"key" : ("key", KeyChains.Key)}
-
-        self.name = YLeaf(YType.str, "name")
+        self.ylist_key_names = ['name']
+        self._child_container_classes = OrderedDict([("accept-tolerance", ("accept_tolerance", KeyChains.AcceptTolerance))])
+        self._child_list_classes = OrderedDict([("key", ("key", KeyChains.Key))])
+        self._leafs = OrderedDict([
+            ('name', YLeaf(YType.str, 'name')),
+        ])
+        self.name = None
 
         self.accept_tolerance = KeyChains.AcceptTolerance()
         self.accept_tolerance.parent = self
@@ -60,7 +65,7 @@ class KeyChains(Entity):
         self._children_yang_names.add("accept-tolerance")
 
         self.key = YList(self)
-        self._segment_path = lambda: "ietf-key-chain:key-chains" + "[name='" + self.name.get() + "']"
+        self._segment_path = lambda: "ietf-key-chain:key-chains" + "[name='" + str(self.name) + "']"
 
     def __setattr__(self, name, value):
         self._perform_setattr(KeyChains, ['name'], name, value)
@@ -95,10 +100,13 @@ class KeyChains(Entity):
             self.yang_parent_name = "key-chains"
             self.is_top_level_class = False
             self.has_list_ancestor = True
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.duration = YLeaf(YType.uint32, "duration")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('duration', YLeaf(YType.uint32, 'duration')),
+            ])
+            self.duration = None
             self._segment_path = lambda: "accept-tolerance"
 
         def __setattr__(self, name, value):
@@ -109,7 +117,7 @@ class KeyChains(Entity):
         """
         One key.
         
-        .. attribute:: key_id  <key>
+        .. attribute:: key_id  (key)
         
         	Key id
         	**type**\: int
@@ -145,10 +153,13 @@ class KeyChains(Entity):
             self.yang_parent_name = "key-chains"
             self.is_top_level_class = False
             self.has_list_ancestor = True
-            self._child_container_classes = {"key-string" : ("key_string", KeyChains.Key.KeyString), "lifetime" : ("lifetime", KeyChains.Key.Lifetime), "crypto-algorithm" : ("crypto_algorithm", KeyChains.Key.CryptoAlgorithm)}
-            self._child_list_classes = {}
-
-            self.key_id = YLeaf(YType.uint64, "key-id")
+            self.ylist_key_names = ['key_id']
+            self._child_container_classes = OrderedDict([("key-string", ("key_string", KeyChains.Key.KeyString)), ("lifetime", ("lifetime", KeyChains.Key.Lifetime)), ("crypto-algorithm", ("crypto_algorithm", KeyChains.Key.CryptoAlgorithm))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('key_id', YLeaf(YType.uint64, 'key-id')),
+            ])
+            self.key_id = None
 
             self.key_string = KeyChains.Key.KeyString()
             self.key_string.parent = self
@@ -164,7 +175,7 @@ class KeyChains(Entity):
             self.crypto_algorithm.parent = self
             self._children_name_map["crypto_algorithm"] = "crypto-algorithm"
             self._children_yang_names.add("crypto-algorithm")
-            self._segment_path = lambda: "key" + "[key-id='" + self.key_id.get() + "']"
+            self._segment_path = lambda: "key" + "[key-id='" + str(self.key_id) + "']"
 
         def __setattr__(self, name, value):
             self._perform_setattr(KeyChains.Key, ['key_id'], name, value)
@@ -200,12 +211,15 @@ class KeyChains(Entity):
                 self.yang_parent_name = "key"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.keystring = YLeaf(YType.str, "keystring")
-
-                self.hexadecimal_string = YLeaf(YType.str, "hexadecimal-string")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('keystring', YLeaf(YType.str, 'keystring')),
+                    ('hexadecimal_string', YLeaf(YType.str, 'hexadecimal-string')),
+                ])
+                self.keystring = None
+                self.hexadecimal_string = None
                 self._segment_path = lambda: "key-string"
 
             def __setattr__(self, name, value):
@@ -245,8 +259,10 @@ class KeyChains(Entity):
                 self.yang_parent_name = "key"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"send-accept-lifetime" : ("send_accept_lifetime", KeyChains.Key.Lifetime.SendAcceptLifetime), "send-lifetime" : ("send_lifetime", KeyChains.Key.Lifetime.SendLifetime), "accept-lifetime" : ("accept_lifetime", KeyChains.Key.Lifetime.AcceptLifetime)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("send-accept-lifetime", ("send_accept_lifetime", KeyChains.Key.Lifetime.SendAcceptLifetime)), ("send-lifetime", ("send_lifetime", KeyChains.Key.Lifetime.SendLifetime)), ("accept-lifetime", ("accept_lifetime", KeyChains.Key.Lifetime.AcceptLifetime))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.send_accept_lifetime = KeyChains.Key.Lifetime.SendAcceptLifetime()
                 self.send_accept_lifetime.parent = self
@@ -317,18 +333,21 @@ class KeyChains(Entity):
                     self.yang_parent_name = "lifetime"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.always = YLeaf(YType.empty, "always")
-
-                    self.start_date_time = YLeaf(YType.str, "start-date-time")
-
-                    self.no_end_time = YLeaf(YType.empty, "no-end-time")
-
-                    self.duration = YLeaf(YType.uint32, "duration")
-
-                    self.end_date_time = YLeaf(YType.str, "end-date-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('always', YLeaf(YType.empty, 'always')),
+                        ('start_date_time', YLeaf(YType.str, 'start-date-time')),
+                        ('no_end_time', YLeaf(YType.empty, 'no-end-time')),
+                        ('duration', YLeaf(YType.uint32, 'duration')),
+                        ('end_date_time', YLeaf(YType.str, 'end-date-time')),
+                    ])
+                    self.always = None
+                    self.start_date_time = None
+                    self.no_end_time = None
+                    self.duration = None
+                    self.end_date_time = None
                     self._segment_path = lambda: "send-accept-lifetime"
 
                 def __setattr__(self, name, value):
@@ -387,18 +406,21 @@ class KeyChains(Entity):
                     self.yang_parent_name = "lifetime"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.always = YLeaf(YType.empty, "always")
-
-                    self.start_date_time = YLeaf(YType.str, "start-date-time")
-
-                    self.no_end_time = YLeaf(YType.empty, "no-end-time")
-
-                    self.duration = YLeaf(YType.uint32, "duration")
-
-                    self.end_date_time = YLeaf(YType.str, "end-date-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('always', YLeaf(YType.empty, 'always')),
+                        ('start_date_time', YLeaf(YType.str, 'start-date-time')),
+                        ('no_end_time', YLeaf(YType.empty, 'no-end-time')),
+                        ('duration', YLeaf(YType.uint32, 'duration')),
+                        ('end_date_time', YLeaf(YType.str, 'end-date-time')),
+                    ])
+                    self.always = None
+                    self.start_date_time = None
+                    self.no_end_time = None
+                    self.duration = None
+                    self.end_date_time = None
                     self._segment_path = lambda: "send-lifetime"
 
                 def __setattr__(self, name, value):
@@ -457,18 +479,21 @@ class KeyChains(Entity):
                     self.yang_parent_name = "lifetime"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.always = YLeaf(YType.empty, "always")
-
-                    self.start_date_time = YLeaf(YType.str, "start-date-time")
-
-                    self.no_end_time = YLeaf(YType.empty, "no-end-time")
-
-                    self.duration = YLeaf(YType.uint32, "duration")
-
-                    self.end_date_time = YLeaf(YType.str, "end-date-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('always', YLeaf(YType.empty, 'always')),
+                        ('start_date_time', YLeaf(YType.str, 'start-date-time')),
+                        ('no_end_time', YLeaf(YType.empty, 'no-end-time')),
+                        ('duration', YLeaf(YType.uint32, 'duration')),
+                        ('end_date_time', YLeaf(YType.str, 'end-date-time')),
+                    ])
+                    self.always = None
+                    self.start_date_time = None
+                    self.no_end_time = None
+                    self.duration = None
+                    self.end_date_time = None
                     self._segment_path = lambda: "accept-lifetime"
 
                 def __setattr__(self, name, value):
@@ -533,24 +558,27 @@ class KeyChains(Entity):
                 self.yang_parent_name = "key"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.hmac_sha1_12 = YLeaf(YType.empty, "hmac-sha1-12")
-
-                self.hmac_sha1_20 = YLeaf(YType.empty, "hmac-sha1-20")
-
-                self.md5 = YLeaf(YType.empty, "md5")
-
-                self.sha_1 = YLeaf(YType.empty, "sha-1")
-
-                self.hmac_sha_1 = YLeaf(YType.empty, "hmac-sha-1")
-
-                self.hmac_sha_256 = YLeaf(YType.empty, "hmac-sha-256")
-
-                self.hmac_sha_384 = YLeaf(YType.empty, "hmac-sha-384")
-
-                self.hmac_sha_512 = YLeaf(YType.empty, "hmac-sha-512")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
+                    ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
+                    ('md5', YLeaf(YType.empty, 'md5')),
+                    ('sha_1', YLeaf(YType.empty, 'sha-1')),
+                    ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
+                    ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
+                    ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
+                    ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                ])
+                self.hmac_sha1_12 = None
+                self.hmac_sha1_20 = None
+                self.md5 = None
+                self.sha_1 = None
+                self.hmac_sha_1 = None
+                self.hmac_sha_256 = None
+                self.hmac_sha_384 = None
+                self.hmac_sha_512 = None
                 self._segment_path = lambda: "crypto-algorithm"
 
             def __setattr__(self, name, value):

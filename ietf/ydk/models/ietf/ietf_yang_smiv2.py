@@ -17,6 +17,8 @@ This version of this YANG module is part of RFC 6643; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -32,7 +34,7 @@ class ObjectIdentity(Identity):
 
     """
 
-    _prefix = 'ietf-yang-smiv2'
+    _prefix = 'smiv2'
     _revision = '2012-06-22'
 
     def __init__(self):

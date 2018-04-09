@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Asr9kFabMode(Enum):
     """
-    Asr9kFabMode
+    Asr9kFabMode (Enum Class)
 
     Asr9k fab mode
 
@@ -57,8 +59,10 @@ class FabVqiConfig(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-fab-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mode" : ("mode", FabVqiConfig.Mode)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mode", ("mode", FabVqiConfig.Mode))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mode = FabVqiConfig.Mode()
         self.mode.parent = self
@@ -95,12 +99,15 @@ class FabVqiConfig(Entity):
             self.yang_parent_name = "fab-vqi-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.fab_mode_type_xr = YLeaf(YType.enumeration, "fab-mode-type-xr")
-
-            self.fab_mode_type = YLeaf(YType.enumeration, "fab-mode-type")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('fab_mode_type_xr', YLeaf(YType.enumeration, 'fab-mode-type-xr')),
+                ('fab_mode_type', YLeaf(YType.enumeration, 'fab-mode-type')),
+            ])
+            self.fab_mode_type_xr = None
+            self.fab_mode_type = None
             self._segment_path = lambda: "mode"
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fab-cfg:fab-vqi-config/%s" % self._segment_path()
 

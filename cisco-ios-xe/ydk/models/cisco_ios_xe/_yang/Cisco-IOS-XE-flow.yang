@@ -35,13 +35,31 @@ module Cisco-IOS-XE-flow {
 
   description
     "Cisco XE Native NetFlow Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-04 {
+     description
+       "Added destination local wlc and options for record wireless avc";
+  }
 
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revison has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-14 {
+    description
+      "This revison has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -1971,6 +1989,15 @@ module Cisco-IOS-XE-flow {
               type empty;
             }
           }
+          container layer2 {
+            description
+              "Total number of layer 2 bytes";
+            leaf long {
+              description
+                "Total number of layer 2 bytes (64 bit counter)";
+              type empty;
+            }
+          }
         }
         leaf flows {
           description
@@ -2738,6 +2765,32 @@ module Cisco-IOS-XE-flow {
           }
         }
       }
+      container wireless {
+        description
+          "Templates for wireless traffics";
+        container avc {
+          description
+            "Schemas for Application Visibility Control";
+          choice template-choice {
+            leaf basic {
+              type empty;
+            }
+            container ipv4 {
+              leaf basic {
+                type empty;
+              }
+            }
+            container ipv6 {
+              leaf basic {
+                type empty;
+              }
+            }
+            leaf statistics {
+              type empty;
+            }
+          }
+        }
+      }
     }
     container statistics {
       description
@@ -2861,13 +2914,26 @@ module Cisco-IOS-XE-flow {
     container destination {
       description
         "Export destination configuration";
-      leaf ip {
-        type inet:ip-address;
-      }
-      leaf vrf {
-        description
-          "Optional VRF label";
-        type string;
+      choice destination-choice {
+        container ipdest {
+          leaf ip {
+            type inet:ip-address;
+          }
+          leaf vrf {
+            description
+              "Optional VRF label";
+            type string;
+          }
+        }
+        container local {
+          description
+            "Export to a local collector";
+          leaf wlc {
+            description
+              "WLC local collector";
+            type empty;
+          }
+        }
       }
     }
     leaf dscp {
@@ -3391,7 +3457,19 @@ module Cisco-IOS-XE-flow {
     uses config-interface-ip-flow-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-flow-grouping;
   }
 
@@ -3426,7 +3504,19 @@ module Cisco-IOS-XE-flow {
     uses config-interface-ipv6-flow-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ipv6-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-flow-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
     uses config-interface-ipv6-flow-grouping;
   }
 

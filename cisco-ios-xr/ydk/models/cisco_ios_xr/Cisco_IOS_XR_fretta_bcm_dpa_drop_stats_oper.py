@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Drop(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Drop.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Drop.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Drop.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class Drop(Entity):
             self.yang_parent_name = "drop"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Drop.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Drop.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class Drop(Entity):
             """
             Drop stats data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -116,16 +122,19 @@ class Drop(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"npu-number-for-drop-stats" : ("npu_number_for_drop_stats", Drop.Nodes.Node.NpuNumberForDropStats)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("npu-number-for-drop-stats", ("npu_number_for_drop_stats", Drop.Nodes.Node.NpuNumberForDropStats))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.npu_number_for_drop_stats = Drop.Nodes.Node.NpuNumberForDropStats()
                 self.npu_number_for_drop_stats.parent = self
                 self._children_name_map["npu_number_for_drop_stats"] = "npu-number-for-drop-stats"
                 self._children_yang_names.add("npu-number-for-drop-stats")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -155,8 +164,10 @@ class Drop(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"npu-number-for-drop-stat" : ("npu_number_for_drop_stat", Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("npu-number-for-drop-stat", ("npu_number_for_drop_stat", Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat))])
+                    self._leafs = OrderedDict()
 
                     self.npu_number_for_drop_stat = YList(self)
                     self._segment_path = lambda: "npu-number-for-drop-stats"
@@ -169,7 +180,7 @@ class Drop(Entity):
                     """
                     All drop stats for a particular NPU
                     
-                    .. attribute:: npu_id  <key>
+                    .. attribute:: npu_id  (key)
                     
                     	NPU number
                     	**type**\: int
@@ -195,13 +206,16 @@ class Drop(Entity):
                         self.yang_parent_name = "npu-number-for-drop-stats"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"drop-specific-stats-data" : ("drop_specific_stats_data", Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData)}
-
-                        self.npu_id = YLeaf(YType.int32, "npu-id")
+                        self.ylist_key_names = ['npu_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("drop-specific-stats-data", ("drop_specific_stats_data", Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData))])
+                        self._leafs = OrderedDict([
+                            ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                        ])
+                        self.npu_id = None
 
                         self.drop_specific_stats_data = YList(self)
-                        self._segment_path = lambda: "npu-number-for-drop-stat" + "[npu-id='" + self.npu_id.get() + "']"
+                        self._segment_path = lambda: "npu-number-for-drop-stat" + "[npu-id='" + str(self.npu_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat, ['npu_id'], name, value)
@@ -211,7 +225,7 @@ class Drop(Entity):
                         """
                         Second argument to the module
                         
-                        .. attribute:: drop_data  <key>
+                        .. attribute:: drop_data  (key)
                         
                         	Drop ID
                         	**type**\: int
@@ -251,17 +265,20 @@ class Drop(Entity):
                             self.yang_parent_name = "npu-number-for-drop-stat"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.drop_data = YLeaf(YType.int32, "drop-data")
-
-                            self.id = YLeaf(YType.uint32, "id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.count = YLeaf(YType.uint64, "count")
-                            self._segment_path = lambda: "drop-specific-stats-data" + "[drop-data='" + self.drop_data.get() + "']"
+                            self.ylist_key_names = ['drop_data']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('drop_data', YLeaf(YType.int32, 'drop-data')),
+                                ('id', YLeaf(YType.uint32, 'id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('count', YLeaf(YType.uint64, 'count')),
+                            ])
+                            self.drop_data = None
+                            self.id = None
+                            self.name = None
+                            self.count = None
+                            self._segment_path = lambda: "drop-specific-stats-data" + "[drop-data='" + str(self.drop_data) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData, ['drop_data', 'id', 'name', 'count'], name, value)

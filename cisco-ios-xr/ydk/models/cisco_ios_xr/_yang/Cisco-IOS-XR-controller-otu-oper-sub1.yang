@@ -1,596 +1,715 @@
 submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-controller-otu-oper {
     prefix Cisco-IOS-XR-controller-otu-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR controller-otu package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2017-03-13" {
+  revision 2017-03-13 {
     description
       "PRBS Info added";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Gmpls-otu-tti-mode {
     type enumeration {
-      enum gmpls-otu-tti-mode-none {
-        description "Not Set";
+      enum "gmpls-otu-tti-mode-none" {
+        description
+          "Not Set";
       }
-      enum gmpls-otu-tti-mode-sm {
-        description "Section Monitoring";
+      enum "gmpls-otu-tti-mode-sm" {
+        description
+          "Section Monitoring";
       }
-      enum gmpls-otu-tti-mode-pm {
-        description "Path Monitoring";
+      enum "gmpls-otu-tti-mode-pm" {
+        description
+          "Path Monitoring";
       }
-      enum gmpls-otu-tti-mode-tcm {
-        description "Tandem Connection Monitoring";
+      enum "gmpls-otu-tti-mode-tcm" {
+        description
+          "Tandem Connection Monitoring";
       }
     }
-    description "Gmpls otu tti mode";
+    description
+      "Gmpls otu tti mode";
   }
+
   typedef Otu-pp-intf-state {
     type enumeration {
-      enum otu-pp-intf-up {
+      enum "otu-pp-intf-up" {
         value 0;
-        description "Interface is Up";
+        description
+          "Interface is Up";
       }
-      enum otu-pp-intf-failing {
+      enum "otu-pp-intf-failing" {
         value 1;
-        description "Interface is Going Down";
+        description
+          "Interface is Going Down";
       }
-      enum otu-pp-intf-down {
+      enum "otu-pp-intf-down" {
         value 2;
-        description "Interface Down";
+        description
+          "Interface Down";
       }
     }
-    description "Otu pp intf state";
+    description
+      "Otu pp intf state";
   }
+
   typedef Otu-pp-fsm-state {
     type enumeration {
-      enum otu-in-active {
+      enum "otu-in-active" {
         value 0;
-        description "In Active";
+        description
+          "In Active";
       }
-      enum otu-disabled {
+      enum "otu-disabled" {
         value 1;
-        description "Disabled";
+        description
+          "Disabled";
       }
-      enum otu-normal-state {
+      enum "otu-normal-state" {
         value 2;
-        description "Normal";
+        description
+          "Normal";
       }
-      enum otu-local-failing {
+      enum "otu-local-failing" {
         value 3;
-        description "Local Failing";
+        description
+          "Local Failing";
       }
-      enum otu-remote-failing {
+      enum "otu-remote-failing" {
         value 4;
-        description "Remote Failing";
+        description
+          "Remote Failing";
       }
-      enum otu-main-t-failing {
+      enum "otu-main-t-failing" {
         value 5;
-        description "Maintance Failing";
+        description
+          "Maintance Failing";
       }
-      enum otu-regen-failing {
+      enum "otu-regen-failing" {
         value 6;
-        description "Regenerator Failing";
+        description
+          "Regenerator Failing";
       }
-      enum otu-local-failed {
+      enum "otu-local-failed" {
         value 7;
-        description "Local Failed";
+        description
+          "Local Failed";
       }
-      enum otu-remote-failed {
+      enum "otu-remote-failed" {
         value 8;
-        description "Remote Failed";
+        description
+          "Remote Failed";
       }
-      enum otu-main-t-failed {
+      enum "otu-main-t-failed" {
         value 9;
-        description "Maintance Failed";
+        description
+          "Maintance Failed";
       }
-      enum otu-regen-failed {
+      enum "otu-regen-failed" {
         value 10;
-        description "Regenerator Failed";
+        description
+          "Regenerator Failed";
       }
     }
-    description "Otu pp fsm state";
+    description
+      "Otu pp fsm state";
   }
+
   typedef Otu-per-mon {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 0;
-        description "Disable";
+        description
+          "Disable";
       }
-      enum enable {
+      enum "enable" {
         value 1;
-        description "Enable";
+        description
+          "Enable";
       }
     }
-    description "Otu per mon";
+    description
+      "Otu per mon";
   }
+
   typedef Otu-sec-state {
     type enumeration {
-      enum normal {
+      enum "normal" {
         value 0;
-        description "Normal";
+        description
+          "Normal";
       }
-      enum maintenance {
+      enum "maintenance" {
         value 1;
-        description "Maintenance";
+        description
+          "Maintenance";
       }
-      enum ais {
+      enum "ais" {
         value 2;
-        description "Automatic In Service";
+        description
+          "Automatic In Service";
       }
     }
-    description "Otu sec state";
+    description
+      "Otu sec state";
   }
+
   typedef Otu-der-state {
     type enumeration {
-      enum out-of-service {
+      enum "out-of-service" {
         value 0;
-        description "Out Of Service";
+        description
+          "Out Of Service";
       }
-      enum in-service {
+      enum "in-service" {
         value 1;
-        description "In Service";
+        description
+          "In Service";
       }
-      enum maintenance {
+      enum "maintenance" {
         value 2;
-        description "Maintenance";
+        description
+          "Maintenance";
       }
-      enum ais {
+      enum "ais" {
         value 3;
-        description "Automatic In Service";
+        description
+          "Automatic In Service";
       }
     }
-    description "Otu der state";
+    description
+      "Otu der state";
   }
+
   typedef Otu-g709fec-mode {
     type enumeration {
-      enum otu-bag-none-fec {
+      enum "otu-bag-none-fec" {
         value 1;
-        description "NONE";
+        description
+          "NONE";
       }
-      enum otu-bag-standard-fec {
+      enum "otu-bag-standard-fec" {
         value 2;
-        description "STANDARD";
+        description
+          "STANDARD";
       }
-      enum otu-bag-1-i-7-fec {
+      enum "otu-bag-1-i-7-fec" {
         value 4;
-        description "ENHANCEDI.7";
+        description
+          "ENHANCEDI.7";
       }
-      enum otu-bag-1-i-4-fec {
+      enum "otu-bag-1-i-4-fec" {
         value 8;
-        description "ENHANCEDI.4";
+        description
+          "ENHANCEDI.4";
       }
-      enum otu-bag-swizzle-fec {
+      enum "otu-bag-swizzle-fec" {
         value 16;
-        description "SWIZZLE";
+        description
+          "SWIZZLE";
       }
-      enum otu-bag-hg20-fec {
+      enum "otu-bag-hg20-fec" {
         value 32;
-        description "HIGH GAIN20";
+        description
+          "HIGH GAIN20";
       }
-      enum otu-bag-enhanced-hg7-fec {
+      enum "otu-bag-enhanced-hg7-fec" {
         value 64;
-        description "Enhanced High Gain 7";
+        description
+          "Enhanced High Gain 7";
       }
-      enum otu-bag-sd20-fec {
+      enum "otu-bag-sd20-fec" {
         value 128;
-        description "Soft-Decision 20";
+        description
+          "Soft-Decision 20";
       }
-      enum otu-bag-sd7-fec {
+      enum "otu-bag-sd7-fec" {
         value 256;
-        description "Soft-Decision 7";
+        description
+          "Soft-Decision 7";
       }
-      enum otu-bag-all-fec {
+      enum "otu-bag-all-fec" {
         value 512;
-        description "ALL";
+        description
+          "ALL";
       }
     }
-    description "Otu g709fec mode";
+    description
+      "Otu g709fec mode";
   }
+
   typedef Otu-loop-back-mode {
     type enumeration {
-      enum none {
+      enum "none" {
         value 1;
-        description "None";
+        description
+          "None";
       }
-      enum line {
+      enum "line" {
         value 2;
-        description "Line";
+        description
+          "Line";
       }
-      enum internal {
+      enum "internal" {
         value 4;
-        description "Internal";
+        description
+          "Internal";
       }
     }
-    description "Otu loop back mode";
+    description
+      "Otu loop back mode";
   }
+
   typedef Otu-tti-et {
     type enumeration {
-      enum ascii {
+      enum "ascii" {
         value 0;
-        description "ASCII";
+        description
+          "ASCII";
       }
-      enum hex {
+      enum "hex" {
         value 1;
-        description "HEX";
+        description
+          "HEX";
       }
-      enum full-ascii {
+      enum "full-ascii" {
         value 2;
-        description "FULL ASCII";
+        description
+          "FULL ASCII";
       }
-      enum full-hex {
+      enum "full-hex" {
         value 3;
-        description "FULL HEX";
+        description
+          "FULL HEX";
       }
     }
-    description "Otu tti et";
+    description
+      "Otu tti et";
   }
+
   typedef Otu-state-et {
     type enumeration {
-      enum not-ready {
+      enum "not-ready" {
         value 0;
-        description "Not Ready";
+        description
+          "Not Ready";
       }
-      enum admin-down {
+      enum "admin-down" {
         value 1;
-        description "Admin Down";
+        description
+          "Admin Down";
       }
-      enum down {
+      enum "down" {
         value 2;
-        description "Down";
+        description
+          "Down";
       }
-      enum up {
+      enum "up" {
         value 3;
-        description "Up";
+        description
+          "Up";
       }
-      enum shutdown {
+      enum "shutdown" {
         value 4;
-        description "Shutdown";
+        description
+          "Shutdown";
       }
-      enum error-disable {
+      enum "error-disable" {
         value 5;
-        description "Error Disable";
+        description
+          "Error Disable";
       }
-      enum down-immediate {
+      enum "down-immediate" {
         value 6;
-        description "Down Immediate";
+        description
+          "Down Immediate";
       }
-      enum down-immediate-admin {
+      enum "down-immediate-admin" {
         value 7;
-        description "Down Immediate Admin";
+        description
+          "Down Immediate Admin";
       }
-      enum down-graceful {
+      enum "down-graceful" {
         value 8;
-        description "Down Graceful";
+        description
+          "Down Graceful";
       }
-      enum begin-shutdown {
+      enum "begin-shutdown" {
         value 9;
-        description "Begin Shutdown";
+        description
+          "Begin Shutdown";
       }
-      enum end-shutdown {
+      enum "end-shutdown" {
         value 10;
-        description "End Shutdown";
+        description
+          "End Shutdown";
       }
-      enum begin-error-disable {
+      enum "begin-error-disable" {
         value 11;
-        description "Begin Error Disable";
+        description
+          "Begin Error Disable";
       }
-      enum end-error-disable {
+      enum "end-error-disable" {
         value 12;
-        description "End Error Disable";
+        description
+          "End Error Disable";
       }
-      enum begin-down-graceful {
+      enum "begin-down-graceful" {
         value 13;
-        description "Begin Down Graceful";
+        description
+          "Begin Down Graceful";
       }
-      enum reset {
+      enum "reset" {
         value 14;
-        description "Reset";
+        description
+          "Reset";
       }
-      enum operational {
+      enum "operational" {
         value 15;
-        description "Operational";
+        description
+          "Operational";
       }
-      enum not-operational {
+      enum "not-operational" {
         value 16;
-        description "Not Operational";
+        description
+          "Not Operational";
       }
-      enum unknown {
+      enum "unknown" {
         value 17;
-        description "Unknown";
+        description
+          "Unknown";
       }
-      enum last {
+      enum "last" {
         value 18;
-        description "Last";
+        description
+          "Last";
       }
     }
-    description "Otu state et";
+    description
+      "Otu state et";
   }
+
   typedef Otu-prbs-status {
     type enumeration {
-      enum locked {
+      enum "locked" {
         value 0;
-        description "Locked";
+        description
+          "Locked";
       }
-      enum unlocked {
+      enum "unlocked" {
         value 1;
-        description "Unlocked";
+        description
+          "Unlocked";
       }
-      enum not-applicable {
+      enum "not-applicable" {
         value 2;
-        description "Not Applicable";
+        description
+          "Not Applicable";
       }
     }
-    description "Otu prbs status";
+    description
+      "Otu prbs status";
   }
+
   typedef Otu-prbs-pattern {
     type enumeration {
-      enum not-applicable {
+      enum "not-applicable" {
         value 0;
-        description "OTU PRBS pattern not applicable";
+        description
+          "OTU PRBS pattern not applicable";
       }
-      enum pn31 {
+      enum "pn31" {
         value 1;
-        description "PN31";
+        description
+          "PN31";
       }
-      enum pn23 {
+      enum "pn23" {
         value 2;
-        description "PN23";
+        description
+          "PN23";
       }
-      enum pn11 {
+      enum "pn11" {
         value 4;
-        description "PN11";
+        description
+          "PN11";
       }
-      enum inverted-pn31 {
+      enum "inverted-pn31" {
         value 8;
-        description "INVERTED PN31";
+        description
+          "INVERTED PN31";
       }
-      enum inverted-pn11 {
+      enum "inverted-pn11" {
         value 16;
-        description "INVERTED PN11";
+        description
+          "INVERTED PN11";
       }
-      enum pn15 {
+      enum "pn15" {
         value 32;
-        description "PN15";
+        description
+          "PN15";
       }
     }
-    description "Otu prbs pattern";
+    description
+      "Otu prbs pattern";
   }
+
   typedef Otu-prbs-mode {
     type enumeration {
-      enum not-applicable {
+      enum "not-applicable" {
         value 0;
-        description "OTU PRBS mode not applicable";
+        description
+          "OTU PRBS mode not applicable";
       }
-      enum source {
+      enum "source" {
         value 1;
-        description "Source";
+        description
+          "Source";
       }
-      enum sink {
+      enum "sink" {
         value 2;
-        description "Sink";
+        description
+          "Sink";
       }
-      enum source-sink {
+      enum "source-sink" {
         value 3;
-        description "Source Sink";
+        description
+          "Source Sink";
       }
     }
-    description "Otu prbs mode";
+    description
+      "Otu prbs mode";
   }
+
   typedef Otu-prbs-test {
     type enumeration {
-      enum disable {
+      enum "disable" {
         value 0;
-        description "Disable";
+        description
+          "Disable";
       }
-      enum enable {
+      enum "enable" {
         value 1;
-        description "Enable";
+        description
+          "Enable";
       }
     }
-    description "Otu prbs test";
+    description
+      "Otu prbs test";
   }
 
   grouping FEC-OPER-DATA {
-    description "FEC Satistics";
+    description
+      "FEC Satistics";
     leaf post-fec-ber {
       type string;
-      description "Bit Error Rate After Forward Error Correction";
+      description
+        "Bit Error Rate After Forward Error Correction";
     }
     leaf pre-fec-ber {
       type string;
-      description "Bit Error Rate Before Forward Error Correction";
+      description
+        "Bit Error Rate Before Forward Error Correction";
     }
   }
 
   grouping OTU-PROACTIVE-INFO {
-    description "Proactive Protection";
+    description
+      "Proactive Protection";
     leaf proactive-status {
       type boolean;
-      description "Proactive Status";
+      description
+        "Proactive Status";
     }
     leaf inherit-sec-state {
       type Otu-sec-state;
-      description "Secondary Admin State";
+      description
+        "Secondary Admin State";
     }
     leaf config-sec-state {
       type Otu-sec-state;
-      description "Sec State";
+      description
+        "Sec State";
     }
     leaf proactive-fsm-state {
       type Otu-pp-fsm-state;
-      description "Proactive FSM State";
+      description
+        "Proactive FSM State";
     }
     leaf proactive-fsm-if-state {
       type Otu-pp-intf-state;
-      description "Proactive FSM IF State";
+      description
+        "Proactive FSM IF State";
     }
     leaf trig-thresh-coeff {
       type uint8;
-      description "Trigger threshold coefficient";
+      description
+        "Trigger threshold coefficient";
     }
     leaf trig-thresh-power {
       type uint8;
-      description "Trigger threshold power";
+      description
+        "Trigger threshold power";
     }
     leaf rvrt-thresh-coeff {
       type uint8;
-      description "Revert threshold coefficient";
+      description
+        "Revert threshold coefficient";
     }
     leaf rvrt-thresh-power {
       type uint8;
-      description "Revert threshold power";
+      description
+        "Revert threshold power";
     }
     leaf trigger-window {
       type uint32;
-      description "Trigger Integration window";
+      description
+        "Trigger Integration window";
     }
     leaf revert-window {
       type uint32;
-      description "Revert Integration Window";
+      description
+        "Revert Integration Window";
     }
   }
 
   grouping OTU-EDM-ALARM {
-    description " OTU Alarm";
+    description
+      " OTU Alarm";
     leaf reporting-enabled {
       type boolean;
-      description "Is reporting enabled?";
+      description
+        "Is reporting enabled?";
     }
     leaf is-detected {
       type boolean;
-      description "Is defect detected?";
+      description
+        "Is defect detected?";
     }
     leaf is-asserted {
       type boolean;
-      description "Is defect delared?";
+      description
+        "Is defect delared?";
     }
     leaf counter {
       type uint64;
-      description "Alarm counter";
+      description
+        "Alarm counter";
     }
   }
 
   grouping OTU-ALARM-INFO {
-    description "otu information";
-
+    description
+      "otu information";
     container los {
-      description "Loss of Signal";
+      description
+        "Loss of Signal";
       uses OTU-EDM-ALARM;
     }
-
     container lof {
-      description "Loss of Frame";
+      description
+        "Loss of Frame";
       uses OTU-EDM-ALARM;
     }
-
     container lom {
-      description "Loss of MultiFrame";
+      description
+        "Loss of MultiFrame";
       uses OTU-EDM-ALARM;
     }
-
     container oof {
-      description "Out of Frame";
+      description
+        "Out of Frame";
       uses OTU-EDM-ALARM;
     }
-
     container oom {
-      description "Out of MultiFrame";
+      description
+        "Out of MultiFrame";
       uses OTU-EDM-ALARM;
     }
-
     container ais {
-      description "Alarm Indication Signal";
+      description
+        "Alarm Indication Signal";
       uses OTU-EDM-ALARM;
     }
-
     container iae {
-      description "Incoming Alignment Error";
+      description
+        "Incoming Alignment Error";
       uses OTU-EDM-ALARM;
     }
-
     container biae {
-      description "Backward Incoming Alignment Error";
+      description
+        "Backward Incoming Alignment Error";
       uses OTU-EDM-ALARM;
     }
-
     container bdi {
-      description "Backward Defect Indication";
+      description
+        "Backward Defect Indication";
       uses OTU-EDM-ALARM;
     }
-
     container tim {
-      description "Trace Identifier Mismatch";
+      description
+        "Trace Identifier Mismatch";
       uses OTU-EDM-ALARM;
     }
-
     container eoc {
-      description "GCC End of Channel";
+      description
+        "GCC End of Channel";
       uses OTU-EDM-ALARM;
     }
-
     container fec-mismatch {
-      description "FEC mismatch alarm";
+      description
+        "FEC mismatch alarm";
       uses OTU-EDM-ALARM;
     }
-
     container sf-ber {
-      description "SF BER alarm";
+      description
+        "SF BER alarm";
       uses OTU-EDM-ALARM;
     }
-
     container sd-ber {
-      description "SD BER alarm";
+      description
+        "SD BER alarm";
       uses OTU-EDM-ALARM;
     }
-
     container ec {
-      description "EC alarm";
+      description
+        "EC alarm";
       uses OTU-EDM-ALARM;
     }
-
     container uc {
-      description "UC alarm";
+      description
+        "UC alarm";
       uses OTU-EDM-ALARM;
     }
-
     container fecunc {
-      description "FEC UnCorrected Word";
+      description
+        "FEC UnCorrected Word";
       uses OTU-EDM-ALARM;
     }
   }
@@ -598,267 +717,314 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
   grouping NETWORK-SRLG-SET {
     description
       "Network Shared Risk Link Group information
-      expressed in integer format";
+       expressed in integer format";
     leaf set-id {
       type uint32;
-      description "Array to maintain set id number";
+      description
+        "Array to maintain set id number";
     }
     leaf-list srlg {
       type uint32;
       description
         "Shared Risk Link Group information expressed in
-        integer format";
+         integer format";
     }
   }
 
   grouping NETWORK-SRLG-INFO {
     description
       "Array of Network Shared Risk Link Group
-      Information";
-
+       Information";
     list srlg-info {
       description
         "Array of Network Shared Risk Link Group
-        information";
+         information";
       uses NETWORK-SRLG-SET;
     }
   }
 
   grouping OTU-TTI-ST {
-    description "TTI SAPI DAPI";
+    description
+      "TTI SAPI DAPI";
     leaf full-tti-ascii-string {
       type string;
-      description "full tti ascii String ";
+      description
+        "full tti ascii String ";
     }
     leaf-list sapi {
       type uint8;
-      description "tx String ";
+      description
+        "tx String ";
     }
     leaf-list dapi {
       type uint8;
-      description "exp String ";
+      description
+        "exp String ";
     }
     leaf-list operator-specific {
       type uint8;
-      description "rec String ";
+      description
+        "rec String ";
     }
   }
 
   grouping OTU-G709-TTI {
-    description "OTU TTI";
-
+    description
+      "OTU TTI";
     container tx {
-      description "String Sent";
+      description
+        "String Sent";
       uses OTU-TTI-ST;
     }
-
     container exp {
-      description "String Expected";
+      description
+        "String Expected";
       uses OTU-TTI-ST;
     }
-
     container rec {
-      description "String Received";
+      description
+        "String Received";
       uses OTU-TTI-ST;
     }
     leaf g709tti-sent-mode {
       type Otu-tti-et;
-      description "G709TTI sent";
+      description
+        "G709TTI sent";
     }
     leaf g709tti-exp-mode {
       type Otu-tti-et;
-      description "G709TTI Expected";
+      description
+        "G709TTI Expected";
     }
     leaf g709tti-rec-mode {
       type Otu-tti-et;
-      description "G709TTI Recieved";
+      description
+        "G709TTI Recieved";
     }
     leaf remote-interface {
       type string;
-      description "Remote Interface Name";
+      description
+        "Remote Interface Name";
     }
     leaf remote-host-name {
       type string;
-      description "Remote host name";
+      description
+        "Remote host name";
     }
     leaf remote-ip-addr {
       type string;
-      description "Remote host ip";
+      description
+        "Remote host ip";
     }
   }
 
   grouping OTN-OTU-REMOTE-INFO-VIA-TTI-T-RTRID-IFINDEX {
-    description "otn otu remote info via tti t rtrid ifindex";
+    description
+      "otn otu remote info via tti t rtrid ifindex";
     leaf router-id {
       type uint32;
-      description "Router ID";
+      description
+        "Router ID";
     }
     leaf if-index {
       type uint32;
-      description "IfIndex";
+      description
+        "IfIndex";
     }
   }
 
   grouping OTU-PER-PORT-INFO {
-    description "OTU";
-
+    description
+      "OTU";
     container local {
-      description "TTI";
+      description
+        "TTI";
       uses OTN-OTU-REMOTE-INFO-VIA-TTI-T-RTRID-IFINDEX;
     }
-
     container remote {
-      description "Remote";
+      description
+        "Remote";
       uses OTN-OTU-REMOTE-INFO-VIA-TTI-T-RTRID-IFINDEX;
     }
-
     container tti-mode {
-      description "OTU TTI";
+      description
+        "OTU TTI";
       uses OTU-G709-TTI;
     }
-
     container network-srlg {
-      description "Network Shared Risk Link Group information";
+      description
+        "Network Shared Risk Link Group information";
       uses NETWORK-SRLG-INFO;
     }
-
     container otu-alarm-info {
-      description "OTU layer alarm Information";
+      description
+        "OTU layer alarm Information";
       uses OTU-ALARM-INFO;
     }
-
     container proactive {
-      description "Proactive Protection";
+      description
+        "Proactive Protection";
       uses OTU-PROACTIVE-INFO;
     }
-
     container otu-fec-satistics {
-      description "OTU FEC Statistics";
+      description
+        "OTU FEC Statistics";
       uses FEC-OPER-DATA;
     }
     leaf state {
       type Otu-state-et;
-      description "Admin State";
+      description
+        "Admin State";
     }
     leaf name {
       type string;
-      description "Interface Name";
+      description
+        "Interface Name";
     }
     leaf sf {
       type uint8;
-      description "SF in the form of 1.0E - <SF>";
+      description
+        "SF in the form of 1.0E - <SF>";
     }
     leaf sd {
       type uint8;
-      description "SD in the form of 1.0E - <SD>";
+      description
+        "SD in the form of 1.0E - <SD>";
     }
     leaf loopback-mode {
       type Otu-loop-back-mode;
-      description "Loopback";
+      description
+        "Loopback";
     }
     leaf fec-mode {
       type Otu-g709fec-mode;
-      description "FEC";
+      description
+        "FEC";
     }
     leaf derivedstate-mode {
       type Otu-der-state;
-      description "Derived State";
+      description
+        "Derived State";
     }
     leaf inherit-sec-state {
       type Otu-sec-state;
-      description "Sec State";
+      description
+        "Sec State";
     }
     leaf config-sec-state {
       type Otu-sec-state;
-      description "Sec State";
+      description
+        "Sec State";
     }
     leaf gcc-mode {
       type boolean;
-      description "OTU GCC";
+      description
+        "OTU GCC";
     }
     leaf q {
       type uint64;
-      description "q value calculated";
+      description
+        "q value calculated";
     }
     leaf q-margin {
       type uint64;
-      description "q margin calculated";
+      description
+        "q margin calculated";
     }
     leaf performance-monitoring {
       type Otu-per-mon;
-      description "Performance Monitoring";
+      description
+        "Performance Monitoring";
     }
     leaf ec {
       type uint64;
-      description "Average bit errors corrected";
+      description
+        "Average bit errors corrected";
     }
     leaf uc {
       type uint64;
-      description "Uncorrected word count";
+      description
+        "Uncorrected word count";
     }
     leaf pre-fec-val {
       type int32;
-      description "Pre FEC BER Value in form 0.00";
+      description
+        "Pre FEC BER Value in form 0.00";
     }
     leaf pre-fec-mantissa {
       type int8;
-      description "Pre FEC BER Mantissa in form E-<mantisaa>";
+      description
+        "Pre FEC BER Mantissa in form E-<mantisaa>";
     }
     leaf ec-value {
       type boolean;
-      description "EC value present";
+      description
+        "EC value present";
     }
     leaf uc-value {
       type boolean;
-      description "Uc value present";
+      description
+        "Uc value present";
     }
     leaf pre-fec-ber-value {
       type boolean;
-      description "Pre fec val present ";
+      description
+        "Pre fec val present ";
     }
     leaf pre-fec-ber-mantissa {
       type boolean;
-      description "Pre fec val mantissa";
+      description
+        "Pre fec val mantissa";
     }
     leaf nv-optical-support {
       type boolean;
-      description "NV Optical support";
+      description
+        "NV Optical support";
     }
     leaf gmpls-tti-mode {
       type Gmpls-otu-tti-mode;
-      description "GMPLS TTI MODE";
+      description
+        "GMPLS TTI MODE";
     }
     leaf gmpls-tvm-id {
       type uint8;
-      description "GMPLS TCM ID";
+      description
+        "GMPLS TCM ID";
     }
     leaf auto-tti-flag {
       type boolean;
-      description "Auto tti flag";
+      description
+        "Auto tti flag";
     }
     leaf description {
       type string;
-      description "Controller description string";
+      description
+        "Controller description string";
     }
   }
 
   grouping OTU-PRBS-INFO {
-    description "PRBS";
+    description
+      "PRBS";
     leaf otu-prbs-test {
       type Otu-prbs-test;
-      description "otu prbs test";
+      description
+        "otu prbs test";
     }
     leaf otu-prbs-mode {
       type Otu-prbs-mode;
-      description "otu prbs mode";
+      description
+        "otu prbs mode";
     }
     leaf otu-prbs-pattern {
       type Otu-prbs-pattern;
-      description "otu prbs pattern";
+      description
+        "otu prbs pattern";
     }
     leaf otu-prbs-status {
       type Otu-prbs-status;
-      description "otu prbs status";
+      description
+        "otu prbs status";
     }
   }
 }

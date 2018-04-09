@@ -19,6 +19,8 @@ a Cisco router and any IP enabled device by computing the time
 taken to perform a TCP connect operation.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -60,8 +62,10 @@ class CISCOIPSLAECHOMIB(Entity):
         self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipslaIcmpEchoTmplTable" : ("cipslaicmpechotmpltable", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable), "cipslaUdpEchoTmplTable" : ("cipslaudpechotmpltable", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable), "cipslaTcpConnTmplTable" : ("cipslatcpconntmpltable", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cipslaIcmpEchoTmplTable", ("cipslaicmpechotmpltable", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable)), ("cipslaUdpEchoTmplTable", ("cipslaudpechotmpltable", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable)), ("cipslaTcpConnTmplTable", ("cipslatcpconntmpltable", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cipslaicmpechotmpltable = CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable()
         self.cipslaicmpechotmpltable.parent = self
@@ -103,8 +107,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipslaIcmpEchoTmplEntry" : ("cipslaicmpechotmplentry", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipslaIcmpEchoTmplEntry", ("cipslaicmpechotmplentry", CISCOIPSLAECHOMIB.Cipslaicmpechotmpltable.Cipslaicmpechotmplentry))])
+            self._leafs = OrderedDict()
 
             self.cipslaicmpechotmplentry = YList(self)
             self._segment_path = lambda: "cipslaIcmpEchoTmplTable"
@@ -118,7 +124,7 @@ class CISCOIPSLAECHOMIB(Entity):
             """
             A row entry representing an IPSLA ICMP echo template.
             
-            .. attribute:: cipslaicmpechotmplname  <key>
+            .. attribute:: cipslaicmpechotmplname  (key)
             
             	This field is used to specify the ICMP echo template name
             	**type**\: str
@@ -258,45 +264,48 @@ class CISCOIPSLAECHOMIB(Entity):
                 self.yang_parent_name = "cipslaIcmpEchoTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipslaicmpechotmplname = YLeaf(YType.str, "cipslaIcmpEchoTmplName")
-
-                self.cipslaicmpechotmpldescription = YLeaf(YType.str, "cipslaIcmpEchoTmplDescription")
-
-                self.cipslaicmpechotmplsrcaddrtype = YLeaf(YType.enumeration, "cipslaIcmpEchoTmplSrcAddrType")
-
-                self.cipslaicmpechotmplsrcaddr = YLeaf(YType.str, "cipslaIcmpEchoTmplSrcAddr")
-
-                self.cipslaicmpechotmpltimeout = YLeaf(YType.uint32, "cipslaIcmpEchoTmplTimeOut")
-
-                self.cipslaicmpechotmplverifydata = YLeaf(YType.boolean, "cipslaIcmpEchoTmplVerifyData")
-
-                self.cipslaicmpechotmplreqdatasize = YLeaf(YType.uint32, "cipslaIcmpEchoTmplReqDataSize")
-
-                self.cipslaicmpechotmpltos = YLeaf(YType.uint32, "cipslaIcmpEchoTmplTOS")
-
-                self.cipslaicmpechotmplvrfname = YLeaf(YType.str, "cipslaIcmpEchoTmplVrfName")
-
-                self.cipslaicmpechotmplthreshold = YLeaf(YType.uint32, "cipslaIcmpEchoTmplThreshold")
-
-                self.cipslaicmpechotmplhistlives = YLeaf(YType.uint32, "cipslaIcmpEchoTmplHistLives")
-
-                self.cipslaicmpechotmplhistbuckets = YLeaf(YType.uint32, "cipslaIcmpEchoTmplHistBuckets")
-
-                self.cipslaicmpechotmplhistfilter = YLeaf(YType.enumeration, "cipslaIcmpEchoTmplHistFilter")
-
-                self.cipslaicmpechotmplstatshours = YLeaf(YType.uint32, "cipslaIcmpEchoTmplStatsHours")
-
-                self.cipslaicmpechotmpldistbuckets = YLeaf(YType.uint32, "cipslaIcmpEchoTmplDistBuckets")
-
-                self.cipslaicmpechotmpldistinterval = YLeaf(YType.uint32, "cipslaIcmpEchoTmplDistInterval")
-
-                self.cipslaicmpechotmplstoragetype = YLeaf(YType.enumeration, "cipslaIcmpEchoTmplStorageType")
-
-                self.cipslaicmpechotmplrowstatus = YLeaf(YType.enumeration, "cipslaIcmpEchoTmplRowStatus")
-                self._segment_path = lambda: "cipslaIcmpEchoTmplEntry" + "[cipslaIcmpEchoTmplName='" + self.cipslaicmpechotmplname.get() + "']"
+                self.ylist_key_names = ['cipslaicmpechotmplname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipslaicmpechotmplname', YLeaf(YType.str, 'cipslaIcmpEchoTmplName')),
+                    ('cipslaicmpechotmpldescription', YLeaf(YType.str, 'cipslaIcmpEchoTmplDescription')),
+                    ('cipslaicmpechotmplsrcaddrtype', YLeaf(YType.enumeration, 'cipslaIcmpEchoTmplSrcAddrType')),
+                    ('cipslaicmpechotmplsrcaddr', YLeaf(YType.str, 'cipslaIcmpEchoTmplSrcAddr')),
+                    ('cipslaicmpechotmpltimeout', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplTimeOut')),
+                    ('cipslaicmpechotmplverifydata', YLeaf(YType.boolean, 'cipslaIcmpEchoTmplVerifyData')),
+                    ('cipslaicmpechotmplreqdatasize', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplReqDataSize')),
+                    ('cipslaicmpechotmpltos', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplTOS')),
+                    ('cipslaicmpechotmplvrfname', YLeaf(YType.str, 'cipslaIcmpEchoTmplVrfName')),
+                    ('cipslaicmpechotmplthreshold', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplThreshold')),
+                    ('cipslaicmpechotmplhistlives', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplHistLives')),
+                    ('cipslaicmpechotmplhistbuckets', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplHistBuckets')),
+                    ('cipslaicmpechotmplhistfilter', YLeaf(YType.enumeration, 'cipslaIcmpEchoTmplHistFilter')),
+                    ('cipslaicmpechotmplstatshours', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplStatsHours')),
+                    ('cipslaicmpechotmpldistbuckets', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplDistBuckets')),
+                    ('cipslaicmpechotmpldistinterval', YLeaf(YType.uint32, 'cipslaIcmpEchoTmplDistInterval')),
+                    ('cipslaicmpechotmplstoragetype', YLeaf(YType.enumeration, 'cipslaIcmpEchoTmplStorageType')),
+                    ('cipslaicmpechotmplrowstatus', YLeaf(YType.enumeration, 'cipslaIcmpEchoTmplRowStatus')),
+                ])
+                self.cipslaicmpechotmplname = None
+                self.cipslaicmpechotmpldescription = None
+                self.cipslaicmpechotmplsrcaddrtype = None
+                self.cipslaicmpechotmplsrcaddr = None
+                self.cipslaicmpechotmpltimeout = None
+                self.cipslaicmpechotmplverifydata = None
+                self.cipslaicmpechotmplreqdatasize = None
+                self.cipslaicmpechotmpltos = None
+                self.cipslaicmpechotmplvrfname = None
+                self.cipslaicmpechotmplthreshold = None
+                self.cipslaicmpechotmplhistlives = None
+                self.cipslaicmpechotmplhistbuckets = None
+                self.cipslaicmpechotmplhistfilter = None
+                self.cipslaicmpechotmplstatshours = None
+                self.cipslaicmpechotmpldistbuckets = None
+                self.cipslaicmpechotmpldistinterval = None
+                self.cipslaicmpechotmplstoragetype = None
+                self.cipslaicmpechotmplrowstatus = None
+                self._segment_path = lambda: "cipslaIcmpEchoTmplEntry" + "[cipslaIcmpEchoTmplName='" + str(self.cipslaicmpechotmplname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaIcmpEchoTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -304,7 +313,7 @@ class CISCOIPSLAECHOMIB(Entity):
 
             class Cipslaicmpechotmplhistfilter(Enum):
                 """
-                Cipslaicmpechotmplhistfilter
+                Cipslaicmpechotmplhistfilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -369,8 +378,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipslaUdpEchoTmplEntry" : ("cipslaudpechotmplentry", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipslaUdpEchoTmplEntry", ("cipslaudpechotmplentry", CISCOIPSLAECHOMIB.Cipslaudpechotmpltable.Cipslaudpechotmplentry))])
+            self._leafs = OrderedDict()
 
             self.cipslaudpechotmplentry = YList(self)
             self._segment_path = lambda: "cipslaUdpEchoTmplTable"
@@ -384,7 +395,7 @@ class CISCOIPSLAECHOMIB(Entity):
             """
             A row entry representing an IPSLA UDP echo template.
             
-            .. attribute:: cipslaudpechotmplname  <key>
+            .. attribute:: cipslaudpechotmplname  (key)
             
             	A string which specifies the UDP echo template name
             	**type**\: str
@@ -536,49 +547,52 @@ class CISCOIPSLAECHOMIB(Entity):
                 self.yang_parent_name = "cipslaUdpEchoTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipslaudpechotmplname = YLeaf(YType.str, "cipslaUdpEchoTmplName")
-
-                self.cipslaudpechotmpldescription = YLeaf(YType.str, "cipslaUdpEchoTmplDescription")
-
-                self.cipslaudpechotmplcontrolenable = YLeaf(YType.boolean, "cipslaUdpEchoTmplControlEnable")
-
-                self.cipslaudpechotmplsrcaddrtype = YLeaf(YType.enumeration, "cipslaUdpEchoTmplSrcAddrType")
-
-                self.cipslaudpechotmplsrcaddr = YLeaf(YType.str, "cipslaUdpEchoTmplSrcAddr")
-
-                self.cipslaudpechotmplsrcport = YLeaf(YType.uint16, "cipslaUdpEchoTmplSrcPort")
-
-                self.cipslaudpechotmpltimeout = YLeaf(YType.uint32, "cipslaUdpEchoTmplTimeOut")
-
-                self.cipslaudpechotmplverifydata = YLeaf(YType.boolean, "cipslaUdpEchoTmplVerifyData")
-
-                self.cipslaudpechotmplreqdatasize = YLeaf(YType.uint32, "cipslaUdpEchoTmplReqDataSize")
-
-                self.cipslaudpechotmpltos = YLeaf(YType.uint32, "cipslaUdpEchoTmplTOS")
-
-                self.cipslaudpechotmplvrfname = YLeaf(YType.str, "cipslaUdpEchoTmplVrfName")
-
-                self.cipslaudpechotmplthreshold = YLeaf(YType.uint32, "cipslaUdpEchoTmplThreshold")
-
-                self.cipslaudpechotmplhistlives = YLeaf(YType.uint32, "cipslaUdpEchoTmplHistLives")
-
-                self.cipslaudpechotmplhistbuckets = YLeaf(YType.uint32, "cipslaUdpEchoTmplHistBuckets")
-
-                self.cipslaudpechotmplhistfilter = YLeaf(YType.enumeration, "cipslaUdpEchoTmplHistFilter")
-
-                self.cipslaudpechotmplstatshours = YLeaf(YType.uint32, "cipslaUdpEchoTmplStatsHours")
-
-                self.cipslaudpechotmpldistbuckets = YLeaf(YType.uint32, "cipslaUdpEchoTmplDistBuckets")
-
-                self.cipslaudpechotmpldistinterval = YLeaf(YType.uint32, "cipslaUdpEchoTmplDistInterval")
-
-                self.cipslaudpechotmplstoragetype = YLeaf(YType.enumeration, "cipslaUdpEchoTmplStorageType")
-
-                self.cipslaudpechotmplrowstatus = YLeaf(YType.enumeration, "cipslaUdpEchoTmplRowStatus")
-                self._segment_path = lambda: "cipslaUdpEchoTmplEntry" + "[cipslaUdpEchoTmplName='" + self.cipslaudpechotmplname.get() + "']"
+                self.ylist_key_names = ['cipslaudpechotmplname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipslaudpechotmplname', YLeaf(YType.str, 'cipslaUdpEchoTmplName')),
+                    ('cipslaudpechotmpldescription', YLeaf(YType.str, 'cipslaUdpEchoTmplDescription')),
+                    ('cipslaudpechotmplcontrolenable', YLeaf(YType.boolean, 'cipslaUdpEchoTmplControlEnable')),
+                    ('cipslaudpechotmplsrcaddrtype', YLeaf(YType.enumeration, 'cipslaUdpEchoTmplSrcAddrType')),
+                    ('cipslaudpechotmplsrcaddr', YLeaf(YType.str, 'cipslaUdpEchoTmplSrcAddr')),
+                    ('cipslaudpechotmplsrcport', YLeaf(YType.uint16, 'cipslaUdpEchoTmplSrcPort')),
+                    ('cipslaudpechotmpltimeout', YLeaf(YType.uint32, 'cipslaUdpEchoTmplTimeOut')),
+                    ('cipslaudpechotmplverifydata', YLeaf(YType.boolean, 'cipslaUdpEchoTmplVerifyData')),
+                    ('cipslaudpechotmplreqdatasize', YLeaf(YType.uint32, 'cipslaUdpEchoTmplReqDataSize')),
+                    ('cipslaudpechotmpltos', YLeaf(YType.uint32, 'cipslaUdpEchoTmplTOS')),
+                    ('cipslaudpechotmplvrfname', YLeaf(YType.str, 'cipslaUdpEchoTmplVrfName')),
+                    ('cipslaudpechotmplthreshold', YLeaf(YType.uint32, 'cipslaUdpEchoTmplThreshold')),
+                    ('cipslaudpechotmplhistlives', YLeaf(YType.uint32, 'cipslaUdpEchoTmplHistLives')),
+                    ('cipslaudpechotmplhistbuckets', YLeaf(YType.uint32, 'cipslaUdpEchoTmplHistBuckets')),
+                    ('cipslaudpechotmplhistfilter', YLeaf(YType.enumeration, 'cipslaUdpEchoTmplHistFilter')),
+                    ('cipslaudpechotmplstatshours', YLeaf(YType.uint32, 'cipslaUdpEchoTmplStatsHours')),
+                    ('cipslaudpechotmpldistbuckets', YLeaf(YType.uint32, 'cipslaUdpEchoTmplDistBuckets')),
+                    ('cipslaudpechotmpldistinterval', YLeaf(YType.uint32, 'cipslaUdpEchoTmplDistInterval')),
+                    ('cipslaudpechotmplstoragetype', YLeaf(YType.enumeration, 'cipslaUdpEchoTmplStorageType')),
+                    ('cipslaudpechotmplrowstatus', YLeaf(YType.enumeration, 'cipslaUdpEchoTmplRowStatus')),
+                ])
+                self.cipslaudpechotmplname = None
+                self.cipslaudpechotmpldescription = None
+                self.cipslaudpechotmplcontrolenable = None
+                self.cipslaudpechotmplsrcaddrtype = None
+                self.cipslaudpechotmplsrcaddr = None
+                self.cipslaudpechotmplsrcport = None
+                self.cipslaudpechotmpltimeout = None
+                self.cipslaudpechotmplverifydata = None
+                self.cipslaudpechotmplreqdatasize = None
+                self.cipslaudpechotmpltos = None
+                self.cipslaudpechotmplvrfname = None
+                self.cipslaudpechotmplthreshold = None
+                self.cipslaudpechotmplhistlives = None
+                self.cipslaudpechotmplhistbuckets = None
+                self.cipslaudpechotmplhistfilter = None
+                self.cipslaudpechotmplstatshours = None
+                self.cipslaudpechotmpldistbuckets = None
+                self.cipslaudpechotmpldistinterval = None
+                self.cipslaudpechotmplstoragetype = None
+                self.cipslaudpechotmplrowstatus = None
+                self._segment_path = lambda: "cipslaUdpEchoTmplEntry" + "[cipslaUdpEchoTmplName='" + str(self.cipslaudpechotmplname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaUdpEchoTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -586,7 +600,7 @@ class CISCOIPSLAECHOMIB(Entity):
 
             class Cipslaudpechotmplhistfilter(Enum):
                 """
-                Cipslaudpechotmplhistfilter
+                Cipslaudpechotmplhistfilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -651,8 +665,10 @@ class CISCOIPSLAECHOMIB(Entity):
             self.yang_parent_name = "CISCO-IPSLA-ECHO-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipslaTcpConnTmplEntry" : ("cipslatcpconntmplentry", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipslaTcpConnTmplEntry", ("cipslatcpconntmplentry", CISCOIPSLAECHOMIB.Cipslatcpconntmpltable.Cipslatcpconntmplentry))])
+            self._leafs = OrderedDict()
 
             self.cipslatcpconntmplentry = YList(self)
             self._segment_path = lambda: "cipslaTcpConnTmplTable"
@@ -666,7 +682,7 @@ class CISCOIPSLAECHOMIB(Entity):
             """
             A row entry representing an IPSLA TCP connect template.
             
-            .. attribute:: cipslatcpconntmplname  <key>
+            .. attribute:: cipslatcpconntmplname  (key)
             
             	A string which specifies the TCP connect template name
             	**type**\: str
@@ -802,45 +818,48 @@ class CISCOIPSLAECHOMIB(Entity):
                 self.yang_parent_name = "cipslaTcpConnTmplTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipslatcpconntmplname = YLeaf(YType.str, "cipslaTcpConnTmplName")
-
-                self.cipslatcpconntmpldescription = YLeaf(YType.str, "cipslaTcpConnTmplDescription")
-
-                self.cipslatcpconntmplcontrolenable = YLeaf(YType.boolean, "cipslaTcpConnTmplControlEnable")
-
-                self.cipslatcpconntmplsrcaddrtype = YLeaf(YType.enumeration, "cipslaTcpConnTmplSrcAddrType")
-
-                self.cipslatcpconntmplsrcaddr = YLeaf(YType.str, "cipslaTcpConnTmplSrcAddr")
-
-                self.cipslatcpconntmplsrcport = YLeaf(YType.uint16, "cipslaTcpConnTmplSrcPort")
-
-                self.cipslatcpconntmpltimeout = YLeaf(YType.uint32, "cipslaTcpConnTmplTimeOut")
-
-                self.cipslatcpconntmplverifydata = YLeaf(YType.boolean, "cipslaTcpConnTmplVerifyData")
-
-                self.cipslatcpconntmpltos = YLeaf(YType.uint32, "cipslaTcpConnTmplTOS")
-
-                self.cipslatcpconntmplthreshold = YLeaf(YType.uint32, "cipslaTcpConnTmplThreshold")
-
-                self.cipslatcpconntmplhistlives = YLeaf(YType.uint32, "cipslaTcpConnTmplHistLives")
-
-                self.cipslatcpconntmplhistbuckets = YLeaf(YType.uint32, "cipslaTcpConnTmplHistBuckets")
-
-                self.cipslatcpconntmplhistfilter = YLeaf(YType.enumeration, "cipslaTcpConnTmplHistFilter")
-
-                self.cipslatcpconntmplstatshours = YLeaf(YType.uint32, "cipslaTcpConnTmplStatsHours")
-
-                self.cipslatcpconntmpldistbuckets = YLeaf(YType.uint32, "cipslaTcpConnTmplDistBuckets")
-
-                self.cipslatcpconntmpldistinterval = YLeaf(YType.uint32, "cipslaTcpConnTmplDistInterval")
-
-                self.cipslatcpconntmplstoragetype = YLeaf(YType.enumeration, "cipslaTcpConnTmplStorageType")
-
-                self.cipslatcpconntmplrowstatus = YLeaf(YType.enumeration, "cipslaTcpConnTmplRowStatus")
-                self._segment_path = lambda: "cipslaTcpConnTmplEntry" + "[cipslaTcpConnTmplName='" + self.cipslatcpconntmplname.get() + "']"
+                self.ylist_key_names = ['cipslatcpconntmplname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipslatcpconntmplname', YLeaf(YType.str, 'cipslaTcpConnTmplName')),
+                    ('cipslatcpconntmpldescription', YLeaf(YType.str, 'cipslaTcpConnTmplDescription')),
+                    ('cipslatcpconntmplcontrolenable', YLeaf(YType.boolean, 'cipslaTcpConnTmplControlEnable')),
+                    ('cipslatcpconntmplsrcaddrtype', YLeaf(YType.enumeration, 'cipslaTcpConnTmplSrcAddrType')),
+                    ('cipslatcpconntmplsrcaddr', YLeaf(YType.str, 'cipslaTcpConnTmplSrcAddr')),
+                    ('cipslatcpconntmplsrcport', YLeaf(YType.uint16, 'cipslaTcpConnTmplSrcPort')),
+                    ('cipslatcpconntmpltimeout', YLeaf(YType.uint32, 'cipslaTcpConnTmplTimeOut')),
+                    ('cipslatcpconntmplverifydata', YLeaf(YType.boolean, 'cipslaTcpConnTmplVerifyData')),
+                    ('cipslatcpconntmpltos', YLeaf(YType.uint32, 'cipslaTcpConnTmplTOS')),
+                    ('cipslatcpconntmplthreshold', YLeaf(YType.uint32, 'cipslaTcpConnTmplThreshold')),
+                    ('cipslatcpconntmplhistlives', YLeaf(YType.uint32, 'cipslaTcpConnTmplHistLives')),
+                    ('cipslatcpconntmplhistbuckets', YLeaf(YType.uint32, 'cipslaTcpConnTmplHistBuckets')),
+                    ('cipslatcpconntmplhistfilter', YLeaf(YType.enumeration, 'cipslaTcpConnTmplHistFilter')),
+                    ('cipslatcpconntmplstatshours', YLeaf(YType.uint32, 'cipslaTcpConnTmplStatsHours')),
+                    ('cipslatcpconntmpldistbuckets', YLeaf(YType.uint32, 'cipslaTcpConnTmplDistBuckets')),
+                    ('cipslatcpconntmpldistinterval', YLeaf(YType.uint32, 'cipslaTcpConnTmplDistInterval')),
+                    ('cipslatcpconntmplstoragetype', YLeaf(YType.enumeration, 'cipslaTcpConnTmplStorageType')),
+                    ('cipslatcpconntmplrowstatus', YLeaf(YType.enumeration, 'cipslaTcpConnTmplRowStatus')),
+                ])
+                self.cipslatcpconntmplname = None
+                self.cipslatcpconntmpldescription = None
+                self.cipslatcpconntmplcontrolenable = None
+                self.cipslatcpconntmplsrcaddrtype = None
+                self.cipslatcpconntmplsrcaddr = None
+                self.cipslatcpconntmplsrcport = None
+                self.cipslatcpconntmpltimeout = None
+                self.cipslatcpconntmplverifydata = None
+                self.cipslatcpconntmpltos = None
+                self.cipslatcpconntmplthreshold = None
+                self.cipslatcpconntmplhistlives = None
+                self.cipslatcpconntmplhistbuckets = None
+                self.cipslatcpconntmplhistfilter = None
+                self.cipslatcpconntmplstatshours = None
+                self.cipslatcpconntmpldistbuckets = None
+                self.cipslatcpconntmpldistinterval = None
+                self.cipslatcpconntmplstoragetype = None
+                self.cipslatcpconntmplrowstatus = None
+                self._segment_path = lambda: "cipslaTcpConnTmplEntry" + "[cipslaTcpConnTmplName='" + str(self.cipslatcpconntmplname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaTcpConnTmplTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -848,7 +867,7 @@ class CISCOIPSLAECHOMIB(Entity):
 
             class Cipslatcpconntmplhistfilter(Enum):
                 """
-                Cipslatcpconntmplhistfilter
+                Cipslatcpconntmplhistfilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 

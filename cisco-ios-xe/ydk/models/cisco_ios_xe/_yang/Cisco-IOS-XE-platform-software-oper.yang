@@ -3,6 +3,10 @@ module Cisco-IOS-XE-platform-software-oper {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XE-platform-software-oper";
   prefix platform-sw-ios-xe-oper;
 
+  import ietf-yang-types {
+    prefix yang;
+  }
+
   organization
     "Cisco Systems, Inc.";
   contact
@@ -19,6 +23,11 @@ module Cisco-IOS-XE-platform-software-oper {
     "This module contains a collection of YANG definitions
      for monitoring platform software in a Network Element";
 
+  revision 2017-10-10 {
+    description
+      "New data types. Leaf name changes";
+    reference "2.1.0";
+  }
   revision 2017-04-01 {
     description
       "New location data types. Leaf name changes";
@@ -307,6 +316,58 @@ module Cisco-IOS-XE-platform-software-oper {
     }
   }
 
+  grouping core-files {
+    description
+      "Core file information";
+    leaf filename {
+      type string;
+      description
+        "The core filename";
+    }
+    leaf time {
+      type yang:date-and-time;
+      description
+        "The date of generation";
+    }
+  }
+
+  grouping partitions {
+    description
+      "Partition information";
+    leaf name {
+      type string;
+      description
+        "The name of the partition";
+    }
+    leaf total-size {
+      type uint64;
+      description
+        "Total size of the partition in Kilobytes";
+    }
+    leaf used-size {
+      type uint64;
+      description
+        "Size used in Kilobytes";
+    }
+  }
+
+  grouping filesystem {
+    description
+      "Filesystem information";
+    list partitions {
+      key "name";
+      description
+        "Information about partitions";
+      uses platform-sw-ios-xe-oper:partitions;
+    }
+    list core-files {
+      key "filename";
+      description
+        "Information about core files";
+      uses platform-sw-ios-xe-oper:core-files;
+    }
+  }
+
   container cisco-platform-software {
     config false;
     description
@@ -321,6 +382,13 @@ module Cisco-IOS-XE-platform-software-oper {
         uses platform-sw-ios-xe-oper:svc-loc;
         uses platform-sw-ios-xe-oper:control-process;
       }
+    }
+    list q-filesystem {
+      key "fru slotnum baynum chassisnum";
+      description
+        "Information about the filesystem";
+      uses platform-sw-ios-xe-oper:svc-loc;
+      uses platform-sw-ios-xe-oper:filesystem;
     }
   }
 }

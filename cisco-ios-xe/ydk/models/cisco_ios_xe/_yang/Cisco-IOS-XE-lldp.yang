@@ -29,6 +29,20 @@ module Cisco-IOS-XE-lldp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -95,6 +109,10 @@ module Cisco-IOS-XE-lldp {
     uses config-interface-lldp-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-lldp-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
     uses config-interface-lldp-grouping;
   }
@@ -103,11 +121,15 @@ module Cisco-IOS-XE-lldp {
     uses config-interface-lldp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-lldp-grouping;
   }
 
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-lldp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-lldp-grouping;
   }
 }

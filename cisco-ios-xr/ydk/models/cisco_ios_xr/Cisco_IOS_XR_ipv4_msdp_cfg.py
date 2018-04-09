@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MsdpFilterTypeVrf(Enum):
     """
-    MsdpFilterTypeVrf
+    MsdpFilterTypeVrf (Enum Class)
 
     Msdp filter type vrf
 
@@ -40,7 +42,7 @@ class MsdpFilterTypeVrf(Enum):
 
 class MsdpListTypeVrf(Enum):
     """
-    MsdpListTypeVrf
+    MsdpListTypeVrf (Enum Class)
 
     Msdp list type vrf
 
@@ -107,12 +109,15 @@ class Msdp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-msdp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Msdp.Vrfs), "default-context" : ("default_context", Msdp.DefaultContext)}
-        self._child_list_classes = {}
-
-        self.global_max_sa = YLeaf(YType.uint32, "global-max-sa")
-
-        self.nsr_delay = YLeaf(YType.uint32, "nsr-delay")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Msdp.Vrfs)), ("default-context", ("default_context", Msdp.DefaultContext))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('global_max_sa', YLeaf(YType.uint32, 'global-max-sa')),
+            ('nsr_delay', YLeaf(YType.uint32, 'nsr-delay')),
+        ])
+        self.global_max_sa = None
+        self.nsr_delay = None
 
         self.vrfs = Msdp.Vrfs()
         self.vrfs.parent = self
@@ -151,8 +156,10 @@ class Msdp(Entity):
             self.yang_parent_name = "msdp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Msdp.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Msdp.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -166,7 +173,7 @@ class Msdp(Entity):
             """
             VRF Name
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
@@ -251,22 +258,25 @@ class Msdp(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"cache-state" : ("cache_state", Msdp.Vrfs.Vrf.CacheState), "keep-alive" : ("keep_alive", Msdp.Vrfs.Vrf.KeepAlive), "peers" : ("peers", Msdp.Vrfs.Vrf.Peers), "sa-filters" : ("sa_filters", Msdp.Vrfs.Vrf.SaFilters)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.ttl_threshold = YLeaf(YType.uint32, "ttl-threshold")
-
-                self.max_peer_sa = YLeaf(YType.uint32, "max-peer-sa")
-
-                self.default_peer = YLeaf(YType.str, "default-peer")
-
-                self.originator_id = YLeaf(YType.str, "originator-id")
-
-                self.max_sa = YLeaf(YType.uint32, "max-sa")
-
-                self.connect_source = YLeaf(YType.str, "connect-source")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("cache-state", ("cache_state", Msdp.Vrfs.Vrf.CacheState)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.KeepAlive)), ("peers", ("peers", Msdp.Vrfs.Vrf.Peers)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.SaFilters))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
+                    ('max_peer_sa', YLeaf(YType.uint32, 'max-peer-sa')),
+                    ('default_peer', YLeaf(YType.str, 'default-peer')),
+                    ('originator_id', YLeaf(YType.str, 'originator-id')),
+                    ('max_sa', YLeaf(YType.uint32, 'max-sa')),
+                    ('connect_source', YLeaf(YType.str, 'connect-source')),
+                ])
+                self.vrf_name = None
+                self.ttl_threshold = None
+                self.max_peer_sa = None
+                self.default_peer = None
+                self.originator_id = None
+                self.max_sa = None
+                self.connect_source = None
 
                 self.cache_state = Msdp.Vrfs.Vrf.CacheState()
                 self.cache_state.parent = self
@@ -286,7 +296,7 @@ class Msdp(Entity):
                 self.sa_filters.parent = self
                 self._children_name_map["sa_filters"] = "sa-filters"
                 self._children_yang_names.add("sa-filters")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -336,14 +346,17 @@ class Msdp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.sa_holdtime = YLeaf(YType.uint32, "sa-holdtime")
-
-                    self.list = YLeaf(YType.str, "list")
-
-                    self.rp_list = YLeaf(YType.str, "rp-list")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sa_holdtime', YLeaf(YType.uint32, 'sa-holdtime')),
+                        ('list', YLeaf(YType.str, 'list')),
+                        ('rp_list', YLeaf(YType.str, 'rp-list')),
+                    ])
+                    self.sa_holdtime = None
+                    self.list = None
+                    self.rp_list = None
                     self._segment_path = lambda: "cache-state"
 
                 def __setattr__(self, name, value):
@@ -392,13 +405,16 @@ class Msdp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.keep_alive_period = YLeaf(YType.uint32, "keep-alive-period")
-
-                    self.peer_timeout_period = YLeaf(YType.uint32, "peer-timeout-period")
+                    self._leafs = OrderedDict([
+                        ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
+                        ('peer_timeout_period', YLeaf(YType.uint32, 'peer-timeout-period')),
+                    ])
+                    self.keep_alive_period = None
+                    self.peer_timeout_period = None
                     self._segment_path = lambda: "keep-alive"
 
                 def __setattr__(self, name, value):
@@ -428,8 +444,10 @@ class Msdp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"peer" : ("peer", Msdp.Vrfs.Vrf.Peers.Peer)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("peer", ("peer", Msdp.Vrfs.Vrf.Peers.Peer))])
+                    self._leafs = OrderedDict()
 
                     self.peer = YList(self)
                     self._segment_path = lambda: "peers"
@@ -442,7 +460,7 @@ class Msdp(Entity):
                     """
                     Peer address
                     
-                    .. attribute:: peer_address  <key>
+                    .. attribute:: peer_address  (key)
                     
                     	Peer address
                     	**type**\: str
@@ -539,28 +557,31 @@ class Msdp(Entity):
                         self.yang_parent_name = "peers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"remote-as" : ("remote_as", Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs), "keep-alive" : ("keep_alive", Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive), "sa-filters" : ("sa_filters", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters)}
-                        self._child_list_classes = {}
-
-                        self.peer_address = YLeaf(YType.str, "peer-address")
-
-                        self.shutdown = YLeaf(YType.empty, "shutdown")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.max_sa = YLeaf(YType.uint32, "max-sa")
-
-                        self.nsr_down = YLeaf(YType.empty, "nsr-down")
-
-                        self.peer_password = YLeaf(YType.str, "peer-password")
-
-                        self.mesh_group = YLeaf(YType.str, "mesh-group")
-
-                        self.ttl_threshold = YLeaf(YType.uint32, "ttl-threshold")
-
-                        self.connect_source = YLeaf(YType.str, "connect-source")
+                        self.ylist_key_names = ['peer_address']
+                        self._child_container_classes = OrderedDict([("remote-as", ("remote_as", Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('peer_address', YLeaf(YType.str, 'peer-address')),
+                            ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('max_sa', YLeaf(YType.uint32, 'max-sa')),
+                            ('nsr_down', YLeaf(YType.empty, 'nsr-down')),
+                            ('peer_password', YLeaf(YType.str, 'peer-password')),
+                            ('mesh_group', YLeaf(YType.str, 'mesh-group')),
+                            ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
+                            ('connect_source', YLeaf(YType.str, 'connect-source')),
+                        ])
+                        self.peer_address = None
+                        self.shutdown = None
+                        self.description = None
+                        self.enable = None
+                        self.max_sa = None
+                        self.nsr_down = None
+                        self.peer_password = None
+                        self.mesh_group = None
+                        self.ttl_threshold = None
+                        self.connect_source = None
 
                         self.remote_as = None
                         self._children_name_map["remote_as"] = "remote-as"
@@ -574,7 +595,7 @@ class Msdp(Entity):
                         self.sa_filters.parent = self
                         self._children_name_map["sa_filters"] = "sa-filters"
                         self._children_yang_names.add("sa-filters")
-                        self._segment_path = lambda: "peer" + "[peer-address='" + self.peer_address.get() + "']"
+                        self._segment_path = lambda: "peer" + "[peer-address='" + str(self.peer_address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer, ['peer_address', 'shutdown', 'description', 'enable', 'max_sa', 'nsr_down', 'peer_password', 'mesh_group', 'ttl_threshold', 'connect_source'], name, value)
@@ -618,13 +639,16 @@ class Msdp(Entity):
                             self.yang_parent_name = "peer"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                            self.as_yy = YLeaf(YType.uint32, "as-yy")
+                            self._leafs = OrderedDict([
+                                ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                                ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                            ])
+                            self.as_xx = None
+                            self.as_yy = None
                             self._segment_path = lambda: "remote-as"
 
                         def __setattr__(self, name, value):
@@ -673,13 +697,16 @@ class Msdp(Entity):
                             self.yang_parent_name = "peer"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.keep_alive_period = YLeaf(YType.uint32, "keep-alive-period")
-
-                            self.peer_timeout_period = YLeaf(YType.uint32, "peer-timeout-period")
+                            self._leafs = OrderedDict([
+                                ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
+                                ('peer_timeout_period', YLeaf(YType.uint32, 'peer-timeout-period')),
+                            ])
+                            self.keep_alive_period = None
+                            self.peer_timeout_period = None
                             self._segment_path = lambda: "keep-alive"
 
                         def __setattr__(self, name, value):
@@ -709,8 +736,10 @@ class Msdp(Entity):
                             self.yang_parent_name = "peer"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sa-filter" : ("sa_filter", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter))])
+                            self._leafs = OrderedDict()
 
                             self.sa_filter = YList(self)
                             self._segment_path = lambda: "sa-filters"
@@ -723,12 +752,12 @@ class Msdp(Entity):
                             """
                             SA\-Filter incoming/outgoing list or RPlist
                             
-                            .. attribute:: list  <key>
+                            .. attribute:: list  (key)
                             
                             	Src List/RP List
                             	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                             
-                            .. attribute:: filter_type  <key>
+                            .. attribute:: filter_type  (key)
                             
                             	Incoming/Outgoing ACL
                             	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
@@ -756,15 +785,18 @@ class Msdp(Entity):
                                 self.yang_parent_name = "sa-filters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.list = YLeaf(YType.enumeration, "list")
-
-                                self.filter_type = YLeaf(YType.enumeration, "filter-type")
-
-                                self.access_list_name = YLeaf(YType.str, "access-list-name")
-                                self._segment_path = lambda: "sa-filter" + "[list='" + self.list.get() + "']" + "[filter-type='" + self.filter_type.get() + "']"
+                                self.ylist_key_names = ['list','filter_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('list', YLeaf(YType.enumeration, 'list')),
+                                    ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
+                                    ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ])
+                                self.list = None
+                                self.filter_type = None
+                                self.access_list_name = None
+                                self._segment_path = lambda: "sa-filter" + "[list='" + str(self.list) + "']" + "[filter-type='" + str(self.filter_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
@@ -793,8 +825,10 @@ class Msdp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"sa-filter" : ("sa_filter", Msdp.Vrfs.Vrf.SaFilters.SaFilter)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.Vrfs.Vrf.SaFilters.SaFilter))])
+                    self._leafs = OrderedDict()
 
                     self.sa_filter = YList(self)
                     self._segment_path = lambda: "sa-filters"
@@ -807,12 +841,12 @@ class Msdp(Entity):
                     """
                     SA\-Filter incoming/outgoing list or RPlist
                     
-                    .. attribute:: list  <key>
+                    .. attribute:: list  (key)
                     
                     	Src List/RP List
                     	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                     
-                    .. attribute:: filter_type  <key>
+                    .. attribute:: filter_type  (key)
                     
                     	Incoming/Outgoing ACL
                     	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
@@ -840,15 +874,18 @@ class Msdp(Entity):
                         self.yang_parent_name = "sa-filters"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.list = YLeaf(YType.enumeration, "list")
-
-                        self.filter_type = YLeaf(YType.enumeration, "filter-type")
-
-                        self.access_list_name = YLeaf(YType.str, "access-list-name")
-                        self._segment_path = lambda: "sa-filter" + "[list='" + self.list.get() + "']" + "[filter-type='" + self.filter_type.get() + "']"
+                        self.ylist_key_names = ['list','filter_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('list', YLeaf(YType.enumeration, 'list')),
+                            ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
+                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ])
+                        self.list = None
+                        self.filter_type = None
+                        self.access_list_name = None
+                        self._segment_path = lambda: "sa-filter" + "[list='" + str(self.list) + "']" + "[filter-type='" + str(self.filter_type) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.Vrfs.Vrf.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
@@ -938,21 +975,24 @@ class Msdp(Entity):
             self.yang_parent_name = "msdp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"cache-state" : ("cache_state", Msdp.DefaultContext.CacheState), "keep-alive" : ("keep_alive", Msdp.DefaultContext.KeepAlive), "peers" : ("peers", Msdp.DefaultContext.Peers), "sa-filters" : ("sa_filters", Msdp.DefaultContext.SaFilters)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("cache-state", ("cache_state", Msdp.DefaultContext.CacheState)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.KeepAlive)), ("peers", ("peers", Msdp.DefaultContext.Peers)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.SaFilters))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.ttl_threshold = YLeaf(YType.uint32, "ttl-threshold")
-
-            self.max_peer_sa = YLeaf(YType.uint32, "max-peer-sa")
-
-            self.default_peer = YLeaf(YType.str, "default-peer")
-
-            self.originator_id = YLeaf(YType.str, "originator-id")
-
-            self.max_sa = YLeaf(YType.uint32, "max-sa")
-
-            self.connect_source = YLeaf(YType.str, "connect-source")
+            self._leafs = OrderedDict([
+                ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
+                ('max_peer_sa', YLeaf(YType.uint32, 'max-peer-sa')),
+                ('default_peer', YLeaf(YType.str, 'default-peer')),
+                ('originator_id', YLeaf(YType.str, 'originator-id')),
+                ('max_sa', YLeaf(YType.uint32, 'max-sa')),
+                ('connect_source', YLeaf(YType.str, 'connect-source')),
+            ])
+            self.ttl_threshold = None
+            self.max_peer_sa = None
+            self.default_peer = None
+            self.originator_id = None
+            self.max_sa = None
+            self.connect_source = None
 
             self.cache_state = Msdp.DefaultContext.CacheState()
             self.cache_state.parent = self
@@ -1022,14 +1062,17 @@ class Msdp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.sa_holdtime = YLeaf(YType.uint32, "sa-holdtime")
-
-                self.list = YLeaf(YType.str, "list")
-
-                self.rp_list = YLeaf(YType.str, "rp-list")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sa_holdtime', YLeaf(YType.uint32, 'sa-holdtime')),
+                    ('list', YLeaf(YType.str, 'list')),
+                    ('rp_list', YLeaf(YType.str, 'rp-list')),
+                ])
+                self.sa_holdtime = None
+                self.list = None
+                self.rp_list = None
                 self._segment_path = lambda: "cache-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/%s" % self._segment_path()
 
@@ -1079,13 +1122,16 @@ class Msdp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
                 self.is_presence_container = True
-
-                self.keep_alive_period = YLeaf(YType.uint32, "keep-alive-period")
-
-                self.peer_timeout_period = YLeaf(YType.uint32, "peer-timeout-period")
+                self._leafs = OrderedDict([
+                    ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
+                    ('peer_timeout_period', YLeaf(YType.uint32, 'peer-timeout-period')),
+                ])
+                self.keep_alive_period = None
+                self.peer_timeout_period = None
                 self._segment_path = lambda: "keep-alive"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/%s" % self._segment_path()
 
@@ -1116,8 +1162,10 @@ class Msdp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"peer" : ("peer", Msdp.DefaultContext.Peers.Peer)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("peer", ("peer", Msdp.DefaultContext.Peers.Peer))])
+                self._leafs = OrderedDict()
 
                 self.peer = YList(self)
                 self._segment_path = lambda: "peers"
@@ -1131,7 +1179,7 @@ class Msdp(Entity):
                 """
                 Peer address
                 
-                .. attribute:: peer_address  <key>
+                .. attribute:: peer_address  (key)
                 
                 	Peer address
                 	**type**\: str
@@ -1228,28 +1276,31 @@ class Msdp(Entity):
                     self.yang_parent_name = "peers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"remote-as" : ("remote_as", Msdp.DefaultContext.Peers.Peer.RemoteAs), "keep-alive" : ("keep_alive", Msdp.DefaultContext.Peers.Peer.KeepAlive), "sa-filters" : ("sa_filters", Msdp.DefaultContext.Peers.Peer.SaFilters)}
-                    self._child_list_classes = {}
-
-                    self.peer_address = YLeaf(YType.str, "peer-address")
-
-                    self.shutdown = YLeaf(YType.empty, "shutdown")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.max_sa = YLeaf(YType.uint32, "max-sa")
-
-                    self.nsr_down = YLeaf(YType.empty, "nsr-down")
-
-                    self.peer_password = YLeaf(YType.str, "peer-password")
-
-                    self.mesh_group = YLeaf(YType.str, "mesh-group")
-
-                    self.ttl_threshold = YLeaf(YType.uint32, "ttl-threshold")
-
-                    self.connect_source = YLeaf(YType.str, "connect-source")
+                    self.ylist_key_names = ['peer_address']
+                    self._child_container_classes = OrderedDict([("remote-as", ("remote_as", Msdp.DefaultContext.Peers.Peer.RemoteAs)), ("keep-alive", ("keep_alive", Msdp.DefaultContext.Peers.Peer.KeepAlive)), ("sa-filters", ("sa_filters", Msdp.DefaultContext.Peers.Peer.SaFilters))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_address', YLeaf(YType.str, 'peer-address')),
+                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('max_sa', YLeaf(YType.uint32, 'max-sa')),
+                        ('nsr_down', YLeaf(YType.empty, 'nsr-down')),
+                        ('peer_password', YLeaf(YType.str, 'peer-password')),
+                        ('mesh_group', YLeaf(YType.str, 'mesh-group')),
+                        ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
+                        ('connect_source', YLeaf(YType.str, 'connect-source')),
+                    ])
+                    self.peer_address = None
+                    self.shutdown = None
+                    self.description = None
+                    self.enable = None
+                    self.max_sa = None
+                    self.nsr_down = None
+                    self.peer_password = None
+                    self.mesh_group = None
+                    self.ttl_threshold = None
+                    self.connect_source = None
 
                     self.remote_as = None
                     self._children_name_map["remote_as"] = "remote-as"
@@ -1263,7 +1314,7 @@ class Msdp(Entity):
                     self.sa_filters.parent = self
                     self._children_name_map["sa_filters"] = "sa-filters"
                     self._children_yang_names.add("sa-filters")
-                    self._segment_path = lambda: "peer" + "[peer-address='" + self.peer_address.get() + "']"
+                    self._segment_path = lambda: "peer" + "[peer-address='" + str(self.peer_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/peers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1308,13 +1359,16 @@ class Msdp(Entity):
                         self.yang_parent_name = "peer"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.as_xx = YLeaf(YType.uint32, "as-xx")
-
-                        self.as_yy = YLeaf(YType.uint32, "as-yy")
+                        self._leafs = OrderedDict([
+                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
+                            ('as_yy', YLeaf(YType.uint32, 'as-yy')),
+                        ])
+                        self.as_xx = None
+                        self.as_yy = None
                         self._segment_path = lambda: "remote-as"
 
                     def __setattr__(self, name, value):
@@ -1363,13 +1417,16 @@ class Msdp(Entity):
                         self.yang_parent_name = "peer"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.keep_alive_period = YLeaf(YType.uint32, "keep-alive-period")
-
-                        self.peer_timeout_period = YLeaf(YType.uint32, "peer-timeout-period")
+                        self._leafs = OrderedDict([
+                            ('keep_alive_period', YLeaf(YType.uint32, 'keep-alive-period')),
+                            ('peer_timeout_period', YLeaf(YType.uint32, 'peer-timeout-period')),
+                        ])
+                        self.keep_alive_period = None
+                        self.peer_timeout_period = None
                         self._segment_path = lambda: "keep-alive"
 
                     def __setattr__(self, name, value):
@@ -1399,8 +1456,10 @@ class Msdp(Entity):
                         self.yang_parent_name = "peer"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"sa-filter" : ("sa_filter", Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter))])
+                        self._leafs = OrderedDict()
 
                         self.sa_filter = YList(self)
                         self._segment_path = lambda: "sa-filters"
@@ -1413,12 +1472,12 @@ class Msdp(Entity):
                         """
                         SA\-Filter incoming/outgoing list or RPlist
                         
-                        .. attribute:: list  <key>
+                        .. attribute:: list  (key)
                         
                         	Src List/RP List
                         	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                         
-                        .. attribute:: filter_type  <key>
+                        .. attribute:: filter_type  (key)
                         
                         	Incoming/Outgoing ACL
                         	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
@@ -1446,15 +1505,18 @@ class Msdp(Entity):
                             self.yang_parent_name = "sa-filters"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.list = YLeaf(YType.enumeration, "list")
-
-                            self.filter_type = YLeaf(YType.enumeration, "filter-type")
-
-                            self.access_list_name = YLeaf(YType.str, "access-list-name")
-                            self._segment_path = lambda: "sa-filter" + "[list='" + self.list.get() + "']" + "[filter-type='" + self.filter_type.get() + "']"
+                            self.ylist_key_names = ['list','filter_type']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('list', YLeaf(YType.enumeration, 'list')),
+                                ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
+                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ])
+                            self.list = None
+                            self.filter_type = None
+                            self.access_list_name = None
+                            self._segment_path = lambda: "sa-filter" + "[list='" + str(self.list) + "']" + "[filter-type='" + str(self.filter_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
@@ -1483,8 +1545,10 @@ class Msdp(Entity):
                 self.yang_parent_name = "default-context"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"sa-filter" : ("sa_filter", Msdp.DefaultContext.SaFilters.SaFilter)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("sa-filter", ("sa_filter", Msdp.DefaultContext.SaFilters.SaFilter))])
+                self._leafs = OrderedDict()
 
                 self.sa_filter = YList(self)
                 self._segment_path = lambda: "sa-filters"
@@ -1498,12 +1562,12 @@ class Msdp(Entity):
                 """
                 SA\-Filter incoming/outgoing list or RPlist
                 
-                .. attribute:: list  <key>
+                .. attribute:: list  (key)
                 
                 	Src List/RP List
                 	**type**\:  :py:class:`MsdpListTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrf>`
                 
-                .. attribute:: filter_type  <key>
+                .. attribute:: filter_type  (key)
                 
                 	Incoming/Outgoing ACL
                 	**type**\:  :py:class:`MsdpFilterTypeVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrf>`
@@ -1531,15 +1595,18 @@ class Msdp(Entity):
                     self.yang_parent_name = "sa-filters"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.list = YLeaf(YType.enumeration, "list")
-
-                    self.filter_type = YLeaf(YType.enumeration, "filter-type")
-
-                    self.access_list_name = YLeaf(YType.str, "access-list-name")
-                    self._segment_path = lambda: "sa-filter" + "[list='" + self.list.get() + "']" + "[filter-type='" + self.filter_type.get() + "']"
+                    self.ylist_key_names = ['list','filter_type']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('list', YLeaf(YType.enumeration, 'list')),
+                        ('filter_type', YLeaf(YType.enumeration, 'filter-type')),
+                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                    ])
+                    self.list = None
+                    self.filter_type = None
+                    self.access_list_name = None
+                    self._segment_path = lambda: "sa-filter" + "[list='" + str(self.list) + "']" + "[filter-type='" + str(self.filter_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-msdp-cfg:msdp/default-context/sa-filters/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):

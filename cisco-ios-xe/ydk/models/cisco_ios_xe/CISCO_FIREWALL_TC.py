@@ -6,6 +6,8 @@ pertaining to configuration, status and activity
 of firewalls.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CFWApplicationProtocol(Enum):
     """
-    CFWApplicationProtocol
+    CFWApplicationProtocol (Enum Class)
 
     This type denotes the application (OSI Layer 7)
 
@@ -717,7 +719,7 @@ class CFWApplicationProtocol(Enum):
 
 class CFWNetworkProtocol(Enum):
     """
-    CFWNetworkProtocol
+    CFWNetworkProtocol (Enum Class)
 
     This type denotes protocols operating at 
 
@@ -792,7 +794,7 @@ class CFWNetworkProtocol(Enum):
 
 class CFWPolicyTargetType(Enum):
     """
-    CFWPolicyTargetType
+    CFWPolicyTargetType (Enum Class)
 
     This type is used to represent the type of 
 
@@ -911,7 +913,7 @@ class CFWPolicyTargetType(Enum):
 
 class CFWUrlServerStatus(Enum):
     """
-    CFWUrlServerStatus
+    CFWUrlServerStatus (Enum Class)
 
     This type denotes the status of the URL filtering 
 
@@ -952,7 +954,7 @@ class CFWUrlServerStatus(Enum):
 
 class CFWUrlfVendorId(Enum):
     """
-    CFWUrlfVendorId
+    CFWUrlfVendorId (Enum Class)
 
     This type denotes the vendor of a URL filtering
 

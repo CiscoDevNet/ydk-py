@@ -15,6 +15,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -46,10 +48,13 @@ class FastShutdown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mdrv-lib-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.ethernet = YLeaf(YType.empty, "ethernet")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('ethernet', YLeaf(YType.empty, 'ethernet')),
+        ])
+        self.ethernet = None
         self._segment_path = lambda: "Cisco-IOS-XR-mdrv-lib-cfg:fast-shutdown"
 
     def __setattr__(self, name, value):

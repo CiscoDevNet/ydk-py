@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MplsLdpDownstreamOnDemand(Enum):
     """
-    MplsLdpDownstreamOnDemand
+    MplsLdpDownstreamOnDemand (Enum Class)
 
     Mpls ldp downstream on demand
 
@@ -30,7 +32,7 @@ class MplsLdpDownstreamOnDemand(Enum):
 
 class MplsLdpNbrPassword(Enum):
     """
-    MplsLdpNbrPassword
+    MplsLdpNbrPassword (Enum Class)
 
     Mpls ldp nbr password
 
@@ -53,7 +55,7 @@ class MplsLdpNbrPassword(Enum):
 
 class MplsLdpRouterId(Enum):
     """
-    MplsLdpRouterId
+    MplsLdpRouterId (Enum Class)
 
     Mpls ldp router id
 
@@ -68,7 +70,7 @@ class MplsLdpRouterId(Enum):
 
 class MplsLdpSessionProtection(Enum):
     """
-    MplsLdpSessionProtection
+    MplsLdpSessionProtection (Enum Class)
 
     Mpls ldp session protection
 
@@ -121,7 +123,7 @@ class MplsLdpSessionProtection(Enum):
 
 class MplsLdpafName(Enum):
     """
-    MplsLdpafName
+    MplsLdpafName (Enum Class)
 
     Mpls ldpaf name
 

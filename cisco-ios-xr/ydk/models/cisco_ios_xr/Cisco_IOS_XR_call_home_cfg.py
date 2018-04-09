@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CallHomeDayOfWeek(Enum):
     """
-    CallHomeDayOfWeek
+    CallHomeDayOfWeek (Enum Class)
 
     Call home day of week
 
@@ -70,7 +72,7 @@ class CallHomeDayOfWeek(Enum):
 
 class CallHomeEventSeverity(Enum):
     """
-    CallHomeEventSeverity
+    CallHomeEventSeverity (Enum Class)
 
     Call home event severity
 
@@ -139,7 +141,7 @@ class CallHomeEventSeverity(Enum):
 
 class CallHomeMailSendInterval(Enum):
     """
-    CallHomeMailSendInterval
+    CallHomeMailSendInterval (Enum Class)
 
     Call home mail send interval
 
@@ -166,7 +168,7 @@ class CallHomeMailSendInterval(Enum):
 
 class CallHomeTransMethod(Enum):
     """
-    CallHomeTransMethod
+    CallHomeTransMethod (Enum Class)
 
     Call home trans method
 
@@ -187,7 +189,7 @@ class CallHomeTransMethod(Enum):
 
 class DataPrivacyLevel(Enum):
     """
-    DataPrivacyLevel
+    DataPrivacyLevel (Enum Class)
 
     Data privacy level
 
@@ -214,7 +216,7 @@ class DataPrivacyLevel(Enum):
 
 class SnapshotInterval(Enum):
     """
-    SnapshotInterval
+    SnapshotInterval (Enum Class)
 
     Snapshot interval
 
@@ -387,34 +389,37 @@ class CallHome(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-call-home-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mail-servers" : ("mail_servers", CallHome.MailServers), "syslog-throttling" : ("syslog_throttling", CallHome.SyslogThrottling), "smart-licensing" : ("smart_licensing", CallHome.SmartLicensing), "http-proxy" : ("http_proxy", CallHome.HttpProxy), "profiles" : ("profiles", CallHome.Profiles), "alert-groups" : ("alert_groups", CallHome.AlertGroups), "data-privacies" : ("data_privacies", CallHome.DataPrivacies), "alert-group-config" : ("alert_group_config", CallHome.AlertGroupConfig), "authorization" : ("authorization", CallHome.Authorization)}
-        self._child_list_classes = {}
-
-        self.customer_id = YLeaf(YType.str, "customer-id")
-
-        self.phone_number = YLeaf(YType.str, "phone-number")
-
-        self.contact_smart_licensing = YLeaf(YType.boolean, "contact-smart-licensing")
-
-        self.contact_email_address = YLeaf(YType.str, "contact-email-address")
-
-        self.rate_limit = YLeaf(YType.uint32, "rate-limit")
-
-        self.site_id = YLeaf(YType.str, "site-id")
-
-        self.vrf = YLeaf(YType.str, "vrf")
-
-        self.street_address = YLeaf(YType.str, "street-address")
-
-        self.source_interface = YLeaf(YType.str, "source-interface")
-
-        self.contract_id = YLeaf(YType.str, "contract-id")
-
-        self.reply_to = YLeaf(YType.str, "reply-to")
-
-        self.from_ = YLeaf(YType.str, "from")
-
-        self.active = YLeaf(YType.empty, "active")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mail-servers", ("mail_servers", CallHome.MailServers)), ("syslog-throttling", ("syslog_throttling", CallHome.SyslogThrottling)), ("smart-licensing", ("smart_licensing", CallHome.SmartLicensing)), ("http-proxy", ("http_proxy", CallHome.HttpProxy)), ("profiles", ("profiles", CallHome.Profiles)), ("alert-groups", ("alert_groups", CallHome.AlertGroups)), ("data-privacies", ("data_privacies", CallHome.DataPrivacies)), ("alert-group-config", ("alert_group_config", CallHome.AlertGroupConfig)), ("authorization", ("authorization", CallHome.Authorization))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('customer_id', YLeaf(YType.str, 'customer-id')),
+            ('phone_number', YLeaf(YType.str, 'phone-number')),
+            ('contact_smart_licensing', YLeaf(YType.boolean, 'contact-smart-licensing')),
+            ('contact_email_address', YLeaf(YType.str, 'contact-email-address')),
+            ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
+            ('site_id', YLeaf(YType.str, 'site-id')),
+            ('vrf', YLeaf(YType.str, 'vrf')),
+            ('street_address', YLeaf(YType.str, 'street-address')),
+            ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ('contract_id', YLeaf(YType.str, 'contract-id')),
+            ('reply_to', YLeaf(YType.str, 'reply-to')),
+            ('from_', YLeaf(YType.str, 'from')),
+            ('active', YLeaf(YType.empty, 'active')),
+        ])
+        self.customer_id = None
+        self.phone_number = None
+        self.contact_smart_licensing = None
+        self.contact_email_address = None
+        self.rate_limit = None
+        self.site_id = None
+        self.vrf = None
+        self.street_address = None
+        self.source_interface = None
+        self.contract_id = None
+        self.reply_to = None
+        self.from_ = None
+        self.active = None
 
         self.mail_servers = CallHome.MailServers()
         self.mail_servers.parent = self
@@ -489,8 +494,10 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mail-server" : ("mail_server", CallHome.MailServers.MailServer)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("mail-server", ("mail_server", CallHome.MailServers.MailServer))])
+            self._leafs = OrderedDict()
 
             self.mail_server = YList(self)
             self._segment_path = lambda: "mail-servers"
@@ -504,7 +511,7 @@ class CallHome(Entity):
             """
             Email server
             
-            .. attribute:: mail_serv_address  <key>
+            .. attribute:: mail_serv_address  (key)
             
             	Email server
             	**type**\: str
@@ -530,13 +537,16 @@ class CallHome(Entity):
                 self.yang_parent_name = "mail-servers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mail_serv_address = YLeaf(YType.str, "mail-serv-address")
-
-                self.priority = YLeaf(YType.uint32, "priority")
-                self._segment_path = lambda: "mail-server" + "[mail-serv-address='" + self.mail_serv_address.get() + "']"
+                self.ylist_key_names = ['mail_serv_address']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mail_serv_address', YLeaf(YType.str, 'mail-serv-address')),
+                    ('priority', YLeaf(YType.uint32, 'priority')),
+                ])
+                self.mail_serv_address = None
+                self.priority = None
+                self._segment_path = lambda: "mail-server" + "[mail-serv-address='" + str(self.mail_serv_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/mail-servers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -567,10 +577,13 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.active = YLeaf(YType.boolean, "active")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('active', YLeaf(YType.boolean, 'active')),
+            ])
+            self.active = None
             self._segment_path = lambda: "syslog-throttling"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
 
@@ -607,12 +620,15 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.profile_name = YLeaf(YType.str, "profile-name")
-
-            self.active = YLeaf(YType.empty, "active")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                ('active', YLeaf(YType.empty, 'active')),
+            ])
+            self.profile_name = None
+            self.active = None
             self._segment_path = lambda: "smart-licensing"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
 
@@ -650,12 +666,15 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.server_address = YLeaf(YType.str, "server-address")
-
-            self.port = YLeaf(YType.uint16, "port")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('server_address', YLeaf(YType.str, 'server-address')),
+                ('port', YLeaf(YType.uint16, 'port')),
+            ])
+            self.server_address = None
+            self.port = None
             self._segment_path = lambda: "http-proxy"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
 
@@ -686,8 +705,10 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"profile" : ("profile", CallHome.Profiles.Profile)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("profile", ("profile", CallHome.Profiles.Profile))])
+            self._leafs = OrderedDict()
 
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
@@ -701,7 +722,7 @@ class CallHome(Entity):
             """
             A specific profile
             
-            .. attribute:: profile_name  <key>
+            .. attribute:: profile_name  (key)
             
             	Profile name
             	**type**\: str
@@ -769,20 +790,23 @@ class CallHome(Entity):
                 self.yang_parent_name = "profiles"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"report-type" : ("report_type", CallHome.Profiles.Profile.ReportType), "methods" : ("methods", CallHome.Profiles.Profile.Methods), "addresses" : ("addresses", CallHome.Profiles.Profile.Addresses), "subscribe-alert-group" : ("subscribe_alert_group", CallHome.Profiles.Profile.SubscribeAlertGroup)}
-                self._child_list_classes = {}
-
-                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                self.create = YLeaf(YType.empty, "create")
-
-                self.message_format = YLeaf(YType.str, "message-format")
-
-                self.anonymous = YLeaf(YType.boolean, "anonymous")
-
-                self.message_size_limit = YLeaf(YType.uint32, "message-size-limit")
-
-                self.active = YLeaf(YType.empty, "active")
+                self.ylist_key_names = ['profile_name']
+                self._child_container_classes = OrderedDict([("report-type", ("report_type", CallHome.Profiles.Profile.ReportType)), ("methods", ("methods", CallHome.Profiles.Profile.Methods)), ("addresses", ("addresses", CallHome.Profiles.Profile.Addresses)), ("subscribe-alert-group", ("subscribe_alert_group", CallHome.Profiles.Profile.SubscribeAlertGroup))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                    ('create', YLeaf(YType.empty, 'create')),
+                    ('message_format', YLeaf(YType.str, 'message-format')),
+                    ('anonymous', YLeaf(YType.boolean, 'anonymous')),
+                    ('message_size_limit', YLeaf(YType.uint32, 'message-size-limit')),
+                    ('active', YLeaf(YType.empty, 'active')),
+                ])
+                self.profile_name = None
+                self.create = None
+                self.message_format = None
+                self.anonymous = None
+                self.message_size_limit = None
+                self.active = None
 
                 self.report_type = CallHome.Profiles.Profile.ReportType()
                 self.report_type.parent = self
@@ -803,7 +827,7 @@ class CallHome(Entity):
                 self.subscribe_alert_group.parent = self
                 self._children_name_map["subscribe_alert_group"] = "subscribe-alert-group"
                 self._children_yang_names.add("subscribe-alert-group")
-                self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/profiles/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -838,8 +862,10 @@ class CallHome(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"reporting-callhome-data" : ("reporting_callhome_data", CallHome.Profiles.Profile.ReportType.ReportingCallhomeData), "reporting-licensing-data" : ("reporting_licensing_data", CallHome.Profiles.Profile.ReportType.ReportingLicensingData)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("reporting-callhome-data", ("reporting_callhome_data", CallHome.Profiles.Profile.ReportType.ReportingCallhomeData)), ("reporting-licensing-data", ("reporting_licensing_data", CallHome.Profiles.Profile.ReportType.ReportingLicensingData))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.reporting_callhome_data = CallHome.Profiles.Profile.ReportType.ReportingCallhomeData()
                     self.reporting_callhome_data.parent = self
@@ -876,10 +902,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "report-type"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.boolean, "enable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                        ])
+                        self.enable = None
                         self._segment_path = lambda: "reporting-callhome-data"
 
                     def __setattr__(self, name, value):
@@ -909,10 +938,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "report-type"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.boolean, "enable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                        ])
+                        self.enable = None
                         self._segment_path = lambda: "reporting-licensing-data"
 
                     def __setattr__(self, name, value):
@@ -942,8 +974,10 @@ class CallHome(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"method" : ("method", CallHome.Profiles.Profile.Methods.Method)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("method", ("method", CallHome.Profiles.Profile.Methods.Method))])
+                    self._leafs = OrderedDict()
 
                     self.method = YList(self)
                     self._segment_path = lambda: "methods"
@@ -956,7 +990,7 @@ class CallHome(Entity):
                     """
                     Transport method
                     
-                    .. attribute:: method  <key>
+                    .. attribute:: method  (key)
                     
                     	Transport Method
                     	**type**\:  :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
@@ -980,13 +1014,16 @@ class CallHome(Entity):
                         self.yang_parent_name = "methods"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.method = YLeaf(YType.enumeration, "method")
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-                        self._segment_path = lambda: "method" + "[method='" + self.method.get() + "']"
+                        self.ylist_key_names = ['method']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method', YLeaf(YType.enumeration, 'method')),
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                        ])
+                        self.method = None
+                        self.enable = None
+                        self._segment_path = lambda: "method" + "[method='" + str(self.method) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Methods.Method, ['method', 'enable'], name, value)
@@ -1015,8 +1052,10 @@ class CallHome(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"address" : ("address", CallHome.Profiles.Profile.Addresses.Address)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("address", ("address", CallHome.Profiles.Profile.Addresses.Address))])
+                    self._leafs = OrderedDict()
 
                     self.address = YList(self)
                     self._segment_path = lambda: "addresses"
@@ -1029,12 +1068,12 @@ class CallHome(Entity):
                     """
                     A specific address
                     
-                    .. attribute:: method  <key>
+                    .. attribute:: method  (key)
                     
                     	Transpotation Method
                     	**type**\:  :py:class:`CallHomeTransMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHomeTransMethod>`
                     
-                    .. attribute:: destination_addr  <key>
+                    .. attribute:: destination_addr  (key)
                     
                     	Destination address (1\-200) characters
                     	**type**\: str
@@ -1060,15 +1099,18 @@ class CallHome(Entity):
                         self.yang_parent_name = "addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.method = YLeaf(YType.enumeration, "method")
-
-                        self.destination_addr = YLeaf(YType.str, "destination-addr")
-
-                        self.enable = YLeaf(YType.boolean, "enable")
-                        self._segment_path = lambda: "address" + "[method='" + self.method.get() + "']" + "[destination-addr='" + self.destination_addr.get() + "']"
+                        self.ylist_key_names = ['method','destination_addr']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('method', YLeaf(YType.enumeration, 'method')),
+                            ('destination_addr', YLeaf(YType.str, 'destination-addr')),
+                            ('enable', YLeaf(YType.boolean, 'enable')),
+                        ])
+                        self.method = None
+                        self.destination_addr = None
+                        self.enable = None
+                        self._segment_path = lambda: "address" + "[method='" + str(self.method) + "']" + "[destination-addr='" + str(self.destination_addr) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Addresses.Address, ['method', 'destination_addr', 'enable'], name, value)
@@ -1122,8 +1164,10 @@ class CallHome(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"environment" : ("environment", CallHome.Profiles.Profile.SubscribeAlertGroup.Environment), "configuration" : ("configuration", CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration), "snapshot" : ("snapshot", CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot), "inventory" : ("inventory", CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory), "crash" : ("crash", CallHome.Profiles.Profile.SubscribeAlertGroup.Crash), "syslogs" : ("syslogs", CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("environment", ("environment", CallHome.Profiles.Profile.SubscribeAlertGroup.Environment)), ("configuration", ("configuration", CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration)), ("snapshot", ("snapshot", CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot)), ("inventory", ("inventory", CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory)), ("crash", ("crash", CallHome.Profiles.Profile.SubscribeAlertGroup.Crash)), ("syslogs", ("syslogs", CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.environment = CallHome.Profiles.Profile.SubscribeAlertGroup.Environment()
                     self.environment.parent = self
@@ -1180,10 +1224,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.severity = YLeaf(YType.enumeration, "severity")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('severity', YLeaf(YType.enumeration, 'severity')),
+                        ])
+                        self.severity = None
                         self._segment_path = lambda: "environment"
 
                     def __setattr__(self, name, value):
@@ -1218,10 +1265,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"periodic" : ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic)}
-                        self._child_list_classes = {}
-
-                        self.subscribe = YLeaf(YType.empty, "subscribe")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("periodic", ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                        ])
+                        self.subscribe = None
 
                         self.periodic = CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic()
                         self.periodic.parent = self
@@ -1282,18 +1332,21 @@ class CallHome(Entity):
                             self.yang_parent_name = "configuration"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interval = YLeaf(YType.enumeration, "interval")
-
-                            self.day = YLeaf(YType.uint32, "day")
-
-                            self.weekday = YLeaf(YType.enumeration, "weekday")
-
-                            self.hour = YLeaf(YType.uint32, "hour")
-
-                            self.minute = YLeaf(YType.uint32, "minute")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', YLeaf(YType.enumeration, 'interval')),
+                                ('day', YLeaf(YType.uint32, 'day')),
+                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
+                                ('hour', YLeaf(YType.uint32, 'hour')),
+                                ('minute', YLeaf(YType.uint32, 'minute')),
+                            ])
+                            self.interval = None
+                            self.day = None
+                            self.weekday = None
+                            self.hour = None
+                            self.minute = None
                             self._segment_path = lambda: "periodic"
 
                         def __setattr__(self, name, value):
@@ -1323,8 +1376,10 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"periodic" : ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("periodic", ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.periodic = CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic()
                         self.periodic.parent = self
@@ -1382,18 +1437,21 @@ class CallHome(Entity):
                             self.yang_parent_name = "snapshot"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interval = YLeaf(YType.enumeration, "interval")
-
-                            self.day = YLeaf(YType.uint32, "day")
-
-                            self.weekday = YLeaf(YType.enumeration, "weekday")
-
-                            self.hour = YLeaf(YType.uint32, "hour")
-
-                            self.minute = YLeaf(YType.uint32, "minute")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', YLeaf(YType.enumeration, 'interval')),
+                                ('day', YLeaf(YType.uint32, 'day')),
+                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
+                                ('hour', YLeaf(YType.uint32, 'hour')),
+                                ('minute', YLeaf(YType.uint32, 'minute')),
+                            ])
+                            self.interval = None
+                            self.day = None
+                            self.weekday = None
+                            self.hour = None
+                            self.minute = None
                             self._segment_path = lambda: "periodic"
 
                         def __setattr__(self, name, value):
@@ -1428,10 +1486,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"periodic" : ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic)}
-                        self._child_list_classes = {}
-
-                        self.subscribe = YLeaf(YType.empty, "subscribe")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("periodic", ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                        ])
+                        self.subscribe = None
 
                         self.periodic = CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic()
                         self.periodic.parent = self
@@ -1492,18 +1553,21 @@ class CallHome(Entity):
                             self.yang_parent_name = "inventory"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interval = YLeaf(YType.enumeration, "interval")
-
-                            self.day = YLeaf(YType.uint32, "day")
-
-                            self.weekday = YLeaf(YType.enumeration, "weekday")
-
-                            self.hour = YLeaf(YType.uint32, "hour")
-
-                            self.minute = YLeaf(YType.uint32, "minute")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', YLeaf(YType.enumeration, 'interval')),
+                                ('day', YLeaf(YType.uint32, 'day')),
+                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
+                                ('hour', YLeaf(YType.uint32, 'hour')),
+                                ('minute', YLeaf(YType.uint32, 'minute')),
+                            ])
+                            self.interval = None
+                            self.day = None
+                            self.weekday = None
+                            self.hour = None
+                            self.minute = None
                             self._segment_path = lambda: "periodic"
 
                         def __setattr__(self, name, value):
@@ -1533,10 +1597,13 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.subscribe = YLeaf(YType.empty, "subscribe")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                        ])
+                        self.subscribe = None
                         self._segment_path = lambda: "crash"
 
                     def __setattr__(self, name, value):
@@ -1566,8 +1633,10 @@ class CallHome(Entity):
                         self.yang_parent_name = "subscribe-alert-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"syslog" : ("syslog", CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("syslog", ("syslog", CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog))])
+                        self._leafs = OrderedDict()
 
                         self.syslog = YList(self)
                         self._segment_path = lambda: "syslogs"
@@ -1580,7 +1649,7 @@ class CallHome(Entity):
                         """
                         Syslog message pattern to be matched
                         
-                        .. attribute:: syslog_pattern  <key>
+                        .. attribute:: syslog_pattern  (key)
                         
                         	Syslog message pattern to be matched
                         	**type**\: str
@@ -1606,13 +1675,16 @@ class CallHome(Entity):
                             self.yang_parent_name = "syslogs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.syslog_pattern = YLeaf(YType.str, "syslog-pattern")
-
-                            self.severity = YLeaf(YType.enumeration, "severity")
-                            self._segment_path = lambda: "syslog" + "[syslog-pattern='" + self.syslog_pattern.get() + "']"
+                            self.ylist_key_names = ['syslog_pattern']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('syslog_pattern', YLeaf(YType.str, 'syslog-pattern')),
+                                ('severity', YLeaf(YType.enumeration, 'severity')),
+                            ])
+                            self.syslog_pattern = None
+                            self.severity = None
+                            self._segment_path = lambda: "syslog" + "[syslog-pattern='" + str(self.syslog_pattern) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, ['syslog_pattern', 'severity'], name, value)
@@ -1641,8 +1713,10 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alert-group" : ("alert_group", CallHome.AlertGroups.AlertGroup)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alert-group", ("alert_group", CallHome.AlertGroups.AlertGroup))])
+            self._leafs = OrderedDict()
 
             self.alert_group = YList(self)
             self._segment_path = lambda: "alert-groups"
@@ -1656,7 +1730,7 @@ class CallHome(Entity):
             """
             A specific alert\-group
             
-            .. attribute:: alert_group_name  <key>
+            .. attribute:: alert_group_name  (key)
             
             	none
             	**type**\: str
@@ -1687,15 +1761,18 @@ class CallHome(Entity):
                 self.yang_parent_name = "alert-groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.alert_group_name = YLeaf(YType.str, "alert-group-name")
-
-                self.enable = YLeaf(YType.boolean, "enable")
-
-                self.disable = YLeaf(YType.boolean, "disable")
-                self._segment_path = lambda: "alert-group" + "[alert-group-name='" + self.alert_group_name.get() + "']"
+                self.ylist_key_names = ['alert_group_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('alert_group_name', YLeaf(YType.str, 'alert-group-name')),
+                    ('enable', YLeaf(YType.boolean, 'enable')),
+                    ('disable', YLeaf(YType.boolean, 'disable')),
+                ])
+                self.alert_group_name = None
+                self.enable = None
+                self.disable = None
+                self._segment_path = lambda: "alert-group" + "[alert-group-name='" + str(self.alert_group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/alert-groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1725,8 +1802,10 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"data-privacy" : ("data_privacy", CallHome.DataPrivacies.DataPrivacy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("data-privacy", ("data_privacy", CallHome.DataPrivacies.DataPrivacy))])
+            self._leafs = OrderedDict()
 
             self.data_privacy = YList(self)
             self._segment_path = lambda: "data-privacies"
@@ -1740,7 +1819,7 @@ class CallHome(Entity):
             """
             level hostname
             
-            .. attribute:: host_name  <key>
+            .. attribute:: host_name  (key)
             
             	Data privacy type (hostname or level)
             	**type**\: str
@@ -1764,13 +1843,16 @@ class CallHome(Entity):
                 self.yang_parent_name = "data-privacies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.host_name = YLeaf(YType.str, "host-name")
-
-                self.level = YLeaf(YType.enumeration, "level")
-                self._segment_path = lambda: "data-privacy" + "[host-name='" + self.host_name.get() + "']"
+                self.ylist_key_names = ['host_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('host_name', YLeaf(YType.str, 'host-name')),
+                    ('level', YLeaf(YType.enumeration, 'level')),
+                ])
+                self.host_name = None
+                self.level = None
+                self._segment_path = lambda: "data-privacy" + "[host-name='" + str(self.host_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/data-privacies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1800,8 +1882,10 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"snapshot-commands" : ("snapshot_commands", CallHome.AlertGroupConfig.SnapshotCommands)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("snapshot-commands", ("snapshot_commands", CallHome.AlertGroupConfig.SnapshotCommands))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.snapshot_commands = CallHome.AlertGroupConfig.SnapshotCommands()
             self.snapshot_commands.parent = self
@@ -1834,8 +1918,10 @@ class CallHome(Entity):
                 self.yang_parent_name = "alert-group-config"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"snapshot-command" : ("snapshot_command", CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("snapshot-command", ("snapshot_command", CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand))])
+                self._leafs = OrderedDict()
 
                 self.snapshot_command = YList(self)
                 self._segment_path = lambda: "snapshot-commands"
@@ -1849,7 +1935,7 @@ class CallHome(Entity):
                 """
                 A specific CLI cmd for snapshot
                 
-                .. attribute:: command  <key>
+                .. attribute:: command  (key)
                 
                 	new added command
                 	**type**\: str
@@ -1875,13 +1961,16 @@ class CallHome(Entity):
                     self.yang_parent_name = "snapshot-commands"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.command = YLeaf(YType.str, "command")
-
-                    self.active = YLeaf(YType.empty, "active")
-                    self._segment_path = lambda: "snapshot-command" + "[command='" + self.command.get() + "']"
+                    self.ylist_key_names = ['command']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('command', YLeaf(YType.str, 'command')),
+                        ('active', YLeaf(YType.empty, 'active')),
+                    ])
+                    self.command = None
+                    self.active = None
+                    self._segment_path = lambda: "snapshot-command" + "[command='" + str(self.command) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/alert-group-config/snapshot-commands/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1919,12 +2008,15 @@ class CallHome(Entity):
             self.yang_parent_name = "call-home"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.username = YLeaf(YType.str, "username")
-
-            self.active = YLeaf(YType.empty, "active")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('username', YLeaf(YType.str, 'username')),
+                ('active', YLeaf(YType.empty, 'active')),
+            ])
+            self.username = None
+            self.active = None
             self._segment_path = lambda: "authorization"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
 

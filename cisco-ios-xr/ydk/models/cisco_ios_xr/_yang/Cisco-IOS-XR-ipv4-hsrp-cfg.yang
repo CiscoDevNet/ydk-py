@@ -1,179 +1,199 @@
 module Cisco-IOS-XR-ipv4-hsrp-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-hsrp-cfg";
+  prefix ipv4-hsrp-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-snmp-agent-cfg {
+    prefix a1;
+  }
 
-  prefix "ipv4-hsrp-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-snmp-agent-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-hsrp package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        hsrp: HSRP configuration
-
+     
      This YANG module augments the
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-10-04 {
+    description
+      "Marked delay leafs min-delay and reload-delay as mandatory.";
+  }
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Hsrp-linklocal {
     type enumeration {
-      enum manual {
+      enum "manual" {
         value 0;
-        description "Manual Linklocal address configuration";
+        description
+          "Manual Linklocal address configuration";
       }
-      enum auto {
+      enum "auto" {
         value 1;
-        description "Automatic Linklocal address configuration";
+        description
+          "Automatic Linklocal address configuration";
       }
-      enum legacy {
+      enum "legacy" {
         value 2;
         description
           "Automatic legacy-compatible Linklocal address
-          configuration";
+           configuration";
       }
     }
-    description "Hsrp linklocal";
+    description
+      "Hsrp linklocal";
   }
 
+  augment "/a1:snmp/a1:notification" {
+    description
+      "This augment extends the configuration data of
+       'Cisco-IOS-XR-snmp-agent-cfg'";
+    container hsrp {
+      description
+        "CISCO-HSRP-MIB notification configuration";
+      leaf enable {
+        type empty;
+        description
+          "Enable CISCO-HSRP-MIB notifications";
+      }
+    }
+  }
   container hsrp {
-    description "HSRP configuration";
-
+    description
+      "HSRP configuration";
     container interfaces {
-      description "Interface Table for HSRP configuration";
-
+      description
+        "Interface Table for HSRP configuration";
       list interface {
         key "interface-name";
-        description "Per-interface HSRP configuration";
-
+        description
+          "Per-interface HSRP configuration";
         container ipv6 {
-          description "IPv6 HSRP configuration";
-
+          description
+            "IPv6 HSRP configuration";
           container version2 {
-            description "Version 2 HSRP configuration";
-
+            description
+              "Version 2 HSRP configuration";
             container groups {
-              description "The HSRP group configuration table";
-
+              description
+                "The HSRP group configuration table";
               list group {
                 key "group-number";
-                description "The HSRP group being configured";
-
+                description
+                  "The HSRP group being configured";
                 container bfd {
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection";
+                     Detection";
                   leaf address {
                     type inet:ipv6-address-no-zone;
-                    description "Enable BFD for this remote IP";
+                    description
+                      "Enable BFD for this remote IP";
                   }
                   leaf interface-name {
                     type xr:Interface-name;
-                    description "Interface name to run BFD";
+                    description
+                      "Interface name to run BFD";
                   }
                 }
-
                 container tracked-interfaces {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-interface {
                     key "interface-name";
-                    description "Interface being tracked";
+                    description
+                      "Interface being tracked";
                     leaf interface-name {
                       type xr:Interface-name;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container tracked-objects {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-object {
                     key "object-name";
-                    description "Object being tracked";
+                    description
+                      "Object being tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container timers {
-                  description "Hello and hold timers";
+                  description
+                    "Hello and hold timers";
                   leaf hello-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hello time configured in
-                      milliseconds, FALSE - Hello time
-                      configured in seconds";
+                       milliseconds, FALSE - Hello time
+                       configured in seconds";
                   }
                   leaf hello-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hello time in msecs";
+                    description
+                      "Hello time in msecs";
                   }
                   leaf hello-sec {
                     type uint32 {
@@ -181,22 +201,24 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "3";
-                    description "Hello time in seconds";
+                    description
+                      "Hello time in seconds";
                   }
                   leaf hold-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hold time configured in
-                      milliseconds, FALSE - Hold time
-                      configured in seconds";
+                       milliseconds, FALSE - Hold time
+                       configured in seconds";
                   }
                   leaf hold-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hold time in msecs";
+                    description
+                      "Hold time in msecs";
                   }
                   leaf hold-sec {
                     type uint32 {
@@ -204,16 +226,17 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "10";
-                    description "Hold time in seconds";
+                    description
+                      "Hold time in seconds";
                   }
                 }
-
                 container link-local-ipv6-address {
                   description
                     "The HSRP IPv6 virtual linklocal address";
                   leaf address {
                     when "../auto-configure = 'manual'" {
-                      description "../AutoConfigure = Manual";
+                      description
+                        "../AutoConfigure = Manual";
                     }
                     type inet:ipv6-address-no-zone;
                     description
@@ -222,15 +245,14 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                   leaf auto-configure {
                     type Hsrp-linklocal;
                     default "manual";
-                    description "Linklocal Configuration Type";
+                    description
+                      "Linklocal Configuration Type";
                   }
                 }
-
                 container global-ipv6-addresses {
                   description
                     "The table of HSRP virtual global IPv6
-                    addresses";
-
+                     addresses";
                   list global-ipv6-address {
                     key "address";
                     description
@@ -247,69 +269,75 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     range "0..255";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf preempt {
                   type int32;
                   default "0";
-                  description "Force active if higher priority";
+                  description
+                    "Force active if higher priority";
                 }
                 leaf session-name {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "HSRP Session name (for MGO)";
+                  description
+                    "HSRP Session name (for MGO)";
                 }
                 leaf virtual-mac-address {
                   type yang:mac-address;
-                  description "HSRP MAC address";
+                  description
+                    "HSRP MAC address";
                 }
                 leaf group-number {
                   type uint32 {
                     range "0..4095";
                   }
-                  description "HSRP group number";
+                  description
+                    "HSRP group number";
                 }
               }
             }
           }
-
           container slave-groups {
-            description "The HSRP slave group configuration table";
-
+            description
+              "The HSRP slave group configuration table";
             list slave-group {
               key "slave-group-number";
-              description "The HSRP slave group being configured";
-
+              description
+                "The HSRP slave group being configured";
               container link-local-ipv6-address {
                 description
                   "The HSRP IPv6 virtual linklocal address";
                 leaf address {
                   when "../auto-configure = 'manual'" {
-                    description "../AutoConfigure = Manual";
+                    description
+                      "../AutoConfigure = Manual";
                   }
                   type inet:ipv6-address-no-zone;
-                  description "HSRP IPv6 virtual linklocal address";
+                  description
+                    "HSRP IPv6 virtual linklocal address";
                 }
                 leaf auto-configure {
                   type Hsrp-linklocal;
                   default "manual";
-                  description "Linklocal Configuration Type";
+                  description
+                    "Linklocal Configuration Type";
                 }
               }
-
               container global-ipv6-addresses {
                 description
                   "The table of HSRP virtual global IPv6
-                  addresses";
-
+                   addresses";
                 list global-ipv6-address {
                   key "address";
                   description
                     "A HSRP virtual global IPv6 IP address";
                   leaf address {
                     type inet:ipv6-address-no-zone;
-                    description "HSRP virtual global IPv6 address";
+                    description
+                      "HSRP virtual global IPv6 address";
                   }
                 }
               }
@@ -320,27 +348,29 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
               }
               leaf virtual-mac-address {
                 type yang:mac-address;
-                description "HSRP MAC address";
+                description
+                  "HSRP MAC address";
               }
               leaf slave-group-number {
                 type uint32 {
                   range "0..4095";
                 }
-                description "HSRP group number";
+                description
+                  "HSRP group number";
               }
             }
           }
         }
-
         container bfd {
-          description "BFD configuration";
+          description
+            "BFD configuration";
           leaf detection-multiplier {
             type uint32 {
               range "2..50";
             }
             description
               "Detection multiplier for BFD sessions created
-              by hsrp";
+               by hsrp";
           }
           leaf interval {
             type uint32 {
@@ -349,49 +379,53 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
             units "millisecond";
             description
               "Hello interval for BFD sessions created by
-              hsrp";
+               hsrp";
           }
         }
-
         container delay {
-          description "Minimum and Reload Delay";
+          presence "Indicates a delay node is configured.";
+          description
+            "Minimum and Reload Delay";
           leaf minimum-delay {
             type uint32 {
               range "0..10000";
             }
             units "second";
-            default "1";
-            description "Minimum delay in seconds";
+            mandatory true;
+            description
+              "Minimum delay in seconds";
           }
           leaf reload-delay {
             type uint32 {
               range "0..10000";
             }
             units "second";
-            default "5";
-            description "Reload delay in seconds";
+            mandatory true;
+            description
+              "Reload delay in seconds";
           }
         }
-
         container ipv4 {
-          description "IPv4 HSRP configuration";
-
+          description
+            "IPv4 HSRP configuration";
           container slave-groups {
-            description "The HSRP slave group configuration table";
-
+            description
+              "The HSRP slave group configuration table";
             list slave-group {
               key "slave-group-number";
-              description "The HSRP slave group being configured";
-
+              description
+                "The HSRP slave group being configured";
               container secondary-ipv4-addresses {
-                description "Secondary HSRP IP address Table";
-
+                description
+                  "Secondary HSRP IP address Table";
                 list secondary-ipv4-address {
                   key "address";
-                  description "Secondary HSRP IP address";
+                  description
+                    "Secondary HSRP IP address";
                   leaf address {
                     type inet:ipv4-address-no-zone;
-                    description "HSRP IP address";
+                    description
+                      "HSRP IP address";
                   }
                 }
               }
@@ -402,105 +436,112 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
               }
               leaf virtual-mac-address {
                 type yang:mac-address;
-                description "HSRP MAC address";
+                description
+                  "HSRP MAC address";
               }
               leaf primary-ipv4-address {
                 type inet:ipv4-address-no-zone;
-                description "Primary HSRP IP address";
+                description
+                  "Primary HSRP IP address";
               }
               leaf slave-group-number {
                 type uint32 {
                   range "0..4095";
                 }
-                description "HSRP group number";
+                description
+                  "HSRP group number";
               }
             }
           }
-
           container version1 {
-            description "Version 1 HSRP configuration";
-
+            description
+              "Version 1 HSRP configuration";
             container groups {
-              description "The HSRP group configuration table";
-
+              description
+                "The HSRP group configuration table";
               list group {
                 key "group-number";
-                description "The HSRP group being configured";
-
+                description
+                  "The HSRP group being configured";
                 container tracked-interfaces {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-interface {
                     key "interface-name";
-                    description "Interface being tracked";
+                    description
+                      "Interface being tracked";
                     leaf interface-name {
                       type xr:Interface-name;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container bfd {
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection";
+                     Detection";
                   leaf address {
                     type inet:ipv4-address-no-zone;
-                    description "Enable BFD for this remote IP";
+                    description
+                      "Enable BFD for this remote IP";
                   }
                   leaf interface-name {
                     type xr:Interface-name;
-                    description "Interface name to run BFD";
+                    description
+                      "Interface name to run BFD";
                   }
                 }
-
                 container tracked-objects {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-object {
                     key "object-name";
-                    description "Object being tracked";
+                    description
+                      "Object being tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container timers {
-                  description "Hello and hold timers";
+                  description
+                    "Hello and hold timers";
                   leaf hello-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hello time configured in
-                      milliseconds, FALSE - Hello time
-                      configured in seconds";
+                       milliseconds, FALSE - Hello time
+                       configured in seconds";
                   }
                   leaf hello-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hello time in msecs";
+                    description
+                      "Hello time in msecs";
                   }
                   leaf hello-sec {
                     type uint32 {
@@ -508,22 +549,24 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "3";
-                    description "Hello time in seconds";
+                    description
+                      "Hello time in seconds";
                   }
                   leaf hold-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hold time configured in
-                      milliseconds, FALSE - Hold time
-                      configured in seconds";
+                       milliseconds, FALSE - Hold time
+                       configured in seconds";
                   }
                   leaf hold-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hold time in msecs";
+                    description
+                      "Hold time in msecs";
                   }
                   leaf hold-sec {
                     type uint32 {
@@ -531,36 +574,40 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "10";
-                    description "Hold time in seconds";
+                    description
+                      "Hold time in seconds";
                   }
                 }
-
                 container primary-ipv4-address {
-                  description "Primary HSRP IP address";
+                  description
+                    "Primary HSRP IP address";
                   leaf virtual-ip-learn {
                     type boolean;
                     description
                       "TRUE if the HSRP protocol is to learn the
-                      virtual IP address it is to use";
+                       virtual IP address it is to use";
                   }
                   leaf address {
                     when "../virtual-ip-learn = 0" {
-                      description "../VirtualIPLearn = <expr>";
+                      description
+                        "../VirtualIPLearn = <expr>";
                     }
                     type inet:ipv4-address-no-zone;
-                    description "HSRP IP address.";
+                    description
+                      "HSRP IP address.";
                   }
                 }
-
                 container secondary-ipv4-addresses {
-                  description "Secondary HSRP IP address Table";
-
+                  description
+                    "Secondary HSRP IP address Table";
                   list secondary-ipv4-address {
                     key "address";
-                    description "Secondary HSRP IP address";
+                    description
+                      "Secondary HSRP IP address";
                     leaf address {
                       type inet:ipv4-address-no-zone;
-                      description "HSRP IP address";
+                      description
+                        "HSRP IP address";
                     }
                   }
                 }
@@ -569,154 +616,167 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     length "1..8";
                   }
                   default "cisco";
-                  description "Authentication string";
+                  description
+                    "Authentication string";
                 }
                 leaf session-name {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "HSRP Session name (for MGO)";
+                  description
+                    "HSRP Session name (for MGO)";
                 }
                 leaf priority {
                   type uint32 {
                     range "0..255";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf preempt {
                   type int32;
                   default "0";
-                  description "Force active if higher priority";
+                  description
+                    "Force active if higher priority";
                 }
                 leaf virtual-mac-address {
                   type yang:mac-address;
-                  description "HSRP MAC address";
+                  description
+                    "HSRP MAC address";
                 }
                 leaf group-number {
                   type uint32 {
                     range "0..255";
                   }
-                  description "HSRP group number";
+                  description
+                    "HSRP group number";
                 }
               }
             }
           }
-
           container version2 {
-            description "Version 2 HSRP configuration";
-
+            description
+              "Version 2 HSRP configuration";
             container groups {
-              description "The HSRP group configuration table";
-
+              description
+                "The HSRP group configuration table";
               list group {
                 key "group-number";
-                description "The HSRP group being configured";
-
+                description
+                  "The HSRP group being configured";
                 container secondary-ipv4-addresses {
-                  description "Secondary HSRP IP address Table";
-
+                  description
+                    "Secondary HSRP IP address Table";
                   list secondary-ipv4-address {
                     key "address";
-                    description "Secondary HSRP IP address";
+                    description
+                      "Secondary HSRP IP address";
                     leaf address {
                       type inet:ipv4-address-no-zone;
-                      description "HSRP IP address";
+                      description
+                        "HSRP IP address";
                     }
                   }
                 }
-
                 container bfd {
                   description
                     "Enable use of Bidirectional Forwarding
-                    Detection";
+                     Detection";
                   leaf address {
                     type inet:ipv4-address-no-zone;
-                    description "Enable BFD for this remote IP";
+                    description
+                      "Enable BFD for this remote IP";
                   }
                   leaf interface-name {
                     type xr:Interface-name;
-                    description "Interface name to run BFD";
+                    description
+                      "Interface name to run BFD";
                   }
                 }
-
                 container primary-ipv4-address {
-                  description "Primary HSRP IP address";
+                  description
+                    "Primary HSRP IP address";
                   leaf virtual-ip-learn {
                     type boolean;
                     description
                       "TRUE if the HSRP protocol is to learn the
-                      virtual IP address it is to use";
+                       virtual IP address it is to use";
                   }
                   leaf address {
                     when "../virtual-ip-learn = 0" {
-                      description "../VirtualIPLearn = <expr>";
+                      description
+                        "../VirtualIPLearn = <expr>";
                     }
                     type inet:ipv4-address-no-zone;
-                    description "HSRP IP address.";
+                    description
+                      "HSRP IP address.";
                   }
                 }
-
                 container tracked-objects {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-object {
                     key "object-name";
-                    description "Object being tracked";
+                    description
+                      "Object being tracked";
                     leaf object-name {
                       type xr:Cisco-ios-xr-string;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container tracked-interfaces {
                   description
                     "The HSRP tracked interface configuration
-                    table";
-
+                     table";
                   list tracked-interface {
                     key "interface-name";
-                    description "Interface being tracked";
+                    description
+                      "Interface being tracked";
                     leaf interface-name {
                       type xr:Interface-name;
-                      description "Interface being tracked";
+                      description
+                        "Interface being tracked";
                     }
                     leaf priority-decrement {
                       type uint32 {
                         range "1..255";
                       }
                       mandatory true;
-                      description "Priority decrement";
+                      description
+                        "Priority decrement";
                     }
                   }
                 }
-
                 container timers {
-                  description "Hello and hold timers";
+                  description
+                    "Hello and hold timers";
                   leaf hello-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hello time configured in
-                      milliseconds, FALSE - Hello time
-                      configured in seconds";
+                       milliseconds, FALSE - Hello time
+                       configured in seconds";
                   }
                   leaf hello-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hello time in msecs";
+                    description
+                      "Hello time in msecs";
                   }
                   leaf hello-sec {
                     type uint32 {
@@ -724,22 +784,24 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "3";
-                    description "Hello time in seconds";
+                    description
+                      "Hello time in seconds";
                   }
                   leaf hold-msec-flag {
                     type boolean;
                     default "false";
                     description
                       "TRUE - Hold time configured in
-                      milliseconds, FALSE - Hold time
-                      configured in seconds";
+                       milliseconds, FALSE - Hold time
+                       configured in seconds";
                   }
                   leaf hold-msec {
                     type uint32 {
                       range "100..3000";
                     }
                     units "millisecond";
-                    description "Hold time in msecs";
+                    description
+                      "Hold time in msecs";
                   }
                   leaf hold-sec {
                     type uint32 {
@@ -747,36 +809,42 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
                     }
                     units "second";
                     default "10";
-                    description "Hold time in seconds";
+                    description
+                      "Hold time in seconds";
                   }
                 }
                 leaf preempt {
                   type int32;
                   default "0";
-                  description "Force active if higher priority";
+                  description
+                    "Force active if higher priority";
                 }
                 leaf priority {
                   type uint32 {
                     range "0..255";
                   }
                   default "100";
-                  description "Priority value";
+                  description
+                    "Priority value";
                 }
                 leaf virtual-mac-address {
                   type yang:mac-address;
-                  description "HSRP MAC address";
+                  description
+                    "HSRP MAC address";
                 }
                 leaf session-name {
                   type xr:Cisco-ios-xr-string {
                     length "1..16";
                   }
-                  description "HSRP Session name (for MGO)";
+                  description
+                    "HSRP Session name (for MGO)";
                 }
                 leaf group-number {
                   type uint32 {
                     range "0..4095";
                   }
-                  description "HSRP group number";
+                  description
+                    "HSRP group number";
                 }
               }
             }
@@ -787,43 +855,34 @@ module Cisco-IOS-XR-ipv4-hsrp-cfg {
             range "0..10000";
           }
           default "60";
-          description "HSRP MGO slave MAC refresh rate";
+          description
+            "HSRP MGO slave MAC refresh rate";
         }
         leaf use-bia {
           type empty;
-          description "Use burned-in address";
+          description
+            "Use burned-in address";
         }
         leaf redirects-disable {
           type empty;
-          description "Disable HSRP filtered ICMP redirects";
+          description
+            "Disable HSRP filtered ICMP redirects";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface name";
+          description
+            "Interface name";
         }
       }
     }
-
     container logging {
-      description "HSRP logging options";
+      description
+        "HSRP logging options";
       leaf state-change-disable {
         type empty;
-        description "HSRP state change IOS messages disable";
+        description
+          "HSRP state change IOS messages disable";
       }
     }
-  }
-
-  augment "/a1:snmp/a1:notification" {
-
-    container hsrp {
-      description "CISCO-HSRP-MIB notification configuration";
-      leaf enable {
-        type empty;
-        description "Enable CISCO-HSRP-MIB notifications";
-      }
-    }
-    description
-      "This augment extends the configuration data of
-      'Cisco-IOS-XR-snmp-agent-cfg'";
   }
 }

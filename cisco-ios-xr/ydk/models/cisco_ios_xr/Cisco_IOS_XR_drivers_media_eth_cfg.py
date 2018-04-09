@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EthernetAutoNegotiation(Enum):
     """
-    EthernetAutoNegotiation
+    EthernetAutoNegotiation (Enum Class)
 
     Ethernet auto negotiation
 
@@ -40,7 +42,7 @@ class EthernetAutoNegotiation(Enum):
 
 class EthernetDuplex(Enum):
     """
-    EthernetDuplex
+    EthernetDuplex (Enum Class)
 
     Ethernet duplex
 
@@ -61,7 +63,7 @@ class EthernetDuplex(Enum):
 
 class EthernetFec(Enum):
     """
-    EthernetFec
+    EthernetFec (Enum Class)
 
     Ethernet fec
 
@@ -82,7 +84,7 @@ class EthernetFec(Enum):
 
 class EthernetFlowCtrl(Enum):
     """
-    EthernetFlowCtrl
+    EthernetFlowCtrl (Enum Class)
 
     Ethernet flow ctrl
 
@@ -109,7 +111,7 @@ class EthernetFlowCtrl(Enum):
 
 class EthernetIpg(Enum):
     """
-    EthernetIpg
+    EthernetIpg (Enum Class)
 
     Ethernet ipg
 
@@ -124,7 +126,7 @@ class EthernetIpg(Enum):
 
 class EthernetLoopback(Enum):
     """
-    EthernetLoopback
+    EthernetLoopback (Enum Class)
 
     Ethernet loopback
 
@@ -151,7 +153,7 @@ class EthernetLoopback(Enum):
 
 class EthernetPfc(Enum):
     """
-    EthernetPfc
+    EthernetPfc (Enum Class)
 
     Ethernet pfc
 
@@ -166,7 +168,7 @@ class EthernetPfc(Enum):
 
 class EthernetSpeed(Enum):
     """
-    EthernetSpeed
+    EthernetSpeed (Enum Class)
 
     Ethernet speed
 

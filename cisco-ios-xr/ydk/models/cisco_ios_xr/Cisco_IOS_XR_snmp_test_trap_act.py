@@ -7,6 +7,8 @@ Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -33,8 +35,10 @@ class SnmpColdStart(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start"
 
     def clone_ptr(self):
@@ -60,8 +64,10 @@ class SnmpWarmStart(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start"
 
     def clone_ptr(self):
@@ -92,8 +98,10 @@ class InterfaceLinkUp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = InterfaceLinkUp.Input()
         self.input.parent = self
@@ -127,10 +135,13 @@ class InterfaceLinkUp(Entity):
             self.yang_parent_name = "interface-link-up"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/%s" % self._segment_path()
 
@@ -165,8 +176,10 @@ class InterfaceLinkDown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = InterfaceLinkDown.Input()
         self.input.parent = self
@@ -200,10 +213,13 @@ class InterfaceLinkDown(Entity):
             self.yang_parent_name = "interface-link-down"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/%s" % self._segment_path()
 
@@ -238,8 +254,10 @@ class SonetSectionStatus(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = SonetSectionStatus.Input()
         self.input.parent = self
@@ -273,10 +291,13 @@ class SonetSectionStatus(Entity):
             self.yang_parent_name = "sonet-section-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/%s" % self._segment_path()
 
@@ -311,8 +332,10 @@ class SonetLineStatus(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = SonetLineStatus.Input()
         self.input.parent = self
@@ -346,10 +369,13 @@ class SonetLineStatus(Entity):
             self.yang_parent_name = "sonet-line-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/%s" % self._segment_path()
 
@@ -384,8 +410,10 @@ class SonetPathStatus(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = SonetPathStatus.Input()
         self.input.parent = self
@@ -419,10 +447,13 @@ class SonetPathStatus(Entity):
             self.yang_parent_name = "sonet-path-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/%s" % self._segment_path()
 
@@ -452,8 +483,10 @@ class InfraSyslogMessageGenerated(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated"
 
     def clone_ptr(self):
@@ -479,8 +512,10 @@ class InfraFlashDeviceInserted(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-inserted"
 
     def clone_ptr(self):
@@ -506,8 +541,10 @@ class InfraFlashDeviceRemoved(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-removed"
 
     def clone_ptr(self):
@@ -533,8 +570,10 @@ class InfraRedundancyProgression(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-progression"
 
     def clone_ptr(self):
@@ -560,8 +599,10 @@ class InfraRedundancySwitch(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-switch"
 
     def clone_ptr(self):
@@ -587,8 +628,10 @@ class InfraBridgeNewRoot(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root"
 
     def clone_ptr(self):
@@ -614,8 +657,10 @@ class InfraBridgeTopologyChange(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change"
 
     def clone_ptr(self):
@@ -641,8 +686,10 @@ class InfraConfigEvent(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-config-event"
 
     def clone_ptr(self):
@@ -673,8 +720,10 @@ class EntitySensorThresholdNotification(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntitySensorThresholdNotification.Input()
         self.input.parent = self
@@ -708,10 +757,13 @@ class EntitySensorThresholdNotification(Entity):
             self.yang_parent_name = "entity-sensor-threshold-notification"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/%s" % self._segment_path()
 
@@ -746,8 +798,10 @@ class EntityFruPowerStatusChangeFailed(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruPowerStatusChangeFailed.Input()
         self.input.parent = self
@@ -781,10 +835,13 @@ class EntityFruPowerStatusChangeFailed(Entity):
             self.yang_parent_name = "entity-fru-power-status-change-failed"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/%s" % self._segment_path()
 
@@ -819,8 +876,10 @@ class EntityFruModuleStatusChangeUp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruModuleStatusChangeUp.Input()
         self.input.parent = self
@@ -854,10 +913,13 @@ class EntityFruModuleStatusChangeUp(Entity):
             self.yang_parent_name = "entity-fru-module-status-change-up"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/%s" % self._segment_path()
 
@@ -892,8 +954,10 @@ class EntityFruModuleStatusChangeDown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruModuleStatusChangeDown.Input()
         self.input.parent = self
@@ -927,10 +991,13 @@ class EntityFruModuleStatusChangeDown(Entity):
             self.yang_parent_name = "entity-fru-module-status-change-down"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/%s" % self._segment_path()
 
@@ -965,8 +1032,10 @@ class EntityFruFanTrayOperStatusUp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruFanTrayOperStatusUp.Input()
         self.input.parent = self
@@ -1000,10 +1069,13 @@ class EntityFruFanTrayOperStatusUp(Entity):
             self.yang_parent_name = "entity-fru-fan-tray-oper-status-up"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/%s" % self._segment_path()
 
@@ -1038,8 +1110,10 @@ class EntityFruFanTrayInserted(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruFanTrayInserted.Input()
         self.input.parent = self
@@ -1073,10 +1147,13 @@ class EntityFruFanTrayInserted(Entity):
             self.yang_parent_name = "entity-fru-fan-tray-inserted"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/%s" % self._segment_path()
 
@@ -1111,8 +1188,10 @@ class EntityFruFanTrayRemoved(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EntityFruFanTrayRemoved.Input()
         self.input.parent = self
@@ -1146,10 +1225,13 @@ class EntityFruFanTrayRemoved(Entity):
             self.yang_parent_name = "entity-fru-fan-tray-removed"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entindex', YLeaf(YType.uint32, 'entindex')),
+            ])
+            self.entindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/%s" % self._segment_path()
 
@@ -1184,8 +1266,10 @@ class PlatformHfrBundleDownedLink(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = PlatformHfrBundleDownedLink.Input()
         self.input.parent = self
@@ -1217,10 +1301,13 @@ class PlatformHfrBundleDownedLink(Entity):
             self.yang_parent_name = "platform-hfr-bundle-downed-link"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.bundle_name = YLeaf(YType.str, "bundle-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('bundle_name', YLeaf(YType.str, 'bundle-name')),
+            ])
+            self.bundle_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link/%s" % self._segment_path()
 
@@ -1255,8 +1342,10 @@ class PlatformHfrBundleState(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = PlatformHfrBundleState.Input()
         self.input.parent = self
@@ -1288,10 +1377,13 @@ class PlatformHfrBundleState(Entity):
             self.yang_parent_name = "platform-hfr-bundle-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.bundle_name = YLeaf(YType.str, "bundle-name")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('bundle_name', YLeaf(YType.str, 'bundle-name')),
+            ])
+            self.bundle_name = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state/%s" % self._segment_path()
 
@@ -1326,8 +1418,10 @@ class PlatformHfrPlaneState(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = PlatformHfrPlaneState.Input()
         self.input.parent = self
@@ -1361,10 +1455,13 @@ class PlatformHfrPlaneState(Entity):
             self.yang_parent_name = "platform-hfr-plane-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.plane_id = YLeaf(YType.uint32, "plane-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('plane_id', YLeaf(YType.uint32, 'plane-id')),
+            ])
+            self.plane_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state/%s" % self._segment_path()
 
@@ -1394,8 +1491,10 @@ class RoutingBgpEstablished(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established"
 
     def clone_ptr(self):
@@ -1426,8 +1525,10 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingBgpEstablishedRemotePeer.Input()
         self.input.parent = self
@@ -1463,10 +1564,13 @@ class RoutingBgpEstablishedRemotePeer(Entity):
             self.yang_parent_name = "routing-bgp-established-remote-peer"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.address = YLeaf(YType.str, "address")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+            ])
+            self.address = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer/%s" % self._segment_path()
 
@@ -1496,8 +1600,10 @@ class RoutingBgpStateChange(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change"
 
     def clone_ptr(self):
@@ -1528,8 +1634,10 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingBgpStateChangeRemotePeer.Input()
         self.input.parent = self
@@ -1565,10 +1673,13 @@ class RoutingBgpStateChangeRemotePeer(Entity):
             self.yang_parent_name = "routing-bgp-state-change-remote-peer"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.address = YLeaf(YType.str, "address")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+            ])
+            self.address = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer/%s" % self._segment_path()
 
@@ -1598,8 +1709,10 @@ class RoutingOspfNeighborStateChange(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change"
 
     def clone_ptr(self):
@@ -1630,8 +1743,10 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingOspfNeighborStateChangeAddress.Input()
         self.input.parent = self
@@ -1676,12 +1791,15 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
             self.yang_parent_name = "routing-ospf-neighbor-state-change-address"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.address = YLeaf(YType.str, "address")
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('address', YLeaf(YType.str, 'address')),
+                ('ifindex', YLeaf(YType.uint32, 'ifindex')),
+            ])
+            self.address = None
+            self.ifindex = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/%s" % self._segment_path()
 
@@ -1711,8 +1829,10 @@ class RoutingMplsLdpSessionDown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down"
 
     def clone_ptr(self):
@@ -1743,8 +1863,10 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingMplsLdpSessionDownEntityId.Input()
         self.input.parent = self
@@ -1798,14 +1920,17 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
             self.yang_parent_name = "routing-mpls-ldp-session-down-entity-id"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entity_id = YLeaf(YType.str, "entity-id")
-
-            self.entity_index = YLeaf(YType.uint32, "entity-index")
-
-            self.peer_id = YLeaf(YType.str, "peer-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('entity_id', YLeaf(YType.str, 'entity-id')),
+                ('entity_index', YLeaf(YType.uint32, 'entity-index')),
+                ('peer_id', YLeaf(YType.str, 'peer-id')),
+            ])
+            self.entity_id = None
+            self.entity_index = None
+            self.peer_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id/%s" % self._segment_path()
 
@@ -1835,8 +1960,10 @@ class RoutingMplsTunnelReRouted(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed"
 
     def clone_ptr(self):
@@ -1867,8 +1994,10 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingMplsTunnelReRoutedIndex.Input()
         self.input.parent = self
@@ -1931,16 +2060,19 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
             self.yang_parent_name = "routing-mpls-tunnel-re-routed-index"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.index = YLeaf(YType.uint32, "index")
-
-            self.instance = YLeaf(YType.uint32, "instance")
-
-            self.source = YLeaf(YType.str, "source")
-
-            self.destination = YLeaf(YType.str, "destination")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('index', YLeaf(YType.uint32, 'index')),
+                ('instance', YLeaf(YType.uint32, 'instance')),
+                ('source', YLeaf(YType.str, 'source')),
+                ('destination', YLeaf(YType.str, 'destination')),
+            ])
+            self.index = None
+            self.instance = None
+            self.source = None
+            self.destination = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/%s" % self._segment_path()
 
@@ -1970,8 +2102,10 @@ class RoutingMplsTunnelReOptimized(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized"
 
     def clone_ptr(self):
@@ -2002,8 +2136,10 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingMplsTunnelReOptimizedIndex.Input()
         self.input.parent = self
@@ -2066,16 +2202,19 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
             self.yang_parent_name = "routing-mpls-tunnel-re-optimized-index"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.index = YLeaf(YType.uint32, "index")
-
-            self.instance = YLeaf(YType.uint32, "instance")
-
-            self.source = YLeaf(YType.str, "source")
-
-            self.destination = YLeaf(YType.str, "destination")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('index', YLeaf(YType.uint32, 'index')),
+                ('instance', YLeaf(YType.uint32, 'instance')),
+                ('source', YLeaf(YType.str, 'source')),
+                ('destination', YLeaf(YType.str, 'destination')),
+            ])
+            self.index = None
+            self.instance = None
+            self.source = None
+            self.destination = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/%s" % self._segment_path()
 
@@ -2105,8 +2244,10 @@ class RoutingMplsTunnelDown(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down"
 
     def clone_ptr(self):
@@ -2137,8 +2278,10 @@ class RoutingMplsTunnelDownIndex(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = RoutingMplsTunnelDownIndex.Input()
         self.input.parent = self
@@ -2201,16 +2344,19 @@ class RoutingMplsTunnelDownIndex(Entity):
             self.yang_parent_name = "routing-mpls-tunnel-down-index"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.index = YLeaf(YType.uint32, "index")
-
-            self.instance = YLeaf(YType.uint32, "instance")
-
-            self.source = YLeaf(YType.str, "source")
-
-            self.destination = YLeaf(YType.str, "destination")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('index', YLeaf(YType.uint32, 'index')),
+                ('instance', YLeaf(YType.uint32, 'instance')),
+                ('source', YLeaf(YType.str, 'source')),
+                ('destination', YLeaf(YType.str, 'destination')),
+            ])
+            self.index = None
+            self.instance = None
+            self.source = None
+            self.destination = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/%s" % self._segment_path()
 
@@ -2240,8 +2386,10 @@ class All(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:all"
 
     def clone_ptr(self):

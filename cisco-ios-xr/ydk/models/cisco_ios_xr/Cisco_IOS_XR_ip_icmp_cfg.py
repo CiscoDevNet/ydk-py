@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class SourcePolicy(Enum):
     """
-    SourcePolicy
+    SourcePolicy (Enum Class)
 
     Source policy
 
@@ -68,8 +70,10 @@ class Icmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-icmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv6" : ("ipv6", Icmp.Ipv6), "ipv4" : ("ipv4", Icmp.Ipv4)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipv6", ("ipv6", Icmp.Ipv6)), ("ipv4", ("ipv4", Icmp.Ipv4))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ipv6 = Icmp.Ipv6()
         self.ipv6.parent = self
@@ -111,8 +115,10 @@ class Icmp(Entity):
             self.yang_parent_name = "icmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rate-limit" : ("rate_limit", Icmp.Ipv6.RateLimit), "source" : ("source", Icmp.Ipv6.Source)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("rate-limit", ("rate_limit", Icmp.Ipv6.RateLimit)), ("source", ("source", Icmp.Ipv6.Source))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.rate_limit = Icmp.Ipv6.RateLimit()
             self.rate_limit.parent = self
@@ -150,8 +156,10 @@ class Icmp(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"unreachable" : ("unreachable", Icmp.Ipv6.RateLimit.Unreachable)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("unreachable", ("unreachable", Icmp.Ipv6.RateLimit.Unreachable))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.unreachable = Icmp.Ipv6.RateLimit.Unreachable()
                 self.unreachable.parent = self
@@ -193,12 +201,15 @@ class Icmp(Entity):
                     self.yang_parent_name = "rate-limit"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rate = YLeaf(YType.uint32, "rate")
-
-                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rate', YLeaf(YType.uint32, 'rate')),
+                        ('fragmentation', YLeaf(YType.uint32, 'fragmentation')),
+                    ])
+                    self.rate = None
+                    self.fragmentation = None
                     self._segment_path = lambda: "unreachable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/rate-limit/%s" % self._segment_path()
 
@@ -229,10 +240,13 @@ class Icmp(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.source_address_policy = YLeaf(YType.enumeration, "source-address-policy")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('source_address_policy', YLeaf(YType.enumeration, 'source-address-policy')),
+                ])
+                self.source_address_policy = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/%s" % self._segment_path()
 
@@ -268,8 +282,10 @@ class Icmp(Entity):
             self.yang_parent_name = "icmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rate-limit" : ("rate_limit", Icmp.Ipv4.RateLimit), "source" : ("source", Icmp.Ipv4.Source)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("rate-limit", ("rate_limit", Icmp.Ipv4.RateLimit)), ("source", ("source", Icmp.Ipv4.Source))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.rate_limit = Icmp.Ipv4.RateLimit()
             self.rate_limit.parent = self
@@ -307,8 +323,10 @@ class Icmp(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"unreachable" : ("unreachable", Icmp.Ipv4.RateLimit.Unreachable)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("unreachable", ("unreachable", Icmp.Ipv4.RateLimit.Unreachable))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.unreachable = Icmp.Ipv4.RateLimit.Unreachable()
                 self.unreachable.parent = self
@@ -350,12 +368,15 @@ class Icmp(Entity):
                     self.yang_parent_name = "rate-limit"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rate = YLeaf(YType.uint32, "rate")
-
-                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rate', YLeaf(YType.uint32, 'rate')),
+                        ('fragmentation', YLeaf(YType.uint32, 'fragmentation')),
+                    ])
+                    self.rate = None
+                    self.fragmentation = None
                     self._segment_path = lambda: "unreachable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/rate-limit/%s" % self._segment_path()
 
@@ -386,10 +407,13 @@ class Icmp(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.source_address_policy = YLeaf(YType.enumeration, "source-address-policy")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('source_address_policy', YLeaf(YType.enumeration, 'source-address-policy')),
+                ])
+                self.source_address_policy = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
 

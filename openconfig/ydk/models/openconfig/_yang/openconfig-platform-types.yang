@@ -1,53 +1,40 @@
 module openconfig-platform-types {
-
-  yang-version "1";
-
-  // namespace
+  yang-version 1;
   namespace "http://openconfig.net/yang/platform-types";
+  prefix oc-platform-types;
 
-  prefix "oc-platform-types";
+  import openconfig-extensions {
+    prefix oc-ext;
+  }
 
-  import openconfig-extensions { prefix oc-ext; }
-
-
-  // meta
-  organization "OpenConfig working group";
-
+  organization
+    "OpenConfig working group";
   contact
     "OpenConfig working group
-    www.openconfig.net";
-
+     www.openconfig.net";
   description
     "This module defines data types (e.g., YANG identities)
-    to support the OpenConfig component inventory model.";
+     to support the OpenConfig component inventory model.";
 
-  oc-ext:openconfig-version "0.4.0";
-
-  revision "2016-06-06" {
+  revision 2016-06-06 {
     description
       "Public release";
     reference "0.4.0";
   }
 
-  // identity statements
-
   identity OPENCONFIG_HARDWARE_COMPONENT {
     description
       "Base identity for hardware related components in a managed
-      device.  Derived identities are partially based on contents
-      of the IANA Entity MIB.";
-    reference
-      "IANA Entity MIB and RFC 6933";
+       device.  Derived identities are partially based on contents
+       of the IANA Entity MIB.";
+    reference "IANA Entity MIB and RFC 6933";
   }
-
 
   identity OPENCONFIG_SOFTWARE_COMPONENT {
     description
       "Base identity for software-related components in a managed
-      device";
+       device";
   }
-
-  // hardware types
 
   identity CHASSIS {
     base OPENCONFIG_HARDWARE_COMPONENT;
@@ -59,7 +46,7 @@ module openconfig-platform-types {
     base OPENCONFIG_HARDWARE_COMPONENT;
     description
       "Backplane component for aggregating traffic, typically
-      contained in a chassis component";
+       contained in a chassis component";
   }
 
   identity POWER_SUPPLY {
@@ -96,7 +83,7 @@ module openconfig-platform-types {
     base OPENCONFIG_HARDWARE_COMPONENT;
     description
       "Physical port, e.g., for attaching pluggables and networking
-      cables";
+       cables";
   }
 
   identity TRANSCEIVER {
@@ -116,6 +103,5 @@ module openconfig-platform-types {
     description
       "Operating system running on a component";
   }
-
-
+  oc-ext:openconfig-version "0.4.0";
 }

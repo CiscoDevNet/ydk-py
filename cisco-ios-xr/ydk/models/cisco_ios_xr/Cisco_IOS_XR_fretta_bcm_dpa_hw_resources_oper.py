@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Resource(Enum):
     """
-    Resource
+    Resource (Enum Class)
 
     Resource
 
@@ -55,6 +57,10 @@ class Resource(Enum):
 
     	ecmp fec
 
+    .. data:: ext_tcam_ipv6 = 8
+
+    	ext tcam ipv6
+
     """
 
     lem = Enum.YLeaf(0, "lem")
@@ -72,6 +78,8 @@ class Resource(Enum):
     fec = Enum.YLeaf(6, "fec")
 
     ecmpfec = Enum.YLeaf(7, "ecmpfec")
+
+    ext_tcam_ipv6 = Enum.YLeaf(8, "ext-tcam-ipv6")
 
 
 
@@ -99,8 +107,10 @@ class Dpa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"stats" : ("stats", Dpa.Stats)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("stats", ("stats", Dpa.Stats))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.stats = Dpa.Stats()
         self.stats.parent = self
@@ -132,8 +142,10 @@ class Dpa(Entity):
             self.yang_parent_name = "dpa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nodes" : ("nodes", Dpa.Stats.Nodes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nodes", ("nodes", Dpa.Stats.Nodes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.nodes = Dpa.Stats.Nodes()
             self.nodes.parent = self
@@ -166,8 +178,10 @@ class Dpa(Entity):
                 self.yang_parent_name = "stats"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"node" : ("node", Dpa.Stats.Nodes.Node)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("node", ("node", Dpa.Stats.Nodes.Node))])
+                self._leafs = OrderedDict()
 
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
@@ -181,7 +195,7 @@ class Dpa(Entity):
                 """
                 DPA operational data for a particular node
                 
-                .. attribute:: node_name  <key>
+                .. attribute:: node_name  (key)
                 
                 	Node ID
                 	**type**\: str
@@ -222,10 +236,13 @@ class Dpa(Entity):
                     self.yang_parent_name = "nodes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"hw-resources-datas" : ("hw_resources_datas", Dpa.Stats.Nodes.Node.HwResourcesDatas), "asic-statistics" : ("asic_statistics", Dpa.Stats.Nodes.Node.AsicStatistics), "npu-numbers" : ("npu_numbers", Dpa.Stats.Nodes.Node.NpuNumbers), "npu-ids" : ("npu_ids", Dpa.Stats.Nodes.Node.NpuIds)}
-                    self._child_list_classes = {}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
+                    self.ylist_key_names = ['node_name']
+                    self._child_container_classes = OrderedDict([("hw-resources-datas", ("hw_resources_datas", Dpa.Stats.Nodes.Node.HwResourcesDatas)), ("asic-statistics", ("asic_statistics", Dpa.Stats.Nodes.Node.AsicStatistics)), ("npu-numbers", ("npu_numbers", Dpa.Stats.Nodes.Node.NpuNumbers)), ("npu-ids", ("npu_ids", Dpa.Stats.Nodes.Node.NpuIds))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                    ])
+                    self.node_name = None
 
                     self.hw_resources_datas = Dpa.Stats.Nodes.Node.HwResourcesDatas()
                     self.hw_resources_datas.parent = self
@@ -246,7 +263,7 @@ class Dpa(Entity):
                     self.npu_ids.parent = self
                     self._children_name_map["npu_ids"] = "npu-ids"
                     self._children_yang_names.add("npu-ids")
-                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                    self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -276,8 +293,10 @@ class Dpa(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"hw-resources-data" : ("hw_resources_data", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("hw-resources-data", ("hw_resources_data", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData))])
+                        self._leafs = OrderedDict()
 
                         self.hw_resources_data = YList(self)
                         self._segment_path = lambda: "hw-resources-datas"
@@ -290,7 +309,7 @@ class Dpa(Entity):
                         """
                         Hardware resources table
                         
-                        .. attribute:: resource  <key>
+                        .. attribute:: resource  (key)
                         
                         	Resource type
                         	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Resource>`
@@ -314,6 +333,11 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: cmd_invalid
+                        
+                        	cmd invalid
+                        	**type**\: bool
+                        
                         .. attribute:: npu_hwr
                         
                         	npu hwr
@@ -333,22 +357,27 @@ class Dpa(Entity):
                             self.yang_parent_name = "hw-resources-datas"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"npu-hwr" : ("npu_hwr", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr)}
-
-                            self.resource = YLeaf(YType.enumeration, "resource")
-
-                            self.resource_id = YLeaf(YType.uint32, "resource-id")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.num_npus = YLeaf(YType.uint32, "num-npus")
+                            self.ylist_key_names = ['resource']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("npu-hwr", ("npu_hwr", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr))])
+                            self._leafs = OrderedDict([
+                                ('resource', YLeaf(YType.enumeration, 'resource')),
+                                ('resource_id', YLeaf(YType.uint32, 'resource-id')),
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('num_npus', YLeaf(YType.uint32, 'num-npus')),
+                                ('cmd_invalid', YLeaf(YType.boolean, 'cmd-invalid')),
+                            ])
+                            self.resource = None
+                            self.resource_id = None
+                            self.name = None
+                            self.num_npus = None
+                            self.cmd_invalid = None
 
                             self.npu_hwr = YList(self)
-                            self._segment_path = lambda: "hw-resources-data" + "[resource='" + self.resource.get() + "']"
+                            self._segment_path = lambda: "hw-resources-data" + "[resource='" + str(self.resource) + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData, ['resource', 'resource_id', 'name', 'num_npus'], name, value)
+                            self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData, ['resource', 'resource_id', 'name', 'num_npus', 'cmd_invalid'], name, value)
 
 
                         class NpuHwr(Entity):
@@ -459,34 +488,37 @@ class Dpa(Entity):
                                 self.yang_parent_name = "hw-resources-data"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"lt-hwr" : ("lt_hwr", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr.LtHwr)}
-
-                                self.max_allowed = YLeaf(YType.uint32, "max-allowed")
-
-                                self.npu_id = YLeaf(YType.uint32, "npu-id")
-
-                                self.max_entries = YLeaf(YType.uint32, "max-entries")
-
-                                self.red_oor_threshold = YLeaf(YType.uint32, "red-oor-threshold")
-
-                                self.red_oor_threshold_percent = YLeaf(YType.uint32, "red-oor-threshold-percent")
-
-                                self.yellow_oor_threshold = YLeaf(YType.uint32, "yellow-oor-threshold")
-
-                                self.yellow_oor_threshold_percent = YLeaf(YType.uint32, "yellow-oor-threshold-percent")
-
-                                self.inuse_objects = YLeaf(YType.uint32, "inuse-objects")
-
-                                self.num_lt = YLeaf(YType.uint32, "num-lt")
-
-                                self.oor_change_count = YLeaf(YType.uint32, "oor-change-count")
-
-                                self.oor_state_change_time1 = YLeaf(YType.str, "oor-state-change-time1")
-
-                                self.oor_state_change_time2 = YLeaf(YType.str, "oor-state-change-time2")
-
-                                self.oor_state = YLeaf(YType.str, "oor-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("lt-hwr", ("lt_hwr", Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr.LtHwr))])
+                                self._leafs = OrderedDict([
+                                    ('max_allowed', YLeaf(YType.uint32, 'max-allowed')),
+                                    ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                    ('max_entries', YLeaf(YType.uint32, 'max-entries')),
+                                    ('red_oor_threshold', YLeaf(YType.uint32, 'red-oor-threshold')),
+                                    ('red_oor_threshold_percent', YLeaf(YType.uint32, 'red-oor-threshold-percent')),
+                                    ('yellow_oor_threshold', YLeaf(YType.uint32, 'yellow-oor-threshold')),
+                                    ('yellow_oor_threshold_percent', YLeaf(YType.uint32, 'yellow-oor-threshold-percent')),
+                                    ('inuse_objects', YLeaf(YType.uint32, 'inuse-objects')),
+                                    ('num_lt', YLeaf(YType.uint32, 'num-lt')),
+                                    ('oor_change_count', YLeaf(YType.uint32, 'oor-change-count')),
+                                    ('oor_state_change_time1', YLeaf(YType.str, 'oor-state-change-time1')),
+                                    ('oor_state_change_time2', YLeaf(YType.str, 'oor-state-change-time2')),
+                                    ('oor_state', YLeaf(YType.str, 'oor-state')),
+                                ])
+                                self.max_allowed = None
+                                self.npu_id = None
+                                self.max_entries = None
+                                self.red_oor_threshold = None
+                                self.red_oor_threshold_percent = None
+                                self.yellow_oor_threshold = None
+                                self.yellow_oor_threshold_percent = None
+                                self.inuse_objects = None
+                                self.num_lt = None
+                                self.oor_change_count = None
+                                self.oor_state_change_time1 = None
+                                self.oor_state_change_time2 = None
+                                self.oor_state = None
 
                                 self.lt_hwr = YList(self)
                                 self._segment_path = lambda: "npu-hwr"
@@ -539,16 +571,19 @@ class Dpa(Entity):
                                     self.yang_parent_name = "npu-hwr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.lt_id = YLeaf(YType.uint32, "lt-id")
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.hw_entries = YLeaf(YType.uint32, "hw-entries")
-
-                                    self.sw_entries = YLeaf(YType.uint32, "sw-entries")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('lt_id', YLeaf(YType.uint32, 'lt-id')),
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('hw_entries', YLeaf(YType.uint32, 'hw-entries')),
+                                        ('sw_entries', YLeaf(YType.uint32, 'sw-entries')),
+                                    ])
+                                    self.lt_id = None
+                                    self.name = None
+                                    self.hw_entries = None
+                                    self.sw_entries = None
                                     self._segment_path = lambda: "lt-hwr"
 
                                 def __setattr__(self, name, value):
@@ -583,8 +618,10 @@ class Dpa(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"asic-statistics-for-npu-ids" : ("asic_statistics_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds), "asic-statistics-detail-for-npu-ids" : ("asic_statistics_detail_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("asic-statistics-for-npu-ids", ("asic_statistics_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds)), ("asic-statistics-detail-for-npu-ids", ("asic_statistics_detail_for_npu_ids", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.asic_statistics_for_npu_ids = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds()
                         self.asic_statistics_for_npu_ids.parent = self
@@ -621,8 +658,10 @@ class Dpa(Entity):
                             self.yang_parent_name = "asic-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"asic-statistics-for-npu-id" : ("asic_statistics_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("asic-statistics-for-npu-id", ("asic_statistics_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId))])
+                            self._leafs = OrderedDict()
 
                             self.asic_statistics_for_npu_id = YList(self)
                             self._segment_path = lambda: "asic-statistics-for-npu-ids"
@@ -635,7 +674,7 @@ class Dpa(Entity):
                             """
                             ASIC statistics for a particular NPU
                             
-                            .. attribute:: npu_id  <key>
+                            .. attribute:: npu_id  (key)
                             
                             	NPU number
                             	**type**\: int
@@ -694,26 +733,29 @@ class Dpa(Entity):
                                 self.yang_parent_name = "asic-statistics-for-npu-ids"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"statistics" : ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics)}
-                                self._child_list_classes = {}
-
-                                self.npu_id = YLeaf(YType.int32, "npu-id")
-
-                                self.valid = YLeaf(YType.boolean, "valid")
-
-                                self.rack_number = YLeaf(YType.uint32, "rack-number")
-
-                                self.slot_number = YLeaf(YType.uint32, "slot-number")
-
-                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                self.chip_version = YLeaf(YType.uint16, "chip-version")
+                                self.ylist_key_names = ['npu_id']
+                                self._child_container_classes = OrderedDict([("statistics", ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                                    ('valid', YLeaf(YType.boolean, 'valid')),
+                                    ('rack_number', YLeaf(YType.uint32, 'rack-number')),
+                                    ('slot_number', YLeaf(YType.uint32, 'slot-number')),
+                                    ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                    ('chip_version', YLeaf(YType.uint16, 'chip-version')),
+                                ])
+                                self.npu_id = None
+                                self.valid = None
+                                self.rack_number = None
+                                self.slot_number = None
+                                self.asic_instance = None
+                                self.chip_version = None
 
                                 self.statistics = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics()
                                 self.statistics.parent = self
                                 self._children_name_map["statistics"] = "statistics"
                                 self._children_yang_names.add("statistics")
-                                self._segment_path = lambda: "asic-statistics-for-npu-id" + "[npu-id='" + self.npu_id.get() + "']"
+                                self._segment_path = lambda: "asic-statistics-for-npu-id" + "[npu-id='" + str(self.npu_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
@@ -1176,130 +1218,133 @@ class Dpa(Entity):
                                     self.yang_parent_name = "asic-statistics-for-npu-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.nbi_rx_total_byte_cnt = YLeaf(YType.uint64, "nbi-rx-total-byte-cnt")
-
-                                    self.nbi_rx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-rx-total-pkt-cnt")
-
-                                    self.ire_cpu_pkt_cnt = YLeaf(YType.uint64, "ire-cpu-pkt-cnt")
-
-                                    self.ire_nif_pkt_cnt = YLeaf(YType.uint64, "ire-nif-pkt-cnt")
-
-                                    self.ire_oamp_pkt_cnt = YLeaf(YType.uint64, "ire-oamp-pkt-cnt")
-
-                                    self.ire_olp_pkt_cnt = YLeaf(YType.uint64, "ire-olp-pkt-cnt")
-
-                                    self.ire_rcy_pkt_cnt = YLeaf(YType.uint64, "ire-rcy-pkt-cnt")
-
-                                    self.ire_fdt_if_cnt = YLeaf(YType.uint64, "ire-fdt-if-cnt")
-
-                                    self.idr_mmu_if_cnt = YLeaf(YType.uint64, "idr-mmu-if-cnt")
-
-                                    self.idr_ocb_if_cnt = YLeaf(YType.uint64, "idr-ocb-if-cnt")
-
-                                    self.iqm_enqueue_pkt_cnt = YLeaf(YType.uint64, "iqm-enqueue-pkt-cnt")
-
-                                    self.iqm_dequeue_pkt_cnt = YLeaf(YType.uint64, "iqm-dequeue-pkt-cnt")
-
-                                    self.iqm_deleted_pkt_cnt = YLeaf(YType.uint64, "iqm-deleted-pkt-cnt")
-
-                                    self.iqm_enq_discarded_pkt_cnt = YLeaf(YType.uint64, "iqm-enq-discarded-pkt-cnt")
-
-                                    self.ipt_egq_pkt_cnt = YLeaf(YType.uint64, "ipt-egq-pkt-cnt")
-
-                                    self.ipt_enq_pkt_cnt = YLeaf(YType.uint64, "ipt-enq-pkt-cnt")
-
-                                    self.ipt_fdt_pkt_cnt = YLeaf(YType.uint64, "ipt-fdt-pkt-cnt")
-
-                                    self.ipt_cfg_event_cnt = YLeaf(YType.uint64, "ipt-cfg-event-cnt")
-
-                                    self.ipt_cfg_byte_cnt = YLeaf(YType.uint64, "ipt-cfg-byte-cnt")
-
-                                    self.fdt_ipt_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ipt-desc-cell-cnt")
-
-                                    self.fdt_ire_desc_cell_cnt = YLeaf(YType.uint64, "fdt-ire-desc-cell-cnt")
-
-                                    self.fdt_transmitted_data_cells_cnt = YLeaf(YType.uint64, "fdt-transmitted-data-cells-cnt")
-
-                                    self.fdr_p1_cell_in_cnt = YLeaf(YType.uint64, "fdr-p1-cell-in-cnt")
-
-                                    self.fdr_p2_cell_in_cnt = YLeaf(YType.uint64, "fdr-p2-cell-in-cnt")
-
-                                    self.fdr_p3_cell_in_cnt = YLeaf(YType.uint64, "fdr-p3-cell-in-cnt")
-
-                                    self.fdr_cell_in_cnt_total = YLeaf(YType.uint64, "fdr-cell-in-cnt-total")
-
-                                    self.fda_cells_in_cnt_p1 = YLeaf(YType.uint64, "fda-cells-in-cnt-p1")
-
-                                    self.fda_cells_in_cnt_p2 = YLeaf(YType.uint64, "fda-cells-in-cnt-p2")
-
-                                    self.fda_cells_in_cnt_p3 = YLeaf(YType.uint64, "fda-cells-in-cnt-p3")
-
-                                    self.fda_cells_in_tdm_cnt = YLeaf(YType.uint64, "fda-cells-in-tdm-cnt")
-
-                                    self.fda_cells_in_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-in-meshmc-cnt")
-
-                                    self.fda_cells_in_ipt_cnt = YLeaf(YType.uint64, "fda-cells-in-ipt-cnt")
-
-                                    self.fda_cells_out_cnt_p1 = YLeaf(YType.uint64, "fda-cells-out-cnt-p1")
-
-                                    self.fda_cells_out_cnt_p2 = YLeaf(YType.uint64, "fda-cells-out-cnt-p2")
-
-                                    self.fda_cells_out_cnt_p3 = YLeaf(YType.uint64, "fda-cells-out-cnt-p3")
-
-                                    self.fda_cells_out_tdm_cnt = YLeaf(YType.uint64, "fda-cells-out-tdm-cnt")
-
-                                    self.fda_cells_out_meshmc_cnt = YLeaf(YType.uint64, "fda-cells-out-meshmc-cnt")
-
-                                    self.fda_cells_out_ipt_cnt = YLeaf(YType.uint64, "fda-cells-out-ipt-cnt")
-
-                                    self.fda_egq_drop_cnt = YLeaf(YType.uint64, "fda-egq-drop-cnt")
-
-                                    self.fda_egq_meshmc_drop_cnt = YLeaf(YType.uint64, "fda-egq-meshmc-drop-cnt")
-
-                                    self.egq_fqp_pkt_cnt = YLeaf(YType.uint64, "egq-fqp-pkt-cnt")
-
-                                    self.egq_pqp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-uc-pkt-cnt")
-
-                                    self.egq_pqp_discard_uc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-uc-pkt-cnt")
-
-                                    self.egq_pqp_uc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-uc-bytes-cnt")
-
-                                    self.egq_pqp_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-mc-pkt-cnt")
-
-                                    self.egq_pqp_discard_mc_pkt_cnt = YLeaf(YType.uint64, "egq-pqp-discard-mc-pkt-cnt")
-
-                                    self.egq_pqp_mc_bytes_cnt = YLeaf(YType.uint64, "egq-pqp-mc-bytes-cnt")
-
-                                    self.egq_ehp_uc_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-uc-pkt-cnt")
-
-                                    self.egq_ehp_mc_high_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-pkt-cnt")
-
-                                    self.egq_ehp_mc_low_pkt_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-pkt-cnt")
-
-                                    self.egq_deleted_pkt_cnt = YLeaf(YType.uint64, "egq-deleted-pkt-cnt")
-
-                                    self.egq_ehp_mc_high_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-high-discard-cnt")
-
-                                    self.egq_ehp_mc_low_discard_cnt = YLeaf(YType.uint64, "egq-ehp-mc-low-discard-cnt")
-
-                                    self.egq_erpp_lag_pruning_discard_cnt = YLeaf(YType.uint64, "egq-erpp-lag-pruning-discard-cnt")
-
-                                    self.egq_erpp_pmf_discard_cnt = YLeaf(YType.uint64, "egq-erpp-pmf-discard-cnt")
-
-                                    self.egq_erpp_vlan_mbr_discard_cnt = YLeaf(YType.uint64, "egq-erpp-vlan-mbr-discard-cnt")
-
-                                    self.epni_epe_byte_cnt = YLeaf(YType.uint64, "epni-epe-byte-cnt")
-
-                                    self.epni_epe_pkt_cnt = YLeaf(YType.uint64, "epni-epe-pkt-cnt")
-
-                                    self.epni_epe_discard_cnt = YLeaf(YType.uint64, "epni-epe-discard-cnt")
-
-                                    self.nbi_tx_total_byte_cnt = YLeaf(YType.uint64, "nbi-tx-total-byte-cnt")
-
-                                    self.nbi_tx_total_pkt_cnt = YLeaf(YType.uint64, "nbi-tx-total-pkt-cnt")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('nbi_rx_total_byte_cnt', YLeaf(YType.uint64, 'nbi-rx-total-byte-cnt')),
+                                        ('nbi_rx_total_pkt_cnt', YLeaf(YType.uint64, 'nbi-rx-total-pkt-cnt')),
+                                        ('ire_cpu_pkt_cnt', YLeaf(YType.uint64, 'ire-cpu-pkt-cnt')),
+                                        ('ire_nif_pkt_cnt', YLeaf(YType.uint64, 'ire-nif-pkt-cnt')),
+                                        ('ire_oamp_pkt_cnt', YLeaf(YType.uint64, 'ire-oamp-pkt-cnt')),
+                                        ('ire_olp_pkt_cnt', YLeaf(YType.uint64, 'ire-olp-pkt-cnt')),
+                                        ('ire_rcy_pkt_cnt', YLeaf(YType.uint64, 'ire-rcy-pkt-cnt')),
+                                        ('ire_fdt_if_cnt', YLeaf(YType.uint64, 'ire-fdt-if-cnt')),
+                                        ('idr_mmu_if_cnt', YLeaf(YType.uint64, 'idr-mmu-if-cnt')),
+                                        ('idr_ocb_if_cnt', YLeaf(YType.uint64, 'idr-ocb-if-cnt')),
+                                        ('iqm_enqueue_pkt_cnt', YLeaf(YType.uint64, 'iqm-enqueue-pkt-cnt')),
+                                        ('iqm_dequeue_pkt_cnt', YLeaf(YType.uint64, 'iqm-dequeue-pkt-cnt')),
+                                        ('iqm_deleted_pkt_cnt', YLeaf(YType.uint64, 'iqm-deleted-pkt-cnt')),
+                                        ('iqm_enq_discarded_pkt_cnt', YLeaf(YType.uint64, 'iqm-enq-discarded-pkt-cnt')),
+                                        ('ipt_egq_pkt_cnt', YLeaf(YType.uint64, 'ipt-egq-pkt-cnt')),
+                                        ('ipt_enq_pkt_cnt', YLeaf(YType.uint64, 'ipt-enq-pkt-cnt')),
+                                        ('ipt_fdt_pkt_cnt', YLeaf(YType.uint64, 'ipt-fdt-pkt-cnt')),
+                                        ('ipt_cfg_event_cnt', YLeaf(YType.uint64, 'ipt-cfg-event-cnt')),
+                                        ('ipt_cfg_byte_cnt', YLeaf(YType.uint64, 'ipt-cfg-byte-cnt')),
+                                        ('fdt_ipt_desc_cell_cnt', YLeaf(YType.uint64, 'fdt-ipt-desc-cell-cnt')),
+                                        ('fdt_ire_desc_cell_cnt', YLeaf(YType.uint64, 'fdt-ire-desc-cell-cnt')),
+                                        ('fdt_transmitted_data_cells_cnt', YLeaf(YType.uint64, 'fdt-transmitted-data-cells-cnt')),
+                                        ('fdr_p1_cell_in_cnt', YLeaf(YType.uint64, 'fdr-p1-cell-in-cnt')),
+                                        ('fdr_p2_cell_in_cnt', YLeaf(YType.uint64, 'fdr-p2-cell-in-cnt')),
+                                        ('fdr_p3_cell_in_cnt', YLeaf(YType.uint64, 'fdr-p3-cell-in-cnt')),
+                                        ('fdr_cell_in_cnt_total', YLeaf(YType.uint64, 'fdr-cell-in-cnt-total')),
+                                        ('fda_cells_in_cnt_p1', YLeaf(YType.uint64, 'fda-cells-in-cnt-p1')),
+                                        ('fda_cells_in_cnt_p2', YLeaf(YType.uint64, 'fda-cells-in-cnt-p2')),
+                                        ('fda_cells_in_cnt_p3', YLeaf(YType.uint64, 'fda-cells-in-cnt-p3')),
+                                        ('fda_cells_in_tdm_cnt', YLeaf(YType.uint64, 'fda-cells-in-tdm-cnt')),
+                                        ('fda_cells_in_meshmc_cnt', YLeaf(YType.uint64, 'fda-cells-in-meshmc-cnt')),
+                                        ('fda_cells_in_ipt_cnt', YLeaf(YType.uint64, 'fda-cells-in-ipt-cnt')),
+                                        ('fda_cells_out_cnt_p1', YLeaf(YType.uint64, 'fda-cells-out-cnt-p1')),
+                                        ('fda_cells_out_cnt_p2', YLeaf(YType.uint64, 'fda-cells-out-cnt-p2')),
+                                        ('fda_cells_out_cnt_p3', YLeaf(YType.uint64, 'fda-cells-out-cnt-p3')),
+                                        ('fda_cells_out_tdm_cnt', YLeaf(YType.uint64, 'fda-cells-out-tdm-cnt')),
+                                        ('fda_cells_out_meshmc_cnt', YLeaf(YType.uint64, 'fda-cells-out-meshmc-cnt')),
+                                        ('fda_cells_out_ipt_cnt', YLeaf(YType.uint64, 'fda-cells-out-ipt-cnt')),
+                                        ('fda_egq_drop_cnt', YLeaf(YType.uint64, 'fda-egq-drop-cnt')),
+                                        ('fda_egq_meshmc_drop_cnt', YLeaf(YType.uint64, 'fda-egq-meshmc-drop-cnt')),
+                                        ('egq_fqp_pkt_cnt', YLeaf(YType.uint64, 'egq-fqp-pkt-cnt')),
+                                        ('egq_pqp_uc_pkt_cnt', YLeaf(YType.uint64, 'egq-pqp-uc-pkt-cnt')),
+                                        ('egq_pqp_discard_uc_pkt_cnt', YLeaf(YType.uint64, 'egq-pqp-discard-uc-pkt-cnt')),
+                                        ('egq_pqp_uc_bytes_cnt', YLeaf(YType.uint64, 'egq-pqp-uc-bytes-cnt')),
+                                        ('egq_pqp_mc_pkt_cnt', YLeaf(YType.uint64, 'egq-pqp-mc-pkt-cnt')),
+                                        ('egq_pqp_discard_mc_pkt_cnt', YLeaf(YType.uint64, 'egq-pqp-discard-mc-pkt-cnt')),
+                                        ('egq_pqp_mc_bytes_cnt', YLeaf(YType.uint64, 'egq-pqp-mc-bytes-cnt')),
+                                        ('egq_ehp_uc_pkt_cnt', YLeaf(YType.uint64, 'egq-ehp-uc-pkt-cnt')),
+                                        ('egq_ehp_mc_high_pkt_cnt', YLeaf(YType.uint64, 'egq-ehp-mc-high-pkt-cnt')),
+                                        ('egq_ehp_mc_low_pkt_cnt', YLeaf(YType.uint64, 'egq-ehp-mc-low-pkt-cnt')),
+                                        ('egq_deleted_pkt_cnt', YLeaf(YType.uint64, 'egq-deleted-pkt-cnt')),
+                                        ('egq_ehp_mc_high_discard_cnt', YLeaf(YType.uint64, 'egq-ehp-mc-high-discard-cnt')),
+                                        ('egq_ehp_mc_low_discard_cnt', YLeaf(YType.uint64, 'egq-ehp-mc-low-discard-cnt')),
+                                        ('egq_erpp_lag_pruning_discard_cnt', YLeaf(YType.uint64, 'egq-erpp-lag-pruning-discard-cnt')),
+                                        ('egq_erpp_pmf_discard_cnt', YLeaf(YType.uint64, 'egq-erpp-pmf-discard-cnt')),
+                                        ('egq_erpp_vlan_mbr_discard_cnt', YLeaf(YType.uint64, 'egq-erpp-vlan-mbr-discard-cnt')),
+                                        ('epni_epe_byte_cnt', YLeaf(YType.uint64, 'epni-epe-byte-cnt')),
+                                        ('epni_epe_pkt_cnt', YLeaf(YType.uint64, 'epni-epe-pkt-cnt')),
+                                        ('epni_epe_discard_cnt', YLeaf(YType.uint64, 'epni-epe-discard-cnt')),
+                                        ('nbi_tx_total_byte_cnt', YLeaf(YType.uint64, 'nbi-tx-total-byte-cnt')),
+                                        ('nbi_tx_total_pkt_cnt', YLeaf(YType.uint64, 'nbi-tx-total-pkt-cnt')),
+                                    ])
+                                    self.nbi_rx_total_byte_cnt = None
+                                    self.nbi_rx_total_pkt_cnt = None
+                                    self.ire_cpu_pkt_cnt = None
+                                    self.ire_nif_pkt_cnt = None
+                                    self.ire_oamp_pkt_cnt = None
+                                    self.ire_olp_pkt_cnt = None
+                                    self.ire_rcy_pkt_cnt = None
+                                    self.ire_fdt_if_cnt = None
+                                    self.idr_mmu_if_cnt = None
+                                    self.idr_ocb_if_cnt = None
+                                    self.iqm_enqueue_pkt_cnt = None
+                                    self.iqm_dequeue_pkt_cnt = None
+                                    self.iqm_deleted_pkt_cnt = None
+                                    self.iqm_enq_discarded_pkt_cnt = None
+                                    self.ipt_egq_pkt_cnt = None
+                                    self.ipt_enq_pkt_cnt = None
+                                    self.ipt_fdt_pkt_cnt = None
+                                    self.ipt_cfg_event_cnt = None
+                                    self.ipt_cfg_byte_cnt = None
+                                    self.fdt_ipt_desc_cell_cnt = None
+                                    self.fdt_ire_desc_cell_cnt = None
+                                    self.fdt_transmitted_data_cells_cnt = None
+                                    self.fdr_p1_cell_in_cnt = None
+                                    self.fdr_p2_cell_in_cnt = None
+                                    self.fdr_p3_cell_in_cnt = None
+                                    self.fdr_cell_in_cnt_total = None
+                                    self.fda_cells_in_cnt_p1 = None
+                                    self.fda_cells_in_cnt_p2 = None
+                                    self.fda_cells_in_cnt_p3 = None
+                                    self.fda_cells_in_tdm_cnt = None
+                                    self.fda_cells_in_meshmc_cnt = None
+                                    self.fda_cells_in_ipt_cnt = None
+                                    self.fda_cells_out_cnt_p1 = None
+                                    self.fda_cells_out_cnt_p2 = None
+                                    self.fda_cells_out_cnt_p3 = None
+                                    self.fda_cells_out_tdm_cnt = None
+                                    self.fda_cells_out_meshmc_cnt = None
+                                    self.fda_cells_out_ipt_cnt = None
+                                    self.fda_egq_drop_cnt = None
+                                    self.fda_egq_meshmc_drop_cnt = None
+                                    self.egq_fqp_pkt_cnt = None
+                                    self.egq_pqp_uc_pkt_cnt = None
+                                    self.egq_pqp_discard_uc_pkt_cnt = None
+                                    self.egq_pqp_uc_bytes_cnt = None
+                                    self.egq_pqp_mc_pkt_cnt = None
+                                    self.egq_pqp_discard_mc_pkt_cnt = None
+                                    self.egq_pqp_mc_bytes_cnt = None
+                                    self.egq_ehp_uc_pkt_cnt = None
+                                    self.egq_ehp_mc_high_pkt_cnt = None
+                                    self.egq_ehp_mc_low_pkt_cnt = None
+                                    self.egq_deleted_pkt_cnt = None
+                                    self.egq_ehp_mc_high_discard_cnt = None
+                                    self.egq_ehp_mc_low_discard_cnt = None
+                                    self.egq_erpp_lag_pruning_discard_cnt = None
+                                    self.egq_erpp_pmf_discard_cnt = None
+                                    self.egq_erpp_vlan_mbr_discard_cnt = None
+                                    self.epni_epe_byte_cnt = None
+                                    self.epni_epe_pkt_cnt = None
+                                    self.epni_epe_discard_cnt = None
+                                    self.nbi_tx_total_byte_cnt = None
+                                    self.nbi_tx_total_pkt_cnt = None
                                     self._segment_path = lambda: "statistics"
 
                                 def __setattr__(self, name, value):
@@ -1329,8 +1374,10 @@ class Dpa(Entity):
                             self.yang_parent_name = "asic-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"asic-statistics-detail-for-npu-id" : ("asic_statistics_detail_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("asic-statistics-detail-for-npu-id", ("asic_statistics_detail_for_npu_id", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId))])
+                            self._leafs = OrderedDict()
 
                             self.asic_statistics_detail_for_npu_id = YList(self)
                             self._segment_path = lambda: "asic-statistics-detail-for-npu-ids"
@@ -1344,7 +1391,7 @@ class Dpa(Entity):
                             Detailed ASIC statistics for a particular
                             NPU
                             
-                            .. attribute:: npu_id  <key>
+                            .. attribute:: npu_id  (key)
                             
                             	NPU number
                             	**type**\: int
@@ -1403,26 +1450,29 @@ class Dpa(Entity):
                                 self.yang_parent_name = "asic-statistics-detail-for-npu-ids"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"statistics" : ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics)}
-                                self._child_list_classes = {}
-
-                                self.npu_id = YLeaf(YType.int32, "npu-id")
-
-                                self.valid = YLeaf(YType.boolean, "valid")
-
-                                self.rack_number = YLeaf(YType.uint32, "rack-number")
-
-                                self.slot_number = YLeaf(YType.uint32, "slot-number")
-
-                                self.asic_instance = YLeaf(YType.uint32, "asic-instance")
-
-                                self.chip_version = YLeaf(YType.uint16, "chip-version")
+                                self.ylist_key_names = ['npu_id']
+                                self._child_container_classes = OrderedDict([("statistics", ("statistics", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                                    ('valid', YLeaf(YType.boolean, 'valid')),
+                                    ('rack_number', YLeaf(YType.uint32, 'rack-number')),
+                                    ('slot_number', YLeaf(YType.uint32, 'slot-number')),
+                                    ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                    ('chip_version', YLeaf(YType.uint16, 'chip-version')),
+                                ])
+                                self.npu_id = None
+                                self.valid = None
+                                self.rack_number = None
+                                self.slot_number = None
+                                self.asic_instance = None
+                                self.chip_version = None
 
                                 self.statistics = Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics()
                                 self.statistics.parent = self
                                 self._children_name_map["statistics"] = "statistics"
                                 self._children_yang_names.add("statistics")
-                                self._segment_path = lambda: "asic-statistics-detail-for-npu-id" + "[npu-id='" + self.npu_id.get() + "']"
+                                self._segment_path = lambda: "asic-statistics-detail-for-npu-id" + "[npu-id='" + str(self.npu_id) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
@@ -1458,10 +1508,13 @@ class Dpa(Entity):
                                     self.yang_parent_name = "asic-statistics-detail-for-npu-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"block-info" : ("block_info", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo)}
-
-                                    self.num_blocks = YLeaf(YType.uint8, "num-blocks")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("block-info", ("block_info", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo))])
+                                    self._leafs = OrderedDict([
+                                        ('num_blocks', YLeaf(YType.uint8, 'num-blocks')),
+                                    ])
+                                    self.num_blocks = None
 
                                     self.block_info = YList(self)
                                     self._segment_path = lambda: "statistics"
@@ -1507,12 +1560,15 @@ class Dpa(Entity):
                                         self.yang_parent_name = "statistics"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"field-info" : ("field_info", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo)}
-
-                                        self.block_name = YLeaf(YType.str, "block-name")
-
-                                        self.num_fields = YLeaf(YType.uint8, "num-fields")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("field-info", ("field_info", Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo))])
+                                        self._leafs = OrderedDict([
+                                            ('block_name', YLeaf(YType.str, 'block-name')),
+                                            ('num_fields', YLeaf(YType.uint8, 'num-fields')),
+                                        ])
+                                        self.block_name = None
+                                        self.num_fields = None
 
                                         self.field_info = YList(self)
                                         self._segment_path = lambda: "block-info"
@@ -1558,14 +1614,17 @@ class Dpa(Entity):
                                             self.yang_parent_name = "block-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.field_name = YLeaf(YType.str, "field-name")
-
-                                            self.field_value = YLeaf(YType.uint64, "field-value")
-
-                                            self.is_overflow = YLeaf(YType.boolean, "is-overflow")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('field_name', YLeaf(YType.str, 'field-name')),
+                                                ('field_value', YLeaf(YType.uint64, 'field-value')),
+                                                ('is_overflow', YLeaf(YType.boolean, 'is-overflow')),
+                                            ])
+                                            self.field_name = None
+                                            self.field_value = None
+                                            self.is_overflow = None
                                             self._segment_path = lambda: "field-info"
 
                                         def __setattr__(self, name, value):
@@ -1595,8 +1654,10 @@ class Dpa(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"npu-number" : ("npu_number", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("npu-number", ("npu_number", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber))])
+                        self._leafs = OrderedDict()
 
                         self.npu_number = YList(self)
                         self._segment_path = lambda: "npu-numbers"
@@ -1609,7 +1670,7 @@ class Dpa(Entity):
                         """
                         Stats for a particular npu
                         
-                        .. attribute:: npu_id  <key>
+                        .. attribute:: npu_id  (key)
                         
                         	Npu number
                         	**type**\: int
@@ -1635,16 +1696,19 @@ class Dpa(Entity):
                             self.yang_parent_name = "npu-numbers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"display" : ("display", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display)}
-                            self._child_list_classes = {}
-
-                            self.npu_id = YLeaf(YType.int32, "npu-id")
+                            self.ylist_key_names = ['npu_id']
+                            self._child_container_classes = OrderedDict([("display", ("display", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                            ])
+                            self.npu_id = None
 
                             self.display = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display()
                             self.display.parent = self
                             self._children_name_map["display"] = "display"
                             self._children_yang_names.add("display")
-                            self._segment_path = lambda: "npu-number" + "[npu-id='" + self.npu_id.get() + "']"
+                            self._segment_path = lambda: "npu-number" + "[npu-id='" + str(self.npu_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber, ['npu_id'], name, value)
@@ -1683,8 +1747,10 @@ class Dpa(Entity):
                                 self.yang_parent_name = "npu-number"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"base-numbers" : ("base_numbers", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers), "trap-ids" : ("trap_ids", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds), "interface-handles" : ("interface_handles", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("base-numbers", ("base_numbers", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers)), ("trap-ids", ("trap_ids", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds)), ("interface-handles", ("interface_handles", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.base_numbers = Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers()
                                 self.base_numbers.parent = self
@@ -1726,8 +1792,10 @@ class Dpa(Entity):
                                     self.yang_parent_name = "display"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"base-number" : ("base_number", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("base-number", ("base_number", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber))])
+                                    self._leafs = OrderedDict()
 
                                     self.base_number = YList(self)
                                     self._segment_path = lambda: "base-numbers"
@@ -1740,7 +1808,7 @@ class Dpa(Entity):
                                     """
                                     Voq Base Number for a particular voq
                                     
-                                    .. attribute:: base_number  <key>
+                                    .. attribute:: base_number  (key)
                                     
                                     	Interface handle
                                     	**type**\: int
@@ -1853,39 +1921,42 @@ class Dpa(Entity):
                                         self.yang_parent_name = "base-numbers"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"voq-stat" : ("voq_stat", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat)}
-
-                                        self.base_number = YLeaf(YType.uint32, "base-number")
-
-                                        self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                        self.rack_num = YLeaf(YType.uint8, "rack-num")
-
-                                        self.slot_num = YLeaf(YType.uint8, "slot-num")
-
-                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
-
-                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
-
-                                        self.port_num = YLeaf(YType.uint8, "port-num")
-
-                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
-
-                                        self.sys_port = YLeaf(YType.uint32, "sys-port")
-
-                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
-
-                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
-
-                                        self.voq_base = YLeaf(YType.uint32, "voq-base")
-
-                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
-
-                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
+                                        self.ylist_key_names = ['base_number']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("voq-stat", ("voq_stat", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat))])
+                                        self._leafs = OrderedDict([
+                                            ('base_number', YLeaf(YType.uint32, 'base-number')),
+                                            ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                            ('rack_num', YLeaf(YType.uint8, 'rack-num')),
+                                            ('slot_num', YLeaf(YType.uint8, 'slot-num')),
+                                            ('npu_num', YLeaf(YType.uint8, 'npu-num')),
+                                            ('npu_core', YLeaf(YType.uint8, 'npu-core')),
+                                            ('port_num', YLeaf(YType.uint8, 'port-num')),
+                                            ('if_handle', YLeaf(YType.uint32, 'if-handle')),
+                                            ('sys_port', YLeaf(YType.uint32, 'sys-port')),
+                                            ('pp_port', YLeaf(YType.uint32, 'pp-port')),
+                                            ('port_speed', YLeaf(YType.uint32, 'port-speed')),
+                                            ('voq_base', YLeaf(YType.uint32, 'voq-base')),
+                                            ('connector_id', YLeaf(YType.uint32, 'connector-id')),
+                                            ('is_local_port', YLeaf(YType.boolean, 'is-local-port')),
+                                        ])
+                                        self.base_number = None
+                                        self.in_use = None
+                                        self.rack_num = None
+                                        self.slot_num = None
+                                        self.npu_num = None
+                                        self.npu_core = None
+                                        self.port_num = None
+                                        self.if_handle = None
+                                        self.sys_port = None
+                                        self.pp_port = None
+                                        self.port_speed = None
+                                        self.voq_base = None
+                                        self.connector_id = None
+                                        self.is_local_port = None
 
                                         self.voq_stat = YList(self)
-                                        self._segment_path = lambda: "base-number" + "[base-number='" + self.base_number.get() + "']"
+                                        self._segment_path = lambda: "base-number" + "[base-number='" + str(self.base_number) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
@@ -1942,16 +2013,19 @@ class Dpa(Entity):
                                             self.yang_parent_name = "base-number"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.received_bytes = YLeaf(YType.uint64, "received-bytes")
-
-                                            self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
-
-                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('received_bytes', YLeaf(YType.uint64, 'received-bytes')),
+                                                ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                                ('dropped_bytes', YLeaf(YType.uint64, 'dropped-bytes')),
+                                                ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                            ])
+                                            self.received_bytes = None
+                                            self.received_packets = None
+                                            self.dropped_bytes = None
+                                            self.dropped_packets = None
                                             self._segment_path = lambda: "voq-stat"
 
                                         def __setattr__(self, name, value):
@@ -1981,8 +2055,10 @@ class Dpa(Entity):
                                     self.yang_parent_name = "display"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"trap-id" : ("trap_id", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("trap-id", ("trap_id", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId))])
+                                    self._leafs = OrderedDict()
 
                                     self.trap_id = YList(self)
                                     self._segment_path = lambda: "trap-ids"
@@ -1995,7 +2071,7 @@ class Dpa(Entity):
                                     """
                                     Filter by specific trap id
                                     
-                                    .. attribute:: trap_id  <key>
+                                    .. attribute:: trap_id  (key)
                                     
                                     	Trap ID
                                     	**type**\: int
@@ -2119,41 +2195,44 @@ class Dpa(Entity):
                                         self.yang_parent_name = "trap-ids"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.trap_id = YLeaf(YType.uint32, "trap-id")
-
-                                        self.trap_strength = YLeaf(YType.uint32, "trap-strength")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-
-                                        self.trap_id_xr = YLeaf(YType.uint32, "trap-id-xr")
-
-                                        self.gport = YLeaf(YType.uint32, "gport")
-
-                                        self.fec_id = YLeaf(YType.uint32, "fec-id")
-
-                                        self.policer_id = YLeaf(YType.uint32, "policer-id")
-
-                                        self.stats_id = YLeaf(YType.uint32, "stats-id")
-
-                                        self.encap_id = YLeaf(YType.uint32, "encap-id")
-
-                                        self.mc_group = YLeaf(YType.uint32, "mc-group")
-
-                                        self.trap_string = YLeaf(YType.str, "trap-string")
-
-                                        self.id = YLeaf(YType.uint32, "id")
-
-                                        self.offset = YLeaf(YType.uint64, "offset")
-
-                                        self.npu_id = YLeaf(YType.uint64, "npu-id")
-
-                                        self.packet_dropped = YLeaf(YType.uint64, "packet-dropped")
-
-                                        self.packet_accepted = YLeaf(YType.uint64, "packet-accepted")
-                                        self._segment_path = lambda: "trap-id" + "[trap-id='" + self.trap_id.get() + "']"
+                                        self.ylist_key_names = ['trap_id']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('trap_id', YLeaf(YType.uint32, 'trap-id')),
+                                            ('trap_strength', YLeaf(YType.uint32, 'trap-strength')),
+                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('trap_id_xr', YLeaf(YType.uint32, 'trap-id-xr')),
+                                            ('gport', YLeaf(YType.uint32, 'gport')),
+                                            ('fec_id', YLeaf(YType.uint32, 'fec-id')),
+                                            ('policer_id', YLeaf(YType.uint32, 'policer-id')),
+                                            ('stats_id', YLeaf(YType.uint32, 'stats-id')),
+                                            ('encap_id', YLeaf(YType.uint32, 'encap-id')),
+                                            ('mc_group', YLeaf(YType.uint32, 'mc-group')),
+                                            ('trap_string', YLeaf(YType.str, 'trap-string')),
+                                            ('id', YLeaf(YType.uint32, 'id')),
+                                            ('offset', YLeaf(YType.uint64, 'offset')),
+                                            ('npu_id', YLeaf(YType.uint64, 'npu-id')),
+                                            ('packet_dropped', YLeaf(YType.uint64, 'packet-dropped')),
+                                            ('packet_accepted', YLeaf(YType.uint64, 'packet-accepted')),
+                                        ])
+                                        self.trap_id = None
+                                        self.trap_strength = None
+                                        self.priority = None
+                                        self.trap_id_xr = None
+                                        self.gport = None
+                                        self.fec_id = None
+                                        self.policer_id = None
+                                        self.stats_id = None
+                                        self.encap_id = None
+                                        self.mc_group = None
+                                        self.trap_string = None
+                                        self.id = None
+                                        self.offset = None
+                                        self.npu_id = None
+                                        self.packet_dropped = None
+                                        self.packet_accepted = None
+                                        self._segment_path = lambda: "trap-id" + "[trap-id='" + str(self.trap_id) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'trap_strength', 'priority', 'trap_id_xr', 'gport', 'fec_id', 'policer_id', 'stats_id', 'encap_id', 'mc_group', 'trap_string', 'id', 'offset', 'npu_id', 'packet_dropped', 'packet_accepted'], name, value)
@@ -2182,8 +2261,10 @@ class Dpa(Entity):
                                     self.yang_parent_name = "display"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"interface-handle" : ("interface_handle", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("interface-handle", ("interface_handle", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle))])
+                                    self._leafs = OrderedDict()
 
                                     self.interface_handle = YList(self)
                                     self._segment_path = lambda: "interface-handles"
@@ -2197,7 +2278,7 @@ class Dpa(Entity):
                                     Voq stats for a particular interface
                                     handle
                                     
-                                    .. attribute:: interface_handle  <key>
+                                    .. attribute:: interface_handle  (key)
                                     
                                     	Interface Handle
                                     	**type**\: int
@@ -2310,39 +2391,42 @@ class Dpa(Entity):
                                         self.yang_parent_name = "interface-handles"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"voq-stat" : ("voq_stat", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat)}
-
-                                        self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                                        self.in_use = YLeaf(YType.boolean, "in-use")
-
-                                        self.rack_num = YLeaf(YType.uint8, "rack-num")
-
-                                        self.slot_num = YLeaf(YType.uint8, "slot-num")
-
-                                        self.npu_num = YLeaf(YType.uint8, "npu-num")
-
-                                        self.npu_core = YLeaf(YType.uint8, "npu-core")
-
-                                        self.port_num = YLeaf(YType.uint8, "port-num")
-
-                                        self.if_handle = YLeaf(YType.uint32, "if-handle")
-
-                                        self.sys_port = YLeaf(YType.uint32, "sys-port")
-
-                                        self.pp_port = YLeaf(YType.uint32, "pp-port")
-
-                                        self.port_speed = YLeaf(YType.uint32, "port-speed")
-
-                                        self.voq_base = YLeaf(YType.uint32, "voq-base")
-
-                                        self.connector_id = YLeaf(YType.uint32, "connector-id")
-
-                                        self.is_local_port = YLeaf(YType.boolean, "is-local-port")
+                                        self.ylist_key_names = ['interface_handle']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("voq-stat", ("voq_stat", Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat))])
+                                        self._leafs = OrderedDict([
+                                            ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                            ('in_use', YLeaf(YType.boolean, 'in-use')),
+                                            ('rack_num', YLeaf(YType.uint8, 'rack-num')),
+                                            ('slot_num', YLeaf(YType.uint8, 'slot-num')),
+                                            ('npu_num', YLeaf(YType.uint8, 'npu-num')),
+                                            ('npu_core', YLeaf(YType.uint8, 'npu-core')),
+                                            ('port_num', YLeaf(YType.uint8, 'port-num')),
+                                            ('if_handle', YLeaf(YType.uint32, 'if-handle')),
+                                            ('sys_port', YLeaf(YType.uint32, 'sys-port')),
+                                            ('pp_port', YLeaf(YType.uint32, 'pp-port')),
+                                            ('port_speed', YLeaf(YType.uint32, 'port-speed')),
+                                            ('voq_base', YLeaf(YType.uint32, 'voq-base')),
+                                            ('connector_id', YLeaf(YType.uint32, 'connector-id')),
+                                            ('is_local_port', YLeaf(YType.boolean, 'is-local-port')),
+                                        ])
+                                        self.interface_handle = None
+                                        self.in_use = None
+                                        self.rack_num = None
+                                        self.slot_num = None
+                                        self.npu_num = None
+                                        self.npu_core = None
+                                        self.port_num = None
+                                        self.if_handle = None
+                                        self.sys_port = None
+                                        self.pp_port = None
+                                        self.port_speed = None
+                                        self.voq_base = None
+                                        self.connector_id = None
+                                        self.is_local_port = None
 
                                         self.voq_stat = YList(self)
-                                        self._segment_path = lambda: "interface-handle" + "[interface-handle='" + self.interface_handle.get() + "']"
+                                        self._segment_path = lambda: "interface-handle" + "[interface-handle='" + str(self.interface_handle) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
@@ -2399,16 +2483,19 @@ class Dpa(Entity):
                                             self.yang_parent_name = "interface-handle"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.received_bytes = YLeaf(YType.uint64, "received-bytes")
-
-                                            self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                            self.dropped_bytes = YLeaf(YType.uint64, "dropped-bytes")
-
-                                            self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('received_bytes', YLeaf(YType.uint64, 'received-bytes')),
+                                                ('received_packets', YLeaf(YType.uint64, 'received-packets')),
+                                                ('dropped_bytes', YLeaf(YType.uint64, 'dropped-bytes')),
+                                                ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                            ])
+                                            self.received_bytes = None
+                                            self.received_packets = None
+                                            self.dropped_bytes = None
+                                            self.dropped_packets = None
                                             self._segment_path = lambda: "voq-stat"
 
                                         def __setattr__(self, name, value):
@@ -2438,8 +2525,10 @@ class Dpa(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"npu-id" : ("npu_id", Dpa.Stats.Nodes.Node.NpuIds.NpuId)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("npu-id", ("npu_id", Dpa.Stats.Nodes.Node.NpuIds.NpuId))])
+                        self._leafs = OrderedDict()
 
                         self.npu_id = YList(self)
                         self._segment_path = lambda: "npu-ids"
@@ -2452,7 +2541,7 @@ class Dpa(Entity):
                         """
                         Stats Hardware Info for particular NPU
                         
-                        .. attribute:: npu_id  <key>
+                        .. attribute:: npu_id  (key)
                         
                         	NPU number
                         	**type**\: int
@@ -2499,19 +2588,22 @@ class Dpa(Entity):
                             self.yang_parent_name = "npu-ids"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"cntr-engine" : ("cntr_engine", Dpa.Stats.Nodes.Node.NpuIds.NpuId.CntrEngine)}
-
-                            self.npu_id = YLeaf(YType.int32, "npu-id")
-
-                            self.sys_cp_cnfg_prof = YLeaf(YType.uint32, "sys-cp-cnfg-prof")
-
-                            self.next_avail_cp_id = YLeaf(YType.uint32, "next-avail-cp-id")
-
-                            self.num_cntr_engines = YLeaf(YType.uint32, "num-cntr-engines")
+                            self.ylist_key_names = ['npu_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("cntr-engine", ("cntr_engine", Dpa.Stats.Nodes.Node.NpuIds.NpuId.CntrEngine))])
+                            self._leafs = OrderedDict([
+                                ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                                ('sys_cp_cnfg_prof', YLeaf(YType.uint32, 'sys-cp-cnfg-prof')),
+                                ('next_avail_cp_id', YLeaf(YType.uint32, 'next-avail-cp-id')),
+                                ('num_cntr_engines', YLeaf(YType.uint32, 'num-cntr-engines')),
+                            ])
+                            self.npu_id = None
+                            self.sys_cp_cnfg_prof = None
+                            self.next_avail_cp_id = None
+                            self.num_cntr_engines = None
 
                             self.cntr_engine = YList(self)
-                            self._segment_path = lambda: "npu-id" + "[npu-id='" + self.npu_id.get() + "']"
+                            self._segment_path = lambda: "npu-id" + "[npu-id='" + str(self.npu_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dpa.Stats.Nodes.Node.NpuIds.NpuId, ['npu_id', 'sys_cp_cnfg_prof', 'next_avail_cp_id', 'num_cntr_engines'], name, value)
@@ -2552,12 +2644,15 @@ class Dpa(Entity):
                                 self.yang_parent_name = "npu-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"apps-info" : ("apps_info", Dpa.Stats.Nodes.Node.NpuIds.NpuId.CntrEngine.AppsInfo)}
-
-                                self.state = YLeaf(YType.str, "state")
-
-                                self.core_id = YLeaf(YType.uint32, "core-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("apps-info", ("apps_info", Dpa.Stats.Nodes.Node.NpuIds.NpuId.CntrEngine.AppsInfo))])
+                                self._leafs = OrderedDict([
+                                    ('state', YLeaf(YType.str, 'state')),
+                                    ('core_id', YLeaf(YType.uint32, 'core-id')),
+                                ])
+                                self.state = None
+                                self.core_id = None
 
                                 self.apps_info = YList(self)
                                 self._segment_path = lambda: "cntr-engine"
@@ -2603,14 +2698,17 @@ class Dpa(Entity):
                                     self.yang_parent_name = "cntr-engine"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.app_type = YLeaf(YType.str, "app-type")
-
-                                    self.num_cntrs_for_app = YLeaf(YType.uint32, "num-cntrs-for-app")
-
-                                    self.num_cntrs_used = YLeaf(YType.uint32, "num-cntrs-used")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('app_type', YLeaf(YType.str, 'app-type')),
+                                        ('num_cntrs_for_app', YLeaf(YType.uint32, 'num-cntrs-for-app')),
+                                        ('num_cntrs_used', YLeaf(YType.uint32, 'num-cntrs-used')),
+                                    ])
+                                    self.app_type = None
+                                    self.num_cntrs_for_app = None
+                                    self.num_cntrs_used = None
                                     self._segment_path = lambda: "apps-info"
 
                                 def __setattr__(self, name, value):

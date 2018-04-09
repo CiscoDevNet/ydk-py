@@ -1,6 +1,10 @@
 .. image::  https://travis-ci.org/CiscoDevNet/ydk-py.svg?branch=master
     :target: https://travis-ci.org/CiscoDevNet/ydk-py
 
+.. image:: https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg
+    :alt: Docker Automated build
+    :target: https://hub.docker.com/r/ydkdev/ydk-py/
+
 =============================
 YANG Development Kit (Python)
 =============================
@@ -16,6 +20,15 @@ Backward Compatibility
 ----------------------
 Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
 
+Docker
+------
+
+A `docker image <https://docs.docker.com/engine/reference/run/>`_ is automatically built with the latest ydk-py installed. This be used to run ydk-py without installing anything natively on your machine.
+
+To use the docker image, `install docker <https://docs.docker.com/install/>`_ on your system and run the below command. See the `docker documentation <https://docs.docker.com/engine/reference/run/>`_ for more details::
+
+  docker run -it ydkdev/ydk-py
+
 
 System Requirements
 -------------------
@@ -25,16 +38,18 @@ Linux
 
    $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin  
    # Use the below for Ubuntu Xenial
-   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.0/libydk_0.7.0-1_amd64.deb
+   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.1/libydk_0.7.1-1_amd64.deb
    # Use the below for Ubuntu Artful
-   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.0/artful/libydk_0.7.0-1_amd64.deb
-   $ sudo gdebi libydk_0.7.0-1_amd64.deb
+   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.1/artful/libydk_0.7.1-1_amd64.deb
+   $ sudo gdebi libydk_0.7.1-1_amd64.deb
 
-**Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py::
+**Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py. Currently, only Centos7/RHEL7 are known to work::
 
+   # The below may not be required on Fedora27
    $ sudo yum install epel-release
+
    $ sudo yum install libssh-devel gcc-c++ python-devel
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.0/libydk-0.7.0-1.x86_64.rpm
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.1/libydk-0.7.1-1.x86_64.rpm
 
    # Upgrade compiler to gcc 5.*
    $ yum install centos-release-scl -y > /dev/null
@@ -77,12 +92,12 @@ You can download the latest python package from `here <https://www.python.org/do
    $ xcode-select --install
    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    $ brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11
-   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.0/libydk-0.7.0-Darwin.tar.gz
-   $ sudo installer -pkg libydk-0.7.0-Darwin.pkg -target /
+   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.1/libydk-0.7.1-Darwin.pkg
+   $ sudo installer -pkg libydk-0.7.1-Darwin.pkg -target /
 
 Windows
 ~~~~~~~
-Currently, YDK-Py from release 0.7.0 onwards is not supported on Windows.
+Currently, ``YDK-Py`` from release ``0.6.0`` onwards is not supported on Windows.
 
 
 Python Requirements
@@ -163,4 +178,4 @@ Documentation and Support
 
 Release Notes
 --------------
-The current YDK release version is 0.7.0 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.7.1 (beta). YDK-Py is licensed under the Apache 2.0 License.

@@ -13,6 +13,8 @@ of this MIB module is part of RFC 4001, see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -21,7 +23,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class InetAddressType(Enum):
     """
-    InetAddressType
+    InetAddressType (Enum Class)
 
     A value that represents a type of Internet address.
 
@@ -122,7 +124,7 @@ class InetAddressType(Enum):
 
 class InetScopeType(Enum):
     """
-    InetScopeType
+    InetScopeType (Enum Class)
 
     Represents a scope type.  This textual convention can be used
 
@@ -173,7 +175,7 @@ class InetScopeType(Enum):
 
 class InetVersion(Enum):
     """
-    InetVersion
+    InetVersion (Enum Class)
 
     A value representing a version of the IP protocol.
 

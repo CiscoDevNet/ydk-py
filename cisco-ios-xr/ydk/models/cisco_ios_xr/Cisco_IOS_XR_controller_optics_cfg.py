@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class OpticsDwdmCarrierGrid(Enum):
     """
-    OpticsDwdmCarrierGrid
+    OpticsDwdmCarrierGrid (Enum Class)
 
     Optics dwdm carrier grid
 
@@ -40,7 +42,7 @@ class OpticsDwdmCarrierGrid(Enum):
 
 class OpticsDwdmCarrierParam(Enum):
     """
-    OpticsDwdmCarrierParam
+    OpticsDwdmCarrierParam (Enum Class)
 
     Optics dwdm carrier param
 
@@ -67,7 +69,7 @@ class OpticsDwdmCarrierParam(Enum):
 
 class OpticsFec(Enum):
     """
-    OpticsFec
+    OpticsFec (Enum Class)
 
     Optics fec
 
@@ -106,7 +108,7 @@ class OpticsFec(Enum):
 
 class OpticsLoopback(Enum):
     """
-    OpticsLoopback
+    OpticsLoopback (Enum Class)
 
     Optics loopback
 
@@ -133,7 +135,7 @@ class OpticsLoopback(Enum):
 
 class OpticsOtsAmpliControlMode(Enum):
     """
-    OpticsOtsAmpliControlMode
+    OpticsOtsAmpliControlMode (Enum Class)
 
     Optics ots ampli control mode
 
@@ -154,7 +156,7 @@ class OpticsOtsAmpliControlMode(Enum):
 
 class OpticsOtsAmpliGainRange(Enum):
     """
-    OpticsOtsAmpliGainRange
+    OpticsOtsAmpliGainRange (Enum Class)
 
     Optics ots ampli gain range
 
@@ -175,7 +177,7 @@ class OpticsOtsAmpliGainRange(Enum):
 
 class OpticsOtsSafetyControlMode(Enum):
     """
-    OpticsOtsSafetyControlMode
+    OpticsOtsSafetyControlMode (Enum Class)
 
     Optics ots safety control mode
 
@@ -196,7 +198,7 @@ class OpticsOtsSafetyControlMode(Enum):
 
 class Threshold(Enum):
     """
-    Threshold
+    Threshold (Enum Class)
 
     Threshold
 

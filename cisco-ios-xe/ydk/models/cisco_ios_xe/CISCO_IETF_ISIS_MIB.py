@@ -7,6 +7,8 @@ as described in RFC 1195. This MIB is entirely based upon
 the IETF draft draft\-ietf\-isis\-wg\-mib\-16.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CiiAdminState(Enum):
     """
-    CiiAdminState
+    CiiAdminState (Enum Class)
 
     Type used in enabling and disabling a row.
 
@@ -34,7 +36,7 @@ class CiiAdminState(Enum):
 
 class CiiISLevel(Enum):
     """
-    CiiISLevel
+    CiiISLevel (Enum Class)
 
     Identifies a level.
 
@@ -55,7 +57,7 @@ class CiiISLevel(Enum):
 
 class CiiLevelState(Enum):
     """
-    CiiLevelState
+    CiiLevelState (Enum Class)
 
     States of the IS\-IS protocol.
 
@@ -80,7 +82,7 @@ class CiiLevelState(Enum):
 
 class CiiMetricStyle(Enum):
     """
-    CiiMetricStyle
+    CiiMetricStyle (Enum Class)
 
     Do we use 1195 style Metrics or wide metrics.
 
@@ -101,7 +103,7 @@ class CiiMetricStyle(Enum):
 
 class CiiMetricType(Enum):
     """
-    CiiMetricType
+    CiiMetricType (Enum Class)
 
     Is this an Internal or External Metric?
 
@@ -118,7 +120,7 @@ class CiiMetricType(Enum):
 
 class CiiSupportedProtocol(Enum):
     """
-    CiiSupportedProtocol
+    CiiSupportedProtocol (Enum Class)
 
     Types of network protocol supported by Integrated IS\-IS.
 
@@ -271,8 +273,10 @@ class CISCOIETFISISMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciiSysObject" : ("ciisysobject", CISCOIETFISISMIB.Ciisysobject), "ciiCirc" : ("ciicirc", CISCOIETFISISMIB.Ciicirc), "ciiManAreaAddrTable" : ("ciimanareaaddrtable", CISCOIETFISISMIB.Ciimanareaaddrtable), "ciiAreaAddrTable" : ("ciiareaaddrtable", CISCOIETFISISMIB.Ciiareaaddrtable), "ciiSysProtSuppTable" : ("ciisysprotsupptable", CISCOIETFISISMIB.Ciisysprotsupptable), "ciiSummAddrTable" : ("ciisummaddrtable", CISCOIETFISISMIB.Ciisummaddrtable), "ciiRedistributeAddrTable" : ("ciiredistributeaddrtable", CISCOIETFISISMIB.Ciiredistributeaddrtable), "ciiRouterTable" : ("ciiroutertable", CISCOIETFISISMIB.Ciiroutertable), "ciiSysLevelTable" : ("ciisysleveltable", CISCOIETFISISMIB.Ciisysleveltable), "ciiCircTable" : ("ciicirctable", CISCOIETFISISMIB.Ciicirctable), "ciiCircLevelTable" : ("ciicircleveltable", CISCOIETFISISMIB.Ciicircleveltable), "ciiSystemCounterTable" : ("ciisystemcountertable", CISCOIETFISISMIB.Ciisystemcountertable), "ciiCircuitCounterTable" : ("ciicircuitcountertable", CISCOIETFISISMIB.Ciicircuitcountertable), "ciiPacketCounterTable" : ("ciipacketcountertable", CISCOIETFISISMIB.Ciipacketcountertable), "ciiISAdjTable" : ("ciiisadjtable", CISCOIETFISISMIB.Ciiisadjtable), "ciiISAdjAreaAddrTable" : ("ciiisadjareaaddrtable", CISCOIETFISISMIB.Ciiisadjareaaddrtable), "ciiISAdjIPAddrTable" : ("ciiisadjipaddrtable", CISCOIETFISISMIB.Ciiisadjipaddrtable), "ciiISAdjProtSuppTable" : ("ciiisadjprotsupptable", CISCOIETFISISMIB.Ciiisadjprotsupptable), "ciiRATable" : ("ciiratable", CISCOIETFISISMIB.Ciiratable), "ciiIPRATable" : ("ciiipratable", CISCOIETFISISMIB.Ciiipratable), "ciiLSPSummaryTable" : ("ciilspsummarytable", CISCOIETFISISMIB.Ciilspsummarytable), "ciiLSPTLVTable" : ("ciilsptlvtable", CISCOIETFISISMIB.Ciilsptlvtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciiSysObject", ("ciisysobject", CISCOIETFISISMIB.Ciisysobject)), ("ciiCirc", ("ciicirc", CISCOIETFISISMIB.Ciicirc)), ("ciiManAreaAddrTable", ("ciimanareaaddrtable", CISCOIETFISISMIB.Ciimanareaaddrtable)), ("ciiAreaAddrTable", ("ciiareaaddrtable", CISCOIETFISISMIB.Ciiareaaddrtable)), ("ciiSysProtSuppTable", ("ciisysprotsupptable", CISCOIETFISISMIB.Ciisysprotsupptable)), ("ciiSummAddrTable", ("ciisummaddrtable", CISCOIETFISISMIB.Ciisummaddrtable)), ("ciiRedistributeAddrTable", ("ciiredistributeaddrtable", CISCOIETFISISMIB.Ciiredistributeaddrtable)), ("ciiRouterTable", ("ciiroutertable", CISCOIETFISISMIB.Ciiroutertable)), ("ciiSysLevelTable", ("ciisysleveltable", CISCOIETFISISMIB.Ciisysleveltable)), ("ciiCircTable", ("ciicirctable", CISCOIETFISISMIB.Ciicirctable)), ("ciiCircLevelTable", ("ciicircleveltable", CISCOIETFISISMIB.Ciicircleveltable)), ("ciiSystemCounterTable", ("ciisystemcountertable", CISCOIETFISISMIB.Ciisystemcountertable)), ("ciiCircuitCounterTable", ("ciicircuitcountertable", CISCOIETFISISMIB.Ciicircuitcountertable)), ("ciiPacketCounterTable", ("ciipacketcountertable", CISCOIETFISISMIB.Ciipacketcountertable)), ("ciiISAdjTable", ("ciiisadjtable", CISCOIETFISISMIB.Ciiisadjtable)), ("ciiISAdjAreaAddrTable", ("ciiisadjareaaddrtable", CISCOIETFISISMIB.Ciiisadjareaaddrtable)), ("ciiISAdjIPAddrTable", ("ciiisadjipaddrtable", CISCOIETFISISMIB.Ciiisadjipaddrtable)), ("ciiISAdjProtSuppTable", ("ciiisadjprotsupptable", CISCOIETFISISMIB.Ciiisadjprotsupptable)), ("ciiRATable", ("ciiratable", CISCOIETFISISMIB.Ciiratable)), ("ciiIPRATable", ("ciiipratable", CISCOIETFISISMIB.Ciiipratable)), ("ciiLSPSummaryTable", ("ciilspsummarytable", CISCOIETFISISMIB.Ciilspsummarytable)), ("ciiLSPTLVTable", ("ciilsptlvtable", CISCOIETFISISMIB.Ciilsptlvtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciisysobject = CISCOIETFISISMIB.Ciisysobject()
         self.ciisysobject.parent = self
@@ -483,30 +487,33 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciisysversion = YLeaf(YType.enumeration, "ciiSysVersion")
-
-            self.ciisystype = YLeaf(YType.enumeration, "ciiSysType")
-
-            self.ciisysid = YLeaf(YType.str, "ciiSysID")
-
-            self.ciisysmaxpathsplits = YLeaf(YType.int32, "ciiSysMaxPathSplits")
-
-            self.ciisysmaxlspgenint = YLeaf(YType.int32, "ciiSysMaxLSPGenInt")
-
-            self.ciisyspolleshellorate = YLeaf(YType.uint32, "ciiSysPollESHelloRate")
-
-            self.ciisyswaittime = YLeaf(YType.uint32, "ciiSysWaitTime")
-
-            self.ciisysadminstate = YLeaf(YType.enumeration, "ciiSysAdminState")
-
-            self.ciisysl2tol1leaking = YLeaf(YType.boolean, "ciiSysL2toL1Leaking")
-
-            self.ciisysmaxage = YLeaf(YType.uint32, "ciiSysMaxAge")
-
-            self.ciisysreceivelspbuffersize = YLeaf(YType.uint32, "ciiSysReceiveLSPBufferSize")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ciisysversion', YLeaf(YType.enumeration, 'ciiSysVersion')),
+                ('ciisystype', YLeaf(YType.enumeration, 'ciiSysType')),
+                ('ciisysid', YLeaf(YType.str, 'ciiSysID')),
+                ('ciisysmaxpathsplits', YLeaf(YType.int32, 'ciiSysMaxPathSplits')),
+                ('ciisysmaxlspgenint', YLeaf(YType.int32, 'ciiSysMaxLSPGenInt')),
+                ('ciisyspolleshellorate', YLeaf(YType.uint32, 'ciiSysPollESHelloRate')),
+                ('ciisyswaittime', YLeaf(YType.uint32, 'ciiSysWaitTime')),
+                ('ciisysadminstate', YLeaf(YType.enumeration, 'ciiSysAdminState')),
+                ('ciisysl2tol1leaking', YLeaf(YType.boolean, 'ciiSysL2toL1Leaking')),
+                ('ciisysmaxage', YLeaf(YType.uint32, 'ciiSysMaxAge')),
+                ('ciisysreceivelspbuffersize', YLeaf(YType.uint32, 'ciiSysReceiveLSPBufferSize')),
+            ])
+            self.ciisysversion = None
+            self.ciisystype = None
+            self.ciisysid = None
+            self.ciisysmaxpathsplits = None
+            self.ciisysmaxlspgenint = None
+            self.ciisyspolleshellorate = None
+            self.ciisyswaittime = None
+            self.ciisysadminstate = None
+            self.ciisysl2tol1leaking = None
+            self.ciisysmaxage = None
+            self.ciisysreceivelspbuffersize = None
             self._segment_path = lambda: "ciiSysObject"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
 
@@ -515,7 +522,7 @@ class CISCOIETFISISMIB(Entity):
 
         class Ciisystype(Enum):
             """
-            Ciisystype
+            Ciisystype (Enum Class)
 
             At which levels is the Intermediate System
 
@@ -540,7 +547,7 @@ class CISCOIETFISISMIB(Entity):
 
         class Ciisysversion(Enum):
             """
-            Ciisysversion
+            Ciisysversion (Enum Class)
 
             The version number of the IS\-IS protocol that
 
@@ -583,10 +590,13 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciinextcircindex = YLeaf(YType.uint32, "ciiNextCircIndex")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ciinextcircindex', YLeaf(YType.uint32, 'ciiNextCircIndex')),
+            ])
+            self.ciinextcircindex = None
             self._segment_path = lambda: "ciiCirc"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
 
@@ -618,8 +628,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiManAreaAddrEntry" : ("ciimanareaaddrentry", CISCOIETFISISMIB.Ciimanareaaddrtable.Ciimanareaaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiManAreaAddrEntry", ("ciimanareaaddrentry", CISCOIETFISISMIB.Ciimanareaaddrtable.Ciimanareaaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciimanareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiManAreaAddrTable"
@@ -634,7 +646,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry contains one area address manually configured
             on this system
             
-            .. attribute:: ciimanareaaddr  <key>
+            .. attribute:: ciimanareaaddr  (key)
             
             	A manually configured area address for this system. This object follows the index behavior.  Note\: an index for the entry {1, {49.0001} active} in this table would be the ordered pair (1, (0x03 0x49 0x00 0x01)), as the length of an Octet string is part of the OID
             	**type**\: str
@@ -660,13 +672,16 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiManAreaAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciimanareaaddr = YLeaf(YType.str, "ciiManAreaAddr")
-
-                self.ciimanareaaddrexiststate = YLeaf(YType.enumeration, "ciiManAreaAddrExistState")
-                self._segment_path = lambda: "ciiManAreaAddrEntry" + "[ciiManAreaAddr='" + self.ciimanareaaddr.get() + "']"
+                self.ylist_key_names = ['ciimanareaaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciimanareaaddr', YLeaf(YType.str, 'ciiManAreaAddr')),
+                    ('ciimanareaaddrexiststate', YLeaf(YType.enumeration, 'ciiManAreaAddrExistState')),
+                ])
+                self.ciimanareaaddr = None
+                self.ciimanareaaddrexiststate = None
+                self._segment_path = lambda: "ciiManAreaAddrEntry" + "[ciiManAreaAddr='" + str(self.ciimanareaaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiManAreaAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -699,8 +714,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiAreaAddrEntry" : ("ciiareaaddrentry", CISCOIETFISISMIB.Ciiareaaddrtable.Ciiareaaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiAreaAddrEntry", ("ciiareaaddrentry", CISCOIETFISISMIB.Ciiareaaddrtable.Ciiareaaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciiareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiAreaAddrTable"
@@ -716,7 +733,7 @@ class CISCOIETFISISMIB(Entity):
             Level 1 LSP generated or received by this Intermediate
             System.
             
-            .. attribute:: ciiareaaddr  <key>
+            .. attribute:: ciiareaaddr  (key)
             
             	An area address reported in a Level 1 LSP
             	**type**\: str
@@ -737,11 +754,14 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiAreaAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciiareaaddr = YLeaf(YType.str, "ciiAreaAddr")
-                self._segment_path = lambda: "ciiAreaAddrEntry" + "[ciiAreaAddr='" + self.ciiareaaddr.get() + "']"
+                self.ylist_key_names = ['ciiareaaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciiareaaddr', YLeaf(YType.str, 'ciiAreaAddr')),
+                ])
+                self.ciiareaaddr = None
+                self._segment_path = lambda: "ciiAreaAddrEntry" + "[ciiAreaAddr='" + str(self.ciiareaaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiAreaAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -772,8 +792,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiSysProtSuppEntry" : ("ciisysprotsuppentry", CISCOIETFISISMIB.Ciisysprotsupptable.Ciisysprotsuppentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiSysProtSuppEntry", ("ciisysprotsuppentry", CISCOIETFISISMIB.Ciisysprotsupptable.Ciisysprotsuppentry))])
+            self._leafs = OrderedDict()
 
             self.ciisysprotsuppentry = YList(self)
             self._segment_path = lambda: "ciiSysProtSuppTable"
@@ -788,7 +810,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry contains one protocol supported by
             this Intermediate System.
             
-            .. attribute:: ciisysprotsuppprotocol  <key>
+            .. attribute:: ciisysprotsuppprotocol  (key)
             
             	One supported protocol. This object follows the index behavior
             	**type**\:  :py:class:`CiiSupportedProtocol <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiSupportedProtocol>`
@@ -812,13 +834,16 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiSysProtSuppTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciisysprotsuppprotocol = YLeaf(YType.enumeration, "ciiSysProtSuppProtocol")
-
-                self.ciisysprotsuppexiststate = YLeaf(YType.enumeration, "ciiSysProtSuppExistState")
-                self._segment_path = lambda: "ciiSysProtSuppEntry" + "[ciiSysProtSuppProtocol='" + self.ciisysprotsuppprotocol.get() + "']"
+                self.ylist_key_names = ['ciisysprotsuppprotocol']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciisysprotsuppprotocol', YLeaf(YType.enumeration, 'ciiSysProtSuppProtocol')),
+                    ('ciisysprotsuppexiststate', YLeaf(YType.enumeration, 'ciiSysProtSuppExistState')),
+                ])
+                self.ciisysprotsuppprotocol = None
+                self.ciisysprotsuppexiststate = None
+                self._segment_path = lambda: "ciiSysProtSuppEntry" + "[ciiSysProtSuppProtocol='" + str(self.ciisysprotsuppprotocol) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysProtSuppTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -855,8 +880,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiSummAddrEntry" : ("ciisummaddrentry", CISCOIETFISISMIB.Ciisummaddrtable.Ciisummaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiSummAddrEntry", ("ciisummaddrentry", CISCOIETFISISMIB.Ciisummaddrtable.Ciisummaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciisummaddrentry = YList(self)
             self._segment_path = lambda: "ciiSummAddrTable"
@@ -870,19 +897,19 @@ class CISCOIETFISISMIB(Entity):
             """
             Each entry contains one IP summary address.
             
-            .. attribute:: ciisummaddresstype  <key>
+            .. attribute:: ciisummaddresstype  (key)
             
             	The Type of IP address for this summary address. This object follows the index behavior
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ciisummaddress  <key>
+            .. attribute:: ciisummaddress  (key)
             
             	The IP Address value for this summary address. This object follows the index behavior
             	**type**\: str
             
             	**length:** 4 \| 16
             
-            .. attribute:: ciisummaddrprefixlen  <key>
+            .. attribute:: ciisummaddrprefixlen  (key)
             
             	The Length of the IP NetMask for this summary address
             	**type**\: int
@@ -922,21 +949,24 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiSummAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciisummaddresstype = YLeaf(YType.enumeration, "ciiSummAddressType")
-
-                self.ciisummaddress = YLeaf(YType.str, "ciiSummAddress")
-
-                self.ciisummaddrprefixlen = YLeaf(YType.uint32, "ciiSummAddrPrefixLen")
-
-                self.ciisummaddrexiststate = YLeaf(YType.enumeration, "ciiSummAddrExistState")
-
-                self.ciisummaddrmetric = YLeaf(YType.int32, "ciiSummAddrMetric")
-
-                self.ciisummaddrfullmetric = YLeaf(YType.uint32, "ciiSummAddrFullMetric")
-                self._segment_path = lambda: "ciiSummAddrEntry" + "[ciiSummAddressType='" + self.ciisummaddresstype.get() + "']" + "[ciiSummAddress='" + self.ciisummaddress.get() + "']" + "[ciiSummAddrPrefixLen='" + self.ciisummaddrprefixlen.get() + "']"
+                self.ylist_key_names = ['ciisummaddresstype','ciisummaddress','ciisummaddrprefixlen']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciisummaddresstype', YLeaf(YType.enumeration, 'ciiSummAddressType')),
+                    ('ciisummaddress', YLeaf(YType.str, 'ciiSummAddress')),
+                    ('ciisummaddrprefixlen', YLeaf(YType.uint32, 'ciiSummAddrPrefixLen')),
+                    ('ciisummaddrexiststate', YLeaf(YType.enumeration, 'ciiSummAddrExistState')),
+                    ('ciisummaddrmetric', YLeaf(YType.int32, 'ciiSummAddrMetric')),
+                    ('ciisummaddrfullmetric', YLeaf(YType.uint32, 'ciiSummAddrFullMetric')),
+                ])
+                self.ciisummaddresstype = None
+                self.ciisummaddress = None
+                self.ciisummaddrprefixlen = None
+                self.ciisummaddrexiststate = None
+                self.ciisummaddrmetric = None
+                self.ciisummaddrfullmetric = None
+                self._segment_path = lambda: "ciiSummAddrEntry" + "[ciiSummAddressType='" + str(self.ciisummaddresstype) + "']" + "[ciiSummAddress='" + str(self.ciisummaddress) + "']" + "[ciiSummAddrPrefixLen='" + str(self.ciisummaddrprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSummAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -974,8 +1004,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiRedistributeAddrEntry" : ("ciiredistributeaddrentry", CISCOIETFISISMIB.Ciiredistributeaddrtable.Ciiredistributeaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiRedistributeAddrEntry", ("ciiredistributeaddrentry", CISCOIETFISISMIB.Ciiredistributeaddrtable.Ciiredistributeaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciiredistributeaddrentry = YList(self)
             self._segment_path = lambda: "ciiRedistributeAddrTable"
@@ -990,19 +1022,19 @@ class CISCOIETFISISMIB(Entity):
             Each entry contains one IP summary address to
             manage leaking L2 addresses into L1.
             
-            .. attribute:: ciiredistributeaddrtype  <key>
+            .. attribute:: ciiredistributeaddrtype  (key)
             
             	The Type of IP address for this summary address. This object follows the index behavior
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ciiredistributeaddraddress  <key>
+            .. attribute:: ciiredistributeaddraddress  (key)
             
             	The IP Address value for this summary address. This object follows the index behavior
             	**type**\: str
             
             	**length:** 4 \| 16
             
-            .. attribute:: ciiredistributeaddrprefixlen  <key>
+            .. attribute:: ciiredistributeaddrprefixlen  (key)
             
             	The Length of the IP NetMask for this summary address
             	**type**\: int
@@ -1028,17 +1060,20 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiRedistributeAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciiredistributeaddrtype = YLeaf(YType.enumeration, "ciiRedistributeAddrType")
-
-                self.ciiredistributeaddraddress = YLeaf(YType.str, "ciiRedistributeAddrAddress")
-
-                self.ciiredistributeaddrprefixlen = YLeaf(YType.uint32, "ciiRedistributeAddrPrefixLen")
-
-                self.ciiredistributeaddrexiststate = YLeaf(YType.enumeration, "ciiRedistributeAddrExistState")
-                self._segment_path = lambda: "ciiRedistributeAddrEntry" + "[ciiRedistributeAddrType='" + self.ciiredistributeaddrtype.get() + "']" + "[ciiRedistributeAddrAddress='" + self.ciiredistributeaddraddress.get() + "']" + "[ciiRedistributeAddrPrefixLen='" + self.ciiredistributeaddrprefixlen.get() + "']"
+                self.ylist_key_names = ['ciiredistributeaddrtype','ciiredistributeaddraddress','ciiredistributeaddrprefixlen']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciiredistributeaddrtype', YLeaf(YType.enumeration, 'ciiRedistributeAddrType')),
+                    ('ciiredistributeaddraddress', YLeaf(YType.str, 'ciiRedistributeAddrAddress')),
+                    ('ciiredistributeaddrprefixlen', YLeaf(YType.uint32, 'ciiRedistributeAddrPrefixLen')),
+                    ('ciiredistributeaddrexiststate', YLeaf(YType.enumeration, 'ciiRedistributeAddrExistState')),
+                ])
+                self.ciiredistributeaddrtype = None
+                self.ciiredistributeaddraddress = None
+                self.ciiredistributeaddrprefixlen = None
+                self.ciiredistributeaddrexiststate = None
+                self._segment_path = lambda: "ciiRedistributeAddrEntry" + "[ciiRedistributeAddrType='" + str(self.ciiredistributeaddrtype) + "']" + "[ciiRedistributeAddrAddress='" + str(self.ciiredistributeaddraddress) + "']" + "[ciiRedistributeAddrPrefixLen='" + str(self.ciiredistributeaddrprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRedistributeAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1068,8 +1103,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiRouterEntry" : ("ciirouterentry", CISCOIETFISISMIB.Ciiroutertable.Ciirouterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiRouterEntry", ("ciirouterentry", CISCOIETFISISMIB.Ciiroutertable.Ciirouterentry))])
+            self._leafs = OrderedDict()
 
             self.ciirouterentry = YList(self)
             self._segment_path = lambda: "ciiRouterTable"
@@ -1084,14 +1121,14 @@ class CISCOIETFISISMIB(Entity):
             Each entry tracks information about one peer at
             one level.
             
-            .. attribute:: ciiroutersysid  <key>
+            .. attribute:: ciiroutersysid  (key)
             
             	The System ID of the Router Peer
             	**type**\: str
             
             	**length:** 6
             
-            .. attribute:: ciirouterlevel  <key>
+            .. attribute:: ciirouterlevel  (key)
             
             	The level of this Intermediate System
             	**type**\:  :py:class:`CiiISLevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiISLevel>`
@@ -1122,17 +1159,20 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiRouterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciiroutersysid = YLeaf(YType.str, "ciiRouterSysID")
-
-                self.ciirouterlevel = YLeaf(YType.enumeration, "ciiRouterLevel")
-
-                self.ciirouterhostname = YLeaf(YType.str, "ciiRouterHostName")
-
-                self.ciirouterid = YLeaf(YType.uint32, "ciiRouterID")
-                self._segment_path = lambda: "ciiRouterEntry" + "[ciiRouterSysID='" + self.ciiroutersysid.get() + "']" + "[ciiRouterLevel='" + self.ciirouterlevel.get() + "']"
+                self.ylist_key_names = ['ciiroutersysid','ciirouterlevel']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciiroutersysid', YLeaf(YType.str, 'ciiRouterSysID')),
+                    ('ciirouterlevel', YLeaf(YType.enumeration, 'ciiRouterLevel')),
+                    ('ciirouterhostname', YLeaf(YType.str, 'ciiRouterHostName')),
+                    ('ciirouterid', YLeaf(YType.uint32, 'ciiRouterID')),
+                ])
+                self.ciiroutersysid = None
+                self.ciirouterlevel = None
+                self.ciirouterhostname = None
+                self.ciirouterid = None
+                self._segment_path = lambda: "ciiRouterEntry" + "[ciiRouterSysID='" + str(self.ciiroutersysid) + "']" + "[ciiRouterLevel='" + str(self.ciirouterlevel) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRouterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1162,8 +1202,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiSysLevelEntry" : ("ciisyslevelentry", CISCOIETFISISMIB.Ciisysleveltable.Ciisyslevelentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiSysLevelEntry", ("ciisyslevelentry", CISCOIETFISISMIB.Ciisysleveltable.Ciisyslevelentry))])
+            self._leafs = OrderedDict()
 
             self.ciisyslevelentry = YList(self)
             self._segment_path = lambda: "ciiSysLevelTable"
@@ -1177,7 +1219,7 @@ class CISCOIETFISISMIB(Entity):
             """
             Describe variables defined for Area or Domain.
             
-            .. attribute:: ciisyslevelindex  <key>
+            .. attribute:: ciisyslevelindex  (key)
             
             	The level that this entry describes
             	**type**\:  :py:class:`Ciisyslevelindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciisysleveltable.Ciisyslevelentry.Ciisyslevelindex>`
@@ -1244,27 +1286,30 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiSysLevelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciisyslevelindex = YLeaf(YType.enumeration, "ciiSysLevelIndex")
-
-                self.ciisysleveloriglspbuffsize = YLeaf(YType.int32, "ciiSysLevelOrigLSPBuffSize")
-
-                self.ciisyslevelminlspgenint = YLeaf(YType.uint32, "ciiSysLevelMinLSPGenInt")
-
-                self.ciisysleveloverloadstate = YLeaf(YType.enumeration, "ciiSysLevelOverloadState")
-
-                self.ciisyslevelsetoverload = YLeaf(YType.boolean, "ciiSysLevelSetOverload")
-
-                self.ciisyslevelsetoverloaduntil = YLeaf(YType.uint32, "ciiSysLevelSetOverloadUntil")
-
-                self.ciisyslevelmetricstyle = YLeaf(YType.enumeration, "ciiSysLevelMetricStyle")
-
-                self.ciisyslevelspfconsiders = YLeaf(YType.enumeration, "ciiSysLevelSPFConsiders")
-
-                self.ciisyslevelteenabled = YLeaf(YType.boolean, "ciiSysLevelTEEnabled")
-                self._segment_path = lambda: "ciiSysLevelEntry" + "[ciiSysLevelIndex='" + self.ciisyslevelindex.get() + "']"
+                self.ylist_key_names = ['ciisyslevelindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciisyslevelindex', YLeaf(YType.enumeration, 'ciiSysLevelIndex')),
+                    ('ciisysleveloriglspbuffsize', YLeaf(YType.int32, 'ciiSysLevelOrigLSPBuffSize')),
+                    ('ciisyslevelminlspgenint', YLeaf(YType.uint32, 'ciiSysLevelMinLSPGenInt')),
+                    ('ciisysleveloverloadstate', YLeaf(YType.enumeration, 'ciiSysLevelOverloadState')),
+                    ('ciisyslevelsetoverload', YLeaf(YType.boolean, 'ciiSysLevelSetOverload')),
+                    ('ciisyslevelsetoverloaduntil', YLeaf(YType.uint32, 'ciiSysLevelSetOverloadUntil')),
+                    ('ciisyslevelmetricstyle', YLeaf(YType.enumeration, 'ciiSysLevelMetricStyle')),
+                    ('ciisyslevelspfconsiders', YLeaf(YType.enumeration, 'ciiSysLevelSPFConsiders')),
+                    ('ciisyslevelteenabled', YLeaf(YType.boolean, 'ciiSysLevelTEEnabled')),
+                ])
+                self.ciisyslevelindex = None
+                self.ciisysleveloriglspbuffsize = None
+                self.ciisyslevelminlspgenint = None
+                self.ciisysleveloverloadstate = None
+                self.ciisyslevelsetoverload = None
+                self.ciisyslevelsetoverloaduntil = None
+                self.ciisyslevelmetricstyle = None
+                self.ciisyslevelspfconsiders = None
+                self.ciisyslevelteenabled = None
+                self._segment_path = lambda: "ciiSysLevelEntry" + "[ciiSysLevelIndex='" + str(self.ciisyslevelindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysLevelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1272,7 +1317,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciisyslevelindex(Enum):
                 """
-                Ciisyslevelindex
+                Ciisyslevelindex (Enum Class)
 
                 The level that this entry describes.
 
@@ -1312,8 +1357,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiCircEntry" : ("ciicircentry", CISCOIETFISISMIB.Ciicirctable.Ciicircentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiCircEntry", ("ciicircentry", CISCOIETFISISMIB.Ciicirctable.Ciicircentry))])
+            self._leafs = OrderedDict()
 
             self.ciicircentry = YList(self)
             self._segment_path = lambda: "ciiCircTable"
@@ -1328,7 +1375,7 @@ class CISCOIETFISISMIB(Entity):
             An ciiCircEntry exists for each circuit used by
             Integrated IS\-IS on this system.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	The identifier of this circuit, unique within the Intermediate System.  This object follows the index behavior.  This is for SNMP Indexing purposes only and need not have any relation to any protocol value
             	**type**\: int
@@ -1429,39 +1476,42 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiCircTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.int32, "ciiCircIndex")
-
-                self.ciicircifindex = YLeaf(YType.int32, "ciiCircIfIndex")
-
-                self.ciicircifsubindex = YLeaf(YType.int32, "ciiCircIfSubIndex")
-
-                self.ciicircadminstate = YLeaf(YType.enumeration, "ciiCircAdminState")
-
-                self.ciicircexiststate = YLeaf(YType.enumeration, "ciiCircExistState")
-
-                self.ciicirctype = YLeaf(YType.enumeration, "ciiCircType")
-
-                self.ciicircextdomain = YLeaf(YType.boolean, "ciiCircExtDomain")
-
-                self.ciicirclevel = YLeaf(YType.enumeration, "ciiCircLevel")
-
-                self.ciicircpassivecircuit = YLeaf(YType.boolean, "ciiCircPassiveCircuit")
-
-                self.ciicircmeshgroupenabled = YLeaf(YType.enumeration, "ciiCircMeshGroupEnabled")
-
-                self.ciicircmeshgroup = YLeaf(YType.uint32, "ciiCircMeshGroup")
-
-                self.ciicircsmallhellos = YLeaf(YType.boolean, "ciiCircSmallHellos")
-
-                self.ciicirclastuptime = YLeaf(YType.uint32, "ciiCircLastUpTime")
-
-                self.ciicirc3wayenabled = YLeaf(YType.boolean, "ciiCirc3WayEnabled")
-
-                self.ciicircextendedcircid = YLeaf(YType.uint32, "ciiCircExtendedCircID")
-                self._segment_path = lambda: "ciiCircEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.int32, 'ciiCircIndex')),
+                    ('ciicircifindex', YLeaf(YType.int32, 'ciiCircIfIndex')),
+                    ('ciicircifsubindex', YLeaf(YType.int32, 'ciiCircIfSubIndex')),
+                    ('ciicircadminstate', YLeaf(YType.enumeration, 'ciiCircAdminState')),
+                    ('ciicircexiststate', YLeaf(YType.enumeration, 'ciiCircExistState')),
+                    ('ciicirctype', YLeaf(YType.enumeration, 'ciiCircType')),
+                    ('ciicircextdomain', YLeaf(YType.boolean, 'ciiCircExtDomain')),
+                    ('ciicirclevel', YLeaf(YType.enumeration, 'ciiCircLevel')),
+                    ('ciicircpassivecircuit', YLeaf(YType.boolean, 'ciiCircPassiveCircuit')),
+                    ('ciicircmeshgroupenabled', YLeaf(YType.enumeration, 'ciiCircMeshGroupEnabled')),
+                    ('ciicircmeshgroup', YLeaf(YType.uint32, 'ciiCircMeshGroup')),
+                    ('ciicircsmallhellos', YLeaf(YType.boolean, 'ciiCircSmallHellos')),
+                    ('ciicirclastuptime', YLeaf(YType.uint32, 'ciiCircLastUpTime')),
+                    ('ciicirc3wayenabled', YLeaf(YType.boolean, 'ciiCirc3WayEnabled')),
+                    ('ciicircextendedcircid', YLeaf(YType.uint32, 'ciiCircExtendedCircID')),
+                ])
+                self.ciicircindex = None
+                self.ciicircifindex = None
+                self.ciicircifsubindex = None
+                self.ciicircadminstate = None
+                self.ciicircexiststate = None
+                self.ciicirctype = None
+                self.ciicircextdomain = None
+                self.ciicirclevel = None
+                self.ciicircpassivecircuit = None
+                self.ciicircmeshgroupenabled = None
+                self.ciicircmeshgroup = None
+                self.ciicircsmallhellos = None
+                self.ciicirclastuptime = None
+                self.ciicirc3wayenabled = None
+                self.ciicircextendedcircid = None
+                self._segment_path = lambda: "ciiCircEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1469,7 +1519,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciicirclevel(Enum):
                 """
-                Ciicirclevel
+                Ciicirclevel (Enum Class)
 
                 Indicates which type of packets will be sent and
 
@@ -1496,7 +1546,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciicircmeshgroupenabled(Enum):
                 """
-                Ciicircmeshgroupenabled
+                Ciicircmeshgroupenabled (Enum Class)
 
                 Is this port a member of a mesh group, or blocked?
 
@@ -1525,7 +1575,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciicirctype(Enum):
                 """
-                Ciicirctype
+                Ciicirctype (Enum Class)
 
                 The type of the circuit. This object follows the
 
@@ -1582,8 +1632,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiCircLevelEntry" : ("ciicirclevelentry", CISCOIETFISISMIB.Ciicircleveltable.Ciicirclevelentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiCircLevelEntry", ("ciicirclevelentry", CISCOIETFISISMIB.Ciicircleveltable.Ciicirclevelentry))])
+            self._leafs = OrderedDict()
 
             self.ciicirclevelentry = YList(self)
             self._segment_path = lambda: "ciiCircLevelTable"
@@ -1598,7 +1650,7 @@ class CISCOIETFISISMIB(Entity):
             An ciiCircLevelEntry exists for each level on
             each circuit used by Integrated IS\-IS on this system.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -1607,7 +1659,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciicirclevelindex  <key>
+            .. attribute:: ciicirclevelindex  (key)
             
             	The level that this entry describes
             	**type**\:  :py:class:`Ciicirclevelindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicircleveltable.Ciicirclevelentry.Ciicirclevelindex>`
@@ -1729,39 +1781,42 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiCircLevelTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciicirclevelindex = YLeaf(YType.enumeration, "ciiCircLevelIndex")
-
-                self.ciicirclevelmetric = YLeaf(YType.int32, "ciiCircLevelMetric")
-
-                self.ciicirclevelwidemetric = YLeaf(YType.uint32, "ciiCircLevelWideMetric")
-
-                self.ciicirclevelispriority = YLeaf(YType.int32, "ciiCircLevelISPriority")
-
-                self.ciicirclevelidoctet = YLeaf(YType.int32, "ciiCircLevelIDOctet")
-
-                self.ciicirclevelid = YLeaf(YType.str, "ciiCircLevelID")
-
-                self.ciicircleveldesis = YLeaf(YType.str, "ciiCircLevelDesIS")
-
-                self.ciicirclevelhellomultiplier = YLeaf(YType.int32, "ciiCircLevelHelloMultiplier")
-
-                self.ciicirclevelhellotimer = YLeaf(YType.int32, "ciiCircLevelHelloTimer")
-
-                self.ciicircleveldrhellotimer = YLeaf(YType.int32, "ciiCircLevelDRHelloTimer")
-
-                self.ciicirclevellspthrottle = YLeaf(YType.uint32, "ciiCircLevelLSPThrottle")
-
-                self.ciicirclevelminlspretransint = YLeaf(YType.int32, "ciiCircLevelMinLSPRetransInt")
-
-                self.ciicirclevelcsnpinterval = YLeaf(YType.int32, "ciiCircLevelCSNPInterval")
-
-                self.ciicirclevelpartsnpinterval = YLeaf(YType.int32, "ciiCircLevelPartSNPInterval")
-                self._segment_path = lambda: "ciiCircLevelEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiCircLevelIndex='" + self.ciicirclevelindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciicirclevelindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciicirclevelindex', YLeaf(YType.enumeration, 'ciiCircLevelIndex')),
+                    ('ciicirclevelmetric', YLeaf(YType.int32, 'ciiCircLevelMetric')),
+                    ('ciicirclevelwidemetric', YLeaf(YType.uint32, 'ciiCircLevelWideMetric')),
+                    ('ciicirclevelispriority', YLeaf(YType.int32, 'ciiCircLevelISPriority')),
+                    ('ciicirclevelidoctet', YLeaf(YType.int32, 'ciiCircLevelIDOctet')),
+                    ('ciicirclevelid', YLeaf(YType.str, 'ciiCircLevelID')),
+                    ('ciicircleveldesis', YLeaf(YType.str, 'ciiCircLevelDesIS')),
+                    ('ciicirclevelhellomultiplier', YLeaf(YType.int32, 'ciiCircLevelHelloMultiplier')),
+                    ('ciicirclevelhellotimer', YLeaf(YType.int32, 'ciiCircLevelHelloTimer')),
+                    ('ciicircleveldrhellotimer', YLeaf(YType.int32, 'ciiCircLevelDRHelloTimer')),
+                    ('ciicirclevellspthrottle', YLeaf(YType.uint32, 'ciiCircLevelLSPThrottle')),
+                    ('ciicirclevelminlspretransint', YLeaf(YType.int32, 'ciiCircLevelMinLSPRetransInt')),
+                    ('ciicirclevelcsnpinterval', YLeaf(YType.int32, 'ciiCircLevelCSNPInterval')),
+                    ('ciicirclevelpartsnpinterval', YLeaf(YType.int32, 'ciiCircLevelPartSNPInterval')),
+                ])
+                self.ciicircindex = None
+                self.ciicirclevelindex = None
+                self.ciicirclevelmetric = None
+                self.ciicirclevelwidemetric = None
+                self.ciicirclevelispriority = None
+                self.ciicirclevelidoctet = None
+                self.ciicirclevelid = None
+                self.ciicircleveldesis = None
+                self.ciicirclevelhellomultiplier = None
+                self.ciicirclevelhellotimer = None
+                self.ciicircleveldrhellotimer = None
+                self.ciicirclevellspthrottle = None
+                self.ciicirclevelminlspretransint = None
+                self.ciicirclevelcsnpinterval = None
+                self.ciicirclevelpartsnpinterval = None
+                self._segment_path = lambda: "ciiCircLevelEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiCircLevelIndex='" + str(self.ciicirclevelindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircLevelTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1769,7 +1824,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciicirclevelindex(Enum):
                 """
-                Ciicirclevelindex
+                Ciicirclevelindex (Enum Class)
 
                 The level that this entry describes.
 
@@ -1808,8 +1863,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiSystemCounterEntry" : ("ciisystemcounterentry", CISCOIETFISISMIB.Ciisystemcountertable.Ciisystemcounterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiSystemCounterEntry", ("ciisystemcounterentry", CISCOIETFISISMIB.Ciisystemcountertable.Ciisystemcounterentry))])
+            self._leafs = OrderedDict()
 
             self.ciisystemcounterentry = YList(self)
             self._segment_path = lambda: "ciiSystemCounterTable"
@@ -1823,7 +1880,7 @@ class CISCOIETFISISMIB(Entity):
             """
             System\-wide IS\-IS counters.
             
-            .. attribute:: ciisysstatlevel  <key>
+            .. attribute:: ciisysstatlevel  (key)
             
             	The level that this entry describes
             	**type**\:  :py:class:`Ciisysstatlevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciisystemcountertable.Ciisystemcounterentry.Ciisysstatlevel>`
@@ -1936,35 +1993,38 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiSystemCounterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciisysstatlevel = YLeaf(YType.enumeration, "ciiSysStatLevel")
-
-                self.ciisysstatcorrlsps = YLeaf(YType.uint32, "ciiSysStatCorrLSPs")
-
-                self.ciisysstatauthtypefails = YLeaf(YType.uint32, "ciiSysStatAuthTypeFails")
-
-                self.ciisysstatauthfails = YLeaf(YType.uint32, "ciiSysStatAuthFails")
-
-                self.ciisysstatlspdbaseoloads = YLeaf(YType.uint32, "ciiSysStatLSPDbaseOloads")
-
-                self.ciisysstatmanaddrdropfromareas = YLeaf(YType.uint32, "ciiSysStatManAddrDropFromAreas")
-
-                self.ciisysstatattmpttoexmaxseqnums = YLeaf(YType.uint32, "ciiSysStatAttmptToExMaxSeqNums")
-
-                self.ciisysstatseqnumskips = YLeaf(YType.uint32, "ciiSysStatSeqNumSkips")
-
-                self.ciisysstatownlsppurges = YLeaf(YType.uint32, "ciiSysStatOwnLSPPurges")
-
-                self.ciisysstatidfieldlenmismatches = YLeaf(YType.uint32, "ciiSysStatIDFieldLenMismatches")
-
-                self.ciisysstatpartchanges = YLeaf(YType.uint32, "ciiSysStatPartChanges")
-
-                self.ciisysstatspfruns = YLeaf(YType.uint32, "ciiSysStatSPFRuns")
-
-                self.ciisysstatlsperrors = YLeaf(YType.uint32, "ciiSysStatLSPErrors")
-                self._segment_path = lambda: "ciiSystemCounterEntry" + "[ciiSysStatLevel='" + self.ciisysstatlevel.get() + "']"
+                self.ylist_key_names = ['ciisysstatlevel']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciisysstatlevel', YLeaf(YType.enumeration, 'ciiSysStatLevel')),
+                    ('ciisysstatcorrlsps', YLeaf(YType.uint32, 'ciiSysStatCorrLSPs')),
+                    ('ciisysstatauthtypefails', YLeaf(YType.uint32, 'ciiSysStatAuthTypeFails')),
+                    ('ciisysstatauthfails', YLeaf(YType.uint32, 'ciiSysStatAuthFails')),
+                    ('ciisysstatlspdbaseoloads', YLeaf(YType.uint32, 'ciiSysStatLSPDbaseOloads')),
+                    ('ciisysstatmanaddrdropfromareas', YLeaf(YType.uint32, 'ciiSysStatManAddrDropFromAreas')),
+                    ('ciisysstatattmpttoexmaxseqnums', YLeaf(YType.uint32, 'ciiSysStatAttmptToExMaxSeqNums')),
+                    ('ciisysstatseqnumskips', YLeaf(YType.uint32, 'ciiSysStatSeqNumSkips')),
+                    ('ciisysstatownlsppurges', YLeaf(YType.uint32, 'ciiSysStatOwnLSPPurges')),
+                    ('ciisysstatidfieldlenmismatches', YLeaf(YType.uint32, 'ciiSysStatIDFieldLenMismatches')),
+                    ('ciisysstatpartchanges', YLeaf(YType.uint32, 'ciiSysStatPartChanges')),
+                    ('ciisysstatspfruns', YLeaf(YType.uint32, 'ciiSysStatSPFRuns')),
+                    ('ciisysstatlsperrors', YLeaf(YType.uint32, 'ciiSysStatLSPErrors')),
+                ])
+                self.ciisysstatlevel = None
+                self.ciisysstatcorrlsps = None
+                self.ciisysstatauthtypefails = None
+                self.ciisysstatauthfails = None
+                self.ciisysstatlspdbaseoloads = None
+                self.ciisysstatmanaddrdropfromareas = None
+                self.ciisysstatattmpttoexmaxseqnums = None
+                self.ciisysstatseqnumskips = None
+                self.ciisysstatownlsppurges = None
+                self.ciisysstatidfieldlenmismatches = None
+                self.ciisysstatpartchanges = None
+                self.ciisysstatspfruns = None
+                self.ciisysstatlsperrors = None
+                self._segment_path = lambda: "ciiSystemCounterEntry" + "[ciiSysStatLevel='" + str(self.ciisysstatlevel) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSystemCounterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1972,7 +2032,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciisysstatlevel(Enum):
                 """
-                Ciisysstatlevel
+                Ciisysstatlevel (Enum Class)
 
                 The level that this entry describes.
 
@@ -2012,8 +2072,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiCircuitCounterEntry" : ("ciicircuitcounterentry", CISCOIETFISISMIB.Ciicircuitcountertable.Ciicircuitcounterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiCircuitCounterEntry", ("ciicircuitcounterentry", CISCOIETFISISMIB.Ciicircuitcountertable.Ciicircuitcounterentry))])
+            self._leafs = OrderedDict()
 
             self.ciicircuitcounterentry = YList(self)
             self._segment_path = lambda: "ciiCircuitCounterTable"
@@ -2028,7 +2090,7 @@ class CISCOIETFISISMIB(Entity):
             An ciiCircuitCounterEntry exists for each circuit
             used by Integrated IS\-IS on this system.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2037,7 +2099,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciicircuittype  <key>
+            .. attribute:: ciicircuittype  (key)
             
             	What type of circuit saw these counts?  The point to point Hello PDU includes both L1 and L2, and ISs form a single adjacency on point to point links. Thus we combine counts on point to point links into one group
             	**type**\:  :py:class:`Ciicircuittype <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicircuitcountertable.Ciicircuitcounterentry.Ciicircuittype>`
@@ -2121,31 +2183,34 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiCircuitCounterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciicircuittype = YLeaf(YType.enumeration, "ciiCircuitType")
-
-                self.ciicircadjchanges = YLeaf(YType.uint32, "ciiCircAdjChanges")
-
-                self.ciicircnumadj = YLeaf(YType.uint32, "ciiCircNumAdj")
-
-                self.ciicircinitfails = YLeaf(YType.uint32, "ciiCircInitFails")
-
-                self.ciicircrejadjs = YLeaf(YType.uint32, "ciiCircRejAdjs")
-
-                self.ciicircidfieldlenmismatches = YLeaf(YType.uint32, "ciiCircIDFieldLenMismatches")
-
-                self.ciicircmaxareaaddrmismatches = YLeaf(YType.uint32, "ciiCircMaxAreaAddrMismatches")
-
-                self.ciicircauthtypefails = YLeaf(YType.uint32, "ciiCircAuthTypeFails")
-
-                self.ciicircauthfails = YLeaf(YType.uint32, "ciiCircAuthFails")
-
-                self.ciicirclandesischanges = YLeaf(YType.uint32, "ciiCircLANDesISChanges")
-                self._segment_path = lambda: "ciiCircuitCounterEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiCircuitType='" + self.ciicircuittype.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciicircuittype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciicircuittype', YLeaf(YType.enumeration, 'ciiCircuitType')),
+                    ('ciicircadjchanges', YLeaf(YType.uint32, 'ciiCircAdjChanges')),
+                    ('ciicircnumadj', YLeaf(YType.uint32, 'ciiCircNumAdj')),
+                    ('ciicircinitfails', YLeaf(YType.uint32, 'ciiCircInitFails')),
+                    ('ciicircrejadjs', YLeaf(YType.uint32, 'ciiCircRejAdjs')),
+                    ('ciicircidfieldlenmismatches', YLeaf(YType.uint32, 'ciiCircIDFieldLenMismatches')),
+                    ('ciicircmaxareaaddrmismatches', YLeaf(YType.uint32, 'ciiCircMaxAreaAddrMismatches')),
+                    ('ciicircauthtypefails', YLeaf(YType.uint32, 'ciiCircAuthTypeFails')),
+                    ('ciicircauthfails', YLeaf(YType.uint32, 'ciiCircAuthFails')),
+                    ('ciicirclandesischanges', YLeaf(YType.uint32, 'ciiCircLANDesISChanges')),
+                ])
+                self.ciicircindex = None
+                self.ciicircuittype = None
+                self.ciicircadjchanges = None
+                self.ciicircnumadj = None
+                self.ciicircinitfails = None
+                self.ciicircrejadjs = None
+                self.ciicircidfieldlenmismatches = None
+                self.ciicircmaxareaaddrmismatches = None
+                self.ciicircauthtypefails = None
+                self.ciicircauthfails = None
+                self.ciicirclandesischanges = None
+                self._segment_path = lambda: "ciiCircuitCounterEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiCircuitType='" + str(self.ciicircuittype) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircuitCounterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2153,7 +2218,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciicircuittype(Enum):
                 """
-                Ciicircuittype
+                Ciicircuittype (Enum Class)
 
                 What type of circuit saw these counts?
 
@@ -2207,8 +2272,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiPacketCounterEntry" : ("ciipacketcounterentry", CISCOIETFISISMIB.Ciipacketcountertable.Ciipacketcounterentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiPacketCounterEntry", ("ciipacketcounterentry", CISCOIETFISISMIB.Ciipacketcountertable.Ciipacketcounterentry))])
+            self._leafs = OrderedDict()
 
             self.ciipacketcounterentry = YList(self)
             self._segment_path = lambda: "ciiPacketCounterTable"
@@ -2223,7 +2290,7 @@ class CISCOIETFISISMIB(Entity):
             Information about IS\-IS protocol traffic at one level
             on one circuit in one direction
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2232,12 +2299,12 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciipacketcountlevel  <key>
+            .. attribute:: ciipacketcountlevel  (key)
             
             	The level at which these PDU counts have been collected
             	**type**\:  :py:class:`Ciipacketcountlevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciipacketcountertable.Ciipacketcounterentry.Ciipacketcountlevel>`
             
-            .. attribute:: ciipacketcountdirection  <key>
+            .. attribute:: ciipacketcountdirection  (key)
             
             	Were we sending or receiving these PDUs?
             	**type**\:  :py:class:`Ciipacketcountdirection <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciipacketcountertable.Ciipacketcounterentry.Ciipacketcountdirection>`
@@ -2319,29 +2386,32 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiPacketCounterTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciipacketcountlevel = YLeaf(YType.enumeration, "ciiPacketCountLevel")
-
-                self.ciipacketcountdirection = YLeaf(YType.enumeration, "ciiPacketCountDirection")
-
-                self.ciipacketcountiihellos = YLeaf(YType.uint32, "ciiPacketCountIIHellos")
-
-                self.ciipacketcountishellos = YLeaf(YType.uint32, "ciiPacketCountISHellos")
-
-                self.ciipacketcounteshellos = YLeaf(YType.uint32, "ciiPacketCountESHellos")
-
-                self.ciipacketcountlsps = YLeaf(YType.uint32, "ciiPacketCountLSPs")
-
-                self.ciipacketcountcsnps = YLeaf(YType.uint32, "ciiPacketCountCSNPs")
-
-                self.ciipacketcountpsnps = YLeaf(YType.uint32, "ciiPacketCountPSNPs")
-
-                self.ciipacketcountunknowns = YLeaf(YType.uint32, "ciiPacketCountUnknowns")
-                self._segment_path = lambda: "ciiPacketCounterEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiPacketCountLevel='" + self.ciipacketcountlevel.get() + "']" + "[ciiPacketCountDirection='" + self.ciipacketcountdirection.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciipacketcountlevel','ciipacketcountdirection']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciipacketcountlevel', YLeaf(YType.enumeration, 'ciiPacketCountLevel')),
+                    ('ciipacketcountdirection', YLeaf(YType.enumeration, 'ciiPacketCountDirection')),
+                    ('ciipacketcountiihellos', YLeaf(YType.uint32, 'ciiPacketCountIIHellos')),
+                    ('ciipacketcountishellos', YLeaf(YType.uint32, 'ciiPacketCountISHellos')),
+                    ('ciipacketcounteshellos', YLeaf(YType.uint32, 'ciiPacketCountESHellos')),
+                    ('ciipacketcountlsps', YLeaf(YType.uint32, 'ciiPacketCountLSPs')),
+                    ('ciipacketcountcsnps', YLeaf(YType.uint32, 'ciiPacketCountCSNPs')),
+                    ('ciipacketcountpsnps', YLeaf(YType.uint32, 'ciiPacketCountPSNPs')),
+                    ('ciipacketcountunknowns', YLeaf(YType.uint32, 'ciiPacketCountUnknowns')),
+                ])
+                self.ciicircindex = None
+                self.ciipacketcountlevel = None
+                self.ciipacketcountdirection = None
+                self.ciipacketcountiihellos = None
+                self.ciipacketcountishellos = None
+                self.ciipacketcounteshellos = None
+                self.ciipacketcountlsps = None
+                self.ciipacketcountcsnps = None
+                self.ciipacketcountpsnps = None
+                self.ciipacketcountunknowns = None
+                self._segment_path = lambda: "ciiPacketCounterEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiPacketCountLevel='" + str(self.ciipacketcountlevel) + "']" + "[ciiPacketCountDirection='" + str(self.ciipacketcountdirection) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiPacketCounterTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2349,7 +2419,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciipacketcountdirection(Enum):
                 """
-                Ciipacketcountdirection
+                Ciipacketcountdirection (Enum Class)
 
                 Were we sending or receiving these PDUs?
 
@@ -2366,7 +2436,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciipacketcountlevel(Enum):
                 """
-                Ciipacketcountlevel
+                Ciipacketcountlevel (Enum Class)
 
                 The level at which these PDU counts have been collected.
 
@@ -2405,8 +2475,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiISAdjEntry" : ("ciiisadjentry", CISCOIETFISISMIB.Ciiisadjtable.Ciiisadjentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiISAdjEntry", ("ciiisadjentry", CISCOIETFISISMIB.Ciiisadjtable.Ciiisadjentry))])
+            self._leafs = OrderedDict()
 
             self.ciiisadjentry = YList(self)
             self._segment_path = lambda: "ciiISAdjTable"
@@ -2421,7 +2493,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry corresponds to one adjacency to an
             Intermediate System on this system.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2430,7 +2502,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciiisadjindex  <key>
+            .. attribute:: ciiisadjindex  (key)
             
             	A unique value identifying the IS adjacency from all other such adjacencies on this circuit. This value is automatically assigned by the system when the adjacency is created
             	**type**\: int
@@ -2517,33 +2589,36 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiISAdjTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciiisadjindex = YLeaf(YType.int32, "ciiISAdjIndex")
-
-                self.ciiisadjstate = YLeaf(YType.enumeration, "ciiISAdjState")
-
-                self.ciiisadj3waystate = YLeaf(YType.enumeration, "ciiISAdj3WayState")
-
-                self.ciiisadjneighsnpaaddress = YLeaf(YType.str, "ciiISAdjNeighSNPAAddress")
-
-                self.ciiisadjneighsystype = YLeaf(YType.enumeration, "ciiISAdjNeighSysType")
-
-                self.ciiisadjneighsysid = YLeaf(YType.str, "ciiISAdjNeighSysID")
-
-                self.ciiisadjnbrextendedcircid = YLeaf(YType.uint32, "ciiISAdjNbrExtendedCircID")
-
-                self.ciiisadjusage = YLeaf(YType.enumeration, "ciiISAdjUsage")
-
-                self.ciiisadjholdtimer = YLeaf(YType.uint32, "ciiISAdjHoldTimer")
-
-                self.ciiisadjneighpriority = YLeaf(YType.int32, "ciiISAdjNeighPriority")
-
-                self.ciiisadjlastuptime = YLeaf(YType.uint32, "ciiISAdjLastUpTime")
-                self._segment_path = lambda: "ciiISAdjEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciiisadjindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciiisadjindex', YLeaf(YType.int32, 'ciiISAdjIndex')),
+                    ('ciiisadjstate', YLeaf(YType.enumeration, 'ciiISAdjState')),
+                    ('ciiisadj3waystate', YLeaf(YType.enumeration, 'ciiISAdj3WayState')),
+                    ('ciiisadjneighsnpaaddress', YLeaf(YType.str, 'ciiISAdjNeighSNPAAddress')),
+                    ('ciiisadjneighsystype', YLeaf(YType.enumeration, 'ciiISAdjNeighSysType')),
+                    ('ciiisadjneighsysid', YLeaf(YType.str, 'ciiISAdjNeighSysID')),
+                    ('ciiisadjnbrextendedcircid', YLeaf(YType.uint32, 'ciiISAdjNbrExtendedCircID')),
+                    ('ciiisadjusage', YLeaf(YType.enumeration, 'ciiISAdjUsage')),
+                    ('ciiisadjholdtimer', YLeaf(YType.uint32, 'ciiISAdjHoldTimer')),
+                    ('ciiisadjneighpriority', YLeaf(YType.int32, 'ciiISAdjNeighPriority')),
+                    ('ciiisadjlastuptime', YLeaf(YType.uint32, 'ciiISAdjLastUpTime')),
+                ])
+                self.ciicircindex = None
+                self.ciiisadjindex = None
+                self.ciiisadjstate = None
+                self.ciiisadj3waystate = None
+                self.ciiisadjneighsnpaaddress = None
+                self.ciiisadjneighsystype = None
+                self.ciiisadjneighsysid = None
+                self.ciiisadjnbrextendedcircid = None
+                self.ciiisadjusage = None
+                self.ciiisadjholdtimer = None
+                self.ciiisadjneighpriority = None
+                self.ciiisadjlastuptime = None
+                self._segment_path = lambda: "ciiISAdjEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2551,7 +2626,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiisadj3Waystate(Enum):
                 """
-                Ciiisadj3Waystate
+                Ciiisadj3Waystate (Enum Class)
 
                 The 3Way state of the adjacency.  These are picked
 
@@ -2582,7 +2657,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiisadjneighsystype(Enum):
                 """
-                Ciiisadjneighsystype
+                Ciiisadjneighsystype (Enum Class)
 
                 The type of the neighboring system.
 
@@ -2607,7 +2682,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiisadjstate(Enum):
                 """
-                Ciiisadjstate
+                Ciiisadjstate (Enum Class)
 
                 The state of the adjacency
 
@@ -2632,7 +2707,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiisadjusage(Enum):
                 """
-                Ciiisadjusage
+                Ciiisadjusage (Enum Class)
 
                 How is the adjacency used?  On a point\-to\-point link,
 
@@ -2683,8 +2758,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiISAdjAreaAddrEntry" : ("ciiisadjareaaddrentry", CISCOIETFISISMIB.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiISAdjAreaAddrEntry", ("ciiisadjareaaddrentry", CISCOIETFISISMIB.Ciiisadjareaaddrtable.Ciiisadjareaaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciiisadjareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiISAdjAreaAddrTable"
@@ -2699,7 +2776,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry contains one Area Address reported by a
             neighboring Intermediate System in its IIH PDUs.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2708,7 +2785,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciiisadjindex  <key>
+            .. attribute:: ciiisadjindex  (key)
             
             	
             	**type**\: int
@@ -2717,7 +2794,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciiisadjindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciiisadjtable.Ciiisadjentry>`
             
-            .. attribute:: ciiisadjareaaddrindex  <key>
+            .. attribute:: ciiisadjareaaddrindex  (key)
             
             	An index for the areas associated with one neighbor. This provides a simple way to walk the table
             	**type**\: int
@@ -2745,17 +2822,20 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiISAdjAreaAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
-
-                self.ciiisadjareaaddrindex = YLeaf(YType.int32, "ciiISAdjAreaAddrIndex")
-
-                self.ciiisadjareaaddress = YLeaf(YType.str, "ciiISAdjAreaAddress")
-                self._segment_path = lambda: "ciiISAdjAreaAddrEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjAreaAddrIndex='" + self.ciiisadjareaaddrindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjareaaddrindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
+                    ('ciiisadjareaaddrindex', YLeaf(YType.int32, 'ciiISAdjAreaAddrIndex')),
+                    ('ciiisadjareaaddress', YLeaf(YType.str, 'ciiISAdjAreaAddress')),
+                ])
+                self.ciicircindex = None
+                self.ciiisadjindex = None
+                self.ciiisadjareaaddrindex = None
+                self.ciiisadjareaaddress = None
+                self._segment_path = lambda: "ciiISAdjAreaAddrEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjAreaAddrIndex='" + str(self.ciiisadjareaaddrindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjAreaAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2787,8 +2867,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiISAdjIPAddrEntry" : ("ciiisadjipaddrentry", CISCOIETFISISMIB.Ciiisadjipaddrtable.Ciiisadjipaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiISAdjIPAddrEntry", ("ciiisadjipaddrentry", CISCOIETFISISMIB.Ciiisadjipaddrtable.Ciiisadjipaddrentry))])
+            self._leafs = OrderedDict()
 
             self.ciiisadjipaddrentry = YList(self)
             self._segment_path = lambda: "ciiISAdjIPAddrTable"
@@ -2803,7 +2885,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry contains one IP Address reported by a
             neighboring Intermediate System in its IIH PDUs.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2812,7 +2894,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciiisadjindex  <key>
+            .. attribute:: ciiisadjindex  (key)
             
             	
             	**type**\: int
@@ -2821,7 +2903,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciiisadjindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciiisadjtable.Ciiisadjentry>`
             
-            .. attribute:: ciiisadjipaddrindex  <key>
+            .. attribute:: ciiisadjipaddrindex  (key)
             
             	An index to this table which identifies the IP addresses to which this entry belongs
             	**type**\: int
@@ -2854,19 +2936,22 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiISAdjIPAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
-
-                self.ciiisadjipaddrindex = YLeaf(YType.int32, "ciiISAdjIPAddrIndex")
-
-                self.ciiisadjipaddrtype = YLeaf(YType.enumeration, "ciiISAdjIPAddrType")
-
-                self.ciiisadjipaddraddress = YLeaf(YType.str, "ciiISAdjIPAddrAddress")
-                self._segment_path = lambda: "ciiISAdjIPAddrEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjIPAddrIndex='" + self.ciiisadjipaddrindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjipaddrindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
+                    ('ciiisadjipaddrindex', YLeaf(YType.int32, 'ciiISAdjIPAddrIndex')),
+                    ('ciiisadjipaddrtype', YLeaf(YType.enumeration, 'ciiISAdjIPAddrType')),
+                    ('ciiisadjipaddraddress', YLeaf(YType.str, 'ciiISAdjIPAddrAddress')),
+                ])
+                self.ciicircindex = None
+                self.ciiisadjindex = None
+                self.ciiisadjipaddrindex = None
+                self.ciiisadjipaddrtype = None
+                self.ciiisadjipaddraddress = None
+                self._segment_path = lambda: "ciiISAdjIPAddrEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjIPAddrIndex='" + str(self.ciiisadjipaddrindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjIPAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2898,8 +2983,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiISAdjProtSuppEntry" : ("ciiisadjprotsuppentry", CISCOIETFISISMIB.Ciiisadjprotsupptable.Ciiisadjprotsuppentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiISAdjProtSuppEntry", ("ciiisadjprotsuppentry", CISCOIETFISISMIB.Ciiisadjprotsupptable.Ciiisadjprotsuppentry))])
+            self._leafs = OrderedDict()
 
             self.ciiisadjprotsuppentry = YList(self)
             self._segment_path = lambda: "ciiISAdjProtSuppTable"
@@ -2915,7 +3002,7 @@ class CISCOIETFISISMIB(Entity):
             neighboring Intermediate System as reported in its IIH
             PDUs.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -2924,7 +3011,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciiisadjindex  <key>
+            .. attribute:: ciiisadjindex  (key)
             
             	
             	**type**\: int
@@ -2933,7 +3020,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciiisadjindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciiisadjtable.Ciiisadjentry>`
             
-            .. attribute:: ciiisadjprotsuppprotocol  <key>
+            .. attribute:: ciiisadjprotsuppprotocol  (key)
             
             	One supported protocol as reported in IIH PDUs received from the neighbor
             	**type**\:  :py:class:`CiiSupportedProtocol <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiSupportedProtocol>`
@@ -2952,15 +3039,18 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiISAdjProtSuppTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciiisadjindex = YLeaf(YType.str, "ciiISAdjIndex")
-
-                self.ciiisadjprotsuppprotocol = YLeaf(YType.enumeration, "ciiISAdjProtSuppProtocol")
-                self._segment_path = lambda: "ciiISAdjProtSuppEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiISAdjIndex='" + self.ciiisadjindex.get() + "']" + "[ciiISAdjProtSuppProtocol='" + self.ciiisadjprotsuppprotocol.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjprotsuppprotocol']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
+                    ('ciiisadjprotsuppprotocol', YLeaf(YType.enumeration, 'ciiISAdjProtSuppProtocol')),
+                ])
+                self.ciicircindex = None
+                self.ciiisadjindex = None
+                self.ciiisadjprotsuppprotocol = None
+                self._segment_path = lambda: "ciiISAdjProtSuppEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjProtSuppProtocol='" + str(self.ciiisadjprotsuppprotocol) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjProtSuppTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2991,8 +3081,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiRAEntry" : ("ciiraentry", CISCOIETFISISMIB.Ciiratable.Ciiraentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiRAEntry", ("ciiraentry", CISCOIETFISISMIB.Ciiratable.Ciiraentry))])
+            self._leafs = OrderedDict()
 
             self.ciiraentry = YList(self)
             self._segment_path = lambda: "ciiRATable"
@@ -3007,7 +3099,7 @@ class CISCOIETFISISMIB(Entity):
             Each entry defines a Reachable Address to a NSAP or
             Address Prefix.
             
-            .. attribute:: ciicircindex  <key>
+            .. attribute:: ciicircindex  (key)
             
             	
             	**type**\: int
@@ -3016,7 +3108,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciicircindex <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciicirctable.Ciicircentry>`
             
-            .. attribute:: ciiraindex  <key>
+            .. attribute:: ciiraindex  (key)
             
             	The identifier for this ciiRAEntry. This value must be unique amongst all Reachable Addresses on the same parent Circuit. This object follows the index and ManualOrAutomatic behaviors
             	**type**\: int
@@ -3097,33 +3189,36 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiRATable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciicircindex = YLeaf(YType.str, "ciiCircIndex")
-
-                self.ciiraindex = YLeaf(YType.int32, "ciiRAIndex")
-
-                self.ciiraexiststate = YLeaf(YType.enumeration, "ciiRAExistState")
-
-                self.ciiraadminstate = YLeaf(YType.enumeration, "ciiRAAdminState")
-
-                self.ciiraaddrprefix = YLeaf(YType.str, "ciiRAAddrPrefix")
-
-                self.ciiramaptype = YLeaf(YType.enumeration, "ciiRAMapType")
-
-                self.ciirametric = YLeaf(YType.int32, "ciiRAMetric")
-
-                self.ciirametrictype = YLeaf(YType.enumeration, "ciiRAMetricType")
-
-                self.ciirasnpaaddress = YLeaf(YType.str, "ciiRASNPAAddress")
-
-                self.ciirasnpamask = YLeaf(YType.str, "ciiRASNPAMask")
-
-                self.ciirasnpaprefix = YLeaf(YType.str, "ciiRASNPAPrefix")
-
-                self.ciiratype = YLeaf(YType.enumeration, "ciiRAType")
-                self._segment_path = lambda: "ciiRAEntry" + "[ciiCircIndex='" + self.ciicircindex.get() + "']" + "[ciiRAIndex='" + self.ciiraindex.get() + "']"
+                self.ylist_key_names = ['ciicircindex','ciiraindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
+                    ('ciiraindex', YLeaf(YType.int32, 'ciiRAIndex')),
+                    ('ciiraexiststate', YLeaf(YType.enumeration, 'ciiRAExistState')),
+                    ('ciiraadminstate', YLeaf(YType.enumeration, 'ciiRAAdminState')),
+                    ('ciiraaddrprefix', YLeaf(YType.str, 'ciiRAAddrPrefix')),
+                    ('ciiramaptype', YLeaf(YType.enumeration, 'ciiRAMapType')),
+                    ('ciirametric', YLeaf(YType.int32, 'ciiRAMetric')),
+                    ('ciirametrictype', YLeaf(YType.enumeration, 'ciiRAMetricType')),
+                    ('ciirasnpaaddress', YLeaf(YType.str, 'ciiRASNPAAddress')),
+                    ('ciirasnpamask', YLeaf(YType.str, 'ciiRASNPAMask')),
+                    ('ciirasnpaprefix', YLeaf(YType.str, 'ciiRASNPAPrefix')),
+                    ('ciiratype', YLeaf(YType.enumeration, 'ciiRAType')),
+                ])
+                self.ciicircindex = None
+                self.ciiraindex = None
+                self.ciiraexiststate = None
+                self.ciiraadminstate = None
+                self.ciiraaddrprefix = None
+                self.ciiramaptype = None
+                self.ciirametric = None
+                self.ciirametrictype = None
+                self.ciirasnpaaddress = None
+                self.ciirasnpamask = None
+                self.ciirasnpaprefix = None
+                self.ciiratype = None
+                self._segment_path = lambda: "ciiRAEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiRAIndex='" + str(self.ciiraindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRATable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3131,7 +3226,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiramaptype(Enum):
                 """
-                Ciiramaptype
+                Ciiramaptype (Enum Class)
 
                 The type of mapping to be employed to ascertain the SNPA
 
@@ -3210,7 +3305,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiratype(Enum):
                 """
-                Ciiratype
+                Ciiratype (Enum Class)
 
                 The type of Reachable address. Those of type
 
@@ -3259,8 +3354,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiIPRAEntry" : ("ciiipraentry", CISCOIETFISISMIB.Ciiipratable.Ciiipraentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiIPRAEntry", ("ciiipraentry", CISCOIETFISISMIB.Ciiipratable.Ciiipraentry))])
+            self._leafs = OrderedDict()
 
             self.ciiipraentry = YList(self)
             self._segment_path = lambda: "ciiIPRATable"
@@ -3278,26 +3375,26 @@ class CISCOIETFISISMIB(Entity):
             Each IP Reachable Address may have multiple entries in the
             table, one for each equal cost path to the reachable address.
             
-            .. attribute:: ciiipradesttype  <key>
+            .. attribute:: ciiipradesttype  (key)
             
             	The type of this IP Reachable Address.  This object follows the ManualOrAutomatic behavior
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: ciiipradest  <key>
+            .. attribute:: ciiipradest  (key)
             
             	The destination of this IP Reachable Address. This is either a network address, subnetwork address or host address. This object follows the ManualOrAutomatic behavior
             	**type**\: str
             
             	**length:** 4 \| 16
             
-            .. attribute:: ciiipradestprefixlen  <key>
+            .. attribute:: ciiipradestprefixlen  (key)
             
             	The length of the IP Netmask for Reachability Address. This object follows the ManualOrAutomatic behavior
             	**type**\: int
             
             	**range:** 0..128
             
-            .. attribute:: ciiipranexthopindex  <key>
+            .. attribute:: ciiipranexthopindex  (key)
             
             	Index of next hop.  Used when there are multiple Equal Cost Multipath alternatives for the same destination
             	**type**\: int
@@ -3376,37 +3473,40 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiIPRATable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciiipradesttype = YLeaf(YType.enumeration, "ciiIPRADestType")
-
-                self.ciiipradest = YLeaf(YType.str, "ciiIPRADest")
-
-                self.ciiipradestprefixlen = YLeaf(YType.uint32, "ciiIPRADestPrefixLen")
-
-                self.ciiipranexthopindex = YLeaf(YType.int32, "ciiIPRANextHopIndex")
-
-                self.ciiipranexthoptype = YLeaf(YType.enumeration, "ciiIPRANextHopType")
-
-                self.ciiipranexthop = YLeaf(YType.str, "ciiIPRANextHop")
-
-                self.ciiipratype = YLeaf(YType.enumeration, "ciiIPRAType")
-
-                self.ciiipraexiststate = YLeaf(YType.enumeration, "ciiIPRAExistState")
-
-                self.ciiipraadminstate = YLeaf(YType.enumeration, "ciiIPRAAdminState")
-
-                self.ciiiprametric = YLeaf(YType.int32, "ciiIPRAMetric")
-
-                self.ciiiprametrictype = YLeaf(YType.enumeration, "ciiIPRAMetricType")
-
-                self.ciiiprafullmetric = YLeaf(YType.uint32, "ciiIPRAFullMetric")
-
-                self.ciiiprasnpaaddress = YLeaf(YType.str, "ciiIPRASNPAAddress")
-
-                self.ciiiprasourcetype = YLeaf(YType.enumeration, "ciiIPRASourceType")
-                self._segment_path = lambda: "ciiIPRAEntry" + "[ciiIPRADestType='" + self.ciiipradesttype.get() + "']" + "[ciiIPRADest='" + self.ciiipradest.get() + "']" + "[ciiIPRADestPrefixLen='" + self.ciiipradestprefixlen.get() + "']" + "[ciiIPRANextHopIndex='" + self.ciiipranexthopindex.get() + "']"
+                self.ylist_key_names = ['ciiipradesttype','ciiipradest','ciiipradestprefixlen','ciiipranexthopindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciiipradesttype', YLeaf(YType.enumeration, 'ciiIPRADestType')),
+                    ('ciiipradest', YLeaf(YType.str, 'ciiIPRADest')),
+                    ('ciiipradestprefixlen', YLeaf(YType.uint32, 'ciiIPRADestPrefixLen')),
+                    ('ciiipranexthopindex', YLeaf(YType.int32, 'ciiIPRANextHopIndex')),
+                    ('ciiipranexthoptype', YLeaf(YType.enumeration, 'ciiIPRANextHopType')),
+                    ('ciiipranexthop', YLeaf(YType.str, 'ciiIPRANextHop')),
+                    ('ciiipratype', YLeaf(YType.enumeration, 'ciiIPRAType')),
+                    ('ciiipraexiststate', YLeaf(YType.enumeration, 'ciiIPRAExistState')),
+                    ('ciiipraadminstate', YLeaf(YType.enumeration, 'ciiIPRAAdminState')),
+                    ('ciiiprametric', YLeaf(YType.int32, 'ciiIPRAMetric')),
+                    ('ciiiprametrictype', YLeaf(YType.enumeration, 'ciiIPRAMetricType')),
+                    ('ciiiprafullmetric', YLeaf(YType.uint32, 'ciiIPRAFullMetric')),
+                    ('ciiiprasnpaaddress', YLeaf(YType.str, 'ciiIPRASNPAAddress')),
+                    ('ciiiprasourcetype', YLeaf(YType.enumeration, 'ciiIPRASourceType')),
+                ])
+                self.ciiipradesttype = None
+                self.ciiipradest = None
+                self.ciiipradestprefixlen = None
+                self.ciiipranexthopindex = None
+                self.ciiipranexthoptype = None
+                self.ciiipranexthop = None
+                self.ciiipratype = None
+                self.ciiipraexiststate = None
+                self.ciiipraadminstate = None
+                self.ciiiprametric = None
+                self.ciiiprametrictype = None
+                self.ciiiprafullmetric = None
+                self.ciiiprasnpaaddress = None
+                self.ciiiprasourcetype = None
+                self._segment_path = lambda: "ciiIPRAEntry" + "[ciiIPRADestType='" + str(self.ciiipradesttype) + "']" + "[ciiIPRADest='" + str(self.ciiipradest) + "']" + "[ciiIPRADestPrefixLen='" + str(self.ciiipradestprefixlen) + "']" + "[ciiIPRANextHopIndex='" + str(self.ciiipranexthopindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiIPRATable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3414,7 +3514,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiiprasourcetype(Enum):
                 """
-                Ciiiprasourcetype
+                Ciiiprasourcetype (Enum Class)
 
                 The origin of this route.
 
@@ -3463,7 +3563,7 @@ class CISCOIETFISISMIB(Entity):
 
             class Ciiipratype(Enum):
                 """
-                Ciiipratype
+                Ciiipratype (Enum Class)
 
                 The type of this IP Reachable Address. Those of type
 
@@ -3510,8 +3610,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiLSPSummaryEntry" : ("ciilspsummaryentry", CISCOIETFISISMIB.Ciilspsummarytable.Ciilspsummaryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiLSPSummaryEntry", ("ciilspsummaryentry", CISCOIETFISISMIB.Ciilspsummarytable.Ciilspsummaryentry))])
+            self._leafs = OrderedDict()
 
             self.ciilspsummaryentry = YList(self)
             self._segment_path = lambda: "ciiLSPSummaryTable"
@@ -3526,12 +3628,12 @@ class CISCOIETFISISMIB(Entity):
             Each entry provides a summary describing an
             LSP currently stored in the system.
             
-            .. attribute:: ciilsplevel  <key>
+            .. attribute:: ciilsplevel  (key)
             
             	At which level does this LSP appear?
             	**type**\:  :py:class:`CiiISLevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiISLevel>`
             
-            .. attribute:: ciilspid  <key>
+            .. attribute:: ciilspid  (key)
             
             	The 8 byte LSP ID, consisting of the SystemID, Circuit ID, and Fragment Number
             	**type**\: str
@@ -3594,25 +3696,28 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiLSPSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciilsplevel = YLeaf(YType.enumeration, "ciiLSPLevel")
-
-                self.ciilspid = YLeaf(YType.str, "ciiLSPID")
-
-                self.ciilspseq = YLeaf(YType.uint32, "ciiLSPSeq")
-
-                self.ciilspzerolife = YLeaf(YType.boolean, "ciiLSPZeroLife")
-
-                self.ciilspchecksum = YLeaf(YType.uint32, "ciiLSPChecksum")
-
-                self.ciilsplifetimeremain = YLeaf(YType.uint32, "ciiLSPLifetimeRemain")
-
-                self.ciilsppdulength = YLeaf(YType.uint32, "ciiLSPPDULength")
-
-                self.ciilspattributes = YLeaf(YType.uint32, "ciiLSPAttributes")
-                self._segment_path = lambda: "ciiLSPSummaryEntry" + "[ciiLSPLevel='" + self.ciilsplevel.get() + "']" + "[ciiLSPID='" + self.ciilspid.get() + "']"
+                self.ylist_key_names = ['ciilsplevel','ciilspid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciilsplevel', YLeaf(YType.enumeration, 'ciiLSPLevel')),
+                    ('ciilspid', YLeaf(YType.str, 'ciiLSPID')),
+                    ('ciilspseq', YLeaf(YType.uint32, 'ciiLSPSeq')),
+                    ('ciilspzerolife', YLeaf(YType.boolean, 'ciiLSPZeroLife')),
+                    ('ciilspchecksum', YLeaf(YType.uint32, 'ciiLSPChecksum')),
+                    ('ciilsplifetimeremain', YLeaf(YType.uint32, 'ciiLSPLifetimeRemain')),
+                    ('ciilsppdulength', YLeaf(YType.uint32, 'ciiLSPPDULength')),
+                    ('ciilspattributes', YLeaf(YType.uint32, 'ciiLSPAttributes')),
+                ])
+                self.ciilsplevel = None
+                self.ciilspid = None
+                self.ciilspseq = None
+                self.ciilspzerolife = None
+                self.ciilspchecksum = None
+                self.ciilsplifetimeremain = None
+                self.ciilsppdulength = None
+                self.ciilspattributes = None
+                self._segment_path = lambda: "ciiLSPSummaryEntry" + "[ciiLSPLevel='" + str(self.ciilsplevel) + "']" + "[ciiLSPID='" + str(self.ciilspid) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3642,8 +3747,10 @@ class CISCOIETFISISMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-ISIS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciiLSPTLVEntry" : ("ciilsptlventry", CISCOIETFISISMIB.Ciilsptlvtable.Ciilsptlventry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciiLSPTLVEntry", ("ciilsptlventry", CISCOIETFISISMIB.Ciilsptlvtable.Ciilsptlventry))])
+            self._leafs = OrderedDict()
 
             self.ciilsptlventry = YList(self)
             self._segment_path = lambda: "ciiLSPTLVTable"
@@ -3658,12 +3765,12 @@ class CISCOIETFISISMIB(Entity):
             Each entry describes an LSP current stored in the
             system.
             
-            .. attribute:: ciilsplevel  <key>
+            .. attribute:: ciilsplevel  (key)
             
             	
             	**type**\:  :py:class:`CiiISLevel <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CiiISLevel>`
             
-            .. attribute:: ciilspid  <key>
+            .. attribute:: ciilspid  (key)
             
             	
             	**type**\: str
@@ -3672,7 +3779,7 @@ class CISCOIETFISISMIB(Entity):
             
             	**refers to**\:  :py:class:`ciilspid <ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB.CISCOIETFISISMIB.Ciilspsummarytable.Ciilspsummaryentry>`
             
-            .. attribute:: ciilsptlvindex  <key>
+            .. attribute:: ciilsptlvindex  (key)
             
             	The index of this TLV in the LSP.  The first TLV has index 1 and the Nth TLV has an index of N
             	**type**\: int
@@ -3728,25 +3835,28 @@ class CISCOIETFISISMIB(Entity):
                 self.yang_parent_name = "ciiLSPTLVTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciilsplevel = YLeaf(YType.enumeration, "ciiLSPLevel")
-
-                self.ciilspid = YLeaf(YType.str, "ciiLSPID")
-
-                self.ciilsptlvindex = YLeaf(YType.uint32, "ciiLSPTLVIndex")
-
-                self.ciilsptlvseq = YLeaf(YType.uint32, "ciiLSPTLVSeq")
-
-                self.ciilsptlvchecksum = YLeaf(YType.uint32, "ciiLSPTLVChecksum")
-
-                self.ciilsptlvtype = YLeaf(YType.uint32, "ciiLSPTLVType")
-
-                self.ciilsptlvlen = YLeaf(YType.uint32, "ciiLSPTLVLen")
-
-                self.ciilsptlvvalue = YLeaf(YType.str, "ciiLSPTLVValue")
-                self._segment_path = lambda: "ciiLSPTLVEntry" + "[ciiLSPLevel='" + self.ciilsplevel.get() + "']" + "[ciiLSPID='" + self.ciilspid.get() + "']" + "[ciiLSPTLVIndex='" + self.ciilsptlvindex.get() + "']"
+                self.ylist_key_names = ['ciilsplevel','ciilspid','ciilsptlvindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciilsplevel', YLeaf(YType.enumeration, 'ciiLSPLevel')),
+                    ('ciilspid', YLeaf(YType.str, 'ciiLSPID')),
+                    ('ciilsptlvindex', YLeaf(YType.uint32, 'ciiLSPTLVIndex')),
+                    ('ciilsptlvseq', YLeaf(YType.uint32, 'ciiLSPTLVSeq')),
+                    ('ciilsptlvchecksum', YLeaf(YType.uint32, 'ciiLSPTLVChecksum')),
+                    ('ciilsptlvtype', YLeaf(YType.uint32, 'ciiLSPTLVType')),
+                    ('ciilsptlvlen', YLeaf(YType.uint32, 'ciiLSPTLVLen')),
+                    ('ciilsptlvvalue', YLeaf(YType.str, 'ciiLSPTLVValue')),
+                ])
+                self.ciilsplevel = None
+                self.ciilspid = None
+                self.ciilsptlvindex = None
+                self.ciilsptlvseq = None
+                self.ciilsptlvchecksum = None
+                self.ciilsptlvtype = None
+                self.ciilsptlvlen = None
+                self.ciilsptlvvalue = None
+                self._segment_path = lambda: "ciiLSPTLVEntry" + "[ciiLSPLevel='" + str(self.ciilsplevel) + "']" + "[ciiLSPID='" + str(self.ciilspid) + "']" + "[ciiLSPTLVIndex='" + str(self.ciilsptlvindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPTLVTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

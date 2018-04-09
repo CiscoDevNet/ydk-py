@@ -26,6 +26,14 @@ submodule Cisco-IOS-XE-license {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-12-01 {
+    description
+      "Add licenses boot level addon for cat3k";
+  }
+  revision 2017-10-18 {
+    description
+      "Add licenses boot level on switch and smart licensing";
+  }
   revision 2017-05-25 {
     description
       "Add licenses ax and security";
@@ -120,10 +128,18 @@ submodule Cisco-IOS-XE-license {
               }
             }
             case ipbasek9-case {
-              leaf ipbasek9 {
+              container ipbasek9 {
                 description
                   "License Level IPBASEK9";
-                type empty;
+                presence "true";
+                leaf addon {
+                  description
+                    "select add-on to include";
+                  type enumeration {
+                    enum "dna-advantage";
+                    enum "dna-essentials";
+                  }
+                }
               }
             }
             case ipservices-case {
@@ -143,10 +159,13 @@ submodule Cisco-IOS-XE-license {
                 description
                 "ipservicesk9 level";
                 presence "true";
-                leaf switch {
+                leaf addon {
                   description
-                  "Switch license information";
-                  type empty;
+                    "select add-on to include";
+                  type enumeration {
+                    enum "dna-advantage";
+                    enum "dna-essentials";
+                  }
                 }
               }
             }
@@ -163,10 +182,17 @@ submodule Cisco-IOS-XE-license {
               }
             }
             case lanbasek9-case {
-              leaf lanbasek9 {
+              container lanbasek9 {
                 description
                 "License Level LANBASEK9";
-                type empty;
+                presence "true";
+                leaf addon {
+                  description
+                    "select add-on to include";
+                  type enumeration {
+                    enum "dna-essentials";
+                  }
+                }
               }
             }
             case lite-case {
@@ -191,6 +217,20 @@ submodule Cisco-IOS-XE-license {
                   "Switch license information";
                   type empty;
                 }
+              }
+            }
+            case metroipservices-case {
+              leaf metroipservices {
+              description
+                "Metroipservices License Level";
+              type empty;
+              }
+            }
+            case metroservices-case {
+              leaf metroservices {
+              description
+                "Metroservices License Level";
+              type empty;
               }
             }
             case advancedmetroipaccess-case {
@@ -273,6 +313,49 @@ submodule Cisco-IOS-XE-license {
                 }
               }
             }
+            case network-advantage-case {
+              container network-advantage {
+                description
+                  "License Level Network-Advantage";
+                presence true;
+                leaf addon {
+                  description
+                    "select add-on to include";
+                  type enumeration {
+                    enum "dna-advantage";
+                    enum "dna-essentials";
+                  }
+                }
+              }
+            }
+            case network-essentials-case {
+              container network-essentials {
+                description
+                  "License Level Network-Essentials";
+                presence true;
+                leaf addon {
+                  description
+                    "select add-on to include";
+                  type enumeration {
+                    enum "dna-essentials";
+                  }
+                }
+              }
+            }
+            case AdvUCSuiteK9-case {
+              leaf AdvUCSuiteK9 {
+                description
+                  "AdvUCSuiteK9 License Level";
+                type empty;
+              }
+            }
+            case FoundationSuiteK9-case {
+              leaf FoundationSuiteK9 {
+                description
+                  "FoundationSuiteK9 License Level";
+                type empty;
+              }
+            }
           }
         }
 
@@ -297,9 +380,108 @@ submodule Cisco-IOS-XE-license {
         }
       }
 
-      leaf smart {
-        type enumeration {
-          enum "enable";
+      container smart {
+        description
+          "Smart licensing";
+	leaf customer-id {
+	  description "Customer defined id";
+	  type string;
+	}
+        leaf enable {
+          description
+            "Enable Smart licensing";
+          type empty;
+        }
+	leaf transport-type {
+	  type enumeration {
+	    enum "callhome";
+	    enum "smart";
+	  }
+	  description 
+	    "The transport type. If transport-type is set to 
+             callhome then any additional transport settings must 
+             be done from the callhome CLI.
+             If the transport-type is set to smart, additional 
+             settings are available below.";
+	}
+	container privacy {
+	  leaf hostname {
+	    type empty;
+	  }
+	  leaf version {
+	    type empty;
+	  }
+	}
+        container utility {
+          description
+            "Enable or disable usage reporting on the device";
+          leaf enable {
+	    description "Enable or disable usage reporting";
+            type empty;
+          }
+	  container customer-info {
+	    leaf city {
+	      description "Customer defined city";
+	      type string;
+          }
+	    leaf country {
+	      description "Customer defined country";
+	      type string;
+	    }
+	    leaf id {
+	      description "Customer defined id";
+	      type string;
+	    }
+	    leaf name {
+	      description "Customer defined name";
+	      type string;
+	    }
+	    leaf postalcode {
+	      description "Customer defined postalcode";
+	      type string;
+	    }
+	    leaf state {
+	      description "Customer defined state";
+	      type string;
+	    }
+	    leaf street {
+	      description "Customer defined street";
+	      type string;
+        }
+          }
+        }
+        container url {
+          description
+            "Specify the Smart Transport primary and the Utility URL";
+          choice url-setting {
+            description 
+                "Specify the URL(s) used for communications to the SSM,
+                 satellite or Third Party Billing Platform.";
+            case set-default {
+              leaf default {
+                type empty;
+                description
+                  "Enable the default URLs for both
+                   url-registration and url-utility that point to 
+                   the Cisco SSM.";
+              }
+            }
+            case set-urls {
+              leaf name {
+                type string;
+                description 
+                  "Specify the URL used for registration, authorization and
+                   anything else not related to utility usage reporting.";
+              }
+              leaf utility {
+                type string;
+                description
+                  "Specify the URL to be used for sending utility usage 
+                   reports. This should be the same as url-registration 
+                   if you are using a satellite.";
+              }
+            }
+          }
         }
       }
     }

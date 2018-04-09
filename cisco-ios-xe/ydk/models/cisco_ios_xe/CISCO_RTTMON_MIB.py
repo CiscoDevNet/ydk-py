@@ -149,6 +149,8 @@ NOTE\:  For non\-connection oriented protocol the
        prevent skewed results.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -301,8 +303,10 @@ class CISCORTTMONMIB(Entity):
         self.yang_parent_name = "CISCO-RTTMON-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"rttMonAppl" : ("rttmonappl", CISCORTTMONMIB.Rttmonappl), "rttMonApplSupportedRttTypesTable" : ("rttmonapplsupportedrtttypestable", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable), "rttMonApplSupportedProtocolsTable" : ("rttmonapplsupportedprotocolstable", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable), "rttMonApplPreConfigedTable" : ("rttmonapplpreconfigedtable", CISCORTTMONMIB.Rttmonapplpreconfigedtable), "rttMonApplAuthTable" : ("rttmonapplauthtable", CISCORTTMONMIB.Rttmonapplauthtable), "rttMonCtrlAdminTable" : ("rttmonctrladmintable", CISCORTTMONMIB.Rttmonctrladmintable), "rttMonEchoAdminTable" : ("rttmonechoadmintable", CISCORTTMONMIB.Rttmonechoadmintable), "rttMonFileIOAdminTable" : ("rttmonfileioadmintable", CISCORTTMONMIB.Rttmonfileioadmintable), "rttMonScriptAdminTable" : ("rttmonscriptadmintable", CISCORTTMONMIB.Rttmonscriptadmintable), "rttMonReactTriggerAdminTable" : ("rttmonreacttriggeradmintable", CISCORTTMONMIB.Rttmonreacttriggeradmintable), "rttMonEchoPathAdminTable" : ("rttmonechopathadmintable", CISCORTTMONMIB.Rttmonechopathadmintable), "rttMonGrpScheduleAdminTable" : ("rttmongrpscheduleadmintable", CISCORTTMONMIB.Rttmongrpscheduleadmintable), "rttMplsVpnMonCtrlTable" : ("rttmplsvpnmonctrltable", CISCORTTMONMIB.Rttmplsvpnmonctrltable), "rttMonReactTable" : ("rttmonreacttable", CISCORTTMONMIB.Rttmonreacttable), "rttMonGeneratedOperTable" : ("rttmongeneratedopertable", CISCORTTMONMIB.Rttmongeneratedopertable), "rttMonStatsCaptureTable" : ("rttmonstatscapturetable", CISCORTTMONMIB.Rttmonstatscapturetable), "rttMonStatsCollectTable" : ("rttmonstatscollecttable", CISCORTTMONMIB.Rttmonstatscollecttable), "rttMonStatsTotalsTable" : ("rttmonstatstotalstable", CISCORTTMONMIB.Rttmonstatstotalstable), "rttMonHTTPStatsTable" : ("rttmonhttpstatstable", CISCORTTMONMIB.Rttmonhttpstatstable), "rttMonJitterStatsTable" : ("rttmonjitterstatstable", CISCORTTMONMIB.Rttmonjitterstatstable), "rttMonLpdGrpStatsTable" : ("rttmonlpdgrpstatstable", CISCORTTMONMIB.Rttmonlpdgrpstatstable), "rttMonHistoryCollectionTable" : ("rttmonhistorycollectiontable", CISCORTTMONMIB.Rttmonhistorycollectiontable), "rttMonLatestHTTPOperTable" : ("rttmonlatesthttpopertable", CISCORTTMONMIB.Rttmonlatesthttpopertable), "rttMonLatestJitterOperTable" : ("rttmonlatestjitteropertable", CISCORTTMONMIB.Rttmonlatestjitteropertable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("rttMonAppl", ("rttmonappl", CISCORTTMONMIB.Rttmonappl)), ("rttMonApplSupportedRttTypesTable", ("rttmonapplsupportedrtttypestable", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable)), ("rttMonApplSupportedProtocolsTable", ("rttmonapplsupportedprotocolstable", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable)), ("rttMonApplPreConfigedTable", ("rttmonapplpreconfigedtable", CISCORTTMONMIB.Rttmonapplpreconfigedtable)), ("rttMonApplAuthTable", ("rttmonapplauthtable", CISCORTTMONMIB.Rttmonapplauthtable)), ("rttMonCtrlAdminTable", ("rttmonctrladmintable", CISCORTTMONMIB.Rttmonctrladmintable)), ("rttMonEchoAdminTable", ("rttmonechoadmintable", CISCORTTMONMIB.Rttmonechoadmintable)), ("rttMonFileIOAdminTable", ("rttmonfileioadmintable", CISCORTTMONMIB.Rttmonfileioadmintable)), ("rttMonScriptAdminTable", ("rttmonscriptadmintable", CISCORTTMONMIB.Rttmonscriptadmintable)), ("rttMonReactTriggerAdminTable", ("rttmonreacttriggeradmintable", CISCORTTMONMIB.Rttmonreacttriggeradmintable)), ("rttMonEchoPathAdminTable", ("rttmonechopathadmintable", CISCORTTMONMIB.Rttmonechopathadmintable)), ("rttMonGrpScheduleAdminTable", ("rttmongrpscheduleadmintable", CISCORTTMONMIB.Rttmongrpscheduleadmintable)), ("rttMplsVpnMonCtrlTable", ("rttmplsvpnmonctrltable", CISCORTTMONMIB.Rttmplsvpnmonctrltable)), ("rttMonReactTable", ("rttmonreacttable", CISCORTTMONMIB.Rttmonreacttable)), ("rttMonGeneratedOperTable", ("rttmongeneratedopertable", CISCORTTMONMIB.Rttmongeneratedopertable)), ("rttMonStatsCaptureTable", ("rttmonstatscapturetable", CISCORTTMONMIB.Rttmonstatscapturetable)), ("rttMonStatsCollectTable", ("rttmonstatscollecttable", CISCORTTMONMIB.Rttmonstatscollecttable)), ("rttMonStatsTotalsTable", ("rttmonstatstotalstable", CISCORTTMONMIB.Rttmonstatstotalstable)), ("rttMonHTTPStatsTable", ("rttmonhttpstatstable", CISCORTTMONMIB.Rttmonhttpstatstable)), ("rttMonJitterStatsTable", ("rttmonjitterstatstable", CISCORTTMONMIB.Rttmonjitterstatstable)), ("rttMonLpdGrpStatsTable", ("rttmonlpdgrpstatstable", CISCORTTMONMIB.Rttmonlpdgrpstatstable)), ("rttMonHistoryCollectionTable", ("rttmonhistorycollectiontable", CISCORTTMONMIB.Rttmonhistorycollectiontable)), ("rttMonLatestHTTPOperTable", ("rttmonlatesthttpopertable", CISCORTTMONMIB.Rttmonlatesthttpopertable)), ("rttMonLatestJitterOperTable", ("rttmonlatestjitteropertable", CISCORTTMONMIB.Rttmonlatestjitteropertable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.rttmonappl = CISCORTTMONMIB.Rttmonappl()
         self.rttmonappl.parent = self
@@ -515,30 +519,33 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.rttmonapplversion = YLeaf(YType.str, "rttMonApplVersion")
-
-            self.rttmonapplmaxpacketdatasize = YLeaf(YType.int32, "rttMonApplMaxPacketDataSize")
-
-            self.rttmonappltimeoflastset = YLeaf(YType.uint32, "rttMonApplTimeOfLastSet")
-
-            self.rttmonapplnumctrladminentry = YLeaf(YType.int32, "rttMonApplNumCtrlAdminEntry")
-
-            self.rttmonapplreset = YLeaf(YType.enumeration, "rttMonApplReset")
-
-            self.rttmonapplpreconfigedreset = YLeaf(YType.enumeration, "rttMonApplPreConfigedReset")
-
-            self.rttmonapplprobecapacity = YLeaf(YType.int32, "rttMonApplProbeCapacity")
-
-            self.rttmonapplfreememlowwatermark = YLeaf(YType.int32, "rttMonApplFreeMemLowWaterMark")
-
-            self.rttmonappllatestseterror = YLeaf(YType.str, "rttMonApplLatestSetError")
-
-            self.rttmonapplresponder = YLeaf(YType.boolean, "rttMonApplResponder")
-
-            self.rttmonappllpdgrpstatsreset = YLeaf(YType.int32, "rttMonApplLpdGrpStatsReset")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('rttmonapplversion', YLeaf(YType.str, 'rttMonApplVersion')),
+                ('rttmonapplmaxpacketdatasize', YLeaf(YType.int32, 'rttMonApplMaxPacketDataSize')),
+                ('rttmonappltimeoflastset', YLeaf(YType.uint32, 'rttMonApplTimeOfLastSet')),
+                ('rttmonapplnumctrladminentry', YLeaf(YType.int32, 'rttMonApplNumCtrlAdminEntry')),
+                ('rttmonapplreset', YLeaf(YType.enumeration, 'rttMonApplReset')),
+                ('rttmonapplpreconfigedreset', YLeaf(YType.enumeration, 'rttMonApplPreConfigedReset')),
+                ('rttmonapplprobecapacity', YLeaf(YType.int32, 'rttMonApplProbeCapacity')),
+                ('rttmonapplfreememlowwatermark', YLeaf(YType.int32, 'rttMonApplFreeMemLowWaterMark')),
+                ('rttmonappllatestseterror', YLeaf(YType.str, 'rttMonApplLatestSetError')),
+                ('rttmonapplresponder', YLeaf(YType.boolean, 'rttMonApplResponder')),
+                ('rttmonappllpdgrpstatsreset', YLeaf(YType.int32, 'rttMonApplLpdGrpStatsReset')),
+            ])
+            self.rttmonapplversion = None
+            self.rttmonapplmaxpacketdatasize = None
+            self.rttmonappltimeoflastset = None
+            self.rttmonapplnumctrladminentry = None
+            self.rttmonapplreset = None
+            self.rttmonapplpreconfigedreset = None
+            self.rttmonapplprobecapacity = None
+            self.rttmonapplfreememlowwatermark = None
+            self.rttmonappllatestseterror = None
+            self.rttmonapplresponder = None
+            self.rttmonappllpdgrpstatsreset = None
             self._segment_path = lambda: "rttMonAppl"
             self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/%s" % self._segment_path()
 
@@ -573,8 +580,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonApplSupportedRttTypesEntry" : ("rttmonapplsupportedrtttypesentry", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonApplSupportedRttTypesEntry", ("rttmonapplsupportedrtttypesentry", CISCORTTMONMIB.Rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonapplsupportedrtttypesentry = YList(self)
             self._segment_path = lambda: "rttMonApplSupportedRttTypesTable"
@@ -589,7 +598,7 @@ class CISCORTTMONMIB(Entity):
             A list that presents the valid Rtt Monitor
             Types.
             
-            .. attribute:: rttmonapplsupportedrtttypes  <key>
+            .. attribute:: rttmonapplsupportedrtttypes  (key)
             
             	This object indexes the supported 'RttMonRttType' types
             	**type**\:  :py:class:`RttMonRttType <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonRttType>`
@@ -613,13 +622,16 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonApplSupportedRttTypesTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonapplsupportedrtttypes = YLeaf(YType.enumeration, "rttMonApplSupportedRttTypes")
-
-                self.rttmonapplsupportedrtttypesvalid = YLeaf(YType.boolean, "rttMonApplSupportedRttTypesValid")
-                self._segment_path = lambda: "rttMonApplSupportedRttTypesEntry" + "[rttMonApplSupportedRttTypes='" + self.rttmonapplsupportedrtttypes.get() + "']"
+                self.ylist_key_names = ['rttmonapplsupportedrtttypes']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonapplsupportedrtttypes', YLeaf(YType.enumeration, 'rttMonApplSupportedRttTypes')),
+                    ('rttmonapplsupportedrtttypesvalid', YLeaf(YType.boolean, 'rttMonApplSupportedRttTypesValid')),
+                ])
+                self.rttmonapplsupportedrtttypes = None
+                self.rttmonapplsupportedrtttypesvalid = None
+                self._segment_path = lambda: "rttMonApplSupportedRttTypesEntry" + "[rttMonApplSupportedRttTypes='" + str(self.rttmonapplsupportedrtttypes) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedRttTypesTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -653,8 +665,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonApplSupportedProtocolsEntry" : ("rttmonapplsupportedprotocolsentry", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonApplSupportedProtocolsEntry", ("rttmonapplsupportedprotocolsentry", CISCORTTMONMIB.Rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonapplsupportedprotocolsentry = YList(self)
             self._segment_path = lambda: "rttMonApplSupportedProtocolsTable"
@@ -669,7 +683,7 @@ class CISCORTTMONMIB(Entity):
             A list that presents the valid Rtt Monitor
             Protocols.
             
-            .. attribute:: rttmonapplsupportedprotocols  <key>
+            .. attribute:: rttmonapplsupportedprotocols  (key)
             
             	This object indexes the supported 'RttMonProtocol' protocols
             	**type**\:  :py:class:`RttMonProtocol <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonProtocol>`
@@ -693,13 +707,16 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonApplSupportedProtocolsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonapplsupportedprotocols = YLeaf(YType.enumeration, "rttMonApplSupportedProtocols")
-
-                self.rttmonapplsupportedprotocolsvalid = YLeaf(YType.boolean, "rttMonApplSupportedProtocolsValid")
-                self._segment_path = lambda: "rttMonApplSupportedProtocolsEntry" + "[rttMonApplSupportedProtocols='" + self.rttmonapplsupportedprotocols.get() + "']"
+                self.ylist_key_names = ['rttmonapplsupportedprotocols']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonapplsupportedprotocols', YLeaf(YType.enumeration, 'rttMonApplSupportedProtocols')),
+                    ('rttmonapplsupportedprotocolsvalid', YLeaf(YType.boolean, 'rttMonApplSupportedProtocolsValid')),
+                ])
+                self.rttmonapplsupportedprotocols = None
+                self.rttmonapplsupportedprotocolsvalid = None
+                self._segment_path = lambda: "rttMonApplSupportedProtocolsEntry" + "[rttMonApplSupportedProtocols='" + str(self.rttmonapplsupportedprotocols) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedProtocolsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -736,8 +753,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonApplPreConfigedEntry" : ("rttmonapplpreconfigedentry", CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonApplPreConfigedEntry", ("rttmonapplpreconfigedentry", CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonapplpreconfigedentry = YList(self)
             self._segment_path = lambda: "rttMonApplPreConfigedTable"
@@ -752,14 +771,14 @@ class CISCORTTMONMIB(Entity):
             A list of objects that describe the previously
             configured Script Names and File IO targets.
             
-            .. attribute:: rttmonapplpreconfigedtype  <key>
+            .. attribute:: rttmonapplpreconfigedtype  (key)
             
             	This is the type of value being stored in the rttMonApplPreConfigedName object
             	**type**\:  :py:class:`Rttmonapplpreconfigedtype <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype>`
             
             	**status**\: obsolete
             
-            .. attribute:: rttmonapplpreconfigedname  <key>
+            .. attribute:: rttmonapplpreconfigedname  (key)
             
             	This is either one of the following depending on the value of the rttMonApplPreConfigedType object\:   \- The file path to a server.  One of these file paths     must be used when defining an entry in the     rttMonFileIOAdminTable table with 'fileIO' as the     value of the rttMonCtrlAdminRttType object.   \- The script name to be used when generating RTT     operations.  One of these script names must be used     when defining an entry in the rttMonScriptAdminTable     table with 'script' as the value of the     rttMonCtrlAdminRttType object.  NOTE\:  For script names, command line parameters         can follow these names in the         rttMonScriptAdminTable table
             	**type**\: str
@@ -787,15 +806,18 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonApplPreConfigedTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonapplpreconfigedtype = YLeaf(YType.enumeration, "rttMonApplPreConfigedType")
-
-                self.rttmonapplpreconfigedname = YLeaf(YType.str, "rttMonApplPreConfigedName")
-
-                self.rttmonapplpreconfigedvalid = YLeaf(YType.boolean, "rttMonApplPreConfigedValid")
-                self._segment_path = lambda: "rttMonApplPreConfigedEntry" + "[rttMonApplPreConfigedType='" + self.rttmonapplpreconfigedtype.get() + "']" + "[rttMonApplPreConfigedName='" + self.rttmonapplpreconfigedname.get() + "']"
+                self.ylist_key_names = ['rttmonapplpreconfigedtype','rttmonapplpreconfigedname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonapplpreconfigedtype', YLeaf(YType.enumeration, 'rttMonApplPreConfigedType')),
+                    ('rttmonapplpreconfigedname', YLeaf(YType.str, 'rttMonApplPreConfigedName')),
+                    ('rttmonapplpreconfigedvalid', YLeaf(YType.boolean, 'rttMonApplPreConfigedValid')),
+                ])
+                self.rttmonapplpreconfigedtype = None
+                self.rttmonapplpreconfigedname = None
+                self.rttmonapplpreconfigedvalid = None
+                self._segment_path = lambda: "rttMonApplPreConfigedEntry" + "[rttMonApplPreConfigedType='" + str(self.rttmonapplpreconfigedtype) + "']" + "[rttMonApplPreConfigedName='" + str(self.rttmonapplpreconfigedname) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplPreConfigedTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -803,7 +825,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonapplpreconfigedtype(Enum):
                 """
-                Rttmonapplpreconfigedtype
+                Rttmonapplpreconfigedtype (Enum Class)
 
                 This is the type of value being stored in the
 
@@ -845,8 +867,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonApplAuthEntry" : ("rttmonapplauthentry", CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonApplAuthEntry", ("rttmonapplauthentry", CISCORTTMONMIB.Rttmonapplauthtable.Rttmonapplauthentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonapplauthentry = YList(self)
             self._segment_path = lambda: "rttMonApplAuthTable"
@@ -861,7 +885,7 @@ class CISCORTTMONMIB(Entity):
             A list that presents the valid parameters for Authenticating
             RTR Control Protocol.
             
-            .. attribute:: rttmonapplauthindex  <key>
+            .. attribute:: rttmonapplauthindex  (key)
             
             	Uniquely identifies a row in the rttMonApplAuthTable. This is a pseudo\-random number selected by the management station when creating a row via the rttMonApplAuthStatus  object. If the pseudo\-random number is already in use, an  'inconsistentValue' is returned. Currently, only one row  can be created
             	**type**\: int
@@ -929,25 +953,28 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonApplAuthTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonapplauthindex = YLeaf(YType.int32, "rttMonApplAuthIndex")
-
-                self.rttmonapplauthkeychain = YLeaf(YType.str, "rttMonApplAuthKeyChain")
-
-                self.rttmonapplauthkeystring1 = YLeaf(YType.str, "rttMonApplAuthKeyString1")
-
-                self.rttmonapplauthkeystring2 = YLeaf(YType.str, "rttMonApplAuthKeyString2")
-
-                self.rttmonapplauthkeystring3 = YLeaf(YType.str, "rttMonApplAuthKeyString3")
-
-                self.rttmonapplauthkeystring4 = YLeaf(YType.str, "rttMonApplAuthKeyString4")
-
-                self.rttmonapplauthkeystring5 = YLeaf(YType.str, "rttMonApplAuthKeyString5")
-
-                self.rttmonapplauthstatus = YLeaf(YType.enumeration, "rttMonApplAuthStatus")
-                self._segment_path = lambda: "rttMonApplAuthEntry" + "[rttMonApplAuthIndex='" + self.rttmonapplauthindex.get() + "']"
+                self.ylist_key_names = ['rttmonapplauthindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonapplauthindex', YLeaf(YType.int32, 'rttMonApplAuthIndex')),
+                    ('rttmonapplauthkeychain', YLeaf(YType.str, 'rttMonApplAuthKeyChain')),
+                    ('rttmonapplauthkeystring1', YLeaf(YType.str, 'rttMonApplAuthKeyString1')),
+                    ('rttmonapplauthkeystring2', YLeaf(YType.str, 'rttMonApplAuthKeyString2')),
+                    ('rttmonapplauthkeystring3', YLeaf(YType.str, 'rttMonApplAuthKeyString3')),
+                    ('rttmonapplauthkeystring4', YLeaf(YType.str, 'rttMonApplAuthKeyString4')),
+                    ('rttmonapplauthkeystring5', YLeaf(YType.str, 'rttMonApplAuthKeyString5')),
+                    ('rttmonapplauthstatus', YLeaf(YType.enumeration, 'rttMonApplAuthStatus')),
+                ])
+                self.rttmonapplauthindex = None
+                self.rttmonapplauthkeychain = None
+                self.rttmonapplauthkeystring1 = None
+                self.rttmonapplauthkeystring2 = None
+                self.rttmonapplauthkeystring3 = None
+                self.rttmonapplauthkeystring4 = None
+                self.rttmonapplauthkeystring5 = None
+                self.rttmonapplauthstatus = None
+                self._segment_path = lambda: "rttMonApplAuthEntry" + "[rttMonApplAuthIndex='" + str(self.rttmonapplauthindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplAuthTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -989,8 +1016,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonCtrlAdminEntry" : ("rttmonctrladminentry", CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonCtrlAdminEntry", ("rttmonctrladminentry", CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonctrladminentry = YList(self)
             self._segment_path = lambda: "rttMonCtrlAdminTable"
@@ -1005,7 +1034,7 @@ class CISCORTTMONMIB(Entity):
             A base list of objects that define a conceptual RTT
             control row.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	Uniquely identifies a row in the rttMonCtrlAdminTable. This is a pseudo\-random number, selected by the management  station or auto\-generated based on  operation started by the  management station,when creating a row via  the rttMonCtrlAdminStatus object.  If the pseudo\-random   number is already in use an 'inconsistentValue' return code   will be returned when set operation is attempted
             	**type**\: int
@@ -1369,109 +1398,112 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonCtrlAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.int32, "rttMonCtrlAdminIndex")
-
-                self.rttmonctrladminowner = YLeaf(YType.str, "rttMonCtrlAdminOwner")
-
-                self.rttmonctrladmintag = YLeaf(YType.str, "rttMonCtrlAdminTag")
-
-                self.rttmonctrladminrtttype = YLeaf(YType.enumeration, "rttMonCtrlAdminRttType")
-
-                self.rttmonctrladminthreshold = YLeaf(YType.int32, "rttMonCtrlAdminThreshold")
-
-                self.rttmonctrladminfrequency = YLeaf(YType.int32, "rttMonCtrlAdminFrequency")
-
-                self.rttmonctrladmintimeout = YLeaf(YType.int32, "rttMonCtrlAdminTimeout")
-
-                self.rttmonctrladminverifydata = YLeaf(YType.boolean, "rttMonCtrlAdminVerifyData")
-
-                self.rttmonctrladminstatus = YLeaf(YType.enumeration, "rttMonCtrlAdminStatus")
-
-                self.rttmonctrladminnvgen = YLeaf(YType.boolean, "rttMonCtrlAdminNvgen")
-
-                self.rttmonctrladmingroupname = YLeaf(YType.str, "rttMonCtrlAdminGroupName")
-
-                self.rttmonscheduleadminrttlife = YLeaf(YType.int32, "rttMonScheduleAdminRttLife")
-
-                self.rttmonscheduleadminrttstarttime = YLeaf(YType.uint32, "rttMonScheduleAdminRttStartTime")
-
-                self.rttmonscheduleadminconceptrowageout = YLeaf(YType.int32, "rttMonScheduleAdminConceptRowAgeout")
-
-                self.rttmonscheduleadminrttrecurring = YLeaf(YType.boolean, "rttMonScheduleAdminRttRecurring")
-
-                self.rttmonscheduleadminconceptrowageoutv2 = YLeaf(YType.int32, "rttMonScheduleAdminConceptRowAgeoutV2")
-
-                self.rttmonreactadminconnectionenable = YLeaf(YType.boolean, "rttMonReactAdminConnectionEnable")
-
-                self.rttmonreactadmintimeoutenable = YLeaf(YType.boolean, "rttMonReactAdminTimeoutEnable")
-
-                self.rttmonreactadminthresholdtype = YLeaf(YType.enumeration, "rttMonReactAdminThresholdType")
-
-                self.rttmonreactadminthresholdfalling = YLeaf(YType.int32, "rttMonReactAdminThresholdFalling")
-
-                self.rttmonreactadminthresholdcount = YLeaf(YType.int32, "rttMonReactAdminThresholdCount")
-
-                self.rttmonreactadminthresholdcount2 = YLeaf(YType.int32, "rttMonReactAdminThresholdCount2")
-
-                self.rttmonreactadminactiontype = YLeaf(YType.enumeration, "rttMonReactAdminActionType")
-
-                self.rttmonreactadminverifyerrorenable = YLeaf(YType.boolean, "rttMonReactAdminVerifyErrorEnable")
-
-                self.rttmonstatisticsadminnumhourgroups = YLeaf(YType.int32, "rttMonStatisticsAdminNumHourGroups")
-
-                self.rttmonstatisticsadminnumpaths = YLeaf(YType.int32, "rttMonStatisticsAdminNumPaths")
-
-                self.rttmonstatisticsadminnumhops = YLeaf(YType.int32, "rttMonStatisticsAdminNumHops")
-
-                self.rttmonstatisticsadminnumdistbuckets = YLeaf(YType.int32, "rttMonStatisticsAdminNumDistBuckets")
-
-                self.rttmonstatisticsadmindistinterval = YLeaf(YType.int32, "rttMonStatisticsAdminDistInterval")
-
-                self.rttmonhistoryadminnumlives = YLeaf(YType.int32, "rttMonHistoryAdminNumLives")
-
-                self.rttmonhistoryadminnumbuckets = YLeaf(YType.int32, "rttMonHistoryAdminNumBuckets")
-
-                self.rttmonhistoryadminnumsamples = YLeaf(YType.int32, "rttMonHistoryAdminNumSamples")
-
-                self.rttmonhistoryadminfilter = YLeaf(YType.enumeration, "rttMonHistoryAdminFilter")
-
-                self.rttmonctrlopermodificationtime = YLeaf(YType.uint32, "rttMonCtrlOperModificationTime")
-
-                self.rttmonctrloperdiagtext = YLeaf(YType.str, "rttMonCtrlOperDiagText")
-
-                self.rttmonctrloperresettime = YLeaf(YType.uint32, "rttMonCtrlOperResetTime")
-
-                self.rttmonctrloperoctetsinuse = YLeaf(YType.uint32, "rttMonCtrlOperOctetsInUse")
-
-                self.rttmonctrloperconnectionlostoccurred = YLeaf(YType.boolean, "rttMonCtrlOperConnectionLostOccurred")
-
-                self.rttmonctrlopertimeoutoccurred = YLeaf(YType.boolean, "rttMonCtrlOperTimeoutOccurred")
-
-                self.rttmonctrloperoverthresholdoccurred = YLeaf(YType.boolean, "rttMonCtrlOperOverThresholdOccurred")
-
-                self.rttmonctrlopernumrtts = YLeaf(YType.int32, "rttMonCtrlOperNumRtts")
-
-                self.rttmonctrloperrttlife = YLeaf(YType.int32, "rttMonCtrlOperRttLife")
-
-                self.rttmonctrloperstate = YLeaf(YType.enumeration, "rttMonCtrlOperState")
-
-                self.rttmonctrloperverifyerroroccurred = YLeaf(YType.boolean, "rttMonCtrlOperVerifyErrorOccurred")
-
-                self.rttmonlatestrttopercompletiontime = YLeaf(YType.uint32, "rttMonLatestRttOperCompletionTime")
-
-                self.rttmonlatestrttopersense = YLeaf(YType.enumeration, "rttMonLatestRttOperSense")
-
-                self.rttmonlatestrttoperapplspecificsense = YLeaf(YType.int32, "rttMonLatestRttOperApplSpecificSense")
-
-                self.rttmonlatestrttopersensedescription = YLeaf(YType.str, "rttMonLatestRttOperSenseDescription")
-
-                self.rttmonlatestrttopertime = YLeaf(YType.uint32, "rttMonLatestRttOperTime")
-
-                self.rttmonlatestrttoperaddress = YLeaf(YType.str, "rttMonLatestRttOperAddress")
-                self._segment_path = lambda: "rttMonCtrlAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.int32, 'rttMonCtrlAdminIndex')),
+                    ('rttmonctrladminowner', YLeaf(YType.str, 'rttMonCtrlAdminOwner')),
+                    ('rttmonctrladmintag', YLeaf(YType.str, 'rttMonCtrlAdminTag')),
+                    ('rttmonctrladminrtttype', YLeaf(YType.enumeration, 'rttMonCtrlAdminRttType')),
+                    ('rttmonctrladminthreshold', YLeaf(YType.int32, 'rttMonCtrlAdminThreshold')),
+                    ('rttmonctrladminfrequency', YLeaf(YType.int32, 'rttMonCtrlAdminFrequency')),
+                    ('rttmonctrladmintimeout', YLeaf(YType.int32, 'rttMonCtrlAdminTimeout')),
+                    ('rttmonctrladminverifydata', YLeaf(YType.boolean, 'rttMonCtrlAdminVerifyData')),
+                    ('rttmonctrladminstatus', YLeaf(YType.enumeration, 'rttMonCtrlAdminStatus')),
+                    ('rttmonctrladminnvgen', YLeaf(YType.boolean, 'rttMonCtrlAdminNvgen')),
+                    ('rttmonctrladmingroupname', YLeaf(YType.str, 'rttMonCtrlAdminGroupName')),
+                    ('rttmonscheduleadminrttlife', YLeaf(YType.int32, 'rttMonScheduleAdminRttLife')),
+                    ('rttmonscheduleadminrttstarttime', YLeaf(YType.uint32, 'rttMonScheduleAdminRttStartTime')),
+                    ('rttmonscheduleadminconceptrowageout', YLeaf(YType.int32, 'rttMonScheduleAdminConceptRowAgeout')),
+                    ('rttmonscheduleadminrttrecurring', YLeaf(YType.boolean, 'rttMonScheduleAdminRttRecurring')),
+                    ('rttmonscheduleadminconceptrowageoutv2', YLeaf(YType.int32, 'rttMonScheduleAdminConceptRowAgeoutV2')),
+                    ('rttmonreactadminconnectionenable', YLeaf(YType.boolean, 'rttMonReactAdminConnectionEnable')),
+                    ('rttmonreactadmintimeoutenable', YLeaf(YType.boolean, 'rttMonReactAdminTimeoutEnable')),
+                    ('rttmonreactadminthresholdtype', YLeaf(YType.enumeration, 'rttMonReactAdminThresholdType')),
+                    ('rttmonreactadminthresholdfalling', YLeaf(YType.int32, 'rttMonReactAdminThresholdFalling')),
+                    ('rttmonreactadminthresholdcount', YLeaf(YType.int32, 'rttMonReactAdminThresholdCount')),
+                    ('rttmonreactadminthresholdcount2', YLeaf(YType.int32, 'rttMonReactAdminThresholdCount2')),
+                    ('rttmonreactadminactiontype', YLeaf(YType.enumeration, 'rttMonReactAdminActionType')),
+                    ('rttmonreactadminverifyerrorenable', YLeaf(YType.boolean, 'rttMonReactAdminVerifyErrorEnable')),
+                    ('rttmonstatisticsadminnumhourgroups', YLeaf(YType.int32, 'rttMonStatisticsAdminNumHourGroups')),
+                    ('rttmonstatisticsadminnumpaths', YLeaf(YType.int32, 'rttMonStatisticsAdminNumPaths')),
+                    ('rttmonstatisticsadminnumhops', YLeaf(YType.int32, 'rttMonStatisticsAdminNumHops')),
+                    ('rttmonstatisticsadminnumdistbuckets', YLeaf(YType.int32, 'rttMonStatisticsAdminNumDistBuckets')),
+                    ('rttmonstatisticsadmindistinterval', YLeaf(YType.int32, 'rttMonStatisticsAdminDistInterval')),
+                    ('rttmonhistoryadminnumlives', YLeaf(YType.int32, 'rttMonHistoryAdminNumLives')),
+                    ('rttmonhistoryadminnumbuckets', YLeaf(YType.int32, 'rttMonHistoryAdminNumBuckets')),
+                    ('rttmonhistoryadminnumsamples', YLeaf(YType.int32, 'rttMonHistoryAdminNumSamples')),
+                    ('rttmonhistoryadminfilter', YLeaf(YType.enumeration, 'rttMonHistoryAdminFilter')),
+                    ('rttmonctrlopermodificationtime', YLeaf(YType.uint32, 'rttMonCtrlOperModificationTime')),
+                    ('rttmonctrloperdiagtext', YLeaf(YType.str, 'rttMonCtrlOperDiagText')),
+                    ('rttmonctrloperresettime', YLeaf(YType.uint32, 'rttMonCtrlOperResetTime')),
+                    ('rttmonctrloperoctetsinuse', YLeaf(YType.uint32, 'rttMonCtrlOperOctetsInUse')),
+                    ('rttmonctrloperconnectionlostoccurred', YLeaf(YType.boolean, 'rttMonCtrlOperConnectionLostOccurred')),
+                    ('rttmonctrlopertimeoutoccurred', YLeaf(YType.boolean, 'rttMonCtrlOperTimeoutOccurred')),
+                    ('rttmonctrloperoverthresholdoccurred', YLeaf(YType.boolean, 'rttMonCtrlOperOverThresholdOccurred')),
+                    ('rttmonctrlopernumrtts', YLeaf(YType.int32, 'rttMonCtrlOperNumRtts')),
+                    ('rttmonctrloperrttlife', YLeaf(YType.int32, 'rttMonCtrlOperRttLife')),
+                    ('rttmonctrloperstate', YLeaf(YType.enumeration, 'rttMonCtrlOperState')),
+                    ('rttmonctrloperverifyerroroccurred', YLeaf(YType.boolean, 'rttMonCtrlOperVerifyErrorOccurred')),
+                    ('rttmonlatestrttopercompletiontime', YLeaf(YType.uint32, 'rttMonLatestRttOperCompletionTime')),
+                    ('rttmonlatestrttopersense', YLeaf(YType.enumeration, 'rttMonLatestRttOperSense')),
+                    ('rttmonlatestrttoperapplspecificsense', YLeaf(YType.int32, 'rttMonLatestRttOperApplSpecificSense')),
+                    ('rttmonlatestrttopersensedescription', YLeaf(YType.str, 'rttMonLatestRttOperSenseDescription')),
+                    ('rttmonlatestrttopertime', YLeaf(YType.uint32, 'rttMonLatestRttOperTime')),
+                    ('rttmonlatestrttoperaddress', YLeaf(YType.str, 'rttMonLatestRttOperAddress')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonctrladminowner = None
+                self.rttmonctrladmintag = None
+                self.rttmonctrladminrtttype = None
+                self.rttmonctrladminthreshold = None
+                self.rttmonctrladminfrequency = None
+                self.rttmonctrladmintimeout = None
+                self.rttmonctrladminverifydata = None
+                self.rttmonctrladminstatus = None
+                self.rttmonctrladminnvgen = None
+                self.rttmonctrladmingroupname = None
+                self.rttmonscheduleadminrttlife = None
+                self.rttmonscheduleadminrttstarttime = None
+                self.rttmonscheduleadminconceptrowageout = None
+                self.rttmonscheduleadminrttrecurring = None
+                self.rttmonscheduleadminconceptrowageoutv2 = None
+                self.rttmonreactadminconnectionenable = None
+                self.rttmonreactadmintimeoutenable = None
+                self.rttmonreactadminthresholdtype = None
+                self.rttmonreactadminthresholdfalling = None
+                self.rttmonreactadminthresholdcount = None
+                self.rttmonreactadminthresholdcount2 = None
+                self.rttmonreactadminactiontype = None
+                self.rttmonreactadminverifyerrorenable = None
+                self.rttmonstatisticsadminnumhourgroups = None
+                self.rttmonstatisticsadminnumpaths = None
+                self.rttmonstatisticsadminnumhops = None
+                self.rttmonstatisticsadminnumdistbuckets = None
+                self.rttmonstatisticsadmindistinterval = None
+                self.rttmonhistoryadminnumlives = None
+                self.rttmonhistoryadminnumbuckets = None
+                self.rttmonhistoryadminnumsamples = None
+                self.rttmonhistoryadminfilter = None
+                self.rttmonctrlopermodificationtime = None
+                self.rttmonctrloperdiagtext = None
+                self.rttmonctrloperresettime = None
+                self.rttmonctrloperoctetsinuse = None
+                self.rttmonctrloperconnectionlostoccurred = None
+                self.rttmonctrlopertimeoutoccurred = None
+                self.rttmonctrloperoverthresholdoccurred = None
+                self.rttmonctrlopernumrtts = None
+                self.rttmonctrloperrttlife = None
+                self.rttmonctrloperstate = None
+                self.rttmonctrloperverifyerroroccurred = None
+                self.rttmonlatestrttopercompletiontime = None
+                self.rttmonlatestrttopersense = None
+                self.rttmonlatestrttoperapplspecificsense = None
+                self.rttmonlatestrttopersensedescription = None
+                self.rttmonlatestrttopertime = None
+                self.rttmonlatestrttoperaddress = None
+                self._segment_path = lambda: "rttMonCtrlAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonCtrlAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1479,7 +1511,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonctrloperstate(Enum):
                 """
-                Rttmonctrloperstate
+                Rttmonctrloperstate (Enum Class)
 
                 The RttMonOperStatus object is used to
 
@@ -1854,7 +1886,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonhistoryadminfilter(Enum):
                 """
-                Rttmonhistoryadminfilter
+                Rttmonhistoryadminfilter (Enum Class)
 
                 Defines a filter for adding RTT results to the history
 
@@ -1897,7 +1929,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonreactadminactiontype(Enum):
                 """
-                Rttmonreactadminactiontype
+                Rttmonreactadminactiontype (Enum Class)
 
                 Specifies what type(s), if any, of reaction(s) to
 
@@ -1976,7 +2008,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonreactadminthresholdtype(Enum):
                 """
-                Rttmonreactadminthresholdtype
+                Rttmonreactadminthresholdtype (Enum Class)
 
                 This object specifies the conditions under which
 
@@ -2144,8 +2176,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonEchoAdminEntry" : ("rttmonechoadminentry", CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonEchoAdminEntry", ("rttmonechoadminentry", CISCORTTMONMIB.Rttmonechoadmintable.Rttmonechoadminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonechoadminentry = YList(self)
             self._segment_path = lambda: "rttMonEchoAdminTable"
@@ -2160,7 +2194,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that define specific configuration for
             RttMonRttType conceptual Rtt control rows.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -2655,163 +2689,166 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonEchoAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonechoadminprotocol = YLeaf(YType.enumeration, "rttMonEchoAdminProtocol")
-
-                self.rttmonechoadmintargetaddress = YLeaf(YType.str, "rttMonEchoAdminTargetAddress")
-
-                self.rttmonechoadminpktdatarequestsize = YLeaf(YType.int32, "rttMonEchoAdminPktDataRequestSize")
-
-                self.rttmonechoadminpktdataresponsesize = YLeaf(YType.int32, "rttMonEchoAdminPktDataResponseSize")
-
-                self.rttmonechoadmintargetport = YLeaf(YType.int32, "rttMonEchoAdminTargetPort")
-
-                self.rttmonechoadminsourceaddress = YLeaf(YType.str, "rttMonEchoAdminSourceAddress")
-
-                self.rttmonechoadminsourceport = YLeaf(YType.int32, "rttMonEchoAdminSourcePort")
-
-                self.rttmonechoadmincontrolenable = YLeaf(YType.boolean, "rttMonEchoAdminControlEnable")
-
-                self.rttmonechoadmintos = YLeaf(YType.int32, "rttMonEchoAdminTOS")
-
-                self.rttmonechoadminlsrenable = YLeaf(YType.boolean, "rttMonEchoAdminLSREnable")
-
-                self.rttmonechoadmintargetaddressstring = YLeaf(YType.str, "rttMonEchoAdminTargetAddressString")
-
-                self.rttmonechoadminnameserver = YLeaf(YType.str, "rttMonEchoAdminNameServer")
-
-                self.rttmonechoadminoperation = YLeaf(YType.enumeration, "rttMonEchoAdminOperation")
-
-                self.rttmonechoadminhttpversion = YLeaf(YType.str, "rttMonEchoAdminHTTPVersion")
-
-                self.rttmonechoadminurl = YLeaf(YType.str, "rttMonEchoAdminURL")
-
-                self.rttmonechoadmincache = YLeaf(YType.boolean, "rttMonEchoAdminCache")
-
-                self.rttmonechoadmininterval = YLeaf(YType.int32, "rttMonEchoAdminInterval")
-
-                self.rttmonechoadminnumpackets = YLeaf(YType.int32, "rttMonEchoAdminNumPackets")
-
-                self.rttmonechoadminproxy = YLeaf(YType.str, "rttMonEchoAdminProxy")
-
-                self.rttmonechoadminstring1 = YLeaf(YType.str, "rttMonEchoAdminString1")
-
-                self.rttmonechoadminstring2 = YLeaf(YType.str, "rttMonEchoAdminString2")
-
-                self.rttmonechoadminstring3 = YLeaf(YType.str, "rttMonEchoAdminString3")
-
-                self.rttmonechoadminstring4 = YLeaf(YType.str, "rttMonEchoAdminString4")
-
-                self.rttmonechoadminstring5 = YLeaf(YType.str, "rttMonEchoAdminString5")
-
-                self.rttmonechoadminmode = YLeaf(YType.enumeration, "rttMonEchoAdminMode")
-
-                self.rttmonechoadminvrfname = YLeaf(YType.str, "rttMonEchoAdminVrfName")
-
-                self.rttmonechoadmincodectype = YLeaf(YType.enumeration, "rttMonEchoAdminCodecType")
-
-                self.rttmonechoadmincodecinterval = YLeaf(YType.int32, "rttMonEchoAdminCodecInterval")
-
-                self.rttmonechoadmincodecpayload = YLeaf(YType.int32, "rttMonEchoAdminCodecPayload")
-
-                self.rttmonechoadmincodecnumpackets = YLeaf(YType.int32, "rttMonEchoAdminCodecNumPackets")
-
-                self.rttmonechoadminicpifadvfactor = YLeaf(YType.int32, "rttMonEchoAdminICPIFAdvFactor")
-
-                self.rttmonechoadminlspfectype = YLeaf(YType.enumeration, "rttMonEchoAdminLSPFECType")
-
-                self.rttmonechoadminlspselector = YLeaf(YType.str, "rttMonEchoAdminLSPSelector")
-
-                self.rttmonechoadminlspreplymode = YLeaf(YType.enumeration, "rttMonEchoAdminLSPReplyMode")
-
-                self.rttmonechoadminlspttl = YLeaf(YType.int32, "rttMonEchoAdminLSPTTL")
-
-                self.rttmonechoadminlspexp = YLeaf(YType.int32, "rttMonEchoAdminLSPExp")
-
-                self.rttmonechoadminprecision = YLeaf(YType.enumeration, "rttMonEchoAdminPrecision")
-
-                self.rttmonechoadminprobepakpriority = YLeaf(YType.enumeration, "rttMonEchoAdminProbePakPriority")
-
-                self.rttmonechoadminowntpsynctolabs = YLeaf(YType.int32, "rttMonEchoAdminOWNTPSyncTolAbs")
-
-                self.rttmonechoadminowntpsynctolpct = YLeaf(YType.int32, "rttMonEchoAdminOWNTPSyncTolPct")
-
-                self.rttmonechoadminowntpsynctoltype = YLeaf(YType.enumeration, "rttMonEchoAdminOWNTPSyncTolType")
-
-                self.rttmonechoadmincallednumber = YLeaf(YType.str, "rttMonEchoAdminCalledNumber")
-
-                self.rttmonechoadmindetectpoint = YLeaf(YType.enumeration, "rttMonEchoAdminDetectPoint")
-
-                self.rttmonechoadmingkregistration = YLeaf(YType.boolean, "rttMonEchoAdminGKRegistration")
-
-                self.rttmonechoadminsourcevoiceport = YLeaf(YType.str, "rttMonEchoAdminSourceVoicePort")
-
-                self.rttmonechoadmincallduration = YLeaf(YType.int32, "rttMonEchoAdminCallDuration")
-
-                self.rttmonechoadminlspreplydscp = YLeaf(YType.int32, "rttMonEchoAdminLSPReplyDscp")
-
-                self.rttmonechoadminlspnullshim = YLeaf(YType.boolean, "rttMonEchoAdminLSPNullShim")
-
-                self.rttmonechoadmintargetmpid = YLeaf(YType.uint32, "rttMonEchoAdminTargetMPID")
-
-                self.rttmonechoadmintargetdomainname = YLeaf(YType.str, "rttMonEchoAdminTargetDomainName")
-
-                self.rttmonechoadmintargetvlan = YLeaf(YType.int32, "rttMonEchoAdminTargetVLAN")
-
-                self.rttmonechoadminethernetcos = YLeaf(YType.int32, "rttMonEchoAdminEthernetCOS")
-
-                self.rttmonechoadminlspvccvid = YLeaf(YType.int32, "rttMonEchoAdminLSPVccvID")
-
-                self.rttmonechoadmintargetevc = YLeaf(YType.str, "rttMonEchoAdminTargetEVC")
-
-                self.rttmonechoadmintargetmepport = YLeaf(YType.boolean, "rttMonEchoAdminTargetMEPPort")
-
-                self.rttmonechoadminvideotrafficprofile = YLeaf(YType.str, "rttMonEchoAdminVideoTrafficProfile")
-
-                self.rttmonechoadmindscp = YLeaf(YType.uint8, "rttMonEchoAdminDscp")
-
-                self.rttmonechoadminreservedsp = YLeaf(YType.enumeration, "rttMonEchoAdminReserveDsp")
-
-                self.rttmonechoadmininputinterface = YLeaf(YType.int32, "rttMonEchoAdminInputInterface")
-
-                self.rttmonechoadminemulatesourceaddress = YLeaf(YType.str, "rttMonEchoAdminEmulateSourceAddress")
-
-                self.rttmonechoadminemulatesourceport = YLeaf(YType.int32, "rttMonEchoAdminEmulateSourcePort")
-
-                self.rttmonechoadminemulatetargetaddress = YLeaf(YType.str, "rttMonEchoAdminEmulateTargetAddress")
-
-                self.rttmonechoadminemulatetargetport = YLeaf(YType.int32, "rttMonEchoAdminEmulateTargetPort")
-
-                self.rttmonechoadmintargetmacaddress = YLeaf(YType.str, "rttMonEchoAdminTargetMacAddress")
-
-                self.rttmonechoadminsourcemacaddress = YLeaf(YType.str, "rttMonEchoAdminSourceMacAddress")
-
-                self.rttmonechoadminsourcempid = YLeaf(YType.uint32, "rttMonEchoAdminSourceMPID")
-
-                self.rttmonechoadminendpointlistname = YLeaf(YType.str, "rttMonEchoAdminEndPointListName")
-
-                self.rttmonechoadminssm = YLeaf(YType.boolean, "rttMonEchoAdminSSM")
-
-                self.rttmonechoadmincontrolretry = YLeaf(YType.uint32, "rttMonEchoAdminControlRetry")
-
-                self.rttmonechoadmincontroltimeout = YLeaf(YType.uint32, "rttMonEchoAdminControlTimeout")
-
-                self.rttmonechoadminigmptreeinit = YLeaf(YType.uint32, "rttMonEchoAdminIgmpTreeInit")
-
-                self.rttmonechoadminenableburst = YLeaf(YType.boolean, "rttMonEchoAdminEnableBurst")
-
-                self.rttmonechoadminaggburstcycles = YLeaf(YType.int32, "rttMonEchoAdminAggBurstCycles")
-
-                self.rttmonechoadminlossrationumframes = YLeaf(YType.int32, "rttMonEchoAdminLossRatioNumFrames")
-
-                self.rttmonechoadminavailnumframes = YLeaf(YType.int32, "rttMonEchoAdminAvailNumFrames")
-
-                self.rttmonechoadmintstampoptimization = YLeaf(YType.boolean, "rttMonEchoAdminTstampOptimization")
-                self._segment_path = lambda: "rttMonEchoAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonechoadminprotocol', YLeaf(YType.enumeration, 'rttMonEchoAdminProtocol')),
+                    ('rttmonechoadmintargetaddress', YLeaf(YType.str, 'rttMonEchoAdminTargetAddress')),
+                    ('rttmonechoadminpktdatarequestsize', YLeaf(YType.int32, 'rttMonEchoAdminPktDataRequestSize')),
+                    ('rttmonechoadminpktdataresponsesize', YLeaf(YType.int32, 'rttMonEchoAdminPktDataResponseSize')),
+                    ('rttmonechoadmintargetport', YLeaf(YType.int32, 'rttMonEchoAdminTargetPort')),
+                    ('rttmonechoadminsourceaddress', YLeaf(YType.str, 'rttMonEchoAdminSourceAddress')),
+                    ('rttmonechoadminsourceport', YLeaf(YType.int32, 'rttMonEchoAdminSourcePort')),
+                    ('rttmonechoadmincontrolenable', YLeaf(YType.boolean, 'rttMonEchoAdminControlEnable')),
+                    ('rttmonechoadmintos', YLeaf(YType.int32, 'rttMonEchoAdminTOS')),
+                    ('rttmonechoadminlsrenable', YLeaf(YType.boolean, 'rttMonEchoAdminLSREnable')),
+                    ('rttmonechoadmintargetaddressstring', YLeaf(YType.str, 'rttMonEchoAdminTargetAddressString')),
+                    ('rttmonechoadminnameserver', YLeaf(YType.str, 'rttMonEchoAdminNameServer')),
+                    ('rttmonechoadminoperation', YLeaf(YType.enumeration, 'rttMonEchoAdminOperation')),
+                    ('rttmonechoadminhttpversion', YLeaf(YType.str, 'rttMonEchoAdminHTTPVersion')),
+                    ('rttmonechoadminurl', YLeaf(YType.str, 'rttMonEchoAdminURL')),
+                    ('rttmonechoadmincache', YLeaf(YType.boolean, 'rttMonEchoAdminCache')),
+                    ('rttmonechoadmininterval', YLeaf(YType.int32, 'rttMonEchoAdminInterval')),
+                    ('rttmonechoadminnumpackets', YLeaf(YType.int32, 'rttMonEchoAdminNumPackets')),
+                    ('rttmonechoadminproxy', YLeaf(YType.str, 'rttMonEchoAdminProxy')),
+                    ('rttmonechoadminstring1', YLeaf(YType.str, 'rttMonEchoAdminString1')),
+                    ('rttmonechoadminstring2', YLeaf(YType.str, 'rttMonEchoAdminString2')),
+                    ('rttmonechoadminstring3', YLeaf(YType.str, 'rttMonEchoAdminString3')),
+                    ('rttmonechoadminstring4', YLeaf(YType.str, 'rttMonEchoAdminString4')),
+                    ('rttmonechoadminstring5', YLeaf(YType.str, 'rttMonEchoAdminString5')),
+                    ('rttmonechoadminmode', YLeaf(YType.enumeration, 'rttMonEchoAdminMode')),
+                    ('rttmonechoadminvrfname', YLeaf(YType.str, 'rttMonEchoAdminVrfName')),
+                    ('rttmonechoadmincodectype', YLeaf(YType.enumeration, 'rttMonEchoAdminCodecType')),
+                    ('rttmonechoadmincodecinterval', YLeaf(YType.int32, 'rttMonEchoAdminCodecInterval')),
+                    ('rttmonechoadmincodecpayload', YLeaf(YType.int32, 'rttMonEchoAdminCodecPayload')),
+                    ('rttmonechoadmincodecnumpackets', YLeaf(YType.int32, 'rttMonEchoAdminCodecNumPackets')),
+                    ('rttmonechoadminicpifadvfactor', YLeaf(YType.int32, 'rttMonEchoAdminICPIFAdvFactor')),
+                    ('rttmonechoadminlspfectype', YLeaf(YType.enumeration, 'rttMonEchoAdminLSPFECType')),
+                    ('rttmonechoadminlspselector', YLeaf(YType.str, 'rttMonEchoAdminLSPSelector')),
+                    ('rttmonechoadminlspreplymode', YLeaf(YType.enumeration, 'rttMonEchoAdminLSPReplyMode')),
+                    ('rttmonechoadminlspttl', YLeaf(YType.int32, 'rttMonEchoAdminLSPTTL')),
+                    ('rttmonechoadminlspexp', YLeaf(YType.int32, 'rttMonEchoAdminLSPExp')),
+                    ('rttmonechoadminprecision', YLeaf(YType.enumeration, 'rttMonEchoAdminPrecision')),
+                    ('rttmonechoadminprobepakpriority', YLeaf(YType.enumeration, 'rttMonEchoAdminProbePakPriority')),
+                    ('rttmonechoadminowntpsynctolabs', YLeaf(YType.int32, 'rttMonEchoAdminOWNTPSyncTolAbs')),
+                    ('rttmonechoadminowntpsynctolpct', YLeaf(YType.int32, 'rttMonEchoAdminOWNTPSyncTolPct')),
+                    ('rttmonechoadminowntpsynctoltype', YLeaf(YType.enumeration, 'rttMonEchoAdminOWNTPSyncTolType')),
+                    ('rttmonechoadmincallednumber', YLeaf(YType.str, 'rttMonEchoAdminCalledNumber')),
+                    ('rttmonechoadmindetectpoint', YLeaf(YType.enumeration, 'rttMonEchoAdminDetectPoint')),
+                    ('rttmonechoadmingkregistration', YLeaf(YType.boolean, 'rttMonEchoAdminGKRegistration')),
+                    ('rttmonechoadminsourcevoiceport', YLeaf(YType.str, 'rttMonEchoAdminSourceVoicePort')),
+                    ('rttmonechoadmincallduration', YLeaf(YType.int32, 'rttMonEchoAdminCallDuration')),
+                    ('rttmonechoadminlspreplydscp', YLeaf(YType.int32, 'rttMonEchoAdminLSPReplyDscp')),
+                    ('rttmonechoadminlspnullshim', YLeaf(YType.boolean, 'rttMonEchoAdminLSPNullShim')),
+                    ('rttmonechoadmintargetmpid', YLeaf(YType.uint32, 'rttMonEchoAdminTargetMPID')),
+                    ('rttmonechoadmintargetdomainname', YLeaf(YType.str, 'rttMonEchoAdminTargetDomainName')),
+                    ('rttmonechoadmintargetvlan', YLeaf(YType.int32, 'rttMonEchoAdminTargetVLAN')),
+                    ('rttmonechoadminethernetcos', YLeaf(YType.int32, 'rttMonEchoAdminEthernetCOS')),
+                    ('rttmonechoadminlspvccvid', YLeaf(YType.int32, 'rttMonEchoAdminLSPVccvID')),
+                    ('rttmonechoadmintargetevc', YLeaf(YType.str, 'rttMonEchoAdminTargetEVC')),
+                    ('rttmonechoadmintargetmepport', YLeaf(YType.boolean, 'rttMonEchoAdminTargetMEPPort')),
+                    ('rttmonechoadminvideotrafficprofile', YLeaf(YType.str, 'rttMonEchoAdminVideoTrafficProfile')),
+                    ('rttmonechoadmindscp', YLeaf(YType.uint8, 'rttMonEchoAdminDscp')),
+                    ('rttmonechoadminreservedsp', YLeaf(YType.enumeration, 'rttMonEchoAdminReserveDsp')),
+                    ('rttmonechoadmininputinterface', YLeaf(YType.int32, 'rttMonEchoAdminInputInterface')),
+                    ('rttmonechoadminemulatesourceaddress', YLeaf(YType.str, 'rttMonEchoAdminEmulateSourceAddress')),
+                    ('rttmonechoadminemulatesourceport', YLeaf(YType.int32, 'rttMonEchoAdminEmulateSourcePort')),
+                    ('rttmonechoadminemulatetargetaddress', YLeaf(YType.str, 'rttMonEchoAdminEmulateTargetAddress')),
+                    ('rttmonechoadminemulatetargetport', YLeaf(YType.int32, 'rttMonEchoAdminEmulateTargetPort')),
+                    ('rttmonechoadmintargetmacaddress', YLeaf(YType.str, 'rttMonEchoAdminTargetMacAddress')),
+                    ('rttmonechoadminsourcemacaddress', YLeaf(YType.str, 'rttMonEchoAdminSourceMacAddress')),
+                    ('rttmonechoadminsourcempid', YLeaf(YType.uint32, 'rttMonEchoAdminSourceMPID')),
+                    ('rttmonechoadminendpointlistname', YLeaf(YType.str, 'rttMonEchoAdminEndPointListName')),
+                    ('rttmonechoadminssm', YLeaf(YType.boolean, 'rttMonEchoAdminSSM')),
+                    ('rttmonechoadmincontrolretry', YLeaf(YType.uint32, 'rttMonEchoAdminControlRetry')),
+                    ('rttmonechoadmincontroltimeout', YLeaf(YType.uint32, 'rttMonEchoAdminControlTimeout')),
+                    ('rttmonechoadminigmptreeinit', YLeaf(YType.uint32, 'rttMonEchoAdminIgmpTreeInit')),
+                    ('rttmonechoadminenableburst', YLeaf(YType.boolean, 'rttMonEchoAdminEnableBurst')),
+                    ('rttmonechoadminaggburstcycles', YLeaf(YType.int32, 'rttMonEchoAdminAggBurstCycles')),
+                    ('rttmonechoadminlossrationumframes', YLeaf(YType.int32, 'rttMonEchoAdminLossRatioNumFrames')),
+                    ('rttmonechoadminavailnumframes', YLeaf(YType.int32, 'rttMonEchoAdminAvailNumFrames')),
+                    ('rttmonechoadmintstampoptimization', YLeaf(YType.boolean, 'rttMonEchoAdminTstampOptimization')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonechoadminprotocol = None
+                self.rttmonechoadmintargetaddress = None
+                self.rttmonechoadminpktdatarequestsize = None
+                self.rttmonechoadminpktdataresponsesize = None
+                self.rttmonechoadmintargetport = None
+                self.rttmonechoadminsourceaddress = None
+                self.rttmonechoadminsourceport = None
+                self.rttmonechoadmincontrolenable = None
+                self.rttmonechoadmintos = None
+                self.rttmonechoadminlsrenable = None
+                self.rttmonechoadmintargetaddressstring = None
+                self.rttmonechoadminnameserver = None
+                self.rttmonechoadminoperation = None
+                self.rttmonechoadminhttpversion = None
+                self.rttmonechoadminurl = None
+                self.rttmonechoadmincache = None
+                self.rttmonechoadmininterval = None
+                self.rttmonechoadminnumpackets = None
+                self.rttmonechoadminproxy = None
+                self.rttmonechoadminstring1 = None
+                self.rttmonechoadminstring2 = None
+                self.rttmonechoadminstring3 = None
+                self.rttmonechoadminstring4 = None
+                self.rttmonechoadminstring5 = None
+                self.rttmonechoadminmode = None
+                self.rttmonechoadminvrfname = None
+                self.rttmonechoadmincodectype = None
+                self.rttmonechoadmincodecinterval = None
+                self.rttmonechoadmincodecpayload = None
+                self.rttmonechoadmincodecnumpackets = None
+                self.rttmonechoadminicpifadvfactor = None
+                self.rttmonechoadminlspfectype = None
+                self.rttmonechoadminlspselector = None
+                self.rttmonechoadminlspreplymode = None
+                self.rttmonechoadminlspttl = None
+                self.rttmonechoadminlspexp = None
+                self.rttmonechoadminprecision = None
+                self.rttmonechoadminprobepakpriority = None
+                self.rttmonechoadminowntpsynctolabs = None
+                self.rttmonechoadminowntpsynctolpct = None
+                self.rttmonechoadminowntpsynctoltype = None
+                self.rttmonechoadmincallednumber = None
+                self.rttmonechoadmindetectpoint = None
+                self.rttmonechoadmingkregistration = None
+                self.rttmonechoadminsourcevoiceport = None
+                self.rttmonechoadmincallduration = None
+                self.rttmonechoadminlspreplydscp = None
+                self.rttmonechoadminlspnullshim = None
+                self.rttmonechoadmintargetmpid = None
+                self.rttmonechoadmintargetdomainname = None
+                self.rttmonechoadmintargetvlan = None
+                self.rttmonechoadminethernetcos = None
+                self.rttmonechoadminlspvccvid = None
+                self.rttmonechoadmintargetevc = None
+                self.rttmonechoadmintargetmepport = None
+                self.rttmonechoadminvideotrafficprofile = None
+                self.rttmonechoadmindscp = None
+                self.rttmonechoadminreservedsp = None
+                self.rttmonechoadmininputinterface = None
+                self.rttmonechoadminemulatesourceaddress = None
+                self.rttmonechoadminemulatesourceport = None
+                self.rttmonechoadminemulatetargetaddress = None
+                self.rttmonechoadminemulatetargetport = None
+                self.rttmonechoadmintargetmacaddress = None
+                self.rttmonechoadminsourcemacaddress = None
+                self.rttmonechoadminsourcempid = None
+                self.rttmonechoadminendpointlistname = None
+                self.rttmonechoadminssm = None
+                self.rttmonechoadmincontrolretry = None
+                self.rttmonechoadmincontroltimeout = None
+                self.rttmonechoadminigmptreeinit = None
+                self.rttmonechoadminenableburst = None
+                self.rttmonechoadminaggburstcycles = None
+                self.rttmonechoadminlossrationumframes = None
+                self.rttmonechoadminavailnumframes = None
+                self.rttmonechoadmintstampoptimization = None
+                self._segment_path = lambda: "rttMonEchoAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2819,7 +2856,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonechoadminlspfectype(Enum):
                 """
-                Rttmonechoadminlspfectype
+                Rttmonechoadminlspfectype (Enum Class)
 
                 The type of the target FEC for the RTT 'echo' and 'pathEcho'
 
@@ -2836,7 +2873,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonechoadminowntpsynctoltype(Enum):
                 """
-                Rttmonechoadminowntpsynctoltype
+                Rttmonechoadminowntpsynctoltype (Enum Class)
 
                 This object specifies whether the value in specified for oneway
 
@@ -2855,7 +2892,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonechoadminprecision(Enum):
                 """
-                Rttmonechoadminprecision
+                Rttmonechoadminprecision (Enum Class)
 
                 This object specifies the accuracy of statistics that
 
@@ -2880,7 +2917,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonechoadminprobepakpriority(Enum):
                 """
-                Rttmonechoadminprobepakpriority
+                Rttmonechoadminprobepakpriority (Enum Class)
 
                 This object specifies the priority that will be assigned
 
@@ -2901,7 +2938,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonechoadminreservedsp(Enum):
                 """
-                Rttmonechoadminreservedsp
+                Rttmonechoadminreservedsp (Enum Class)
 
                 This object represents the video traffic generation source.
 
@@ -2960,8 +2997,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonFileIOAdminEntry" : ("rttmonfileioadminentry", CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonFileIOAdminEntry", ("rttmonfileioadminentry", CISCORTTMONMIB.Rttmonfileioadmintable.Rttmonfileioadminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonfileioadminentry = YList(self)
             self._segment_path = lambda: "rttMonFileIOAdminTable"
@@ -2976,7 +3015,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that define specific configuration for
             'fileIO' RttMonRttType conceptual Rtt control rows.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -3022,17 +3061,20 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonFileIOAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonfileioadminfilepath = YLeaf(YType.str, "rttMonFileIOAdminFilePath")
-
-                self.rttmonfileioadminsize = YLeaf(YType.enumeration, "rttMonFileIOAdminSize")
-
-                self.rttmonfileioadminaction = YLeaf(YType.enumeration, "rttMonFileIOAdminAction")
-                self._segment_path = lambda: "rttMonFileIOAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonfileioadminfilepath', YLeaf(YType.str, 'rttMonFileIOAdminFilePath')),
+                    ('rttmonfileioadminsize', YLeaf(YType.enumeration, 'rttMonFileIOAdminSize')),
+                    ('rttmonfileioadminaction', YLeaf(YType.enumeration, 'rttMonFileIOAdminAction')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonfileioadminfilepath = None
+                self.rttmonfileioadminsize = None
+                self.rttmonfileioadminaction = None
+                self._segment_path = lambda: "rttMonFileIOAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonFileIOAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3040,7 +3082,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonfileioadminaction(Enum):
                 """
-                Rttmonfileioadminaction
+                Rttmonfileioadminaction (Enum Class)
 
                 The File I/O action to be performed.
 
@@ -3061,7 +3103,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonfileioadminsize(Enum):
                 """
-                Rttmonfileioadminsize
+                Rttmonfileioadminsize (Enum Class)
 
                 The size of the file to write/read from the File
 
@@ -3124,8 +3166,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonScriptAdminEntry" : ("rttmonscriptadminentry", CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonScriptAdminEntry", ("rttmonscriptadminentry", CISCORTTMONMIB.Rttmonscriptadmintable.Rttmonscriptadminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonscriptadminentry = YList(self)
             self._segment_path = lambda: "rttMonScriptAdminTable"
@@ -3140,7 +3184,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that define specific configuration for
             'script' RttMonRttType conceptual Rtt control rows.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -3177,15 +3221,18 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonScriptAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonscriptadminname = YLeaf(YType.str, "rttMonScriptAdminName")
-
-                self.rttmonscriptadmincmdlineparams = YLeaf(YType.str, "rttMonScriptAdminCmdLineParams")
-                self._segment_path = lambda: "rttMonScriptAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonscriptadminname', YLeaf(YType.str, 'rttMonScriptAdminName')),
+                    ('rttmonscriptadmincmdlineparams', YLeaf(YType.str, 'rttMonScriptAdminCmdLineParams')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonscriptadminname = None
+                self.rttmonscriptadmincmdlineparams = None
+                self._segment_path = lambda: "rttMonScriptAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonScriptAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3250,8 +3297,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonReactTriggerAdminEntry" : ("rttmonreacttriggeradminentry", CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonReactTriggerAdminEntry", ("rttmonreacttriggeradminentry", CISCORTTMONMIB.Rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonreacttriggeradminentry = YList(self)
             self._segment_path = lambda: "rttMonReactTriggerAdminTable"
@@ -3266,7 +3315,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that will be triggered when
             a reaction condition is violated.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -3275,7 +3324,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonreacttriggeradminrttmonctrladminindex  <key>
+            .. attribute:: rttmonreacttriggeradminrttmonctrladminindex  (key)
             
             	This object points to a single conceptual Rtt control row.  If this row does not exist and this value is  triggered no action will result.  The conceptual Rtt control row will be triggered for the  rttMonCtrlOperRttLife length.  If this conceptual Rtt control row is already active, rttMonCtrlOperRttLife will not be updated, and its life will continue as previously  defined
             	**type**\: int
@@ -3306,17 +3355,20 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonReactTriggerAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonreacttriggeradminrttmonctrladminindex = YLeaf(YType.int32, "rttMonReactTriggerAdminRttMonCtrlAdminIndex")
-
-                self.rttmonreacttriggeradminstatus = YLeaf(YType.enumeration, "rttMonReactTriggerAdminStatus")
-
-                self.rttmonreacttriggeroperstate = YLeaf(YType.enumeration, "rttMonReactTriggerOperState")
-                self._segment_path = lambda: "rttMonReactTriggerAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonReactTriggerAdminRttMonCtrlAdminIndex='" + self.rttmonreacttriggeradminrttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonreacttriggeradminrttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonreacttriggeradminrttmonctrladminindex', YLeaf(YType.int32, 'rttMonReactTriggerAdminRttMonCtrlAdminIndex')),
+                    ('rttmonreacttriggeradminstatus', YLeaf(YType.enumeration, 'rttMonReactTriggerAdminStatus')),
+                    ('rttmonreacttriggeroperstate', YLeaf(YType.enumeration, 'rttMonReactTriggerOperState')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonreacttriggeradminrttmonctrladminindex = None
+                self.rttmonreacttriggeradminstatus = None
+                self.rttmonreacttriggeroperstate = None
+                self._segment_path = lambda: "rttMonReactTriggerAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonReactTriggerAdminRttMonCtrlAdminIndex='" + str(self.rttmonreacttriggeradminrttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTriggerAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3324,7 +3376,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonreacttriggeroperstate(Enum):
                 """
-                Rttmonreacttriggeroperstate
+                Rttmonreacttriggeroperstate (Enum Class)
 
                 This object takes on the value active
 
@@ -3390,8 +3442,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonEchoPathAdminEntry" : ("rttmonechopathadminentry", CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonEchoPathAdminEntry", ("rttmonechopathadminentry", CISCORTTMONMIB.Rttmonechopathadmintable.Rttmonechopathadminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonechopathadminentry = YList(self)
             self._segment_path = lambda: "rttMonEchoPathAdminTable"
@@ -3409,7 +3463,7 @@ class CISCORTTMONMIB(Entity):
             'echo'. The entry gets deleted when the corresponding RTR entry,
             which has an index of rttMonCtrlAdminIndex, is deleted.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -3418,7 +3472,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonechopathadminhopindex  <key>
+            .. attribute:: rttmonechopathadminhopindex  (key)
             
             	Uniquely identifies a row in the rttMonEchoPathAdminTable. This number represents the hop address number in a specific  ping path. All the indicies should start from 1 and must be  contiguous ie., entries should be  (say rttMonCtrlAdminIndex = 1)  1.1, 1.2, 1.3, they cannot be 1.1, 1.2, 1.4
             	**type**\: int
@@ -3444,15 +3498,18 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonEchoPathAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonechopathadminhopindex = YLeaf(YType.int32, "rttMonEchoPathAdminHopIndex")
-
-                self.rttmonechopathadminhopaddress = YLeaf(YType.str, "rttMonEchoPathAdminHopAddress")
-                self._segment_path = lambda: "rttMonEchoPathAdminEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonEchoPathAdminHopIndex='" + self.rttmonechopathadminhopindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonechopathadminhopindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonechopathadminhopindex', YLeaf(YType.int32, 'rttMonEchoPathAdminHopIndex')),
+                    ('rttmonechopathadminhopaddress', YLeaf(YType.str, 'rttMonEchoPathAdminHopAddress')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonechopathadminhopindex = None
+                self.rttmonechopathadminhopaddress = None
+                self._segment_path = lambda: "rttMonEchoPathAdminEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonEchoPathAdminHopIndex='" + str(self.rttmonechopathadminhopindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoPathAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3490,8 +3547,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonGrpScheduleAdminEntry" : ("rttmongrpscheduleadminentry", CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonGrpScheduleAdminEntry", ("rttmongrpscheduleadminentry", CISCORTTMONMIB.Rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry))])
+            self._leafs = OrderedDict()
 
             self.rttmongrpscheduleadminentry = YList(self)
             self._segment_path = lambda: "rttMonGrpScheduleAdminTable"
@@ -3506,7 +3565,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that define a conceptual group scheduling
             control row.
             
-            .. attribute:: rttmongrpscheduleadminindex  <key>
+            .. attribute:: rttmongrpscheduleadminindex  (key)
             
             	Uniquely identifies a row in the rttMonGrpScheduleAdminTable.  This is a pseudo\-random number selected by the management station when creating a row via the rttMonGrpScheduleAdminStatus object. If the pseudo\-random number is already in use an 'inconsistentValue' return code will be returned when set operation is attempted
             	**type**\: int
@@ -3617,35 +3676,38 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonGrpScheduleAdminTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmongrpscheduleadminindex = YLeaf(YType.int32, "rttMonGrpScheduleAdminIndex")
-
-                self.rttmongrpscheduleadminprobes = YLeaf(YType.str, "rttMonGrpScheduleAdminProbes")
-
-                self.rttmongrpscheduleadminperiod = YLeaf(YType.int32, "rttMonGrpScheduleAdminPeriod")
-
-                self.rttmongrpscheduleadminfrequency = YLeaf(YType.int32, "rttMonGrpScheduleAdminFrequency")
-
-                self.rttmongrpscheduleadminlife = YLeaf(YType.int32, "rttMonGrpScheduleAdminLife")
-
-                self.rttmongrpscheduleadminageout = YLeaf(YType.int32, "rttMonGrpScheduleAdminAgeout")
-
-                self.rttmongrpscheduleadminstatus = YLeaf(YType.enumeration, "rttMonGrpScheduleAdminStatus")
-
-                self.rttmongrpscheduleadminfreqmax = YLeaf(YType.int32, "rttMonGrpScheduleAdminFreqMax")
-
-                self.rttmongrpscheduleadminfreqmin = YLeaf(YType.int32, "rttMonGrpScheduleAdminFreqMin")
-
-                self.rttmongrpscheduleadminstarttime = YLeaf(YType.int32, "rttMonGrpScheduleAdminStartTime")
-
-                self.rttmongrpscheduleadminadd = YLeaf(YType.boolean, "rttMonGrpScheduleAdminAdd")
-
-                self.rttmongrpscheduleadmindelete = YLeaf(YType.boolean, "rttMonGrpScheduleAdminDelete")
-
-                self.rttmongrpscheduleadminreset = YLeaf(YType.boolean, "rttMonGrpScheduleAdminReset")
-                self._segment_path = lambda: "rttMonGrpScheduleAdminEntry" + "[rttMonGrpScheduleAdminIndex='" + self.rttmongrpscheduleadminindex.get() + "']"
+                self.ylist_key_names = ['rttmongrpscheduleadminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmongrpscheduleadminindex', YLeaf(YType.int32, 'rttMonGrpScheduleAdminIndex')),
+                    ('rttmongrpscheduleadminprobes', YLeaf(YType.str, 'rttMonGrpScheduleAdminProbes')),
+                    ('rttmongrpscheduleadminperiod', YLeaf(YType.int32, 'rttMonGrpScheduleAdminPeriod')),
+                    ('rttmongrpscheduleadminfrequency', YLeaf(YType.int32, 'rttMonGrpScheduleAdminFrequency')),
+                    ('rttmongrpscheduleadminlife', YLeaf(YType.int32, 'rttMonGrpScheduleAdminLife')),
+                    ('rttmongrpscheduleadminageout', YLeaf(YType.int32, 'rttMonGrpScheduleAdminAgeout')),
+                    ('rttmongrpscheduleadminstatus', YLeaf(YType.enumeration, 'rttMonGrpScheduleAdminStatus')),
+                    ('rttmongrpscheduleadminfreqmax', YLeaf(YType.int32, 'rttMonGrpScheduleAdminFreqMax')),
+                    ('rttmongrpscheduleadminfreqmin', YLeaf(YType.int32, 'rttMonGrpScheduleAdminFreqMin')),
+                    ('rttmongrpscheduleadminstarttime', YLeaf(YType.int32, 'rttMonGrpScheduleAdminStartTime')),
+                    ('rttmongrpscheduleadminadd', YLeaf(YType.boolean, 'rttMonGrpScheduleAdminAdd')),
+                    ('rttmongrpscheduleadmindelete', YLeaf(YType.boolean, 'rttMonGrpScheduleAdminDelete')),
+                    ('rttmongrpscheduleadminreset', YLeaf(YType.boolean, 'rttMonGrpScheduleAdminReset')),
+                ])
+                self.rttmongrpscheduleadminindex = None
+                self.rttmongrpscheduleadminprobes = None
+                self.rttmongrpscheduleadminperiod = None
+                self.rttmongrpscheduleadminfrequency = None
+                self.rttmongrpscheduleadminlife = None
+                self.rttmongrpscheduleadminageout = None
+                self.rttmongrpscheduleadminstatus = None
+                self.rttmongrpscheduleadminfreqmax = None
+                self.rttmongrpscheduleadminfreqmin = None
+                self.rttmongrpscheduleadminstarttime = None
+                self.rttmongrpscheduleadminadd = None
+                self.rttmongrpscheduleadmindelete = None
+                self.rttmongrpscheduleadminreset = None
+                self._segment_path = lambda: "rttMonGrpScheduleAdminEntry" + "[rttMonGrpScheduleAdminIndex='" + str(self.rttmongrpscheduleadminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGrpScheduleAdminTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3691,8 +3753,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMplsVpnMonCtrlEntry" : ("rttmplsvpnmonctrlentry", CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMplsVpnMonCtrlEntry", ("rttmplsvpnmonctrlentry", CISCORTTMONMIB.Rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry))])
+            self._leafs = OrderedDict()
 
             self.rttmplsvpnmonctrlentry = YList(self)
             self._segment_path = lambda: "rttMplsVpnMonCtrlTable"
@@ -3707,7 +3771,7 @@ class CISCORTTMONMIB(Entity):
             A base list of objects that define a conceptual Auto SAA L3
             MPLS VPN control row.
             
-            .. attribute:: rttmplsvpnmonctrlindex  <key>
+            .. attribute:: rttmplsvpnmonctrlindex  (key)
             
             	Uniquely identifies a row in the rttMplsVpnMonCtrlTable.  This is a pseudo\-random number selected by the management station when creating a row via the rttMplsVpnMonCtrlStatus object.  If the pseudo\-random number is already in use an 'inconsistentValue' return code will be returned when set operation is attempted
             	**type**\: int
@@ -4016,95 +4080,98 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMplsVpnMonCtrlTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmplsvpnmonctrlindex = YLeaf(YType.int32, "rttMplsVpnMonCtrlIndex")
-
-                self.rttmplsvpnmonctrlrtttype = YLeaf(YType.enumeration, "rttMplsVpnMonCtrlRttType")
-
-                self.rttmplsvpnmonctrlvrfname = YLeaf(YType.str, "rttMplsVpnMonCtrlVrfName")
-
-                self.rttmplsvpnmonctrltag = YLeaf(YType.str, "rttMplsVpnMonCtrlTag")
-
-                self.rttmplsvpnmonctrlthreshold = YLeaf(YType.int32, "rttMplsVpnMonCtrlThreshold")
-
-                self.rttmplsvpnmonctrltimeout = YLeaf(YType.int32, "rttMplsVpnMonCtrlTimeout")
-
-                self.rttmplsvpnmonctrlscaninterval = YLeaf(YType.int32, "rttMplsVpnMonCtrlScanInterval")
-
-                self.rttmplsvpnmonctrldelscanfactor = YLeaf(YType.int32, "rttMplsVpnMonCtrlDelScanFactor")
-
-                self.rttmplsvpnmonctrlexp = YLeaf(YType.int32, "rttMplsVpnMonCtrlEXP")
-
-                self.rttmplsvpnmonctrlrequestsize = YLeaf(YType.int32, "rttMplsVpnMonCtrlRequestSize")
-
-                self.rttmplsvpnmonctrlverifydata = YLeaf(YType.boolean, "rttMplsVpnMonCtrlVerifyData")
-
-                self.rttmplsvpnmonctrlstoragetype = YLeaf(YType.enumeration, "rttMplsVpnMonCtrlStorageType")
-
-                self.rttmplsvpnmonctrlprobelist = YLeaf(YType.str, "rttMplsVpnMonCtrlProbeList")
-
-                self.rttmplsvpnmonctrlstatus = YLeaf(YType.enumeration, "rttMplsVpnMonCtrlStatus")
-
-                self.rttmplsvpnmonctrllpd = YLeaf(YType.boolean, "rttMplsVpnMonCtrlLpd")
-
-                self.rttmplsvpnmonctrllpdgrplist = YLeaf(YType.str, "rttMplsVpnMonCtrlLpdGrpList")
-
-                self.rttmplsvpnmonctrllpdcomptime = YLeaf(YType.int32, "rttMplsVpnMonCtrlLpdCompTime")
-
-                self.rttmplsvpnmontypeinterval = YLeaf(YType.int32, "rttMplsVpnMonTypeInterval")
-
-                self.rttmplsvpnmontypenumpackets = YLeaf(YType.int32, "rttMplsVpnMonTypeNumPackets")
-
-                self.rttmplsvpnmontypedestport = YLeaf(YType.int32, "rttMplsVpnMonTypeDestPort")
-
-                self.rttmplsvpnmontypesecfreqtype = YLeaf(YType.enumeration, "rttMplsVpnMonTypeSecFreqType")
-
-                self.rttmplsvpnmontypesecfreqvalue = YLeaf(YType.int32, "rttMplsVpnMonTypeSecFreqValue")
-
-                self.rttmplsvpnmontypelspselector = YLeaf(YType.str, "rttMplsVpnMonTypeLspSelector")
-
-                self.rttmplsvpnmontypelspreplymode = YLeaf(YType.enumeration, "rttMplsVpnMonTypeLSPReplyMode")
-
-                self.rttmplsvpnmontypelspttl = YLeaf(YType.int32, "rttMplsVpnMonTypeLSPTTL")
-
-                self.rttmplsvpnmontypelspreplydscp = YLeaf(YType.int32, "rttMplsVpnMonTypeLSPReplyDscp")
-
-                self.rttmplsvpnmontypelpdmaxsessions = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdMaxSessions")
-
-                self.rttmplsvpnmontypelpdsesstimeout = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdSessTimeout")
-
-                self.rttmplsvpnmontypelpdechotimeout = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdEchoTimeout")
-
-                self.rttmplsvpnmontypelpdechointerval = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdEchoInterval")
-
-                self.rttmplsvpnmontypelpdechonullshim = YLeaf(YType.boolean, "rttMplsVpnMonTypeLpdEchoNullShim")
-
-                self.rttmplsvpnmontypelpdscanperiod = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdScanPeriod")
-
-                self.rttmplsvpnmontypelpdstathours = YLeaf(YType.int32, "rttMplsVpnMonTypeLpdStatHours")
-
-                self.rttmplsvpnmonschedulerttstarttime = YLeaf(YType.uint32, "rttMplsVpnMonScheduleRttStartTime")
-
-                self.rttmplsvpnmonscheduleperiod = YLeaf(YType.int32, "rttMplsVpnMonSchedulePeriod")
-
-                self.rttmplsvpnmonschedulefrequency = YLeaf(YType.int32, "rttMplsVpnMonScheduleFrequency")
-
-                self.rttmplsvpnmonreactconnectionenable = YLeaf(YType.boolean, "rttMplsVpnMonReactConnectionEnable")
-
-                self.rttmplsvpnmonreacttimeoutenable = YLeaf(YType.boolean, "rttMplsVpnMonReactTimeoutEnable")
-
-                self.rttmplsvpnmonreactthresholdtype = YLeaf(YType.enumeration, "rttMplsVpnMonReactThresholdType")
-
-                self.rttmplsvpnmonreactthresholdcount = YLeaf(YType.int32, "rttMplsVpnMonReactThresholdCount")
-
-                self.rttmplsvpnmonreactactiontype = YLeaf(YType.enumeration, "rttMplsVpnMonReactActionType")
-
-                self.rttmplsvpnmonreactlpdnotifytype = YLeaf(YType.enumeration, "rttMplsVpnMonReactLpdNotifyType")
-
-                self.rttmplsvpnmonreactlpdretrycount = YLeaf(YType.int32, "rttMplsVpnMonReactLpdRetryCount")
-                self._segment_path = lambda: "rttMplsVpnMonCtrlEntry" + "[rttMplsVpnMonCtrlIndex='" + self.rttmplsvpnmonctrlindex.get() + "']"
+                self.ylist_key_names = ['rttmplsvpnmonctrlindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmplsvpnmonctrlindex', YLeaf(YType.int32, 'rttMplsVpnMonCtrlIndex')),
+                    ('rttmplsvpnmonctrlrtttype', YLeaf(YType.enumeration, 'rttMplsVpnMonCtrlRttType')),
+                    ('rttmplsvpnmonctrlvrfname', YLeaf(YType.str, 'rttMplsVpnMonCtrlVrfName')),
+                    ('rttmplsvpnmonctrltag', YLeaf(YType.str, 'rttMplsVpnMonCtrlTag')),
+                    ('rttmplsvpnmonctrlthreshold', YLeaf(YType.int32, 'rttMplsVpnMonCtrlThreshold')),
+                    ('rttmplsvpnmonctrltimeout', YLeaf(YType.int32, 'rttMplsVpnMonCtrlTimeout')),
+                    ('rttmplsvpnmonctrlscaninterval', YLeaf(YType.int32, 'rttMplsVpnMonCtrlScanInterval')),
+                    ('rttmplsvpnmonctrldelscanfactor', YLeaf(YType.int32, 'rttMplsVpnMonCtrlDelScanFactor')),
+                    ('rttmplsvpnmonctrlexp', YLeaf(YType.int32, 'rttMplsVpnMonCtrlEXP')),
+                    ('rttmplsvpnmonctrlrequestsize', YLeaf(YType.int32, 'rttMplsVpnMonCtrlRequestSize')),
+                    ('rttmplsvpnmonctrlverifydata', YLeaf(YType.boolean, 'rttMplsVpnMonCtrlVerifyData')),
+                    ('rttmplsvpnmonctrlstoragetype', YLeaf(YType.enumeration, 'rttMplsVpnMonCtrlStorageType')),
+                    ('rttmplsvpnmonctrlprobelist', YLeaf(YType.str, 'rttMplsVpnMonCtrlProbeList')),
+                    ('rttmplsvpnmonctrlstatus', YLeaf(YType.enumeration, 'rttMplsVpnMonCtrlStatus')),
+                    ('rttmplsvpnmonctrllpd', YLeaf(YType.boolean, 'rttMplsVpnMonCtrlLpd')),
+                    ('rttmplsvpnmonctrllpdgrplist', YLeaf(YType.str, 'rttMplsVpnMonCtrlLpdGrpList')),
+                    ('rttmplsvpnmonctrllpdcomptime', YLeaf(YType.int32, 'rttMplsVpnMonCtrlLpdCompTime')),
+                    ('rttmplsvpnmontypeinterval', YLeaf(YType.int32, 'rttMplsVpnMonTypeInterval')),
+                    ('rttmplsvpnmontypenumpackets', YLeaf(YType.int32, 'rttMplsVpnMonTypeNumPackets')),
+                    ('rttmplsvpnmontypedestport', YLeaf(YType.int32, 'rttMplsVpnMonTypeDestPort')),
+                    ('rttmplsvpnmontypesecfreqtype', YLeaf(YType.enumeration, 'rttMplsVpnMonTypeSecFreqType')),
+                    ('rttmplsvpnmontypesecfreqvalue', YLeaf(YType.int32, 'rttMplsVpnMonTypeSecFreqValue')),
+                    ('rttmplsvpnmontypelspselector', YLeaf(YType.str, 'rttMplsVpnMonTypeLspSelector')),
+                    ('rttmplsvpnmontypelspreplymode', YLeaf(YType.enumeration, 'rttMplsVpnMonTypeLSPReplyMode')),
+                    ('rttmplsvpnmontypelspttl', YLeaf(YType.int32, 'rttMplsVpnMonTypeLSPTTL')),
+                    ('rttmplsvpnmontypelspreplydscp', YLeaf(YType.int32, 'rttMplsVpnMonTypeLSPReplyDscp')),
+                    ('rttmplsvpnmontypelpdmaxsessions', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdMaxSessions')),
+                    ('rttmplsvpnmontypelpdsesstimeout', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdSessTimeout')),
+                    ('rttmplsvpnmontypelpdechotimeout', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdEchoTimeout')),
+                    ('rttmplsvpnmontypelpdechointerval', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdEchoInterval')),
+                    ('rttmplsvpnmontypelpdechonullshim', YLeaf(YType.boolean, 'rttMplsVpnMonTypeLpdEchoNullShim')),
+                    ('rttmplsvpnmontypelpdscanperiod', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdScanPeriod')),
+                    ('rttmplsvpnmontypelpdstathours', YLeaf(YType.int32, 'rttMplsVpnMonTypeLpdStatHours')),
+                    ('rttmplsvpnmonschedulerttstarttime', YLeaf(YType.uint32, 'rttMplsVpnMonScheduleRttStartTime')),
+                    ('rttmplsvpnmonscheduleperiod', YLeaf(YType.int32, 'rttMplsVpnMonSchedulePeriod')),
+                    ('rttmplsvpnmonschedulefrequency', YLeaf(YType.int32, 'rttMplsVpnMonScheduleFrequency')),
+                    ('rttmplsvpnmonreactconnectionenable', YLeaf(YType.boolean, 'rttMplsVpnMonReactConnectionEnable')),
+                    ('rttmplsvpnmonreacttimeoutenable', YLeaf(YType.boolean, 'rttMplsVpnMonReactTimeoutEnable')),
+                    ('rttmplsvpnmonreactthresholdtype', YLeaf(YType.enumeration, 'rttMplsVpnMonReactThresholdType')),
+                    ('rttmplsvpnmonreactthresholdcount', YLeaf(YType.int32, 'rttMplsVpnMonReactThresholdCount')),
+                    ('rttmplsvpnmonreactactiontype', YLeaf(YType.enumeration, 'rttMplsVpnMonReactActionType')),
+                    ('rttmplsvpnmonreactlpdnotifytype', YLeaf(YType.enumeration, 'rttMplsVpnMonReactLpdNotifyType')),
+                    ('rttmplsvpnmonreactlpdretrycount', YLeaf(YType.int32, 'rttMplsVpnMonReactLpdRetryCount')),
+                ])
+                self.rttmplsvpnmonctrlindex = None
+                self.rttmplsvpnmonctrlrtttype = None
+                self.rttmplsvpnmonctrlvrfname = None
+                self.rttmplsvpnmonctrltag = None
+                self.rttmplsvpnmonctrlthreshold = None
+                self.rttmplsvpnmonctrltimeout = None
+                self.rttmplsvpnmonctrlscaninterval = None
+                self.rttmplsvpnmonctrldelscanfactor = None
+                self.rttmplsvpnmonctrlexp = None
+                self.rttmplsvpnmonctrlrequestsize = None
+                self.rttmplsvpnmonctrlverifydata = None
+                self.rttmplsvpnmonctrlstoragetype = None
+                self.rttmplsvpnmonctrlprobelist = None
+                self.rttmplsvpnmonctrlstatus = None
+                self.rttmplsvpnmonctrllpd = None
+                self.rttmplsvpnmonctrllpdgrplist = None
+                self.rttmplsvpnmonctrllpdcomptime = None
+                self.rttmplsvpnmontypeinterval = None
+                self.rttmplsvpnmontypenumpackets = None
+                self.rttmplsvpnmontypedestport = None
+                self.rttmplsvpnmontypesecfreqtype = None
+                self.rttmplsvpnmontypesecfreqvalue = None
+                self.rttmplsvpnmontypelspselector = None
+                self.rttmplsvpnmontypelspreplymode = None
+                self.rttmplsvpnmontypelspttl = None
+                self.rttmplsvpnmontypelspreplydscp = None
+                self.rttmplsvpnmontypelpdmaxsessions = None
+                self.rttmplsvpnmontypelpdsesstimeout = None
+                self.rttmplsvpnmontypelpdechotimeout = None
+                self.rttmplsvpnmontypelpdechointerval = None
+                self.rttmplsvpnmontypelpdechonullshim = None
+                self.rttmplsvpnmontypelpdscanperiod = None
+                self.rttmplsvpnmontypelpdstathours = None
+                self.rttmplsvpnmonschedulerttstarttime = None
+                self.rttmplsvpnmonscheduleperiod = None
+                self.rttmplsvpnmonschedulefrequency = None
+                self.rttmplsvpnmonreactconnectionenable = None
+                self.rttmplsvpnmonreacttimeoutenable = None
+                self.rttmplsvpnmonreactthresholdtype = None
+                self.rttmplsvpnmonreactthresholdcount = None
+                self.rttmplsvpnmonreactactiontype = None
+                self.rttmplsvpnmonreactlpdnotifytype = None
+                self.rttmplsvpnmonreactlpdretrycount = None
+                self._segment_path = lambda: "rttMplsVpnMonCtrlEntry" + "[rttMplsVpnMonCtrlIndex='" + str(self.rttmplsvpnmonctrlindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMplsVpnMonCtrlTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4112,7 +4179,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmplsvpnmonreactactiontype(Enum):
                 """
-                Rttmplsvpnmonreactactiontype
+                Rttmplsvpnmonreactactiontype (Enum Class)
 
                 The value corresponding to this object will be applied as
 
@@ -4139,7 +4206,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmplsvpnmonreactlpdnotifytype(Enum):
                 """
-                Rttmplsvpnmonreactlpdnotifytype
+                Rttmplsvpnmonreactlpdnotifytype (Enum Class)
 
                 This object specifies the type of LPD notifications to be
 
@@ -4206,7 +4273,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmplsvpnmonreactthresholdtype(Enum):
                 """
-                Rttmplsvpnmonreactthresholdtype
+                Rttmplsvpnmonreactthresholdtype (Enum Class)
 
                 The value corresponding to this object will be applied as
 
@@ -4237,7 +4304,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmplsvpnmontypesecfreqtype(Enum):
                 """
-                Rttmplsvpnmontypesecfreqtype
+                Rttmplsvpnmontypesecfreqtype (Enum Class)
 
                 This object specifies the reaction type for which the
 
@@ -4364,8 +4431,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonReactEntry" : ("rttmonreactentry", CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonReactEntry", ("rttmonreactentry", CISCORTTMONMIB.Rttmonreacttable.Rttmonreactentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonreactentry = YList(self)
             self._segment_path = lambda: "rttMonReactTable"
@@ -4380,7 +4449,7 @@ class CISCORTTMONMIB(Entity):
             A base list of objects that define a conceptual reaction
             configuration control row.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -4389,7 +4458,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonreactconfigindex  <key>
+            .. attribute:: rttmonreactconfigindex  (key)
             
             	This object along with rttMonCtrlAdminIndex identifies a particular reaction\-configuration for a particular probe. This is a pseudo\-random number selected by the management station when creating a row via the rttMonReactStatus. If the pseudo\-random number is already in use an 'inconsistentValue' return code will be returned when set operation is attempted
             	**type**\: int
@@ -4470,33 +4539,36 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonReactTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonreactconfigindex = YLeaf(YType.int32, "rttMonReactConfigIndex")
-
-                self.rttmonreactvar = YLeaf(YType.enumeration, "rttMonReactVar")
-
-                self.rttmonreactthresholdtype = YLeaf(YType.enumeration, "rttMonReactThresholdType")
-
-                self.rttmonreactactiontype = YLeaf(YType.enumeration, "rttMonReactActionType")
-
-                self.rttmonreactthresholdrising = YLeaf(YType.int32, "rttMonReactThresholdRising")
-
-                self.rttmonreactthresholdfalling = YLeaf(YType.int32, "rttMonReactThresholdFalling")
-
-                self.rttmonreactthresholdcountx = YLeaf(YType.int32, "rttMonReactThresholdCountX")
-
-                self.rttmonreactthresholdcounty = YLeaf(YType.int32, "rttMonReactThresholdCountY")
-
-                self.rttmonreactvalue = YLeaf(YType.int32, "rttMonReactValue")
-
-                self.rttmonreactoccurred = YLeaf(YType.boolean, "rttMonReactOccurred")
-
-                self.rttmonreactstatus = YLeaf(YType.enumeration, "rttMonReactStatus")
-                self._segment_path = lambda: "rttMonReactEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonReactConfigIndex='" + self.rttmonreactconfigindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonreactconfigindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonreactconfigindex', YLeaf(YType.int32, 'rttMonReactConfigIndex')),
+                    ('rttmonreactvar', YLeaf(YType.enumeration, 'rttMonReactVar')),
+                    ('rttmonreactthresholdtype', YLeaf(YType.enumeration, 'rttMonReactThresholdType')),
+                    ('rttmonreactactiontype', YLeaf(YType.enumeration, 'rttMonReactActionType')),
+                    ('rttmonreactthresholdrising', YLeaf(YType.int32, 'rttMonReactThresholdRising')),
+                    ('rttmonreactthresholdfalling', YLeaf(YType.int32, 'rttMonReactThresholdFalling')),
+                    ('rttmonreactthresholdcountx', YLeaf(YType.int32, 'rttMonReactThresholdCountX')),
+                    ('rttmonreactthresholdcounty', YLeaf(YType.int32, 'rttMonReactThresholdCountY')),
+                    ('rttmonreactvalue', YLeaf(YType.int32, 'rttMonReactValue')),
+                    ('rttmonreactoccurred', YLeaf(YType.boolean, 'rttMonReactOccurred')),
+                    ('rttmonreactstatus', YLeaf(YType.enumeration, 'rttMonReactStatus')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonreactconfigindex = None
+                self.rttmonreactvar = None
+                self.rttmonreactthresholdtype = None
+                self.rttmonreactactiontype = None
+                self.rttmonreactthresholdrising = None
+                self.rttmonreactthresholdfalling = None
+                self.rttmonreactthresholdcountx = None
+                self.rttmonreactthresholdcounty = None
+                self.rttmonreactvalue = None
+                self.rttmonreactoccurred = None
+                self.rttmonreactstatus = None
+                self._segment_path = lambda: "rttMonReactEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonReactConfigIndex='" + str(self.rttmonreactconfigindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4504,7 +4576,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonreactactiontype(Enum):
                 """
-                Rttmonreactactiontype
+                Rttmonreactactiontype (Enum Class)
 
                 Specifies what type(s), if any, of reaction(s) to
 
@@ -4549,7 +4621,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonreactthresholdtype(Enum):
                 """
-                Rttmonreactthresholdtype
+                Rttmonreactthresholdtype (Enum Class)
 
                 This object specifies the conditions under which
 
@@ -4697,8 +4769,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonGeneratedOperEntry" : ("rttmongeneratedoperentry", CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonGeneratedOperEntry", ("rttmongeneratedoperentry", CISCORTTMONMIB.Rttmongeneratedopertable.Rttmongeneratedoperentry))])
+            self._leafs = OrderedDict()
 
             self.rttmongeneratedoperentry = YList(self)
             self._segment_path = lambda: "rttMonGeneratedOperTable"
@@ -4714,7 +4788,7 @@ class CISCORTTMONMIB(Entity):
             a child or generated operation as part of a parent
             IP SLA operation.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -4723,12 +4797,12 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmongeneratedoperrespipaddrtype  <key>
+            .. attribute:: rttmongeneratedoperrespipaddrtype  (key)
             
             	The type of Internet address, IPv4 or IPv6, of a responder for an IP SLA operation
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: rttmongeneratedoperrespipaddr  <key>
+            .. attribute:: rttmongeneratedoperrespipaddr  (key)
             
             	The internet address of a responder for IP SLA operation. The type of this address is determined by the value of rttMonGeneratedOperRespIpAddrType
             	**type**\: str
@@ -4756,17 +4830,20 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonGeneratedOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmongeneratedoperrespipaddrtype = YLeaf(YType.enumeration, "rttMonGeneratedOperRespIpAddrType")
-
-                self.rttmongeneratedoperrespipaddr = YLeaf(YType.str, "rttMonGeneratedOperRespIpAddr")
-
-                self.rttmongeneratedoperctrladminindex = YLeaf(YType.uint32, "rttMonGeneratedOperCtrlAdminIndex")
-                self._segment_path = lambda: "rttMonGeneratedOperEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonGeneratedOperRespIpAddrType='" + self.rttmongeneratedoperrespipaddrtype.get() + "']" + "[rttMonGeneratedOperRespIpAddr='" + self.rttmongeneratedoperrespipaddr.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmongeneratedoperrespipaddrtype','rttmongeneratedoperrespipaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmongeneratedoperrespipaddrtype', YLeaf(YType.enumeration, 'rttMonGeneratedOperRespIpAddrType')),
+                    ('rttmongeneratedoperrespipaddr', YLeaf(YType.str, 'rttMonGeneratedOperRespIpAddr')),
+                    ('rttmongeneratedoperctrladminindex', YLeaf(YType.uint32, 'rttMonGeneratedOperCtrlAdminIndex')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmongeneratedoperrespipaddrtype = None
+                self.rttmongeneratedoperrespipaddr = None
+                self.rttmongeneratedoperctrladminindex = None
+                self._segment_path = lambda: "rttMonGeneratedOperEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonGeneratedOperRespIpAddrType='" + str(self.rttmongeneratedoperrespipaddrtype) + "']" + "[rttMonGeneratedOperRespIpAddr='" + str(self.rttmongeneratedoperrespipaddr) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGeneratedOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4850,8 +4927,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonStatsCaptureEntry" : ("rttmonstatscaptureentry", CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonStatsCaptureEntry", ("rttmonstatscaptureentry", CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonstatscaptureentry = YList(self)
             self._segment_path = lambda: "rttMonStatsCaptureTable"
@@ -4904,7 +4983,7 @@ class CISCORTTMONMIB(Entity):
               \-  The fifth index uniquely creates a statistical
                   distribution bucket.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -4913,28 +4992,28 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonstatscapturestarttimeindex  <key>
+            .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	The time when this row was created.  This object is the second index of the  rttMonStatsCaptureTable Table.  The the number of rttMonStatsCaptureStartTimeIndex   groups exceeds the rttMonStatisticsAdminNumHourGroups value, the oldest rttMonStatsCaptureStartTimeIndex  group will be removed and replaced with the new entry.  When the RttMonRttType is 'pathEcho', this object also  uniquely defines a group of paths.  See the  rttMonStatsCaptureEntry object
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: rttmonstatscapturepathindex  <key>
+            .. attribute:: rttmonstatscapturepathindex  (key)
             
             	When the RttMonRttType is 'pathEcho', this object uniquely defines a path for a given value of  rttMonStatsCaptureStartTimeIndex.  For all other values of RttMonRttType, this object will be one.  For a particular value of  rttMonStatsCaptureStartTimeIndex, the agent assigns the first instance of a path a value of 1, then second  instance a value of 2, and so on.  The sequence keeps  incrementing until the number of paths equals  rttMonStatisticsAdminNumPaths value, then no new paths  are kept for the current rttMonStatsCaptureStartTimeIndex  group.  NOTE\: A source to target rttMonStatsCapturePathIndex       path will be created for each        rttMonStatsCaptureStartTimeIndex to hold all        errors that occur when a specific path or        connection has not be setup.  This value directly represents the path to a target. We can only support 128 paths
             	**type**\: int
             
             	**range:** 1..128
             
-            .. attribute:: rttmonstatscapturehopindex  <key>
+            .. attribute:: rttmonstatscapturehopindex  (key)
             
             	When the RttMonRttType is 'pathEcho', this object uniquely defines a hop for a given value of  rttMonStatsCapturePathIndex.  For all other values of RttMonRttType, this object will be one.  For a particular value of rttMonStatsCapturePathIndex, the agent assigns the first instance of a hop a value of 1, then second instance a value of 2, and so on.  The sequence keeps incrementing until the number of  hops equals rttMonStatisticsAdminNumHops value, then no new hops are kept for the current rttMonStatsCapturePathIndex.  This value directly represents a hop along the path to a target, thus we can only support 30 hops.  This value shows the order along the path to a target
             	**type**\: int
             
             	**range:** 1..30
             
-            .. attribute:: rttmonstatscapturedistindex  <key>
+            .. attribute:: rttmonstatscapturedistindex  (key)
             
             	This object uniquely defines a statistical distribution bucket for a given value of rttMonStatsCaptureHopIndex.  For a particular value of rttMonStatsCaptureHopIndex, the agent assigns the first instance of a distribution a value of 1, then second instance a value of 2, and so on.  The sequence keeps incrementing until the number of  statistics distribution intervals equals  rttMonStatisticsAdminNumDistBuckets value, then all values that fall above the last interval will be placed into the last interval.  Each of these Statistics Distribution Buckets contain  the results of each completion as defined by  rttMonStatisticsAdminDistInterval object
             	**type**\: int
@@ -5010,33 +5089,36 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonStatsCaptureTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonstatscapturestarttimeindex = YLeaf(YType.uint32, "rttMonStatsCaptureStartTimeIndex")
-
-                self.rttmonstatscapturepathindex = YLeaf(YType.int32, "rttMonStatsCapturePathIndex")
-
-                self.rttmonstatscapturehopindex = YLeaf(YType.int32, "rttMonStatsCaptureHopIndex")
-
-                self.rttmonstatscapturedistindex = YLeaf(YType.int32, "rttMonStatsCaptureDistIndex")
-
-                self.rttmonstatscapturecompletions = YLeaf(YType.int32, "rttMonStatsCaptureCompletions")
-
-                self.rttmonstatscaptureoverthresholds = YLeaf(YType.int32, "rttMonStatsCaptureOverThresholds")
-
-                self.rttmonstatscapturesumcompletiontime = YLeaf(YType.uint32, "rttMonStatsCaptureSumCompletionTime")
-
-                self.rttmonstatscapturesumcompletiontime2low = YLeaf(YType.uint32, "rttMonStatsCaptureSumCompletionTime2Low")
-
-                self.rttmonstatscapturesumcompletiontime2high = YLeaf(YType.uint32, "rttMonStatsCaptureSumCompletionTime2High")
-
-                self.rttmonstatscapturecompletiontimemax = YLeaf(YType.uint32, "rttMonStatsCaptureCompletionTimeMax")
-
-                self.rttmonstatscapturecompletiontimemin = YLeaf(YType.uint32, "rttMonStatsCaptureCompletionTimeMin")
-                self._segment_path = lambda: "rttMonStatsCaptureEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonStatsCaptureStartTimeIndex='" + self.rttmonstatscapturestarttimeindex.get() + "']" + "[rttMonStatsCapturePathIndex='" + self.rttmonstatscapturepathindex.get() + "']" + "[rttMonStatsCaptureHopIndex='" + self.rttmonstatscapturehopindex.get() + "']" + "[rttMonStatsCaptureDistIndex='" + self.rttmonstatscapturedistindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex','rttmonstatscapturepathindex','rttmonstatscapturehopindex','rttmonstatscapturedistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonstatscapturestarttimeindex', YLeaf(YType.uint32, 'rttMonStatsCaptureStartTimeIndex')),
+                    ('rttmonstatscapturepathindex', YLeaf(YType.int32, 'rttMonStatsCapturePathIndex')),
+                    ('rttmonstatscapturehopindex', YLeaf(YType.int32, 'rttMonStatsCaptureHopIndex')),
+                    ('rttmonstatscapturedistindex', YLeaf(YType.int32, 'rttMonStatsCaptureDistIndex')),
+                    ('rttmonstatscapturecompletions', YLeaf(YType.int32, 'rttMonStatsCaptureCompletions')),
+                    ('rttmonstatscaptureoverthresholds', YLeaf(YType.int32, 'rttMonStatsCaptureOverThresholds')),
+                    ('rttmonstatscapturesumcompletiontime', YLeaf(YType.uint32, 'rttMonStatsCaptureSumCompletionTime')),
+                    ('rttmonstatscapturesumcompletiontime2low', YLeaf(YType.uint32, 'rttMonStatsCaptureSumCompletionTime2Low')),
+                    ('rttmonstatscapturesumcompletiontime2high', YLeaf(YType.uint32, 'rttMonStatsCaptureSumCompletionTime2High')),
+                    ('rttmonstatscapturecompletiontimemax', YLeaf(YType.uint32, 'rttMonStatsCaptureCompletionTimeMax')),
+                    ('rttmonstatscapturecompletiontimemin', YLeaf(YType.uint32, 'rttMonStatsCaptureCompletionTimeMin')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonstatscapturestarttimeindex = None
+                self.rttmonstatscapturepathindex = None
+                self.rttmonstatscapturehopindex = None
+                self.rttmonstatscapturedistindex = None
+                self.rttmonstatscapturecompletions = None
+                self.rttmonstatscaptureoverthresholds = None
+                self.rttmonstatscapturesumcompletiontime = None
+                self.rttmonstatscapturesumcompletiontime2low = None
+                self.rttmonstatscapturesumcompletiontime2high = None
+                self.rttmonstatscapturecompletiontimemax = None
+                self.rttmonstatscapturecompletiontimemin = None
+                self._segment_path = lambda: "rttMonStatsCaptureEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + str(self.rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + str(self.rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + str(self.rttmonstatscapturehopindex) + "']" + "[rttMonStatsCaptureDistIndex='" + str(self.rttmonstatscapturedistindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCaptureTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5073,8 +5155,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonStatsCollectEntry" : ("rttmonstatscollectentry", CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonStatsCollectEntry", ("rttmonstatscollectentry", CISCORTTMONMIB.Rttmonstatscollecttable.Rttmonstatscollectentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonstatscollectentry = YList(self)
             self._segment_path = lambda: "rttMonStatsCollectTable"
@@ -5096,7 +5180,7 @@ class CISCORTTMONMIB(Entity):
             For a complete entry description see
             the rttMonStatsCaptureEntry object.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -5105,7 +5189,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonstatscapturestarttimeindex  <key>
+            .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	
             	**type**\: int
@@ -5114,7 +5198,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
             
-            .. attribute:: rttmonstatscapturepathindex  <key>
+            .. attribute:: rttmonstatscapturepathindex  (key)
             
             	
             	**type**\: int
@@ -5123,7 +5207,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonstatscapturepathindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonstatscapturetable.Rttmonstatscaptureentry>`
             
-            .. attribute:: rttmonstatscapturehopindex  <key>
+            .. attribute:: rttmonstatscapturehopindex  (key)
             
             	
             	**type**\: int
@@ -5232,41 +5316,44 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonStatsCollectTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonstatscapturestarttimeindex = YLeaf(YType.str, "rttMonStatsCaptureStartTimeIndex")
-
-                self.rttmonstatscapturepathindex = YLeaf(YType.str, "rttMonStatsCapturePathIndex")
-
-                self.rttmonstatscapturehopindex = YLeaf(YType.str, "rttMonStatsCaptureHopIndex")
-
-                self.rttmonstatscollectnumdisconnects = YLeaf(YType.int32, "rttMonStatsCollectNumDisconnects")
-
-                self.rttmonstatscollecttimeouts = YLeaf(YType.int32, "rttMonStatsCollectTimeouts")
-
-                self.rttmonstatscollectbusies = YLeaf(YType.int32, "rttMonStatsCollectBusies")
-
-                self.rttmonstatscollectnoconnections = YLeaf(YType.int32, "rttMonStatsCollectNoConnections")
-
-                self.rttmonstatscollectdrops = YLeaf(YType.int32, "rttMonStatsCollectDrops")
-
-                self.rttmonstatscollectsequenceerrors = YLeaf(YType.int32, "rttMonStatsCollectSequenceErrors")
-
-                self.rttmonstatscollectverifyerrors = YLeaf(YType.int32, "rttMonStatsCollectVerifyErrors")
-
-                self.rttmonstatscollectaddress = YLeaf(YType.str, "rttMonStatsCollectAddress")
-
-                self.rttmoncontrolenableerrors = YLeaf(YType.int32, "rttMonControlEnableErrors")
-
-                self.rttmonstatsretrieveerrors = YLeaf(YType.int32, "rttMonStatsRetrieveErrors")
-
-                self.rttmonstatscollectctrlenerrors = YLeaf(YType.int32, "rttMonStatsCollectCtrlEnErrors")
-
-                self.rttmonstatscollectretrieveerrors = YLeaf(YType.int32, "rttMonStatsCollectRetrieveErrors")
-                self._segment_path = lambda: "rttMonStatsCollectEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonStatsCaptureStartTimeIndex='" + self.rttmonstatscapturestarttimeindex.get() + "']" + "[rttMonStatsCapturePathIndex='" + self.rttmonstatscapturepathindex.get() + "']" + "[rttMonStatsCaptureHopIndex='" + self.rttmonstatscapturehopindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex','rttmonstatscapturepathindex','rttmonstatscapturehopindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonstatscapturestarttimeindex', YLeaf(YType.str, 'rttMonStatsCaptureStartTimeIndex')),
+                    ('rttmonstatscapturepathindex', YLeaf(YType.str, 'rttMonStatsCapturePathIndex')),
+                    ('rttmonstatscapturehopindex', YLeaf(YType.str, 'rttMonStatsCaptureHopIndex')),
+                    ('rttmonstatscollectnumdisconnects', YLeaf(YType.int32, 'rttMonStatsCollectNumDisconnects')),
+                    ('rttmonstatscollecttimeouts', YLeaf(YType.int32, 'rttMonStatsCollectTimeouts')),
+                    ('rttmonstatscollectbusies', YLeaf(YType.int32, 'rttMonStatsCollectBusies')),
+                    ('rttmonstatscollectnoconnections', YLeaf(YType.int32, 'rttMonStatsCollectNoConnections')),
+                    ('rttmonstatscollectdrops', YLeaf(YType.int32, 'rttMonStatsCollectDrops')),
+                    ('rttmonstatscollectsequenceerrors', YLeaf(YType.int32, 'rttMonStatsCollectSequenceErrors')),
+                    ('rttmonstatscollectverifyerrors', YLeaf(YType.int32, 'rttMonStatsCollectVerifyErrors')),
+                    ('rttmonstatscollectaddress', YLeaf(YType.str, 'rttMonStatsCollectAddress')),
+                    ('rttmoncontrolenableerrors', YLeaf(YType.int32, 'rttMonControlEnableErrors')),
+                    ('rttmonstatsretrieveerrors', YLeaf(YType.int32, 'rttMonStatsRetrieveErrors')),
+                    ('rttmonstatscollectctrlenerrors', YLeaf(YType.int32, 'rttMonStatsCollectCtrlEnErrors')),
+                    ('rttmonstatscollectretrieveerrors', YLeaf(YType.int32, 'rttMonStatsCollectRetrieveErrors')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonstatscapturestarttimeindex = None
+                self.rttmonstatscapturepathindex = None
+                self.rttmonstatscapturehopindex = None
+                self.rttmonstatscollectnumdisconnects = None
+                self.rttmonstatscollecttimeouts = None
+                self.rttmonstatscollectbusies = None
+                self.rttmonstatscollectnoconnections = None
+                self.rttmonstatscollectdrops = None
+                self.rttmonstatscollectsequenceerrors = None
+                self.rttmonstatscollectverifyerrors = None
+                self.rttmonstatscollectaddress = None
+                self.rttmoncontrolenableerrors = None
+                self.rttmonstatsretrieveerrors = None
+                self.rttmonstatscollectctrlenerrors = None
+                self.rttmonstatscollectretrieveerrors = None
+                self._segment_path = lambda: "rttMonStatsCollectEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + str(self.rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + str(self.rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + str(self.rttmonstatscapturehopindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCollectTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5303,8 +5390,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonStatsTotalsEntry" : ("rttmonstatstotalsentry", CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonStatsTotalsEntry", ("rttmonstatstotalsentry", CISCORTTMONMIB.Rttmonstatstotalstable.Rttmonstatstotalsentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonstatstotalsentry = YList(self)
             self._segment_path = lambda: "rttMonStatsTotalsTable"
@@ -5326,7 +5415,7 @@ class CISCORTTMONMIB(Entity):
             For a complete entry description see
             the rttMonStatsCaptureEntry object.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -5335,7 +5424,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonstatscapturestarttimeindex  <key>
+            .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	
             	**type**\: int
@@ -5372,17 +5461,20 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonStatsTotalsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonstatscapturestarttimeindex = YLeaf(YType.str, "rttMonStatsCaptureStartTimeIndex")
-
-                self.rttmonstatstotalselapsedtime = YLeaf(YType.int32, "rttMonStatsTotalsElapsedTime")
-
-                self.rttmonstatstotalsinitiations = YLeaf(YType.int32, "rttMonStatsTotalsInitiations")
-                self._segment_path = lambda: "rttMonStatsTotalsEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonStatsCaptureStartTimeIndex='" + self.rttmonstatscapturestarttimeindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonstatscapturestarttimeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonstatscapturestarttimeindex', YLeaf(YType.str, 'rttMonStatsCaptureStartTimeIndex')),
+                    ('rttmonstatstotalselapsedtime', YLeaf(YType.int32, 'rttMonStatsTotalsElapsedTime')),
+                    ('rttmonstatstotalsinitiations', YLeaf(YType.int32, 'rttMonStatsTotalsInitiations')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonstatscapturestarttimeindex = None
+                self.rttmonstatstotalselapsedtime = None
+                self.rttmonstatstotalsinitiations = None
+                self._segment_path = lambda: "rttMonStatsTotalsEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + str(self.rttmonstatscapturestarttimeindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsTotalsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5421,8 +5513,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonHTTPStatsEntry" : ("rttmonhttpstatsentry", CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonHTTPStatsEntry", ("rttmonhttpstatsentry", CISCORTTMONMIB.Rttmonhttpstatstable.Rttmonhttpstatsentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonhttpstatsentry = YList(self)
             self._segment_path = lambda: "rttMonHTTPStatsTable"
@@ -5441,7 +5535,7 @@ class CISCORTTMONMIB(Entity):
             is http. The operation of this table is same as that of
             rttMonStatsCaptureTable.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -5450,7 +5544,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonhttpstatsstarttimeindex  <key>
+            .. attribute:: rttmonhttpstatsstarttimeindex  (key)
             
             	This is the time when this row was created. This index uniquely identifies a HTTP Stats row in the  rttMonHTTPStatsTable
             	**type**\: int
@@ -5599,49 +5693,52 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonHTTPStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonhttpstatsstarttimeindex = YLeaf(YType.uint32, "rttMonHTTPStatsStartTimeIndex")
-
-                self.rttmonhttpstatscompletions = YLeaf(YType.uint32, "rttMonHTTPStatsCompletions")
-
-                self.rttmonhttpstatsoverthresholds = YLeaf(YType.uint32, "rttMonHTTPStatsOverThresholds")
-
-                self.rttmonhttpstatsrttsum = YLeaf(YType.uint32, "rttMonHTTPStatsRTTSum")
-
-                self.rttmonhttpstatsrttsum2low = YLeaf(YType.uint32, "rttMonHTTPStatsRTTSum2Low")
-
-                self.rttmonhttpstatsrttsum2high = YLeaf(YType.uint32, "rttMonHTTPStatsRTTSum2High")
-
-                self.rttmonhttpstatsrttmin = YLeaf(YType.uint32, "rttMonHTTPStatsRTTMin")
-
-                self.rttmonhttpstatsrttmax = YLeaf(YType.uint32, "rttMonHTTPStatsRTTMax")
-
-                self.rttmonhttpstatsdnsrttsum = YLeaf(YType.uint32, "rttMonHTTPStatsDNSRTTSum")
-
-                self.rttmonhttpstatstcpconnectrttsum = YLeaf(YType.uint32, "rttMonHTTPStatsTCPConnectRTTSum")
-
-                self.rttmonhttpstatstransactionrttsum = YLeaf(YType.uint32, "rttMonHTTPStatsTransactionRTTSum")
-
-                self.rttmonhttpstatsmessagebodyoctetssum = YLeaf(YType.uint32, "rttMonHTTPStatsMessageBodyOctetsSum")
-
-                self.rttmonhttpstatsdnsservertimeout = YLeaf(YType.uint32, "rttMonHTTPStatsDNSServerTimeout")
-
-                self.rttmonhttpstatstcpconnecttimeout = YLeaf(YType.uint32, "rttMonHTTPStatsTCPConnectTimeout")
-
-                self.rttmonhttpstatstransactiontimeout = YLeaf(YType.uint32, "rttMonHTTPStatsTransactionTimeout")
-
-                self.rttmonhttpstatsdnsqueryerror = YLeaf(YType.uint32, "rttMonHTTPStatsDNSQueryError")
-
-                self.rttmonhttpstatshttperror = YLeaf(YType.uint32, "rttMonHTTPStatsHTTPError")
-
-                self.rttmonhttpstatserror = YLeaf(YType.uint32, "rttMonHTTPStatsError")
-
-                self.rttmonhttpstatsbusies = YLeaf(YType.uint32, "rttMonHTTPStatsBusies")
-                self._segment_path = lambda: "rttMonHTTPStatsEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonHTTPStatsStartTimeIndex='" + self.rttmonhttpstatsstarttimeindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonhttpstatsstarttimeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonhttpstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonHTTPStatsStartTimeIndex')),
+                    ('rttmonhttpstatscompletions', YLeaf(YType.uint32, 'rttMonHTTPStatsCompletions')),
+                    ('rttmonhttpstatsoverthresholds', YLeaf(YType.uint32, 'rttMonHTTPStatsOverThresholds')),
+                    ('rttmonhttpstatsrttsum', YLeaf(YType.uint32, 'rttMonHTTPStatsRTTSum')),
+                    ('rttmonhttpstatsrttsum2low', YLeaf(YType.uint32, 'rttMonHTTPStatsRTTSum2Low')),
+                    ('rttmonhttpstatsrttsum2high', YLeaf(YType.uint32, 'rttMonHTTPStatsRTTSum2High')),
+                    ('rttmonhttpstatsrttmin', YLeaf(YType.uint32, 'rttMonHTTPStatsRTTMin')),
+                    ('rttmonhttpstatsrttmax', YLeaf(YType.uint32, 'rttMonHTTPStatsRTTMax')),
+                    ('rttmonhttpstatsdnsrttsum', YLeaf(YType.uint32, 'rttMonHTTPStatsDNSRTTSum')),
+                    ('rttmonhttpstatstcpconnectrttsum', YLeaf(YType.uint32, 'rttMonHTTPStatsTCPConnectRTTSum')),
+                    ('rttmonhttpstatstransactionrttsum', YLeaf(YType.uint32, 'rttMonHTTPStatsTransactionRTTSum')),
+                    ('rttmonhttpstatsmessagebodyoctetssum', YLeaf(YType.uint32, 'rttMonHTTPStatsMessageBodyOctetsSum')),
+                    ('rttmonhttpstatsdnsservertimeout', YLeaf(YType.uint32, 'rttMonHTTPStatsDNSServerTimeout')),
+                    ('rttmonhttpstatstcpconnecttimeout', YLeaf(YType.uint32, 'rttMonHTTPStatsTCPConnectTimeout')),
+                    ('rttmonhttpstatstransactiontimeout', YLeaf(YType.uint32, 'rttMonHTTPStatsTransactionTimeout')),
+                    ('rttmonhttpstatsdnsqueryerror', YLeaf(YType.uint32, 'rttMonHTTPStatsDNSQueryError')),
+                    ('rttmonhttpstatshttperror', YLeaf(YType.uint32, 'rttMonHTTPStatsHTTPError')),
+                    ('rttmonhttpstatserror', YLeaf(YType.uint32, 'rttMonHTTPStatsError')),
+                    ('rttmonhttpstatsbusies', YLeaf(YType.uint32, 'rttMonHTTPStatsBusies')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonhttpstatsstarttimeindex = None
+                self.rttmonhttpstatscompletions = None
+                self.rttmonhttpstatsoverthresholds = None
+                self.rttmonhttpstatsrttsum = None
+                self.rttmonhttpstatsrttsum2low = None
+                self.rttmonhttpstatsrttsum2high = None
+                self.rttmonhttpstatsrttmin = None
+                self.rttmonhttpstatsrttmax = None
+                self.rttmonhttpstatsdnsrttsum = None
+                self.rttmonhttpstatstcpconnectrttsum = None
+                self.rttmonhttpstatstransactionrttsum = None
+                self.rttmonhttpstatsmessagebodyoctetssum = None
+                self.rttmonhttpstatsdnsservertimeout = None
+                self.rttmonhttpstatstcpconnecttimeout = None
+                self.rttmonhttpstatstransactiontimeout = None
+                self.rttmonhttpstatsdnsqueryerror = None
+                self.rttmonhttpstatshttperror = None
+                self.rttmonhttpstatserror = None
+                self.rttmonhttpstatsbusies = None
+                self._segment_path = lambda: "rttMonHTTPStatsEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonHTTPStatsStartTimeIndex='" + str(self.rttmonhttpstatsstarttimeindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHTTPStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5680,8 +5777,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonJitterStatsEntry" : ("rttmonjitterstatsentry", CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonJitterStatsEntry", ("rttmonjitterstatsentry", CISCORTTMONMIB.Rttmonjitterstatstable.Rttmonjitterstatsentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonjitterstatsentry = YList(self)
             self._segment_path = lambda: "rttMonJitterStatsTable"
@@ -5700,7 +5799,7 @@ class CISCORTTMONMIB(Entity):
             is jitter. The operation of this table is same as that of
             rttMonStatsCaptureTable.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -5709,7 +5808,7 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonjitterstatsstarttimeindex  <key>
+            .. attribute:: rttmonjitterstatsstarttimeindex  (key)
             
             	The time when this row was created
             	**type**\: int
@@ -6207,147 +6306,150 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonJitterStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonjitterstatsstarttimeindex = YLeaf(YType.uint32, "rttMonJitterStatsStartTimeIndex")
-
-                self.rttmonjitterstatscompletions = YLeaf(YType.uint32, "rttMonJitterStatsCompletions")
-
-                self.rttmonjitterstatsoverthresholds = YLeaf(YType.uint32, "rttMonJitterStatsOverThresholds")
-
-                self.rttmonjitterstatsnumofrtt = YLeaf(YType.uint32, "rttMonJitterStatsNumOfRTT")
-
-                self.rttmonjitterstatsrttsum = YLeaf(YType.uint32, "rttMonJitterStatsRTTSum")
-
-                self.rttmonjitterstatsrttsum2low = YLeaf(YType.uint32, "rttMonJitterStatsRTTSum2Low")
-
-                self.rttmonjitterstatsrttsum2high = YLeaf(YType.uint32, "rttMonJitterStatsRTTSum2High")
-
-                self.rttmonjitterstatsrttmin = YLeaf(YType.uint32, "rttMonJitterStatsRTTMin")
-
-                self.rttmonjitterstatsrttmax = YLeaf(YType.uint32, "rttMonJitterStatsRTTMax")
-
-                self.rttmonjitterstatsminofpositivessd = YLeaf(YType.uint32, "rttMonJitterStatsMinOfPositivesSD")
-
-                self.rttmonjitterstatsmaxofpositivessd = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfPositivesSD")
-
-                self.rttmonjitterstatsnumofpositivessd = YLeaf(YType.uint32, "rttMonJitterStatsNumOfPositivesSD")
-
-                self.rttmonjitterstatssumofpositivessd = YLeaf(YType.uint32, "rttMonJitterStatsSumOfPositivesSD")
-
-                self.rttmonjitterstatssum2positivessdlow = YLeaf(YType.uint32, "rttMonJitterStatsSum2PositivesSDLow")
-
-                self.rttmonjitterstatssum2positivessdhigh = YLeaf(YType.uint32, "rttMonJitterStatsSum2PositivesSDHigh")
-
-                self.rttmonjitterstatsminofnegativessd = YLeaf(YType.uint32, "rttMonJitterStatsMinOfNegativesSD")
-
-                self.rttmonjitterstatsmaxofnegativessd = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfNegativesSD")
-
-                self.rttmonjitterstatsnumofnegativessd = YLeaf(YType.uint32, "rttMonJitterStatsNumOfNegativesSD")
-
-                self.rttmonjitterstatssumofnegativessd = YLeaf(YType.uint32, "rttMonJitterStatsSumOfNegativesSD")
-
-                self.rttmonjitterstatssum2negativessdlow = YLeaf(YType.uint32, "rttMonJitterStatsSum2NegativesSDLow")
-
-                self.rttmonjitterstatssum2negativessdhigh = YLeaf(YType.uint32, "rttMonJitterStatsSum2NegativesSDHigh")
-
-                self.rttmonjitterstatsminofpositivesds = YLeaf(YType.uint32, "rttMonJitterStatsMinOfPositivesDS")
-
-                self.rttmonjitterstatsmaxofpositivesds = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfPositivesDS")
-
-                self.rttmonjitterstatsnumofpositivesds = YLeaf(YType.uint32, "rttMonJitterStatsNumOfPositivesDS")
-
-                self.rttmonjitterstatssumofpositivesds = YLeaf(YType.uint32, "rttMonJitterStatsSumOfPositivesDS")
-
-                self.rttmonjitterstatssum2positivesdslow = YLeaf(YType.uint32, "rttMonJitterStatsSum2PositivesDSLow")
-
-                self.rttmonjitterstatssum2positivesdshigh = YLeaf(YType.uint32, "rttMonJitterStatsSum2PositivesDSHigh")
-
-                self.rttmonjitterstatsminofnegativesds = YLeaf(YType.uint32, "rttMonJitterStatsMinOfNegativesDS")
-
-                self.rttmonjitterstatsmaxofnegativesds = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfNegativesDS")
-
-                self.rttmonjitterstatsnumofnegativesds = YLeaf(YType.uint32, "rttMonJitterStatsNumOfNegativesDS")
-
-                self.rttmonjitterstatssumofnegativesds = YLeaf(YType.uint32, "rttMonJitterStatsSumOfNegativesDS")
-
-                self.rttmonjitterstatssum2negativesdslow = YLeaf(YType.uint32, "rttMonJitterStatsSum2NegativesDSLow")
-
-                self.rttmonjitterstatssum2negativesdshigh = YLeaf(YType.uint32, "rttMonJitterStatsSum2NegativesDSHigh")
-
-                self.rttmonjitterstatspacketlosssd = YLeaf(YType.uint32, "rttMonJitterStatsPacketLossSD")
-
-                self.rttmonjitterstatspacketlossds = YLeaf(YType.uint32, "rttMonJitterStatsPacketLossDS")
-
-                self.rttmonjitterstatspacketoutofsequence = YLeaf(YType.uint32, "rttMonJitterStatsPacketOutOfSequence")
-
-                self.rttmonjitterstatspacketmia = YLeaf(YType.uint32, "rttMonJitterStatsPacketMIA")
-
-                self.rttmonjitterstatspacketlatearrival = YLeaf(YType.uint32, "rttMonJitterStatsPacketLateArrival")
-
-                self.rttmonjitterstatserror = YLeaf(YType.uint32, "rttMonJitterStatsError")
-
-                self.rttmonjitterstatsbusies = YLeaf(YType.uint32, "rttMonJitterStatsBusies")
-
-                self.rttmonjitterstatsowsumsd = YLeaf(YType.uint32, "rttMonJitterStatsOWSumSD")
-
-                self.rttmonjitterstatsowsum2sdlow = YLeaf(YType.uint32, "rttMonJitterStatsOWSum2SDLow")
-
-                self.rttmonjitterstatsowsum2sdhigh = YLeaf(YType.uint32, "rttMonJitterStatsOWSum2SDHigh")
-
-                self.rttmonjitterstatsowminsd = YLeaf(YType.uint32, "rttMonJitterStatsOWMinSD")
-
-                self.rttmonjitterstatsowmaxsd = YLeaf(YType.uint32, "rttMonJitterStatsOWMaxSD")
-
-                self.rttmonjitterstatsowsumds = YLeaf(YType.uint32, "rttMonJitterStatsOWSumDS")
-
-                self.rttmonjitterstatsowsum2dslow = YLeaf(YType.uint32, "rttMonJitterStatsOWSum2DSLow")
-
-                self.rttmonjitterstatsowsum2dshigh = YLeaf(YType.uint32, "rttMonJitterStatsOWSum2DSHigh")
-
-                self.rttmonjitterstatsowminds = YLeaf(YType.uint32, "rttMonJitterStatsOWMinDS")
-
-                self.rttmonjitterstatsowmaxds = YLeaf(YType.uint32, "rttMonJitterStatsOWMaxDS")
-
-                self.rttmonjitterstatsnumofow = YLeaf(YType.uint32, "rttMonJitterStatsNumOfOW")
-
-                self.rttmonjitterstatsowminsdnew = YLeaf(YType.uint32, "rttMonJitterStatsOWMinSDNew")
-
-                self.rttmonjitterstatsowmaxsdnew = YLeaf(YType.uint32, "rttMonJitterStatsOWMaxSDNew")
-
-                self.rttmonjitterstatsowmindsnew = YLeaf(YType.uint32, "rttMonJitterStatsOWMinDSNew")
-
-                self.rttmonjitterstatsowmaxdsnew = YLeaf(YType.uint32, "rttMonJitterStatsOWMaxDSNew")
-
-                self.rttmonjitterstatsminofmos = YLeaf(YType.uint32, "rttMonJitterStatsMinOfMOS")
-
-                self.rttmonjitterstatsmaxofmos = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfMOS")
-
-                self.rttmonjitterstatsminoficpif = YLeaf(YType.uint32, "rttMonJitterStatsMinOfICPIF")
-
-                self.rttmonjitterstatsmaxoficpif = YLeaf(YType.uint32, "rttMonJitterStatsMaxOfICPIF")
-
-                self.rttmonjitterstatsiajout = YLeaf(YType.uint32, "rttMonJitterStatsIAJOut")
-
-                self.rttmonjitterstatsiajin = YLeaf(YType.uint32, "rttMonJitterStatsIAJIn")
-
-                self.rttmonjitterstatsavgjitter = YLeaf(YType.uint32, "rttMonJitterStatsAvgJitter")
-
-                self.rttmonjitterstatsavgjittersd = YLeaf(YType.uint32, "rttMonJitterStatsAvgJitterSD")
-
-                self.rttmonjitterstatsavgjitterds = YLeaf(YType.uint32, "rttMonJitterStatsAvgJitterDS")
-
-                self.rttmonjitterstatsunsyncrts = YLeaf(YType.uint32, "rttMonJitterStatsUnSyncRTs")
-
-                self.rttmonjitterstatsrttsumhigh = YLeaf(YType.uint32, "rttMonJitterStatsRTTSumHigh")
-
-                self.rttmonjitterstatsowsumsdhigh = YLeaf(YType.uint32, "rttMonJitterStatsOWSumSDHigh")
-
-                self.rttmonjitterstatsowsumdshigh = YLeaf(YType.uint32, "rttMonJitterStatsOWSumDSHigh")
-                self._segment_path = lambda: "rttMonJitterStatsEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonJitterStatsStartTimeIndex='" + self.rttmonjitterstatsstarttimeindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonjitterstatsstarttimeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonjitterstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonJitterStatsStartTimeIndex')),
+                    ('rttmonjitterstatscompletions', YLeaf(YType.uint32, 'rttMonJitterStatsCompletions')),
+                    ('rttmonjitterstatsoverthresholds', YLeaf(YType.uint32, 'rttMonJitterStatsOverThresholds')),
+                    ('rttmonjitterstatsnumofrtt', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfRTT')),
+                    ('rttmonjitterstatsrttsum', YLeaf(YType.uint32, 'rttMonJitterStatsRTTSum')),
+                    ('rttmonjitterstatsrttsum2low', YLeaf(YType.uint32, 'rttMonJitterStatsRTTSum2Low')),
+                    ('rttmonjitterstatsrttsum2high', YLeaf(YType.uint32, 'rttMonJitterStatsRTTSum2High')),
+                    ('rttmonjitterstatsrttmin', YLeaf(YType.uint32, 'rttMonJitterStatsRTTMin')),
+                    ('rttmonjitterstatsrttmax', YLeaf(YType.uint32, 'rttMonJitterStatsRTTMax')),
+                    ('rttmonjitterstatsminofpositivessd', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfPositivesSD')),
+                    ('rttmonjitterstatsmaxofpositivessd', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfPositivesSD')),
+                    ('rttmonjitterstatsnumofpositivessd', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfPositivesSD')),
+                    ('rttmonjitterstatssumofpositivessd', YLeaf(YType.uint32, 'rttMonJitterStatsSumOfPositivesSD')),
+                    ('rttmonjitterstatssum2positivessdlow', YLeaf(YType.uint32, 'rttMonJitterStatsSum2PositivesSDLow')),
+                    ('rttmonjitterstatssum2positivessdhigh', YLeaf(YType.uint32, 'rttMonJitterStatsSum2PositivesSDHigh')),
+                    ('rttmonjitterstatsminofnegativessd', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfNegativesSD')),
+                    ('rttmonjitterstatsmaxofnegativessd', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfNegativesSD')),
+                    ('rttmonjitterstatsnumofnegativessd', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfNegativesSD')),
+                    ('rttmonjitterstatssumofnegativessd', YLeaf(YType.uint32, 'rttMonJitterStatsSumOfNegativesSD')),
+                    ('rttmonjitterstatssum2negativessdlow', YLeaf(YType.uint32, 'rttMonJitterStatsSum2NegativesSDLow')),
+                    ('rttmonjitterstatssum2negativessdhigh', YLeaf(YType.uint32, 'rttMonJitterStatsSum2NegativesSDHigh')),
+                    ('rttmonjitterstatsminofpositivesds', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfPositivesDS')),
+                    ('rttmonjitterstatsmaxofpositivesds', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfPositivesDS')),
+                    ('rttmonjitterstatsnumofpositivesds', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfPositivesDS')),
+                    ('rttmonjitterstatssumofpositivesds', YLeaf(YType.uint32, 'rttMonJitterStatsSumOfPositivesDS')),
+                    ('rttmonjitterstatssum2positivesdslow', YLeaf(YType.uint32, 'rttMonJitterStatsSum2PositivesDSLow')),
+                    ('rttmonjitterstatssum2positivesdshigh', YLeaf(YType.uint32, 'rttMonJitterStatsSum2PositivesDSHigh')),
+                    ('rttmonjitterstatsminofnegativesds', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfNegativesDS')),
+                    ('rttmonjitterstatsmaxofnegativesds', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfNegativesDS')),
+                    ('rttmonjitterstatsnumofnegativesds', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfNegativesDS')),
+                    ('rttmonjitterstatssumofnegativesds', YLeaf(YType.uint32, 'rttMonJitterStatsSumOfNegativesDS')),
+                    ('rttmonjitterstatssum2negativesdslow', YLeaf(YType.uint32, 'rttMonJitterStatsSum2NegativesDSLow')),
+                    ('rttmonjitterstatssum2negativesdshigh', YLeaf(YType.uint32, 'rttMonJitterStatsSum2NegativesDSHigh')),
+                    ('rttmonjitterstatspacketlosssd', YLeaf(YType.uint32, 'rttMonJitterStatsPacketLossSD')),
+                    ('rttmonjitterstatspacketlossds', YLeaf(YType.uint32, 'rttMonJitterStatsPacketLossDS')),
+                    ('rttmonjitterstatspacketoutofsequence', YLeaf(YType.uint32, 'rttMonJitterStatsPacketOutOfSequence')),
+                    ('rttmonjitterstatspacketmia', YLeaf(YType.uint32, 'rttMonJitterStatsPacketMIA')),
+                    ('rttmonjitterstatspacketlatearrival', YLeaf(YType.uint32, 'rttMonJitterStatsPacketLateArrival')),
+                    ('rttmonjitterstatserror', YLeaf(YType.uint32, 'rttMonJitterStatsError')),
+                    ('rttmonjitterstatsbusies', YLeaf(YType.uint32, 'rttMonJitterStatsBusies')),
+                    ('rttmonjitterstatsowsumsd', YLeaf(YType.uint32, 'rttMonJitterStatsOWSumSD')),
+                    ('rttmonjitterstatsowsum2sdlow', YLeaf(YType.uint32, 'rttMonJitterStatsOWSum2SDLow')),
+                    ('rttmonjitterstatsowsum2sdhigh', YLeaf(YType.uint32, 'rttMonJitterStatsOWSum2SDHigh')),
+                    ('rttmonjitterstatsowminsd', YLeaf(YType.uint32, 'rttMonJitterStatsOWMinSD')),
+                    ('rttmonjitterstatsowmaxsd', YLeaf(YType.uint32, 'rttMonJitterStatsOWMaxSD')),
+                    ('rttmonjitterstatsowsumds', YLeaf(YType.uint32, 'rttMonJitterStatsOWSumDS')),
+                    ('rttmonjitterstatsowsum2dslow', YLeaf(YType.uint32, 'rttMonJitterStatsOWSum2DSLow')),
+                    ('rttmonjitterstatsowsum2dshigh', YLeaf(YType.uint32, 'rttMonJitterStatsOWSum2DSHigh')),
+                    ('rttmonjitterstatsowminds', YLeaf(YType.uint32, 'rttMonJitterStatsOWMinDS')),
+                    ('rttmonjitterstatsowmaxds', YLeaf(YType.uint32, 'rttMonJitterStatsOWMaxDS')),
+                    ('rttmonjitterstatsnumofow', YLeaf(YType.uint32, 'rttMonJitterStatsNumOfOW')),
+                    ('rttmonjitterstatsowminsdnew', YLeaf(YType.uint32, 'rttMonJitterStatsOWMinSDNew')),
+                    ('rttmonjitterstatsowmaxsdnew', YLeaf(YType.uint32, 'rttMonJitterStatsOWMaxSDNew')),
+                    ('rttmonjitterstatsowmindsnew', YLeaf(YType.uint32, 'rttMonJitterStatsOWMinDSNew')),
+                    ('rttmonjitterstatsowmaxdsnew', YLeaf(YType.uint32, 'rttMonJitterStatsOWMaxDSNew')),
+                    ('rttmonjitterstatsminofmos', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfMOS')),
+                    ('rttmonjitterstatsmaxofmos', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfMOS')),
+                    ('rttmonjitterstatsminoficpif', YLeaf(YType.uint32, 'rttMonJitterStatsMinOfICPIF')),
+                    ('rttmonjitterstatsmaxoficpif', YLeaf(YType.uint32, 'rttMonJitterStatsMaxOfICPIF')),
+                    ('rttmonjitterstatsiajout', YLeaf(YType.uint32, 'rttMonJitterStatsIAJOut')),
+                    ('rttmonjitterstatsiajin', YLeaf(YType.uint32, 'rttMonJitterStatsIAJIn')),
+                    ('rttmonjitterstatsavgjitter', YLeaf(YType.uint32, 'rttMonJitterStatsAvgJitter')),
+                    ('rttmonjitterstatsavgjittersd', YLeaf(YType.uint32, 'rttMonJitterStatsAvgJitterSD')),
+                    ('rttmonjitterstatsavgjitterds', YLeaf(YType.uint32, 'rttMonJitterStatsAvgJitterDS')),
+                    ('rttmonjitterstatsunsyncrts', YLeaf(YType.uint32, 'rttMonJitterStatsUnSyncRTs')),
+                    ('rttmonjitterstatsrttsumhigh', YLeaf(YType.uint32, 'rttMonJitterStatsRTTSumHigh')),
+                    ('rttmonjitterstatsowsumsdhigh', YLeaf(YType.uint32, 'rttMonJitterStatsOWSumSDHigh')),
+                    ('rttmonjitterstatsowsumdshigh', YLeaf(YType.uint32, 'rttMonJitterStatsOWSumDSHigh')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonjitterstatsstarttimeindex = None
+                self.rttmonjitterstatscompletions = None
+                self.rttmonjitterstatsoverthresholds = None
+                self.rttmonjitterstatsnumofrtt = None
+                self.rttmonjitterstatsrttsum = None
+                self.rttmonjitterstatsrttsum2low = None
+                self.rttmonjitterstatsrttsum2high = None
+                self.rttmonjitterstatsrttmin = None
+                self.rttmonjitterstatsrttmax = None
+                self.rttmonjitterstatsminofpositivessd = None
+                self.rttmonjitterstatsmaxofpositivessd = None
+                self.rttmonjitterstatsnumofpositivessd = None
+                self.rttmonjitterstatssumofpositivessd = None
+                self.rttmonjitterstatssum2positivessdlow = None
+                self.rttmonjitterstatssum2positivessdhigh = None
+                self.rttmonjitterstatsminofnegativessd = None
+                self.rttmonjitterstatsmaxofnegativessd = None
+                self.rttmonjitterstatsnumofnegativessd = None
+                self.rttmonjitterstatssumofnegativessd = None
+                self.rttmonjitterstatssum2negativessdlow = None
+                self.rttmonjitterstatssum2negativessdhigh = None
+                self.rttmonjitterstatsminofpositivesds = None
+                self.rttmonjitterstatsmaxofpositivesds = None
+                self.rttmonjitterstatsnumofpositivesds = None
+                self.rttmonjitterstatssumofpositivesds = None
+                self.rttmonjitterstatssum2positivesdslow = None
+                self.rttmonjitterstatssum2positivesdshigh = None
+                self.rttmonjitterstatsminofnegativesds = None
+                self.rttmonjitterstatsmaxofnegativesds = None
+                self.rttmonjitterstatsnumofnegativesds = None
+                self.rttmonjitterstatssumofnegativesds = None
+                self.rttmonjitterstatssum2negativesdslow = None
+                self.rttmonjitterstatssum2negativesdshigh = None
+                self.rttmonjitterstatspacketlosssd = None
+                self.rttmonjitterstatspacketlossds = None
+                self.rttmonjitterstatspacketoutofsequence = None
+                self.rttmonjitterstatspacketmia = None
+                self.rttmonjitterstatspacketlatearrival = None
+                self.rttmonjitterstatserror = None
+                self.rttmonjitterstatsbusies = None
+                self.rttmonjitterstatsowsumsd = None
+                self.rttmonjitterstatsowsum2sdlow = None
+                self.rttmonjitterstatsowsum2sdhigh = None
+                self.rttmonjitterstatsowminsd = None
+                self.rttmonjitterstatsowmaxsd = None
+                self.rttmonjitterstatsowsumds = None
+                self.rttmonjitterstatsowsum2dslow = None
+                self.rttmonjitterstatsowsum2dshigh = None
+                self.rttmonjitterstatsowminds = None
+                self.rttmonjitterstatsowmaxds = None
+                self.rttmonjitterstatsnumofow = None
+                self.rttmonjitterstatsowminsdnew = None
+                self.rttmonjitterstatsowmaxsdnew = None
+                self.rttmonjitterstatsowmindsnew = None
+                self.rttmonjitterstatsowmaxdsnew = None
+                self.rttmonjitterstatsminofmos = None
+                self.rttmonjitterstatsmaxofmos = None
+                self.rttmonjitterstatsminoficpif = None
+                self.rttmonjitterstatsmaxoficpif = None
+                self.rttmonjitterstatsiajout = None
+                self.rttmonjitterstatsiajin = None
+                self.rttmonjitterstatsavgjitter = None
+                self.rttmonjitterstatsavgjittersd = None
+                self.rttmonjitterstatsavgjitterds = None
+                self.rttmonjitterstatsunsyncrts = None
+                self.rttmonjitterstatsrttsumhigh = None
+                self.rttmonjitterstatsowsumsdhigh = None
+                self.rttmonjitterstatsowsumdshigh = None
+                self._segment_path = lambda: "rttMonJitterStatsEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonJitterStatsStartTimeIndex='" + str(self.rttmonjitterstatsstarttimeindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonJitterStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6399,8 +6501,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonLpdGrpStatsEntry" : ("rttmonlpdgrpstatsentry", CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonLpdGrpStatsEntry", ("rttmonlpdgrpstatsentry", CISCORTTMONMIB.Rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonlpdgrpstatsentry = YList(self)
             self._segment_path = lambda: "rttMonLpdGrpStatsTable"
@@ -6431,14 +6535,14 @@ class CISCORTTMONMIB(Entity):
                rttMonLpdGrpStatsStartTimeIndex is used to make this value 
                unique.)
             
-            .. attribute:: rttmonlpdgrpstatsgroupindex  <key>
+            .. attribute:: rttmonlpdgrpstatsgroupindex  (key)
             
             	Uniquely identifies a row in rttMonLpdGrpStatsTable.  This is a pseudo\-random number which identifies a particular LPD group
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: rttmonlpdgrpstatsstarttimeindex  <key>
+            .. attribute:: rttmonlpdgrpstatsstarttimeindex  (key)
             
             	The time when this row was created.  This object is the second index of the rttMonLpdGrpStatsTable. When the number of rttMonLpdGrpStatsStartTimeIndex groups exceeds the rttMplsVpnMonTypeLpdStatHours value, the oldest rttMonLpdGrpStatsStartTimeIndex group will be removed and replaced with the new entry
             	**type**\: int
@@ -6595,49 +6699,52 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonLpdGrpStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonlpdgrpstatsgroupindex = YLeaf(YType.int32, "rttMonLpdGrpStatsGroupIndex")
-
-                self.rttmonlpdgrpstatsstarttimeindex = YLeaf(YType.uint32, "rttMonLpdGrpStatsStartTimeIndex")
-
-                self.rttmonlpdgrpstatstargetpe = YLeaf(YType.str, "rttMonLpdGrpStatsTargetPE")
-
-                self.rttmonlpdgrpstatsnumofpass = YLeaf(YType.int32, "rttMonLpdGrpStatsNumOfPass")
-
-                self.rttmonlpdgrpstatsnumoffail = YLeaf(YType.int32, "rttMonLpdGrpStatsNumOfFail")
-
-                self.rttmonlpdgrpstatsnumoftimeout = YLeaf(YType.int32, "rttMonLpdGrpStatsNumOfTimeout")
-
-                self.rttmonlpdgrpstatsavgrtt = YLeaf(YType.int32, "rttMonLpdGrpStatsAvgRTT")
-
-                self.rttmonlpdgrpstatsminrtt = YLeaf(YType.int32, "rttMonLpdGrpStatsMinRTT")
-
-                self.rttmonlpdgrpstatsmaxrtt = YLeaf(YType.int32, "rttMonLpdGrpStatsMaxRTT")
-
-                self.rttmonlpdgrpstatsminnumpaths = YLeaf(YType.int32, "rttMonLpdGrpStatsMinNumPaths")
-
-                self.rttmonlpdgrpstatsmaxnumpaths = YLeaf(YType.int32, "rttMonLpdGrpStatsMaxNumPaths")
-
-                self.rttmonlpdgrpstatslpdstarttime = YLeaf(YType.uint32, "rttMonLpdGrpStatsLPDStartTime")
-
-                self.rttmonlpdgrpstatslpdfailoccurred = YLeaf(YType.boolean, "rttMonLpdGrpStatsLPDFailOccurred")
-
-                self.rttmonlpdgrpstatslpdfailcause = YLeaf(YType.enumeration, "rttMonLpdGrpStatsLPDFailCause")
-
-                self.rttmonlpdgrpstatslpdcomptime = YLeaf(YType.int32, "rttMonLpdGrpStatsLPDCompTime")
-
-                self.rttmonlpdgrpstatsgroupstatus = YLeaf(YType.enumeration, "rttMonLpdGrpStatsGroupStatus")
-
-                self.rttmonlpdgrpstatsgroupprobeindex = YLeaf(YType.int32, "rttMonLpdGrpStatsGroupProbeIndex")
-
-                self.rttmonlpdgrpstatspathids = YLeaf(YType.str, "rttMonLpdGrpStatsPathIds")
-
-                self.rttmonlpdgrpstatsprobestatus = YLeaf(YType.str, "rttMonLpdGrpStatsProbeStatus")
-
-                self.rttmonlpdgrpstatsresettime = YLeaf(YType.uint32, "rttMonLpdGrpStatsResetTime")
-                self._segment_path = lambda: "rttMonLpdGrpStatsEntry" + "[rttMonLpdGrpStatsGroupIndex='" + self.rttmonlpdgrpstatsgroupindex.get() + "']" + "[rttMonLpdGrpStatsStartTimeIndex='" + self.rttmonlpdgrpstatsstarttimeindex.get() + "']"
+                self.ylist_key_names = ['rttmonlpdgrpstatsgroupindex','rttmonlpdgrpstatsstarttimeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonlpdgrpstatsgroupindex', YLeaf(YType.int32, 'rttMonLpdGrpStatsGroupIndex')),
+                    ('rttmonlpdgrpstatsstarttimeindex', YLeaf(YType.uint32, 'rttMonLpdGrpStatsStartTimeIndex')),
+                    ('rttmonlpdgrpstatstargetpe', YLeaf(YType.str, 'rttMonLpdGrpStatsTargetPE')),
+                    ('rttmonlpdgrpstatsnumofpass', YLeaf(YType.int32, 'rttMonLpdGrpStatsNumOfPass')),
+                    ('rttmonlpdgrpstatsnumoffail', YLeaf(YType.int32, 'rttMonLpdGrpStatsNumOfFail')),
+                    ('rttmonlpdgrpstatsnumoftimeout', YLeaf(YType.int32, 'rttMonLpdGrpStatsNumOfTimeout')),
+                    ('rttmonlpdgrpstatsavgrtt', YLeaf(YType.int32, 'rttMonLpdGrpStatsAvgRTT')),
+                    ('rttmonlpdgrpstatsminrtt', YLeaf(YType.int32, 'rttMonLpdGrpStatsMinRTT')),
+                    ('rttmonlpdgrpstatsmaxrtt', YLeaf(YType.int32, 'rttMonLpdGrpStatsMaxRTT')),
+                    ('rttmonlpdgrpstatsminnumpaths', YLeaf(YType.int32, 'rttMonLpdGrpStatsMinNumPaths')),
+                    ('rttmonlpdgrpstatsmaxnumpaths', YLeaf(YType.int32, 'rttMonLpdGrpStatsMaxNumPaths')),
+                    ('rttmonlpdgrpstatslpdstarttime', YLeaf(YType.uint32, 'rttMonLpdGrpStatsLPDStartTime')),
+                    ('rttmonlpdgrpstatslpdfailoccurred', YLeaf(YType.boolean, 'rttMonLpdGrpStatsLPDFailOccurred')),
+                    ('rttmonlpdgrpstatslpdfailcause', YLeaf(YType.enumeration, 'rttMonLpdGrpStatsLPDFailCause')),
+                    ('rttmonlpdgrpstatslpdcomptime', YLeaf(YType.int32, 'rttMonLpdGrpStatsLPDCompTime')),
+                    ('rttmonlpdgrpstatsgroupstatus', YLeaf(YType.enumeration, 'rttMonLpdGrpStatsGroupStatus')),
+                    ('rttmonlpdgrpstatsgroupprobeindex', YLeaf(YType.int32, 'rttMonLpdGrpStatsGroupProbeIndex')),
+                    ('rttmonlpdgrpstatspathids', YLeaf(YType.str, 'rttMonLpdGrpStatsPathIds')),
+                    ('rttmonlpdgrpstatsprobestatus', YLeaf(YType.str, 'rttMonLpdGrpStatsProbeStatus')),
+                    ('rttmonlpdgrpstatsresettime', YLeaf(YType.uint32, 'rttMonLpdGrpStatsResetTime')),
+                ])
+                self.rttmonlpdgrpstatsgroupindex = None
+                self.rttmonlpdgrpstatsstarttimeindex = None
+                self.rttmonlpdgrpstatstargetpe = None
+                self.rttmonlpdgrpstatsnumofpass = None
+                self.rttmonlpdgrpstatsnumoffail = None
+                self.rttmonlpdgrpstatsnumoftimeout = None
+                self.rttmonlpdgrpstatsavgrtt = None
+                self.rttmonlpdgrpstatsminrtt = None
+                self.rttmonlpdgrpstatsmaxrtt = None
+                self.rttmonlpdgrpstatsminnumpaths = None
+                self.rttmonlpdgrpstatsmaxnumpaths = None
+                self.rttmonlpdgrpstatslpdstarttime = None
+                self.rttmonlpdgrpstatslpdfailoccurred = None
+                self.rttmonlpdgrpstatslpdfailcause = None
+                self.rttmonlpdgrpstatslpdcomptime = None
+                self.rttmonlpdgrpstatsgroupstatus = None
+                self.rttmonlpdgrpstatsgroupprobeindex = None
+                self.rttmonlpdgrpstatspathids = None
+                self.rttmonlpdgrpstatsprobestatus = None
+                self.rttmonlpdgrpstatsresettime = None
+                self._segment_path = lambda: "rttMonLpdGrpStatsEntry" + "[rttMonLpdGrpStatsGroupIndex='" + str(self.rttmonlpdgrpstatsgroupindex) + "']" + "[rttMonLpdGrpStatsStartTimeIndex='" + str(self.rttmonlpdgrpstatsstarttimeindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLpdGrpStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6685,8 +6792,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonHistoryCollectionEntry" : ("rttmonhistorycollectionentry", CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonHistoryCollectionEntry", ("rttmonhistorycollectionentry", CISCORTTMONMIB.Rttmonhistorycollectiontable.Rttmonhistorycollectionentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonhistorycollectionentry = YList(self)
             self._segment_path = lambda: "rttMonHistoryCollectionTable"
@@ -6727,7 +6836,7 @@ class CISCORTTMONMIB(Entity):
                   second will be 2 and so on.   For all other values
                   of rttMonCtrlAdminRttType this will be 1.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -6736,21 +6845,21 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.Rttmonctrladmintable.Rttmonctrladminentry>`
             
-            .. attribute:: rttmonhistorycollectionlifeindex  <key>
+            .. attribute:: rttmonhistorycollectionlifeindex  (key)
             
             	This uniquely defines a life for a conceptual history row.  For a particular value of rttMonHistoryCollectionLifeIndex, the agent assigns the first value of 1, the second value  of 2, and so on.  The sequence keeps incrementing,  despite older (lower) values being removed from the  table
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: rttmonhistorycollectionbucketindex  <key>
+            .. attribute:: rttmonhistorycollectionbucketindex  (key)
             
             	When the RttMonRttType is 'pathEcho', this uniquely defines a bucket for a given value of  rttMonHistoryCollectionLifeIndex.  For all other  RttMonRttType this value will be the number of operations per a lifetime.  Thus, this object  increments on each operation attempt.  For a particular value of  rttMonHistoryCollectionLifeIndex, the agent assigns  the first value of 1, the second value of 2, and so  on.  The sequence keeps incrementing until the number of buckets equals rttMonHistoryAdminNumBuckets, after which the most recent rttMonHistoryAdminNumBuckets  buckets are retained (the index is incremented though)
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: rttmonhistorycollectionsampleindex  <key>
+            .. attribute:: rttmonhistorycollectionsampleindex  (key)
             
             	This uniquely defines a row for a given value of rttMonHistoryCollectionBucketIndex.  This object represents a hop along a path to the Target.  For a particular value of  rttMonHistoryCollectionBucketIndex, the agent assigns  the first value of 1, the second value of 2, and so on. The sequence keeps incrementing until the number of  samples equals rttMonHistoryAdminNumSamples, then no  new samples are created for the current  rttMonHistoryCollectionBucketIndex.  When the RttMonRttType is 'pathEcho', this value  directly represents the number of hops along a  path to a target, thus we can only support 512 hops. For all other values of RttMonRttType this object will be one
             	**type**\: int
@@ -6809,29 +6918,32 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonHistoryCollectionTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonhistorycollectionlifeindex = YLeaf(YType.int32, "rttMonHistoryCollectionLifeIndex")
-
-                self.rttmonhistorycollectionbucketindex = YLeaf(YType.int32, "rttMonHistoryCollectionBucketIndex")
-
-                self.rttmonhistorycollectionsampleindex = YLeaf(YType.int32, "rttMonHistoryCollectionSampleIndex")
-
-                self.rttmonhistorycollectionsampletime = YLeaf(YType.uint32, "rttMonHistoryCollectionSampleTime")
-
-                self.rttmonhistorycollectionaddress = YLeaf(YType.str, "rttMonHistoryCollectionAddress")
-
-                self.rttmonhistorycollectioncompletiontime = YLeaf(YType.uint32, "rttMonHistoryCollectionCompletionTime")
-
-                self.rttmonhistorycollectionsense = YLeaf(YType.enumeration, "rttMonHistoryCollectionSense")
-
-                self.rttmonhistorycollectionapplspecificsense = YLeaf(YType.int32, "rttMonHistoryCollectionApplSpecificSense")
-
-                self.rttmonhistorycollectionsensedescription = YLeaf(YType.str, "rttMonHistoryCollectionSenseDescription")
-                self._segment_path = lambda: "rttMonHistoryCollectionEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']" + "[rttMonHistoryCollectionLifeIndex='" + self.rttmonhistorycollectionlifeindex.get() + "']" + "[rttMonHistoryCollectionBucketIndex='" + self.rttmonhistorycollectionbucketindex.get() + "']" + "[rttMonHistoryCollectionSampleIndex='" + self.rttmonhistorycollectionsampleindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex','rttmonhistorycollectionlifeindex','rttmonhistorycollectionbucketindex','rttmonhistorycollectionsampleindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonhistorycollectionlifeindex', YLeaf(YType.int32, 'rttMonHistoryCollectionLifeIndex')),
+                    ('rttmonhistorycollectionbucketindex', YLeaf(YType.int32, 'rttMonHistoryCollectionBucketIndex')),
+                    ('rttmonhistorycollectionsampleindex', YLeaf(YType.int32, 'rttMonHistoryCollectionSampleIndex')),
+                    ('rttmonhistorycollectionsampletime', YLeaf(YType.uint32, 'rttMonHistoryCollectionSampleTime')),
+                    ('rttmonhistorycollectionaddress', YLeaf(YType.str, 'rttMonHistoryCollectionAddress')),
+                    ('rttmonhistorycollectioncompletiontime', YLeaf(YType.uint32, 'rttMonHistoryCollectionCompletionTime')),
+                    ('rttmonhistorycollectionsense', YLeaf(YType.enumeration, 'rttMonHistoryCollectionSense')),
+                    ('rttmonhistorycollectionapplspecificsense', YLeaf(YType.int32, 'rttMonHistoryCollectionApplSpecificSense')),
+                    ('rttmonhistorycollectionsensedescription', YLeaf(YType.str, 'rttMonHistoryCollectionSenseDescription')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonhistorycollectionlifeindex = None
+                self.rttmonhistorycollectionbucketindex = None
+                self.rttmonhistorycollectionsampleindex = None
+                self.rttmonhistorycollectionsampletime = None
+                self.rttmonhistorycollectionaddress = None
+                self.rttmonhistorycollectioncompletiontime = None
+                self.rttmonhistorycollectionsense = None
+                self.rttmonhistorycollectionapplspecificsense = None
+                self.rttmonhistorycollectionsensedescription = None
+                self._segment_path = lambda: "rttMonHistoryCollectionEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']" + "[rttMonHistoryCollectionLifeIndex='" + str(self.rttmonhistorycollectionlifeindex) + "']" + "[rttMonHistoryCollectionBucketIndex='" + str(self.rttmonhistorycollectionbucketindex) + "']" + "[rttMonHistoryCollectionSampleIndex='" + str(self.rttmonhistorycollectionsampleindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHistoryCollectionTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6862,8 +6974,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonLatestHTTPOperEntry" : ("rttmonlatesthttpoperentry", CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonLatestHTTPOperEntry", ("rttmonlatesthttpoperentry", CISCORTTMONMIB.Rttmonlatesthttpopertable.Rttmonlatesthttpoperentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonlatesthttpoperentry = YList(self)
             self._segment_path = lambda: "rttMonLatestHTTPOperTable"
@@ -6880,7 +6994,7 @@ class CISCORTTMONMIB(Entity):
             rttMonCtrlAdminEntry is created. Also the entry is 
             automatically deleted when rttMonCtrlAdminEntry is deleted.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -6948,25 +7062,28 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonLatestHTTPOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonlatesthttpoperrtt = YLeaf(YType.uint32, "rttMonLatestHTTPOperRTT")
-
-                self.rttmonlatesthttpoperdnsrtt = YLeaf(YType.uint32, "rttMonLatestHTTPOperDNSRTT")
-
-                self.rttmonlatesthttpopertcpconnectrtt = YLeaf(YType.uint32, "rttMonLatestHTTPOperTCPConnectRTT")
-
-                self.rttmonlatesthttpopertransactionrtt = YLeaf(YType.uint32, "rttMonLatestHTTPOperTransactionRTT")
-
-                self.rttmonlatesthttpopermessagebodyoctets = YLeaf(YType.uint32, "rttMonLatestHTTPOperMessageBodyOctets")
-
-                self.rttmonlatesthttpopersense = YLeaf(YType.enumeration, "rttMonLatestHTTPOperSense")
-
-                self.rttmonlatesthttperrorsensedescription = YLeaf(YType.str, "rttMonLatestHTTPErrorSenseDescription")
-                self._segment_path = lambda: "rttMonLatestHTTPOperEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonlatesthttpoperrtt', YLeaf(YType.uint32, 'rttMonLatestHTTPOperRTT')),
+                    ('rttmonlatesthttpoperdnsrtt', YLeaf(YType.uint32, 'rttMonLatestHTTPOperDNSRTT')),
+                    ('rttmonlatesthttpopertcpconnectrtt', YLeaf(YType.uint32, 'rttMonLatestHTTPOperTCPConnectRTT')),
+                    ('rttmonlatesthttpopertransactionrtt', YLeaf(YType.uint32, 'rttMonLatestHTTPOperTransactionRTT')),
+                    ('rttmonlatesthttpopermessagebodyoctets', YLeaf(YType.uint32, 'rttMonLatestHTTPOperMessageBodyOctets')),
+                    ('rttmonlatesthttpopersense', YLeaf(YType.enumeration, 'rttMonLatestHTTPOperSense')),
+                    ('rttmonlatesthttperrorsensedescription', YLeaf(YType.str, 'rttMonLatestHTTPErrorSenseDescription')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonlatesthttpoperrtt = None
+                self.rttmonlatesthttpoperdnsrtt = None
+                self.rttmonlatesthttpopertcpconnectrtt = None
+                self.rttmonlatesthttpopertransactionrtt = None
+                self.rttmonlatesthttpopermessagebodyoctets = None
+                self.rttmonlatesthttpopersense = None
+                self.rttmonlatesthttperrorsensedescription = None
+                self._segment_path = lambda: "rttMonLatestHTTPOperEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestHTTPOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -6997,8 +7114,10 @@ class CISCORTTMONMIB(Entity):
             self.yang_parent_name = "CISCO-RTTMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"rttMonLatestJitterOperEntry" : ("rttmonlatestjitteroperentry", CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("rttMonLatestJitterOperEntry", ("rttmonlatestjitteroperentry", CISCORTTMONMIB.Rttmonlatestjitteropertable.Rttmonlatestjitteroperentry))])
+            self._leafs = OrderedDict()
 
             self.rttmonlatestjitteroperentry = YList(self)
             self._segment_path = lambda: "rttMonLatestJitterOperTable"
@@ -7013,7 +7132,7 @@ class CISCORTTMONMIB(Entity):
             A list of objects that record the latest Jitter
             operation.
             
-            .. attribute:: rttmonctrladminindex  <key>
+            .. attribute:: rttmonctrladminindex  (key)
             
             	
             	**type**\: int
@@ -7436,127 +7555,130 @@ class CISCORTTMONMIB(Entity):
                 self.yang_parent_name = "rttMonLatestJitterOperTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.rttmonctrladminindex = YLeaf(YType.str, "rttMonCtrlAdminIndex")
-
-                self.rttmonlatestjitteropernumofrtt = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfRTT")
-
-                self.rttmonlatestjitteroperrttsum = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTSum")
-
-                self.rttmonlatestjitteroperrttsum2 = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTSum2")
-
-                self.rttmonlatestjitteroperrttmin = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTMin")
-
-                self.rttmonlatestjitteroperrttmax = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTMax")
-
-                self.rttmonlatestjitteroperminofpositivessd = YLeaf(YType.uint32, "rttMonLatestJitterOperMinOfPositivesSD")
-
-                self.rttmonlatestjitteropermaxofpositivessd = YLeaf(YType.uint32, "rttMonLatestJitterOperMaxOfPositivesSD")
-
-                self.rttmonlatestjitteropernumofpositivessd = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfPositivesSD")
-
-                self.rttmonlatestjitteropersumofpositivessd = YLeaf(YType.uint32, "rttMonLatestJitterOperSumOfPositivesSD")
-
-                self.rttmonlatestjitteropersum2positivessd = YLeaf(YType.uint32, "rttMonLatestJitterOperSum2PositivesSD")
-
-                self.rttmonlatestjitteroperminofnegativessd = YLeaf(YType.uint32, "rttMonLatestJitterOperMinOfNegativesSD")
-
-                self.rttmonlatestjitteropermaxofnegativessd = YLeaf(YType.uint32, "rttMonLatestJitterOperMaxOfNegativesSD")
-
-                self.rttmonlatestjitteropernumofnegativessd = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfNegativesSD")
-
-                self.rttmonlatestjitteropersumofnegativessd = YLeaf(YType.uint32, "rttMonLatestJitterOperSumOfNegativesSD")
-
-                self.rttmonlatestjitteropersum2negativessd = YLeaf(YType.uint32, "rttMonLatestJitterOperSum2NegativesSD")
-
-                self.rttmonlatestjitteroperminofpositivesds = YLeaf(YType.uint32, "rttMonLatestJitterOperMinOfPositivesDS")
-
-                self.rttmonlatestjitteropermaxofpositivesds = YLeaf(YType.uint32, "rttMonLatestJitterOperMaxOfPositivesDS")
-
-                self.rttmonlatestjitteropernumofpositivesds = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfPositivesDS")
-
-                self.rttmonlatestjitteropersumofpositivesds = YLeaf(YType.uint32, "rttMonLatestJitterOperSumOfPositivesDS")
-
-                self.rttmonlatestjitteropersum2positivesds = YLeaf(YType.uint32, "rttMonLatestJitterOperSum2PositivesDS")
-
-                self.rttmonlatestjitteroperminofnegativesds = YLeaf(YType.uint32, "rttMonLatestJitterOperMinOfNegativesDS")
-
-                self.rttmonlatestjitteropermaxofnegativesds = YLeaf(YType.uint32, "rttMonLatestJitterOperMaxOfNegativesDS")
-
-                self.rttmonlatestjitteropernumofnegativesds = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfNegativesDS")
-
-                self.rttmonlatestjitteropersumofnegativesds = YLeaf(YType.uint32, "rttMonLatestJitterOperSumOfNegativesDS")
-
-                self.rttmonlatestjitteropersum2negativesds = YLeaf(YType.uint32, "rttMonLatestJitterOperSum2NegativesDS")
-
-                self.rttmonlatestjitteroperpacketlosssd = YLeaf(YType.uint32, "rttMonLatestJitterOperPacketLossSD")
-
-                self.rttmonlatestjitteroperpacketlossds = YLeaf(YType.uint32, "rttMonLatestJitterOperPacketLossDS")
-
-                self.rttmonlatestjitteroperpacketoutofsequence = YLeaf(YType.uint32, "rttMonLatestJitterOperPacketOutOfSequence")
-
-                self.rttmonlatestjitteroperpacketmia = YLeaf(YType.uint32, "rttMonLatestJitterOperPacketMIA")
-
-                self.rttmonlatestjitteroperpacketlatearrival = YLeaf(YType.uint32, "rttMonLatestJitterOperPacketLateArrival")
-
-                self.rttmonlatestjitteropersense = YLeaf(YType.enumeration, "rttMonLatestJitterOperSense")
-
-                self.rttmonlatestjittererrorsensedescription = YLeaf(YType.str, "rttMonLatestJitterErrorSenseDescription")
-
-                self.rttmonlatestjitteroperowsumsd = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSumSD")
-
-                self.rttmonlatestjitteroperowsum2sd = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSum2SD")
-
-                self.rttmonlatestjitteroperowminsd = YLeaf(YType.uint32, "rttMonLatestJitterOperOWMinSD")
-
-                self.rttmonlatestjitteroperowmaxsd = YLeaf(YType.uint32, "rttMonLatestJitterOperOWMaxSD")
-
-                self.rttmonlatestjitteroperowsumds = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSumDS")
-
-                self.rttmonlatestjitteroperowsum2ds = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSum2DS")
-
-                self.rttmonlatestjitteroperowminds = YLeaf(YType.uint32, "rttMonLatestJitterOperOWMinDS")
-
-                self.rttmonlatestjitteroperowmaxds = YLeaf(YType.uint32, "rttMonLatestJitterOperOWMaxDS")
-
-                self.rttmonlatestjitteropernumofow = YLeaf(YType.uint32, "rttMonLatestJitterOperNumOfOW")
-
-                self.rttmonlatestjitteropermos = YLeaf(YType.uint32, "rttMonLatestJitterOperMOS")
-
-                self.rttmonlatestjitteropericpif = YLeaf(YType.uint32, "rttMonLatestJitterOperICPIF")
-
-                self.rttmonlatestjitteroperiajout = YLeaf(YType.uint32, "rttMonLatestJitterOperIAJOut")
-
-                self.rttmonlatestjitteroperiajin = YLeaf(YType.uint32, "rttMonLatestJitterOperIAJIn")
-
-                self.rttmonlatestjitteroperavgjitter = YLeaf(YType.uint32, "rttMonLatestJitterOperAvgJitter")
-
-                self.rttmonlatestjitteroperavgsdj = YLeaf(YType.uint32, "rttMonLatestJitterOperAvgSDJ")
-
-                self.rttmonlatestjitteroperavgdsj = YLeaf(YType.uint32, "rttMonLatestJitterOperAvgDSJ")
-
-                self.rttmonlatestjitteroperowavgsd = YLeaf(YType.uint32, "rttMonLatestJitterOperOWAvgSD")
-
-                self.rttmonlatestjitteroperowavgds = YLeaf(YType.uint32, "rttMonLatestJitterOperOWAvgDS")
-
-                self.rttmonlatestjitteroperntpstate = YLeaf(YType.enumeration, "rttMonLatestJitterOperNTPState")
-
-                self.rttmonlatestjitteroperunsyncrts = YLeaf(YType.uint32, "rttMonLatestJitterOperUnSyncRTs")
-
-                self.rttmonlatestjitteroperrttsumhigh = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTSumHigh")
-
-                self.rttmonlatestjitteroperrttsum2high = YLeaf(YType.uint32, "rttMonLatestJitterOperRTTSum2High")
-
-                self.rttmonlatestjitteroperowsumsdhigh = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSumSDHigh")
-
-                self.rttmonlatestjitteroperowsum2sdhigh = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSum2SDHigh")
-
-                self.rttmonlatestjitteroperowsumdshigh = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSumDSHigh")
-
-                self.rttmonlatestjitteroperowsum2dshigh = YLeaf(YType.uint32, "rttMonLatestJitterOperOWSum2DSHigh")
-                self._segment_path = lambda: "rttMonLatestJitterOperEntry" + "[rttMonCtrlAdminIndex='" + self.rttmonctrladminindex.get() + "']"
+                self.ylist_key_names = ['rttmonctrladminindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('rttmonctrladminindex', YLeaf(YType.str, 'rttMonCtrlAdminIndex')),
+                    ('rttmonlatestjitteropernumofrtt', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfRTT')),
+                    ('rttmonlatestjitteroperrttsum', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTSum')),
+                    ('rttmonlatestjitteroperrttsum2', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTSum2')),
+                    ('rttmonlatestjitteroperrttmin', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTMin')),
+                    ('rttmonlatestjitteroperrttmax', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTMax')),
+                    ('rttmonlatestjitteroperminofpositivessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperMinOfPositivesSD')),
+                    ('rttmonlatestjitteropermaxofpositivessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperMaxOfPositivesSD')),
+                    ('rttmonlatestjitteropernumofpositivessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfPositivesSD')),
+                    ('rttmonlatestjitteropersumofpositivessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperSumOfPositivesSD')),
+                    ('rttmonlatestjitteropersum2positivessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperSum2PositivesSD')),
+                    ('rttmonlatestjitteroperminofnegativessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperMinOfNegativesSD')),
+                    ('rttmonlatestjitteropermaxofnegativessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperMaxOfNegativesSD')),
+                    ('rttmonlatestjitteropernumofnegativessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfNegativesSD')),
+                    ('rttmonlatestjitteropersumofnegativessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperSumOfNegativesSD')),
+                    ('rttmonlatestjitteropersum2negativessd', YLeaf(YType.uint32, 'rttMonLatestJitterOperSum2NegativesSD')),
+                    ('rttmonlatestjitteroperminofpositivesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperMinOfPositivesDS')),
+                    ('rttmonlatestjitteropermaxofpositivesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperMaxOfPositivesDS')),
+                    ('rttmonlatestjitteropernumofpositivesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfPositivesDS')),
+                    ('rttmonlatestjitteropersumofpositivesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperSumOfPositivesDS')),
+                    ('rttmonlatestjitteropersum2positivesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperSum2PositivesDS')),
+                    ('rttmonlatestjitteroperminofnegativesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperMinOfNegativesDS')),
+                    ('rttmonlatestjitteropermaxofnegativesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperMaxOfNegativesDS')),
+                    ('rttmonlatestjitteropernumofnegativesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfNegativesDS')),
+                    ('rttmonlatestjitteropersumofnegativesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperSumOfNegativesDS')),
+                    ('rttmonlatestjitteropersum2negativesds', YLeaf(YType.uint32, 'rttMonLatestJitterOperSum2NegativesDS')),
+                    ('rttmonlatestjitteroperpacketlosssd', YLeaf(YType.uint32, 'rttMonLatestJitterOperPacketLossSD')),
+                    ('rttmonlatestjitteroperpacketlossds', YLeaf(YType.uint32, 'rttMonLatestJitterOperPacketLossDS')),
+                    ('rttmonlatestjitteroperpacketoutofsequence', YLeaf(YType.uint32, 'rttMonLatestJitterOperPacketOutOfSequence')),
+                    ('rttmonlatestjitteroperpacketmia', YLeaf(YType.uint32, 'rttMonLatestJitterOperPacketMIA')),
+                    ('rttmonlatestjitteroperpacketlatearrival', YLeaf(YType.uint32, 'rttMonLatestJitterOperPacketLateArrival')),
+                    ('rttmonlatestjitteropersense', YLeaf(YType.enumeration, 'rttMonLatestJitterOperSense')),
+                    ('rttmonlatestjittererrorsensedescription', YLeaf(YType.str, 'rttMonLatestJitterErrorSenseDescription')),
+                    ('rttmonlatestjitteroperowsumsd', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSumSD')),
+                    ('rttmonlatestjitteroperowsum2sd', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSum2SD')),
+                    ('rttmonlatestjitteroperowminsd', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWMinSD')),
+                    ('rttmonlatestjitteroperowmaxsd', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWMaxSD')),
+                    ('rttmonlatestjitteroperowsumds', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSumDS')),
+                    ('rttmonlatestjitteroperowsum2ds', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSum2DS')),
+                    ('rttmonlatestjitteroperowminds', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWMinDS')),
+                    ('rttmonlatestjitteroperowmaxds', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWMaxDS')),
+                    ('rttmonlatestjitteropernumofow', YLeaf(YType.uint32, 'rttMonLatestJitterOperNumOfOW')),
+                    ('rttmonlatestjitteropermos', YLeaf(YType.uint32, 'rttMonLatestJitterOperMOS')),
+                    ('rttmonlatestjitteropericpif', YLeaf(YType.uint32, 'rttMonLatestJitterOperICPIF')),
+                    ('rttmonlatestjitteroperiajout', YLeaf(YType.uint32, 'rttMonLatestJitterOperIAJOut')),
+                    ('rttmonlatestjitteroperiajin', YLeaf(YType.uint32, 'rttMonLatestJitterOperIAJIn')),
+                    ('rttmonlatestjitteroperavgjitter', YLeaf(YType.uint32, 'rttMonLatestJitterOperAvgJitter')),
+                    ('rttmonlatestjitteroperavgsdj', YLeaf(YType.uint32, 'rttMonLatestJitterOperAvgSDJ')),
+                    ('rttmonlatestjitteroperavgdsj', YLeaf(YType.uint32, 'rttMonLatestJitterOperAvgDSJ')),
+                    ('rttmonlatestjitteroperowavgsd', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWAvgSD')),
+                    ('rttmonlatestjitteroperowavgds', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWAvgDS')),
+                    ('rttmonlatestjitteroperntpstate', YLeaf(YType.enumeration, 'rttMonLatestJitterOperNTPState')),
+                    ('rttmonlatestjitteroperunsyncrts', YLeaf(YType.uint32, 'rttMonLatestJitterOperUnSyncRTs')),
+                    ('rttmonlatestjitteroperrttsumhigh', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTSumHigh')),
+                    ('rttmonlatestjitteroperrttsum2high', YLeaf(YType.uint32, 'rttMonLatestJitterOperRTTSum2High')),
+                    ('rttmonlatestjitteroperowsumsdhigh', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSumSDHigh')),
+                    ('rttmonlatestjitteroperowsum2sdhigh', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSum2SDHigh')),
+                    ('rttmonlatestjitteroperowsumdshigh', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSumDSHigh')),
+                    ('rttmonlatestjitteroperowsum2dshigh', YLeaf(YType.uint32, 'rttMonLatestJitterOperOWSum2DSHigh')),
+                ])
+                self.rttmonctrladminindex = None
+                self.rttmonlatestjitteropernumofrtt = None
+                self.rttmonlatestjitteroperrttsum = None
+                self.rttmonlatestjitteroperrttsum2 = None
+                self.rttmonlatestjitteroperrttmin = None
+                self.rttmonlatestjitteroperrttmax = None
+                self.rttmonlatestjitteroperminofpositivessd = None
+                self.rttmonlatestjitteropermaxofpositivessd = None
+                self.rttmonlatestjitteropernumofpositivessd = None
+                self.rttmonlatestjitteropersumofpositivessd = None
+                self.rttmonlatestjitteropersum2positivessd = None
+                self.rttmonlatestjitteroperminofnegativessd = None
+                self.rttmonlatestjitteropermaxofnegativessd = None
+                self.rttmonlatestjitteropernumofnegativessd = None
+                self.rttmonlatestjitteropersumofnegativessd = None
+                self.rttmonlatestjitteropersum2negativessd = None
+                self.rttmonlatestjitteroperminofpositivesds = None
+                self.rttmonlatestjitteropermaxofpositivesds = None
+                self.rttmonlatestjitteropernumofpositivesds = None
+                self.rttmonlatestjitteropersumofpositivesds = None
+                self.rttmonlatestjitteropersum2positivesds = None
+                self.rttmonlatestjitteroperminofnegativesds = None
+                self.rttmonlatestjitteropermaxofnegativesds = None
+                self.rttmonlatestjitteropernumofnegativesds = None
+                self.rttmonlatestjitteropersumofnegativesds = None
+                self.rttmonlatestjitteropersum2negativesds = None
+                self.rttmonlatestjitteroperpacketlosssd = None
+                self.rttmonlatestjitteroperpacketlossds = None
+                self.rttmonlatestjitteroperpacketoutofsequence = None
+                self.rttmonlatestjitteroperpacketmia = None
+                self.rttmonlatestjitteroperpacketlatearrival = None
+                self.rttmonlatestjitteropersense = None
+                self.rttmonlatestjittererrorsensedescription = None
+                self.rttmonlatestjitteroperowsumsd = None
+                self.rttmonlatestjitteroperowsum2sd = None
+                self.rttmonlatestjitteroperowminsd = None
+                self.rttmonlatestjitteroperowmaxsd = None
+                self.rttmonlatestjitteroperowsumds = None
+                self.rttmonlatestjitteroperowsum2ds = None
+                self.rttmonlatestjitteroperowminds = None
+                self.rttmonlatestjitteroperowmaxds = None
+                self.rttmonlatestjitteropernumofow = None
+                self.rttmonlatestjitteropermos = None
+                self.rttmonlatestjitteropericpif = None
+                self.rttmonlatestjitteroperiajout = None
+                self.rttmonlatestjitteroperiajin = None
+                self.rttmonlatestjitteroperavgjitter = None
+                self.rttmonlatestjitteroperavgsdj = None
+                self.rttmonlatestjitteroperavgdsj = None
+                self.rttmonlatestjitteroperowavgsd = None
+                self.rttmonlatestjitteroperowavgds = None
+                self.rttmonlatestjitteroperntpstate = None
+                self.rttmonlatestjitteroperunsyncrts = None
+                self.rttmonlatestjitteroperrttsumhigh = None
+                self.rttmonlatestjitteroperrttsum2high = None
+                self.rttmonlatestjitteroperowsumsdhigh = None
+                self.rttmonlatestjitteroperowsum2sdhigh = None
+                self.rttmonlatestjitteroperowsumdshigh = None
+                self.rttmonlatestjitteroperowsum2dshigh = None
+                self._segment_path = lambda: "rttMonLatestJitterOperEntry" + "[rttMonCtrlAdminIndex='" + str(self.rttmonctrladminindex) + "']"
                 self._absolute_path = lambda: "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestJitterOperTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -7564,7 +7686,7 @@ class CISCORTTMONMIB(Entity):
 
             class Rttmonlatestjitteroperntpstate(Enum):
                 """
-                Rttmonlatestjitteroperntpstate
+                Rttmonlatestjitteroperntpstate (Enum Class)
 
                 A value of sync(1) means sender and responder was in sync
 

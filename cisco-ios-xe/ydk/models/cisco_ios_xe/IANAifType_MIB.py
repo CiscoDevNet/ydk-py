@@ -5,6 +5,8 @@ Convention, and thus the enumerated values of
 the ifType object defined in MIB\-II's ifTable.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class IANAifType(Enum):
     """
-    IANAifType
+    IANAifType (Enum Class)
 
     This data type is used as the syntax of the ifType
 
@@ -1200,7 +1202,7 @@ class IANAifType(Enum):
 
 class IANAtunnelType(Enum):
     """
-    IANAtunnelType
+    IANAtunnelType (Enum Class)
 
     The encapsulation method used by a tunnel. The value
 

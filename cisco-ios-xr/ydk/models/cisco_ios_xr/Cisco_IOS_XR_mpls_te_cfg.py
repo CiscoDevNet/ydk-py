@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -24,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BandwidthConstraint(Enum):
     """
-    BandwidthConstraint
+    BandwidthConstraint (Enum Class)
 
     Bandwidth constraint
 
@@ -39,7 +41,7 @@ class BandwidthConstraint(Enum):
 
 class BfdReversePath(Enum):
     """
-    BfdReversePath
+    BfdReversePath (Enum Class)
 
     Bfd reverse path
 
@@ -54,7 +56,7 @@ class BfdReversePath(Enum):
 
 class BindingSegmentId(Enum):
     """
-    BindingSegmentId
+    BindingSegmentId (Enum Class)
 
     Binding segment id
 
@@ -75,7 +77,7 @@ class BindingSegmentId(Enum):
 
 class GmplsttiMode(Enum):
     """
-    GmplsttiMode
+    GmplsttiMode (Enum Class)
 
     Gmplstti mode
 
@@ -102,7 +104,7 @@ class GmplsttiMode(Enum):
 
 class IetfMode(Enum):
     """
-    IetfMode
+    IetfMode (Enum Class)
 
     Ietf mode
 
@@ -117,7 +119,7 @@ class IetfMode(Enum):
 
 class LinkNextHop(Enum):
     """
-    LinkNextHop
+    LinkNextHop (Enum Class)
 
     Link next hop
 
@@ -138,7 +140,7 @@ class LinkNextHop(Enum):
 
 class MplsLcacFloodingIgp(Enum):
     """
-    MplsLcacFloodingIgp
+    MplsLcacFloodingIgp (Enum Class)
 
     Mpls lcac flooding igp
 
@@ -153,7 +155,7 @@ class MplsLcacFloodingIgp(Enum):
 
 class MplsTeAffinityValue(Enum):
     """
-    MplsTeAffinityValue
+    MplsTeAffinityValue (Enum Class)
 
     Mpls te affinity value
 
@@ -174,7 +176,7 @@ class MplsTeAffinityValue(Enum):
 
 class MplsTeAutorouteMetric(Enum):
     """
-    MplsTeAutorouteMetric
+    MplsTeAutorouteMetric (Enum Class)
 
     Mpls te autoroute metric
 
@@ -201,7 +203,7 @@ class MplsTeAutorouteMetric(Enum):
 
 class MplsTeBackupBandwidthClass(Enum):
     """
-    MplsTeBackupBandwidthClass
+    MplsTeBackupBandwidthClass (Enum Class)
 
     Mpls te backup bandwidth class
 
@@ -228,7 +230,7 @@ class MplsTeBackupBandwidthClass(Enum):
 
 class MplsTeBackupBandwidthPool(Enum):
     """
-    MplsTeBackupBandwidthPool
+    MplsTeBackupBandwidthPool (Enum Class)
 
     Mpls te backup bandwidth pool
 
@@ -255,7 +257,7 @@ class MplsTeBackupBandwidthPool(Enum):
 
 class MplsTeBandwidthDste(Enum):
     """
-    MplsTeBandwidthDste
+    MplsTeBandwidthDste (Enum Class)
 
     Mpls te bandwidth dste
 
@@ -276,7 +278,7 @@ class MplsTeBandwidthDste(Enum):
 
 class MplsTeBandwidthLimit(Enum):
     """
-    MplsTeBandwidthLimit
+    MplsTeBandwidthLimit (Enum Class)
 
     Mpls te bandwidth limit
 
@@ -297,7 +299,7 @@ class MplsTeBandwidthLimit(Enum):
 
 class MplsTeBfdSessionDownAction(Enum):
     """
-    MplsTeBfdSessionDownAction
+    MplsTeBfdSessionDownAction (Enum Class)
 
     Mpls te bfd session down action
 
@@ -312,7 +314,7 @@ class MplsTeBfdSessionDownAction(Enum):
 
 class MplsTeConfigTunnel(Enum):
     """
-    MplsTeConfigTunnel
+    MplsTeConfigTunnel (Enum Class)
 
     Mpls te config tunnel
 
@@ -333,7 +335,7 @@ class MplsTeConfigTunnel(Enum):
 
 class MplsTeIgpProtocol(Enum):
     """
-    MplsTeIgpProtocol
+    MplsTeIgpProtocol (Enum Class)
 
     Mpls te igp protocol
 
@@ -360,7 +362,7 @@ class MplsTeIgpProtocol(Enum):
 
 class MplsTeLogFrrProtection(Enum):
     """
-    MplsTeLogFrrProtection
+    MplsTeLogFrrProtection (Enum Class)
 
     Mpls te log frr protection
 
@@ -399,7 +401,7 @@ class MplsTeLogFrrProtection(Enum):
 
 class MplsTeOtnApsProtection(Enum):
     """
-    MplsTeOtnApsProtection
+    MplsTeOtnApsProtection (Enum Class)
 
     Mpls te otn aps protection
 
@@ -426,7 +428,7 @@ class MplsTeOtnApsProtection(Enum):
 
 class MplsTeOtnApsProtectionMode(Enum):
     """
-    MplsTeOtnApsProtectionMode
+    MplsTeOtnApsProtectionMode (Enum Class)
 
     Mpls te otn aps protection mode
 
@@ -447,7 +449,7 @@ class MplsTeOtnApsProtectionMode(Enum):
 
 class MplsTeOtnApsRestorationStyle(Enum):
     """
-    MplsTeOtnApsRestorationStyle
+    MplsTeOtnApsRestorationStyle (Enum Class)
 
     Mpls te otn aps restoration style
 
@@ -468,7 +470,7 @@ class MplsTeOtnApsRestorationStyle(Enum):
 
 class MplsTeOtnSncMode(Enum):
     """
-    MplsTeOtnSncMode
+    MplsTeOtnSncMode (Enum Class)
 
     Mpls te otn snc mode
 
@@ -495,7 +497,7 @@ class MplsTeOtnSncMode(Enum):
 
 class MplsTePathComputationMethod(Enum):
     """
-    MplsTePathComputationMethod
+    MplsTePathComputationMethod (Enum Class)
 
     Mpls te path computation method
 
@@ -528,7 +530,7 @@ class MplsTePathComputationMethod(Enum):
 
 class MplsTePathDiversityConformance(Enum):
     """
-    MplsTePathDiversityConformance
+    MplsTePathDiversityConformance (Enum Class)
 
     Mpls te path diversity conformance
 
@@ -549,7 +551,7 @@ class MplsTePathDiversityConformance(Enum):
 
 class MplsTePathOption(Enum):
     """
-    MplsTePathOption
+    MplsTePathOption (Enum Class)
 
     Mpls te path option
 
@@ -594,7 +596,7 @@ class MplsTePathOption(Enum):
 
 class MplsTePathOptionProperty(Enum):
     """
-    MplsTePathOptionProperty
+    MplsTePathOptionProperty (Enum Class)
 
     Mpls te path option property
 
@@ -635,7 +637,7 @@ class MplsTePathOptionProperty(Enum):
 
 class MplsTePathOptionProtection(Enum):
     """
-    MplsTePathOptionProtection
+    MplsTePathOptionProtection (Enum Class)
 
     Mpls te path option protection
 
@@ -656,7 +658,7 @@ class MplsTePathOptionProtection(Enum):
 
 class MplsTePathSelectionInvalidationTimerExpire(Enum):
     """
-    MplsTePathSelectionInvalidationTimerExpire
+    MplsTePathSelectionInvalidationTimerExpire (Enum Class)
 
     Mpls te path selection invalidation timer expire
 
@@ -677,7 +679,7 @@ class MplsTePathSelectionInvalidationTimerExpire(Enum):
 
 class MplsTePathSelectionMetric(Enum):
     """
-    MplsTePathSelectionMetric
+    MplsTePathSelectionMetric (Enum Class)
 
     Mpls te path selection metric
 
@@ -704,7 +706,7 @@ class MplsTePathSelectionMetric(Enum):
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
     """
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection (Enum Class)
 
     Mpls te path selection segment routing adjacency
 
@@ -737,7 +739,7 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
 
 class MplsTePathSelectionTiebreaker(Enum):
     """
-    MplsTePathSelectionTiebreaker
+    MplsTePathSelectionTiebreaker (Enum Class)
 
     Mpls te path selection tiebreaker
 
@@ -764,7 +766,7 @@ class MplsTePathSelectionTiebreaker(Enum):
 
 class MplsTeSigNameOption(Enum):
     """
-    MplsTeSigNameOption
+    MplsTeSigNameOption (Enum Class)
 
     Mpls te sig name option
 
@@ -791,7 +793,7 @@ class MplsTeSigNameOption(Enum):
 
 class MplsTeSignaledLabel(Enum):
     """
-    MplsTeSignaledLabel
+    MplsTeSignaledLabel (Enum Class)
 
     Mpls te signaled label
 
@@ -812,7 +814,7 @@ class MplsTeSignaledLabel(Enum):
 
 class MplsTeSwitchingCap(Enum):
     """
-    MplsTeSwitchingCap
+    MplsTeSwitchingCap (Enum Class)
 
     Mpls te switching cap
 
@@ -839,7 +841,7 @@ class MplsTeSwitchingCap(Enum):
 
 class MplsTeSwitchingEncode(Enum):
     """
-    MplsTeSwitchingEncode
+    MplsTeSwitchingEncode (Enum Class)
 
     Mpls te switching encode
 
@@ -872,7 +874,7 @@ class MplsTeSwitchingEncode(Enum):
 
 class MplsTeSwitchingEncoding(Enum):
     """
-    MplsTeSwitchingEncoding
+    MplsTeSwitchingEncoding (Enum Class)
 
     Mpls te switching encoding
 
@@ -899,7 +901,7 @@ class MplsTeSwitchingEncoding(Enum):
 
 class MplsTeSwitchingIndex(Enum):
     """
-    MplsTeSwitchingIndex
+    MplsTeSwitchingIndex (Enum Class)
 
     Mpls te switching index
 
@@ -914,7 +916,7 @@ class MplsTeSwitchingIndex(Enum):
 
 class MplsTeTunnelAffinity(Enum):
     """
-    MplsTeTunnelAffinity
+    MplsTeTunnelAffinity (Enum Class)
 
     Mpls te tunnel affinity
 
@@ -953,7 +955,7 @@ class MplsTeTunnelAffinity(Enum):
 
 class MplsTeTunnelId(Enum):
     """
-    MplsTeTunnelId
+    MplsTeTunnelId (Enum Class)
 
     Mpls te tunnel id
 
@@ -974,7 +976,7 @@ class MplsTeTunnelId(Enum):
 
 class MplsTebfdSession(Enum):
     """
-    MplsTebfdSession
+    MplsTebfdSession (Enum Class)
 
     Mpls tebfd session
 
@@ -1001,7 +1003,7 @@ class MplsTebfdSession(Enum):
 
 class MplsTesrlgExclude(Enum):
     """
-    MplsTesrlgExclude
+    MplsTesrlgExclude (Enum Class)
 
     Mpls tesrlg exclude
 
@@ -1028,7 +1030,7 @@ class MplsTesrlgExclude(Enum):
 
 class OspfAreaMode(Enum):
     """
-    OspfAreaMode
+    OspfAreaMode (Enum Class)
 
     Ospf area mode
 
@@ -1049,7 +1051,7 @@ class OspfAreaMode(Enum):
 
 class OtnDestination(Enum):
     """
-    OtnDestination
+    OtnDestination (Enum Class)
 
     Otn destination
 
@@ -1070,7 +1072,7 @@ class OtnDestination(Enum):
 
 class OtnPayload(Enum):
     """
-    OtnPayload
+    OtnPayload (Enum Class)
 
     Otn payload
 
@@ -1109,7 +1111,7 @@ class OtnPayload(Enum):
 
 class OtnProtectionSwitchLockout(Enum):
     """
-    OtnProtectionSwitchLockout
+    OtnProtectionSwitchLockout (Enum Class)
 
     Otn protection switch lockout
 
@@ -1130,7 +1132,7 @@ class OtnProtectionSwitchLockout(Enum):
 
 class OtnSignaledBandwidth(Enum):
     """
-    OtnSignaledBandwidth
+    OtnSignaledBandwidth (Enum Class)
 
     Otn signaled bandwidth
 
@@ -1223,7 +1225,7 @@ class OtnSignaledBandwidth(Enum):
 
 class OtnSignaledBandwidthFlexFraming(Enum):
     """
-    OtnSignaledBandwidthFlexFraming
+    OtnSignaledBandwidthFlexFraming (Enum Class)
 
     Otn signaled bandwidth flex framing
 
@@ -1250,7 +1252,7 @@ class OtnSignaledBandwidthFlexFraming(Enum):
 
 class OtnStaticUni(Enum):
     """
-    OtnStaticUni
+    OtnStaticUni (Enum Class)
 
     Otn static uni
 
@@ -1277,7 +1279,7 @@ class OtnStaticUni(Enum):
 
 class PathInvalidationAction(Enum):
     """
-    PathInvalidationAction
+    PathInvalidationAction (Enum Class)
 
     Path invalidation action
 
@@ -1298,7 +1300,7 @@ class PathInvalidationAction(Enum):
 
 class RoutePriorityRole(Enum):
     """
-    RoutePriorityRole
+    RoutePriorityRole (Enum Class)
 
     Route priority role
 
@@ -1325,7 +1327,7 @@ class RoutePriorityRole(Enum):
 
 class SrPrepend(Enum):
     """
-    SrPrepend
+    SrPrepend (Enum Class)
 
     Sr prepend
 
@@ -1415,10 +1417,13 @@ class MplsTe(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-te-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"diff-serv-traffic-engineering" : ("diff_serv_traffic_engineering", MplsTe.DiffServTrafficEngineering), "named-tunnels" : ("named_tunnels", MplsTe.NamedTunnels), "gmpls-uni" : ("gmpls_uni", MplsTe.GmplsUni), "global-attributes" : ("global_attributes", MplsTe.GlobalAttributes), "transport-profile" : ("transport_profile", MplsTe.TransportProfile), "interfaces" : ("interfaces", MplsTe.Interfaces), "gmpls-nni" : ("gmpls_nni", MplsTe.GmplsNni), "lcac" : ("lcac", MplsTe.Lcac)}
-        self._child_list_classes = {}
-
-        self.enable_traffic_engineering = YLeaf(YType.empty, "enable-traffic-engineering")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("diff-serv-traffic-engineering", ("diff_serv_traffic_engineering", MplsTe.DiffServTrafficEngineering)), ("named-tunnels", ("named_tunnels", MplsTe.NamedTunnels)), ("gmpls-uni", ("gmpls_uni", MplsTe.GmplsUni)), ("global-attributes", ("global_attributes", MplsTe.GlobalAttributes)), ("transport-profile", ("transport_profile", MplsTe.TransportProfile)), ("interfaces", ("interfaces", MplsTe.Interfaces)), ("gmpls-nni", ("gmpls_nni", MplsTe.GmplsNni)), ("lcac", ("lcac", MplsTe.Lcac))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable_traffic_engineering', YLeaf(YType.empty, 'enable-traffic-engineering')),
+        ])
+        self.enable_traffic_engineering = None
 
         self.diff_serv_traffic_engineering = MplsTe.DiffServTrafficEngineering()
         self.diff_serv_traffic_engineering.parent = self
@@ -1498,12 +1503,15 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"classes" : ("classes", MplsTe.DiffServTrafficEngineering.Classes)}
-            self._child_list_classes = {}
-
-            self.bandwidth_constraint_model = YLeaf(YType.enumeration, "bandwidth-constraint-model")
-
-            self.mode_ietf = YLeaf(YType.enumeration, "mode-ietf")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("classes", ("classes", MplsTe.DiffServTrafficEngineering.Classes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('bandwidth_constraint_model', YLeaf(YType.enumeration, 'bandwidth-constraint-model')),
+                ('mode_ietf', YLeaf(YType.enumeration, 'mode-ietf')),
+            ])
+            self.bandwidth_constraint_model = None
+            self.mode_ietf = None
 
             self.classes = MplsTe.DiffServTrafficEngineering.Classes()
             self.classes.parent = self
@@ -1523,7 +1531,7 @@ class MplsTe(Entity):
             .. attribute:: class_
             
             	DSTE class number
-            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes.Class_>`
+            	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.DiffServTrafficEngineering.Classes.Class>`
             
             
 
@@ -1539,8 +1547,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "diff-serv-traffic-engineering"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"class" : ("class_", MplsTe.DiffServTrafficEngineering.Classes.Class_)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("class", ("class_", MplsTe.DiffServTrafficEngineering.Classes.Class))])
+                self._leafs = OrderedDict()
 
                 self.class_ = YList(self)
                 self._segment_path = lambda: "classes"
@@ -1550,11 +1560,11 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes, [], name, value)
 
 
-            class Class_(Entity):
+            class Class(Entity):
                 """
                 DSTE class number
                 
-                .. attribute:: class_number  <key>
+                .. attribute:: class_number  (key)
                 
                 	DS\-TE class number
                 	**type**\: int
@@ -1568,12 +1578,16 @@ class MplsTe(Entity):
                 
                 	**range:** 0..1
                 
+                	**default value**\: 1
+                
                 .. attribute:: class_priority
                 
                 	Class\-type priority
                 	**type**\: int
                 
                 	**range:** 0..7
+                
+                	**default value**\: 1
                 
                 .. attribute:: unused
                 
@@ -1588,27 +1602,30 @@ class MplsTe(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(MplsTe.DiffServTrafficEngineering.Classes.Class_, self).__init__()
+                    super(MplsTe.DiffServTrafficEngineering.Classes.Class, self).__init__()
 
                     self.yang_name = "class"
                     self.yang_parent_name = "classes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.class_number = YLeaf(YType.uint32, "class-number")
-
-                    self.class_type = YLeaf(YType.uint32, "class-type")
-
-                    self.class_priority = YLeaf(YType.uint32, "class-priority")
-
-                    self.unused = YLeaf(YType.boolean, "unused")
-                    self._segment_path = lambda: "class" + "[class-number='" + self.class_number.get() + "']"
+                    self.ylist_key_names = ['class_number']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('class_number', YLeaf(YType.uint32, 'class-number')),
+                        ('class_type', YLeaf(YType.uint32, 'class-type')),
+                        ('class_priority', YLeaf(YType.uint32, 'class-priority')),
+                        ('unused', YLeaf(YType.boolean, 'unused')),
+                    ])
+                    self.class_number = None
+                    self.class_type = None
+                    self.class_priority = None
+                    self.unused = None
+                    self._segment_path = lambda: "class" + "[class-number='" + str(self.class_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/diff-serv-traffic-engineering/classes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes.Class_, ['class_number', 'class_type', 'class_priority', 'unused'], name, value)
+                    self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes.Class, ['class_number', 'class_type', 'class_priority', 'unused'], name, value)
 
 
     class NamedTunnels(Entity):
@@ -1639,10 +1656,13 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"tunnels" : ("tunnels", MplsTe.NamedTunnels.Tunnels)}
-            self._child_list_classes = {}
-
-            self.enable = YLeaf(YType.empty, "enable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("tunnels", ("tunnels", MplsTe.NamedTunnels.Tunnels))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.enable = None
 
             self.tunnels = MplsTe.NamedTunnels.Tunnels()
             self.tunnels.parent = self
@@ -1678,8 +1698,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "named-tunnels"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tunnel" : ("tunnel", MplsTe.NamedTunnels.Tunnels.Tunnel)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tunnel", ("tunnel", MplsTe.NamedTunnels.Tunnels.Tunnel))])
+                self._leafs = OrderedDict()
 
                 self.tunnel = YList(self)
                 self._segment_path = lambda: "tunnels"
@@ -1693,14 +1715,14 @@ class MplsTe(Entity):
                 """
                 Configure a MPLS TE tunnel
                 
-                .. attribute:: tunnel_name  <key>
+                .. attribute:: tunnel_name  (key)
                 
                 	Tunnel name
                 	**type**\: str
                 
                 	**length:** 1..59
                 
-                .. attribute:: tunnel_type  <key>
+                .. attribute:: tunnel_type  (key)
                 
                 	Tunnel Type
                 	**type**\:  :py:class:`MplsTeConfigTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeConfigTunnel>`
@@ -1736,14 +1758,17 @@ class MplsTe(Entity):
                     self.yang_parent_name = "tunnels"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"tunnel-attributes" : ("tunnel_attributes", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes), "tunnel-id" : ("tunnel_id", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId)}
-                    self._child_list_classes = {}
-
-                    self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                    self.tunnel_type = YLeaf(YType.enumeration, "tunnel-type")
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = ['tunnel_name','tunnel_type']
+                    self._child_container_classes = OrderedDict([("tunnel-attributes", ("tunnel_attributes", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes)), ("tunnel-id", ("tunnel_id", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                        ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.tunnel_name = None
+                    self.tunnel_type = None
+                    self.enable = None
 
                     self.tunnel_attributes = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes()
                     self.tunnel_attributes.parent = self
@@ -1753,7 +1778,7 @@ class MplsTe(Entity):
                     self.tunnel_id = None
                     self._children_name_map["tunnel_id"] = "tunnel-id"
                     self._children_yang_names.add("tunnel-id")
-                    self._segment_path = lambda: "tunnel" + "[tunnel-name='" + self.tunnel_name.get() + "']" + "[tunnel-type='" + self.tunnel_type.get() + "']"
+                    self._segment_path = lambda: "tunnel" + "[tunnel-name='" + str(self.tunnel_name) + "']" + "[tunnel-type='" + str(self.tunnel_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1870,22 +1895,25 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"path-setups" : ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups), "tunnel-path-selection" : ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection), "auto-bandwidth" : ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth), "priority" : ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority), "logging" : ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging), "bandwidth" : ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth), "autoroute" : ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes), "fast-reroute" : ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute)}
-                        self._child_list_classes = {}
-
-                        self.shutdown = YLeaf(YType.empty, "shutdown")
-
-                        self.forward_class = YLeaf(YType.uint32, "forward-class")
-
-                        self.destination = YLeaf(YType.str, "destination")
-
-                        self.record_route = YLeaf(YType.empty, "record-route")
-
-                        self.path_selection_metric = YLeaf(YType.enumeration, "path-selection-metric")
-
-                        self.soft_preemption = YLeaf(YType.empty, "soft-preemption")
-
-                        self.load_share = YLeaf(YType.uint32, "load-share")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("path-setups", ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups)), ("tunnel-path-selection", ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection)), ("auto-bandwidth", ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth)), ("priority", ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority)), ("logging", ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging)), ("bandwidth", ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth)), ("autoroute", ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                            ('forward_class', YLeaf(YType.uint32, 'forward-class')),
+                            ('destination', YLeaf(YType.str, 'destination')),
+                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                            ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
+                            ('soft_preemption', YLeaf(YType.empty, 'soft-preemption')),
+                            ('load_share', YLeaf(YType.uint32, 'load-share')),
+                        ])
+                        self.shutdown = None
+                        self.forward_class = None
+                        self.destination = None
+                        self.record_route = None
+                        self.path_selection_metric = None
+                        self.soft_preemption = None
+                        self.load_share = None
 
                         self.path_setups = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups()
                         self.path_setups.parent = self
@@ -1957,8 +1985,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"path-setup" : ("path_setup", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("path-setup", ("path_setup", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup))])
+                            self._leafs = OrderedDict()
 
                             self.path_setup = YList(self)
                             self._segment_path = lambda: "path-setups"
@@ -1971,7 +2001,7 @@ class MplsTe(Entity):
                             """
                             Tunnel path setup
                             
-                            .. attribute:: path_setup_name  <key>
+                            .. attribute:: path_setup_name  (key)
                             
                             	Path Name
                             	**type**\: str
@@ -2011,19 +2041,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-setups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"path-computation" : ("path_computation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation)}
-                                self._child_list_classes = {}
-
-                                self.path_setup_name = YLeaf(YType.str, "path-setup-name")
-
-                                self.preference = YLeaf(YType.int32, "preference")
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = ['path_setup_name']
+                                self._child_container_classes = OrderedDict([("path-computation", ("path_computation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('path_setup_name', YLeaf(YType.str, 'path-setup-name')),
+                                    ('preference', YLeaf(YType.int32, 'preference')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.path_setup_name = None
+                                self.preference = None
+                                self.enable = None
 
                                 self.path_computation = None
                                 self._children_name_map["path_computation"] = "path-computation"
                                 self._children_yang_names.add("path-computation")
-                                self._segment_path = lambda: "path-setup" + "[path-setup-name='" + self.path_setup_name.get() + "']"
+                                self._segment_path = lambda: "path-setup" + "[path-setup-name='" + str(self.path_setup_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, ['path_setup_name', 'preference', 'enable'], name, value)
@@ -2070,15 +2103,18 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "path-setup"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.path_computation_method = YLeaf(YType.enumeration, "path-computation-method")
-
-                                    self.explicit_path_name = YLeaf(YType.str, "explicit-path-name")
-
-                                    self.path_computation_server = YLeaf(YType.str, "path-computation-server")
+                                    self._leafs = OrderedDict([
+                                        ('path_computation_method', YLeaf(YType.enumeration, 'path-computation-method')),
+                                        ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
+                                        ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                    ])
+                                    self.path_computation_method = None
+                                    self.explicit_path_name = None
+                                    self.path_computation_server = None
                                     self._segment_path = lambda: "path-computation"
 
                                 def __setattr__(self, name, value):
@@ -2129,14 +2165,17 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"invalidation" : ("invalidation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation)}
-                            self._child_list_classes = {}
-
-                            self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                            self.path_selection_hop_limit = YLeaf(YType.uint32, "path-selection-hop-limit")
-
-                            self.path_selection_cost_limit = YLeaf(YType.uint32, "path-selection-cost-limit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                                ('path_selection_hop_limit', YLeaf(YType.uint32, 'path-selection-hop-limit')),
+                                ('path_selection_cost_limit', YLeaf(YType.uint32, 'path-selection-cost-limit')),
+                            ])
+                            self.tiebreaker = None
+                            self.path_selection_hop_limit = None
+                            self.path_selection_cost_limit = None
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
@@ -2180,13 +2219,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "tunnel-path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.path_invalidation_timeout = YLeaf(YType.uint32, "path-invalidation-timeout")
-
-                                self.path_invalidation_action = YLeaf(YType.enumeration, "path-invalidation-action")
+                                self._leafs = OrderedDict([
+                                    ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
+                                    ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                                ])
+                                self.path_invalidation_timeout = None
+                                self.path_invalidation_action = None
                                 self._segment_path = lambda: "invalidation"
 
                             def __setattr__(self, name, value):
@@ -2269,18 +2311,21 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"underflow" : ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow), "overflow" : ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow), "bandwidth-limits" : ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits), "adjustment-threshold" : ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold)}
-                            self._child_list_classes = {}
-
-                            self.underflow_enable = YLeaf(YType.boolean, "underflow-enable")
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.application_frequency = YLeaf(YType.uint32, "application-frequency")
-
-                            self.overflow_enable = YLeaf(YType.boolean, "overflow-enable")
-
-                            self.collection_only = YLeaf(YType.empty, "collection-only")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("underflow", ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow)), ("overflow", ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow)), ("bandwidth-limits", ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits)), ("adjustment-threshold", ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('underflow_enable', YLeaf(YType.boolean, 'underflow-enable')),
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('application_frequency', YLeaf(YType.uint32, 'application-frequency')),
+                                ('overflow_enable', YLeaf(YType.boolean, 'overflow-enable')),
+                                ('collection_only', YLeaf(YType.empty, 'collection-only')),
+                            ])
+                            self.underflow_enable = None
+                            self.enabled = None
+                            self.application_frequency = None
+                            self.overflow_enable = None
+                            self.collection_only = None
 
                             self.underflow = None
                             self._children_name_map["underflow"] = "underflow"
@@ -2354,15 +2399,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.underflow_threshold_percent = YLeaf(YType.uint32, "underflow-threshold-percent")
-
-                                self.underflow_threshold_value = YLeaf(YType.uint32, "underflow-threshold-value")
-
-                                self.underflow_threshold_limit = YLeaf(YType.uint32, "underflow-threshold-limit")
+                                self._leafs = OrderedDict([
+                                    ('underflow_threshold_percent', YLeaf(YType.uint32, 'underflow-threshold-percent')),
+                                    ('underflow_threshold_value', YLeaf(YType.uint32, 'underflow-threshold-value')),
+                                    ('underflow_threshold_limit', YLeaf(YType.uint32, 'underflow-threshold-limit')),
+                                ])
+                                self.underflow_threshold_percent = None
+                                self.underflow_threshold_value = None
+                                self.underflow_threshold_limit = None
                                 self._segment_path = lambda: "underflow"
 
                             def __setattr__(self, name, value):
@@ -2420,15 +2468,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.overflow_threshold_percent = YLeaf(YType.uint32, "overflow-threshold-percent")
-
-                                self.overflow_threshold_value = YLeaf(YType.uint32, "overflow-threshold-value")
-
-                                self.overflow_threshold_limit = YLeaf(YType.uint32, "overflow-threshold-limit")
+                                self._leafs = OrderedDict([
+                                    ('overflow_threshold_percent', YLeaf(YType.uint32, 'overflow-threshold-percent')),
+                                    ('overflow_threshold_value', YLeaf(YType.uint32, 'overflow-threshold-value')),
+                                    ('overflow_threshold_limit', YLeaf(YType.uint32, 'overflow-threshold-limit')),
+                                ])
+                                self.overflow_threshold_percent = None
+                                self.overflow_threshold_value = None
+                                self.overflow_threshold_limit = None
                                 self._segment_path = lambda: "overflow"
 
                             def __setattr__(self, name, value):
@@ -2474,13 +2525,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.bandwidth_min_limit = YLeaf(YType.uint32, "bandwidth-min-limit")
-
-                                self.bandwidth_max_limit = YLeaf(YType.uint32, "bandwidth-max-limit")
+                                self._leafs = OrderedDict([
+                                    ('bandwidth_min_limit', YLeaf(YType.uint32, 'bandwidth-min-limit')),
+                                    ('bandwidth_max_limit', YLeaf(YType.uint32, 'bandwidth-max-limit')),
+                                ])
+                                self.bandwidth_min_limit = None
+                                self.bandwidth_max_limit = None
                                 self._segment_path = lambda: "bandwidth-limits"
 
                             def __setattr__(self, name, value):
@@ -2530,13 +2584,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "auto-bandwidth"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.adjustment_threshold_percent = YLeaf(YType.uint32, "adjustment-threshold-percent")
-
-                                self.adjustment_threshold_value = YLeaf(YType.uint32, "adjustment-threshold-value")
+                                self._leafs = OrderedDict([
+                                    ('adjustment_threshold_percent', YLeaf(YType.uint32, 'adjustment-threshold-percent')),
+                                    ('adjustment_threshold_value', YLeaf(YType.uint32, 'adjustment-threshold-value')),
+                                ])
+                                self.adjustment_threshold_percent = None
+                                self.adjustment_threshold_value = None
                                 self._segment_path = lambda: "adjustment-threshold"
 
                             def __setattr__(self, name, value):
@@ -2581,13 +2638,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                            self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                            self._leafs = OrderedDict([
+                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                            ])
+                            self.setup_priority = None
+                            self.hold_priority = None
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
@@ -2667,30 +2727,33 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.lsp_switch_over_change_message = YLeaf(YType.empty, "lsp-switch-over-change-message")
-
-                            self.all = YLeaf(YType.empty, "all")
-
-                            self.record_route_messsage = YLeaf(YType.empty, "record-route-messsage")
-
-                            self.bfd_state_message = YLeaf(YType.empty, "bfd-state-message")
-
-                            self.bandwidth_change_message = YLeaf(YType.empty, "bandwidth-change-message")
-
-                            self.reoptimize_attempts_message = YLeaf(YType.empty, "reoptimize-attempts-message")
-
-                            self.reroute_messsage = YLeaf(YType.empty, "reroute-messsage")
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
-
-                            self.insufficient_bw_message = YLeaf(YType.empty, "insufficient-bw-message")
-
-                            self.reoptimized_message = YLeaf(YType.empty, "reoptimized-message")
-
-                            self.pcalc_failure_message = YLeaf(YType.empty, "pcalc-failure-message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
+                                ('all', YLeaf(YType.empty, 'all')),
+                                ('record_route_messsage', YLeaf(YType.empty, 'record-route-messsage')),
+                                ('bfd_state_message', YLeaf(YType.empty, 'bfd-state-message')),
+                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
+                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
+                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                            ])
+                            self.lsp_switch_over_change_message = None
+                            self.all = None
+                            self.record_route_messsage = None
+                            self.bfd_state_message = None
+                            self.bandwidth_change_message = None
+                            self.reoptimize_attempts_message = None
+                            self.reroute_messsage = None
+                            self.state_message = None
+                            self.insufficient_bw_message = None
+                            self.reoptimized_message = None
+                            self.pcalc_failure_message = None
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
@@ -2744,15 +2807,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.dste_type = YLeaf(YType.enumeration, "dste-type")
-
-                            self.class_or_pool_type = YLeaf(YType.uint32, "class-or-pool-type")
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                            self._leafs = OrderedDict([
+                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
+                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
+                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                            ])
+                            self.dste_type = None
+                            self.class_or_pool_type = None
+                            self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
 
                         def __setattr__(self, name, value):
@@ -2787,8 +2853,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"autoroute-announce" : ("autoroute_announce", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce), "destinations" : ("destinations", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("autoroute-announce", ("autoroute_announce", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce)), ("destinations", ("destinations", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.autoroute_announce = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce()
                             self.autoroute_announce.parent = self
@@ -2840,12 +2908,15 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "autoroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"exclude-traffic" : ("exclude_traffic", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic), "metric" : ("metric", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric)}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.include_ipv6 = YLeaf(YType.empty, "include-ipv6")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("exclude-traffic", ("exclude_traffic", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic)), ("metric", ("metric", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('include_ipv6', YLeaf(YType.empty, 'include-ipv6')),
+                                ])
+                                self.enable = None
+                                self.include_ipv6 = None
 
                                 self.exclude_traffic = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic()
                                 self.exclude_traffic.parent = self
@@ -2885,10 +2956,13 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "autoroute-announce"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.segment_routing = YLeaf(YType.empty, "segment-routing")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('segment_routing', YLeaf(YType.empty, 'segment-routing')),
+                                    ])
+                                    self.segment_routing = None
                                     self._segment_path = lambda: "exclude-traffic"
 
                                 def __setattr__(self, name, value):
@@ -2939,16 +3013,19 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "autoroute-announce"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.metric_type = YLeaf(YType.enumeration, "metric-type")
-
-                                    self.absolute_metric = YLeaf(YType.uint32, "absolute-metric")
-
-                                    self.relative_metric = YLeaf(YType.int32, "relative-metric")
-
-                                    self.constant_metric = YLeaf(YType.uint32, "constant-metric")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                                        ('absolute_metric', YLeaf(YType.uint32, 'absolute-metric')),
+                                        ('relative_metric', YLeaf(YType.int32, 'relative-metric')),
+                                        ('constant_metric', YLeaf(YType.uint32, 'constant-metric')),
+                                    ])
+                                    self.metric_type = None
+                                    self.absolute_metric = None
+                                    self.relative_metric = None
+                                    self.constant_metric = None
                                     self._segment_path = lambda: "metric"
 
                                 def __setattr__(self, name, value):
@@ -2978,8 +3055,10 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "autoroute"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"destination" : ("destination", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("destination", ("destination", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination))])
+                                self._leafs = OrderedDict()
 
                                 self.destination = YList(self)
                                 self._segment_path = lambda: "destinations"
@@ -2992,7 +3071,7 @@ class MplsTe(Entity):
                                 """
                                 Destination address to add in RIB
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: destination_address  (key)
                                 
                                 	IP address of destination
                                 	**type**\: str
@@ -3013,11 +3092,14 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "destinations"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.destination_address = YLeaf(YType.str, "destination-address")
-                                    self._segment_path = lambda: "destination" + "[destination-address='" + self.destination_address.get() + "']"
+                                    self.ylist_key_names = ['destination_address']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                    ])
+                                    self.destination_address = None
+                                    self._segment_path = lambda: "destination" + "[destination-address='" + str(self.destination_address) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, ['destination_address'], name, value)
@@ -3096,8 +3178,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -3120,7 +3204,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -3139,11 +3223,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -3153,12 +3240,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -3179,13 +3266,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -3195,19 +3285,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -3228,15 +3318,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -3246,26 +3339,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -3286,17 +3379,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -3306,33 +3402,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -3353,19 +3449,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -3375,40 +3474,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -3429,21 +3528,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -3453,47 +3555,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -3514,23 +3616,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -3540,54 +3645,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -3608,25 +3713,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -3636,61 +3744,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -3711,27 +3819,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -3741,68 +3852,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -3823,29 +3934,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -3855,75 +3969,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -3944,31 +4058,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -4012,13 +4129,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "tunnel-attributes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bandwidth_protection = YLeaf(YType.uint32, "bandwidth-protection")
-
-                            self.node_protection = YLeaf(YType.uint32, "node-protection")
+                            self._leafs = OrderedDict([
+                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
+                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                            ])
+                            self.bandwidth_protection = None
+                            self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
 
                         def __setattr__(self, name, value):
@@ -4059,13 +4179,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.tunnel_id_type = YLeaf(YType.enumeration, "tunnel-id-type")
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
+                        self._leafs = OrderedDict([
+                            ('tunnel_id_type', YLeaf(YType.enumeration, 'tunnel-id-type')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ])
+                        self.tunnel_id_type = None
+                        self.tunnel_id = None
                         self._segment_path = lambda: "tunnel-id"
 
                     def __setattr__(self, name, value):
@@ -4100,8 +4223,10 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"timers" : ("timers", MplsTe.GmplsUni.Timers), "controllers" : ("controllers", MplsTe.GmplsUni.Controllers)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GmplsUni.Timers)), ("controllers", ("controllers", MplsTe.GmplsUni.Controllers))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.timers = MplsTe.GmplsUni.Timers()
             self.timers.parent = self
@@ -4139,8 +4264,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "gmpls-uni"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"path-option-timers" : ("path_option_timers", MplsTe.GmplsUni.Timers.PathOptionTimers)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("path-option-timers", ("path_option_timers", MplsTe.GmplsUni.Timers.PathOptionTimers))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.path_option_timers = MplsTe.GmplsUni.Timers.PathOptionTimers()
                 self.path_option_timers.parent = self
@@ -4173,8 +4300,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "timers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"holddown" : ("holddown", MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("holddown", ("holddown", MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.holddown = MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown()
                     self.holddown.parent = self
@@ -4221,12 +4350,15 @@ class MplsTe(Entity):
                         self.yang_parent_name = "path-option-timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.minimum = YLeaf(YType.uint32, "minimum")
-
-                        self.maximum = YLeaf(YType.uint32, "maximum")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('minimum', YLeaf(YType.uint32, 'minimum')),
+                            ('maximum', YLeaf(YType.uint32, 'maximum')),
+                        ])
+                        self.minimum = None
+                        self.maximum = None
                         self._segment_path = lambda: "holddown"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/path-option-timers/%s" % self._segment_path()
 
@@ -4257,8 +4389,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "gmpls-uni"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"controller" : ("controller", MplsTe.GmplsUni.Controllers.Controller)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsUni.Controllers.Controller))])
+                self._leafs = OrderedDict()
 
                 self.controller = YList(self)
                 self._segment_path = lambda: "controllers"
@@ -4272,7 +4406,7 @@ class MplsTe(Entity):
                 """
                 Configure a GMPLS controller
                 
-                .. attribute:: controller_name  <key>
+                .. attribute:: controller_name  (key)
                 
                 	Controller name
                 	**type**\: str
@@ -4313,12 +4447,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "controllers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"announce" : ("announce", MplsTe.GmplsUni.Controllers.Controller.Announce), "controller-logging" : ("controller_logging", MplsTe.GmplsUni.Controllers.Controller.ControllerLogging), "gmpls-unitunnel-head" : ("gmpls_unitunnel_head", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead)}
-                    self._child_list_classes = {}
-
-                    self.controller_name = YLeaf(YType.str, "controller-name")
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = ['controller_name']
+                    self._child_container_classes = OrderedDict([("announce", ("announce", MplsTe.GmplsUni.Controllers.Controller.Announce)), ("controller-logging", ("controller_logging", MplsTe.GmplsUni.Controllers.Controller.ControllerLogging)), ("gmpls-unitunnel-head", ("gmpls_unitunnel_head", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('controller_name', YLeaf(YType.str, 'controller-name')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.controller_name = None
+                    self.enable = None
 
                     self.announce = MplsTe.GmplsUni.Controllers.Controller.Announce()
                     self.announce.parent = self
@@ -4334,7 +4471,7 @@ class MplsTe(Entity):
                     self.gmpls_unitunnel_head.parent = self
                     self._children_name_map["gmpls_unitunnel_head"] = "gmpls-unitunnel-head"
                     self._children_yang_names.add("gmpls-unitunnel-head")
-                    self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                    self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4365,10 +4502,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "controller"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.srl_gs = YLeaf(YType.empty, "srl-gs")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('srl_gs', YLeaf(YType.empty, 'srl-gs')),
+                        ])
+                        self.srl_gs = None
                         self._segment_path = lambda: "announce"
 
                     def __setattr__(self, name, value):
@@ -4398,10 +4538,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "controller"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.discovered_srlg_change_logging = YLeaf(YType.empty, "discovered-srlg-change-logging")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('discovered_srlg_change_logging', YLeaf(YType.empty, 'discovered-srlg-change-logging')),
+                        ])
+                        self.discovered_srlg_change_logging = None
                         self._segment_path = lambda: "controller-logging"
 
                     def __setattr__(self, name, value):
@@ -4479,18 +4622,21 @@ class MplsTe(Entity):
                         self.yang_parent_name = "controller"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"path-options" : ("path_options", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions), "recording" : ("recording", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording), "logging" : ("logging", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging), "priority" : ("priority", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority)}
-                        self._child_list_classes = {}
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.destination = YLeaf(YType.str, "destination")
-
-                        self.record_route = YLeaf(YType.empty, "record-route")
-
-                        self.signalled_name = YLeaf(YType.str, "signalled-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("path-options", ("path_options", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions)), ("recording", ("recording", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording)), ("logging", ("logging", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging)), ("priority", ("priority", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('destination', YLeaf(YType.str, 'destination')),
+                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                            ('signalled_name', YLeaf(YType.str, 'signalled-name')),
+                        ])
+                        self.tunnel_id = None
+                        self.enable = None
+                        self.destination = None
+                        self.record_route = None
+                        self.signalled_name = None
 
                         self.path_options = MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions()
                         self.path_options.parent = self
@@ -4539,8 +4685,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "gmpls-unitunnel-head"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"path-option" : ("path_option", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption))])
+                            self._leafs = OrderedDict()
 
                             self.path_option = YList(self)
                             self._segment_path = lambda: "path-options"
@@ -4553,7 +4701,7 @@ class MplsTe(Entity):
                             """
                             A Path\-option
                             
-                            .. attribute:: preference_level  <key>
+                            .. attribute:: preference_level  (key)
                             
                             	Preference level for this path option
                             	**type**\: int
@@ -4639,29 +4787,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-options"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.preference_level = YLeaf(YType.uint32, "preference-level")
-
-                                self.path_type = YLeaf(YType.enumeration, "path-type")
-
-                                self.path_id = YLeaf(YType.uint32, "path-id")
-
-                                self.path_name = YLeaf(YType.str, "path-name")
-
-                                self.xro_type = YLeaf(YType.empty, "xro-type")
-
-                                self.xro_attribute_set_name = YLeaf(YType.str, "xro-attribute-set-name")
-
-                                self.lockdown = YLeaf(YType.enumeration, "lockdown")
-
-                                self.verbatim = YLeaf(YType.enumeration, "verbatim")
-
-                                self.signaled_label = YLeaf(YType.enumeration, "signaled-label")
-
-                                self.dwdm_channel = YLeaf(YType.uint32, "dwdm-channel")
-                                self._segment_path = lambda: "path-option" + "[preference-level='" + self.preference_level.get() + "']"
+                                self.ylist_key_names = ['preference_level']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('preference_level', YLeaf(YType.uint32, 'preference-level')),
+                                    ('path_type', YLeaf(YType.enumeration, 'path-type')),
+                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                    ('path_name', YLeaf(YType.str, 'path-name')),
+                                    ('xro_type', YLeaf(YType.empty, 'xro-type')),
+                                    ('xro_attribute_set_name', YLeaf(YType.str, 'xro-attribute-set-name')),
+                                    ('lockdown', YLeaf(YType.enumeration, 'lockdown')),
+                                    ('verbatim', YLeaf(YType.enumeration, 'verbatim')),
+                                    ('signaled_label', YLeaf(YType.enumeration, 'signaled-label')),
+                                    ('dwdm_channel', YLeaf(YType.uint32, 'dwdm-channel')),
+                                ])
+                                self.preference_level = None
+                                self.path_type = None
+                                self.path_id = None
+                                self.path_name = None
+                                self.xro_type = None
+                                self.xro_attribute_set_name = None
+                                self.lockdown = None
+                                self.verbatim = None
+                                self.signaled_label = None
+                                self.dwdm_channel = None
+                                self._segment_path = lambda: "path-option" + "[preference-level='" + str(self.preference_level) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'xro_type', 'xro_attribute_set_name', 'lockdown', 'verbatim', 'signaled_label', 'dwdm_channel'], name, value)
@@ -4690,10 +4841,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "gmpls-unitunnel-head"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.srlg = YLeaf(YType.empty, "srlg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('srlg', YLeaf(YType.empty, 'srlg')),
+                            ])
+                            self.srlg = None
                             self._segment_path = lambda: "recording"
 
                         def __setattr__(self, name, value):
@@ -4723,10 +4877,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "gmpls-unitunnel-head"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                            ])
+                            self.state_message = None
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
@@ -4771,13 +4928,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "gmpls-unitunnel-head"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                            self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                            self._leafs = OrderedDict([
+                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                            ])
+                            self.setup_priority = None
+                            self.hold_priority = None
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
@@ -5055,60 +5215,63 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"auto-tunnel" : ("auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel), "hardware-out-of-resource" : ("hardware_out_of_resource", MplsTe.GlobalAttributes.HardwareOutOfResource), "secondary-router-ids" : ("secondary_router_ids", MplsTe.GlobalAttributes.SecondaryRouterIds), "srlg" : ("srlg", MplsTe.GlobalAttributes.Srlg), "queues" : ("queues", MplsTe.GlobalAttributes.Queues), "mib" : ("mib", MplsTe.GlobalAttributes.Mib), "attribute-set" : ("attribute_set", MplsTe.GlobalAttributes.AttributeSet), "bfd-over-lsp" : ("bfd_over_lsp", MplsTe.GlobalAttributes.BfdOverLsp), "bandwidth-accounting" : ("bandwidth_accounting", MplsTe.GlobalAttributes.BandwidthAccounting), "pce-attributes" : ("pce_attributes", MplsTe.GlobalAttributes.PceAttributes), "lsp-out-of-resource" : ("lsp_out_of_resource", MplsTe.GlobalAttributes.LspOutOfResource), "soft-preemption" : ("soft_preemption", MplsTe.GlobalAttributes.SoftPreemption), "fast-reroute" : ("fast_reroute", MplsTe.GlobalAttributes.FastReroute), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.PathSelection), "affinity-mappings" : ("affinity_mappings", MplsTe.GlobalAttributes.AffinityMappings)}
-            self._child_list_classes = {}
-
-            self.log_nsr_status = YLeaf(YType.empty, "log-nsr-status")
-
-            self.log_issu_status = YLeaf(YType.empty, "log-issu-status")
-
-            self.reoptimize_link_up = YLeaf(YType.empty, "reoptimize-link-up")
-
-            self.reoptimize_delay_cleanup_timer = YLeaf(YType.uint32, "reoptimize-delay-cleanup-timer")
-
-            self.disable_reoptimize_affinity_failure = YLeaf(YType.empty, "disable-reoptimize-affinity-failure")
-
-            self.maximum_tunnels = YLeaf(YType.uint32, "maximum-tunnels")
-
-            self.link_holddown_timer = YLeaf(YType.uint32, "link-holddown-timer")
-
-            self.fault_oam = YLeaf(YType.empty, "fault-oam")
-
-            self.enable_unequal_load_balancing = YLeaf(YType.empty, "enable-unequal-load-balancing")
-
-            self.log_tail = YLeaf(YType.empty, "log-tail")
-
-            self.reoptimize_delay_after_frr_timer = YLeaf(YType.uint32, "reoptimize-delay-after-frr-timer")
-
-            self.auto_bandwidth_collect_frequency = YLeaf(YType.uint32, "auto-bandwidth-collect-frequency")
-
-            self.reopt_delay_path_protect_switchover_timer = YLeaf(YType.uint32, "reopt-delay-path-protect-switchover-timer")
-
-            self.log_all = YLeaf(YType.empty, "log-all")
-
-            self.loose_path_retry_period = YLeaf(YType.uint32, "loose-path-retry-period")
-
-            self.reoptimize_load_balancing = YLeaf(YType.empty, "reoptimize-load-balancing")
-
-            self.log_head = YLeaf(YType.empty, "log-head")
-
-            self.path_selection_ignore_overload = YLeaf(YType.empty, "path-selection-ignore-overload")
-
-            self.graceful_preemption_on_bandwidth_reduction = YLeaf(YType.empty, "graceful-preemption-on-bandwidth-reduction")
-
-            self.advertise_explicit_nulls = YLeaf(YType.empty, "advertise-explicit-nulls")
-
-            self.reoptimize_delay_install_timer = YLeaf(YType.uint32, "reoptimize-delay-install-timer")
-
-            self.reoptimize_delay_after_affinity_failure_timer = YLeaf(YType.uint32, "reoptimize-delay-after-affinity-failure-timer")
-
-            self.log_frr_protection = YLeaf(YType.enumeration, "log-frr-protection")
-
-            self.reoptimize_timer_frequency = YLeaf(YType.uint32, "reoptimize-timer-frequency")
-
-            self.log_mid = YLeaf(YType.empty, "log-mid")
-
-            self.log_preemption = YLeaf(YType.empty, "log-preemption")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("auto-tunnel", ("auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel)), ("hardware-out-of-resource", ("hardware_out_of_resource", MplsTe.GlobalAttributes.HardwareOutOfResource)), ("secondary-router-ids", ("secondary_router_ids", MplsTe.GlobalAttributes.SecondaryRouterIds)), ("srlg", ("srlg", MplsTe.GlobalAttributes.Srlg)), ("queues", ("queues", MplsTe.GlobalAttributes.Queues)), ("mib", ("mib", MplsTe.GlobalAttributes.Mib)), ("attribute-set", ("attribute_set", MplsTe.GlobalAttributes.AttributeSet)), ("bfd-over-lsp", ("bfd_over_lsp", MplsTe.GlobalAttributes.BfdOverLsp)), ("bandwidth-accounting", ("bandwidth_accounting", MplsTe.GlobalAttributes.BandwidthAccounting)), ("pce-attributes", ("pce_attributes", MplsTe.GlobalAttributes.PceAttributes)), ("lsp-out-of-resource", ("lsp_out_of_resource", MplsTe.GlobalAttributes.LspOutOfResource)), ("soft-preemption", ("soft_preemption", MplsTe.GlobalAttributes.SoftPreemption)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.FastReroute)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.PathSelection)), ("affinity-mappings", ("affinity_mappings", MplsTe.GlobalAttributes.AffinityMappings))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('log_nsr_status', YLeaf(YType.empty, 'log-nsr-status')),
+                ('log_issu_status', YLeaf(YType.empty, 'log-issu-status')),
+                ('reoptimize_link_up', YLeaf(YType.empty, 'reoptimize-link-up')),
+                ('reoptimize_delay_cleanup_timer', YLeaf(YType.uint32, 'reoptimize-delay-cleanup-timer')),
+                ('disable_reoptimize_affinity_failure', YLeaf(YType.empty, 'disable-reoptimize-affinity-failure')),
+                ('maximum_tunnels', YLeaf(YType.uint32, 'maximum-tunnels')),
+                ('link_holddown_timer', YLeaf(YType.uint32, 'link-holddown-timer')),
+                ('fault_oam', YLeaf(YType.empty, 'fault-oam')),
+                ('enable_unequal_load_balancing', YLeaf(YType.empty, 'enable-unequal-load-balancing')),
+                ('log_tail', YLeaf(YType.empty, 'log-tail')),
+                ('reoptimize_delay_after_frr_timer', YLeaf(YType.uint32, 'reoptimize-delay-after-frr-timer')),
+                ('auto_bandwidth_collect_frequency', YLeaf(YType.uint32, 'auto-bandwidth-collect-frequency')),
+                ('reopt_delay_path_protect_switchover_timer', YLeaf(YType.uint32, 'reopt-delay-path-protect-switchover-timer')),
+                ('log_all', YLeaf(YType.empty, 'log-all')),
+                ('loose_path_retry_period', YLeaf(YType.uint32, 'loose-path-retry-period')),
+                ('reoptimize_load_balancing', YLeaf(YType.empty, 'reoptimize-load-balancing')),
+                ('log_head', YLeaf(YType.empty, 'log-head')),
+                ('path_selection_ignore_overload', YLeaf(YType.empty, 'path-selection-ignore-overload')),
+                ('graceful_preemption_on_bandwidth_reduction', YLeaf(YType.empty, 'graceful-preemption-on-bandwidth-reduction')),
+                ('advertise_explicit_nulls', YLeaf(YType.empty, 'advertise-explicit-nulls')),
+                ('reoptimize_delay_install_timer', YLeaf(YType.uint32, 'reoptimize-delay-install-timer')),
+                ('reoptimize_delay_after_affinity_failure_timer', YLeaf(YType.uint32, 'reoptimize-delay-after-affinity-failure-timer')),
+                ('log_frr_protection', YLeaf(YType.enumeration, 'log-frr-protection')),
+                ('reoptimize_timer_frequency', YLeaf(YType.uint32, 'reoptimize-timer-frequency')),
+                ('log_mid', YLeaf(YType.empty, 'log-mid')),
+                ('log_preemption', YLeaf(YType.empty, 'log-preemption')),
+            ])
+            self.log_nsr_status = None
+            self.log_issu_status = None
+            self.reoptimize_link_up = None
+            self.reoptimize_delay_cleanup_timer = None
+            self.disable_reoptimize_affinity_failure = None
+            self.maximum_tunnels = None
+            self.link_holddown_timer = None
+            self.fault_oam = None
+            self.enable_unequal_load_balancing = None
+            self.log_tail = None
+            self.reoptimize_delay_after_frr_timer = None
+            self.auto_bandwidth_collect_frequency = None
+            self.reopt_delay_path_protect_switchover_timer = None
+            self.log_all = None
+            self.loose_path_retry_period = None
+            self.reoptimize_load_balancing = None
+            self.log_head = None
+            self.path_selection_ignore_overload = None
+            self.graceful_preemption_on_bandwidth_reduction = None
+            self.advertise_explicit_nulls = None
+            self.reoptimize_delay_install_timer = None
+            self.reoptimize_delay_after_affinity_failure_timer = None
+            self.log_frr_protection = None
+            self.reoptimize_timer_frequency = None
+            self.log_mid = None
+            self.log_preemption = None
 
             self.auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel()
             self.auto_tunnel.parent = self
@@ -5234,8 +5397,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"pcc" : ("pcc", MplsTe.GlobalAttributes.AutoTunnel.Pcc), "p2p-auto-tunnel" : ("p2p_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel), "backup" : ("backup", MplsTe.GlobalAttributes.AutoTunnel.Backup), "mesh" : ("mesh", MplsTe.GlobalAttributes.AutoTunnel.Mesh), "p2mp-auto-tunnel" : ("p2mp_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("pcc", ("pcc", MplsTe.GlobalAttributes.AutoTunnel.Pcc)), ("p2p-auto-tunnel", ("p2p_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel)), ("backup", ("backup", MplsTe.GlobalAttributes.AutoTunnel.Backup)), ("mesh", ("mesh", MplsTe.GlobalAttributes.AutoTunnel.Mesh)), ("p2mp-auto-tunnel", ("p2mp_auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.pcc = MplsTe.GlobalAttributes.AutoTunnel.Pcc()
                 self.pcc.parent = self
@@ -5275,6 +5440,8 @@ class MplsTe(Entity):
                 	Configure tunnel ID range for auto\-tunnel features
                 	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange>`
                 
+                	**presence node**\: True
+                
                 
 
                 """
@@ -5289,11 +5456,12 @@ class MplsTe(Entity):
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"tunnel-range" : ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange()
-                    self.tunnel_range.parent = self
+                    self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "pcc"
@@ -5312,6 +5480,8 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
+                    
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
@@ -5319,7 +5489,11 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
                     
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
@@ -5333,12 +5507,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "pcc"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min_tunnel_id = YLeaf(YType.uint32, "min-tunnel-id")
-
-                        self.max_tunnel_id = YLeaf(YType.uint32, "max-tunnel-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
+                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                        ])
+                        self.min_tunnel_id = None
+                        self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/pcc/%s" % self._segment_path()
 
@@ -5355,6 +5533,8 @@ class MplsTe(Entity):
                 	Configure tunnel ID range for auto\-tunnel features
                 	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange>`
                 
+                	**presence node**\: True
+                
                 
 
                 """
@@ -5369,11 +5549,12 @@ class MplsTe(Entity):
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"tunnel-range" : ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange()
-                    self.tunnel_range.parent = self
+                    self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "p2p-auto-tunnel"
@@ -5392,6 +5573,8 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
+                    
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
@@ -5399,7 +5582,11 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
                     
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
@@ -5413,12 +5600,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "p2p-auto-tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min_tunnel_id = YLeaf(YType.uint32, "min-tunnel-id")
-
-                        self.max_tunnel_id = YLeaf(YType.uint32, "max-tunnel-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
+                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                        ])
+                        self.min_tunnel_id = None
+                        self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2p-auto-tunnel/%s" % self._segment_path()
 
@@ -5445,6 +5636,8 @@ class MplsTe(Entity):
                 	Configure tunnel ID range for auto\-tunnel features
                 	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange>`
                 
+                	**presence node**\: True
+                
                 
 
                 """
@@ -5459,18 +5652,20 @@ class MplsTe(Entity):
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"timers" : ("timers", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers), "tunnel-range" : ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange)}
-                    self._child_list_classes = {}
-
-                    self.affinity_ignore = YLeaf(YType.empty, "affinity-ignore")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('affinity_ignore', YLeaf(YType.empty, 'affinity-ignore')),
+                    ])
+                    self.affinity_ignore = None
 
                     self.timers = MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers()
                     self.timers.parent = self
                     self._children_name_map["timers"] = "timers"
                     self._children_yang_names.add("timers")
 
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange()
-                    self.tunnel_range.parent = self
+                    self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "backup"
@@ -5503,8 +5698,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "backup"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"removal" : ("removal", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.removal = MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal()
                         self.removal.parent = self
@@ -5544,10 +5741,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "timers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.unused = YLeaf(YType.uint32, "unused")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('unused', YLeaf(YType.uint32, 'unused')),
+                            ])
+                            self.unused = None
                             self._segment_path = lambda: "removal"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/timers/%s" % self._segment_path()
 
@@ -5567,6 +5767,8 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
+                    
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
@@ -5574,7 +5776,11 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
                     
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
@@ -5588,12 +5794,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "backup"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min_tunnel_id = YLeaf(YType.uint32, "min-tunnel-id")
-
-                        self.max_tunnel_id = YLeaf(YType.uint32, "max-tunnel-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
+                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                        ])
+                        self.min_tunnel_id = None
+                        self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/%s" % self._segment_path()
 
@@ -5620,6 +5830,8 @@ class MplsTe(Entity):
                 	Configure tunnel ID range for auto\-tunnel features
                 	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange>`
                 
+                	**presence node**\: True
+                
                 
 
                 """
@@ -5634,8 +5846,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"mesh-groups" : ("mesh_groups", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups), "timers" : ("timers", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers), "tunnel-range" : ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("mesh-groups", ("mesh_groups", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups)), ("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.mesh_groups = MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups()
                     self.mesh_groups.parent = self
@@ -5647,8 +5861,7 @@ class MplsTe(Entity):
                     self._children_name_map["timers"] = "timers"
                     self._children_yang_names.add("timers")
 
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange()
-                    self.tunnel_range.parent = self
+                    self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "mesh"
@@ -5678,8 +5891,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "mesh"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mesh-group" : ("mesh_group", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mesh-group", ("mesh_group", MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup))])
+                        self._leafs = OrderedDict()
 
                         self.mesh_group = YList(self)
                         self._segment_path = lambda: "mesh-groups"
@@ -5693,7 +5908,7 @@ class MplsTe(Entity):
                         """
                         Auto\-mesh group identifier
                         
-                        .. attribute:: mesh_group_id  <key>
+                        .. attribute:: mesh_group_id  (key)
                         
                         	Mesh group ID
                         	**type**\: int
@@ -5743,21 +5958,24 @@ class MplsTe(Entity):
                             self.yang_parent_name = "mesh-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.mesh_group_id = YLeaf(YType.uint32, "mesh-group-id")
-
-                            self.destination_list = YLeaf(YType.str, "destination-list")
-
-                            self.disable = YLeaf(YType.empty, "disable")
-
-                            self.attribute_set = YLeaf(YType.str, "attribute-set")
-
-                            self.create = YLeaf(YType.empty, "create")
-
-                            self.one_hop = YLeaf(YType.empty, "one-hop")
-                            self._segment_path = lambda: "mesh-group" + "[mesh-group-id='" + self.mesh_group_id.get() + "']"
+                            self.ylist_key_names = ['mesh_group_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mesh_group_id', YLeaf(YType.uint32, 'mesh-group-id')),
+                                ('destination_list', YLeaf(YType.str, 'destination-list')),
+                                ('disable', YLeaf(YType.empty, 'disable')),
+                                ('attribute_set', YLeaf(YType.str, 'attribute-set')),
+                                ('create', YLeaf(YType.empty, 'create')),
+                                ('one_hop', YLeaf(YType.empty, 'one-hop')),
+                            ])
+                            self.mesh_group_id = None
+                            self.destination_list = None
+                            self.disable = None
+                            self.attribute_set = None
+                            self.create = None
+                            self.one_hop = None
+                            self._segment_path = lambda: "mesh-group" + "[mesh-group-id='" + str(self.mesh_group_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/mesh-groups/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
@@ -5787,8 +6005,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "mesh"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"removal" : ("removal", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("removal", ("removal", MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.removal = MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal()
                         self.removal.parent = self
@@ -5828,10 +6048,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "timers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.unused = YLeaf(YType.uint32, "unused")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('unused', YLeaf(YType.uint32, 'unused')),
+                            ])
+                            self.unused = None
                             self._segment_path = lambda: "removal"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/timers/%s" % self._segment_path()
 
@@ -5851,6 +6074,8 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
+                    
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
@@ -5858,7 +6083,11 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
                     
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
@@ -5872,12 +6101,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "mesh"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min_tunnel_id = YLeaf(YType.uint32, "min-tunnel-id")
-
-                        self.max_tunnel_id = YLeaf(YType.uint32, "max-tunnel-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
+                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                        ])
+                        self.min_tunnel_id = None
+                        self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/%s" % self._segment_path()
 
@@ -5894,6 +6127,8 @@ class MplsTe(Entity):
                 	Configure tunnel ID range for auto\-tunnel features
                 	**type**\:  :py:class:`TunnelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange>`
                 
+                	**presence node**\: True
+                
                 
 
                 """
@@ -5908,11 +6143,12 @@ class MplsTe(Entity):
                     self.yang_parent_name = "auto-tunnel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"tunnel-range" : ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange()
-                    self.tunnel_range.parent = self
+                    self.tunnel_range = None
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._children_yang_names.add("tunnel-range")
                     self._segment_path = lambda: "p2mp-auto-tunnel"
@@ -5931,6 +6167,8 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
+                    
                     .. attribute:: max_tunnel_id
                     
                     	Maximum tunnel ID for auto\-tunnels
@@ -5938,7 +6176,11 @@ class MplsTe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**mandatory**\: True
                     
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
@@ -5952,12 +6194,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "p2mp-auto-tunnel"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min_tunnel_id = YLeaf(YType.uint32, "min-tunnel-id")
-
-                        self.max_tunnel_id = YLeaf(YType.uint32, "max-tunnel-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
+                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                        ])
+                        self.min_tunnel_id = None
+                        self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2mp-auto-tunnel/%s" % self._segment_path()
 
@@ -5998,8 +6244,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"oor-red-state" : ("oor_red_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState), "oor-yellow-state" : ("oor_yellow_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState), "oor-green-state" : ("oor_green_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("oor-red-state", ("oor_red_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState)), ("oor-yellow-state", ("oor_yellow_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState)), ("oor-green-state", ("oor_green_state", MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.oor_red_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState()
                 self.oor_red_state.parent = self
@@ -6078,18 +6326,21 @@ class MplsTe(Entity):
                     self.yang_parent_name = "hardware-out-of-resource"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.oor_node_protection_disable = YLeaf(YType.empty, "oor-node-protection-disable")
-
-                    self.oor_available_bandwidth_percentage = YLeaf(YType.uint32, "oor-available-bandwidth-percentage")
-
-                    self.oor_accept_lsp_min_bandwidth = YLeaf(YType.int32, "oor-accept-lsp-min-bandwidth")
-
-                    self.oor_accept_reopt_lsp = YLeaf(YType.empty, "oor-accept-reopt-lsp")
-
-                    self.oor_metric_te_penalty = YLeaf(YType.int32, "oor-metric-te-penalty")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
+                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
+                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                    ])
+                    self.oor_node_protection_disable = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-red-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
 
@@ -6156,18 +6407,21 @@ class MplsTe(Entity):
                     self.yang_parent_name = "hardware-out-of-resource"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.oor_node_protection_disable = YLeaf(YType.empty, "oor-node-protection-disable")
-
-                    self.oor_available_bandwidth_percentage = YLeaf(YType.uint32, "oor-available-bandwidth-percentage")
-
-                    self.oor_accept_lsp_min_bandwidth = YLeaf(YType.int32, "oor-accept-lsp-min-bandwidth")
-
-                    self.oor_accept_reopt_lsp = YLeaf(YType.empty, "oor-accept-reopt-lsp")
-
-                    self.oor_metric_te_penalty = YLeaf(YType.int32, "oor-metric-te-penalty")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
+                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
+                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                    ])
+                    self.oor_node_protection_disable = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-yellow-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
 
@@ -6245,20 +6499,23 @@ class MplsTe(Entity):
                     self.yang_parent_name = "hardware-out-of-resource"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.oor_recovery_duration = YLeaf(YType.uint32, "oor-recovery-duration")
-
-                    self.oor_node_protection_disable = YLeaf(YType.empty, "oor-node-protection-disable")
-
-                    self.oor_available_bandwidth_percentage = YLeaf(YType.uint32, "oor-available-bandwidth-percentage")
-
-                    self.oor_accept_lsp_min_bandwidth = YLeaf(YType.int32, "oor-accept-lsp-min-bandwidth")
-
-                    self.oor_accept_reopt_lsp = YLeaf(YType.empty, "oor-accept-reopt-lsp")
-
-                    self.oor_metric_te_penalty = YLeaf(YType.int32, "oor-metric-te-penalty")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('oor_recovery_duration', YLeaf(YType.uint32, 'oor-recovery-duration')),
+                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
+                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
+                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.int32, 'oor-accept-lsp-min-bandwidth')),
+                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
+                        ('oor_metric_te_penalty', YLeaf(YType.int32, 'oor-metric-te-penalty')),
+                    ])
+                    self.oor_recovery_duration = None
+                    self.oor_node_protection_disable = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-green-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
 
@@ -6289,8 +6546,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"secondary-router-id" : ("secondary_router_id", MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("secondary-router-id", ("secondary_router_id", MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId))])
+                self._leafs = OrderedDict()
 
                 self.secondary_router_id = YList(self)
                 self._segment_path = lambda: "secondary-router-ids"
@@ -6304,7 +6563,7 @@ class MplsTe(Entity):
                 """
                 Secondary Router ID
                 
-                .. attribute:: secondary_router_id_value  <key>
+                .. attribute:: secondary_router_id_value  (key)
                 
                 	Secondary TE Router ID
                 	**type**\: str
@@ -6325,11 +6584,14 @@ class MplsTe(Entity):
                     self.yang_parent_name = "secondary-router-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.secondary_router_id_value = YLeaf(YType.str, "secondary-router-id-value")
-                    self._segment_path = lambda: "secondary-router-id" + "[secondary-router-id-value='" + self.secondary_router_id_value.get() + "']"
+                    self.ylist_key_names = ['secondary_router_id_value']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('secondary_router_id_value', YLeaf(YType.str, 'secondary-router-id-value')),
+                    ])
+                    self.secondary_router_id_value = None
+                    self._segment_path = lambda: "secondary-router-id" + "[secondary-router-id-value='" + str(self.secondary_router_id_value) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/secondary-router-ids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -6373,12 +6635,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"names" : ("names", MplsTe.GlobalAttributes.Srlg.Names)}
-                self._child_list_classes = {}
-
-                self.default_admin_weight = YLeaf(YType.int32, "default-admin-weight")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("names", ("names", MplsTe.GlobalAttributes.Srlg.Names))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('default_admin_weight', YLeaf(YType.int32, 'default-admin-weight')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.default_admin_weight = None
+                self.enable = None
 
                 self.names = MplsTe.GlobalAttributes.Srlg.Names()
                 self.names.parent = self
@@ -6414,8 +6679,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "srlg"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"name" : ("name", MplsTe.GlobalAttributes.Srlg.Names.Name)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("name", ("name", MplsTe.GlobalAttributes.Srlg.Names.Name))])
+                    self._leafs = OrderedDict()
 
                     self.name = YList(self)
                     self._segment_path = lambda: "names"
@@ -6429,7 +6696,7 @@ class MplsTe(Entity):
                     """
                     SRLG name and its MPLS\-TE properties
                     
-                    .. attribute:: srlg_name  <key>
+                    .. attribute:: srlg_name  (key)
                     
                     	SRLG membership name
                     	**type**\: str
@@ -6462,18 +6729,21 @@ class MplsTe(Entity):
                         self.yang_parent_name = "names"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"static-srlg-members" : ("static_srlg_members", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers)}
-                        self._child_list_classes = {}
-
-                        self.srlg_name = YLeaf(YType.str, "srlg-name")
-
-                        self.admin_weight = YLeaf(YType.int32, "admin-weight")
+                        self.ylist_key_names = ['srlg_name']
+                        self._child_container_classes = OrderedDict([("static-srlg-members", ("static_srlg_members", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                            ('admin_weight', YLeaf(YType.int32, 'admin-weight')),
+                        ])
+                        self.srlg_name = None
+                        self.admin_weight = None
 
                         self.static_srlg_members = MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers()
                         self.static_srlg_members.parent = self
                         self._children_name_map["static_srlg_members"] = "static-srlg-members"
                         self._children_yang_names.add("static-srlg-members")
-                        self._segment_path = lambda: "name" + "[srlg-name='" + self.srlg_name.get() + "']"
+                        self._segment_path = lambda: "name" + "[srlg-name='" + str(self.srlg_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -6503,8 +6773,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"static-srlg-member" : ("static_srlg_member", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("static-srlg-member", ("static_srlg_member", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember))])
+                            self._leafs = OrderedDict()
 
                             self.static_srlg_member = YList(self)
                             self._segment_path = lambda: "static-srlg-members"
@@ -6517,7 +6789,7 @@ class MplsTe(Entity):
                             """
                             A mapping of the local static SRLG member
                             
-                            .. attribute:: from_address  <key>
+                            .. attribute:: from_address  (key)
                             
                             	From address
                             	**type**\: str
@@ -6547,13 +6819,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "static-srlg-members"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.from_address = YLeaf(YType.str, "from-address")
-
-                                self.to_address = YLeaf(YType.str, "to-address")
-                                self._segment_path = lambda: "static-srlg-member" + "[from-address='" + self.from_address.get() + "']"
+                                self.ylist_key_names = ['from_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('from_address', YLeaf(YType.str, 'from-address')),
+                                    ('to_address', YLeaf(YType.str, 'to-address')),
+                                ])
+                                self.from_address = None
+                                self.to_address = None
+                                self._segment_path = lambda: "static-srlg-member" + "[from-address='" + str(self.from_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, ['from_address', 'to_address'], name, value)
@@ -6582,8 +6857,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"queue" : ("queue", MplsTe.GlobalAttributes.Queues.Queue)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("queue", ("queue", MplsTe.GlobalAttributes.Queues.Queue))])
+                self._leafs = OrderedDict()
 
                 self.queue = YList(self)
                 self._segment_path = lambda: "queues"
@@ -6597,7 +6874,7 @@ class MplsTe(Entity):
                 """
                 Configure route priority queue value
                 
-                .. attribute:: role  <key>
+                .. attribute:: role  (key)
                 
                 	Route Priority Tunnel Role
                 	**type**\:  :py:class:`RoutePriorityRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.RoutePriorityRole>`
@@ -6625,13 +6902,16 @@ class MplsTe(Entity):
                     self.yang_parent_name = "queues"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.role = YLeaf(YType.enumeration, "role")
-
-                    self.value = YLeaf(YType.uint32, "value")
-                    self._segment_path = lambda: "queue" + "[role='" + self.role.get() + "']"
+                    self.ylist_key_names = ['role']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('role', YLeaf(YType.enumeration, 'role')),
+                        ('value', YLeaf(YType.uint32, 'value')),
+                    ])
+                    self.role = None
+                    self.value = None
+                    self._segment_path = lambda: "queue" + "[role='" + str(self.role) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/queues/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -6661,10 +6941,13 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.midpoint_lsp_stats_collection_disable = YLeaf(YType.empty, "midpoint-lsp-stats-collection-disable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('midpoint_lsp_stats_collection_disable', YLeaf(YType.empty, 'midpoint-lsp-stats-collection-disable')),
+                ])
+                self.midpoint_lsp_stats_collection_disable = None
                 self._segment_path = lambda: "mib"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -6725,8 +7008,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"path-option-attributes" : ("path_option_attributes", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes), "p2mpte-attributes" : ("p2mpte_attributes", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes), "p2p-te-attributes" : ("p2p_te_attributes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes), "auto-backup-attributes" : ("auto_backup_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes), "otn-pp-attributes" : ("otn_pp_attributes", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes), "auto-mesh-attributes" : ("auto_mesh_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes), "xro-attributes" : ("xro_attributes", MplsTe.GlobalAttributes.AttributeSet.XroAttributes)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("path-option-attributes", ("path_option_attributes", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes)), ("p2mpte-attributes", ("p2mpte_attributes", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes)), ("p2p-te-attributes", ("p2p_te_attributes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes)), ("auto-backup-attributes", ("auto_backup_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes)), ("otn-pp-attributes", ("otn_pp_attributes", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes)), ("auto-mesh-attributes", ("auto_mesh_attributes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes)), ("xro-attributes", ("xro_attributes", MplsTe.GlobalAttributes.AttributeSet.XroAttributes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.path_option_attributes = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes()
                 self.path_option_attributes.parent = self
@@ -6789,8 +7074,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"path-option-attribute" : ("path_option_attribute", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("path-option-attribute", ("path_option_attribute", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.path_option_attribute = YList(self)
                     self._segment_path = lambda: "path-option-attributes"
@@ -6804,7 +7091,7 @@ class MplsTe(Entity):
                     """
                     Path Option Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -6866,12 +7153,15 @@ class MplsTe(Entity):
                         self.yang_parent_name = "path-option-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"bfd-reverse-path" : ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath), "att-path-option-path-selection" : ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection), "pce" : ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce), "affinity-mask" : ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask), "bandwidth" : ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("bfd-reverse-path", ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath)), ("att-path-option-path-selection", ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.attribute_set_name = None
+                        self.enable = None
 
                         self.bfd_reverse_path = None
                         self._children_name_map["bfd_reverse_path"] = "bfd-reverse-path"
@@ -6899,7 +7189,7 @@ class MplsTe(Entity):
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._children_yang_names.add("new-style-affinity-affinity-types")
-                        self._segment_path = lambda: "path-option-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "path-option-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -6940,13 +7230,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bfd_reverse_path_type = YLeaf(YType.enumeration, "bfd-reverse-path-type")
-
-                            self.binding_label = YLeaf(YType.uint32, "binding-label")
+                            self._leafs = OrderedDict([
+                                ('bfd_reverse_path_type', YLeaf(YType.enumeration, 'bfd-reverse-path-type')),
+                                ('binding_label', YLeaf(YType.uint32, 'binding-label')),
+                            ])
+                            self.bfd_reverse_path_type = None
+                            self.binding_label = None
                             self._segment_path = lambda: "bfd-reverse-path"
 
                         def __setattr__(self, name, value):
@@ -6997,14 +7290,17 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"invalidation" : ("invalidation", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation)}
-                            self._child_list_classes = {}
-
-                            self.path_selection_exclude_list = YLeaf(YType.str, "path-selection-exclude-list")
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.path_selection_cost_limit = YLeaf(YType.uint32, "path-selection-cost-limit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('path_selection_exclude_list', YLeaf(YType.str, 'path-selection-exclude-list')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('path_selection_cost_limit', YLeaf(YType.uint32, 'path-selection-cost-limit')),
+                            ])
+                            self.path_selection_exclude_list = None
+                            self.enable = None
+                            self.path_selection_cost_limit = None
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
@@ -7048,13 +7344,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "att-path-option-path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.path_invalidation_timeout = YLeaf(YType.uint32, "path-invalidation-timeout")
-
-                                self.path_invalidation_action = YLeaf(YType.enumeration, "path-invalidation-action")
+                                self._leafs = OrderedDict([
+                                    ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
+                                    ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                                ])
+                                self.path_invalidation_timeout = None
+                                self.path_invalidation_action = None
                                 self._segment_path = lambda: "invalidation"
 
                             def __setattr__(self, name, value):
@@ -7098,10 +7397,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"bidirectional" : ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional), "disjoint-path" : ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.bidirectional = None
                             self._children_name_map["bidirectional"] = "bidirectional"
@@ -7154,13 +7456,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.bd_source_address = YLeaf(YType.str, "bd-source-address")
-
-                                self.bd_group_id = YLeaf(YType.uint32, "bd-group-id")
+                                self._leafs = OrderedDict([
+                                    ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
+                                    ('bd_group_id', YLeaf(YType.uint32, 'bd-group-id')),
+                                ])
+                                self.bd_source_address = None
+                                self.bd_group_id = None
                                 self._segment_path = lambda: "bidirectional"
 
                             def __setattr__(self, name, value):
@@ -7214,15 +7519,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.dp_source_address = YLeaf(YType.str, "dp-source-address")
-
-                                self.dp_type = YLeaf(YType.uint32, "dp-type")
-
-                                self.dp_group_id = YLeaf(YType.uint32, "dp-group-id")
+                                self._leafs = OrderedDict([
+                                    ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
+                                    ('dp_type', YLeaf(YType.uint32, 'dp-type')),
+                                    ('dp_group_id', YLeaf(YType.uint32, 'dp-group-id')),
+                                ])
+                                self.dp_source_address = None
+                                self.dp_type = None
+                                self.dp_group_id = None
                                 self._segment_path = lambda: "disjoint-path"
 
                             def __setattr__(self, name, value):
@@ -7267,13 +7575,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.affinity = YLeaf(YType.str, "affinity")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
@@ -7327,15 +7638,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.dste_type = YLeaf(YType.enumeration, "dste-type")
-
-                            self.class_or_pool_type = YLeaf(YType.uint32, "class-or-pool-type")
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                            self._leafs = OrderedDict([
+                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
+                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
+                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                            ])
+                            self.dste_type = None
+                            self.class_or_pool_type = None
+                            self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
 
                         def __setattr__(self, name, value):
@@ -7415,8 +7729,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-option-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -7439,7 +7755,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -7458,11 +7774,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -7472,12 +7791,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -7498,13 +7817,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -7514,19 +7836,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -7547,15 +7869,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -7565,26 +7890,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -7605,17 +7930,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -7625,33 +7953,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -7672,19 +8000,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -7694,40 +8025,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -7748,21 +8079,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -7772,47 +8106,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -7833,23 +8167,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -7859,54 +8196,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -7927,25 +8264,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -7955,61 +8295,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -8030,27 +8370,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -8060,68 +8403,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -8142,29 +8485,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -8174,75 +8520,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -8263,31 +8609,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -8316,8 +8665,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"p2mpte-attribute" : ("p2mpte_attribute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("p2mpte-attribute", ("p2mpte_attribute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.p2mpte_attribute = YList(self)
                     self._segment_path = lambda: "p2mpte-attributes"
@@ -8331,7 +8682,7 @@ class MplsTe(Entity):
                     """
                     P2MP\-TE Tunnel Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -8414,16 +8765,19 @@ class MplsTe(Entity):
                         self.yang_parent_name = "p2mpte-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"priority" : ("priority", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority), "affinity-mask" : ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask), "bandwidth" : ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes), "fast-reroute" : ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute), "logging" : ("logging", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.interface_bandwidth = YLeaf(YType.uint32, "interface-bandwidth")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.record_route = YLeaf(YType.empty, "record-route")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                        ])
+                        self.attribute_set_name = None
+                        self.interface_bandwidth = None
+                        self.enable = None
+                        self.record_route = None
 
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
@@ -8455,7 +8809,7 @@ class MplsTe(Entity):
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
                         self._children_yang_names.add("logging")
-                        self._segment_path = lambda: "p2mpte-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "p2mpte-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -8500,13 +8854,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                            self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                            self._leafs = OrderedDict([
+                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                            ])
+                            self.setup_priority = None
+                            self.hold_priority = None
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
@@ -8551,13 +8908,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.affinity = YLeaf(YType.str, "affinity")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
@@ -8611,15 +8971,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.dste_type = YLeaf(YType.enumeration, "dste-type")
-
-                            self.class_or_pool_type = YLeaf(YType.uint32, "class-or-pool-type")
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                            self._leafs = OrderedDict([
+                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
+                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
+                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                            ])
+                            self.dste_type = None
+                            self.class_or_pool_type = None
+                            self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
 
                         def __setattr__(self, name, value):
@@ -8649,10 +9012,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
@@ -8732,8 +9098,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -8756,7 +9124,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -8775,11 +9143,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -8789,12 +9160,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -8815,13 +9186,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -8831,19 +9205,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -8864,15 +9238,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -8882,26 +9259,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -8922,17 +9299,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -8942,33 +9322,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -8989,19 +9369,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -9011,40 +9394,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -9065,21 +9448,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -9089,47 +9475,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -9150,23 +9536,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -9176,54 +9565,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -9244,25 +9633,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -9272,61 +9664,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -9347,27 +9739,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -9377,68 +9772,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -9459,29 +9854,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -9491,75 +9889,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -9580,31 +9978,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -9648,13 +10049,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bandwidth_protection = YLeaf(YType.uint32, "bandwidth-protection")
-
-                            self.node_protection = YLeaf(YType.uint32, "node-protection")
+                            self._leafs = OrderedDict([
+                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
+                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                            ])
+                            self.bandwidth_protection = None
+                            self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
 
                         def __setattr__(self, name, value):
@@ -9724,26 +10128,29 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2mpte-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.insufficient_bw_message = YLeaf(YType.empty, "insufficient-bw-message")
-
-                            self.reoptimized_message = YLeaf(YType.empty, "reoptimized-message")
-
-                            self.bandwidth_change_message = YLeaf(YType.empty, "bandwidth-change-message")
-
-                            self.all = YLeaf(YType.empty, "all")
-
-                            self.pcalc_failure_message = YLeaf(YType.empty, "pcalc-failure-message")
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
-
-                            self.reoptimize_attempts_message = YLeaf(YType.empty, "reoptimize-attempts-message")
-
-                            self.sub_lsp_state_message = YLeaf(YType.empty, "sub-lsp-state-message")
-
-                            self.reroute_messsage = YLeaf(YType.empty, "reroute-messsage")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
+                                ('all', YLeaf(YType.empty, 'all')),
+                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
+                                ('sub_lsp_state_message', YLeaf(YType.empty, 'sub-lsp-state-message')),
+                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
+                            ])
+                            self.insufficient_bw_message = None
+                            self.reoptimized_message = None
+                            self.bandwidth_change_message = None
+                            self.all = None
+                            self.pcalc_failure_message = None
+                            self.state_message = None
+                            self.reoptimize_attempts_message = None
+                            self.sub_lsp_state_message = None
+                            self.reroute_messsage = None
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
@@ -9773,8 +10180,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"p2p-te-attribute" : ("p2p_te_attribute", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("p2p-te-attribute", ("p2p_te_attribute", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.p2p_te_attribute = YList(self)
                     self._segment_path = lambda: "p2p-te-attributes"
@@ -9788,7 +10197,7 @@ class MplsTe(Entity):
                     """
                     P2P\-TE Tunnel Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -9841,12 +10250,15 @@ class MplsTe(Entity):
                         self.yang_parent_name = "p2p-te-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection), "pce" : ("pce", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce), "affinity-mask" : ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask), "logging" : ("logging", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.attribute_set_name = None
+                        self.enable = None
 
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
                         self.path_selection.parent = self
@@ -9871,7 +10283,7 @@ class MplsTe(Entity):
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._children_yang_names.add("new-style-affinity-affinity-types")
-                        self._segment_path = lambda: "p2p-te-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "p2p-te-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -9921,14 +10333,17 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"segment-routing-prepend" : ("segment_routing_prepend", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend), "invalidation" : ("invalidation", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation)}
-                            self._child_list_classes = {}
-
-                            self.path_selection_metric = YLeaf(YType.enumeration, "path-selection-metric")
-
-                            self.path_selection_segment_routing_adjacency_protection = YLeaf(YType.enumeration, "path-selection-segment-routing-adjacency-protection")
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("segment-routing-prepend", ("segment_routing_prepend", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
+                                ('path_selection_segment_routing_adjacency_protection', YLeaf(YType.enumeration, 'path-selection-segment-routing-adjacency-protection')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.path_selection_metric = None
+                            self.path_selection_segment_routing_adjacency_protection = None
+                            self.enable = None
 
                             self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
                             self.segment_routing_prepend.parent = self
@@ -9974,10 +10389,13 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"indexes" : ("indexes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes)}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("indexes", ("indexes", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.enable = None
 
                                 self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
                                 self.indexes.parent = self
@@ -10012,8 +10430,10 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "segment-routing-prepend"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"index" : ("index", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("index", ("index", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index))])
+                                    self._leafs = OrderedDict()
 
                                     self.index = YList(self)
                                     self._segment_path = lambda: "indexes"
@@ -10026,7 +10446,7 @@ class MplsTe(Entity):
                                     """
                                     Prepend index information
                                     
-                                    .. attribute:: index_number  <key>
+                                    .. attribute:: index_number  (key)
                                     
                                     	Index number
                                     	**type**\: int
@@ -10063,15 +10483,18 @@ class MplsTe(Entity):
                                         self.yang_parent_name = "indexes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.index_number = YLeaf(YType.uint32, "index-number")
-
-                                        self.prepend_type = YLeaf(YType.enumeration, "prepend-type")
-
-                                        self.mpls_label = YLeaf(YType.int32, "mpls-label")
-                                        self._segment_path = lambda: "index" + "[index-number='" + self.index_number.get() + "']"
+                                        self.ylist_key_names = ['index_number']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('index_number', YLeaf(YType.uint32, 'index-number')),
+                                            ('prepend_type', YLeaf(YType.enumeration, 'prepend-type')),
+                                            ('mpls_label', YLeaf(YType.int32, 'mpls-label')),
+                                        ])
+                                        self.index_number = None
+                                        self.prepend_type = None
+                                        self.mpls_label = None
+                                        self._segment_path = lambda: "index" + "[index-number='" + str(self.index_number) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
@@ -10111,12 +10534,15 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-selection"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.invalidation_timer = YLeaf(YType.uint32, "invalidation-timer")
-
-                                self.invalidation_timer_expire_type = YLeaf(YType.enumeration, "invalidation-timer-expire-type")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('invalidation_timer', YLeaf(YType.uint32, 'invalidation-timer')),
+                                    ('invalidation_timer_expire_type', YLeaf(YType.enumeration, 'invalidation-timer-expire-type')),
+                                ])
+                                self.invalidation_timer = None
+                                self.invalidation_timer_expire_type = None
                                 self._segment_path = lambda: "invalidation"
 
                             def __setattr__(self, name, value):
@@ -10160,10 +10586,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"bidirectional" : ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional), "disjoint-path" : ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.bidirectional = None
                             self._children_name_map["bidirectional"] = "bidirectional"
@@ -10216,13 +10645,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.bd_source_address = YLeaf(YType.str, "bd-source-address")
-
-                                self.bd_group_id = YLeaf(YType.uint32, "bd-group-id")
+                                self._leafs = OrderedDict([
+                                    ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
+                                    ('bd_group_id', YLeaf(YType.uint32, 'bd-group-id')),
+                                ])
+                                self.bd_source_address = None
+                                self.bd_group_id = None
                                 self._segment_path = lambda: "bidirectional"
 
                             def __setattr__(self, name, value):
@@ -10276,15 +10708,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "pce"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.dp_source_address = YLeaf(YType.str, "dp-source-address")
-
-                                self.dp_type = YLeaf(YType.uint32, "dp-type")
-
-                                self.dp_group_id = YLeaf(YType.uint32, "dp-group-id")
+                                self._leafs = OrderedDict([
+                                    ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
+                                    ('dp_type', YLeaf(YType.uint32, 'dp-type')),
+                                    ('dp_group_id', YLeaf(YType.uint32, 'dp-group-id')),
+                                ])
+                                self.dp_source_address = None
+                                self.dp_type = None
+                                self.dp_group_id = None
                                 self._segment_path = lambda: "disjoint-path"
 
                             def __setattr__(self, name, value):
@@ -10329,13 +10764,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.affinity = YLeaf(YType.str, "affinity")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
@@ -10415,30 +10853,33 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.lsp_switch_over_change_message = YLeaf(YType.empty, "lsp-switch-over-change-message")
-
-                            self.all = YLeaf(YType.empty, "all")
-
-                            self.record_route_messsage = YLeaf(YType.empty, "record-route-messsage")
-
-                            self.bfd_state_message = YLeaf(YType.empty, "bfd-state-message")
-
-                            self.bandwidth_change_message = YLeaf(YType.empty, "bandwidth-change-message")
-
-                            self.reoptimize_attempts_message = YLeaf(YType.empty, "reoptimize-attempts-message")
-
-                            self.reroute_messsage = YLeaf(YType.empty, "reroute-messsage")
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
-
-                            self.insufficient_bw_message = YLeaf(YType.empty, "insufficient-bw-message")
-
-                            self.reoptimized_message = YLeaf(YType.empty, "reoptimized-message")
-
-                            self.pcalc_failure_message = YLeaf(YType.empty, "pcalc-failure-message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
+                                ('all', YLeaf(YType.empty, 'all')),
+                                ('record_route_messsage', YLeaf(YType.empty, 'record-route-messsage')),
+                                ('bfd_state_message', YLeaf(YType.empty, 'bfd-state-message')),
+                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
+                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
+                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                            ])
+                            self.lsp_switch_over_change_message = None
+                            self.all = None
+                            self.record_route_messsage = None
+                            self.bfd_state_message = None
+                            self.bandwidth_change_message = None
+                            self.reoptimize_attempts_message = None
+                            self.reroute_messsage = None
+                            self.state_message = None
+                            self.insufficient_bw_message = None
+                            self.reoptimized_message = None
+                            self.pcalc_failure_message = None
                             self._segment_path = lambda: "logging"
 
                         def __setattr__(self, name, value):
@@ -10518,8 +10959,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "p2p-te-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -10542,7 +10985,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -10561,11 +11004,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -10575,12 +11021,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -10601,13 +11047,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -10617,19 +11066,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -10650,15 +11099,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -10668,26 +11120,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -10708,17 +11160,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -10728,33 +11183,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -10775,19 +11230,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -10797,40 +11255,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -10851,21 +11309,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -10875,47 +11336,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -10936,23 +11397,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -10962,54 +11426,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -11030,25 +11494,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -11058,61 +11525,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -11133,27 +11600,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -11163,68 +11633,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -11245,29 +11715,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -11277,75 +11750,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -11366,31 +11839,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -11419,8 +11895,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"auto-backup-attribute" : ("auto_backup_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("auto-backup-attribute", ("auto_backup_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.auto_backup_attribute = YList(self)
                     self._segment_path = lambda: "auto-backup-attributes"
@@ -11434,7 +11912,7 @@ class MplsTe(Entity):
                     """
                     Auto\-backup Tunnel Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -11504,14 +11982,17 @@ class MplsTe(Entity):
                         self.yang_parent_name = "auto-backup-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"signalled-name" : ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName), "auto-backup-logging" : ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging), "priority" : ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority), "affinity-mask" : ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection), "policy-classes" : ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.record_route = YLeaf(YType.empty, "record-route")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("signalled-name", ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName)), ("auto-backup-logging", ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                        ])
+                        self.attribute_set_name = None
+                        self.enable = None
+                        self.record_route = None
 
                         self.signalled_name = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName()
                         self.signalled_name.parent = self
@@ -11545,7 +12026,7 @@ class MplsTe(Entity):
                         self.new_style_affinity_affinity_types.parent = self
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._children_yang_names.add("new-style-affinity-affinity-types")
-                        self._segment_path = lambda: "auto-backup-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "auto-backup-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -11590,16 +12071,19 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.source_type = YLeaf(YType.enumeration, "source-type")
-
-                            self.protected_interface_type = YLeaf(YType.enumeration, "protected-interface-type")
-
-                            self.mp_address = YLeaf(YType.boolean, "mp-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('source_type', YLeaf(YType.enumeration, 'source-type')),
+                                ('protected_interface_type', YLeaf(YType.enumeration, 'protected-interface-type')),
+                                ('mp_address', YLeaf(YType.boolean, 'mp-address')),
+                            ])
+                            self.name = None
+                            self.source_type = None
+                            self.protected_interface_type = None
+                            self.mp_address = None
                             self._segment_path = lambda: "signalled-name"
 
                         def __setattr__(self, name, value):
@@ -11644,16 +12128,19 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.bandwidth_change_message = YLeaf(YType.empty, "bandwidth-change-message")
-
-                            self.reoptimize_attempts_message = YLeaf(YType.empty, "reoptimize-attempts-message")
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
-
-                            self.reoptimized_message = YLeaf(YType.empty, "reoptimized-message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
+                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                            ])
+                            self.bandwidth_change_message = None
+                            self.reoptimize_attempts_message = None
+                            self.state_message = None
+                            self.reoptimized_message = None
                             self._segment_path = lambda: "auto-backup-logging"
 
                         def __setattr__(self, name, value):
@@ -11698,13 +12185,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                            self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                            self._leafs = OrderedDict([
+                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                            ])
+                            self.setup_priority = None
+                            self.hold_priority = None
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
@@ -11749,13 +12239,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.affinity = YLeaf(YType.str, "affinity")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
@@ -11785,10 +12278,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
@@ -11820,10 +12316,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.policy_class = YLeafList(YType.uint32, "policy-class")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('policy_class', YLeafList(YType.uint32, 'policy-class')),
+                            ])
+                            self.policy_class = []
                             self._segment_path = lambda: "policy-classes"
 
                         def __setattr__(self, name, value):
@@ -11903,8 +12402,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-backup-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -11927,7 +12428,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -11946,11 +12447,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -11960,12 +12464,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -11986,13 +12490,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -12002,19 +12509,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -12035,15 +12542,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -12053,26 +12563,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -12093,17 +12603,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -12113,33 +12626,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -12160,19 +12673,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -12182,40 +12698,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -12236,21 +12752,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -12260,47 +12779,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -12321,23 +12840,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -12347,54 +12869,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -12415,25 +12937,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -12443,61 +12968,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -12518,27 +13043,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -12548,68 +13076,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -12630,29 +13158,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -12662,75 +13193,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -12751,31 +13282,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -12804,8 +13338,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"otn-pp-attribute" : ("otn_pp_attribute", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("otn-pp-attribute", ("otn_pp_attribute", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.otn_pp_attribute = YList(self)
                     self._segment_path = lambda: "otn-pp-attributes"
@@ -12819,7 +13355,7 @@ class MplsTe(Entity):
                     """
                     OTN Path Protection Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -12880,18 +13416,21 @@ class MplsTe(Entity):
                         self.yang_parent_name = "otn-pp-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"revert-schedule-names" : ("revert_schedule_names", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames), "sub-network-connection-mode" : ("sub_network_connection_mode", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode), "timers" : ("timers", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.aps_protection_mode = YLeaf(YType.enumeration, "aps-protection-mode")
-
-                        self.aps_restoration_style = YLeaf(YType.enumeration, "aps-restoration-style")
-
-                        self.aps_protection_type = YLeaf(YType.enumeration, "aps-protection-type")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("revert-schedule-names", ("revert_schedule_names", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames)), ("sub-network-connection-mode", ("sub_network_connection_mode", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode)), ("timers", ("timers", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('aps_protection_mode', YLeaf(YType.enumeration, 'aps-protection-mode')),
+                            ('aps_restoration_style', YLeaf(YType.enumeration, 'aps-restoration-style')),
+                            ('aps_protection_type', YLeaf(YType.enumeration, 'aps-protection-type')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.attribute_set_name = None
+                        self.aps_protection_mode = None
+                        self.aps_restoration_style = None
+                        self.aps_protection_type = None
+                        self.enable = None
 
                         self.revert_schedule_names = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames()
                         self.revert_schedule_names.parent = self
@@ -12912,7 +13451,7 @@ class MplsTe(Entity):
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
                         self._children_yang_names.add("path-selection")
-                        self._segment_path = lambda: "otn-pp-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "otn-pp-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -12942,8 +13481,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "otn-pp-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"revert-schedule-name" : ("revert_schedule_name", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("revert-schedule-name", ("revert_schedule_name", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName))])
+                            self._leafs = OrderedDict()
 
                             self.revert_schedule_name = YList(self)
                             self._segment_path = lambda: "revert-schedule-names"
@@ -12956,7 +13497,7 @@ class MplsTe(Entity):
                             """
                             Name Identifier for revert schedule
                             
-                            .. attribute:: schedule_name  <key>
+                            .. attribute:: schedule_name  (key)
                             
                             	Enter 64 characters for revert schedule name
                             	**type**\: str
@@ -13010,16 +13551,19 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "revert-schedule-names"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"schedule-duration" : ("schedule_duration", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration), "schedule-date" : ("schedule_date", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate)}
-                                self._child_list_classes = {}
-
-                                self.schedule_name = YLeaf(YType.str, "schedule-name")
-
-                                self.revert_schedule_max_tries = YLeaf(YType.uint32, "revert-schedule-max-tries")
-
-                                self.sch_name_enable = YLeaf(YType.empty, "sch-name-enable")
-
-                                self.revert_schedule_frequency = YLeaf(YType.uint32, "revert-schedule-frequency")
+                                self.ylist_key_names = ['schedule_name']
+                                self._child_container_classes = OrderedDict([("schedule-duration", ("schedule_duration", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration)), ("schedule-date", ("schedule_date", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('schedule_name', YLeaf(YType.str, 'schedule-name')),
+                                    ('revert_schedule_max_tries', YLeaf(YType.uint32, 'revert-schedule-max-tries')),
+                                    ('sch_name_enable', YLeaf(YType.empty, 'sch-name-enable')),
+                                    ('revert_schedule_frequency', YLeaf(YType.uint32, 'revert-schedule-frequency')),
+                                ])
+                                self.schedule_name = None
+                                self.revert_schedule_max_tries = None
+                                self.sch_name_enable = None
+                                self.revert_schedule_frequency = None
 
                                 self.schedule_duration = None
                                 self._children_name_map["schedule_duration"] = "schedule-duration"
@@ -13028,7 +13572,7 @@ class MplsTe(Entity):
                                 self.schedule_date = None
                                 self._children_name_map["schedule_date"] = "schedule-date"
                                 self._children_yang_names.add("schedule-date")
-                                self._segment_path = lambda: "revert-schedule-name" + "[schedule-name='" + self.schedule_name.get() + "']"
+                                self._segment_path = lambda: "revert-schedule-name" + "[schedule-name='" + str(self.schedule_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, ['schedule_name', 'revert_schedule_max_tries', 'sch_name_enable', 'revert_schedule_frequency'], name, value)
@@ -13072,13 +13616,16 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "revert-schedule-name"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.hour = YLeaf(YType.uint32, "hour")
-
-                                    self.minutes = YLeaf(YType.uint32, "minutes")
+                                    self._leafs = OrderedDict([
+                                        ('hour', YLeaf(YType.uint32, 'hour')),
+                                        ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                    ])
+                                    self.hour = None
+                                    self.minutes = None
                                     self._segment_path = lambda: "schedule-duration"
 
                                 def __setattr__(self, name, value):
@@ -13150,19 +13697,22 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "revert-schedule-name"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
                                     self.is_presence_container = True
-
-                                    self.hour = YLeaf(YType.uint32, "hour")
-
-                                    self.minutes = YLeaf(YType.uint32, "minutes")
-
-                                    self.month = YLeaf(YType.uint32, "month")
-
-                                    self.day = YLeaf(YType.uint32, "day")
-
-                                    self.year = YLeaf(YType.uint32, "year")
+                                    self._leafs = OrderedDict([
+                                        ('hour', YLeaf(YType.uint32, 'hour')),
+                                        ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                        ('month', YLeaf(YType.uint32, 'month')),
+                                        ('day', YLeaf(YType.uint32, 'day')),
+                                        ('year', YLeaf(YType.uint32, 'year')),
+                                    ])
+                                    self.hour = None
+                                    self.minutes = None
+                                    self.month = None
+                                    self.day = None
+                                    self.year = None
                                     self._segment_path = lambda: "schedule-date"
 
                                 def __setattr__(self, name, value):
@@ -13199,12 +13749,15 @@ class MplsTe(Entity):
                             self.yang_parent_name = "otn-pp-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.connection_mode = YLeaf(YType.enumeration, "connection-mode")
-
-                            self.connection_monitoring_mode = YLeaf(YType.uint32, "connection-monitoring-mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('connection_mode', YLeaf(YType.enumeration, 'connection-mode')),
+                                ('connection_monitoring_mode', YLeaf(YType.uint32, 'connection-monitoring-mode')),
+                            ])
+                            self.connection_mode = None
+                            self.connection_monitoring_mode = None
                             self._segment_path = lambda: "sub-network-connection-mode"
 
                         def __setattr__(self, name, value):
@@ -13247,12 +13800,15 @@ class MplsTe(Entity):
                             self.yang_parent_name = "otn-pp-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.aps_wait_to_restore = YLeaf(YType.uint32, "aps-wait-to-restore")
-
-                            self.aps_hold_off = YLeaf(YType.uint32, "aps-hold-off")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('aps_wait_to_restore', YLeaf(YType.uint32, 'aps-wait-to-restore')),
+                                ('aps_hold_off', YLeaf(YType.uint32, 'aps-hold-off')),
+                            ])
+                            self.aps_wait_to_restore = None
+                            self.aps_hold_off = None
                             self._segment_path = lambda: "timers"
 
                         def __setattr__(self, name, value):
@@ -13282,10 +13838,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "otn-pp-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
@@ -13315,8 +13874,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"auto-mesh-attribute" : ("auto_mesh_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("auto-mesh-attribute", ("auto_mesh_attribute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.auto_mesh_attribute = YList(self)
                     self._segment_path = lambda: "auto-mesh-attributes"
@@ -13330,7 +13891,7 @@ class MplsTe(Entity):
                     """
                     Auto\-mesh Tunnel Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -13447,26 +14008,29 @@ class MplsTe(Entity):
                         self.yang_parent_name = "auto-mesh-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"auto-mesh-logging" : ("auto_mesh_logging", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging), "priority" : ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority), "affinity-mask" : ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask), "bandwidth" : ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection), "policy-classes" : ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses), "new-style-affinity-affinity-types" : ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes), "fast-reroute" : ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.autoroute_announce = YLeaf(YType.empty, "autoroute-announce")
-
-                        self.interface_bandwidth = YLeaf(YType.uint32, "interface-bandwidth")
-
-                        self.forward_class = YLeaf(YType.uint32, "forward-class")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.record_route = YLeaf(YType.empty, "record-route")
-
-                        self.collection_only = YLeaf(YType.empty, "collection-only")
-
-                        self.soft_preemption = YLeaf(YType.empty, "soft-preemption")
-
-                        self.load_share = YLeaf(YType.uint32, "load-share")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("auto-mesh-logging", ("auto_mesh_logging", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('autoroute_announce', YLeaf(YType.empty, 'autoroute-announce')),
+                            ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
+                            ('forward_class', YLeaf(YType.uint32, 'forward-class')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                            ('collection_only', YLeaf(YType.empty, 'collection-only')),
+                            ('soft_preemption', YLeaf(YType.empty, 'soft-preemption')),
+                            ('load_share', YLeaf(YType.uint32, 'load-share')),
+                        ])
+                        self.attribute_set_name = None
+                        self.autoroute_announce = None
+                        self.interface_bandwidth = None
+                        self.forward_class = None
+                        self.enable = None
+                        self.record_route = None
+                        self.collection_only = None
+                        self.soft_preemption = None
+                        self.load_share = None
 
                         self.auto_mesh_logging = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging()
                         self.auto_mesh_logging.parent = self
@@ -13503,7 +14067,7 @@ class MplsTe(Entity):
                         self.fast_reroute = None
                         self._children_name_map["fast_reroute"] = "fast-reroute"
                         self._children_yang_names.add("fast-reroute")
-                        self._segment_path = lambda: "auto-mesh-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "auto-mesh-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -13563,22 +14127,25 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.bandwidth_change_message = YLeaf(YType.empty, "bandwidth-change-message")
-
-                            self.reoptimize_attempts_message = YLeaf(YType.empty, "reoptimize-attempts-message")
-
-                            self.reroute_messsage = YLeaf(YType.empty, "reroute-messsage")
-
-                            self.state_message = YLeaf(YType.empty, "state-message")
-
-                            self.insufficient_bw_message = YLeaf(YType.empty, "insufficient-bw-message")
-
-                            self.reoptimized_message = YLeaf(YType.empty, "reoptimized-message")
-
-                            self.pcalc_failure_message = YLeaf(YType.empty, "pcalc-failure-message")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
+                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
+                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
+                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                            ])
+                            self.bandwidth_change_message = None
+                            self.reoptimize_attempts_message = None
+                            self.reroute_messsage = None
+                            self.state_message = None
+                            self.insufficient_bw_message = None
+                            self.reoptimized_message = None
+                            self.pcalc_failure_message = None
                             self._segment_path = lambda: "auto-mesh-logging"
 
                         def __setattr__(self, name, value):
@@ -13623,13 +14190,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.setup_priority = YLeaf(YType.uint32, "setup-priority")
-
-                            self.hold_priority = YLeaf(YType.uint32, "hold-priority")
+                            self._leafs = OrderedDict([
+                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
+                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                            ])
+                            self.setup_priority = None
+                            self.hold_priority = None
                             self._segment_path = lambda: "priority"
 
                         def __setattr__(self, name, value):
@@ -13674,13 +14244,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.affinity = YLeaf(YType.str, "affinity")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self._leafs = OrderedDict([
+                                ('affinity', YLeaf(YType.str, 'affinity')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.affinity = None
+                            self.mask = None
                             self._segment_path = lambda: "affinity-mask"
 
                         def __setattr__(self, name, value):
@@ -13734,15 +14307,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.dste_type = YLeaf(YType.enumeration, "dste-type")
-
-                            self.class_or_pool_type = YLeaf(YType.uint32, "class-or-pool-type")
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                            self._leafs = OrderedDict([
+                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
+                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
+                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                            ])
+                            self.dste_type = None
+                            self.class_or_pool_type = None
+                            self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
 
                         def __setattr__(self, name, value):
@@ -13772,10 +14348,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
@@ -13807,10 +14386,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.policy_class = YLeafList(YType.uint32, "policy-class")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('policy_class', YLeafList(YType.uint32, 'policy-class')),
+                            ])
+                            self.policy_class = []
                             self._segment_path = lambda: "policy-classes"
 
                         def __setattr__(self, name, value):
@@ -13890,8 +14472,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"new-style-affinity-affinity-type" : ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType), "new-style-affinity-affinity-type-affinity1" : ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1), "new-style-affinity-affinity-type-affinity1-affinity2" : ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9), "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" : ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("new-style-affinity-affinity-type", ("new_style_affinity_affinity_type", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType)), ("new-style-affinity-affinity-type-affinity1", ("new_style_affinity_affinity_type_affinity1", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1)), ("new-style-affinity-affinity-type-affinity1-affinity2", ("new_style_affinity_affinity_type_affinity1_affinity2", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9)), ("new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10", ("new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10))])
+                            self._leafs = OrderedDict()
 
                             self.new_style_affinity_affinity_type = YList(self)
                             self.new_style_affinity_affinity_type_affinity1 = YList(self)
@@ -13914,7 +14498,7 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
@@ -13933,11 +14517,14 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + self.affinity_type.get() + "']"
+                                self.ylist_key_names = ['affinity_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                ])
+                                self.affinity_type = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -13947,12 +14534,12 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
@@ -13973,13 +14560,16 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -13989,19 +14579,19 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
@@ -14022,15 +14612,18 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -14040,26 +14633,26 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
@@ -14080,17 +14673,20 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -14100,33 +14696,33 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
@@ -14147,19 +14743,22 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -14169,40 +14768,40 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
@@ -14223,21 +14822,24 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -14247,47 +14849,47 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
@@ -14308,23 +14910,26 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -14334,54 +14939,54 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
@@ -14402,25 +15007,28 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -14430,61 +15038,61 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
@@ -14505,27 +15113,30 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -14535,68 +15146,68 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
@@ -14617,29 +15228,32 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -14649,75 +15263,75 @@ class MplsTe(Entity):
                             """
                             Tunnel new style affinity attribute
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity_type  (key)
                             
                             	The type of the affinity entry
                             	**type**\:  :py:class:`MplsTeTunnelAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity>`
                             
-                            .. attribute:: affinity1  <key>
+                            .. attribute:: affinity1  (key)
                             
                             	The name of the first affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity2  <key>
+                            .. attribute:: affinity2  (key)
                             
                             	The name of the second affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity3  <key>
+                            .. attribute:: affinity3  (key)
                             
                             	The name of the third affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity4  <key>
+                            .. attribute:: affinity4  (key)
                             
                             	The name of the fourth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity5  <key>
+                            .. attribute:: affinity5  (key)
                             
                             	The name of the fifth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity6  <key>
+                            .. attribute:: affinity6  (key)
                             
                             	The name of the sixth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity7  <key>
+                            .. attribute:: affinity7  (key)
                             
                             	The name of the seventh affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity8  <key>
+                            .. attribute:: affinity8  (key)
                             
                             	The name of the eighth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity9  <key>
+                            .. attribute:: affinity9  (key)
                             
                             	The name of the nineth affinity
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity10  <key>
+                            .. attribute:: affinity10  (key)
                             
                             	The name of the tenth affinity
                             	**type**\: str
@@ -14738,31 +15352,34 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "new-style-affinity-affinity-types"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.affinity_type = YLeaf(YType.enumeration, "affinity-type")
-
-                                self.affinity1 = YLeaf(YType.str, "affinity1")
-
-                                self.affinity2 = YLeaf(YType.str, "affinity2")
-
-                                self.affinity3 = YLeaf(YType.str, "affinity3")
-
-                                self.affinity4 = YLeaf(YType.str, "affinity4")
-
-                                self.affinity5 = YLeaf(YType.str, "affinity5")
-
-                                self.affinity6 = YLeaf(YType.str, "affinity6")
-
-                                self.affinity7 = YLeaf(YType.str, "affinity7")
-
-                                self.affinity8 = YLeaf(YType.str, "affinity8")
-
-                                self.affinity9 = YLeaf(YType.str, "affinity9")
-
-                                self.affinity10 = YLeaf(YType.str, "affinity10")
-                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + self.affinity_type.get() + "']" + "[affinity1='" + self.affinity1.get() + "']" + "[affinity2='" + self.affinity2.get() + "']" + "[affinity3='" + self.affinity3.get() + "']" + "[affinity4='" + self.affinity4.get() + "']" + "[affinity5='" + self.affinity5.get() + "']" + "[affinity6='" + self.affinity6.get() + "']" + "[affinity7='" + self.affinity7.get() + "']" + "[affinity8='" + self.affinity8.get() + "']" + "[affinity9='" + self.affinity9.get() + "']" + "[affinity10='" + self.affinity10.get() + "']"
+                                self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                ])
+                                self.affinity_type = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity10 = None
+                                self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -14806,13 +15423,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-mesh-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bandwidth_protection = YLeaf(YType.uint32, "bandwidth-protection")
-
-                            self.node_protection = YLeaf(YType.uint32, "node-protection")
+                            self._leafs = OrderedDict([
+                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
+                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                            ])
+                            self.bandwidth_protection = None
+                            self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
 
                         def __setattr__(self, name, value):
@@ -14842,8 +15462,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "attribute-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"xro-attribute" : ("xro_attribute", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("xro-attribute", ("xro_attribute", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute))])
+                    self._leafs = OrderedDict()
 
                     self.xro_attribute = YList(self)
                     self._segment_path = lambda: "xro-attributes"
@@ -14857,7 +15479,7 @@ class MplsTe(Entity):
                     """
                     XRO Attribute
                     
-                    .. attribute:: attribute_set_name  <key>
+                    .. attribute:: attribute_set_name  (key)
                     
                     	Attribute Set Name
                     	**type**\: str
@@ -14893,12 +15515,15 @@ class MplsTe(Entity):
                         self.yang_parent_name = "xro-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"path-diversity" : ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity), "path-selection" : ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection)}
-                        self._child_list_classes = {}
-
-                        self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['attribute_set_name']
+                        self._child_container_classes = OrderedDict([("path-diversity", ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.attribute_set_name = None
+                        self.enable = None
 
                         self.path_diversity = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity()
                         self.path_diversity.parent = self
@@ -14909,7 +15534,7 @@ class MplsTe(Entity):
                         self.path_selection.parent = self
                         self._children_name_map["path_selection"] = "path-selection"
                         self._children_yang_names.add("path-selection")
-                        self._segment_path = lambda: "xro-attribute" + "[attribute-set-name='" + self.attribute_set_name.get() + "']"
+                        self._segment_path = lambda: "xro-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -14944,8 +15569,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "xro-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"srlgs" : ("srlgs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs), "lsp" : ("lsp", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("srlgs", ("srlgs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs)), ("lsp", ("lsp", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.srlgs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs()
                             self.srlgs.parent = self
@@ -14982,8 +15609,10 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-diversity"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"srlg" : ("srlg", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("srlg", ("srlg", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg))])
+                                self._leafs = OrderedDict()
 
                                 self.srlg = YList(self)
                                 self._segment_path = lambda: "srlgs"
@@ -14996,7 +15625,7 @@ class MplsTe(Entity):
                                 """
                                 SRLG\-based path\-diversity element
                                 
-                                .. attribute:: srlg  <key>
+                                .. attribute:: srlg  (key)
                                 
                                 	SRLG
                                 	**type**\: int
@@ -15024,13 +15653,16 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "srlgs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.srlg = YLeaf(YType.uint32, "srlg")
-
-                                    self.conformance = YLeaf(YType.enumeration, "conformance")
-                                    self._segment_path = lambda: "srlg" + "[srlg='" + self.srlg.get() + "']"
+                                    self.ylist_key_names = ['srlg']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('srlg', YLeaf(YType.uint32, 'srlg')),
+                                        ('conformance', YLeaf(YType.enumeration, 'conformance')),
+                                    ])
+                                    self.srlg = None
+                                    self.conformance = None
+                                    self._segment_path = lambda: "srlg" + "[srlg='" + str(self.srlg) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, ['srlg', 'conformance'], name, value)
@@ -15059,8 +15691,10 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "path-diversity"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"fecs" : ("fecs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("fecs", ("fecs", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.fecs = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs()
                                 self.fecs.parent = self
@@ -15092,8 +15726,10 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "lsp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"fec" : ("fec", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("fec", ("fec", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec))])
+                                    self._leafs = OrderedDict()
 
                                     self.fec = YList(self)
                                     self._segment_path = lambda: "fecs"
@@ -15107,35 +15743,35 @@ class MplsTe(Entity):
                                     LSP\-based path\-diversity, referenced by
                                     FEC
                                     
-                                    .. attribute:: source  <key>
+                                    .. attribute:: source  (key)
                                     
                                     	Source address
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: destination  <key>
+                                    .. attribute:: destination  (key)
                                     
                                     	Destination address
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: tunnel_id  <key>
+                                    .. attribute:: tunnel_id  (key)
                                     
                                     	Tunnel id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: extended_tunnel_id  <key>
+                                    .. attribute:: extended_tunnel_id  (key)
                                     
                                     	Extended tunnel\-id
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: lsp_id  <key>
+                                    .. attribute:: lsp_id  (key)
                                     
                                     	LSP id
                                     	**type**\: int
@@ -15163,21 +15799,24 @@ class MplsTe(Entity):
                                         self.yang_parent_name = "fecs"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.source = YLeaf(YType.str, "source")
-
-                                        self.destination = YLeaf(YType.str, "destination")
-
-                                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                                        self.extended_tunnel_id = YLeaf(YType.str, "extended-tunnel-id")
-
-                                        self.lsp_id = YLeaf(YType.uint32, "lsp-id")
-
-                                        self.conformance = YLeaf(YType.enumeration, "conformance")
-                                        self._segment_path = lambda: "fec" + "[source='" + self.source.get() + "']" + "[destination='" + self.destination.get() + "']" + "[tunnel-id='" + self.tunnel_id.get() + "']" + "[extended-tunnel-id='" + self.extended_tunnel_id.get() + "']" + "[lsp-id='" + self.lsp_id.get() + "']"
+                                        self.ylist_key_names = ['source','destination','tunnel_id','extended_tunnel_id','lsp_id']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('source', YLeaf(YType.str, 'source')),
+                                            ('destination', YLeaf(YType.str, 'destination')),
+                                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                            ('extended_tunnel_id', YLeaf(YType.str, 'extended-tunnel-id')),
+                                            ('lsp_id', YLeaf(YType.uint32, 'lsp-id')),
+                                            ('conformance', YLeaf(YType.enumeration, 'conformance')),
+                                        ])
+                                        self.source = None
+                                        self.destination = None
+                                        self.tunnel_id = None
+                                        self.extended_tunnel_id = None
+                                        self.lsp_id = None
+                                        self.conformance = None
+                                        self._segment_path = lambda: "fec" + "[source='" + str(self.source) + "']" + "[destination='" + str(self.destination) + "']" + "[tunnel-id='" + str(self.tunnel_id) + "']" + "[extended-tunnel-id='" + str(self.extended_tunnel_id) + "']" + "[lsp-id='" + str(self.lsp_id) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, ['source', 'destination', 'tunnel_id', 'extended_tunnel_id', 'lsp_id', 'conformance'], name, value)
@@ -15206,10 +15845,13 @@ class MplsTe(Entity):
                             self.yang_parent_name = "xro-attribute"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
                             self._segment_path = lambda: "path-selection"
 
                         def __setattr__(self, name, value):
@@ -15244,8 +15886,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"tail" : ("tail", MplsTe.GlobalAttributes.BfdOverLsp.Tail), "head" : ("head", MplsTe.GlobalAttributes.BfdOverLsp.Head)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("tail", ("tail", MplsTe.GlobalAttributes.BfdOverLsp.Tail)), ("head", ("head", MplsTe.GlobalAttributes.BfdOverLsp.Head))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.tail = MplsTe.GlobalAttributes.BfdOverLsp.Tail()
                 self.tail.parent = self
@@ -15292,12 +15936,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bfd-over-lsp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.multiplier = YLeaf(YType.uint32, "multiplier")
-
-                    self.minimum_interval = YLeaf(YType.uint32, "minimum-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('multiplier', YLeaf(YType.uint32, 'multiplier')),
+                        ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
+                    ])
+                    self.multiplier = None
+                    self.minimum_interval = None
                     self._segment_path = lambda: "tail"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/%s" % self._segment_path()
 
@@ -15335,12 +15982,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bfd-over-lsp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.reopt_timeout = YLeaf(YType.uint32, "reopt-timeout")
-
-                    self.down_action = YLeaf(YType.enumeration, "down-action")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('reopt_timeout', YLeaf(YType.uint32, 'reopt-timeout')),
+                        ('down_action', YLeaf(YType.enumeration, 'down-action')),
+                    ])
+                    self.reopt_timeout = None
+                    self.down_action = None
                     self._segment_path = lambda: "head"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/%s" % self._segment_path()
 
@@ -15410,16 +16060,19 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"application" : ("application", MplsTe.GlobalAttributes.BandwidthAccounting.Application), "account-flooding-threshold" : ("account_flooding_threshold", MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold)}
-                self._child_list_classes = {}
-
-                self.sampling_interval = YLeaf(YType.uint32, "sampling-interval")
-
-                self.adjustment_factor = YLeaf(YType.uint32, "adjustment-factor")
-
-                self.collection_type_rsvp_te = YLeaf(YType.boolean, "collection-type-rsvp-te")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("application", ("application", MplsTe.GlobalAttributes.BandwidthAccounting.Application)), ("account-flooding-threshold", ("account_flooding_threshold", MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sampling_interval', YLeaf(YType.uint32, 'sampling-interval')),
+                    ('adjustment_factor', YLeaf(YType.uint32, 'adjustment-factor')),
+                    ('collection_type_rsvp_te', YLeaf(YType.boolean, 'collection-type-rsvp-te')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.sampling_interval = None
+                self.adjustment_factor = None
+                self.collection_type_rsvp_te = None
+                self.enable = None
 
                 self.application = MplsTe.GlobalAttributes.BandwidthAccounting.Application()
                 self.application.parent = self
@@ -15474,12 +16127,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bandwidth-accounting"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.application_enforced = YLeaf(YType.boolean, "application-enforced")
-
-                    self.application_interval = YLeaf(YType.uint32, "application-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('application_enforced', YLeaf(YType.boolean, 'application-enforced')),
+                        ('application_interval', YLeaf(YType.uint32, 'application-interval')),
+                    ])
+                    self.application_enforced = None
+                    self.application_interval = None
                     self._segment_path = lambda: "application"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/%s" % self._segment_path()
 
@@ -15529,12 +16185,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bandwidth-accounting"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.up_threshold = YLeaf(YType.uint32, "up-threshold")
-
-                    self.down_threshold = YLeaf(YType.uint32, "down-threshold")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('up_threshold', YLeaf(YType.uint32, 'up-threshold')),
+                        ('down_threshold', YLeaf(YType.uint32, 'down-threshold')),
+                    ])
+                    self.up_threshold = None
+                    self.down_threshold = None
                     self._segment_path = lambda: "account-flooding-threshold"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/%s" % self._segment_path()
 
@@ -15682,32 +16341,35 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"pce-stateful" : ("pce_stateful", MplsTe.GlobalAttributes.PceAttributes.PceStateful), "timer" : ("timer", MplsTe.GlobalAttributes.PceAttributes.Timer), "peers" : ("peers", MplsTe.GlobalAttributes.PceAttributes.Peers), "logging" : ("logging", MplsTe.GlobalAttributes.PceAttributes.Logging)}
-                self._child_list_classes = {}
-
-                self.request_timeout = YLeaf(YType.uint32, "request-timeout")
-
-                self.reoptimize_period = YLeaf(YType.uint32, "reoptimize-period")
-
-                self.address = YLeaf(YType.str, "address")
-
-                self.deadtimer = YLeaf(YType.uint32, "deadtimer")
-
-                self.keepalive = YLeaf(YType.uint32, "keepalive")
-
-                self.keepalive_tolerance = YLeaf(YType.uint32, "keepalive-tolerance")
-
-                self.peer_source_addr = YLeaf(YType.str, "peer-source-addr")
-
-                self.speaker_entity_id = YLeaf(YType.str, "speaker-entity-id")
-
-                self.segment_routing = YLeaf(YType.empty, "segment-routing")
-
-                self.password = YLeaf(YType.str, "password")
-
-                self.keychain = YLeaf(YType.str, "keychain")
-
-                self.precedence = YLeaf(YType.uint32, "precedence")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("pce-stateful", ("pce_stateful", MplsTe.GlobalAttributes.PceAttributes.PceStateful)), ("timer", ("timer", MplsTe.GlobalAttributes.PceAttributes.Timer)), ("peers", ("peers", MplsTe.GlobalAttributes.PceAttributes.Peers)), ("logging", ("logging", MplsTe.GlobalAttributes.PceAttributes.Logging))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('request_timeout', YLeaf(YType.uint32, 'request-timeout')),
+                    ('reoptimize_period', YLeaf(YType.uint32, 'reoptimize-period')),
+                    ('address', YLeaf(YType.str, 'address')),
+                    ('deadtimer', YLeaf(YType.uint32, 'deadtimer')),
+                    ('keepalive', YLeaf(YType.uint32, 'keepalive')),
+                    ('keepalive_tolerance', YLeaf(YType.uint32, 'keepalive-tolerance')),
+                    ('peer_source_addr', YLeaf(YType.str, 'peer-source-addr')),
+                    ('speaker_entity_id', YLeaf(YType.str, 'speaker-entity-id')),
+                    ('segment_routing', YLeaf(YType.empty, 'segment-routing')),
+                    ('password', YLeaf(YType.str, 'password')),
+                    ('keychain', YLeaf(YType.str, 'keychain')),
+                    ('precedence', YLeaf(YType.uint32, 'precedence')),
+                ])
+                self.request_timeout = None
+                self.reoptimize_period = None
+                self.address = None
+                self.deadtimer = None
+                self.keepalive = None
+                self.keepalive_tolerance = None
+                self.peer_source_addr = None
+                self.speaker_entity_id = None
+                self.segment_routing = None
+                self.password = None
+                self.keychain = None
+                self.precedence = None
 
                 self.pce_stateful = MplsTe.GlobalAttributes.PceAttributes.PceStateful()
                 self.pce_stateful.parent = self
@@ -15788,20 +16450,23 @@ class MplsTe(Entity):
                     self.yang_parent_name = "pce-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"stateful-timers" : ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers)}
-                    self._child_list_classes = {}
-
-                    self.fast_repair = YLeaf(YType.empty, "fast-repair")
-
-                    self.instantiation = YLeaf(YType.empty, "instantiation")
-
-                    self.cisco_extension = YLeaf(YType.empty, "cisco-extension")
-
-                    self.delegation = YLeaf(YType.empty, "delegation")
-
-                    self.report = YLeaf(YType.empty, "report")
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('fast_repair', YLeaf(YType.empty, 'fast-repair')),
+                        ('instantiation', YLeaf(YType.empty, 'instantiation')),
+                        ('cisco_extension', YLeaf(YType.empty, 'cisco-extension')),
+                        ('delegation', YLeaf(YType.empty, 'delegation')),
+                        ('report', YLeaf(YType.empty, 'report')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.fast_repair = None
+                    self.instantiation = None
+                    self.cisco_extension = None
+                    self.delegation = None
+                    self.report = None
+                    self.enable = None
 
                     self.stateful_timers = MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers()
                     self.stateful_timers.parent = self
@@ -15855,12 +16520,15 @@ class MplsTe(Entity):
                         self.yang_parent_name = "pce-stateful"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.redelegation_timeout = YLeaf(YType.uint32, "redelegation-timeout")
-
-                        self.state_timeout = YLeaf(YType.uint32, "state-timeout")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('redelegation_timeout', YLeaf(YType.uint32, 'redelegation-timeout')),
+                            ('state_timeout', YLeaf(YType.uint32, 'state-timeout')),
+                        ])
+                        self.redelegation_timeout = None
+                        self.state_timeout = None
                         self._segment_path = lambda: "stateful-timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/pce-stateful/%s" % self._segment_path()
 
@@ -15887,8 +16555,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "pce-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
                     self._segment_path = lambda: "timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
 
@@ -15916,8 +16586,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "pce-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"peer" : ("peer", MplsTe.GlobalAttributes.PceAttributes.Peers.Peer)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("peer", ("peer", MplsTe.GlobalAttributes.PceAttributes.Peers.Peer))])
+                    self._leafs = OrderedDict()
 
                     self.peer = YList(self)
                     self._segment_path = lambda: "peers"
@@ -15931,7 +16603,7 @@ class MplsTe(Entity):
                     """
                     PCE peer
                     
-                    .. attribute:: pce_peer_address  <key>
+                    .. attribute:: pce_peer_address  (key)
                     
                     	Address of PCE Peer
                     	**type**\: str
@@ -15978,19 +16650,22 @@ class MplsTe(Entity):
                         self.yang_parent_name = "peers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.pce_peer_address = YLeaf(YType.str, "pce-peer-address")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.password = YLeaf(YType.str, "password")
-
-                        self.keychain = YLeaf(YType.str, "keychain")
-
-                        self.precedence = YLeaf(YType.uint32, "precedence")
-                        self._segment_path = lambda: "peer" + "[pce-peer-address='" + self.pce_peer_address.get() + "']"
+                        self.ylist_key_names = ['pce_peer_address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pce_peer_address', YLeaf(YType.str, 'pce-peer-address')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('password', YLeaf(YType.str, 'password')),
+                            ('keychain', YLeaf(YType.str, 'keychain')),
+                            ('precedence', YLeaf(YType.uint32, 'precedence')),
+                        ])
+                        self.pce_peer_address = None
+                        self.enable = None
+                        self.password = None
+                        self.keychain = None
+                        self.precedence = None
+                        self._segment_path = lambda: "peer" + "[pce-peer-address='" + str(self.pce_peer_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/peers/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -16021,8 +16696,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "pce-attributes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"events" : ("events", MplsTe.GlobalAttributes.PceAttributes.Logging.Events)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("events", ("events", MplsTe.GlobalAttributes.PceAttributes.Logging.Events))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.events = MplsTe.GlobalAttributes.PceAttributes.Logging.Events()
                     self.events.parent = self
@@ -16055,10 +16732,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "logging"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.peer_status = YLeaf(YType.empty, "peer-status")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('peer_status', YLeaf(YType.empty, 'peer-status')),
+                        ])
+                        self.peer_status = None
                         self._segment_path = lambda: "events"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/logging/%s" % self._segment_path()
 
@@ -16094,8 +16774,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"lsp-oor-red-state" : ("lsp_oor_red_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState), "lsp-oor-yellow-state" : ("lsp_oor_yellow_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("lsp-oor-red-state", ("lsp_oor_red_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState)), ("lsp-oor-yellow-state", ("lsp_oor_yellow_state", MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.lsp_oor_red_state = MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState()
                 self.lsp_oor_red_state.parent = self
@@ -16142,12 +16824,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "lsp-out-of-resource"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.all_transit_lsp_threshold = YLeaf(YType.int32, "all-transit-lsp-threshold")
-
-                    self.unprotected_transit_lsp_threshold = YLeaf(YType.int32, "unprotected-transit-lsp-threshold")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('all_transit_lsp_threshold', YLeaf(YType.int32, 'all-transit-lsp-threshold')),
+                        ('unprotected_transit_lsp_threshold', YLeaf(YType.int32, 'unprotected-transit-lsp-threshold')),
+                    ])
+                    self.all_transit_lsp_threshold = None
+                    self.unprotected_transit_lsp_threshold = None
                     self._segment_path = lambda: "lsp-oor-red-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/%s" % self._segment_path()
 
@@ -16187,12 +16872,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "lsp-out-of-resource"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.all_transit_lsp_threshold = YLeaf(YType.int32, "all-transit-lsp-threshold")
-
-                    self.unprotected_transit_lsp_threshold = YLeaf(YType.int32, "unprotected-transit-lsp-threshold")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('all_transit_lsp_threshold', YLeaf(YType.int32, 'all-transit-lsp-threshold')),
+                        ('unprotected_transit_lsp_threshold', YLeaf(YType.int32, 'unprotected-transit-lsp-threshold')),
+                    ])
+                    self.all_transit_lsp_threshold = None
+                    self.unprotected_transit_lsp_threshold = None
                     self._segment_path = lambda: "lsp-oor-yellow-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/%s" % self._segment_path()
 
@@ -16239,14 +16927,17 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.timeout = YLeaf(YType.uint32, "timeout")
-
-                self.frr_rewrite = YLeaf(YType.empty, "frr-rewrite")
-
-                self.enable = YLeaf(YType.boolean, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ('frr_rewrite', YLeaf(YType.empty, 'frr-rewrite')),
+                    ('enable', YLeaf(YType.boolean, 'enable')),
+                ])
+                self.timeout = None
+                self.frr_rewrite = None
+                self.enable = None
                 self._segment_path = lambda: "soft-preemption"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
 
@@ -16277,8 +16968,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"timers" : ("timers", MplsTe.GlobalAttributes.FastReroute.Timers)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.FastReroute.Timers))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.timers = MplsTe.GlobalAttributes.FastReroute.Timers()
                 self.timers.parent = self
@@ -16324,12 +17017,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "fast-reroute"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.hold_backup = YLeaf(YType.uint32, "hold-backup")
-
-                    self.promotion = YLeaf(YType.uint32, "promotion")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('hold_backup', YLeaf(YType.uint32, 'hold-backup')),
+                        ('promotion', YLeaf(YType.uint32, 'promotion')),
+                    ])
+                    self.hold_backup = None
+                    self.promotion = None
                     self._segment_path = lambda: "timers"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/fast-reroute/%s" % self._segment_path()
 
@@ -16397,16 +17093,19 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"loose-metrics" : ("loose_metrics", MplsTe.GlobalAttributes.PathSelection.LooseMetrics), "invalidation" : ("invalidation", MplsTe.GlobalAttributes.PathSelection.Invalidation), "ignore-overload-role" : ("ignore_overload_role", MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole), "loose-affinities" : ("loose_affinities", MplsTe.GlobalAttributes.PathSelection.LooseAffinities)}
-                self._child_list_classes = {}
-
-                self.cost_limit = YLeaf(YType.uint32, "cost-limit")
-
-                self.tiebreaker = YLeaf(YType.enumeration, "tiebreaker")
-
-                self.metric = YLeaf(YType.enumeration, "metric")
-
-                self.loose_domain_match = YLeaf(YType.boolean, "loose-domain-match")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("loose-metrics", ("loose_metrics", MplsTe.GlobalAttributes.PathSelection.LooseMetrics)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.PathSelection.Invalidation)), ("ignore-overload-role", ("ignore_overload_role", MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole)), ("loose-affinities", ("loose_affinities", MplsTe.GlobalAttributes.PathSelection.LooseAffinities))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cost_limit', YLeaf(YType.uint32, 'cost-limit')),
+                    ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
+                    ('metric', YLeaf(YType.enumeration, 'metric')),
+                    ('loose_domain_match', YLeaf(YType.boolean, 'loose-domain-match')),
+                ])
+                self.cost_limit = None
+                self.tiebreaker = None
+                self.metric = None
+                self.loose_domain_match = None
 
                 self.loose_metrics = MplsTe.GlobalAttributes.PathSelection.LooseMetrics()
                 self.loose_metrics.parent = self
@@ -16458,8 +17157,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "path-selection"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"loose-metric" : ("loose_metric", MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("loose-metric", ("loose_metric", MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric))])
+                    self._leafs = OrderedDict()
 
                     self.loose_metric = YList(self)
                     self._segment_path = lambda: "loose-metrics"
@@ -16473,7 +17174,7 @@ class MplsTe(Entity):
                     """
                     Path selection Loose ERO Metric configuration
                     
-                    .. attribute:: class_type  <key>
+                    .. attribute:: class_type  (key)
                     
                     	Path Selection class Type
                     	**type**\: int
@@ -16501,13 +17202,16 @@ class MplsTe(Entity):
                         self.yang_parent_name = "loose-metrics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.class_type = YLeaf(YType.uint32, "class-type")
-
-                        self.metric_type = YLeaf(YType.enumeration, "metric-type")
-                        self._segment_path = lambda: "loose-metric" + "[class-type='" + self.class_type.get() + "']"
+                        self.ylist_key_names = ['class_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('class_type', YLeaf(YType.uint32, 'class-type')),
+                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                        ])
+                        self.class_type = None
+                        self.metric_type = None
+                        self._segment_path = lambda: "loose-metric" + "[class-type='" + str(self.class_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-metrics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -16545,12 +17249,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "path-selection"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.path_invalidation_timeout = YLeaf(YType.uint32, "path-invalidation-timeout")
-
-                    self.path_invalidation_action = YLeaf(YType.enumeration, "path-invalidation-action")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
+                        ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                    ])
+                    self.path_invalidation_timeout = None
+                    self.path_invalidation_action = None
                     self._segment_path = lambda: "invalidation"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
 
@@ -16592,14 +17299,17 @@ class MplsTe(Entity):
                     self.yang_parent_name = "path-selection"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.head = YLeaf(YType.boolean, "head")
-
-                    self.mid = YLeaf(YType.boolean, "mid")
-
-                    self.tail = YLeaf(YType.boolean, "tail")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('head', YLeaf(YType.boolean, 'head')),
+                        ('mid', YLeaf(YType.boolean, 'mid')),
+                        ('tail', YLeaf(YType.boolean, 'tail')),
+                    ])
+                    self.head = None
+                    self.mid = None
+                    self.tail = None
                     self._segment_path = lambda: "ignore-overload-role"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
 
@@ -16631,8 +17341,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "path-selection"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"loose-affinity" : ("loose_affinity", MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("loose-affinity", ("loose_affinity", MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity))])
+                    self._leafs = OrderedDict()
 
                     self.loose_affinity = YList(self)
                     self._segment_path = lambda: "loose-affinities"
@@ -16647,7 +17359,7 @@ class MplsTe(Entity):
                     Path selection Loose ERO Affinity
                     configuration
                     
-                    .. attribute:: class_type  <key>
+                    .. attribute:: class_type  (key)
                     
                     	Path Selection class Type
                     	**type**\: int
@@ -16682,15 +17394,18 @@ class MplsTe(Entity):
                         self.yang_parent_name = "loose-affinities"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.class_type = YLeaf(YType.uint32, "class-type")
-
-                        self.affinity = YLeaf(YType.str, "affinity")
-
-                        self.mask = YLeaf(YType.str, "mask")
-                        self._segment_path = lambda: "loose-affinity" + "[class-type='" + self.class_type.get() + "']"
+                        self.ylist_key_names = ['class_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('class_type', YLeaf(YType.uint32, 'class-type')),
+                            ('affinity', YLeaf(YType.str, 'affinity')),
+                            ('mask', YLeaf(YType.str, 'mask')),
+                        ])
+                        self.class_type = None
+                        self.affinity = None
+                        self.mask = None
+                        self._segment_path = lambda: "loose-affinity" + "[class-type='" + str(self.class_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-affinities/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -16720,8 +17435,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "global-attributes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"affinity-mapping" : ("affinity_mapping", MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("affinity-mapping", ("affinity_mapping", MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping))])
+                self._leafs = OrderedDict()
 
                 self.affinity_mapping = YList(self)
                 self._segment_path = lambda: "affinity-mappings"
@@ -16735,7 +17452,7 @@ class MplsTe(Entity):
                 """
                 Affinity Mapping configuration
                 
-                .. attribute:: affinity_name  <key>
+                .. attribute:: affinity_name  (key)
                 
                 	Affinity Name
                 	**type**\: str
@@ -16768,15 +17485,18 @@ class MplsTe(Entity):
                     self.yang_parent_name = "affinity-mappings"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.affinity_name = YLeaf(YType.str, "affinity-name")
-
-                    self.value_type = YLeaf(YType.enumeration, "value-type")
-
-                    self.value = YLeaf(YType.str, "value")
-                    self._segment_path = lambda: "affinity-mapping" + "[affinity-name='" + self.affinity_name.get() + "']"
+                    self.ylist_key_names = ['affinity_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('affinity_name', YLeaf(YType.str, 'affinity-name')),
+                        ('value_type', YLeaf(YType.enumeration, 'value-type')),
+                        ('value', YLeaf(YType.str, 'value')),
+                    ])
+                    self.affinity_name = None
+                    self.value_type = None
+                    self.value = None
+                    self._segment_path = lambda: "affinity-mapping" + "[affinity-name='" + str(self.affinity_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/affinity-mappings/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -16835,12 +17555,15 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"fault" : ("fault", MplsTe.TransportProfile.Fault), "alarm" : ("alarm", MplsTe.TransportProfile.Alarm), "bfd" : ("bfd", MplsTe.TransportProfile.Bfd), "midpoints" : ("midpoints", MplsTe.TransportProfile.Midpoints)}
-            self._child_list_classes = {}
-
-            self.global_id = YLeaf(YType.uint32, "global-id")
-
-            self.node_id = YLeaf(YType.str, "node-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("fault", ("fault", MplsTe.TransportProfile.Fault)), ("alarm", ("alarm", MplsTe.TransportProfile.Alarm)), ("bfd", ("bfd", MplsTe.TransportProfile.Bfd)), ("midpoints", ("midpoints", MplsTe.TransportProfile.Midpoints))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('global_id', YLeaf(YType.uint32, 'global-id')),
+                ('node_id', YLeaf(YType.str, 'node-id')),
+            ])
+            self.global_id = None
+            self.node_id = None
 
             self.fault = MplsTe.TransportProfile.Fault()
             self.fault.parent = self
@@ -16913,12 +17636,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "transport-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"protection-trigger" : ("protection_trigger", MplsTe.TransportProfile.Fault.ProtectionTrigger)}
-                self._child_list_classes = {}
-
-                self.wait_to_restore_interval = YLeaf(YType.uint32, "wait-to-restore-interval")
-
-                self.refresh_interval = YLeaf(YType.uint32, "refresh-interval")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("protection-trigger", ("protection_trigger", MplsTe.TransportProfile.Fault.ProtectionTrigger))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('wait_to_restore_interval', YLeaf(YType.uint32, 'wait-to-restore-interval')),
+                    ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
+                ])
+                self.wait_to_restore_interval = None
+                self.refresh_interval = None
 
                 self.protection_trigger = MplsTe.TransportProfile.Fault.ProtectionTrigger()
                 self.protection_trigger.parent = self
@@ -16964,10 +17690,13 @@ class MplsTe(Entity):
                     self.yang_parent_name = "fault"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"ldi" : ("ldi", MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi), "lkr" : ("lkr", MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr)}
-                    self._child_list_classes = {}
-
-                    self.ais = YLeaf(YType.empty, "ais")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ldi", ("ldi", MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi)), ("lkr", ("lkr", MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ais', YLeaf(YType.empty, 'ais')),
+                    ])
+                    self.ais = None
 
                     self.ldi = MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi()
                     self.ldi.parent = self
@@ -17008,10 +17737,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "protection-trigger"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.disable = YLeaf(YType.empty, "disable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('disable', YLeaf(YType.empty, 'disable')),
+                        ])
+                        self.disable = None
                         self._segment_path = lambda: "ldi"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/%s" % self._segment_path()
 
@@ -17042,10 +17774,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "protection-trigger"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.disable = YLeaf(YType.empty, "disable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('disable', YLeaf(YType.empty, 'disable')),
+                        ])
+                        self.disable = None
                         self._segment_path = lambda: "lkr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/%s" % self._segment_path()
 
@@ -17092,12 +17827,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "transport-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"suppress-event" : ("suppress_event", MplsTe.TransportProfile.Alarm.SuppressEvent)}
-                self._child_list_classes = {}
-
-                self.soak_time = YLeaf(YType.uint32, "soak-time")
-
-                self.enable_alarm = YLeaf(YType.empty, "enable-alarm")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("suppress-event", ("suppress_event", MplsTe.TransportProfile.Alarm.SuppressEvent))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('soak_time', YLeaf(YType.uint32, 'soak-time')),
+                    ('enable_alarm', YLeaf(YType.empty, 'enable-alarm')),
+                ])
+                self.soak_time = None
+                self.enable_alarm = None
 
                 self.suppress_event = MplsTe.TransportProfile.Alarm.SuppressEvent()
                 self.suppress_event.parent = self
@@ -17133,10 +17871,13 @@ class MplsTe(Entity):
                     self.yang_parent_name = "alarm"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.disable = YLeaf(YType.empty, "disable")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('disable', YLeaf(YType.empty, 'disable')),
+                    ])
+                    self.disable = None
                     self._segment_path = lambda: "suppress-event"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/alarm/%s" % self._segment_path()
 
@@ -17186,12 +17927,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "transport-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"min-interval-standby" : ("min_interval_standby", MplsTe.TransportProfile.Bfd.MinIntervalStandby), "min-interval" : ("min_interval", MplsTe.TransportProfile.Bfd.MinInterval)}
-                self._child_list_classes = {}
-
-                self.detection_multiplier_standby = YLeaf(YType.uint32, "detection-multiplier-standby")
-
-                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("min-interval-standby", ("min_interval_standby", MplsTe.TransportProfile.Bfd.MinIntervalStandby)), ("min-interval", ("min_interval", MplsTe.TransportProfile.Bfd.MinInterval))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('detection_multiplier_standby', YLeaf(YType.uint32, 'detection-multiplier-standby')),
+                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                ])
+                self.detection_multiplier_standby = None
+                self.detection_multiplier = None
 
                 self.min_interval_standby = MplsTe.TransportProfile.Bfd.MinIntervalStandby()
                 self.min_interval_standby.parent = self
@@ -17247,12 +17991,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bfd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interval_standby_ms = YLeaf(YType.uint32, "interval-standby-ms")
-
-                    self.interval_standby_us = YLeaf(YType.uint32, "interval-standby-us")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interval_standby_ms', YLeaf(YType.uint32, 'interval-standby-ms')),
+                        ('interval_standby_us', YLeaf(YType.uint32, 'interval-standby-us')),
+                    ])
+                    self.interval_standby_ms = None
+                    self.interval_standby_us = None
                     self._segment_path = lambda: "min-interval-standby"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/%s" % self._segment_path()
 
@@ -17297,12 +18044,15 @@ class MplsTe(Entity):
                     self.yang_parent_name = "bfd"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interval_ms = YLeaf(YType.uint32, "interval-ms")
-
-                    self.interval_us = YLeaf(YType.uint32, "interval-us")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interval_ms', YLeaf(YType.uint32, 'interval-ms')),
+                        ('interval_us', YLeaf(YType.uint32, 'interval-us')),
+                    ])
+                    self.interval_ms = None
+                    self.interval_us = None
                     self._segment_path = lambda: "min-interval"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/%s" % self._segment_path()
 
@@ -17333,8 +18083,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "transport-profile"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"midpoint" : ("midpoint", MplsTe.TransportProfile.Midpoints.Midpoint)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("midpoint", ("midpoint", MplsTe.TransportProfile.Midpoints.Midpoint))])
+                self._leafs = OrderedDict()
 
                 self.midpoint = YList(self)
                 self._segment_path = lambda: "midpoints"
@@ -17348,7 +18100,7 @@ class MplsTe(Entity):
                 """
                 Transport profile mid\-point identifier
                 
-                .. attribute:: midpoint_name  <key>
+                .. attribute:: midpoint_name  (key)
                 
                 	Name of mid\-point
                 	**type**\: str
@@ -17410,16 +18162,19 @@ class MplsTe(Entity):
                     self.yang_parent_name = "midpoints"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"source" : ("source", MplsTe.TransportProfile.Midpoints.Midpoint.Source), "destination" : ("destination", MplsTe.TransportProfile.Midpoints.Midpoint.Destination), "forward-lsp" : ("forward_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp), "reverse-lsp" : ("reverse_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp)}
-                    self._child_list_classes = {}
-
-                    self.midpoint_name = YLeaf(YType.str, "midpoint-name")
-
-                    self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-
-                    self.lsp_protect = YLeaf(YType.empty, "lsp-protect")
-
-                    self.lsp_id = YLeaf(YType.uint32, "lsp-id")
+                    self.ylist_key_names = ['midpoint_name']
+                    self._child_container_classes = OrderedDict([("source", ("source", MplsTe.TransportProfile.Midpoints.Midpoint.Source)), ("destination", ("destination", MplsTe.TransportProfile.Midpoints.Midpoint.Destination)), ("forward-lsp", ("forward_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp)), ("reverse-lsp", ("reverse_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('midpoint_name', YLeaf(YType.str, 'midpoint-name')),
+                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                        ('lsp_protect', YLeaf(YType.empty, 'lsp-protect')),
+                        ('lsp_id', YLeaf(YType.uint32, 'lsp-id')),
+                    ])
+                    self.midpoint_name = None
+                    self.tunnel_name = None
+                    self.lsp_protect = None
+                    self.lsp_id = None
 
                     self.source = None
                     self._children_name_map["source"] = "source"
@@ -17438,7 +18193,7 @@ class MplsTe(Entity):
                     self.reverse_lsp.parent = self
                     self._children_name_map["reverse_lsp"] = "reverse-lsp"
                     self._children_yang_names.add("reverse-lsp")
-                    self._segment_path = lambda: "midpoint" + "[midpoint-name='" + self.midpoint_name.get() + "']"
+                    self._segment_path = lambda: "midpoint" + "[midpoint-name='" + str(self.midpoint_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -17490,15 +18245,18 @@ class MplsTe(Entity):
                         self.yang_parent_name = "midpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.node_id = YLeaf(YType.str, "node-id")
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                        self.global_id = YLeaf(YType.uint32, "global-id")
+                        self._leafs = OrderedDict([
+                            ('node_id', YLeaf(YType.str, 'node-id')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('global_id', YLeaf(YType.uint32, 'global-id')),
+                        ])
+                        self.node_id = None
+                        self.tunnel_id = None
+                        self.global_id = None
                         self._segment_path = lambda: "source"
 
                     def __setattr__(self, name, value):
@@ -17550,15 +18308,18 @@ class MplsTe(Entity):
                         self.yang_parent_name = "midpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.node_id = YLeaf(YType.str, "node-id")
-
-                        self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                        self.global_id = YLeaf(YType.uint32, "global-id")
+                        self._leafs = OrderedDict([
+                            ('node_id', YLeaf(YType.str, 'node-id')),
+                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('global_id', YLeaf(YType.uint32, 'global-id')),
+                        ])
+                        self.node_id = None
+                        self.tunnel_id = None
+                        self.global_id = None
                         self._segment_path = lambda: "destination"
 
                     def __setattr__(self, name, value):
@@ -17599,10 +18360,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "midpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"forward-io-map" : ("forward_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap)}
-                        self._child_list_classes = {}
-
-                        self.forward_bandwidth = YLeaf(YType.uint32, "forward-bandwidth")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("forward-io-map", ("forward_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('forward_bandwidth', YLeaf(YType.uint32, 'forward-bandwidth')),
+                        ])
+                        self.forward_bandwidth = None
 
                         self.forward_io_map = None
                         self._children_name_map["forward_io_map"] = "forward-io-map"
@@ -17659,15 +18423,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "forward-lsp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.in_label = YLeaf(YType.uint32, "in-label")
-
-                            self.out_label = YLeaf(YType.uint32, "out-label")
-
-                            self.out_link = YLeaf(YType.uint32, "out-link")
+                            self._leafs = OrderedDict([
+                                ('in_label', YLeaf(YType.uint32, 'in-label')),
+                                ('out_label', YLeaf(YType.uint32, 'out-label')),
+                                ('out_link', YLeaf(YType.uint32, 'out-link')),
+                            ])
+                            self.in_label = None
+                            self.out_label = None
+                            self.out_link = None
                             self._segment_path = lambda: "forward-io-map"
 
                         def __setattr__(self, name, value):
@@ -17708,10 +18475,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "midpoint"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"reverse-io-map" : ("reverse_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap)}
-                        self._child_list_classes = {}
-
-                        self.reverse_bandwidth = YLeaf(YType.uint32, "reverse-bandwidth")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("reverse-io-map", ("reverse_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('reverse_bandwidth', YLeaf(YType.uint32, 'reverse-bandwidth')),
+                        ])
+                        self.reverse_bandwidth = None
 
                         self.reverse_io_map = None
                         self._children_name_map["reverse_io_map"] = "reverse-io-map"
@@ -17768,15 +18538,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "reverse-lsp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.in_label = YLeaf(YType.uint32, "in-label")
-
-                            self.out_label = YLeaf(YType.uint32, "out-label")
-
-                            self.out_link = YLeaf(YType.uint32, "out-link")
+                            self._leafs = OrderedDict([
+                                ('in_label', YLeaf(YType.uint32, 'in-label')),
+                                ('out_label', YLeaf(YType.uint32, 'out-label')),
+                                ('out_link', YLeaf(YType.uint32, 'out-link')),
+                            ])
+                            self.in_label = None
+                            self.out_label = None
+                            self.out_link = None
                             self._segment_path = lambda: "reverse-io-map"
 
                         def __setattr__(self, name, value):
@@ -17806,8 +18579,10 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", MplsTe.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", MplsTe.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -17821,7 +18596,7 @@ class MplsTe(Entity):
             """
             Configure an MPLS TE interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	Interface name
             	**type**\: str
@@ -17857,10 +18632,13 @@ class MplsTe(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"transport-profile-link" : ("transport_profile_link", MplsTe.Interfaces.Interface.TransportProfileLink), "lcac" : ("lcac", MplsTe.Interfaces.Interface.Lcac), "global-attributes" : ("global_attributes", MplsTe.Interfaces.Interface.GlobalAttributes)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("transport-profile-link", ("transport_profile_link", MplsTe.Interfaces.Interface.TransportProfileLink)), ("lcac", ("lcac", MplsTe.Interfaces.Interface.Lcac)), ("global-attributes", ("global_attributes", MplsTe.Interfaces.Interface.GlobalAttributes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_name = None
 
                 self.transport_profile_link = MplsTe.Interfaces.Interface.TransportProfileLink()
                 self.transport_profile_link.parent = self
@@ -17876,7 +18654,7 @@ class MplsTe(Entity):
                 self.global_attributes.parent = self
                 self._children_name_map["global_attributes"] = "global-attributes"
                 self._children_yang_names.add("global-attributes")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -17906,8 +18684,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"links" : ("links", MplsTe.Interfaces.Interface.TransportProfileLink.Links)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("links", ("links", MplsTe.Interfaces.Interface.TransportProfileLink.Links))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.links = MplsTe.Interfaces.Interface.TransportProfileLink.Links()
                     self.links.parent = self
@@ -17939,8 +18719,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "transport-profile-link"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"link" : ("link", MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("link", ("link", MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link))])
+                        self._leafs = OrderedDict()
 
                         self.link = YList(self)
                         self._segment_path = lambda: "links"
@@ -17953,7 +18735,7 @@ class MplsTe(Entity):
                         """
                         Transport profile link
                         
-                        .. attribute:: link_id  <key>
+                        .. attribute:: link_id  (key)
                         
                         	Numeric link identifier
                         	**type**\: int
@@ -17988,15 +18770,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "links"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.link_id = YLeaf(YType.uint32, "link-id")
-
-                            self.next_hop_type = YLeaf(YType.enumeration, "next-hop-type")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-                            self._segment_path = lambda: "link" + "[link-id='" + self.link_id.get() + "']"
+                            self.ylist_key_names = ['link_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('link_id', YLeaf(YType.uint32, 'link-id')),
+                                ('next_hop_type', YLeaf(YType.enumeration, 'next-hop-type')),
+                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                            ])
+                            self.link_id = None
+                            self.next_hop_type = None
+                            self.next_hop_address = None
+                            self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, ['link_id', 'next_hop_type', 'next_hop_address'], name, value)
@@ -18084,18 +18869,21 @@ class MplsTe(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"switchings" : ("switchings", MplsTe.Interfaces.Interface.Lcac.Switchings), "flood-area" : ("flood_area", MplsTe.Interfaces.Interface.Lcac.FloodArea), "attribute-name-xr" : ("attribute_name_xr", MplsTe.Interfaces.Interface.Lcac.AttributeNameXr), "attribute-names" : ("attribute_names", MplsTe.Interfaces.Interface.Lcac.AttributeNames), "srlgs" : ("srlgs", MplsTe.Interfaces.Interface.Lcac.Srlgs), "up-thresholds" : ("up_thresholds", MplsTe.Interfaces.Interface.Lcac.UpThresholds), "down-thresholds" : ("down_thresholds", MplsTe.Interfaces.Interface.Lcac.DownThresholds)}
-                    self._child_list_classes = {}
-
-                    self.bfd = YLeaf(YType.empty, "bfd")
-
-                    self.fault_oam_lockout = YLeaf(YType.empty, "fault-oam-lockout")
-
-                    self.attribute_flags = YLeaf(YType.str, "attribute-flags")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.admin_weight = YLeaf(YType.int32, "admin-weight")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("switchings", ("switchings", MplsTe.Interfaces.Interface.Lcac.Switchings)), ("flood-area", ("flood_area", MplsTe.Interfaces.Interface.Lcac.FloodArea)), ("attribute-name-xr", ("attribute_name_xr", MplsTe.Interfaces.Interface.Lcac.AttributeNameXr)), ("attribute-names", ("attribute_names", MplsTe.Interfaces.Interface.Lcac.AttributeNames)), ("srlgs", ("srlgs", MplsTe.Interfaces.Interface.Lcac.Srlgs)), ("up-thresholds", ("up_thresholds", MplsTe.Interfaces.Interface.Lcac.UpThresholds)), ("down-thresholds", ("down_thresholds", MplsTe.Interfaces.Interface.Lcac.DownThresholds))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('bfd', YLeaf(YType.empty, 'bfd')),
+                        ('fault_oam_lockout', YLeaf(YType.empty, 'fault-oam-lockout')),
+                        ('attribute_flags', YLeaf(YType.str, 'attribute-flags')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('admin_weight', YLeaf(YType.int32, 'admin-weight')),
+                    ])
+                    self.bfd = None
+                    self.fault_oam_lockout = None
+                    self.attribute_flags = None
+                    self.enable = None
+                    self.admin_weight = None
 
                     self.switchings = MplsTe.Interfaces.Interface.Lcac.Switchings()
                     self.switchings.parent = self
@@ -18160,8 +18948,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"switching" : ("switching", MplsTe.Interfaces.Interface.Lcac.Switchings.Switching)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("switching", ("switching", MplsTe.Interfaces.Interface.Lcac.Switchings.Switching))])
+                        self._leafs = OrderedDict()
 
                         self.switching = YList(self)
                         self._segment_path = lambda: "switchings"
@@ -18174,7 +18964,7 @@ class MplsTe(Entity):
                         """
                         The te\-link switching attributes
                         
-                        .. attribute:: switching_id  <key>
+                        .. attribute:: switching_id  (key)
                         
                         	Switching index
                         	**type**\: union of the below types:
@@ -18209,15 +18999,18 @@ class MplsTe(Entity):
                             self.yang_parent_name = "switchings"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.switching_id = YLeaf(YType.str, "switching-id")
-
-                            self.encoding = YLeaf(YType.enumeration, "encoding")
-
-                            self.capability = YLeaf(YType.enumeration, "capability")
-                            self._segment_path = lambda: "switching" + "[switching-id='" + self.switching_id.get() + "']"
+                            self.ylist_key_names = ['switching_id']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('switching_id', YLeaf(YType.str, 'switching-id')),
+                                ('encoding', YLeaf(YType.enumeration, 'encoding')),
+                                ('capability', YLeaf(YType.enumeration, 'capability')),
+                            ])
+                            self.switching_id = None
+                            self.encoding = None
+                            self.capability = None
+                            self._segment_path = lambda: "switching" + "[switching-id='" + str(self.switching_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, ['switching_id', 'encoding', 'capability'], name, value)
@@ -18261,14 +19054,17 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.igp_type = YLeaf(YType.enumeration, "igp-type")
-
-                        self.process_name = YLeaf(YType.str, "process-name")
-
-                        self.area_id = YLeaf(YType.int32, "area-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('igp_type', YLeaf(YType.enumeration, 'igp-type')),
+                            ('process_name', YLeaf(YType.str, 'process-name')),
+                            ('area_id', YLeaf(YType.int32, 'area-id')),
+                        ])
+                        self.igp_type = None
+                        self.process_name = None
+                        self.area_id = None
                         self._segment_path = lambda: "flood-area"
 
                     def __setattr__(self, name, value):
@@ -18298,10 +19094,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.attribute_name = YLeafList(YType.str, "attribute-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('attribute_name', YLeafList(YType.str, 'attribute-name')),
+                        ])
+                        self.attribute_name = []
                         self._segment_path = lambda: "attribute-name-xr"
 
                     def __setattr__(self, name, value):
@@ -18331,8 +19130,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"attribute-name" : ("attribute_name", MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("attribute-name", ("attribute_name", MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName))])
+                        self._leafs = OrderedDict()
 
                         self.attribute_name = YList(self)
                         self._segment_path = lambda: "attribute-names"
@@ -18345,7 +19146,7 @@ class MplsTe(Entity):
                         """
                         Set the interface attribute names
                         
-                        .. attribute:: affinity_index  <key>
+                        .. attribute:: affinity_index  (key)
                         
                         	Specify the entry index
                         	**type**\: int
@@ -18371,13 +19172,16 @@ class MplsTe(Entity):
                             self.yang_parent_name = "attribute-names"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.affinity_index = YLeaf(YType.uint32, "affinity-index")
-
-                            self.value = YLeafList(YType.str, "value")
-                            self._segment_path = lambda: "attribute-name" + "[affinity-index='" + self.affinity_index.get() + "']"
+                            self.ylist_key_names = ['affinity_index']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('affinity_index', YLeaf(YType.uint32, 'affinity-index')),
+                                ('value', YLeafList(YType.str, 'value')),
+                            ])
+                            self.affinity_index = None
+                            self.value = []
+                            self._segment_path = lambda: "attribute-name" + "[affinity-index='" + str(self.affinity_index) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, ['affinity_index', 'value'], name, value)
@@ -18406,8 +19210,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"srlg" : ("srlg", MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("srlg", ("srlg", MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg))])
+                        self._leafs = OrderedDict()
 
                         self.srlg = YList(self)
                         self._segment_path = lambda: "srlgs"
@@ -18420,7 +19226,7 @@ class MplsTe(Entity):
                         """
                         SRLG membership number
                         
-                        .. attribute:: srlg_number  <key>
+                        .. attribute:: srlg_number  (key)
                         
                         	SRLG membership number
                         	**type**\: int
@@ -18441,11 +19247,14 @@ class MplsTe(Entity):
                             self.yang_parent_name = "srlgs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.srlg_number = YLeaf(YType.uint32, "srlg-number")
-                            self._segment_path = lambda: "srlg" + "[srlg-number='" + self.srlg_number.get() + "']"
+                            self.ylist_key_names = ['srlg_number']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('srlg_number', YLeaf(YType.uint32, 'srlg-number')),
+                            ])
+                            self.srlg_number = None
+                            self._segment_path = lambda: "srlg" + "[srlg-number='" + str(self.srlg_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, ['srlg_number'], name, value)
@@ -18479,10 +19288,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.up_threshold = YLeafList(YType.uint32, "up-threshold")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('up_threshold', YLeafList(YType.uint32, 'up-threshold')),
+                        ])
+                        self.up_threshold = []
                         self._segment_path = lambda: "up-thresholds"
 
                     def __setattr__(self, name, value):
@@ -18517,10 +19329,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "lcac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.down_threshold = YLeafList(YType.uint32, "down-threshold")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('down_threshold', YLeafList(YType.uint32, 'down-threshold')),
+                        ])
+                        self.down_threshold = []
                         self._segment_path = lambda: "down-thresholds"
 
                     def __setattr__(self, name, value):
@@ -18560,8 +19375,10 @@ class MplsTe(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"backup-tunnels" : ("backup_tunnels", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels), "auto-tunnel" : ("auto_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel), "backup-paths" : ("backup_paths", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("backup-tunnels", ("backup_tunnels", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels)), ("auto-tunnel", ("auto_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel)), ("backup-paths", ("backup_paths", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.backup_tunnels = MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels()
                     self.backup_tunnels.parent = self
@@ -18604,8 +19421,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "global-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"backup-tunnel" : ("backup_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("backup-tunnel", ("backup_tunnel", MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel))])
+                        self._leafs = OrderedDict()
 
                         self.backup_tunnel = YList(self)
                         self._segment_path = lambda: "backup-tunnels"
@@ -18618,7 +19437,7 @@ class MplsTe(Entity):
                         """
                         Tunnel name
                         
-                        .. attribute:: tunnel_name  <key>
+                        .. attribute:: tunnel_name  (key)
                         
                         	Tunnel name
                         	**type**\: str
@@ -18639,11 +19458,14 @@ class MplsTe(Entity):
                             self.yang_parent_name = "backup-tunnels"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.tunnel_name = YLeaf(YType.str, "tunnel-name")
-                            self._segment_path = lambda: "backup-tunnel" + "[tunnel-name='" + self.tunnel_name.get() + "']"
+                            self.ylist_key_names = ['tunnel_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                            ])
+                            self.tunnel_name = None
+                            self._segment_path = lambda: "backup-tunnel" + "[tunnel-name='" + str(self.tunnel_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, ['tunnel_name'], name, value)
@@ -18672,8 +19494,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "global-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"backup" : ("backup", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("backup", ("backup", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.backup = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup()
                         self.backup.parent = self
@@ -18722,14 +19546,17 @@ class MplsTe(Entity):
                             self.yang_parent_name = "auto-tunnel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"exclude" : ("exclude", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.attribute_set = YLeaf(YType.str, "attribute-set")
-
-                            self.next_hop_only = YLeaf(YType.empty, "next-hop-only")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("exclude", ("exclude", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('attribute_set', YLeaf(YType.str, 'attribute-set')),
+                                ('next_hop_only', YLeaf(YType.empty, 'next-hop-only')),
+                            ])
+                            self.enable = None
+                            self.attribute_set = None
+                            self.next_hop_only = None
 
                             self.exclude = MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude()
                             self.exclude.parent = self
@@ -18764,10 +19591,13 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "backup"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.srlg_mode = YLeaf(YType.enumeration, "srlg-mode")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('srlg_mode', YLeaf(YType.enumeration, 'srlg-mode')),
+                                ])
+                                self.srlg_mode = None
                                 self._segment_path = lambda: "exclude"
 
                             def __setattr__(self, name, value):
@@ -18798,8 +19628,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "global-attributes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"backup-path" : ("backup_path", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("backup-path", ("backup_path", MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath))])
+                        self._leafs = OrderedDict()
 
                         self.backup_path = YList(self)
                         self._segment_path = lambda: "backup-paths"
@@ -18812,7 +19644,7 @@ class MplsTe(Entity):
                         """
                         Tunnel interface number
                         
-                        .. attribute:: tunnel_number  <key>
+                        .. attribute:: tunnel_number  (key)
                         
                         	Tunnel interface number
                         	**type**\: int
@@ -18833,11 +19665,14 @@ class MplsTe(Entity):
                             self.yang_parent_name = "backup-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.tunnel_number = YLeaf(YType.uint32, "tunnel-number")
-                            self._segment_path = lambda: "backup-path" + "[tunnel-number='" + self.tunnel_number.get() + "']"
+                            self.ylist_key_names = ['tunnel_number']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('tunnel_number', YLeaf(YType.uint32, 'tunnel-number')),
+                            ])
+                            self.tunnel_number = None
+                            self._segment_path = lambda: "backup-path" + "[tunnel-number='" + str(self.tunnel_number) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, ['tunnel_number'], name, value)
@@ -18881,12 +19716,15 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"topology-instances" : ("topology_instances", MplsTe.GmplsNni.TopologyInstances), "tunnel-heads" : ("tunnel_heads", MplsTe.GmplsNni.TunnelHeads)}
-            self._child_list_classes = {}
-
-            self.path_selection_metric = YLeaf(YType.enumeration, "path-selection-metric")
-
-            self.enable_gmpls_nni = YLeaf(YType.empty, "enable-gmpls-nni")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("topology-instances", ("topology_instances", MplsTe.GmplsNni.TopologyInstances)), ("tunnel-heads", ("tunnel_heads", MplsTe.GmplsNni.TunnelHeads))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
+                ('enable_gmpls_nni', YLeaf(YType.empty, 'enable-gmpls-nni')),
+            ])
+            self.path_selection_metric = None
+            self.enable_gmpls_nni = None
 
             self.topology_instances = MplsTe.GmplsNni.TopologyInstances()
             self.topology_instances.parent = self
@@ -18927,8 +19765,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "gmpls-nni"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"topology-instance" : ("topology_instance", MplsTe.GmplsNni.TopologyInstances.TopologyInstance)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("topology-instance", ("topology_instance", MplsTe.GmplsNni.TopologyInstances.TopologyInstance))])
+                self._leafs = OrderedDict()
 
                 self.topology_instance = YList(self)
                 self._segment_path = lambda: "topology-instances"
@@ -18942,19 +19782,19 @@ class MplsTe(Entity):
                 """
                 GMPLS\-NNI topology instance configuration
                 
-                .. attribute:: ospf_area_type  <key>
+                .. attribute:: ospf_area_type  (key)
                 
                 	OSPF area format
                 	**type**\:  :py:class:`OspfAreaMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OspfAreaMode>`
                 
-                .. attribute:: igp_instance_name  <key>
+                .. attribute:: igp_instance_name  (key)
                 
                 	Name of IGP instance
                 	**type**\: str
                 
                 	**length:** 1..40
                 
-                .. attribute:: igp_type  <key>
+                .. attribute:: igp_type  (key)
                 
                 	IGP type
                 	**type**\:  :py:class:`MplsTeIgpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocol>`
@@ -18983,18 +19823,21 @@ class MplsTe(Entity):
                     self.yang_parent_name = "topology-instances"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ospf-int" : ("ospf_int", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt), "ospfip-addr" : ("ospfip_addr", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr)}
-
-                    self.ospf_area_type = YLeaf(YType.enumeration, "ospf-area-type")
-
-                    self.igp_instance_name = YLeaf(YType.str, "igp-instance-name")
-
-                    self.igp_type = YLeaf(YType.enumeration, "igp-type")
+                    self.ylist_key_names = ['ospf_area_type','igp_instance_name','igp_type']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ospf-int", ("ospf_int", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt)), ("ospfip-addr", ("ospfip_addr", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr))])
+                    self._leafs = OrderedDict([
+                        ('ospf_area_type', YLeaf(YType.enumeration, 'ospf-area-type')),
+                        ('igp_instance_name', YLeaf(YType.str, 'igp-instance-name')),
+                        ('igp_type', YLeaf(YType.enumeration, 'igp-type')),
+                    ])
+                    self.ospf_area_type = None
+                    self.igp_instance_name = None
+                    self.igp_type = None
 
                     self.ospf_int = YList(self)
                     self.ospfip_addr = YList(self)
-                    self._segment_path = lambda: "topology-instance" + "[ospf-area-type='" + self.ospf_area_type.get() + "']" + "[igp-instance-name='" + self.igp_instance_name.get() + "']" + "[igp-type='" + self.igp_type.get() + "']"
+                    self._segment_path = lambda: "topology-instance" + "[ospf-area-type='" + str(self.ospf_area_type) + "']" + "[igp-instance-name='" + str(self.igp_instance_name) + "']" + "[igp-type='" + str(self.igp_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -19005,7 +19848,7 @@ class MplsTe(Entity):
                     """
                     ospf int
                     
-                    .. attribute:: igp_area  <key>
+                    .. attribute:: igp_area  (key)
                     
                     	IGP area
                     	**type**\: int
@@ -19031,16 +19874,19 @@ class MplsTe(Entity):
                         self.yang_parent_name = "topology-instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"controllers" : ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers)}
-                        self._child_list_classes = {}
-
-                        self.igp_area = YLeaf(YType.int32, "igp-area")
+                        self.ylist_key_names = ['igp_area']
+                        self._child_container_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('igp_area', YLeaf(YType.int32, 'igp-area')),
+                        ])
+                        self.igp_area = None
 
                         self.controllers = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers()
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
                         self._children_yang_names.add("controllers")
-                        self._segment_path = lambda: "ospf-int" + "[igp-area='" + self.igp_area.get() + "']"
+                        self._segment_path = lambda: "ospf-int" + "[igp-area='" + str(self.igp_area) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, ['igp_area'], name, value)
@@ -19069,8 +19915,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "ospf-int"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"controller" : ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller))])
+                            self._leafs = OrderedDict()
 
                             self.controller = YList(self)
                             self._segment_path = lambda: "controllers"
@@ -19083,7 +19931,7 @@ class MplsTe(Entity):
                             """
                             Configure a GMPLS NNI controller
                             
-                            .. attribute:: controller_name  <key>
+                            .. attribute:: controller_name  (key)
                             
                             	Controller name
                             	**type**\: str
@@ -19128,22 +19976,25 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "controllers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tti-mode" : ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode)}
-                                self._child_list_classes = {}
-
-                                self.controller_name = YLeaf(YType.str, "controller-name")
-
-                                self.admin_weight = YLeaf(YType.uint32, "admin-weight")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.delay = YLeaf(YType.uint32, "delay")
+                                self.ylist_key_names = ['controller_name']
+                                self._child_container_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                                    ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('delay', YLeaf(YType.uint32, 'delay')),
+                                ])
+                                self.controller_name = None
+                                self.admin_weight = None
+                                self.enable = None
+                                self.delay = None
 
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
                                 self._children_name_map["tti_mode"] = "tti-mode"
                                 self._children_yang_names.add("tti-mode")
-                                self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                                self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
@@ -19180,12 +20031,15 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "controller"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.tti_mode_type = YLeaf(YType.enumeration, "tti-mode-type")
-
-                                    self.tcmid = YLeaf(YType.uint32, "tcmid")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
+                                        ('tcmid', YLeaf(YType.uint32, 'tcmid')),
+                                    ])
+                                    self.tti_mode_type = None
+                                    self.tcmid = None
                                     self._segment_path = lambda: "tti-mode"
 
                                 def __setattr__(self, name, value):
@@ -19196,7 +20050,7 @@ class MplsTe(Entity):
                     """
                     ospfip addr
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	Area ID if in IP address format
                     	**type**\: str
@@ -19222,16 +20076,19 @@ class MplsTe(Entity):
                         self.yang_parent_name = "topology-instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"controllers" : ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers)}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
+                        self.ylist_key_names = ['address']
+                        self._child_container_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                        ])
+                        self.address = None
 
                         self.controllers = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers()
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
                         self._children_yang_names.add("controllers")
-                        self._segment_path = lambda: "ospfip-addr" + "[address='" + self.address.get() + "']"
+                        self._segment_path = lambda: "ospfip-addr" + "[address='" + str(self.address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, ['address'], name, value)
@@ -19260,8 +20117,10 @@ class MplsTe(Entity):
                             self.yang_parent_name = "ospfip-addr"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"controller" : ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("controller", ("controller", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller))])
+                            self._leafs = OrderedDict()
 
                             self.controller = YList(self)
                             self._segment_path = lambda: "controllers"
@@ -19274,7 +20133,7 @@ class MplsTe(Entity):
                             """
                             Configure a GMPLS NNI controller
                             
-                            .. attribute:: controller_name  <key>
+                            .. attribute:: controller_name  (key)
                             
                             	Controller name
                             	**type**\: str
@@ -19319,22 +20178,25 @@ class MplsTe(Entity):
                                 self.yang_parent_name = "controllers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"tti-mode" : ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode)}
-                                self._child_list_classes = {}
-
-                                self.controller_name = YLeaf(YType.str, "controller-name")
-
-                                self.admin_weight = YLeaf(YType.uint32, "admin-weight")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.delay = YLeaf(YType.uint32, "delay")
+                                self.ylist_key_names = ['controller_name']
+                                self._child_container_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                                    ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('delay', YLeaf(YType.uint32, 'delay')),
+                                ])
+                                self.controller_name = None
+                                self.admin_weight = None
+                                self.enable = None
+                                self.delay = None
 
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
                                 self._children_name_map["tti_mode"] = "tti-mode"
                                 self._children_yang_names.add("tti-mode")
-                                self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                                self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
@@ -19371,12 +20233,15 @@ class MplsTe(Entity):
                                     self.yang_parent_name = "controller"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.tti_mode_type = YLeaf(YType.enumeration, "tti-mode-type")
-
-                                    self.tcmid = YLeaf(YType.uint32, "tcmid")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
+                                        ('tcmid', YLeaf(YType.uint32, 'tcmid')),
+                                    ])
+                                    self.tti_mode_type = None
+                                    self.tcmid = None
                                     self._segment_path = lambda: "tti-mode"
 
                                 def __setattr__(self, name, value):
@@ -19406,8 +20271,10 @@ class MplsTe(Entity):
                 self.yang_parent_name = "gmpls-nni"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tunnel-head" : ("tunnel_head", MplsTe.GmplsNni.TunnelHeads.TunnelHead)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tunnel-head", ("tunnel_head", MplsTe.GmplsNni.TunnelHeads.TunnelHead))])
+                self._leafs = OrderedDict()
 
                 self.tunnel_head = YList(self)
                 self._segment_path = lambda: "tunnel-heads"
@@ -19422,7 +20289,7 @@ class MplsTe(Entity):
                 The configuration for a GMPLS NNI tunnel
                 head\-end
                 
-                .. attribute:: tunnel_id  <key>
+                .. attribute:: tunnel_id  (key)
                 
                 	Tunnel ID
                 	**type**\: int
@@ -19527,30 +20394,33 @@ class MplsTe(Entity):
                     self.yang_parent_name = "tunnel-heads"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"signalled-bandwidth" : ("signalled_bandwidth", MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth), "destination" : ("destination", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination), "protection-switching" : ("protection_switching", MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching), "logging" : ("logging", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging), "path-options" : ("path_options", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions), "static-uni" : ("static_uni", MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni)}
-                    self._child_list_classes = {}
-
-                    self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.restore_lsp_shutdown = YLeaf(YType.empty, "restore-lsp-shutdown")
-
-                    self.current_lsp_shutdown = YLeaf(YType.empty, "current-lsp-shutdown")
-
-                    self.path_selection_metric = YLeaf(YType.enumeration, "path-selection-metric")
-
-                    self.payload = YLeaf(YType.enumeration, "payload")
-
-                    self.standby_lsp_shutdown = YLeaf(YType.empty, "standby-lsp-shutdown")
-
-                    self.shutdown = YLeaf(YType.empty, "shutdown")
-
-                    self.path_protection_attribute_set_profile = YLeaf(YType.str, "path-protection-attribute-set-profile")
-
-                    self.record_route = YLeaf(YType.empty, "record-route")
-
-                    self.signalled_name = YLeaf(YType.str, "signalled-name")
+                    self.ylist_key_names = ['tunnel_id']
+                    self._child_container_classes = OrderedDict([("signalled-bandwidth", ("signalled_bandwidth", MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth)), ("destination", ("destination", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination)), ("protection-switching", ("protection_switching", MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching)), ("logging", ("logging", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging)), ("path-options", ("path_options", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions)), ("static-uni", ("static_uni", MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('restore_lsp_shutdown', YLeaf(YType.empty, 'restore-lsp-shutdown')),
+                        ('current_lsp_shutdown', YLeaf(YType.empty, 'current-lsp-shutdown')),
+                        ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
+                        ('payload', YLeaf(YType.enumeration, 'payload')),
+                        ('standby_lsp_shutdown', YLeaf(YType.empty, 'standby-lsp-shutdown')),
+                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                        ('path_protection_attribute_set_profile', YLeaf(YType.str, 'path-protection-attribute-set-profile')),
+                        ('record_route', YLeaf(YType.empty, 'record-route')),
+                        ('signalled_name', YLeaf(YType.str, 'signalled-name')),
+                    ])
+                    self.tunnel_id = None
+                    self.enable = None
+                    self.restore_lsp_shutdown = None
+                    self.current_lsp_shutdown = None
+                    self.path_selection_metric = None
+                    self.payload = None
+                    self.standby_lsp_shutdown = None
+                    self.shutdown = None
+                    self.path_protection_attribute_set_profile = None
+                    self.record_route = None
+                    self.signalled_name = None
 
                     self.signalled_bandwidth = MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth()
                     self.signalled_bandwidth.parent = self
@@ -19581,7 +20451,7 @@ class MplsTe(Entity):
                     self.static_uni.parent = self
                     self._children_name_map["static_uni"] = "static-uni"
                     self._children_yang_names.add("static-uni")
-                    self._segment_path = lambda: "tunnel-head" + "[tunnel-id='" + self.tunnel_id.get() + "']"
+                    self._segment_path = lambda: "tunnel-head" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -19627,14 +20497,17 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.signalled_bandwidth_type = YLeaf(YType.enumeration, "signalled-bandwidth-type")
-
-                        self.bitrate = YLeaf(YType.int32, "bitrate")
-
-                        self.od_uflex_framing_type = YLeaf(YType.enumeration, "od-uflex-framing-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('signalled_bandwidth_type', YLeaf(YType.enumeration, 'signalled-bandwidth-type')),
+                            ('bitrate', YLeaf(YType.int32, 'bitrate')),
+                            ('od_uflex_framing_type', YLeaf(YType.enumeration, 'od-uflex-framing-type')),
+                        ])
+                        self.signalled_bandwidth_type = None
+                        self.bitrate = None
+                        self.od_uflex_framing_type = None
                         self._segment_path = lambda: "signalled-bandwidth"
 
                     def __setattr__(self, name, value):
@@ -19679,14 +20552,17 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.destination = YLeaf(YType.str, "destination")
-
-                        self.destination_type = YLeaf(YType.enumeration, "destination-type")
-
-                        self.interface_if_index = YLeaf(YType.int32, "interface-if-index")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('destination', YLeaf(YType.str, 'destination')),
+                            ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
+                            ('interface_if_index', YLeaf(YType.int32, 'interface-if-index')),
+                        ])
+                        self.destination = None
+                        self.destination_type = None
+                        self.interface_if_index = None
                         self._segment_path = lambda: "destination"
 
                     def __setattr__(self, name, value):
@@ -19717,10 +20593,13 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lockout = YLeaf(YType.enumeration, "lockout")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lockout', YLeaf(YType.enumeration, 'lockout')),
+                        ])
+                        self.lockout = None
                         self._segment_path = lambda: "protection-switching"
 
                     def __setattr__(self, name, value):
@@ -19780,22 +20659,25 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.active_lsp_message = YLeaf(YType.empty, "active-lsp-message")
-
-                        self.homepath_state_message = YLeaf(YType.empty, "homepath-state-message")
-
-                        self.signalling_state_message = YLeaf(YType.empty, "signalling-state-message")
-
-                        self.path_change_message = YLeaf(YType.empty, "path-change-message")
-
-                        self.static_cross_connect_message = YLeaf(YType.empty, "static-cross-connect-message")
-
-                        self.tunnel_state_message = YLeaf(YType.empty, "tunnel-state-message")
-
-                        self.insufficient_bw_message = YLeaf(YType.empty, "insufficient-bw-message")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('active_lsp_message', YLeaf(YType.empty, 'active-lsp-message')),
+                            ('homepath_state_message', YLeaf(YType.empty, 'homepath-state-message')),
+                            ('signalling_state_message', YLeaf(YType.empty, 'signalling-state-message')),
+                            ('path_change_message', YLeaf(YType.empty, 'path-change-message')),
+                            ('static_cross_connect_message', YLeaf(YType.empty, 'static-cross-connect-message')),
+                            ('tunnel_state_message', YLeaf(YType.empty, 'tunnel-state-message')),
+                            ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                        ])
+                        self.active_lsp_message = None
+                        self.homepath_state_message = None
+                        self.signalling_state_message = None
+                        self.path_change_message = None
+                        self.static_cross_connect_message = None
+                        self.tunnel_state_message = None
+                        self.insufficient_bw_message = None
                         self._segment_path = lambda: "logging"
 
                     def __setattr__(self, name, value):
@@ -19825,8 +20707,10 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"path-option" : ("path_option", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("path-option", ("path_option", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption))])
+                        self._leafs = OrderedDict()
 
                         self.path_option = YList(self)
                         self._segment_path = lambda: "path-options"
@@ -19841,7 +20725,7 @@ class MplsTe(Entity):
                         indicates the path options have been set for
                         the tunnel
                         
-                        .. attribute:: preference_level  <key>
+                        .. attribute:: preference_level  (key)
                         
                         	Preference level for this path option
                         	**type**\: int
@@ -19912,27 +20796,30 @@ class MplsTe(Entity):
                             self.yang_parent_name = "path-options"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.preference_level = YLeaf(YType.uint32, "preference-level")
-
-                            self.path_type = YLeaf(YType.enumeration, "path-type")
-
-                            self.path_id = YLeaf(YType.uint32, "path-id")
-
-                            self.path_name = YLeaf(YType.str, "path-name")
-
-                            self.protected_by_preference_level = YLeaf(YType.uint32, "protected-by-preference-level")
-
-                            self.restore_by_preference_level = YLeaf(YType.uint32, "restore-by-preference-level")
-
-                            self.xro_type = YLeaf(YType.empty, "xro-type")
-
-                            self.xro_attribute_set_name = YLeaf(YType.str, "xro-attribute-set-name")
-
-                            self.lockdown = YLeaf(YType.enumeration, "lockdown")
-                            self._segment_path = lambda: "path-option" + "[preference-level='" + self.preference_level.get() + "']"
+                            self.ylist_key_names = ['preference_level']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('preference_level', YLeaf(YType.uint32, 'preference-level')),
+                                ('path_type', YLeaf(YType.enumeration, 'path-type')),
+                                ('path_id', YLeaf(YType.uint32, 'path-id')),
+                                ('path_name', YLeaf(YType.str, 'path-name')),
+                                ('protected_by_preference_level', YLeaf(YType.uint32, 'protected-by-preference-level')),
+                                ('restore_by_preference_level', YLeaf(YType.uint32, 'restore-by-preference-level')),
+                                ('xro_type', YLeaf(YType.empty, 'xro-type')),
+                                ('xro_attribute_set_name', YLeaf(YType.str, 'xro-attribute-set-name')),
+                                ('lockdown', YLeaf(YType.enumeration, 'lockdown')),
+                            ])
+                            self.preference_level = None
+                            self.path_type = None
+                            self.path_id = None
+                            self.path_name = None
+                            self.protected_by_preference_level = None
+                            self.restore_by_preference_level = None
+                            self.xro_type = None
+                            self.xro_attribute_set_name = None
+                            self.lockdown = None
+                            self._segment_path = lambda: "path-option" + "[preference-level='" + str(self.preference_level) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'lockdown'], name, value)
@@ -19982,16 +20869,19 @@ class MplsTe(Entity):
                         self.yang_parent_name = "tunnel-head"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ingress_controller_name = YLeaf(YType.str, "ingress-controller-name")
-
-                        self.egress_controller_if_index = YLeaf(YType.int32, "egress-controller-if-index")
-
-                        self.ingress_type = YLeaf(YType.enumeration, "ingress-type")
-
-                        self.egress_type = YLeaf(YType.enumeration, "egress-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ingress_controller_name', YLeaf(YType.str, 'ingress-controller-name')),
+                            ('egress_controller_if_index', YLeaf(YType.int32, 'egress-controller-if-index')),
+                            ('ingress_type', YLeaf(YType.enumeration, 'ingress-type')),
+                            ('egress_type', YLeaf(YType.enumeration, 'egress-type')),
+                        ])
+                        self.ingress_controller_name = None
+                        self.egress_controller_if_index = None
+                        self.ingress_type = None
+                        self.egress_type = None
                         self._segment_path = lambda: "static-uni"
 
                     def __setattr__(self, name, value):
@@ -20053,14 +20943,17 @@ class MplsTe(Entity):
             self.yang_parent_name = "mpls-te"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"bfd" : ("bfd", MplsTe.Lcac.Bfd), "flooding-threshold" : ("flooding_threshold", MplsTe.Lcac.FloodingThreshold)}
-            self._child_list_classes = {}
-
-            self.bandwidth_hold_timer = YLeaf(YType.uint32, "bandwidth-hold-timer")
-
-            self.delay_preempt_bundle_capacity_timer = YLeaf(YType.uint32, "delay-preempt-bundle-capacity-timer")
-
-            self.periodic_flooding_timer = YLeaf(YType.uint32, "periodic-flooding-timer")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("bfd", ("bfd", MplsTe.Lcac.Bfd)), ("flooding-threshold", ("flooding_threshold", MplsTe.Lcac.FloodingThreshold))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('bandwidth_hold_timer', YLeaf(YType.uint32, 'bandwidth-hold-timer')),
+                ('delay_preempt_bundle_capacity_timer', YLeaf(YType.uint32, 'delay-preempt-bundle-capacity-timer')),
+                ('periodic_flooding_timer', YLeaf(YType.uint32, 'periodic-flooding-timer')),
+            ])
+            self.bandwidth_hold_timer = None
+            self.delay_preempt_bundle_capacity_timer = None
+            self.periodic_flooding_timer = None
 
             self.bfd = MplsTe.Lcac.Bfd()
             self.bfd.parent = self
@@ -20112,12 +21005,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "lcac"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interval = YLeaf(YType.uint32, "interval")
-
-                self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interval', YLeaf(YType.uint32, 'interval')),
+                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                ])
+                self.interval = None
+                self.detection_multiplier = None
                 self._segment_path = lambda: "bfd"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/%s" % self._segment_path()
 
@@ -20162,12 +21058,15 @@ class MplsTe(Entity):
                 self.yang_parent_name = "lcac"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.up_stream = YLeaf(YType.uint32, "up-stream")
-
-                self.down_stream = YLeaf(YType.uint32, "down-stream")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('up_stream', YLeaf(YType.uint32, 'up-stream')),
+                    ('down_stream', YLeaf(YType.uint32, 'down-stream')),
+                ])
+                self.up_stream = None
+                self.down_stream = None
                 self._segment_path = lambda: "flooding-threshold"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/%s" % self._segment_path()
 

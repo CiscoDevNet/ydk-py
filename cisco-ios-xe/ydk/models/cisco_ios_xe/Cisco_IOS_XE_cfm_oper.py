@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CfmLastClearedType(Enum):
     """
-    CfmLastClearedType
+    CfmLastClearedType (Enum Class)
 
     Describes whether CFM stats have been cleared
 
@@ -58,8 +60,10 @@ class CfmStatistics(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-cfm-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cfm-meps" : ("cfm_meps", CfmStatistics.CfmMeps)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cfm-meps", ("cfm_meps", CfmStatistics.CfmMeps))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cfm_meps = CfmStatistics.CfmMeps()
         self.cfm_meps.parent = self
@@ -91,8 +95,10 @@ class CfmStatistics(Entity):
             self.yang_parent_name = "cfm-statistics"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cfm-mep" : ("cfm_mep", CfmStatistics.CfmMeps.CfmMep)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cfm-mep", ("cfm_mep", CfmStatistics.CfmMeps.CfmMep))])
+            self._leafs = OrderedDict()
 
             self.cfm_mep = YList(self)
             self._segment_path = lambda: "cfm-meps"
@@ -106,17 +112,17 @@ class CfmStatistics(Entity):
             """
             The list of MEP entries in the system
             
-            .. attribute:: domain_name  <key>
+            .. attribute:: domain_name  (key)
             
             	The name of the Domain corresponding the the MEP
             	**type**\: str
             
-            .. attribute:: ma_name  <key>
+            .. attribute:: ma_name  (key)
             
             	The name of the MA corresponding the the MEP
             	**type**\: str
             
-            .. attribute:: mpid  <key>
+            .. attribute:: mpid  (key)
             
             	ID of the MEP
             	**type**\: int
@@ -191,34 +197,37 @@ class CfmStatistics(Entity):
                 self.yang_parent_name = "cfm-meps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"last-cleared" : ("last_cleared", CfmStatistics.CfmMeps.CfmMep.LastCleared)}
-                self._child_list_classes = {}
-
-                self.domain_name = YLeaf(YType.str, "domain-name")
-
-                self.ma_name = YLeaf(YType.str, "ma-name")
-
-                self.mpid = YLeaf(YType.uint32, "mpid")
-
-                self.ccm_transmitted = YLeaf(YType.uint64, "ccm-transmitted")
-
-                self.ccm_seq_errors = YLeaf(YType.uint64, "ccm-seq-errors")
-
-                self.ltr_unexpected = YLeaf(YType.uint64, "ltr-unexpected")
-
-                self.lbr_transmitted = YLeaf(YType.uint64, "lbr-transmitted")
-
-                self.lbr_seq_errors = YLeaf(YType.uint64, "lbr-seq-errors")
-
-                self.lbr_received_ok = YLeaf(YType.uint64, "lbr-received-ok")
-
-                self.lbr_received_bad = YLeaf(YType.uint64, "lbr-received-bad")
+                self.ylist_key_names = ['domain_name','ma_name','mpid']
+                self._child_container_classes = OrderedDict([("last-cleared", ("last_cleared", CfmStatistics.CfmMeps.CfmMep.LastCleared))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('domain_name', YLeaf(YType.str, 'domain-name')),
+                    ('ma_name', YLeaf(YType.str, 'ma-name')),
+                    ('mpid', YLeaf(YType.uint32, 'mpid')),
+                    ('ccm_transmitted', YLeaf(YType.uint64, 'ccm-transmitted')),
+                    ('ccm_seq_errors', YLeaf(YType.uint64, 'ccm-seq-errors')),
+                    ('ltr_unexpected', YLeaf(YType.uint64, 'ltr-unexpected')),
+                    ('lbr_transmitted', YLeaf(YType.uint64, 'lbr-transmitted')),
+                    ('lbr_seq_errors', YLeaf(YType.uint64, 'lbr-seq-errors')),
+                    ('lbr_received_ok', YLeaf(YType.uint64, 'lbr-received-ok')),
+                    ('lbr_received_bad', YLeaf(YType.uint64, 'lbr-received-bad')),
+                ])
+                self.domain_name = None
+                self.ma_name = None
+                self.mpid = None
+                self.ccm_transmitted = None
+                self.ccm_seq_errors = None
+                self.ltr_unexpected = None
+                self.lbr_transmitted = None
+                self.lbr_seq_errors = None
+                self.lbr_received_ok = None
+                self.lbr_received_bad = None
 
                 self.last_cleared = CfmStatistics.CfmMeps.CfmMep.LastCleared()
                 self.last_cleared.parent = self
                 self._children_name_map["last_cleared"] = "last-cleared"
                 self._children_yang_names.add("last-cleared")
-                self._segment_path = lambda: "cfm-mep" + "[domain-name='" + self.domain_name.get() + "']" + "[ma-name='" + self.ma_name.get() + "']" + "[mpid='" + self.mpid.get() + "']"
+                self._segment_path = lambda: "cfm-mep" + "[domain-name='" + str(self.domain_name) + "']" + "[ma-name='" + str(self.ma_name) + "']" + "[mpid='" + str(self.mpid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -255,12 +264,15 @@ class CfmStatistics(Entity):
                     self.yang_parent_name = "cfm-mep"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.never = YLeaf(YType.empty, "never")
-
-                    self.time = YLeaf(YType.str, "time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('never', YLeaf(YType.empty, 'never')),
+                        ('time', YLeaf(YType.str, 'time')),
+                    ])
+                    self.never = None
+                    self.time = None
                     self._segment_path = lambda: "last-cleared"
 
                 def __setattr__(self, name, value):

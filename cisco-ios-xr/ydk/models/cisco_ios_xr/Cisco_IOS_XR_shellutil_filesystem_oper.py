@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class FileSystem(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-shellutil-filesystem-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"node" : ("node", FileSystem.Node)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("node", ("node", FileSystem.Node))])
+        self._leafs = OrderedDict()
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-shellutil-filesystem-oper:file-system"
@@ -56,7 +60,7 @@ class FileSystem(Entity):
         """
         Node ID
         
-        .. attribute:: node_name  <key>
+        .. attribute:: node_name  (key)
         
         	Node name
         	**type**\: str
@@ -66,7 +70,7 @@ class FileSystem(Entity):
         .. attribute:: file_system
         
         	Available file systems
-        	**type**\: list of  		 :py:class:`FileSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem>`
+        	**type**\: list of  		 :py:class:`FileSystem_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem_>`
         
         
 
@@ -82,20 +86,23 @@ class FileSystem(Entity):
             self.yang_parent_name = "file-system"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"file-system" : ("file_system", FileSystem.Node.FileSystem)}
-
-            self.node_name = YLeaf(YType.str, "node-name")
+            self.ylist_key_names = ['node_name']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("file-system", ("file_system", FileSystem.Node.FileSystem_))])
+            self._leafs = OrderedDict([
+                ('node_name', YLeaf(YType.str, 'node-name')),
+            ])
+            self.node_name = None
 
             self.file_system = YList(self)
-            self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+            self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-filesystem-oper:file-system/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(FileSystem.Node, ['node_name'], name, value)
 
 
-        class FileSystem(Entity):
+        class FileSystem_(Entity):
             """
             Available file systems
             
@@ -136,28 +143,31 @@ class FileSystem(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FileSystem.Node.FileSystem, self).__init__()
+                super(FileSystem.Node.FileSystem_, self).__init__()
 
                 self.yang_name = "file-system"
                 self.yang_parent_name = "node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.size = YLeaf(YType.str, "size")
-
-                self.free = YLeaf(YType.str, "free")
-
-                self.type = YLeaf(YType.str, "type")
-
-                self.flags = YLeaf(YType.str, "flags")
-
-                self.prefixes = YLeaf(YType.str, "prefixes")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('size', YLeaf(YType.str, 'size')),
+                    ('free', YLeaf(YType.str, 'free')),
+                    ('type', YLeaf(YType.str, 'type')),
+                    ('flags', YLeaf(YType.str, 'flags')),
+                    ('prefixes', YLeaf(YType.str, 'prefixes')),
+                ])
+                self.size = None
+                self.free = None
+                self.type = None
+                self.flags = None
+                self.prefixes = None
                 self._segment_path = lambda: "file-system"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FileSystem.Node.FileSystem, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
+                self._perform_setattr(FileSystem.Node.FileSystem_, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FileSystem()

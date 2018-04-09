@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class HostReachProtocol(Enum):
     """
-    HostReachProtocol
+    HostReachProtocol (Enum Class)
 
     Host reach protocol
 
@@ -36,7 +38,7 @@ class HostReachProtocol(Enum):
 
 class IrProtocolEnum(Enum):
     """
-    IrProtocolEnum
+    IrProtocolEnum (Enum Class)
 
     Ir protocol enum
 
@@ -51,7 +53,7 @@ class IrProtocolEnum(Enum):
 
 class LoadBalanceEnum(Enum):
     """
-    LoadBalanceEnum
+    LoadBalanceEnum (Enum Class)
 
     Load balance enum
 
@@ -66,7 +68,7 @@ class LoadBalanceEnum(Enum):
 
 class OverlayEncapEnum(Enum):
     """
-    OverlayEncapEnum
+    OverlayEncapEnum (Enum Class)
 
     Overlay encap enum
 
@@ -87,7 +89,7 @@ class OverlayEncapEnum(Enum):
 
 class UnknownUnicastFloodingEnum(Enum):
     """
-    UnknownUnicastFloodingEnum
+    UnknownUnicastFloodingEnum (Enum Class)
 
     Unknown unicast flooding enum
 
@@ -102,7 +104,7 @@ class UnknownUnicastFloodingEnum(Enum):
 
 class VxlanUdpPortEnum(Enum):
     """
-    VxlanUdpPortEnum
+    VxlanUdpPortEnum (Enum Class)
 
     Vxlan udp port enum
 

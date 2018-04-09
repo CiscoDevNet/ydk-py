@@ -7,6 +7,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -38,8 +40,10 @@ class SysmgrProcessRestart(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-sysmgr-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = SysmgrProcessRestart.Input()
         self.input.parent = self
@@ -78,12 +82,15 @@ class SysmgrProcessRestart(Entity):
             self.yang_parent_name = "sysmgr-process-restart"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.process_name = YLeaf(YType.str, "process-name")
-
-            self.location = YLeaf(YType.str, "location")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('process_name', YLeaf(YType.str, 'process-name')),
+                ('location', YLeaf(YType.str, 'location')),
+            ])
+            self.process_name = None
+            self.location = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart/%s" % self._segment_path()
 

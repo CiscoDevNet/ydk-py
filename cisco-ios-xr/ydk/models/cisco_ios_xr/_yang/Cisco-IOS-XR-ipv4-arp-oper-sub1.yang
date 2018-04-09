@@ -1,370 +1,435 @@
 submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-ipv4-arp-oper {
     prefix Cisco-IOS-XR-ipv4-arp-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  import ietf-inet-types { prefix "inet"; }
-
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-arp package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2016-12-19" {
+  revision 2016-12-19 {
     description
       "IOS XR 6.2.1 revision.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ip-arp-bag-encap {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No encapsulation";
+        description
+          "No encapsulation";
       }
-      enum arpa {
+      enum "arpa" {
         value 1;
-        description "ARPA";
+        description
+          "ARPA";
       }
-      enum snap {
+      enum "snap" {
         value 2;
-        description "SNAP";
+        description
+          "SNAP";
       }
-      enum ieee802-1q {
+      enum "ieee802-1q" {
         value 3;
-        description "802 1Q";
+        description
+          "802 1Q";
       }
-      enum srp {
+      enum "srp" {
         value 4;
-        description "SRP";
+        description
+          "SRP";
       }
-      enum srpa {
+      enum "srpa" {
         value 5;
-        description "SRPA";
+        description
+          "SRPA";
       }
-      enum srpb {
+      enum "srpb" {
         value 6;
-        description "SRPB";
+        description
+          "SRPB";
       }
     }
-    description "ARP encapsulation";
+    description
+      "ARP encapsulation";
   }
+
   typedef Ip-arp-bag-flags {
     type enumeration {
-      enum flag-none {
+      enum "flag-none" {
         value 0;
-        description "No Flag";
+        description
+          "No Flag";
       }
-      enum flag-dynamic {
+      enum "flag-dynamic" {
         value 1;
-        description "Dynamic learnt entry";
+        description
+          "Dynamic learnt entry";
       }
-      enum flag-evpn-sync {
+      enum "flag-evpn-sync" {
         value 2;
-        description "EVPN Synced entry";
+        description
+          "EVPN Synced entry";
       }
-      enum flag-max {
+      enum "flag-max" {
         value 3;
-        description "Maximum Flag number";
+        description
+          "Maximum Flag number";
       }
     }
-    description "ARP flags";
+    description
+      "ARP flags";
   }
+
   typedef Ip-arp-bag-state {
     type enumeration {
-      enum state-none {
+      enum "state-none" {
         value 0;
-        description "No state";
+        description
+          "No state";
       }
-      enum state-interface {
+      enum "state-interface" {
         value 1;
-        description "Interface";
+        description
+          "Interface";
       }
-      enum state-standby {
+      enum "state-standby" {
         value 2;
-        description "Standby";
+        description
+          "Standby";
       }
-      enum state-static {
+      enum "state-static" {
         value 3;
-        description "Static";
+        description
+          "Static";
       }
-      enum state-alias {
+      enum "state-alias" {
         value 4;
-        description "Alias";
+        description
+          "Alias";
       }
-      enum state-mobile {
+      enum "state-mobile" {
         value 5;
-        description "Mobile";
+        description
+          "Mobile";
       }
-      enum state-incomplete {
+      enum "state-incomplete" {
         value 6;
-        description "Incomplete";
+        description
+          "Incomplete";
       }
-      enum state-deleted {
+      enum "state-deleted" {
         value 7;
-        description "Deleted";
+        description
+          "Deleted";
       }
-      enum state-dynamic {
+      enum "state-dynamic" {
         value 8;
-        description "Dynamic";
+        description
+          "Dynamic";
       }
-      enum state-probe {
+      enum "state-probe" {
         value 9;
-        description "Probe";
+        description
+          "Probe";
       }
-      enum state-purge-delayed {
+      enum "state-purge-delayed" {
         value 10;
-        description "Purge delayed";
+        description
+          "Purge delayed";
       }
-      enum state-dhcp {
+      enum "state-dhcp" {
         value 11;
-        description "DHCP installed";
+        description
+          "DHCP installed";
       }
-      enum state-vxlan {
+      enum "state-vxlan" {
         value 12;
-        description "VXLAN installed";
+        description
+          "VXLAN installed";
       }
-      enum state-evpn-sync {
+      enum "state-evpn-sync" {
         value 13;
-        description "EVPN-SYNC installed";
+        description
+          "EVPN-SYNC installed";
       }
-      enum state-sat {
+      enum "state-sat" {
         value 14;
-        description "Satellite installed";
+        description
+          "Satellite installed";
       }
-      enum state-r-sync {
+      enum "state-r-sync" {
         value 15;
-        description "Geo-redundancy sync'ed";
+        description
+          "Geo-redundancy sync'ed";
       }
-      enum state-max {
+      enum "state-max" {
         value 16;
-        description "Maximum state number";
+        description
+          "Maximum state number";
       }
     }
-    description "ARP state";
+    description
+      "ARP state";
   }
+
   typedef Ip-arp-bag-media {
     type enumeration {
-      enum media-arpa {
+      enum "media-arpa" {
         value 0;
-        description "ARPA";
+        description
+          "ARPA";
       }
-      enum media-srp {
+      enum "media-srp" {
         value 1;
-        description "SRP";
+        description
+          "SRP";
       }
-      enum media-unknown {
+      enum "media-unknown" {
         value 2;
-        description "Unknown";
+        description
+          "Unknown";
       }
     }
-    description "ARP media type";
+    description
+      "ARP media type";
   }
+
   typedef Arp-resolution-history-status {
     type enumeration {
-      enum status-none {
+      enum "status-none" {
         value 0;
-        description "No Status";
+        description
+          "No Status";
       }
-      enum status-resolution-request {
+      enum "status-resolution-request" {
         value 1;
-        description "Resolution Request Received";
+        description
+          "Resolution Request Received";
       }
-      enum status-resolved-reply {
+      enum "status-resolved-reply" {
         value 2;
-        description "Resolved with ARP reply";
+        description
+          "Resolved with ARP reply";
       }
-      enum status-resolved-grat-arp {
+      enum "status-resolved-grat-arp" {
         value 3;
-        description "Resolved with Grat ARP";
+        description
+          "Resolved with Grat ARP";
       }
-      enum status-resolved-request {
+      enum "status-resolved-request" {
         value 4;
-        description "Resolved with ARP Request";
+        description
+          "Resolved with ARP Request";
       }
-      enum status-resolved-lc-sync {
+      enum "status-resolved-lc-sync" {
         value 5;
-        description "Resolved via a Linecard sync";
+        description
+          "Resolved via a Linecard sync";
       }
-      enum status-resolved-lc-sync-purge-delay {
+      enum "status-resolved-lc-sync-purge-delay" {
         value 6;
         description
           "Resolved via a Linecard sync while purge
-          delayed";
+           delayed";
       }
-      enum status-resolved-client {
+      enum "status-resolved-client" {
         value 7;
-        description "Resolved from an ARP API client";
+        description
+          "Resolved from an ARP API client";
       }
-      enum status-removed-client {
+      enum "status-removed-client" {
         value 8;
-        description "Removed by an ARP API client";
+        description
+          "Removed by an ARP API client";
       }
-      enum status-already-resolved {
+      enum "status-already-resolved" {
         value 9;
-        description "Already Resolved";
+        description
+          "Already Resolved";
       }
-      enum status-failed {
+      enum "status-failed" {
         value 10;
-        description "Resolution Failed";
+        description
+          "Resolution Failed";
       }
-      enum status-dropped-interface-down {
+      enum "status-dropped-interface-down" {
         value 11;
-        description "Dropped because the Interface was down";
+        description
+          "Dropped because the Interface was down";
       }
-      enum status-dropped-broadcast-disabled {
+      enum "status-dropped-broadcast-disabled" {
         value 12;
         description
           "Dropped because the Interface was broadcast
-          disabled";
+           disabled";
       }
-      enum status-dropped-interface-unavailable {
+      enum "status-dropped-interface-unavailable" {
         value 13;
         description
           "Dropped because the Interface was unavailable
-          to arp";
+           to arp";
       }
-      enum status-dropped-bad-subnet {
+      enum "status-dropped-bad-subnet" {
         value 14;
         description
           "The requested IP address didn't belong to the
-          subnet";
+           subnet";
       }
-      enum status-dropped-dynamic-learning-disabled {
+      enum "status-dropped-dynamic-learning-disabled" {
         value 15;
         description
           "Dynamic learning of ARP entries is disabled on
-          the interface";
+           the interface";
       }
-      enum status-dropped-out-of-subnet-disabled {
+      enum "status-dropped-out-of-subnet-disabled" {
         value 16;
         description
           "Out of Subnet address learning is disabled on
-          the interface";
+           the interface";
       }
-      enum status-removed-client-sweep {
+      enum "status-removed-client-sweep" {
         value 17;
-        description "Removed by an ARP API client during a resync";
+        description
+          "Removed by an ARP API client during a resync";
       }
-      enum status-added-client {
+      enum "status-added-client" {
         value 18;
-        description "Added by an ARP API client";
+        description
+          "Added by an ARP API client";
       }
-      enum status-added-v1 {
+      enum "status-added-v1" {
         value 19;
-        description "Added by replication from ARP V1 during ISSU";
+        description
+          "Added by replication from ARP V1 during ISSU";
       }
-      enum status-removed-v1 {
+      enum "status-removed-v1" {
         value 20;
         description
           "Removed by replication from ARP V1 during ISSU";
       }
-      enum status-resolved-peer-sync {
+      enum "status-resolved-peer-sync" {
         value 21;
-        description "Resolved via a Peer Router sync";
+        description
+          "Resolved via a Peer Router sync";
       }
-      enum status-dropped-unsolicited-pak {
+      enum "status-dropped-unsolicited-pak" {
         value 22;
         description
           "Learning unsolicited ARP packets is disabled on
-          this Interface";
+           this Interface";
       }
     }
-    description "Arp resolution history status";
+    description
+      "Arp resolution history status";
   }
 
   grouping IP-ARP-TABLE-ENTRY {
-    description "IP ARP Table entry";
+    description
+      "IP ARP Table entry";
     leaf media-type {
       type Ip-arp-bag-media;
-      description "Media type for this entry";
+      description
+        "Media type for this entry";
     }
     leaf state {
       type Ip-arp-bag-state;
-      description "State of this entry";
+      description
+        "State of this entry";
     }
     leaf flag {
       type Ip-arp-bag-flags;
-      description "Flags of this entry";
+      description
+        "Flags of this entry";
     }
     leaf age {
       type uint64;
-      description "Age of this entry";
+      description
+        "Age of this entry";
     }
     leaf encapsulation-type {
       type Ip-arp-bag-encap;
-      description "Source encapsulation type";
+      description
+        "Source encapsulation type";
     }
     leaf hardware-length {
       type uint8;
-      description "Source hardware length";
+      description
+        "Source hardware length";
     }
     leaf hardware-address {
       type yang:mac-address;
-      description "Hardware address";
+      description
+        "Hardware address";
     }
   }
 
   grouping IP-ARP-STATISTICS {
-    description "IP ARP Statistics information";
+    description
+      "IP ARP Statistics information";
     leaf requests-received {
       type uint32;
-      description "Total ARP requests received";
+      description
+        "Total ARP requests received";
     }
     leaf replies-received {
       type uint32;
-      description "Total ARP replies received";
+      description
+        "Total ARP replies received";
     }
     leaf requests-sent {
       type uint32;
-      description "Total ARP requests sent";
+      description
+        "Total ARP requests sent";
     }
     leaf replies-sent {
       type uint32;
-      description "Total ARP replies sent";
+      description
+        "Total ARP replies sent";
     }
     leaf proxy-replies-sent {
       type uint32;
-      description "Total Proxy ARP replies sent";
+      description
+        "Total Proxy ARP replies sent";
     }
     leaf subscr-requests-received {
       type uint32;
       description
         "Total ARP requests received over subscriber
-        interface";
+         interface";
     }
     leaf subscr-replies-sent {
       type uint32;
@@ -375,140 +440,169 @@ submodule Cisco-IOS-XR-ipv4-arp-oper-sub1 {
       type uint32;
       description
         "Total ARP grat replies sent over subscriber
-        interface";
+         interface";
     }
     leaf local-proxy-replies-sent {
       type uint32;
-      description "Total Local Proxy ARP replies sent";
+      description
+        "Total Local Proxy ARP replies sent";
     }
     leaf gratuitous-replies-sent {
       type uint32;
-      description "Total Gratuituous ARP replies sent";
+      description
+        "Total Gratuituous ARP replies sent";
     }
     leaf resolution-requests-received {
       type uint32;
-      description "Total ARP resolution requests received";
+      description
+        "Total ARP resolution requests received";
     }
     leaf resolution-replies-received {
       type uint32;
-      description "Total ARP resolution replies received";
+      description
+        "Total ARP resolution replies received";
     }
     leaf resolution-requests-dropped {
       type uint32;
-      description "total ARP resolution requests dropped";
+      description
+        "total ARP resolution requests dropped";
     }
     leaf out-of-memory-errors {
       type uint32;
-      description "Total errors for out of memory";
+      description
+        "Total errors for out of memory";
     }
     leaf no-buffer-errors {
       type uint32;
-      description "Total errors for no buffer";
+      description
+        "Total errors for no buffer";
     }
     leaf total-entries {
       type uint32;
-      description "Total ARP entries in the cache";
+      description
+        "Total ARP entries in the cache";
     }
     leaf dynamic-entries {
       type uint32;
-      description "Total dynamic entries in the cache";
+      description
+        "Total dynamic entries in the cache";
     }
     leaf static-entries {
       type uint32;
-      description "Total static entries in the cache";
+      description
+        "Total static entries in the cache";
     }
     leaf alias-entries {
       type uint32;
-      description "Total alias entries in the cache";
+      description
+        "Total alias entries in the cache";
     }
     leaf interface-entries {
       type uint32;
-      description "Total interface entries in the cache";
+      description
+        "Total interface entries in the cache";
     }
     leaf standby-entries {
       type uint32;
-      description "Total standby entries in the cache";
+      description
+        "Total standby entries in the cache";
     }
     leaf dhcp-entries {
       type uint32;
-      description "Total DHCP entries in the cache";
+      description
+        "Total DHCP entries in the cache";
     }
     leaf vxlan-entries {
       type uint32;
-      description "Total VXLAN entries in the cache";
+      description
+        "Total VXLAN entries in the cache";
     }
     leaf ip-packets-dropped-node {
       type uint32;
-      description "Total ip packets droped on this node";
+      description
+        "Total ip packets droped on this node";
     }
     leaf arp-packet-node-out-of-subnet {
       type uint32;
-      description "Total ARP packets on node due to out of subnet";
+      description
+        "Total ARP packets on node due to out of subnet";
     }
     leaf ip-packets-dropped-interface {
       type uint32;
-      description "Total ip packets droped on this interface";
+      description
+        "Total ip packets droped on this interface";
     }
     leaf arp-packet-interface-out-of-subnet {
       type uint32;
       description
         "Total arp packets on interface due to out of
-        subnet";
+         subnet";
     }
     leaf arp-packet-unsolicited-packet {
       type uint32;
-      description "Total unsolicited arp packets dropped";
+      description
+        "Total unsolicited arp packets dropped";
     }
     leaf idb-structures {
       type uint32;
-      description "Total idb structures on this node";
+      description
+        "Total idb structures on this node";
     }
   }
 
   grouping ARP-RESHIST-ENTRY {
-    description "ARP resolution history entry";
+    description
+      "ARP resolution history entry";
     leaf nsec-timestamp {
       type uint64;
       units "nanosecond";
       description
         "Timestamp for entry in nanoseconds since Epoch,
-        i.e. since 00:00:00 UTC, January 1, 1970";
+         i.e. since 00:00:00 UTC, January 1, 1970";
     }
     leaf idb-interface-name {
       type xr:Interface-name;
-      description "Interface";
+      description
+        "Interface";
     }
     leaf ipv4-address {
       type inet:ipv4-address;
-      description "IPv4 address";
+      description
+        "IPv4 address";
     }
     leaf mac-address {
       type yang:mac-address;
-      description "MAC address";
+      description
+        "MAC address";
     }
     leaf status {
       type Arp-resolution-history-status;
-      description "Resolution status";
+      description
+        "Resolution status";
     }
     leaf client-id {
       type int32;
-      description "Resolving Client ID";
+      description
+        "Resolving Client ID";
     }
     leaf entry-state {
       type int32;
-      description "ARP entry state";
+      description
+        "ARP entry state";
     }
     leaf resolution-request-count {
       type uint32;
-      description "Resolution Request count";
+      description
+        "Resolution Request count";
     }
   }
 
   grouping ARP-RESHIST {
-    description "ARP Resolution History";
-
+    description
+      "ARP Resolution History";
     list arp-entry {
-      description "Resolution history array";
+      description
+        "Resolution history array";
       uses ARP-RESHIST-ENTRY;
     }
   }

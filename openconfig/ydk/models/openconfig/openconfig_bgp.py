@@ -23,6 +23,8 @@ hierarchy\:
      +\-> AFI / SAFI [ per\-AFI overrides ]
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -37,7 +39,7 @@ class Bgp(Entity):
     .. attribute:: global_
     
     	Global configuration for the BGP router
-    	**type**\:  :py:class:`Global_ <ydk.models.openconfig.openconfig_bgp.Bgp.Global_>`
+    	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_bgp.Bgp.Global>`
     
     .. attribute:: neighbors
     
@@ -64,10 +66,12 @@ class Bgp(Entity):
         self.yang_parent_name = "openconfig-bgp"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"global" : ("global_", Bgp.Global_), "neighbors" : ("neighbors", Bgp.Neighbors), "peer-groups" : ("peer_groups", Bgp.PeerGroups)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("global", ("global_", Bgp.Global)), ("neighbors", ("neighbors", Bgp.Neighbors)), ("peer-groups", ("peer_groups", Bgp.PeerGroups))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
-        self.global_ = Bgp.Global_()
+        self.global_ = Bgp.Global()
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
         self._children_yang_names.add("global")
@@ -84,54 +88,54 @@ class Bgp(Entity):
         self._segment_path = lambda: "openconfig-bgp:bgp"
 
 
-    class Global_(Entity):
+    class Global(Entity):
         """
         Global configuration for the BGP router
         
         .. attribute:: config
         
         	Configuration parameters relating to the global BGP router
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Config>`
+        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config>`
         
         .. attribute:: state
         
         	State information relating to the global BGP router
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.State>`
+        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.State>`
         
         .. attribute:: default_route_distance
         
         	Administrative distance (or preference) assigned to routes received from different sources (external, internal, and local)
-        	**type**\:  :py:class:`DefaultRouteDistance <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance>`
+        	**type**\:  :py:class:`DefaultRouteDistance <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance>`
         
         .. attribute:: confederation
         
         	Parameters indicating whether the local system acts as part of a BGP confederation
-        	**type**\:  :py:class:`Confederation <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation>`
+        	**type**\:  :py:class:`Confederation <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation>`
         
         .. attribute:: graceful_restart
         
         	Parameters relating the graceful restart mechanism for BGP
-        	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart>`
+        	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart>`
         
         .. attribute:: use_multiple_paths
         
         	Parameters related to the use of multiple paths for the same NLRI
-        	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths>`
+        	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths>`
         
         .. attribute:: route_selection_options
         
         	Parameters relating to options for route selection
-        	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions>`
+        	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions>`
         
         .. attribute:: afi_safis
         
         	Address family specific configuration
-        	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis>`
+        	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis>`
         
         .. attribute:: apply_policy
         
         	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-        	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy>`
+        	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy>`
         
         
 
@@ -141,56 +145,58 @@ class Bgp(Entity):
         _revision = '2016-06-21'
 
         def __init__(self):
-            super(Bgp.Global_, self).__init__()
+            super(Bgp.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "bgp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", Bgp.Global_.Config), "state" : ("state", Bgp.Global_.State), "default-route-distance" : ("default_route_distance", Bgp.Global_.DefaultRouteDistance), "confederation" : ("confederation", Bgp.Global_.Confederation), "graceful-restart" : ("graceful_restart", Bgp.Global_.GracefulRestart), "use-multiple-paths" : ("use_multiple_paths", Bgp.Global_.UseMultiplePaths), "route-selection-options" : ("route_selection_options", Bgp.Global_.RouteSelectionOptions), "afi-safis" : ("afi_safis", Bgp.Global_.AfiSafis), "apply-policy" : ("apply_policy", Bgp.Global_.ApplyPolicy)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.Config)), ("state", ("state", Bgp.Global.State)), ("default-route-distance", ("default_route_distance", Bgp.Global.DefaultRouteDistance)), ("confederation", ("confederation", Bgp.Global.Confederation)), ("graceful-restart", ("graceful_restart", Bgp.Global.GracefulRestart)), ("use-multiple-paths", ("use_multiple_paths", Bgp.Global.UseMultiplePaths)), ("route-selection-options", ("route_selection_options", Bgp.Global.RouteSelectionOptions)), ("afi-safis", ("afi_safis", Bgp.Global.AfiSafis)), ("apply-policy", ("apply_policy", Bgp.Global.ApplyPolicy))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
-            self.config = Bgp.Global_.Config()
+            self.config = Bgp.Global.Config()
             self.config.parent = self
             self._children_name_map["config"] = "config"
             self._children_yang_names.add("config")
 
-            self.state = Bgp.Global_.State()
+            self.state = Bgp.Global.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
             self._children_yang_names.add("state")
 
-            self.default_route_distance = Bgp.Global_.DefaultRouteDistance()
+            self.default_route_distance = Bgp.Global.DefaultRouteDistance()
             self.default_route_distance.parent = self
             self._children_name_map["default_route_distance"] = "default-route-distance"
             self._children_yang_names.add("default-route-distance")
 
-            self.confederation = Bgp.Global_.Confederation()
+            self.confederation = Bgp.Global.Confederation()
             self.confederation.parent = self
             self._children_name_map["confederation"] = "confederation"
             self._children_yang_names.add("confederation")
 
-            self.graceful_restart = Bgp.Global_.GracefulRestart()
+            self.graceful_restart = Bgp.Global.GracefulRestart()
             self.graceful_restart.parent = self
             self._children_name_map["graceful_restart"] = "graceful-restart"
             self._children_yang_names.add("graceful-restart")
 
-            self.use_multiple_paths = Bgp.Global_.UseMultiplePaths()
+            self.use_multiple_paths = Bgp.Global.UseMultiplePaths()
             self.use_multiple_paths.parent = self
             self._children_name_map["use_multiple_paths"] = "use-multiple-paths"
             self._children_yang_names.add("use-multiple-paths")
 
-            self.route_selection_options = Bgp.Global_.RouteSelectionOptions()
+            self.route_selection_options = Bgp.Global.RouteSelectionOptions()
             self.route_selection_options.parent = self
             self._children_name_map["route_selection_options"] = "route-selection-options"
             self._children_yang_names.add("route-selection-options")
 
-            self.afi_safis = Bgp.Global_.AfiSafis()
+            self.afi_safis = Bgp.Global.AfiSafis()
             self.afi_safis.parent = self
             self._children_name_map["afi_safis"] = "afi-safis"
             self._children_yang_names.add("afi-safis")
 
-            self.apply_policy = Bgp.Global_.ApplyPolicy()
+            self.apply_policy = Bgp.Global.ApplyPolicy()
             self.apply_policy.parent = self
             self._children_name_map["apply_policy"] = "apply-policy"
             self._children_yang_names.add("apply-policy")
@@ -226,23 +232,26 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.Config, self).__init__()
+                super(Bgp.Global.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.router_id = YLeaf(YType.str, "router-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('as_', YLeaf(YType.uint32, 'as')),
+                    ('router_id', YLeaf(YType.str, 'router-id')),
+                ])
+                self.as_ = None
+                self.router_id = None
                 self._segment_path = lambda: "config"
                 self._absolute_path = lambda: "openconfig-bgp:bgp/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global_.Config, ['as_', 'router_id'], name, value)
+                self._perform_setattr(Bgp.Global.Config, ['as_', 'router_id'], name, value)
 
 
         class State(Entity):
@@ -287,27 +296,30 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.State, self).__init__()
+                super(Bgp.Global.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.total_paths = YLeaf(YType.uint32, "total-paths")
-
-                self.total_prefixes = YLeaf(YType.uint32, "total-prefixes")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('as_', YLeaf(YType.uint32, 'as')),
+                    ('router_id', YLeaf(YType.str, 'router-id')),
+                    ('total_paths', YLeaf(YType.uint32, 'total-paths')),
+                    ('total_prefixes', YLeaf(YType.uint32, 'total-prefixes')),
+                ])
+                self.as_ = None
+                self.router_id = None
+                self.total_paths = None
+                self.total_prefixes = None
                 self._segment_path = lambda: "state"
                 self._absolute_path = lambda: "openconfig-bgp:bgp/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global_.State, ['as_', 'router_id', 'total_paths', 'total_prefixes'], name, value)
+                self._perform_setattr(Bgp.Global.State, ['as_', 'router_id', 'total_paths', 'total_prefixes'], name, value)
 
 
         class DefaultRouteDistance(Entity):
@@ -319,12 +331,12 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Configuration parameters relating to the default route distance
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance.Config>`
             
             .. attribute:: state
             
             	State information relating to the default route distance
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance.State>`
             
             
 
@@ -334,21 +346,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.DefaultRouteDistance, self).__init__()
+                super(Bgp.Global.DefaultRouteDistance, self).__init__()
 
                 self.yang_name = "default-route-distance"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.DefaultRouteDistance.Config), "state" : ("state", Bgp.Global_.DefaultRouteDistance.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.DefaultRouteDistance.Config)), ("state", ("state", Bgp.Global.DefaultRouteDistance.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.DefaultRouteDistance.Config()
+                self.config = Bgp.Global.DefaultRouteDistance.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.DefaultRouteDistance.State()
+                self.state = Bgp.Global.DefaultRouteDistance.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
@@ -383,23 +397,26 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.DefaultRouteDistance.Config, self).__init__()
+                    super(Bgp.Global.DefaultRouteDistance.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "default-route-distance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.external_route_distance = YLeaf(YType.uint8, "external-route-distance")
-
-                    self.internal_route_distance = YLeaf(YType.uint8, "internal-route-distance")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('external_route_distance', YLeaf(YType.uint8, 'external-route-distance')),
+                        ('internal_route_distance', YLeaf(YType.uint8, 'internal-route-distance')),
+                    ])
+                    self.external_route_distance = None
+                    self.internal_route_distance = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/default-route-distance/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.DefaultRouteDistance.Config, ['external_route_distance', 'internal_route_distance'], name, value)
+                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.Config, ['external_route_distance', 'internal_route_distance'], name, value)
 
 
             class State(Entity):
@@ -428,23 +445,26 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.DefaultRouteDistance.State, self).__init__()
+                    super(Bgp.Global.DefaultRouteDistance.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "default-route-distance"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.external_route_distance = YLeaf(YType.uint8, "external-route-distance")
-
-                    self.internal_route_distance = YLeaf(YType.uint8, "internal-route-distance")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('external_route_distance', YLeaf(YType.uint8, 'external-route-distance')),
+                        ('internal_route_distance', YLeaf(YType.uint8, 'internal-route-distance')),
+                    ])
+                    self.external_route_distance = None
+                    self.internal_route_distance = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/default-route-distance/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.DefaultRouteDistance.State, ['external_route_distance', 'internal_route_distance'], name, value)
+                    self._perform_setattr(Bgp.Global.DefaultRouteDistance.State, ['external_route_distance', 'internal_route_distance'], name, value)
 
 
         class Confederation(Entity):
@@ -455,12 +475,12 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Configuration parameters relating to BGP confederations
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation.Config>`
             
             .. attribute:: state
             
             	State information relating to the BGP confederations
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation.State>`
             
             
 
@@ -470,21 +490,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.Confederation, self).__init__()
+                super(Bgp.Global.Confederation, self).__init__()
 
                 self.yang_name = "confederation"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.Confederation.Config), "state" : ("state", Bgp.Global_.Confederation.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.Confederation.Config)), ("state", ("state", Bgp.Global.Confederation.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.Confederation.Config()
+                self.config = Bgp.Global.Confederation.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.Confederation.State()
+                self.state = Bgp.Global.Confederation.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
@@ -523,25 +545,28 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.Confederation.Config, self).__init__()
+                    super(Bgp.Global.Confederation.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "confederation"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.identifier = YLeaf(YType.uint32, "identifier")
-
-                    self.member_as = YLeafList(YType.uint32, "member-as")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('identifier', YLeaf(YType.uint32, 'identifier')),
+                        ('member_as', YLeafList(YType.uint32, 'member-as')),
+                    ])
+                    self.enabled = None
+                    self.identifier = None
+                    self.member_as = []
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/confederation/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.Confederation.Config, ['enabled', 'identifier', 'member_as'], name, value)
+                    self._perform_setattr(Bgp.Global.Confederation.Config, ['enabled', 'identifier', 'member_as'], name, value)
 
 
             class State(Entity):
@@ -575,25 +600,28 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.Confederation.State, self).__init__()
+                    super(Bgp.Global.Confederation.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "confederation"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.identifier = YLeaf(YType.uint32, "identifier")
-
-                    self.member_as = YLeafList(YType.uint32, "member-as")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('identifier', YLeaf(YType.uint32, 'identifier')),
+                        ('member_as', YLeafList(YType.uint32, 'member-as')),
+                    ])
+                    self.enabled = None
+                    self.identifier = None
+                    self.member_as = []
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/confederation/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.Confederation.State, ['enabled', 'identifier', 'member_as'], name, value)
+                    self._perform_setattr(Bgp.Global.Confederation.State, ['enabled', 'identifier', 'member_as'], name, value)
 
 
         class GracefulRestart(Entity):
@@ -603,12 +631,12 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Configuration parameters relating to graceful\-restart
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart.Config>`
             
             .. attribute:: state
             
             	State information associated with graceful\-restart
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart.State>`
             
             
 
@@ -618,21 +646,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.GracefulRestart, self).__init__()
+                super(Bgp.Global.GracefulRestart, self).__init__()
 
                 self.yang_name = "graceful-restart"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.GracefulRestart.Config), "state" : ("state", Bgp.Global_.GracefulRestart.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.GracefulRestart.Config)), ("state", ("state", Bgp.Global.GracefulRestart.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.GracefulRestart.Config()
+                self.config = Bgp.Global.GracefulRestart.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.GracefulRestart.State()
+                self.state = Bgp.Global.GracefulRestart.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
@@ -676,27 +706,30 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.GracefulRestart.Config, self).__init__()
+                    super(Bgp.Global.GracefulRestart.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "graceful-restart"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                    self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                    self.helper_only = YLeaf(YType.boolean, "helper-only")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                        ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                        ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                    ])
+                    self.enabled = None
+                    self.restart_time = None
+                    self.stale_routes_time = None
+                    self.helper_only = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/graceful-restart/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.Config, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
 
 
             class State(Entity):
@@ -735,27 +768,30 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.GracefulRestart.State, self).__init__()
+                    super(Bgp.Global.GracefulRestart.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "graceful-restart"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                    self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                    self.helper_only = YLeaf(YType.boolean, "helper-only")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                        ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                        ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                    ])
+                    self.enabled = None
+                    self.restart_time = None
+                    self.stale_routes_time = None
+                    self.helper_only = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/graceful-restart/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
+                    self._perform_setattr(Bgp.Global.GracefulRestart.State, ['enabled', 'restart_time', 'stale_routes_time', 'helper_only'], name, value)
 
 
         class UseMultiplePaths(Entity):
@@ -766,22 +802,22 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Configuration parameters relating to multipath
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Config>`
             
             .. attribute:: state
             
             	State parameters relating to multipath
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.State>`
             
             .. attribute:: ebgp
             
             	Multipath parameters for eBGP
-            	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp>`
+            	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp>`
             
             .. attribute:: ibgp
             
             	Multipath parameters for iBGP
-            	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp>`
+            	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp>`
             
             
 
@@ -791,31 +827,33 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.UseMultiplePaths, self).__init__()
+                super(Bgp.Global.UseMultiplePaths, self).__init__()
 
                 self.yang_name = "use-multiple-paths"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.UseMultiplePaths.Config), "state" : ("state", Bgp.Global_.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.Global_.UseMultiplePaths.Ebgp), "ibgp" : ("ibgp", Bgp.Global_.UseMultiplePaths.Ibgp)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.UseMultiplePaths.Config)), ("state", ("state", Bgp.Global.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.Global.UseMultiplePaths.Ebgp)), ("ibgp", ("ibgp", Bgp.Global.UseMultiplePaths.Ibgp))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.UseMultiplePaths.Config()
+                self.config = Bgp.Global.UseMultiplePaths.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.UseMultiplePaths.State()
+                self.state = Bgp.Global.UseMultiplePaths.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
 
-                self.ebgp = Bgp.Global_.UseMultiplePaths.Ebgp()
+                self.ebgp = Bgp.Global.UseMultiplePaths.Ebgp()
                 self.ebgp.parent = self
                 self._children_name_map["ebgp"] = "ebgp"
                 self._children_yang_names.add("ebgp")
 
-                self.ibgp = Bgp.Global_.UseMultiplePaths.Ibgp()
+                self.ibgp = Bgp.Global.UseMultiplePaths.Ibgp()
                 self.ibgp.parent = self
                 self._children_name_map["ibgp"] = "ibgp"
                 self._children_yang_names.add("ibgp")
@@ -842,21 +880,24 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.UseMultiplePaths.Config, self).__init__()
+                    super(Bgp.Global.UseMultiplePaths.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "use-multiple-paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                    ])
+                    self.enabled = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.UseMultiplePaths.Config, ['enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.Config, ['enabled'], name, value)
 
 
             class State(Entity):
@@ -878,21 +919,24 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.UseMultiplePaths.State, self).__init__()
+                    super(Bgp.Global.UseMultiplePaths.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "use-multiple-paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                    ])
+                    self.enabled = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.UseMultiplePaths.State, ['enabled'], name, value)
+                    self._perform_setattr(Bgp.Global.UseMultiplePaths.State, ['enabled'], name, value)
 
 
             class Ebgp(Entity):
@@ -902,12 +946,12 @@ class Bgp(Entity):
                 .. attribute:: config
                 
                 	Configuration parameters relating to eBGP multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to eBGP multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp.State>`
                 
                 
 
@@ -917,21 +961,23 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.UseMultiplePaths.Ebgp, self).__init__()
+                    super(Bgp.Global.UseMultiplePaths.Ebgp, self).__init__()
 
                     self.yang_name = "ebgp"
                     self.yang_parent_name = "use-multiple-paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Bgp.Global_.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.Global_.UseMultiplePaths.Ebgp.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.Global.UseMultiplePaths.Ebgp.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.config = Bgp.Global_.UseMultiplePaths.Ebgp.Config()
+                    self.config = Bgp.Global.UseMultiplePaths.Ebgp.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
                     self._children_yang_names.add("config")
 
-                    self.state = Bgp.Global_.UseMultiplePaths.Ebgp.State()
+                    self.state = Bgp.Global.UseMultiplePaths.Ebgp.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
@@ -967,23 +1013,26 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.UseMultiplePaths.Ebgp.Config, self).__init__()
+                        super(Bgp.Global.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ebgp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                        self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                            ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                        ])
+                        self.allow_multiple_as = None
+                        self.maximum_paths = None
                         self._segment_path = lambda: "config"
                         self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/ebgp/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
 
 
                 class State(Entity):
@@ -1014,23 +1063,26 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.UseMultiplePaths.Ebgp.State, self).__init__()
+                        super(Bgp.Global.UseMultiplePaths.Ebgp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ebgp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                        self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                            ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                        ])
+                        self.allow_multiple_as = None
+                        self.maximum_paths = None
                         self._segment_path = lambda: "state"
                         self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/ebgp/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
 
 
             class Ibgp(Entity):
@@ -1040,12 +1092,12 @@ class Bgp(Entity):
                 .. attribute:: config
                 
                 	Configuration parameters relating to iBGP multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to iBGP multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp.State>`
                 
                 
 
@@ -1055,21 +1107,23 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.UseMultiplePaths.Ibgp, self).__init__()
+                    super(Bgp.Global.UseMultiplePaths.Ibgp, self).__init__()
 
                     self.yang_name = "ibgp"
                     self.yang_parent_name = "use-multiple-paths"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Bgp.Global_.UseMultiplePaths.Ibgp.Config), "state" : ("state", Bgp.Global_.UseMultiplePaths.Ibgp.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.UseMultiplePaths.Ibgp.Config)), ("state", ("state", Bgp.Global.UseMultiplePaths.Ibgp.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
-                    self.config = Bgp.Global_.UseMultiplePaths.Ibgp.Config()
+                    self.config = Bgp.Global.UseMultiplePaths.Ibgp.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
                     self._children_yang_names.add("config")
 
-                    self.state = Bgp.Global_.UseMultiplePaths.Ibgp.State()
+                    self.state = Bgp.Global.UseMultiplePaths.Ibgp.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
@@ -1098,21 +1152,24 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.UseMultiplePaths.Ibgp.Config, self).__init__()
+                        super(Bgp.Global.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ibgp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                        ])
+                        self.maximum_paths = None
                         self._segment_path = lambda: "config"
                         self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/ibgp/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
 
 
                 class State(Entity):
@@ -1136,21 +1193,24 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.UseMultiplePaths.Ibgp.State, self).__init__()
+                        super(Bgp.Global.UseMultiplePaths.Ibgp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ibgp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                        ])
+                        self.maximum_paths = None
                         self._segment_path = lambda: "state"
                         self._absolute_path = lambda: "openconfig-bgp:bgp/global/use-multiple-paths/ibgp/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                        self._perform_setattr(Bgp.Global.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
 
 
         class RouteSelectionOptions(Entity):
@@ -1160,12 +1220,12 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Configuration parameters relating to route selection options
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions.Config>`
             
             .. attribute:: state
             
             	State information for the route selection options
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions.State>`
             
             
 
@@ -1175,21 +1235,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.RouteSelectionOptions, self).__init__()
+                super(Bgp.Global.RouteSelectionOptions, self).__init__()
 
                 self.yang_name = "route-selection-options"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.RouteSelectionOptions.Config), "state" : ("state", Bgp.Global_.RouteSelectionOptions.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.RouteSelectionOptions.Config)), ("state", ("state", Bgp.Global.RouteSelectionOptions.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.RouteSelectionOptions.Config()
+                self.config = Bgp.Global.RouteSelectionOptions.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.RouteSelectionOptions.State()
+                self.state = Bgp.Global.RouteSelectionOptions.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
@@ -1252,31 +1314,34 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.RouteSelectionOptions.Config, self).__init__()
+                    super(Bgp.Global.RouteSelectionOptions.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "route-selection-options"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                    self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                    self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                    self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                    self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                    self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                        ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                        ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                        ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                        ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                        ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                    ])
+                    self.always_compare_med = None
+                    self.ignore_as_path_length = None
+                    self.external_compare_router_id = None
+                    self.advertise_inactive_routes = None
+                    self.enable_aigp = None
+                    self.ignore_next_hop_igp_metric = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/route-selection-options/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
 
 
             class State(Entity):
@@ -1333,31 +1398,34 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.RouteSelectionOptions.State, self).__init__()
+                    super(Bgp.Global.RouteSelectionOptions.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "route-selection-options"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                    self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                    self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                    self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                    self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                    self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                        ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                        ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                        ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                        ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                        ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                    ])
+                    self.always_compare_med = None
+                    self.ignore_as_path_length = None
+                    self.external_compare_router_id = None
+                    self.advertise_inactive_routes = None
+                    self.enable_aigp = None
+                    self.ignore_next_hop_igp_metric = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/route-selection-options/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                    self._perform_setattr(Bgp.Global.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
 
 
         class AfiSafis(Entity):
@@ -1367,7 +1435,7 @@ class Bgp(Entity):
             .. attribute:: afi_safi
             
             	AFI,SAFI configuration available for the neighbour or group
-            	**type**\: list of  		 :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi>`
+            	**type**\: list of  		 :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi>`
             
             
 
@@ -1377,21 +1445,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.AfiSafis, self).__init__()
+                super(Bgp.Global.AfiSafis, self).__init__()
 
                 self.yang_name = "afi-safis"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"afi-safi" : ("afi_safi", Bgp.Global_.AfiSafis.AfiSafi)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("afi-safi", ("afi_safi", Bgp.Global.AfiSafis.AfiSafi))])
+                self._leafs = OrderedDict()
 
                 self.afi_safi = YList(self)
                 self._segment_path = lambda: "afi-safis"
                 self._absolute_path = lambda: "openconfig-bgp:bgp/global/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Bgp.Global_.AfiSafis, [], name, value)
+                self._perform_setattr(Bgp.Global.AfiSafis, [], name, value)
 
 
             class AfiSafi(Entity):
@@ -1399,7 +1469,7 @@ class Bgp(Entity):
                 AFI,SAFI configuration available for the
                 neighbour or group
                 
-                .. attribute:: afi_safi_name  <key>
+                .. attribute:: afi_safi_name  (key)
                 
                 	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                 	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
@@ -1407,82 +1477,82 @@ class Bgp(Entity):
                 .. attribute:: config
                 
                 	Configuration parameters for the AFI\-SAFI
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Config>`
+                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the AFI\-SAFI
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.State>`
+                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.State>`
                 
                 .. attribute:: graceful_restart
                 
                 	Parameters relating to BGP graceful\-restart
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart>`
+                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart>`
                 
                 .. attribute:: route_selection_options
                 
                 	Parameters relating to options for route selection
-                	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions>`
+                	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions>`
                 
                 .. attribute:: use_multiple_paths
                 
                 	Parameters related to the use of multiple paths for the same NLRI
-                	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths>`
+                	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths>`
                 
                 .. attribute:: apply_policy
                 
                 	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy>`
+                	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy>`
                 
                 .. attribute:: ipv4_unicast
                 
                 	IPv4 unicast configuration options
-                	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast>`
+                	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast>`
                 
                 .. attribute:: ipv6_unicast
                 
                 	IPv6 unicast configuration options
-                	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast>`
+                	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast>`
                 
                 .. attribute:: ipv4_labeled_unicast
                 
                 	IPv4 Labeled Unicast configuration options
-                	**type**\:  :py:class:`Ipv4LabeledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast>`
+                	**type**\:  :py:class:`Ipv4LabeledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast>`
                 
                 .. attribute:: ipv6_labeled_unicast
                 
                 	IPv6 Labeled Unicast configuration options
-                	**type**\:  :py:class:`Ipv6LabeledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast>`
+                	**type**\:  :py:class:`Ipv6LabeledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast>`
                 
                 .. attribute:: l3vpn_ipv4_unicast
                 
                 	Unicast IPv4 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                	**type**\:  :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
                 
                 .. attribute:: l3vpn_ipv6_unicast
                 
                 	Unicast IPv6 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                	**type**\:  :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
                 
                 .. attribute:: l3vpn_ipv4_multicast
                 
                 	Multicast IPv4 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                	**type**\:  :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
                 
                 .. attribute:: l3vpn_ipv6_multicast
                 
                 	Multicast IPv6 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                	**type**\:  :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
                 
                 .. attribute:: l2vpn_vpls
                 
                 	BGP\-signalled VPLS configuration options
-                	**type**\:  :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls>`
+                	**type**\:  :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls>`
                 
                 .. attribute:: l2vpn_evpn
                 
                 	BGP EVPN configuration options
-                	**type**\:  :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn>`
+                	**type**\:  :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn>`
                 
                 
 
@@ -1492,101 +1562,104 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.AfiSafis.AfiSafi, self).__init__()
+                    super(Bgp.Global.AfiSafis.AfiSafi, self).__init__()
 
                     self.yang_name = "afi-safi"
                     self.yang_parent_name = "afi-safis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.State), "graceful-restart" : ("graceful_restart", Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart), "route-selection-options" : ("route_selection_options", Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions), "use-multiple-paths" : ("use_multiple_paths", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths), "apply-policy" : ("apply_policy", Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy), "ipv4-unicast" : ("ipv4_unicast", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast), "ipv6-unicast" : ("ipv6_unicast", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast), "ipv4-labeled-unicast" : ("ipv4_labeled_unicast", Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast), "ipv6-labeled-unicast" : ("ipv6_labeled_unicast", Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast), "l3vpn-ipv4-unicast" : ("l3vpn_ipv4_unicast", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast), "l3vpn-ipv6-unicast" : ("l3vpn_ipv6_unicast", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast), "l3vpn-ipv4-multicast" : ("l3vpn_ipv4_multicast", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast), "l3vpn-ipv6-multicast" : ("l3vpn_ipv6_multicast", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast), "l2vpn-vpls" : ("l2vpn_vpls", Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls), "l2vpn-evpn" : ("l2vpn_evpn", Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = ['afi_safi_name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.State)), ("graceful-restart", ("graceful_restart", Bgp.Global.AfiSafis.AfiSafi.GracefulRestart)), ("route-selection-options", ("route_selection_options", Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions)), ("use-multiple-paths", ("use_multiple_paths", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths)), ("apply-policy", ("apply_policy", Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy)), ("ipv4-unicast", ("ipv4_unicast", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast)), ("ipv4-labeled-unicast", ("ipv4_labeled_unicast", Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast)), ("ipv6-labeled-unicast", ("ipv6_labeled_unicast", Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast)), ("l3vpn-ipv4-unicast", ("l3vpn_ipv4_unicast", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast)), ("l3vpn-ipv6-unicast", ("l3vpn_ipv6_unicast", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast)), ("l3vpn-ipv4-multicast", ("l3vpn_ipv4_multicast", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast)), ("l3vpn-ipv6-multicast", ("l3vpn_ipv6_multicast", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast)), ("l2vpn-vpls", ("l2vpn_vpls", Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls)), ("l2vpn-evpn", ("l2vpn_evpn", Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                    ])
+                    self.afi_safi_name = None
 
-                    self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                    self.config = Bgp.Global_.AfiSafis.AfiSafi.Config()
+                    self.config = Bgp.Global.AfiSafis.AfiSafi.Config()
                     self.config.parent = self
                     self._children_name_map["config"] = "config"
                     self._children_yang_names.add("config")
 
-                    self.state = Bgp.Global_.AfiSafis.AfiSafi.State()
+                    self.state = Bgp.Global.AfiSafis.AfiSafi.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
 
-                    self.graceful_restart = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart()
+                    self.graceful_restart = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart()
                     self.graceful_restart.parent = self
                     self._children_name_map["graceful_restart"] = "graceful-restart"
                     self._children_yang_names.add("graceful-restart")
 
-                    self.route_selection_options = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions()
+                    self.route_selection_options = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions()
                     self.route_selection_options.parent = self
                     self._children_name_map["route_selection_options"] = "route-selection-options"
                     self._children_yang_names.add("route-selection-options")
 
-                    self.use_multiple_paths = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths()
+                    self.use_multiple_paths = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths()
                     self.use_multiple_paths.parent = self
                     self._children_name_map["use_multiple_paths"] = "use-multiple-paths"
                     self._children_yang_names.add("use-multiple-paths")
 
-                    self.apply_policy = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy()
+                    self.apply_policy = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy()
                     self.apply_policy.parent = self
                     self._children_name_map["apply_policy"] = "apply-policy"
                     self._children_yang_names.add("apply-policy")
 
-                    self.ipv4_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast()
+                    self.ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast()
                     self.ipv4_unicast.parent = self
                     self._children_name_map["ipv4_unicast"] = "ipv4-unicast"
                     self._children_yang_names.add("ipv4-unicast")
 
-                    self.ipv6_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast()
+                    self.ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast()
                     self.ipv6_unicast.parent = self
                     self._children_name_map["ipv6_unicast"] = "ipv6-unicast"
                     self._children_yang_names.add("ipv6-unicast")
 
-                    self.ipv4_labeled_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast()
+                    self.ipv4_labeled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast()
                     self.ipv4_labeled_unicast.parent = self
                     self._children_name_map["ipv4_labeled_unicast"] = "ipv4-labeled-unicast"
                     self._children_yang_names.add("ipv4-labeled-unicast")
 
-                    self.ipv6_labeled_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast()
+                    self.ipv6_labeled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast()
                     self.ipv6_labeled_unicast.parent = self
                     self._children_name_map["ipv6_labeled_unicast"] = "ipv6-labeled-unicast"
                     self._children_yang_names.add("ipv6-labeled-unicast")
 
-                    self.l3vpn_ipv4_unicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
+                    self.l3vpn_ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
                     self.l3vpn_ipv4_unicast.parent = self
                     self._children_name_map["l3vpn_ipv4_unicast"] = "l3vpn-ipv4-unicast"
                     self._children_yang_names.add("l3vpn-ipv4-unicast")
 
-                    self.l3vpn_ipv6_unicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
+                    self.l3vpn_ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
                     self.l3vpn_ipv6_unicast.parent = self
                     self._children_name_map["l3vpn_ipv6_unicast"] = "l3vpn-ipv6-unicast"
                     self._children_yang_names.add("l3vpn-ipv6-unicast")
 
-                    self.l3vpn_ipv4_multicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
+                    self.l3vpn_ipv4_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
                     self.l3vpn_ipv4_multicast.parent = self
                     self._children_name_map["l3vpn_ipv4_multicast"] = "l3vpn-ipv4-multicast"
                     self._children_yang_names.add("l3vpn-ipv4-multicast")
 
-                    self.l3vpn_ipv6_multicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
+                    self.l3vpn_ipv6_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
                     self.l3vpn_ipv6_multicast.parent = self
                     self._children_name_map["l3vpn_ipv6_multicast"] = "l3vpn-ipv6-multicast"
                     self._children_yang_names.add("l3vpn-ipv6-multicast")
 
-                    self.l2vpn_vpls = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls()
+                    self.l2vpn_vpls = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls()
                     self.l2vpn_vpls.parent = self
                     self._children_name_map["l2vpn_vpls"] = "l2vpn-vpls"
                     self._children_yang_names.add("l2vpn-vpls")
 
-                    self.l2vpn_evpn = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn()
+                    self.l2vpn_evpn = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn()
                     self.l2vpn_evpn.parent = self
                     self._children_name_map["l2vpn_evpn"] = "l2vpn-evpn"
                     self._children_yang_names.add("l2vpn-evpn")
-                    self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + self.afi_safi_name.get() + "']"
+                    self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + str(self.afi_safi_name) + "']"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/afi-safis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
+                    self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
 
 
                 class Config(Entity):
@@ -1613,22 +1686,25 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.Config, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ])
+                        self.afi_safi_name = None
+                        self.enabled = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Config, ['afi_safi_name', 'enabled'], name, value)
 
 
                 class State(Entity):
@@ -1669,26 +1745,29 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.State, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.total_paths = YLeaf(YType.uint32, "total-paths")
-
-                        self.total_prefixes = YLeaf(YType.uint32, "total-prefixes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('total_paths', YLeaf(YType.uint32, 'total-paths')),
+                            ('total_prefixes', YLeaf(YType.uint32, 'total-prefixes')),
+                        ])
+                        self.afi_safi_name = None
+                        self.enabled = None
+                        self.total_paths = None
+                        self.total_prefixes = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', 'total_paths', 'total_prefixes'], name, value)
+                        self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.State, ['afi_safi_name', 'enabled', 'total_paths', 'total_prefixes'], name, value)
 
 
                 class GracefulRestart(Entity):
@@ -1698,12 +1777,12 @@ class Bgp(Entity):
                     .. attribute:: config
                     
                     	Configuration options for BGP graceful\-restart
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config>`
                     
                     .. attribute:: state
                     
                     	State information for BGP graceful\-restart
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State>`
                     
                     
 
@@ -1713,21 +1792,23 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -1753,20 +1834,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "graceful-restart"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.enabled = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config, ['enabled'], name, value)
 
 
                     class State(Entity):
@@ -1788,20 +1872,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "graceful-restart"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.enabled = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State, ['enabled'], name, value)
 
 
                 class RouteSelectionOptions(Entity):
@@ -1811,12 +1898,12 @@ class Bgp(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to route selection options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
                     
                     .. attribute:: state
                     
                     	State information for the route selection options
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
                     
                     
 
@@ -1826,21 +1913,23 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions, self).__init__()
 
                         self.yang_name = "route-selection-options"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -1902,30 +1991,33 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "route-selection-options"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                            self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                            self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                            self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                            self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                            self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                                ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                                ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                                ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                                ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                                ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                            ])
+                            self.always_compare_med = None
+                            self.ignore_as_path_length = None
+                            self.external_compare_router_id = None
+                            self.advertise_inactive_routes = None
+                            self.enable_aigp = None
+                            self.ignore_next_hop_igp_metric = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
 
 
                     class State(Entity):
@@ -1982,30 +2074,33 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "route-selection-options"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                            self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                            self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                            self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                            self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                            self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                                ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                                ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                                ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                                ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                                ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                            ])
+                            self.always_compare_med = None
+                            self.ignore_as_path_length = None
+                            self.external_compare_router_id = None
+                            self.advertise_inactive_routes = None
+                            self.enable_aigp = None
+                            self.ignore_next_hop_igp_metric = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State, ['always_compare_med', 'ignore_as_path_length', 'external_compare_router_id', 'advertise_inactive_routes', 'enable_aigp', 'ignore_next_hop_igp_metric'], name, value)
 
 
                 class UseMultiplePaths(Entity):
@@ -2016,22 +2111,22 @@ class Bgp(Entity):
                     .. attribute:: config
                     
                     	Configuration parameters relating to multipath
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to multipath
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                     
                     .. attribute:: ebgp
                     
                     	Multipath parameters for eBGP
-                    	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
+                    	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
                     
                     .. attribute:: ibgp
                     
                     	Multipath parameters for iBGP
-                    	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
+                    	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
                     
                     
 
@@ -2041,31 +2136,33 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths, self).__init__()
 
                         self.yang_name = "use-multiple-paths"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp), "ibgp" : ("ibgp", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp)), ("ibgp", ("ibgp", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
 
-                        self.ebgp = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
+                        self.ebgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
                         self.ebgp.parent = self
                         self._children_name_map["ebgp"] = "ebgp"
                         self._children_yang_names.add("ebgp")
 
-                        self.ibgp = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
+                        self.ibgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
                         self.ibgp.parent = self
                         self._children_name_map["ibgp"] = "ibgp"
                         self._children_yang_names.add("ibgp")
@@ -2091,20 +2188,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "use-multiple-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.enabled = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config, ['enabled'], name, value)
 
 
                     class State(Entity):
@@ -2126,20 +2226,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "use-multiple-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.enabled = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State, ['enabled'], name, value)
 
 
                     class Ebgp(Entity):
@@ -2149,12 +2252,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to eBGP multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to eBGP multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                         
                         
 
@@ -2164,21 +2267,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp, self).__init__()
 
                             self.yang_name = "ebgp"
                             self.yang_parent_name = "use-multiple-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -2213,22 +2318,25 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ebgp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                                self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                    ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ])
+                                self.allow_multiple_as = None
+                                self.maximum_paths = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config, ['allow_multiple_as', 'maximum_paths'], name, value)
 
 
                         class State(Entity):
@@ -2259,22 +2367,25 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ebgp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                                self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                    ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ])
+                                self.allow_multiple_as = None
+                                self.maximum_paths = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State, ['allow_multiple_as', 'maximum_paths'], name, value)
 
 
                     class Ibgp(Entity):
@@ -2284,12 +2395,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to iBGP multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to iBGP multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
                         
                         
 
@@ -2299,21 +2410,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp, self).__init__()
 
                             self.yang_name = "ibgp"
                             self.yang_parent_name = "use-multiple-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -2341,20 +2454,23 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ibgp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ])
+                                self.maximum_paths = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config, ['maximum_paths'], name, value)
 
 
                         class State(Entity):
@@ -2378,20 +2494,23 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ibgp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                ])
+                                self.maximum_paths = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State, ['maximum_paths'], name, value)
 
 
                 class ApplyPolicy(Entity):
@@ -2404,12 +2523,12 @@ class Bgp(Entity):
                     .. attribute:: config
                     
                     	Policy configuration data
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state for routing policy
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State>`
                     
                     
 
@@ -2419,21 +2538,23 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy, self).__init__()
 
                         self.yang_name = "apply-policy"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -2480,26 +2601,29 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "apply-policy"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.import_policy = YLeafList(YType.str, "import-policy")
-
-                            self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                            self.export_policy = YLeafList(YType.str, "export-policy")
-
-                            self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                            ])
+                            self.import_policy = []
+                            self.default_import_policy = None
+                            self.export_policy = []
+                            self.default_export_policy = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
                     class State(Entity):
@@ -2542,26 +2666,29 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "apply-policy"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.import_policy = YLeafList(YType.str, "import-policy")
-
-                            self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                            self.export_policy = YLeafList(YType.str, "export-policy")
-
-                            self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                            ])
+                            self.import_policy = []
+                            self.default_import_policy = None
+                            self.export_policy = []
+                            self.default_export_policy = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
                 class Ipv4Unicast(Entity):
@@ -2571,17 +2698,17 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
                     
                     .. attribute:: state
                     
                     	State information for common IPv4 and IPv6 unicast parameters
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                     
                     
 
@@ -2591,26 +2718,28 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
 
                         self.yang_name = "ipv4-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit), "config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit)), ("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -2625,12 +2754,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                         
                         
 
@@ -2640,21 +2769,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv4-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -2697,24 +2828,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -2753,24 +2887,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                     class Config(Entity):
@@ -2793,20 +2930,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv4-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                            ])
+                            self.send_default_route = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config, ['send_default_route'], name, value)
 
 
                     class State(Entity):
@@ -2829,20 +2969,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv4-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                            ])
+                            self.send_default_route = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State, ['send_default_route'], name, value)
 
 
                 class Ipv6Unicast(Entity):
@@ -2852,17 +2995,17 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
                     
                     .. attribute:: state
                     
                     	State information for common IPv4 and IPv6 unicast parameters
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State>`
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                     
                     
 
@@ -2872,26 +3015,28 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
 
                         self.yang_name = "ipv6-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit), "config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit)), ("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
 
-                        self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config()
+                        self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config()
                         self.config.parent = self
                         self._children_name_map["config"] = "config"
                         self._children_yang_names.add("config")
 
-                        self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State()
+                        self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
@@ -2906,12 +3051,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                         
                         
 
@@ -2921,21 +3066,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv6-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -2978,24 +3125,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -3034,24 +3184,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                     class Config(Entity):
@@ -3074,20 +3227,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv6-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                            ])
+                            self.send_default_route = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config, ['send_default_route'], name, value)
 
 
                     class State(Entity):
@@ -3110,20 +3266,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv6-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                            ])
+                            self.send_default_route = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
+                            self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State, ['send_default_route'], name, value)
 
 
                 class Ipv4LabeledUnicast(Entity):
@@ -3133,7 +3292,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit>`
                     
                     
 
@@ -3143,16 +3302,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast, self).__init__()
 
                         self.yang_name = "ipv4-labeled-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -3167,12 +3328,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State>`
                         
                         
 
@@ -3182,21 +3343,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv4-labeled-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -3239,24 +3402,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -3295,24 +3461,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class Ipv6LabeledUnicast(Entity):
@@ -3322,7 +3491,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit>`
                     
                     
 
@@ -3332,16 +3501,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast, self).__init__()
 
                         self.yang_name = "ipv6-labeled-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -3356,12 +3527,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State>`
                         
                         
 
@@ -3371,21 +3542,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "ipv6-labeled-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -3428,24 +3601,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -3484,24 +3660,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L3VpnIpv4Unicast(Entity):
@@ -3511,7 +3690,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
                     
                     
 
@@ -3521,16 +3700,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv4-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -3545,12 +3726,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
                         
                         
 
@@ -3560,21 +3741,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv4-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -3617,24 +3800,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -3673,24 +3859,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L3VpnIpv6Unicast(Entity):
@@ -3700,7 +3889,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
                     
                     
 
@@ -3710,16 +3899,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv6-unicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -3734,12 +3925,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
                         
                         
 
@@ -3749,21 +3940,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv6-unicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -3806,24 +3999,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -3862,24 +4058,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L3VpnIpv4Multicast(Entity):
@@ -3889,7 +4088,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
                     
                     
 
@@ -3899,16 +4098,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv4-multicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -3923,12 +4124,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
                         
                         
 
@@ -3938,21 +4139,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv4-multicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -3995,24 +4198,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -4051,24 +4257,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L3VpnIpv6Multicast(Entity):
@@ -4078,7 +4287,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
                     
                     
 
@@ -4088,16 +4297,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast, self).__init__()
 
                         self.yang_name = "l3vpn-ipv6-multicast"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -4112,12 +4323,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
                         
                         
 
@@ -4127,21 +4338,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l3vpn-ipv6-multicast"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -4184,24 +4397,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -4240,24 +4456,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L2VpnVpls(Entity):
@@ -4267,7 +4486,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
                     
                     
 
@@ -4277,16 +4496,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls, self).__init__()
 
                         self.yang_name = "l2vpn-vpls"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -4301,12 +4522,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
                         
                         
 
@@ -4316,21 +4537,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l2vpn-vpls"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -4373,24 +4596,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -4429,24 +4655,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                 class L2VpnEvpn(Entity):
@@ -4456,7 +4685,7 @@ class Bgp(Entity):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
+                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
                     
                     
 
@@ -4466,16 +4695,18 @@ class Bgp(Entity):
                     _revision = '2016-06-21'
 
                     def __init__(self):
-                        super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn, self).__init__()
+                        super(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn, self).__init__()
 
                         self.yang_name = "l2vpn-evpn"
                         self.yang_parent_name = "afi-safi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
+                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
                         self.prefix_limit.parent = self
                         self._children_name_map["prefix_limit"] = "prefix-limit"
                         self._children_yang_names.add("prefix-limit")
@@ -4490,12 +4721,12 @@ class Bgp(Entity):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
                         
                         
 
@@ -4505,21 +4736,23 @@ class Bgp(Entity):
                         _revision = '2016-06-21'
 
                         def __init__(self):
-                            super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit, self).__init__()
+                            super(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit, self).__init__()
 
                             self.yang_name = "prefix-limit"
                             self.yang_parent_name = "l2vpn-evpn"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config), "state" : ("state", Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config)), ("state", ("state", Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
+                            self.config = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
                             self.config.parent = self
                             self._children_name_map["config"] = "config"
                             self._children_yang_names.add("config")
 
-                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State()
+                            self.state = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State()
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
@@ -4562,24 +4795,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
                         class State(Entity):
@@ -4618,24 +4854,27 @@ class Bgp(Entity):
                             _revision = '2016-06-21'
 
                             def __init__(self):
-                                super(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State, self).__init__()
+                                super(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix-limit"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                    ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                    ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                ])
+                                self.max_prefixes = None
+                                self.shutdown_threshold_pct = None
+                                self.restart_timer = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
+                                self._perform_setattr(Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State, ['max_prefixes', 'shutdown_threshold_pct', 'restart_timer'], name, value)
 
 
         class ApplyPolicy(Entity):
@@ -4648,12 +4887,12 @@ class Bgp(Entity):
             .. attribute:: config
             
             	Policy configuration data
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy.Config>`
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy.Config>`
             
             .. attribute:: state
             
             	Operational state for routing policy
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy.State>`
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy.State>`
             
             
 
@@ -4663,21 +4902,23 @@ class Bgp(Entity):
             _revision = '2016-06-21'
 
             def __init__(self):
-                super(Bgp.Global_.ApplyPolicy, self).__init__()
+                super(Bgp.Global.ApplyPolicy, self).__init__()
 
                 self.yang_name = "apply-policy"
                 self.yang_parent_name = "global"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Global_.ApplyPolicy.Config), "state" : ("state", Bgp.Global_.ApplyPolicy.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Global.ApplyPolicy.Config)), ("state", ("state", Bgp.Global.ApplyPolicy.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
-                self.config = Bgp.Global_.ApplyPolicy.Config()
+                self.config = Bgp.Global.ApplyPolicy.Config()
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.state = Bgp.Global_.ApplyPolicy.State()
+                self.state = Bgp.Global.ApplyPolicy.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
@@ -4725,27 +4966,30 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.ApplyPolicy.Config, self).__init__()
+                    super(Bgp.Global.ApplyPolicy.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "apply-policy"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.import_policy = YLeafList(YType.str, "import-policy")
-
-                    self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                    self.export_policy = YLeafList(YType.str, "export-policy")
-
-                    self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('import_policy', YLeafList(YType.str, 'import-policy')),
+                        ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                        ('export_policy', YLeafList(YType.str, 'export-policy')),
+                        ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                    ])
+                    self.import_policy = []
+                    self.default_import_policy = None
+                    self.export_policy = []
+                    self.default_export_policy = None
                     self._segment_path = lambda: "config"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/apply-policy/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
+                    self._perform_setattr(Bgp.Global.ApplyPolicy.Config, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
             class State(Entity):
@@ -4788,27 +5032,30 @@ class Bgp(Entity):
                 _revision = '2016-06-21'
 
                 def __init__(self):
-                    super(Bgp.Global_.ApplyPolicy.State, self).__init__()
+                    super(Bgp.Global.ApplyPolicy.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "apply-policy"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.import_policy = YLeafList(YType.str, "import-policy")
-
-                    self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                    self.export_policy = YLeafList(YType.str, "export-policy")
-
-                    self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('import_policy', YLeafList(YType.str, 'import-policy')),
+                        ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                        ('export_policy', YLeafList(YType.str, 'export-policy')),
+                        ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                    ])
+                    self.import_policy = []
+                    self.default_import_policy = None
+                    self.export_policy = []
+                    self.default_export_policy = None
                     self._segment_path = lambda: "state"
                     self._absolute_path = lambda: "openconfig-bgp:bgp/global/apply-policy/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bgp.Global_.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
+                    self._perform_setattr(Bgp.Global.ApplyPolicy.State, ['import_policy', 'default_import_policy', 'export_policy', 'default_export_policy'], name, value)
 
 
     class Neighbors(Entity):
@@ -4834,8 +5081,10 @@ class Bgp(Entity):
             self.yang_parent_name = "bgp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"neighbor" : ("neighbor", Bgp.Neighbors.Neighbor)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Bgp.Neighbors.Neighbor))])
+            self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
             self._segment_path = lambda: "neighbors"
@@ -4850,7 +5099,7 @@ class Bgp(Entity):
             List of BGP neighbors configured on the local system,
             uniquely identified by peer IPv[46] address
             
-            .. attribute:: neighbor_address  <key>
+            .. attribute:: neighbor_address  (key)
             
             	Reference to the address of the BGP neighbor used as a key in the neighbor list
             	**type**\: union of the below types:
@@ -4949,10 +5198,13 @@ class Bgp(Entity):
                 self.yang_parent_name = "neighbors"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.Config), "state" : ("state", Bgp.Neighbors.Neighbor.State), "timers" : ("timers", Bgp.Neighbors.Neighbor.Timers), "transport" : ("transport", Bgp.Neighbors.Neighbor.Transport), "error-handling" : ("error_handling", Bgp.Neighbors.Neighbor.ErrorHandling), "graceful-restart" : ("graceful_restart", Bgp.Neighbors.Neighbor.GracefulRestart), "logging-options" : ("logging_options", Bgp.Neighbors.Neighbor.LoggingOptions), "ebgp-multihop" : ("ebgp_multihop", Bgp.Neighbors.Neighbor.EbgpMultihop), "route-reflector" : ("route_reflector", Bgp.Neighbors.Neighbor.RouteReflector), "as-path-options" : ("as_path_options", Bgp.Neighbors.Neighbor.AsPathOptions), "add-paths" : ("add_paths", Bgp.Neighbors.Neighbor.AddPaths), "use-multiple-paths" : ("use_multiple_paths", Bgp.Neighbors.Neighbor.UseMultiplePaths), "apply-policy" : ("apply_policy", Bgp.Neighbors.Neighbor.ApplyPolicy), "afi-safis" : ("afi_safis", Bgp.Neighbors.Neighbor.AfiSafis)}
-                self._child_list_classes = {}
-
-                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+                self.ylist_key_names = ['neighbor_address']
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.State)), ("timers", ("timers", Bgp.Neighbors.Neighbor.Timers)), ("transport", ("transport", Bgp.Neighbors.Neighbor.Transport)), ("error-handling", ("error_handling", Bgp.Neighbors.Neighbor.ErrorHandling)), ("graceful-restart", ("graceful_restart", Bgp.Neighbors.Neighbor.GracefulRestart)), ("logging-options", ("logging_options", Bgp.Neighbors.Neighbor.LoggingOptions)), ("ebgp-multihop", ("ebgp_multihop", Bgp.Neighbors.Neighbor.EbgpMultihop)), ("route-reflector", ("route_reflector", Bgp.Neighbors.Neighbor.RouteReflector)), ("as-path-options", ("as_path_options", Bgp.Neighbors.Neighbor.AsPathOptions)), ("add-paths", ("add_paths", Bgp.Neighbors.Neighbor.AddPaths)), ("use-multiple-paths", ("use_multiple_paths", Bgp.Neighbors.Neighbor.UseMultiplePaths)), ("apply-policy", ("apply_policy", Bgp.Neighbors.Neighbor.ApplyPolicy)), ("afi-safis", ("afi_safis", Bgp.Neighbors.Neighbor.AfiSafis))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                ])
+                self.neighbor_address = None
 
                 self.config = Bgp.Neighbors.Neighbor.Config()
                 self.config.parent = self
@@ -5023,7 +5275,7 @@ class Bgp(Entity):
                 self.afi_safis.parent = self
                 self._children_name_map["afi_safis"] = "afi-safis"
                 self._children_yang_names.add("afi-safis")
-                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']"
+                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                 self._absolute_path = lambda: "openconfig-bgp:bgp/neighbors/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5124,30 +5376,33 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.peer_group = YLeaf(YType.str, "peer-group")
-
-                    self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.peer_as = YLeaf(YType.uint32, "peer-as")
-
-                    self.local_as = YLeaf(YType.uint32, "local-as")
-
-                    self.peer_type = YLeaf(YType.enumeration, "peer-type")
-
-                    self.auth_password = YLeaf(YType.str, "auth-password")
-
-                    self.remove_private_as = YLeaf(YType.identityref, "remove-private-as")
-
-                    self.route_flap_damping = YLeaf(YType.boolean, "route-flap-damping")
-
-                    self.send_community = YLeaf(YType.enumeration, "send-community")
-
-                    self.description = YLeaf(YType.str, "description")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_group', YLeaf(YType.str, 'peer-group')),
+                        ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('peer_as', YLeaf(YType.uint32, 'peer-as')),
+                        ('local_as', YLeaf(YType.uint32, 'local-as')),
+                        ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                        ('auth_password', YLeaf(YType.str, 'auth-password')),
+                        ('remove_private_as', YLeaf(YType.identityref, 'remove-private-as')),
+                        ('route_flap_damping', YLeaf(YType.boolean, 'route-flap-damping')),
+                        ('send_community', YLeaf(YType.enumeration, 'send-community')),
+                        ('description', YLeaf(YType.str, 'description')),
+                    ])
+                    self.peer_group = None
+                    self.neighbor_address = None
+                    self.enabled = None
+                    self.peer_as = None
+                    self.local_as = None
+                    self.peer_type = None
+                    self.auth_password = None
+                    self.remove_private_as = None
+                    self.route_flap_damping = None
+                    self.send_community = None
+                    self.description = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -5281,38 +5536,41 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"messages" : ("messages", Bgp.Neighbors.Neighbor.State.Messages), "queues" : ("queues", Bgp.Neighbors.Neighbor.State.Queues)}
-                    self._child_list_classes = {}
-
-                    self.peer_group = YLeaf(YType.str, "peer-group")
-
-                    self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.peer_as = YLeaf(YType.uint32, "peer-as")
-
-                    self.local_as = YLeaf(YType.uint32, "local-as")
-
-                    self.peer_type = YLeaf(YType.enumeration, "peer-type")
-
-                    self.auth_password = YLeaf(YType.str, "auth-password")
-
-                    self.remove_private_as = YLeaf(YType.identityref, "remove-private-as")
-
-                    self.route_flap_damping = YLeaf(YType.boolean, "route-flap-damping")
-
-                    self.send_community = YLeaf(YType.enumeration, "send-community")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                    self.last_established = YLeaf(YType.uint64, "last-established")
-
-                    self.established_transitions = YLeaf(YType.uint64, "established-transitions")
-
-                    self.supported_capabilities = YLeafList(YType.identityref, "supported-capabilities")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("messages", ("messages", Bgp.Neighbors.Neighbor.State.Messages)), ("queues", ("queues", Bgp.Neighbors.Neighbor.State.Queues))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_group', YLeaf(YType.str, 'peer-group')),
+                        ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('peer_as', YLeaf(YType.uint32, 'peer-as')),
+                        ('local_as', YLeaf(YType.uint32, 'local-as')),
+                        ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                        ('auth_password', YLeaf(YType.str, 'auth-password')),
+                        ('remove_private_as', YLeaf(YType.identityref, 'remove-private-as')),
+                        ('route_flap_damping', YLeaf(YType.boolean, 'route-flap-damping')),
+                        ('send_community', YLeaf(YType.enumeration, 'send-community')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                        ('last_established', YLeaf(YType.uint64, 'last-established')),
+                        ('established_transitions', YLeaf(YType.uint64, 'established-transitions')),
+                        ('supported_capabilities', YLeafList(YType.identityref, 'supported-capabilities')),
+                    ])
+                    self.peer_group = None
+                    self.neighbor_address = None
+                    self.enabled = None
+                    self.peer_as = None
+                    self.local_as = None
+                    self.peer_type = None
+                    self.auth_password = None
+                    self.remove_private_as = None
+                    self.route_flap_damping = None
+                    self.send_community = None
+                    self.description = None
+                    self.session_state = None
+                    self.last_established = None
+                    self.established_transitions = None
+                    self.supported_capabilities = []
 
                     self.messages = Bgp.Neighbors.Neighbor.State.Messages()
                     self.messages.parent = self
@@ -5330,7 +5588,7 @@ class Bgp(Entity):
 
                 class SessionState(Enum):
                     """
-                    SessionState
+                    SessionState (Enum Class)
 
                     Operational state of the BGP peer
 
@@ -5417,8 +5675,10 @@ class Bgp(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sent" : ("sent", Bgp.Neighbors.Neighbor.State.Messages.Sent), "received" : ("received", Bgp.Neighbors.Neighbor.State.Messages.Received)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sent", ("sent", Bgp.Neighbors.Neighbor.State.Messages.Sent)), ("received", ("received", Bgp.Neighbors.Neighbor.State.Messages.Received))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.sent = Bgp.Neighbors.Neighbor.State.Messages.Sent()
                         self.sent.parent = self
@@ -5464,12 +5724,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "messages"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.update = YLeaf(YType.uint64, "UPDATE")
-
-                            self.notification = YLeaf(YType.uint64, "NOTIFICATION")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('update', YLeaf(YType.uint64, 'UPDATE')),
+                                ('notification', YLeaf(YType.uint64, 'NOTIFICATION')),
+                            ])
+                            self.update = None
+                            self.notification = None
                             self._segment_path = lambda: "sent"
 
                         def __setattr__(self, name, value):
@@ -5508,12 +5771,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "messages"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.update = YLeaf(YType.uint64, "UPDATE")
-
-                            self.notification = YLeaf(YType.uint64, "NOTIFICATION")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('update', YLeaf(YType.uint64, 'UPDATE')),
+                                ('notification', YLeaf(YType.uint64, 'NOTIFICATION')),
+                            ])
+                            self.update = None
+                            self.notification = None
                             self._segment_path = lambda: "received"
 
                         def __setattr__(self, name, value):
@@ -5553,12 +5819,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.input = YLeaf(YType.uint32, "input")
-
-                        self.output = YLeaf(YType.uint32, "output")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('input', YLeaf(YType.uint32, 'input')),
+                            ('output', YLeaf(YType.uint32, 'output')),
+                        ])
+                        self.input = None
+                        self.output = None
                         self._segment_path = lambda: "queues"
 
                     def __setattr__(self, name, value):
@@ -5593,8 +5862,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.Timers.Config), "state" : ("state", Bgp.Neighbors.Neighbor.Timers.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.Timers.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.Timers.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.Timers.Config()
                     self.config.parent = self
@@ -5663,16 +5934,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.connect_retry = YLeaf(YType.str, "connect-retry")
-
-                        self.hold_time = YLeaf(YType.str, "hold-time")
-
-                        self.keepalive_interval = YLeaf(YType.str, "keepalive-interval")
-
-                        self.minimum_advertisement_interval = YLeaf(YType.str, "minimum-advertisement-interval")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('connect_retry', YLeaf(YType.str, 'connect-retry')),
+                            ('hold_time', YLeaf(YType.str, 'hold-time')),
+                            ('keepalive_interval', YLeaf(YType.str, 'keepalive-interval')),
+                            ('minimum_advertisement_interval', YLeaf(YType.str, 'minimum-advertisement-interval')),
+                        ])
+                        self.connect_retry = None
+                        self.hold_time = None
+                        self.keepalive_interval = None
+                        self.minimum_advertisement_interval = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -5741,18 +6015,21 @@ class Bgp(Entity):
                         self.yang_parent_name = "timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.connect_retry = YLeaf(YType.str, "connect-retry")
-
-                        self.hold_time = YLeaf(YType.str, "hold-time")
-
-                        self.keepalive_interval = YLeaf(YType.str, "keepalive-interval")
-
-                        self.minimum_advertisement_interval = YLeaf(YType.str, "minimum-advertisement-interval")
-
-                        self.negotiated_hold_time = YLeaf(YType.str, "negotiated-hold-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('connect_retry', YLeaf(YType.str, 'connect-retry')),
+                            ('hold_time', YLeaf(YType.str, 'hold-time')),
+                            ('keepalive_interval', YLeaf(YType.str, 'keepalive-interval')),
+                            ('minimum_advertisement_interval', YLeaf(YType.str, 'minimum-advertisement-interval')),
+                            ('negotiated_hold_time', YLeaf(YType.str, 'negotiated-hold-time')),
+                        ])
+                        self.connect_retry = None
+                        self.hold_time = None
+                        self.keepalive_interval = None
+                        self.minimum_advertisement_interval = None
+                        self.negotiated_hold_time = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -5787,8 +6064,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.Transport.Config), "state" : ("state", Bgp.Neighbors.Neighbor.Transport.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.Transport.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.Transport.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.Transport.Config()
                     self.config.parent = self
@@ -5857,16 +6136,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "transport"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_mss = YLeaf(YType.uint16, "tcp-mss")
-
-                        self.mtu_discovery = YLeaf(YType.boolean, "mtu-discovery")
-
-                        self.passive_mode = YLeaf(YType.boolean, "passive-mode")
-
-                        self.local_address = YLeaf(YType.str, "local-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_mss', YLeaf(YType.uint16, 'tcp-mss')),
+                            ('mtu_discovery', YLeaf(YType.boolean, 'mtu-discovery')),
+                            ('passive_mode', YLeaf(YType.boolean, 'passive-mode')),
+                            ('local_address', YLeaf(YType.str, 'local-address')),
+                        ])
+                        self.tcp_mss = None
+                        self.mtu_discovery = None
+                        self.passive_mode = None
+                        self.local_address = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -5955,22 +6237,25 @@ class Bgp(Entity):
                         self.yang_parent_name = "transport"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_mss = YLeaf(YType.uint16, "tcp-mss")
-
-                        self.mtu_discovery = YLeaf(YType.boolean, "mtu-discovery")
-
-                        self.passive_mode = YLeaf(YType.boolean, "passive-mode")
-
-                        self.local_address = YLeaf(YType.str, "local-address")
-
-                        self.local_port = YLeaf(YType.uint16, "local-port")
-
-                        self.remote_address = YLeaf(YType.str, "remote-address")
-
-                        self.remote_port = YLeaf(YType.uint16, "remote-port")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_mss', YLeaf(YType.uint16, 'tcp-mss')),
+                            ('mtu_discovery', YLeaf(YType.boolean, 'mtu-discovery')),
+                            ('passive_mode', YLeaf(YType.boolean, 'passive-mode')),
+                            ('local_address', YLeaf(YType.str, 'local-address')),
+                            ('local_port', YLeaf(YType.uint16, 'local-port')),
+                            ('remote_address', YLeaf(YType.str, 'remote-address')),
+                            ('remote_port', YLeaf(YType.uint16, 'remote-port')),
+                        ])
+                        self.tcp_mss = None
+                        self.mtu_discovery = None
+                        self.passive_mode = None
+                        self.local_address = None
+                        self.local_port = None
+                        self.remote_address = None
+                        self.remote_port = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6006,8 +6291,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.ErrorHandling.Config), "state" : ("state", Bgp.Neighbors.Neighbor.ErrorHandling.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.ErrorHandling.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.ErrorHandling.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.ErrorHandling.Config()
                     self.config.parent = self
@@ -6048,10 +6335,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "error-handling"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.treat_as_withdraw = YLeaf(YType.boolean, "treat-as-withdraw")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('treat_as_withdraw', YLeaf(YType.boolean, 'treat-as-withdraw')),
+                        ])
+                        self.treat_as_withdraw = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6091,12 +6381,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "error-handling"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.treat_as_withdraw = YLeaf(YType.boolean, "treat-as-withdraw")
-
-                        self.erroneous_update_messages = YLeaf(YType.uint32, "erroneous-update-messages")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('treat_as_withdraw', YLeaf(YType.boolean, 'treat-as-withdraw')),
+                            ('erroneous_update_messages', YLeaf(YType.uint32, 'erroneous-update-messages')),
+                        ])
+                        self.treat_as_withdraw = None
+                        self.erroneous_update_messages = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6131,8 +6424,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.GracefulRestart.Config), "state" : ("state", Bgp.Neighbors.Neighbor.GracefulRestart.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.GracefulRestart.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.GracefulRestart.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.GracefulRestart.Config()
                     self.config.parent = self
@@ -6188,16 +6483,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "graceful-restart"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                        self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                        self.helper_only = YLeaf(YType.boolean, "helper-only")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                            ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                            ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                        ])
+                        self.enabled = None
+                        self.restart_time = None
+                        self.stale_routes_time = None
+                        self.helper_only = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6268,24 +6566,27 @@ class Bgp(Entity):
                         self.yang_parent_name = "graceful-restart"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                        self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                        self.helper_only = YLeaf(YType.boolean, "helper-only")
-
-                        self.peer_restart_time = YLeaf(YType.uint16, "peer-restart-time")
-
-                        self.peer_restarting = YLeaf(YType.boolean, "peer-restarting")
-
-                        self.local_restarting = YLeaf(YType.boolean, "local-restarting")
-
-                        self.mode = YLeaf(YType.enumeration, "mode")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                            ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                            ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                            ('peer_restart_time', YLeaf(YType.uint16, 'peer-restart-time')),
+                            ('peer_restarting', YLeaf(YType.boolean, 'peer-restarting')),
+                            ('local_restarting', YLeaf(YType.boolean, 'local-restarting')),
+                            ('mode', YLeaf(YType.enumeration, 'mode')),
+                        ])
+                        self.enabled = None
+                        self.restart_time = None
+                        self.stale_routes_time = None
+                        self.helper_only = None
+                        self.peer_restart_time = None
+                        self.peer_restarting = None
+                        self.local_restarting = None
+                        self.mode = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6293,7 +6594,7 @@ class Bgp(Entity):
 
                     class Mode(Enum):
                         """
-                        Mode
+                        Mode (Enum Class)
 
                         Ths leaf indicates the mode of operation of BGP graceful
 
@@ -6364,8 +6665,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.LoggingOptions.Config), "state" : ("state", Bgp.Neighbors.Neighbor.LoggingOptions.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.LoggingOptions.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.LoggingOptions.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.LoggingOptions.Config()
                     self.config.parent = self
@@ -6405,10 +6708,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "logging-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_neighbor_state_changes = YLeaf(YType.boolean, "log-neighbor-state-changes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_neighbor_state_changes', YLeaf(YType.boolean, 'log-neighbor-state-changes')),
+                        ])
+                        self.log_neighbor_state_changes = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6441,10 +6747,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "logging-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_neighbor_state_changes = YLeaf(YType.boolean, "log-neighbor-state-changes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_neighbor_state_changes', YLeaf(YType.boolean, 'log-neighbor-state-changes')),
+                        ])
+                        self.log_neighbor_state_changes = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6479,8 +6788,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.EbgpMultihop.Config), "state" : ("state", Bgp.Neighbors.Neighbor.EbgpMultihop.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.EbgpMultihop.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.EbgpMultihop.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.EbgpMultihop.Config()
                     self.config.parent = self
@@ -6527,12 +6838,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "ebgp-multihop"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.multihop_ttl = YLeaf(YType.uint8, "multihop-ttl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('multihop_ttl', YLeaf(YType.uint8, 'multihop-ttl')),
+                        ])
+                        self.enabled = None
+                        self.multihop_ttl = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6572,12 +6886,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "ebgp-multihop"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.multihop_ttl = YLeaf(YType.uint8, "multihop-ttl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('multihop_ttl', YLeaf(YType.uint8, 'multihop-ttl')),
+                        ])
+                        self.enabled = None
+                        self.multihop_ttl = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6612,8 +6929,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.RouteReflector.Config), "state" : ("state", Bgp.Neighbors.Neighbor.RouteReflector.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.RouteReflector.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.RouteReflector.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.RouteReflector.Config()
                     self.config.parent = self
@@ -6666,12 +6985,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "route-reflector"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_reflector_cluster_id = YLeaf(YType.str, "route-reflector-cluster-id")
-
-                        self.route_reflector_client = YLeaf(YType.boolean, "route-reflector-client")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('route_reflector_cluster_id', YLeaf(YType.str, 'route-reflector-cluster-id')),
+                            ('route_reflector_client', YLeaf(YType.boolean, 'route-reflector-client')),
+                        ])
+                        self.route_reflector_cluster_id = None
+                        self.route_reflector_client = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6717,12 +7039,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "route-reflector"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_reflector_cluster_id = YLeaf(YType.str, "route-reflector-cluster-id")
-
-                        self.route_reflector_client = YLeaf(YType.boolean, "route-reflector-client")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('route_reflector_cluster_id', YLeaf(YType.str, 'route-reflector-cluster-id')),
+                            ('route_reflector_client', YLeaf(YType.boolean, 'route-reflector-client')),
+                        ])
+                        self.route_reflector_cluster_id = None
+                        self.route_reflector_client = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6758,8 +7083,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AsPathOptions.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AsPathOptions.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AsPathOptions.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AsPathOptions.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.AsPathOptions.Config()
                     self.config.parent = self
@@ -6808,12 +7135,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "as-path-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_own_as = YLeaf(YType.uint8, "allow-own-as")
-
-                        self.replace_peer_as = YLeaf(YType.boolean, "replace-peer-as")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_own_as', YLeaf(YType.uint8, 'allow-own-as')),
+                            ('replace_peer_as', YLeaf(YType.boolean, 'replace-peer-as')),
+                        ])
+                        self.allow_own_as = None
+                        self.replace_peer_as = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -6855,12 +7185,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "as-path-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_own_as = YLeaf(YType.uint8, "allow-own-as")
-
-                        self.replace_peer_as = YLeaf(YType.boolean, "replace-peer-as")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_own_as', YLeaf(YType.uint8, 'allow-own-as')),
+                            ('replace_peer_as', YLeaf(YType.boolean, 'replace-peer-as')),
+                        ])
+                        self.allow_own_as = None
+                        self.replace_peer_as = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -6896,8 +7229,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AddPaths.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AddPaths.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AddPaths.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AddPaths.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.AddPaths.Config()
                     self.config.parent = self
@@ -6950,14 +7285,17 @@ class Bgp(Entity):
                         self.yang_parent_name = "add-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.receive = YLeaf(YType.boolean, "receive")
-
-                        self.send_max = YLeaf(YType.uint8, "send-max")
-
-                        self.eligible_prefix_policy = YLeaf(YType.str, "eligible-prefix-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('receive', YLeaf(YType.boolean, 'receive')),
+                            ('send_max', YLeaf(YType.uint8, 'send-max')),
+                            ('eligible_prefix_policy', YLeaf(YType.str, 'eligible-prefix-policy')),
+                        ])
+                        self.receive = None
+                        self.send_max = None
+                        self.eligible_prefix_policy = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -7003,14 +7341,17 @@ class Bgp(Entity):
                         self.yang_parent_name = "add-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.receive = YLeaf(YType.boolean, "receive")
-
-                        self.send_max = YLeaf(YType.uint8, "send-max")
-
-                        self.eligible_prefix_policy = YLeaf(YType.str, "eligible-prefix-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('receive', YLeaf(YType.boolean, 'receive')),
+                            ('send_max', YLeaf(YType.uint8, 'send-max')),
+                            ('eligible_prefix_policy', YLeaf(YType.str, 'eligible-prefix-policy')),
+                        ])
+                        self.receive = None
+                        self.send_max = None
+                        self.eligible_prefix_policy = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -7051,8 +7392,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.UseMultiplePaths.Config), "state" : ("state", Bgp.Neighbors.Neighbor.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.UseMultiplePaths.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.UseMultiplePaths.Config()
                     self.config.parent = self
@@ -7096,10 +7439,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ])
+                        self.enabled = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -7131,10 +7477,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ])
+                        self.enabled = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -7169,8 +7518,10 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config()
                         self.config.parent = self
@@ -7209,10 +7560,13 @@ class Bgp(Entity):
                             self.yang_parent_name = "ebgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                            ])
+                            self.allow_multiple_as = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -7244,10 +7598,13 @@ class Bgp(Entity):
                             self.yang_parent_name = "ebgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                            ])
+                            self.allow_multiple_as = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -7285,8 +7642,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.ApplyPolicy.Config), "state" : ("state", Bgp.Neighbors.Neighbor.ApplyPolicy.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.ApplyPolicy.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.ApplyPolicy.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.Neighbors.Neighbor.ApplyPolicy.Config()
                     self.config.parent = self
@@ -7346,16 +7705,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "apply-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.import_policy = YLeafList(YType.str, "import-policy")
-
-                        self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                        self.export_policy = YLeafList(YType.str, "export-policy")
-
-                        self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('import_policy', YLeafList(YType.str, 'import-policy')),
+                            ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                            ('export_policy', YLeafList(YType.str, 'export-policy')),
+                            ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                        ])
+                        self.import_policy = []
+                        self.default_import_policy = None
+                        self.export_policy = []
+                        self.default_export_policy = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -7408,16 +7770,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "apply-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.import_policy = YLeafList(YType.str, "import-policy")
-
-                        self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                        self.export_policy = YLeafList(YType.str, "export-policy")
-
-                        self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('import_policy', YLeafList(YType.str, 'import-policy')),
+                            ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                            ('export_policy', YLeafList(YType.str, 'export-policy')),
+                            ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                        ])
+                        self.import_policy = []
+                        self.default_import_policy = None
+                        self.export_policy = []
+                        self.default_export_policy = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -7448,8 +7813,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "neighbor"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"afi-safi" : ("afi_safi", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("afi-safi", ("afi_safi", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi))])
+                    self._leafs = OrderedDict()
 
                     self.afi_safi = YList(self)
                     self._segment_path = lambda: "afi-safis"
@@ -7463,7 +7830,7 @@ class Bgp(Entity):
                     AFI,SAFI configuration available for the
                     neighbour or group
                     
-                    .. attribute:: afi_safi_name  <key>
+                    .. attribute:: afi_safi_name  (key)
                     
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                     	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
@@ -7557,10 +7924,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "afi-safis"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State), "graceful-restart" : ("graceful_restart", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart), "apply-policy" : ("apply_policy", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy), "ipv4-unicast" : ("ipv4_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast), "ipv6-unicast" : ("ipv6_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast), "ipv4-labeled-unicast" : ("ipv4_labeled_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast), "ipv6-labeled-unicast" : ("ipv6_labeled_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast), "l3vpn-ipv4-unicast" : ("l3vpn_ipv4_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast), "l3vpn-ipv6-unicast" : ("l3vpn_ipv6_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast), "l3vpn-ipv4-multicast" : ("l3vpn_ipv4_multicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast), "l3vpn-ipv6-multicast" : ("l3vpn_ipv6_multicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast), "l2vpn-vpls" : ("l2vpn_vpls", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls), "l2vpn-evpn" : ("l2vpn_evpn", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn), "use-multiple-paths" : ("use_multiple_paths", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths)}
-                        self._child_list_classes = {}
-
-                        self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
+                        self.ylist_key_names = ['afi_safi_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State)), ("graceful-restart", ("graceful_restart", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart)), ("apply-policy", ("apply_policy", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy)), ("ipv4-unicast", ("ipv4_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast)), ("ipv4-labeled-unicast", ("ipv4_labeled_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast)), ("ipv6-labeled-unicast", ("ipv6_labeled_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast)), ("l3vpn-ipv4-unicast", ("l3vpn_ipv4_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast)), ("l3vpn-ipv6-unicast", ("l3vpn_ipv6_unicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast)), ("l3vpn-ipv4-multicast", ("l3vpn_ipv4_multicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast)), ("l3vpn-ipv6-multicast", ("l3vpn_ipv6_multicast", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast)), ("l2vpn-vpls", ("l2vpn_vpls", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls)), ("l2vpn-evpn", ("l2vpn_evpn", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn)), ("use-multiple-paths", ("use_multiple_paths", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                        ])
+                        self.afi_safi_name = None
 
                         self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config()
                         self.config.parent = self
@@ -7636,7 +8006,7 @@ class Bgp(Entity):
                         self.use_multiple_paths.parent = self
                         self._children_name_map["use_multiple_paths"] = "use-multiple-paths"
                         self._children_yang_names.add("use-multiple-paths")
-                        self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + self.afi_safi_name.get() + "']"
+                        self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + str(self.afi_safi_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
@@ -7672,12 +8042,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.afi_safi_name = None
+                            self.enabled = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -7724,14 +8097,17 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefixes" : ("prefixes", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes)}
-                            self._child_list_classes = {}
-
-                            self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
-
-                            self.active = YLeaf(YType.boolean, "active")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefixes", ("prefixes", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ('active', YLeaf(YType.boolean, 'active')),
+                            ])
+                            self.afi_safi_name = None
+                            self.enabled = None
+                            self.active = None
 
                             self.prefixes = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes()
                             self.prefixes.parent = self
@@ -7782,14 +8158,17 @@ class Bgp(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.received = YLeaf(YType.uint32, "received")
-
-                                self.sent = YLeaf(YType.uint32, "sent")
-
-                                self.installed = YLeaf(YType.uint32, "installed")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('received', YLeaf(YType.uint32, 'received')),
+                                    ('sent', YLeaf(YType.uint32, 'sent')),
+                                    ('installed', YLeaf(YType.uint32, 'installed')),
+                                ])
+                                self.received = None
+                                self.sent = None
+                                self.installed = None
                                 self._segment_path = lambda: "prefixes"
 
                             def __setattr__(self, name, value):
@@ -7824,8 +8203,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config()
                             self.config.parent = self
@@ -7864,10 +8245,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "graceful-restart"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -7909,14 +8293,17 @@ class Bgp(Entity):
                                 self.yang_parent_name = "graceful-restart"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
-
-                                self.received = YLeaf(YType.boolean, "received")
-
-                                self.advertised = YLeaf(YType.boolean, "advertised")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('received', YLeaf(YType.boolean, 'received')),
+                                    ('advertised', YLeaf(YType.boolean, 'advertised')),
+                                ])
+                                self.enabled = None
+                                self.received = None
+                                self.advertised = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -7954,8 +8341,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config()
                             self.config.parent = self
@@ -8015,16 +8404,19 @@ class Bgp(Entity):
                                 self.yang_parent_name = "apply-policy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.import_policy = YLeafList(YType.str, "import-policy")
-
-                                self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                                self.export_policy = YLeafList(YType.str, "export-policy")
-
-                                self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                    ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                    ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                    ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                                ])
+                                self.import_policy = []
+                                self.default_import_policy = None
+                                self.export_policy = []
+                                self.default_export_policy = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -8077,16 +8469,19 @@ class Bgp(Entity):
                                 self.yang_parent_name = "apply-policy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.import_policy = YLeafList(YType.str, "import-policy")
-
-                                self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                                self.export_policy = YLeafList(YType.str, "export-policy")
-
-                                self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                    ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                    ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                    ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                                ])
+                                self.import_policy = []
+                                self.default_import_policy = None
+                                self.export_policy = []
+                                self.default_export_policy = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -8126,8 +8521,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit), "config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit)), ("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -8175,8 +8572,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -8232,14 +8631,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -8288,14 +8690,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -8328,10 +8733,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -8364,10 +8772,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -8407,8 +8818,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit), "config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit)), ("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -8456,8 +8869,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -8513,14 +8928,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -8569,14 +8987,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -8609,10 +9030,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -8645,10 +9069,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -8678,8 +9105,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -8717,8 +9146,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-labeled-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -8774,14 +9205,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -8830,14 +9264,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -8867,8 +9304,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -8906,8 +9345,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-labeled-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -8963,14 +9404,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9019,14 +9463,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -9056,8 +9503,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -9095,8 +9544,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -9152,14 +9603,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9208,14 +9662,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -9245,8 +9702,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -9284,8 +9743,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -9341,14 +9802,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9397,14 +9861,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -9434,8 +9901,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -9473,8 +9942,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv4-multicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -9530,14 +10001,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9586,14 +10060,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -9623,8 +10100,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -9662,8 +10141,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv6-multicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -9719,14 +10200,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9775,14 +10259,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -9812,8 +10299,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -9851,8 +10340,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l2vpn-vpls"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
                                 self.config.parent = self
@@ -9908,14 +10399,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -9964,14 +10458,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -10001,8 +10498,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -10040,8 +10539,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l2vpn-evpn"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
                                 self.config.parent = self
@@ -10097,14 +10598,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -10153,14 +10657,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -10201,8 +10708,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                             self.config.parent = self
@@ -10246,10 +10755,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -10281,10 +10793,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -10319,8 +10834,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
                                 self.config.parent = self
@@ -10359,10 +10876,13 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ebgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                    ])
+                                    self.allow_multiple_as = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -10394,10 +10914,13 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ebgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                    ])
+                                    self.allow_multiple_as = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -10427,8 +10950,10 @@ class Bgp(Entity):
             self.yang_parent_name = "bgp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"peer-group" : ("peer_group", Bgp.PeerGroups.PeerGroup)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("peer-group", ("peer_group", Bgp.PeerGroups.PeerGroup))])
+            self._leafs = OrderedDict()
 
             self.peer_group = YList(self)
             self._segment_path = lambda: "peer-groups"
@@ -10443,7 +10968,7 @@ class Bgp(Entity):
             List of BGP peer\-groups configured on the local system \-
             uniquely identified by peer\-group name
             
-            .. attribute:: peer_group_name  <key>
+            .. attribute:: peer_group_name  (key)
             
             	Reference to the name of the BGP peer\-group used as a key in the peer\-group list
             	**type**\: str
@@ -10534,10 +11059,13 @@ class Bgp(Entity):
                 self.yang_parent_name = "peer-groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.State), "timers" : ("timers", Bgp.PeerGroups.PeerGroup.Timers), "transport" : ("transport", Bgp.PeerGroups.PeerGroup.Transport), "error-handling" : ("error_handling", Bgp.PeerGroups.PeerGroup.ErrorHandling), "graceful-restart" : ("graceful_restart", Bgp.PeerGroups.PeerGroup.GracefulRestart), "logging-options" : ("logging_options", Bgp.PeerGroups.PeerGroup.LoggingOptions), "ebgp-multihop" : ("ebgp_multihop", Bgp.PeerGroups.PeerGroup.EbgpMultihop), "route-reflector" : ("route_reflector", Bgp.PeerGroups.PeerGroup.RouteReflector), "as-path-options" : ("as_path_options", Bgp.PeerGroups.PeerGroup.AsPathOptions), "add-paths" : ("add_paths", Bgp.PeerGroups.PeerGroup.AddPaths), "use-multiple-paths" : ("use_multiple_paths", Bgp.PeerGroups.PeerGroup.UseMultiplePaths), "apply-policy" : ("apply_policy", Bgp.PeerGroups.PeerGroup.ApplyPolicy), "afi-safis" : ("afi_safis", Bgp.PeerGroups.PeerGroup.AfiSafis)}
-                self._child_list_classes = {}
-
-                self.peer_group_name = YLeaf(YType.str, "peer-group-name")
+                self.ylist_key_names = ['peer_group_name']
+                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.State)), ("timers", ("timers", Bgp.PeerGroups.PeerGroup.Timers)), ("transport", ("transport", Bgp.PeerGroups.PeerGroup.Transport)), ("error-handling", ("error_handling", Bgp.PeerGroups.PeerGroup.ErrorHandling)), ("graceful-restart", ("graceful_restart", Bgp.PeerGroups.PeerGroup.GracefulRestart)), ("logging-options", ("logging_options", Bgp.PeerGroups.PeerGroup.LoggingOptions)), ("ebgp-multihop", ("ebgp_multihop", Bgp.PeerGroups.PeerGroup.EbgpMultihop)), ("route-reflector", ("route_reflector", Bgp.PeerGroups.PeerGroup.RouteReflector)), ("as-path-options", ("as_path_options", Bgp.PeerGroups.PeerGroup.AsPathOptions)), ("add-paths", ("add_paths", Bgp.PeerGroups.PeerGroup.AddPaths)), ("use-multiple-paths", ("use_multiple_paths", Bgp.PeerGroups.PeerGroup.UseMultiplePaths)), ("apply-policy", ("apply_policy", Bgp.PeerGroups.PeerGroup.ApplyPolicy)), ("afi-safis", ("afi_safis", Bgp.PeerGroups.PeerGroup.AfiSafis))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('peer_group_name', YLeaf(YType.str, 'peer-group-name')),
+                ])
+                self.peer_group_name = None
 
                 self.config = Bgp.PeerGroups.PeerGroup.Config()
                 self.config.parent = self
@@ -10608,7 +11136,7 @@ class Bgp(Entity):
                 self.afi_safis.parent = self
                 self._children_name_map["afi_safis"] = "afi-safis"
                 self._children_yang_names.add("afi-safis")
-                self._segment_path = lambda: "peer-group" + "[peer-group-name='" + self.peer_group_name.get() + "']"
+                self._segment_path = lambda: "peer-group" + "[peer-group-name='" + str(self.peer_group_name) + "']"
                 self._absolute_path = lambda: "openconfig-bgp:bgp/peer-groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -10687,26 +11215,29 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.peer_group_name = YLeaf(YType.str, "peer-group-name")
-
-                    self.peer_as = YLeaf(YType.uint32, "peer-as")
-
-                    self.local_as = YLeaf(YType.uint32, "local-as")
-
-                    self.peer_type = YLeaf(YType.enumeration, "peer-type")
-
-                    self.auth_password = YLeaf(YType.str, "auth-password")
-
-                    self.remove_private_as = YLeaf(YType.identityref, "remove-private-as")
-
-                    self.route_flap_damping = YLeaf(YType.boolean, "route-flap-damping")
-
-                    self.send_community = YLeaf(YType.enumeration, "send-community")
-
-                    self.description = YLeaf(YType.str, "description")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_group_name', YLeaf(YType.str, 'peer-group-name')),
+                        ('peer_as', YLeaf(YType.uint32, 'peer-as')),
+                        ('local_as', YLeaf(YType.uint32, 'local-as')),
+                        ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                        ('auth_password', YLeaf(YType.str, 'auth-password')),
+                        ('remove_private_as', YLeaf(YType.identityref, 'remove-private-as')),
+                        ('route_flap_damping', YLeaf(YType.boolean, 'route-flap-damping')),
+                        ('send_community', YLeaf(YType.enumeration, 'send-community')),
+                        ('description', YLeaf(YType.str, 'description')),
+                    ])
+                    self.peer_group_name = None
+                    self.peer_as = None
+                    self.local_as = None
+                    self.peer_type = None
+                    self.auth_password = None
+                    self.remove_private_as = None
+                    self.route_flap_damping = None
+                    self.send_community = None
+                    self.description = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -10798,30 +11329,33 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.peer_group_name = YLeaf(YType.str, "peer-group-name")
-
-                    self.peer_as = YLeaf(YType.uint32, "peer-as")
-
-                    self.local_as = YLeaf(YType.uint32, "local-as")
-
-                    self.peer_type = YLeaf(YType.enumeration, "peer-type")
-
-                    self.auth_password = YLeaf(YType.str, "auth-password")
-
-                    self.remove_private_as = YLeaf(YType.identityref, "remove-private-as")
-
-                    self.route_flap_damping = YLeaf(YType.boolean, "route-flap-damping")
-
-                    self.send_community = YLeaf(YType.enumeration, "send-community")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.total_paths = YLeaf(YType.uint32, "total-paths")
-
-                    self.total_prefixes = YLeaf(YType.uint32, "total-prefixes")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_group_name', YLeaf(YType.str, 'peer-group-name')),
+                        ('peer_as', YLeaf(YType.uint32, 'peer-as')),
+                        ('local_as', YLeaf(YType.uint32, 'local-as')),
+                        ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                        ('auth_password', YLeaf(YType.str, 'auth-password')),
+                        ('remove_private_as', YLeaf(YType.identityref, 'remove-private-as')),
+                        ('route_flap_damping', YLeaf(YType.boolean, 'route-flap-damping')),
+                        ('send_community', YLeaf(YType.enumeration, 'send-community')),
+                        ('description', YLeaf(YType.str, 'description')),
+                        ('total_paths', YLeaf(YType.uint32, 'total-paths')),
+                        ('total_prefixes', YLeaf(YType.uint32, 'total-prefixes')),
+                    ])
+                    self.peer_group_name = None
+                    self.peer_as = None
+                    self.local_as = None
+                    self.peer_type = None
+                    self.auth_password = None
+                    self.remove_private_as = None
+                    self.route_flap_damping = None
+                    self.send_community = None
+                    self.description = None
+                    self.total_paths = None
+                    self.total_prefixes = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -10856,8 +11390,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.Timers.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.Timers.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.Timers.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.Timers.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.Timers.Config()
                     self.config.parent = self
@@ -10926,16 +11462,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.connect_retry = YLeaf(YType.str, "connect-retry")
-
-                        self.hold_time = YLeaf(YType.str, "hold-time")
-
-                        self.keepalive_interval = YLeaf(YType.str, "keepalive-interval")
-
-                        self.minimum_advertisement_interval = YLeaf(YType.str, "minimum-advertisement-interval")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('connect_retry', YLeaf(YType.str, 'connect-retry')),
+                            ('hold_time', YLeaf(YType.str, 'hold-time')),
+                            ('keepalive_interval', YLeaf(YType.str, 'keepalive-interval')),
+                            ('minimum_advertisement_interval', YLeaf(YType.str, 'minimum-advertisement-interval')),
+                        ])
+                        self.connect_retry = None
+                        self.hold_time = None
+                        self.keepalive_interval = None
+                        self.minimum_advertisement_interval = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -10997,16 +11536,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "timers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.connect_retry = YLeaf(YType.str, "connect-retry")
-
-                        self.hold_time = YLeaf(YType.str, "hold-time")
-
-                        self.keepalive_interval = YLeaf(YType.str, "keepalive-interval")
-
-                        self.minimum_advertisement_interval = YLeaf(YType.str, "minimum-advertisement-interval")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('connect_retry', YLeaf(YType.str, 'connect-retry')),
+                            ('hold_time', YLeaf(YType.str, 'hold-time')),
+                            ('keepalive_interval', YLeaf(YType.str, 'keepalive-interval')),
+                            ('minimum_advertisement_interval', YLeaf(YType.str, 'minimum-advertisement-interval')),
+                        ])
+                        self.connect_retry = None
+                        self.hold_time = None
+                        self.keepalive_interval = None
+                        self.minimum_advertisement_interval = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11041,8 +11583,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.Transport.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.Transport.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.Transport.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.Transport.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.Transport.Config()
                     self.config.parent = self
@@ -11111,16 +11655,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "transport"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_mss = YLeaf(YType.uint16, "tcp-mss")
-
-                        self.mtu_discovery = YLeaf(YType.boolean, "mtu-discovery")
-
-                        self.passive_mode = YLeaf(YType.boolean, "passive-mode")
-
-                        self.local_address = YLeaf(YType.str, "local-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_mss', YLeaf(YType.uint16, 'tcp-mss')),
+                            ('mtu_discovery', YLeaf(YType.boolean, 'mtu-discovery')),
+                            ('passive_mode', YLeaf(YType.boolean, 'passive-mode')),
+                            ('local_address', YLeaf(YType.str, 'local-address')),
+                        ])
+                        self.tcp_mss = None
+                        self.mtu_discovery = None
+                        self.passive_mode = None
+                        self.local_address = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11182,16 +11729,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "transport"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tcp_mss = YLeaf(YType.uint16, "tcp-mss")
-
-                        self.mtu_discovery = YLeaf(YType.boolean, "mtu-discovery")
-
-                        self.passive_mode = YLeaf(YType.boolean, "passive-mode")
-
-                        self.local_address = YLeaf(YType.str, "local-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tcp_mss', YLeaf(YType.uint16, 'tcp-mss')),
+                            ('mtu_discovery', YLeaf(YType.boolean, 'mtu-discovery')),
+                            ('passive_mode', YLeaf(YType.boolean, 'passive-mode')),
+                            ('local_address', YLeaf(YType.str, 'local-address')),
+                        ])
+                        self.tcp_mss = None
+                        self.mtu_discovery = None
+                        self.passive_mode = None
+                        self.local_address = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11226,8 +11776,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.ErrorHandling.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.ErrorHandling.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.ErrorHandling.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.ErrorHandling.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.ErrorHandling.Config()
                     self.config.parent = self
@@ -11268,10 +11820,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "error-handling"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.treat_as_withdraw = YLeaf(YType.boolean, "treat-as-withdraw")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('treat_as_withdraw', YLeaf(YType.boolean, 'treat-as-withdraw')),
+                        ])
+                        self.treat_as_withdraw = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11304,10 +11859,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "error-handling"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.treat_as_withdraw = YLeaf(YType.boolean, "treat-as-withdraw")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('treat_as_withdraw', YLeaf(YType.boolean, 'treat-as-withdraw')),
+                        ])
+                        self.treat_as_withdraw = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11342,8 +11900,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.GracefulRestart.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.GracefulRestart.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.GracefulRestart.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.GracefulRestart.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.GracefulRestart.Config()
                     self.config.parent = self
@@ -11399,16 +11959,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "graceful-restart"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                        self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                        self.helper_only = YLeaf(YType.boolean, "helper-only")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                            ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                            ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                        ])
+                        self.enabled = None
+                        self.restart_time = None
+                        self.stale_routes_time = None
+                        self.helper_only = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11457,16 +12020,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "graceful-restart"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.restart_time = YLeaf(YType.uint16, "restart-time")
-
-                        self.stale_routes_time = YLeaf(YType.str, "stale-routes-time")
-
-                        self.helper_only = YLeaf(YType.boolean, "helper-only")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('restart_time', YLeaf(YType.uint16, 'restart-time')),
+                            ('stale_routes_time', YLeaf(YType.str, 'stale-routes-time')),
+                            ('helper_only', YLeaf(YType.boolean, 'helper-only')),
+                        ])
+                        self.enabled = None
+                        self.restart_time = None
+                        self.stale_routes_time = None
+                        self.helper_only = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11502,8 +12068,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.LoggingOptions.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.LoggingOptions.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.LoggingOptions.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.LoggingOptions.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.LoggingOptions.Config()
                     self.config.parent = self
@@ -11543,10 +12111,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "logging-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_neighbor_state_changes = YLeaf(YType.boolean, "log-neighbor-state-changes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_neighbor_state_changes', YLeaf(YType.boolean, 'log-neighbor-state-changes')),
+                        ])
+                        self.log_neighbor_state_changes = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11579,10 +12150,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "logging-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.log_neighbor_state_changes = YLeaf(YType.boolean, "log-neighbor-state-changes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('log_neighbor_state_changes', YLeaf(YType.boolean, 'log-neighbor-state-changes')),
+                        ])
+                        self.log_neighbor_state_changes = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11617,8 +12191,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.EbgpMultihop.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.EbgpMultihop.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config()
                     self.config.parent = self
@@ -11665,12 +12241,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "ebgp-multihop"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.multihop_ttl = YLeaf(YType.uint8, "multihop-ttl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('multihop_ttl', YLeaf(YType.uint8, 'multihop-ttl')),
+                        ])
+                        self.enabled = None
+                        self.multihop_ttl = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11710,12 +12289,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "ebgp-multihop"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.multihop_ttl = YLeaf(YType.uint8, "multihop-ttl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('multihop_ttl', YLeaf(YType.uint8, 'multihop-ttl')),
+                        ])
+                        self.enabled = None
+                        self.multihop_ttl = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11750,8 +12332,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.RouteReflector.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.RouteReflector.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.RouteReflector.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.RouteReflector.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.RouteReflector.Config()
                     self.config.parent = self
@@ -11804,12 +12388,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "route-reflector"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_reflector_cluster_id = YLeaf(YType.str, "route-reflector-cluster-id")
-
-                        self.route_reflector_client = YLeaf(YType.boolean, "route-reflector-client")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('route_reflector_cluster_id', YLeaf(YType.str, 'route-reflector-cluster-id')),
+                            ('route_reflector_client', YLeaf(YType.boolean, 'route-reflector-client')),
+                        ])
+                        self.route_reflector_cluster_id = None
+                        self.route_reflector_client = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11855,12 +12442,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "route-reflector"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.route_reflector_cluster_id = YLeaf(YType.str, "route-reflector-cluster-id")
-
-                        self.route_reflector_client = YLeaf(YType.boolean, "route-reflector-client")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('route_reflector_cluster_id', YLeaf(YType.str, 'route-reflector-cluster-id')),
+                            ('route_reflector_client', YLeaf(YType.boolean, 'route-reflector-client')),
+                        ])
+                        self.route_reflector_cluster_id = None
+                        self.route_reflector_client = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -11896,8 +12486,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AsPathOptions.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AsPathOptions.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AsPathOptions.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AsPathOptions.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.AsPathOptions.Config()
                     self.config.parent = self
@@ -11946,12 +12538,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "as-path-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_own_as = YLeaf(YType.uint8, "allow-own-as")
-
-                        self.replace_peer_as = YLeaf(YType.boolean, "replace-peer-as")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_own_as', YLeaf(YType.uint8, 'allow-own-as')),
+                            ('replace_peer_as', YLeaf(YType.boolean, 'replace-peer-as')),
+                        ])
+                        self.allow_own_as = None
+                        self.replace_peer_as = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -11993,12 +12588,15 @@ class Bgp(Entity):
                         self.yang_parent_name = "as-path-options"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.allow_own_as = YLeaf(YType.uint8, "allow-own-as")
-
-                        self.replace_peer_as = YLeaf(YType.boolean, "replace-peer-as")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('allow_own_as', YLeaf(YType.uint8, 'allow-own-as')),
+                            ('replace_peer_as', YLeaf(YType.boolean, 'replace-peer-as')),
+                        ])
+                        self.allow_own_as = None
+                        self.replace_peer_as = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -12034,8 +12632,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AddPaths.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AddPaths.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AddPaths.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AddPaths.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.AddPaths.Config()
                     self.config.parent = self
@@ -12088,14 +12688,17 @@ class Bgp(Entity):
                         self.yang_parent_name = "add-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.receive = YLeaf(YType.boolean, "receive")
-
-                        self.send_max = YLeaf(YType.uint8, "send-max")
-
-                        self.eligible_prefix_policy = YLeaf(YType.str, "eligible-prefix-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('receive', YLeaf(YType.boolean, 'receive')),
+                            ('send_max', YLeaf(YType.uint8, 'send-max')),
+                            ('eligible_prefix_policy', YLeaf(YType.str, 'eligible-prefix-policy')),
+                        ])
+                        self.receive = None
+                        self.send_max = None
+                        self.eligible_prefix_policy = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -12141,14 +12744,17 @@ class Bgp(Entity):
                         self.yang_parent_name = "add-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.receive = YLeaf(YType.boolean, "receive")
-
-                        self.send_max = YLeaf(YType.uint8, "send-max")
-
-                        self.eligible_prefix_policy = YLeaf(YType.str, "eligible-prefix-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('receive', YLeaf(YType.boolean, 'receive')),
+                            ('send_max', YLeaf(YType.uint8, 'send-max')),
+                            ('eligible_prefix_policy', YLeaf(YType.str, 'eligible-prefix-policy')),
+                        ])
+                        self.receive = None
+                        self.send_max = None
+                        self.eligible_prefix_policy = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -12194,8 +12800,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp), "ibgp" : ("ibgp", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp)), ("ibgp", ("ibgp", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config()
                     self.config.parent = self
@@ -12244,10 +12852,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ])
+                        self.enabled = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -12279,10 +12890,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ])
+                        self.enabled = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -12317,8 +12931,10 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config()
                         self.config.parent = self
@@ -12366,12 +12982,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "ebgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                            ])
+                            self.allow_multiple_as = None
+                            self.maximum_paths = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -12412,12 +13031,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "ebgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                            ])
+                            self.allow_multiple_as = None
+                            self.maximum_paths = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -12452,8 +13074,10 @@ class Bgp(Entity):
                         self.yang_parent_name = "use-multiple-paths"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.config = Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config()
                         self.config.parent = self
@@ -12494,10 +13118,13 @@ class Bgp(Entity):
                             self.yang_parent_name = "ibgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                            ])
+                            self.maximum_paths = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -12531,10 +13158,13 @@ class Bgp(Entity):
                             self.yang_parent_name = "ibgp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                            ])
+                            self.maximum_paths = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -12572,8 +13202,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.ApplyPolicy.State)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.ApplyPolicy.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.config = Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config()
                     self.config.parent = self
@@ -12633,16 +13265,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "apply-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.import_policy = YLeafList(YType.str, "import-policy")
-
-                        self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                        self.export_policy = YLeafList(YType.str, "export-policy")
-
-                        self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('import_policy', YLeafList(YType.str, 'import-policy')),
+                            ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                            ('export_policy', YLeafList(YType.str, 'export-policy')),
+                            ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                        ])
+                        self.import_policy = []
+                        self.default_import_policy = None
+                        self.export_policy = []
+                        self.default_export_policy = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -12695,16 +13330,19 @@ class Bgp(Entity):
                         self.yang_parent_name = "apply-policy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.import_policy = YLeafList(YType.str, "import-policy")
-
-                        self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                        self.export_policy = YLeafList(YType.str, "export-policy")
-
-                        self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('import_policy', YLeafList(YType.str, 'import-policy')),
+                            ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                            ('export_policy', YLeafList(YType.str, 'export-policy')),
+                            ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                        ])
+                        self.import_policy = []
+                        self.default_import_policy = None
+                        self.export_policy = []
+                        self.default_export_policy = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -12735,8 +13373,10 @@ class Bgp(Entity):
                     self.yang_parent_name = "peer-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"afi-safi" : ("afi_safi", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("afi-safi", ("afi_safi", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi))])
+                    self._leafs = OrderedDict()
 
                     self.afi_safi = YList(self)
                     self._segment_path = lambda: "afi-safis"
@@ -12750,7 +13390,7 @@ class Bgp(Entity):
                     AFI,SAFI configuration available for the
                     neighbour or group
                     
-                    .. attribute:: afi_safi_name  <key>
+                    .. attribute:: afi_safi_name  (key)
                     
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
                     	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
@@ -12849,10 +13489,13 @@ class Bgp(Entity):
                         self.yang_parent_name = "afi-safis"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State), "graceful-restart" : ("graceful_restart", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart), "route-selection-options" : ("route_selection_options", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions), "use-multiple-paths" : ("use_multiple_paths", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths), "apply-policy" : ("apply_policy", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy), "ipv4-unicast" : ("ipv4_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast), "ipv6-unicast" : ("ipv6_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast), "ipv4-labeled-unicast" : ("ipv4_labeled_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast), "ipv6-labeled-unicast" : ("ipv6_labeled_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast), "l3vpn-ipv4-unicast" : ("l3vpn_ipv4_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast), "l3vpn-ipv6-unicast" : ("l3vpn_ipv6_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast), "l3vpn-ipv4-multicast" : ("l3vpn_ipv4_multicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast), "l3vpn-ipv6-multicast" : ("l3vpn_ipv6_multicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast), "l2vpn-vpls" : ("l2vpn_vpls", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls), "l2vpn-evpn" : ("l2vpn_evpn", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn)}
-                        self._child_list_classes = {}
-
-                        self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
+                        self.ylist_key_names = ['afi_safi_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State)), ("graceful-restart", ("graceful_restart", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart)), ("route-selection-options", ("route_selection_options", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions)), ("use-multiple-paths", ("use_multiple_paths", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths)), ("apply-policy", ("apply_policy", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy)), ("ipv4-unicast", ("ipv4_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast)), ("ipv6-unicast", ("ipv6_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast)), ("ipv4-labeled-unicast", ("ipv4_labeled_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast)), ("ipv6-labeled-unicast", ("ipv6_labeled_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast)), ("l3vpn-ipv4-unicast", ("l3vpn_ipv4_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast)), ("l3vpn-ipv6-unicast", ("l3vpn_ipv6_unicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast)), ("l3vpn-ipv4-multicast", ("l3vpn_ipv4_multicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast)), ("l3vpn-ipv6-multicast", ("l3vpn_ipv6_multicast", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast)), ("l2vpn-vpls", ("l2vpn_vpls", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls)), ("l2vpn-evpn", ("l2vpn_evpn", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                        ])
+                        self.afi_safi_name = None
 
                         self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config()
                         self.config.parent = self
@@ -12933,7 +13576,7 @@ class Bgp(Entity):
                         self.l2vpn_evpn.parent = self
                         self._children_name_map["l2vpn_evpn"] = "l2vpn-evpn"
                         self._children_yang_names.add("l2vpn-evpn")
-                        self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + self.afi_safi_name.get() + "']"
+                        self._segment_path = lambda: "afi-safi" + "[afi-safi-name='" + str(self.afi_safi_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
@@ -12969,12 +13612,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.afi_safi_name = None
+                            self.enabled = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -13011,12 +13657,15 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi_safi_name = YLeaf(YType.identityref, "afi-safi-name")
-
-                            self.enabled = YLeaf(YType.boolean, "enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi_safi_name', YLeaf(YType.identityref, 'afi-safi-name')),
+                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ])
+                            self.afi_safi_name = None
+                            self.enabled = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -13051,8 +13700,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config()
                             self.config.parent = self
@@ -13091,10 +13742,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "graceful-restart"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -13126,10 +13780,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "graceful-restart"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -13164,8 +13821,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config()
                             self.config.parent = self
@@ -13240,20 +13899,23 @@ class Bgp(Entity):
                                 self.yang_parent_name = "route-selection-options"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                                self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                                self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                                self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                                self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                                self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                                    ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                                    ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                                    ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                                    ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                                    ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                                ])
+                                self.always_compare_med = None
+                                self.ignore_as_path_length = None
+                                self.external_compare_router_id = None
+                                self.advertise_inactive_routes = None
+                                self.enable_aigp = None
+                                self.ignore_next_hop_igp_metric = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -13320,20 +13982,23 @@ class Bgp(Entity):
                                 self.yang_parent_name = "route-selection-options"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.always_compare_med = YLeaf(YType.boolean, "always-compare-med")
-
-                                self.ignore_as_path_length = YLeaf(YType.boolean, "ignore-as-path-length")
-
-                                self.external_compare_router_id = YLeaf(YType.boolean, "external-compare-router-id")
-
-                                self.advertise_inactive_routes = YLeaf(YType.boolean, "advertise-inactive-routes")
-
-                                self.enable_aigp = YLeaf(YType.boolean, "enable-aigp")
-
-                                self.ignore_next_hop_igp_metric = YLeaf(YType.boolean, "ignore-next-hop-igp-metric")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('always_compare_med', YLeaf(YType.boolean, 'always-compare-med')),
+                                    ('ignore_as_path_length', YLeaf(YType.boolean, 'ignore-as-path-length')),
+                                    ('external_compare_router_id', YLeaf(YType.boolean, 'external-compare-router-id')),
+                                    ('advertise_inactive_routes', YLeaf(YType.boolean, 'advertise-inactive-routes')),
+                                    ('enable_aigp', YLeaf(YType.boolean, 'enable-aigp')),
+                                    ('ignore_next_hop_igp_metric', YLeaf(YType.boolean, 'ignore-next-hop-igp-metric')),
+                                ])
+                                self.always_compare_med = None
+                                self.ignore_as_path_length = None
+                                self.external_compare_router_id = None
+                                self.advertise_inactive_routes = None
+                                self.enable_aigp = None
+                                self.ignore_next_hop_igp_metric = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -13379,8 +14044,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State), "ebgp" : ("ebgp", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp), "ibgp" : ("ibgp", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State)), ("ebgp", ("ebgp", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp)), ("ibgp", ("ibgp", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                             self.config.parent = self
@@ -13429,10 +14096,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -13464,10 +14134,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.enabled = YLeaf(YType.boolean, "enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                ])
+                                self.enabled = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -13502,8 +14175,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
                                 self.config.parent = self
@@ -13551,12 +14226,15 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ebgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                                    self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                        ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                    ])
+                                    self.allow_multiple_as = None
+                                    self.maximum_paths = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -13597,12 +14275,15 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ebgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.allow_multiple_as = YLeaf(YType.boolean, "allow-multiple-as")
-
-                                    self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('allow_multiple_as', YLeaf(YType.boolean, 'allow-multiple-as')),
+                                        ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                    ])
+                                    self.allow_multiple_as = None
+                                    self.maximum_paths = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -13637,8 +14318,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "use-multiple-paths"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config()
                                 self.config.parent = self
@@ -13679,10 +14362,13 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ibgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                    ])
+                                    self.maximum_paths = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -13716,10 +14402,13 @@ class Bgp(Entity):
                                     self.yang_parent_name = "ibgp"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.maximum_paths = YLeaf(YType.uint32, "maximum-paths")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
+                                    ])
+                                    self.maximum_paths = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -13757,8 +14446,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config()
                             self.config.parent = self
@@ -13818,16 +14509,19 @@ class Bgp(Entity):
                                 self.yang_parent_name = "apply-policy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.import_policy = YLeafList(YType.str, "import-policy")
-
-                                self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                                self.export_policy = YLeafList(YType.str, "export-policy")
-
-                                self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                    ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                    ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                    ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                                ])
+                                self.import_policy = []
+                                self.default_import_policy = None
+                                self.export_policy = []
+                                self.default_export_policy = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -13880,16 +14574,19 @@ class Bgp(Entity):
                                 self.yang_parent_name = "apply-policy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.import_policy = YLeafList(YType.str, "import-policy")
-
-                                self.default_import_policy = YLeaf(YType.enumeration, "default-import-policy")
-
-                                self.export_policy = YLeafList(YType.str, "export-policy")
-
-                                self.default_export_policy = YLeaf(YType.enumeration, "default-export-policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('import_policy', YLeafList(YType.str, 'import-policy')),
+                                    ('default_import_policy', YLeaf(YType.enumeration, 'default-import-policy')),
+                                    ('export_policy', YLeafList(YType.str, 'export-policy')),
+                                    ('default_export_policy', YLeaf(YType.enumeration, 'default-export-policy')),
+                                ])
+                                self.import_policy = []
+                                self.default_import_policy = None
+                                self.export_policy = []
+                                self.default_export_policy = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -13929,8 +14626,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit), "config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit)), ("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -13978,8 +14677,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -14035,14 +14736,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -14091,14 +14795,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -14131,10 +14838,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -14167,10 +14877,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -14210,8 +14923,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit), "config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit)), ("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -14259,8 +14974,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -14316,14 +15033,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -14372,14 +15092,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -14412,10 +15135,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -14448,10 +15174,13 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.send_default_route = YLeaf(YType.boolean, "send-default-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('send_default_route', YLeaf(YType.boolean, 'send-default-route')),
+                                ])
+                                self.send_default_route = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -14481,8 +15210,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -14520,8 +15251,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv4-labeled-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabeledUnicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -14577,14 +15310,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -14633,14 +15369,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -14670,8 +15409,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -14709,8 +15450,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "ipv6-labeled-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabeledUnicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -14766,14 +15509,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -14822,14 +15568,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -14859,8 +15608,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -14898,8 +15649,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv4-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -14955,14 +15708,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15011,14 +15767,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -15048,8 +15807,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -15087,8 +15848,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv6-unicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -15144,14 +15907,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15200,14 +15966,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -15237,8 +16006,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -15276,8 +16047,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv4-multicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -15333,14 +16106,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15389,14 +16165,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -15426,8 +16205,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -15465,8 +16246,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l3vpn-ipv6-multicast"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
                                 self.config.parent = self
@@ -15522,14 +16305,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15578,14 +16364,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -15615,8 +16404,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -15654,8 +16445,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l2vpn-vpls"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
                                 self.config.parent = self
@@ -15711,14 +16504,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15767,14 +16563,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -15804,8 +16603,10 @@ class Bgp(Entity):
                             self.yang_parent_name = "afi-safi"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"prefix-limit" : ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("prefix-limit", ("prefix_limit", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.prefix_limit = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
                             self.prefix_limit.parent = self
@@ -15843,8 +16644,10 @@ class Bgp(Entity):
                                 self.yang_parent_name = "l2vpn-evpn"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config), "state" : ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config)), ("state", ("state", Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
                                 self.config.parent = self
@@ -15900,14 +16703,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -15956,14 +16762,17 @@ class Bgp(Entity):
                                     self.yang_parent_name = "prefix-limit"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.max_prefixes = YLeaf(YType.uint32, "max-prefixes")
-
-                                    self.shutdown_threshold_pct = YLeaf(YType.uint8, "shutdown-threshold-pct")
-
-                                    self.restart_timer = YLeaf(YType.str, "restart-timer")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('max_prefixes', YLeaf(YType.uint32, 'max-prefixes')),
+                                        ('shutdown_threshold_pct', YLeaf(YType.uint8, 'shutdown-threshold-pct')),
+                                        ('restart_timer', YLeaf(YType.str, 'restart-timer')),
+                                    ])
+                                    self.max_prefixes = None
+                                    self.shutdown_threshold_pct = None
+                                    self.restart_timer = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):

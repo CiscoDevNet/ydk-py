@@ -10,6 +10,8 @@ this MIB module is part of RFC 4363; See the RFC itself for
 full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -18,7 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EnabledStatus(Enum):
     """
-    EnabledStatus
+    EnabledStatus (Enum Class)
 
     A simple status value for the object.
 
@@ -83,8 +85,10 @@ class PBRIDGEMIB(Entity):
         self.yang_parent_name = "P-BRIDGE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dot1dExtBase" : ("dot1dextbase", PBRIDGEMIB.Dot1Dextbase), "dot1dTpHCPortTable" : ("dot1dtphcporttable", PBRIDGEMIB.Dot1Dtphcporttable), "dot1dTpPortOverflowTable" : ("dot1dtpportoverflowtable", PBRIDGEMIB.Dot1Dtpportoverflowtable), "dot1dUserPriorityRegenTable" : ("dot1duserpriorityregentable", PBRIDGEMIB.Dot1Duserpriorityregentable), "dot1dTrafficClassTable" : ("dot1dtrafficclasstable", PBRIDGEMIB.Dot1Dtrafficclasstable), "dot1dPortOutboundAccessPriorityTable" : ("dot1dportoutboundaccessprioritytable", PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dot1dExtBase", ("dot1dextbase", PBRIDGEMIB.Dot1Dextbase)), ("dot1dTpHCPortTable", ("dot1dtphcporttable", PBRIDGEMIB.Dot1Dtphcporttable)), ("dot1dTpPortOverflowTable", ("dot1dtpportoverflowtable", PBRIDGEMIB.Dot1Dtpportoverflowtable)), ("dot1dUserPriorityRegenTable", ("dot1duserpriorityregentable", PBRIDGEMIB.Dot1Duserpriorityregentable)), ("dot1dTrafficClassTable", ("dot1dtrafficclasstable", PBRIDGEMIB.Dot1Dtrafficclasstable)), ("dot1dPortOutboundAccessPriorityTable", ("dot1dportoutboundaccessprioritytable", PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dot1dextbase = PBRIDGEMIB.Dot1Dextbase()
         self.dot1dextbase.parent = self
@@ -151,14 +155,17 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.dot1ddevicecapabilities = YLeaf(YType.bits, "dot1dDeviceCapabilities")
-
-            self.dot1dtrafficclassesenabled = YLeaf(YType.boolean, "dot1dTrafficClassesEnabled")
-
-            self.dot1dgmrpstatus = YLeaf(YType.enumeration, "dot1dGmrpStatus")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('dot1ddevicecapabilities', YLeaf(YType.bits, 'dot1dDeviceCapabilities')),
+                ('dot1dtrafficclassesenabled', YLeaf(YType.boolean, 'dot1dTrafficClassesEnabled')),
+                ('dot1dgmrpstatus', YLeaf(YType.enumeration, 'dot1dGmrpStatus')),
+            ])
+            self.dot1ddevicecapabilities = Bits()
+            self.dot1dtrafficclassesenabled = None
+            self.dot1dgmrpstatus = None
             self._segment_path = lambda: "dot1dExtBase"
             self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/%s" % self._segment_path()
 
@@ -191,8 +198,10 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1dTpHCPortEntry" : ("dot1dtphcportentry", PBRIDGEMIB.Dot1Dtphcporttable.Dot1Dtphcportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1dTpHCPortEntry", ("dot1dtphcportentry", PBRIDGEMIB.Dot1Dtphcporttable.Dot1Dtphcportentry))])
+            self._leafs = OrderedDict()
 
             self.dot1dtphcportentry = YList(self)
             self._segment_path = lambda: "dot1dTpHCPortTable"
@@ -207,7 +216,7 @@ class PBRIDGEMIB(Entity):
             Statistics information for each high\-capacity port of a
             transparent bridge.
             
-            .. attribute:: dot1dtpport  <key>
+            .. attribute:: dot1dtpport  (key)
             
             	
             	**type**\: int
@@ -251,17 +260,20 @@ class PBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1dTpHCPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dtpport = YLeaf(YType.str, "dot1dTpPort")
-
-                self.dot1dtphcportinframes = YLeaf(YType.uint64, "dot1dTpHCPortInFrames")
-
-                self.dot1dtphcportoutframes = YLeaf(YType.uint64, "dot1dTpHCPortOutFrames")
-
-                self.dot1dtphcportindiscards = YLeaf(YType.uint64, "dot1dTpHCPortInDiscards")
-                self._segment_path = lambda: "dot1dTpHCPortEntry" + "[dot1dTpPort='" + self.dot1dtpport.get() + "']"
+                self.ylist_key_names = ['dot1dtpport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dtpport', YLeaf(YType.str, 'dot1dTpPort')),
+                    ('dot1dtphcportinframes', YLeaf(YType.uint64, 'dot1dTpHCPortInFrames')),
+                    ('dot1dtphcportoutframes', YLeaf(YType.uint64, 'dot1dTpHCPortOutFrames')),
+                    ('dot1dtphcportindiscards', YLeaf(YType.uint64, 'dot1dTpHCPortInDiscards')),
+                ])
+                self.dot1dtpport = None
+                self.dot1dtphcportinframes = None
+                self.dot1dtphcportoutframes = None
+                self.dot1dtphcportindiscards = None
+                self._segment_path = lambda: "dot1dTpHCPortEntry" + "[dot1dTpPort='" + str(self.dot1dtpport) + "']"
                 self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/dot1dTpHCPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -303,8 +315,10 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1dTpPortOverflowEntry" : ("dot1dtpportoverflowentry", PBRIDGEMIB.Dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1dTpPortOverflowEntry", ("dot1dtpportoverflowentry", PBRIDGEMIB.Dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry))])
+            self._leafs = OrderedDict()
 
             self.dot1dtpportoverflowentry = YList(self)
             self._segment_path = lambda: "dot1dTpPortOverflowTable"
@@ -321,7 +335,7 @@ class PBRIDGEMIB(Entity):
             associated with a corresponding object in dot1dTpPortTable
             that indicates the least significant bits of the counter.
             
-            .. attribute:: dot1dtpport  <key>
+            .. attribute:: dot1dtpport  (key)
             
             	
             	**type**\: int
@@ -365,17 +379,20 @@ class PBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1dTpPortOverflowTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dtpport = YLeaf(YType.str, "dot1dTpPort")
-
-                self.dot1dtpportinoverflowframes = YLeaf(YType.uint32, "dot1dTpPortInOverflowFrames")
-
-                self.dot1dtpportoutoverflowframes = YLeaf(YType.uint32, "dot1dTpPortOutOverflowFrames")
-
-                self.dot1dtpportinoverflowdiscards = YLeaf(YType.uint32, "dot1dTpPortInOverflowDiscards")
-                self._segment_path = lambda: "dot1dTpPortOverflowEntry" + "[dot1dTpPort='" + self.dot1dtpport.get() + "']"
+                self.ylist_key_names = ['dot1dtpport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dtpport', YLeaf(YType.str, 'dot1dTpPort')),
+                    ('dot1dtpportinoverflowframes', YLeaf(YType.uint32, 'dot1dTpPortInOverflowFrames')),
+                    ('dot1dtpportoutoverflowframes', YLeaf(YType.uint32, 'dot1dTpPortOutOverflowFrames')),
+                    ('dot1dtpportinoverflowdiscards', YLeaf(YType.uint32, 'dot1dTpPortInOverflowDiscards')),
+                ])
+                self.dot1dtpport = None
+                self.dot1dtpportinoverflowframes = None
+                self.dot1dtpportoutoverflowframes = None
+                self.dot1dtpportinoverflowdiscards = None
+                self._segment_path = lambda: "dot1dTpPortOverflowEntry" + "[dot1dTpPort='" + str(self.dot1dtpport) + "']"
                 self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/dot1dTpPortOverflowTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -411,8 +428,10 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1dUserPriorityRegenEntry" : ("dot1duserpriorityregenentry", PBRIDGEMIB.Dot1Duserpriorityregentable.Dot1Duserpriorityregenentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1dUserPriorityRegenEntry", ("dot1duserpriorityregenentry", PBRIDGEMIB.Dot1Duserpriorityregentable.Dot1Duserpriorityregenentry))])
+            self._leafs = OrderedDict()
 
             self.dot1duserpriorityregenentry = YList(self)
             self._segment_path = lambda: "dot1dUserPriorityRegenTable"
@@ -427,7 +446,7 @@ class PBRIDGEMIB(Entity):
             A mapping of incoming User Priority to a Regenerated
             User Priority.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -436,7 +455,7 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1duserpriority  <key>
+            .. attribute:: dot1duserpriority  (key)
             
             	The User Priority for a frame received on this port
             	**type**\: int
@@ -464,15 +483,18 @@ class PBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1dUserPriorityRegenTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1duserpriority = YLeaf(YType.int32, "dot1dUserPriority")
-
-                self.dot1dregenuserpriority = YLeaf(YType.int32, "dot1dRegenUserPriority")
-                self._segment_path = lambda: "dot1dUserPriorityRegenEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1dUserPriority='" + self.dot1duserpriority.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1duserpriority']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1duserpriority', YLeaf(YType.int32, 'dot1dUserPriority')),
+                    ('dot1dregenuserpriority', YLeaf(YType.int32, 'dot1dRegenUserPriority')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1duserpriority = None
+                self.dot1dregenuserpriority = None
+                self._segment_path = lambda: "dot1dUserPriorityRegenEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1dUserPriority='" + str(self.dot1duserpriority) + "']"
                 self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/dot1dUserPriorityRegenTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -504,8 +526,10 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1dTrafficClassEntry" : ("dot1dtrafficclassentry", PBRIDGEMIB.Dot1Dtrafficclasstable.Dot1Dtrafficclassentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1dTrafficClassEntry", ("dot1dtrafficclassentry", PBRIDGEMIB.Dot1Dtrafficclasstable.Dot1Dtrafficclassentry))])
+            self._leafs = OrderedDict()
 
             self.dot1dtrafficclassentry = YList(self)
             self._segment_path = lambda: "dot1dTrafficClassTable"
@@ -519,7 +543,7 @@ class PBRIDGEMIB(Entity):
             """
             User Priority to Traffic Class mapping.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -528,7 +552,7 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1dtrafficclasspriority  <key>
+            .. attribute:: dot1dtrafficclasspriority  (key)
             
             	The Priority value determined for the received frame. This value is equivalent to the priority indicated in the tagged frame received, or one of the evaluated priorities, determined according to the media\-type.  For untagged frames received from Ethernet media, this value is equal to the dot1dPortDefaultUserPriority value for the ingress port.  For untagged frames received from non\-Ethernet media, this value is equal to the dot1dRegenUserPriority value for the ingress port and media\-specific user priority
             	**type**\: int
@@ -556,15 +580,18 @@ class PBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1dTrafficClassTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1dtrafficclasspriority = YLeaf(YType.int32, "dot1dTrafficClassPriority")
-
-                self.dot1dtrafficclass = YLeaf(YType.int32, "dot1dTrafficClass")
-                self._segment_path = lambda: "dot1dTrafficClassEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1dTrafficClassPriority='" + self.dot1dtrafficclasspriority.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1dtrafficclasspriority']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1dtrafficclasspriority', YLeaf(YType.int32, 'dot1dTrafficClassPriority')),
+                    ('dot1dtrafficclass', YLeaf(YType.int32, 'dot1dTrafficClass')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1dtrafficclasspriority = None
+                self.dot1dtrafficclass = None
+                self._segment_path = lambda: "dot1dTrafficClassEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1dTrafficClassPriority='" + str(self.dot1dtrafficclasspriority) + "']"
                 self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/dot1dTrafficClassTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -596,8 +623,10 @@ class PBRIDGEMIB(Entity):
             self.yang_parent_name = "P-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1dPortOutboundAccessPriorityEntry" : ("dot1dportoutboundaccesspriorityentry", PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1dPortOutboundAccessPriorityEntry", ("dot1dportoutboundaccesspriorityentry", PBRIDGEMIB.Dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry))])
+            self._leafs = OrderedDict()
 
             self.dot1dportoutboundaccesspriorityentry = YList(self)
             self._segment_path = lambda: "dot1dPortOutboundAccessPriorityTable"
@@ -612,7 +641,7 @@ class PBRIDGEMIB(Entity):
             Regenerated User Priority to Outbound Access Priority
             mapping.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -621,7 +650,7 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1dregenuserpriority  <key>
+            .. attribute:: dot1dregenuserpriority  (key)
             
             	
             	**type**\: int
@@ -651,15 +680,18 @@ class PBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1dPortOutboundAccessPriorityTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1dregenuserpriority = YLeaf(YType.str, "dot1dRegenUserPriority")
-
-                self.dot1dportoutboundaccesspriority = YLeaf(YType.int32, "dot1dPortOutboundAccessPriority")
-                self._segment_path = lambda: "dot1dPortOutboundAccessPriorityEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1dRegenUserPriority='" + self.dot1dregenuserpriority.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1dregenuserpriority']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1dregenuserpriority', YLeaf(YType.str, 'dot1dRegenUserPriority')),
+                    ('dot1dportoutboundaccesspriority', YLeaf(YType.int32, 'dot1dPortOutboundAccessPriority')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1dregenuserpriority = None
+                self.dot1dportoutboundaccesspriority = None
+                self._segment_path = lambda: "dot1dPortOutboundAccessPriorityEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1dRegenUserPriority='" + str(self.dot1dregenuserpriority) + "']"
                 self._absolute_path = lambda: "P-BRIDGE-MIB:P-BRIDGE-MIB/dot1dPortOutboundAccessPriorityTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

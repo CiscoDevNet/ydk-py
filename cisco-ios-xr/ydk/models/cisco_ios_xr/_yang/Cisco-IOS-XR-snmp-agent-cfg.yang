@@ -1,525 +1,626 @@
 module Cisco-IOS-XR-snmp-agent-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-cfg";
+  prefix snmp-agent-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  prefix "snmp-agent-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR snmp-agent package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        snmp: The heirarchy point for all the SNMP configurations
        mib: mib
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-12-20 {
+    description
+      "Removed nonstateful class from correlator config";
+  }
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-10-27" {
+  revision 2015-10-27 {
     description
       "IOS XR 5.3.2 revision.";
   }
-
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
   typedef Snmp-tos {
     type enumeration {
-      enum precedence {
+      enum "precedence" {
         value 0;
-        description "SNMP TOS type Precedence";
+        description
+          "SNMP TOS type Precedence";
       }
-      enum dscp {
+      enum "dscp" {
         value 1;
-        description "SNMP TOS type DSCP";
+        description
+          "SNMP TOS type DSCP";
       }
     }
-    description "Snmp tos";
+    description
+      "Snmp tos";
   }
+
   typedef Snmp-hash-algorithm {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No authentication required";
+        description
+          "No authentication required";
       }
-      enum md5 {
+      enum "md5" {
         value 1;
-        description "Standard Message Digest algorithm";
+        description
+          "Standard Message Digest algorithm";
       }
-      enum sha {
+      enum "sha" {
         value 2;
-        description "SHA algorithm";
+        description
+          "SHA algorithm";
       }
     }
-    description "Snmp hash algorithm";
+    description
+      "Snmp hash algorithm";
   }
+
   typedef Snmp-priv-algorithm {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No Privacy";
+        description
+          "No Privacy";
       }
-      enum des {
+      enum "des" {
         value 1;
-        description "Des algorithm";
+        description
+          "Des algorithm";
       }
-      enum 3des {
+      enum "3des" {
         value 2;
-        description "3des algorithm";
+        description
+          "3des algorithm";
       }
-      enum aes128 {
+      enum "aes128" {
         value 3;
-        description "aes128 algorithm";
+        description
+          "aes128 algorithm";
       }
-      enum aes192 {
+      enum "aes192" {
         value 4;
-        description "aes192 algorithm";
+        description
+          "aes192 algorithm";
       }
-      enum aes256 {
+      enum "aes256" {
         value 5;
-        description "aes256 algorithm";
+        description
+          "aes256 algorithm";
       }
     }
-    description "Snmp priv algorithm";
+    description
+      "Snmp priv algorithm";
   }
+
   typedef Snmp-owner-access {
     type enumeration {
-      enum sdr-owner {
+      enum "sdr-owner" {
         value 0;
-        description "Secure Domain Router Owner permissions";
+        description
+          "Secure Domain Router Owner permissions";
       }
-      enum system-owner {
+      enum "system-owner" {
         value 1;
-        description "System owner permissions";
+        description
+          "System owner permissions";
       }
     }
-    description "Snmp owner access";
+    description
+      "Snmp owner access";
   }
+
   typedef Snmp-bulkstat-schema {
     type enumeration {
-      enum exact-interface {
+      enum "exact-interface" {
         value 1;
-        description "Exact Interface";
+        description
+          "Exact Interface";
       }
-      enum exact-oid {
+      enum "exact-oid" {
         value 2;
-        description "Exact OID";
+        description
+          "Exact OID";
       }
-      enum wild-interface {
+      enum "wild-interface" {
         value 3;
-        description "Wild Interface";
+        description
+          "Wild Interface";
       }
-      enum wild-oid {
+      enum "wild-oid" {
         value 4;
-        description "Wild OID";
+        description
+          "Wild OID";
       }
-      enum range-oid {
+      enum "range-oid" {
         value 5;
-        description "Range of OID";
+        description
+          "Range of OID";
       }
-      enum repeat-oid {
+      enum "repeat-oid" {
         value 6;
-        description "Repeated the instance";
+        description
+          "Repeated the instance";
       }
     }
-    description "Snmp bulkstat schema";
+    description
+      "Snmp bulkstat schema";
   }
+
   typedef Snmpacl {
     type enumeration {
-      enum ipv4 {
+      enum "ipv4" {
         value 1;
-        description "Ipv4 Access-list";
+        description
+          "Ipv4 Access-list";
       }
-      enum ipv6 {
+      enum "ipv6" {
         value 2;
-        description "Ipv6 Access-list";
+        description
+          "Ipv6 Access-list";
       }
     }
-    description "Snmpacl";
+    description
+      "Snmpacl";
   }
+
   typedef Snmp-dscp-value {
     type union {
       type enumeration {
-        enum default {
+        enum "default" {
           value 0;
-          description "Applicable to DSCP: bits 000000";
+          description
+            "Applicable to DSCP: bits 000000";
         }
-        enum af11 {
+        enum "af11" {
           value 10;
-          description "Applicable to DSCP: bits 001010";
+          description
+            "Applicable to DSCP: bits 001010";
         }
-        enum af12 {
+        enum "af12" {
           value 12;
-          description "Applicable to DSCP: bits 001100";
+          description
+            "Applicable to DSCP: bits 001100";
         }
-        enum af13 {
+        enum "af13" {
           value 14;
-          description "Applicable to DSCP: bits 001110";
+          description
+            "Applicable to DSCP: bits 001110";
         }
-        enum af21 {
+        enum "af21" {
           value 18;
-          description "Applicable to DSCP: bits 010010";
+          description
+            "Applicable to DSCP: bits 010010";
         }
-        enum af22 {
+        enum "af22" {
           value 20;
-          description "Applicable to DSCP: bits 010100";
+          description
+            "Applicable to DSCP: bits 010100";
         }
-        enum af23 {
+        enum "af23" {
           value 22;
-          description "Applicable to DSCP: bits 010110";
+          description
+            "Applicable to DSCP: bits 010110";
         }
-        enum af31 {
+        enum "af31" {
           value 26;
-          description "Applicable to DSCP: bits 011010";
+          description
+            "Applicable to DSCP: bits 011010";
         }
-        enum af32 {
+        enum "af32" {
           value 28;
-          description "Applicable to DSCP: bits 011100";
+          description
+            "Applicable to DSCP: bits 011100";
         }
-        enum af33 {
+        enum "af33" {
           value 30;
-          description "Applicable to DSCP: bits 011110";
+          description
+            "Applicable to DSCP: bits 011110";
         }
-        enum af41 {
+        enum "af41" {
           value 34;
-          description "Applicable to DSCP: bits 100010";
+          description
+            "Applicable to DSCP: bits 100010";
         }
-        enum af42 {
+        enum "af42" {
           value 36;
-          description "Applicable to DSCP: bits 100100";
+          description
+            "Applicable to DSCP: bits 100100";
         }
-        enum af43 {
+        enum "af43" {
           value 38;
-          description "Applicable to DSCP: bits 100110";
+          description
+            "Applicable to DSCP: bits 100110";
         }
-        enum ef {
+        enum "ef" {
           value 46;
-          description "Applicable to DSCP: bits 101110";
+          description
+            "Applicable to DSCP: bits 101110";
         }
-        enum cs1 {
+        enum "cs1" {
           value 8;
-          description "Applicable to DSCP: bits 001000";
+          description
+            "Applicable to DSCP: bits 001000";
         }
-        enum cs2 {
+        enum "cs2" {
           value 16;
-          description "Applicable to DSCP: bits 010000";
+          description
+            "Applicable to DSCP: bits 010000";
         }
-        enum cs3 {
+        enum "cs3" {
           value 24;
-          description "Applicable to DSCP: bits 011000";
+          description
+            "Applicable to DSCP: bits 011000";
         }
-        enum cs4 {
+        enum "cs4" {
           value 32;
-          description "Applicable to DSCP: bits 100000";
+          description
+            "Applicable to DSCP: bits 100000";
         }
-        enum cs5 {
+        enum "cs5" {
           value 40;
-          description "Applicable to DSCP: bits 101000";
+          description
+            "Applicable to DSCP: bits 101000";
         }
-        enum cs6 {
+        enum "cs6" {
           value 48;
-          description "Applicable to DSCP: bits 110000";
+          description
+            "Applicable to DSCP: bits 110000";
         }
-        enum cs7 {
+        enum "cs7" {
           value 56;
-          description "Applicable to DSCP: bits 111000";
+          description
+            "Applicable to DSCP: bits 111000";
         }
       }
       type uint32 {
         range "0..63";
       }
     }
-    description "Snmp dscp value";
+    description
+      "Snmp dscp value";
   }
+
   typedef Snmp-precedence-value1 {
     type union {
       type enumeration {
-        enum routine {
+        enum "routine" {
           value 0;
-          description "Applicable to Precedence: value 0";
+          description
+            "Applicable to Precedence: value 0";
         }
-        enum priority {
+        enum "priority" {
           value 1;
-          description "Applicable to Precedence: value 1";
+          description
+            "Applicable to Precedence: value 1";
         }
-        enum immediate {
+        enum "immediate" {
           value 2;
-          description "Applicable to Precedence: value 2";
+          description
+            "Applicable to Precedence: value 2";
         }
-        enum flash {
+        enum "flash" {
           value 3;
-          description "Applicable to Precedence: value 3";
+          description
+            "Applicable to Precedence: value 3";
         }
-        enum flash-override {
+        enum "flash-override" {
           value 4;
-          description "Applicable to Precedence: value 4";
+          description
+            "Applicable to Precedence: value 4";
         }
-        enum critical {
+        enum "critical" {
           value 5;
-          description "Applicable to Precedence: value 5";
+          description
+            "Applicable to Precedence: value 5";
         }
-        enum internet {
+        enum "internet" {
           value 6;
-          description "Applicable to Precedence: value 6";
+          description
+            "Applicable to Precedence: value 6";
         }
-        enum network {
+        enum "network" {
           value 7;
-          description "Applicable to Precedence: value 7";
+          description
+            "Applicable to Precedence: value 7";
         }
       }
       type uint32 {
         range "0..7";
       }
     }
-    description "Snmp precedence value1";
+    description
+      "Snmp precedence value1";
   }
+
   typedef Snmp-security-model {
     type enumeration {
-      enum no-authentication {
+      enum "no-authentication" {
         value 0;
-        description "No Authentication required";
+        description
+          "No Authentication required";
       }
-      enum authentication {
+      enum "authentication" {
         value 1;
         description
           "Authentication password alone required for
-          access";
+           access";
       }
-      enum privacy {
+      enum "privacy" {
         value 2;
         description
           "Authentication and privacy password required
-          for access";
+           for access";
       }
     }
-    description "Snmp security model";
+    description
+      "Snmp security model";
   }
+
   typedef Snmp-mib-view-inclusion {
     type enumeration {
-      enum included {
+      enum "included" {
         value 1;
-        description "MIB View to be included";
+        description
+          "MIB View to be included";
       }
-      enum excluded {
+      enum "excluded" {
         value 2;
-        description "MIB View to be excluded";
+        description
+          "MIB View to be excluded";
       }
     }
-    description "Snmp mib view inclusion";
+    description
+      "Snmp mib view inclusion";
   }
+
   typedef Snmp-bulkstat-file-format {
     type enumeration {
-      enum schema-ascii {
+      enum "schema-ascii" {
         value 1;
-        description "Tranfer file in schema Ascii format";
+        description
+          "Tranfer file in schema Ascii format";
       }
-      enum bulk-ascii {
+      enum "bulk-ascii" {
         value 2;
-        description "Tranfer file in Bulk Ascii format";
+        description
+          "Tranfer file in Bulk Ascii format";
       }
-      enum bulk-binary {
+      enum "bulk-binary" {
         value 3;
-        description "Tranfer file in Bulk binary format";
+        description
+          "Tranfer file in Bulk binary format";
       }
     }
-    description "Snmp bulkstat file format";
+    description
+      "Snmp bulkstat file format";
   }
+
   typedef Snmp-access-level {
     type enumeration {
-      enum read-only {
+      enum "read-only" {
         value 0;
-        description "Read Only Access for a community string";
+        description
+          "Read Only Access for a community string";
       }
-      enum read-write {
+      enum "read-write" {
         value 1;
-        description "Read Write Access for a community string";
+        description
+          "Read Write Access for a community string";
       }
     }
-    description "Snmp access level";
+    description
+      "Snmp access level";
   }
+
   typedef Snmp-context {
     type enumeration {
-      enum vrf {
+      enum "vrf" {
         value 1;
-        description "VRF feature";
+        description
+          "VRF feature";
       }
-      enum bridge {
+      enum "bridge" {
         value 4;
-        description "BRIDGE feature";
+        description
+          "BRIDGE feature";
       }
-      enum ospf {
+      enum "ospf" {
         value 5;
-        description "OSPF feature";
+        description
+          "OSPF feature";
       }
-      enum ospfv3 {
+      enum "ospfv3" {
         value 6;
-        description "OSPFv3 feature";
+        description
+          "OSPFv3 feature";
       }
     }
-    description "Snmp context";
+    description
+      "Snmp context";
   }
+
   typedef Group-snmp-version {
     type enumeration {
-      enum v1 {
+      enum "v1" {
         value 0;
-        description "SNMP version 1";
+        description
+          "SNMP version 1";
       }
-      enum v2c {
+      enum "v2c" {
         value 1;
-        description "SNMP version 2";
+        description
+          "SNMP version 2";
       }
-      enum v3 {
+      enum "v3" {
         value 2;
-        description "SNMP version 3";
+        description
+          "SNMP version 3";
       }
     }
-    description "Group snmp version";
+    description
+      "Group snmp version";
   }
+
   typedef User-snmp-version {
     type enumeration {
-      enum v1 {
+      enum "v1" {
         value 1;
-        description "SNMP version 1";
+        description
+          "SNMP version 1";
       }
-      enum v2c {
+      enum "v2c" {
         value 2;
-        description "SNMP version 2";
+        description
+          "SNMP version 2";
       }
-      enum v3 {
+      enum "v3" {
         value 3;
-        description "SNMP version 3";
+        description
+          "SNMP version 3";
       }
     }
-    description "User snmp version";
+    description
+      "User snmp version";
   }
 
   grouping APPLIED-TO {
-    description "Common node of rule, rule-set";
-
+    description
+      "Common node of rule, rule-set";
     container applied-to {
-      description "Applied to the Rule or Ruleset";
-
+      description
+        "Applied to the Rule or Ruleset";
       container hosts {
-        description "Table of configured hosts to apply rules to";
-
+        description
+          "Table of configured hosts to apply rules to";
         list host {
           key "ip-address port";
-          description "A destination host";
+          description
+            "A destination host";
           leaf ip-address {
             type inet:ip-address-no-zone;
-            description "IP address";
+            description
+              "IP address";
           }
           leaf port {
             type xr:Cisco-ios-xr-port-number;
-            description "Port (specify 162 for default)";
+            description
+              "Port (specify 162 for default)";
           }
         }
       }
       leaf all {
         type empty;
-        description "Apply to all of the device";
+        description
+          "Apply to all of the device";
       }
     }
   }
 
   grouping CONTEXT-TABLE {
-    description "Common node of snmp, vrf";
-
+    description
+      "Common node of snmp, vrf";
     container contexts {
-      description "List of Context Names";
-
+      description
+        "List of Context Names";
       list context {
         key "context-name";
-        description "Context Name";
+        description
+          "Context Name";
         leaf context-name {
           type xr:Cisco-ios-xr-string;
-          description "Context Name";
+          description
+            "Context Name";
         }
       }
     }
   }
 
   grouping VAR-BIND-TABLE {
-    description "Common node of root-cause, non-root-cause";
-
+    description
+      "Common node of root-cause, non-root-cause";
     container var-binds {
-      description "Varbinds to match";
-
+      description
+        "Varbinds to match";
       list var-bind {
         key "oid";
-        description "Varbind match conditions";
-
+        description
+          "Varbind match conditions";
         container match {
-          description "VarBind match conditions";
+          description
+            "VarBind match conditions";
           leaf value {
             type string;
-            description "Regular Expression to match value";
+            description
+              "Regular Expression to match value";
           }
           leaf index {
             type string;
-            description "Regular Expression to match index";
+            description
+              "Regular Expression to match index";
           }
         }
         leaf oid {
           type string;
-          description "OID of varbind (dotted decimal)";
+          description
+            "OID of varbind (dotted decimal)";
         }
       }
     }
   }
 
   grouping TRAP-HOST-TABLE {
-    description "Common node of snmp, vrf";
-
+    description
+      "Common node of snmp, vrf";
     container trap-hosts {
-      description "Specify hosts to receive SNMP notifications";
-
+      description
+        "Specify hosts to receive SNMP notifications";
       list trap-host {
         key "ip-address";
-        description "Specify hosts to receive SNMP notifications";
-
+        description
+          "Specify hosts to receive SNMP notifications";
         container encrypted-user-communities {
           description
             "Container class for defining Clear/encrypt
-            communities for a trap host";
-
+             communities for a trap host";
           list encrypted-user-community {
             key "community-name";
             description
               "Clear/Encrypt Community name associated with
-              a trap host";
+               a trap host";
             leaf community-name {
               type xr:Cisco-ios-xr-string;
               description
@@ -527,12 +628,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf port {
               type xr:Cisco-ios-xr-port-number;
-              description "UDP port number";
+              description
+                "UDP port number";
             }
             leaf version {
               type string;
               mandatory true;
-              description "SNMP Version to be used v1/v2c/v3";
+              description
+                "SNMP Version to be used v1/v2c/v3";
             }
             leaf security-level {
               type Snmp-security-model;
@@ -544,49 +647,46 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setBasicTrapTypes is used for
-                all traps except copy-completeSet this value
-                to an integer corresponding to the trapBGP
-                8192, CONFIG 4096,SYSLOG 131072,SNMP_TRAP
-                1COPY_COMPLETE_TRAP 64To provide a
-                combination of trap Add the respective
-                numbersValue must be set to 0 for all traps";
+                 needs to be setBasicTrapTypes is used for
+                 all traps except copy-completeSet this value
+                 to an integer corresponding to the trapBGP
+                 8192, CONFIG 4096,SYSLOG 131072,SNMP_TRAP
+                 1COPY_COMPLETE_TRAP 64To provide a
+                 combination of trap Add the respective
+                 numbersValue must be set to 0 for all traps";
             }
             leaf advanced-trap-types1 {
               type int32;
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setUse this for providing
-                copy-complete trapValue must be set to 0 if
-                not used";
+                 needs to be setUse this for providing
+                 copy-complete trapValue must be set to 0 if
+                 not used";
             }
             leaf advanced-trap-types2 {
               type int32;
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setvalue should always to set as
-                0";
+                 needs to be setvalue should always to set as
+                 0";
             }
           }
         }
-
         container inform-host {
           description
             "Container class for defining notification type
-            for a Inform host";
-
+             for a Inform host";
           container inform-user-communities {
             description
               "Container class for defining communities for
-              a inform host";
-
+               a inform host";
             list inform-user-community {
               key "community-name";
               description
                 "Unencrpted Community name associated with a
-                inform host";
+                 inform host";
               leaf community-name {
                 type xr:Cisco-ios-xr-string {
                   length "1..128";
@@ -596,12 +696,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf port {
                 type xr:Cisco-ios-xr-port-number;
-                description "UDP port number";
+                description
+                  "UDP port number";
               }
               leaf version {
                 type string;
                 mandatory true;
-                description "SNMP Version to be used v2c/v3";
+                description
+                  "SNMP Version to be used v2c/v3";
               }
               leaf security-level {
                 type Snmp-security-model;
@@ -613,44 +715,42 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setBasicTrapTypes is used for
-                  all traps except copy-completeSet this
-                  value to an integer corresponding to the
-                  trapBGP 8192, CONFIG 4096,SYSLOG 131072
-                  ,SNMP_TRAP 1COPY_COMPLETE_TRAP 64To provide
-                  a combination of trap Add the respective
-                  numbersValue must be set to 0 for all traps";
+                   needs to be setBasicTrapTypes is used for
+                   all traps except copy-completeSet this
+                   value to an integer corresponding to the
+                   trapBGP 8192, CONFIG 4096,SYSLOG 131072
+                   ,SNMP_TRAP 1COPY_COMPLETE_TRAP 64To provide
+                   a combination of trap Add the respective
+                   numbersValue must be set to 0 for all traps";
               }
               leaf advanced-trap-types1 {
                 type int32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setUse this for providing
-                  copy-complete trapValue must be set to 0 if
-                  not used";
+                   needs to be setUse this for providing
+                   copy-complete trapValue must be set to 0 if
+                   not used";
               }
               leaf advanced-trap-types2 {
                 type int32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setvalue should always to set
-                  as 0";
+                   needs to be setvalue should always to set
+                   as 0";
               }
             }
           }
-
           container inform-encrypted-user-communities {
             description
               "Container class for defining Clear/encrypt
-              communities for a inform host";
-
+               communities for a inform host";
             list inform-encrypted-user-community {
               key "community-name";
               description
                 "Clear/Encrypt Community name associated with
-                a inform host";
+                 a inform host";
               leaf community-name {
                 type xr:Cisco-ios-xr-string;
                 description
@@ -658,12 +758,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf port {
                 type xr:Cisco-ios-xr-port-number;
-                description "UDP port number";
+                description
+                  "UDP port number";
               }
               leaf version {
                 type string;
                 mandatory true;
-                description "SNMP Version to be used v2c/v3";
+                description
+                  "SNMP Version to be used v2c/v3";
               }
               leaf security-level {
                 type Snmp-security-model;
@@ -675,45 +777,43 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setBasicTrapTypes is used for
-                  all traps except copy-completeSet this
-                  value to an integer corresponding to the
-                  trapBGP 8192, CONFIG 4096,SYSLOG 131072
-                  ,SNMP_TRAP 1COPY_COMPLETE_TRAP 64To provide
-                  a combination of trap Add the respective
-                  numbersValue must be set to 0 for all traps";
+                   needs to be setBasicTrapTypes is used for
+                   all traps except copy-completeSet this
+                   value to an integer corresponding to the
+                   trapBGP 8192, CONFIG 4096,SYSLOG 131072
+                   ,SNMP_TRAP 1COPY_COMPLETE_TRAP 64To provide
+                   a combination of trap Add the respective
+                   numbersValue must be set to 0 for all traps";
               }
               leaf advanced-trap-types1 {
                 type int32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setUse this for providing
-                  copy-complete trapValue must be set to 0 if
-                  not used";
+                   needs to be setUse this for providing
+                   copy-complete trapValue must be set to 0 if
+                   not used";
               }
               leaf advanced-trap-types2 {
                 type int32;
                 mandatory true;
                 description
                   "Number to signify the feature traps that
-                  needs to be setvalue should always to set
-                  as 0";
+                   needs to be setvalue should always to set
+                   as 0";
               }
             }
           }
         }
-
         container default-user-communities {
           description
             "Container class for defining communities for a
-            trap host";
-
+             trap host";
           list default-user-community {
             key "community-name";
             description
               "Unencrpted Community name associated with a
-              trap host";
+               trap host";
             leaf community-name {
               type xr:Cisco-ios-xr-string {
                 length "1..128";
@@ -723,12 +823,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf port {
               type xr:Cisco-ios-xr-port-number;
-              description "UDP port number";
+              description
+                "UDP port number";
             }
             leaf version {
               type string;
               mandatory true;
-              description "SNMP Version to be used v1/v2c/v3";
+              description
+                "SNMP Version to be used v1/v2c/v3";
             }
             leaf security-level {
               type Snmp-security-model;
@@ -740,69 +842,76 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setBasicTrapTypes is used for
-                all traps except copy-completeSet this value
-                to an integer corresponding to the trapBGP
-                8192, CONFIG 4096,SYSLOG 131072,SNMP_TRAP
-                1COPY_COMPLETE_TRAP 64To provide a
-                combination of trap Add the respective
-                numbersValue must be set to 0 for all traps";
+                 needs to be setBasicTrapTypes is used for
+                 all traps except copy-completeSet this value
+                 to an integer corresponding to the trapBGP
+                 8192, CONFIG 4096,SYSLOG 131072,SNMP_TRAP
+                 1COPY_COMPLETE_TRAP 64To provide a
+                 combination of trap Add the respective
+                 numbersValue must be set to 0 for all traps";
             }
             leaf advanced-trap-types1 {
               type int32;
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setUse this for providing
-                copy-complete trapValue must be set to 0 if
-                not used";
+                 needs to be setUse this for providing
+                 copy-complete trapValue must be set to 0 if
+                 not used";
             }
             leaf advanced-trap-types2 {
               type int32;
               mandatory true;
               description
                 "Number to signify the feature traps that
-                needs to be setvalue should always to set as
-                0";
+                 needs to be setvalue should always to set as
+                 0";
             }
           }
         }
         leaf ip-address {
           type inet:ip-address-no-zone;
-          description "IP address of SNMP notification host";
+          description
+            "IP address of SNMP notification host";
         }
       }
     }
   }
 
   grouping CONTEXT-MAPPING-TABLE {
-    description "Common node of snmp, vrf";
-
+    description
+      "Common node of snmp, vrf";
     container context-mappings {
-      description "List of context names";
-
+      description
+        "List of context names";
       list context-mapping {
         key "context-mapping-name";
-        description "Context mapping name";
+        description
+          "Context mapping name";
         leaf context-mapping-name {
           type xr:Cisco-ios-xr-string;
-          description "Context mapping name";
+          description
+            "Context mapping name";
         }
         leaf context {
           type Snmp-context;
-          description "SNMP context feature type";
+          description
+            "SNMP context feature type";
         }
         leaf instance-name {
           type string;
-          description "OSPF protocol instance";
+          description
+            "OSPF protocol instance";
         }
         leaf vrf-name {
           type string;
-          description "VRF name associated with the context";
+          description
+            "VRF name associated with the context";
         }
         leaf topology-name {
           type string;
-          description "Topology name associated with the context";
+          description
+            "Topology name associated with the context";
         }
       }
     }
@@ -811,100 +920,108 @@ module Cisco-IOS-XR-snmp-agent-cfg {
   container snmp {
     description
       "The heirarchy point for all the SNMP
-      configurations";
-
+       configurations";
     container encrypted-community-maps {
       description
         "Container class to hold clear/encrypted
-        communitie maps";
-
+         communitie maps";
       list encrypted-community-map {
         key "community-name";
-        description "Clear/encrypted SNMP community map";
+        description
+          "Clear/encrypted SNMP community map";
         leaf community-name {
           type xr:Cisco-ios-xr-string;
-          description "SNMP community map";
+          description
+            "SNMP community map";
         }
         leaf context {
           type string;
-          description "SNMP Context Name ";
+          description
+            "SNMP Context Name ";
         }
         leaf security {
           type string;
-          description "SNMP Security Name ";
+          description
+            "SNMP Security Name ";
         }
         leaf target-list {
           type string;
-          description "target list name ";
+          description
+            "target list name ";
         }
       }
     }
-
     container views {
-      description "Class to configure a SNMPv2 MIB view";
-
+      description
+        "Class to configure a SNMPv2 MIB view";
       list view {
         key "view-name family";
-        description "Name of the view";
+        description
+          "Name of the view";
         leaf view-name {
           type xr:Cisco-ios-xr-string;
-          description "Name of the view";
+          description
+            "Name of the view";
         }
         leaf family {
           type string;
-          description "MIB view family name";
+          description
+            "MIB view family name";
         }
         leaf view-inclusion {
           type Snmp-mib-view-inclusion;
           mandatory true;
-          description "MIB view to be included or excluded";
+          description
+            "MIB view to be included or excluded";
         }
       }
     }
-
     container logging {
-      description "SNMP logging";
-
+      description
+        "SNMP logging";
       container threshold {
-        description "SNMP logging threshold";
+        description
+          "SNMP logging threshold";
         leaf oid-processing {
           type uint32 {
             range "0..20000";
           }
           default "500";
-          description "SNMP logging threshold for OID processing";
+          description
+            "SNMP logging threshold for OID processing";
         }
         leaf pdu-processing {
           type uint32 {
             range "0..20000";
           }
           default "20000";
-          description "SNMP logging threshold for PDU processing";
+          description
+            "SNMP logging threshold for PDU processing";
         }
       }
     }
-
     container administration {
-      description "Container class for SNMP administration";
-
+      description
+        "Container class for SNMP administration";
       container default-communities {
         description
           "Container class to hold unencrpted communities";
-
         list default-community {
           key "community-name";
           description
             "Unencrpted SNMP community string and access
-            priviledges";
+             priviledges";
           leaf community-name {
             type string {
               length "1..128";
             }
-            description "SNMP community string";
+            description
+              "SNMP community string";
           }
           leaf priviledge {
             type Snmp-access-level;
-            description "Read/Write Access";
+            description
+              "Read/Write Access";
           }
           leaf view-name {
             type string;
@@ -913,44 +1030,49 @@ module Cisco-IOS-XR-snmp-agent-cfg {
           }
           leaf v4acl-type {
             type Snmpacl;
-            description "Access-list type";
+            description
+              "Access-list type";
           }
           leaf v4-access-list {
             type string;
-            description "Ipv4 Access-list name";
+            description
+              "Ipv4 Access-list name";
           }
           leaf v6acl-type {
             type Snmpacl;
-            description "Access-list type";
+            description
+              "Access-list type";
           }
           leaf v6-access-list {
             type string;
-            description "Ipv6 Access-list name";
+            description
+              "Ipv6 Access-list name";
           }
           leaf owner {
             type Snmp-owner-access;
-            description "Logical Router or System owner access";
+            description
+              "Logical Router or System owner access";
           }
         }
       }
-
       container encrypted-communities {
         description
           "Container class to hold clear/encrypted
-          communities";
-
+           communities";
         list encrypted-community {
           key "community-name";
           description
             "Clear/encrypted SNMP community string and
-            access priviledges";
+             access priviledges";
           leaf community-name {
             type xr:Cisco-ios-xr-string;
-            description "SNMP community string";
+            description
+              "SNMP community string";
           }
           leaf priviledge {
             type Snmp-access-level;
-            description "Read/Write Access";
+            description
+              "Read/Write Access";
           }
           leaf view-name {
             type string;
@@ -959,151 +1081,183 @@ module Cisco-IOS-XR-snmp-agent-cfg {
           }
           leaf v4acl-type {
             type Snmpacl;
-            description "Access-list type";
+            description
+              "Access-list type";
           }
           leaf v4-access-list {
             type string;
-            description "Ipv4 Access-list name";
+            description
+              "Ipv4 Access-list name";
           }
           leaf v6acl-type {
             type Snmpacl;
-            description "Access-list type";
+            description
+              "Access-list type";
           }
           leaf v6-access-list {
             type string;
-            description "Ipv6 Access-list name";
+            description
+              "Ipv6 Access-list name";
           }
           leaf owner {
             type Snmp-owner-access;
-            description "Logical Router or System owner access";
+            description
+              "Logical Router or System owner access";
           }
         }
       }
     }
-
     container agent {
       description
         "The heirarchy point for SNMP Agent
-        configurations";
-
+         configurations";
       container engine-id {
-        description "SNMPv3 engineID";
-
+        description
+          "SNMPv3 engineID";
         container remotes {
-          description "SNMPv3 remote SNMP Entity";
-
+          description
+            "SNMPv3 remote SNMP Entity";
           list remote {
             key "remote-address";
-            description "engineID of the remote agent";
+            description
+              "engineID of the remote agent";
             leaf remote-address {
               type inet:ip-address-no-zone;
-              description "IP address of remote SNMP entity";
+              description
+                "IP address of remote SNMP entity";
             }
             leaf remote-engine-id {
               type string;
-              description "engine ID octet string";
+              description
+                "engine ID octet string";
             }
             leaf port {
               type xr:Cisco-ios-xr-port-number;
-              description "UDP port number";
+              description
+                "UDP port number";
             }
           }
         }
         leaf local {
           type string;
-          description "engineID of the local agent";
+          description
+            "engineID of the local agent";
         }
       }
     }
-
     container trap {
-      description "Class to hold trap configurations";
+      description
+        "Class to hold trap configurations";
       leaf timeout {
         type uint32 {
           range "1..1000";
         }
-        description "Timeout for TRAP message retransmissions";
+        description
+          "Timeout for TRAP message retransmissions";
       }
       leaf throttle-time {
         type uint32 {
           range "10..500";
         }
         units "millisecond";
-        description "Set throttle time for handling traps";
+        description
+          "Set throttle time for handling traps";
       }
       leaf queue-length {
         type uint32 {
           range "1..5000";
         }
-        description "Message queue length for each TRAP host";
+        description
+          "Message queue length for each TRAP host";
       }
     }
-
+    container drop-packet {
+      description
+        "SNMP packet drop config";
+      leaf unknown-user {
+        type empty;
+        description
+          "Enable drop unknown user name";
+      }
+    }
     container ipv6 {
-      description "SNMP TOS bit for outgoing packets";
-
+      description
+        "SNMP TOS bit for outgoing packets";
       container tos {
-        description "Type of TOS";
+        description
+          "Type of TOS";
         leaf type {
           type Snmp-tos;
-          description "SNMP TOS type DSCP or Precedence";
+          description
+            "SNMP TOS type DSCP or Precedence";
         }
         leaf precedence {
           when "../type = 'precedence'" {
-            description "../Type = Precedence";
+            description
+              "../Type = Precedence";
           }
           type Snmp-precedence-value1;
-          description "SNMP Precedence value";
+          description
+            "SNMP Precedence value";
         }
         leaf dscp {
           when "../type = 'dscp'" {
-            description "../Type = DSCP";
+            description
+              "../Type = DSCP";
           }
           type Snmp-dscp-value;
-          description "SNMP DSCP value";
+          description
+            "SNMP DSCP value";
         }
       }
     }
-
     container ipv4 {
-      description "SNMP TOS bit for outgoing packets";
-
+      description
+        "SNMP TOS bit for outgoing packets";
       container tos {
-        description "Type of TOS";
+        description
+          "Type of TOS";
         leaf type {
           type Snmp-tos;
-          description "SNMP TOS type DSCP or Precedence";
+          description
+            "SNMP TOS type DSCP or Precedence";
         }
         leaf precedence {
           when "../type = 'precedence'" {
-            description "../Type = Precedence";
+            description
+              "../Type = Precedence";
           }
           type Snmp-precedence-value1;
-          description "SNMP Precedence value";
+          description
+            "SNMP Precedence value";
         }
         leaf dscp {
           when "../type = 'dscp'" {
-            description "../Type = DSCP";
+            description
+              "../Type = DSCP";
           }
           type Snmp-dscp-value;
-          description "SNMP DSCP value";
+          description
+            "SNMP DSCP value";
         }
       }
     }
-
     container system {
-      description "container to hold system information";
+      description
+        "container to hold system information";
       leaf chassis-id {
         type string {
           length "1..255";
         }
-        description "String to uniquely identify this chassis";
+        description
+          "String to uniquely identify this chassis";
       }
       leaf location {
         type string {
           length "1..255";
         }
-        description "The physical location of this node";
+        description
+          "The physical location of this node";
       }
       leaf contact {
         type string {
@@ -1111,171 +1265,174 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         }
         description
           "identification of the contact person for this
-          managed node";
+           managed node";
       }
     }
-
     container target {
-      description "SNMP target configurations";
-
+      description
+        "SNMP target configurations";
       container targets {
-        description "List of targets";
-
+        description
+          "List of targets";
         list target {
           key "target-list-name";
-          description "Name of the target list";
-
+          description
+            "Name of the target list";
           container vrf-names {
-            description "List of VRF Name for a target list";
-
+            description
+              "List of VRF Name for a target list";
             list vrf-name {
               key "name";
-              description "VRF name of the target";
+              description
+                "VRF name of the target";
               leaf name {
                 type xr:Cisco-ios-xr-string;
-                description "VRF Name";
+                description
+                  "VRF Name";
               }
             }
           }
-
           container target-addresses {
-            description "SNMP Target address configurations";
-
+            description
+              "SNMP Target address configurations";
             list target-address {
               key "ip-address";
               description
                 "IP Address to be configured for the Target";
               leaf ip-address {
                 type inet:ip-address-no-zone;
-                description "IPv4/Ipv6 address";
+                description
+                  "IPv4/Ipv6 address";
               }
             }
           }
           leaf target-list-name {
             type xr:Cisco-ios-xr-string;
-            description "Name of the target list";
+            description
+              "Name of the target list";
           }
         }
       }
     }
-
     container notification {
-      description "Enable SNMP notifications";
-
+      description
+        "Enable SNMP notifications";
       container snmp {
-        description "SNMP notification configuration";
+        description
+          "SNMP notification configuration";
         leaf authentication {
           type empty;
-          description "Enable authentication notification";
+          description
+            "Enable authentication notification";
         }
         leaf cold-start {
           type empty;
-          description "Enable cold start notification";
+          description
+            "Enable cold start notification";
         }
         leaf warm-start {
           type empty;
-          description "Enable warm start notification";
+          description
+            "Enable warm start notification";
         }
         leaf enable {
           type empty;
-          description "Enable SNMP notifications";
+          description
+            "Enable SNMP notifications";
         }
       }
     }
-
     container correlator {
-      description "Configure properties of the trap correlator";
-
+      description
+        "Configure properties of the trap correlator";
       container rules {
-        description "Table of configured rules";
-
+        description
+          "Table of configured rules";
         list rule {
           key "name";
-          description "Rule name";
-
-          container non-stateful {
-            presence "Indicates a non-stateful node is configured.";
-            description "The Non-Stateful Rule Type";
-
-            container root-causes {
+          description
+            "Rule name";
+          container root-causes {
+            description
+              "Table of configured rootcause (only one entry
+               allowed)";
+            list root-cause {
+              key "oid";
               description
-                "Table of configured rootcause (only one
-                entry allowed)";
-
-              list root-cause {
-                key "oid";
+                "The rootcause - maximum of one can be
+                 configured per rule";
+              leaf created {
+                type empty;
                 description
-                  "The rootcause - maximum of one can be
-                  configured per rule";
-                leaf created {
-                  type empty;
-                  description "Create rootcause";
-                }
-                leaf oid {
-                  type string;
-                  description
-                    "OID of rootcause trap (dotted decimal)";
-                }
-                uses VAR-BIND-TABLE;
+                  "Create rootcause";
               }
+              leaf oid {
+                type string;
+                description
+                  "OID of rootcause trap (dotted decimal)";
+              }
+              uses VAR-BIND-TABLE;
             }
-
-            container non-root-causes {
-              description "Table of configured non-rootcause";
-
-              list non-root-cause {
-                key "oid";
-                description "A non-rootcause";
-                leaf created {
-                  type empty;
-                  description "Create nonrootcause";
-                }
-                leaf oid {
-                  type string;
-                  description
-                    "OID of nonrootcause trap (dotted decimal)";
-                }
-                uses VAR-BIND-TABLE;
-              }
-            }
-            leaf timeout {
-              type uint32 {
-                range "1..600000";
-              }
-              units "millisecond";
+          }
+          container non-root-causes {
+            description
+              "Table of configured non-rootcause";
+            list non-root-cause {
+              key "oid";
               description
-                "Timeout (time to wait for active
-                correlation) in milliseconds";
+                "A non-rootcause";
+              leaf created {
+                type empty;
+                description
+                  "Create nonrootcause";
+              }
+              leaf oid {
+                type string;
+                description
+                  "OID of nonrootcause trap (dotted decimal)";
+              }
+              uses VAR-BIND-TABLE;
             }
+          }
+          leaf timeout {
+            type uint32 {
+              range "1..600000";
+            }
+            units "millisecond";
+            description
+              "Timeout (time to wait for active correlation)
+               in milliseconds";
           }
           leaf name {
             type string {
               length "1..32";
             }
-            description "Rule name";
+            description
+              "Rule name";
           }
           uses APPLIED-TO;
         }
       }
-
       container rule-sets {
-        description "Table of configured rulesets";
-
+        description
+          "Table of configured rulesets";
         list rule-set {
           key "name";
-          description "Ruleset name";
-
+          description
+            "Ruleset name";
           container rulenames {
-            description "Table of configured rulenames";
-
+            description
+              "Table of configured rulenames";
             list rulename {
               key "rulename";
-              description "A rulename";
+              description
+                "A rulename";
               leaf rulename {
                 type string {
                   length "1..32";
                 }
-                description "Rule name";
+                description
+                  "Rule name";
               }
             }
           }
@@ -1283,7 +1440,8 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             type string {
               length "1..32";
             }
-            description "Ruleset name";
+            description
+              "Ruleset name";
           }
           uses APPLIED-TO;
         }
@@ -1292,62 +1450,71 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         type uint32 {
           range "1024..52428800";
         }
-        description "Configure size of the correlator buffer";
+        description
+          "Configure size of the correlator buffer";
       }
     }
-
     container bulk-stats {
-      description "SNMP bulk stats configuration commands";
-
+      description
+        "SNMP bulk stats configuration commands";
       container schemas {
-        description "Configure schema definition";
-
+        description
+          "Configure schema definition";
         list schema {
           key "schema-name";
-          description "The name of the Schema";
-
+          description
+            "The name of the Schema";
           container instance {
             presence "Indicates a instance node is configured.";
-            description "Object instance information";
+            description
+              "Object instance information";
             leaf type {
               type Snmp-bulkstat-schema;
               mandatory true;
-              description "Type of the instance";
+              description
+                "Type of the instance";
             }
             leaf instance {
               type xr:Interface-name;
-              description "Instance of the schema";
+              description
+                "Instance of the schema";
             }
             leaf start {
               type string;
               mandatory true;
-              description "Start Instance OID for repetition";
+              description
+                "Start Instance OID for repetition";
             }
             leaf end {
               type string;
               mandatory true;
-              description "End Instance OID for repetition";
+              description
+                "End Instance OID for repetition";
             }
             leaf max {
               type int32;
               mandatory true;
-              description "Max value of Instance repetition";
+              description
+                "Max value of Instance repetition";
             }
             leaf sub-interface {
               type boolean;
               mandatory true;
-              description "Include all the subinterface";
+              description
+                "Include all the subinterface";
             }
           }
           leaf type {
             type empty;
-            description "Configure schema name";
+            description
+              "Configure schema name";
           }
           leaf schema-object-list {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
-            description "Name of an object List";
+            description
+              "Name of an object List";
           }
           leaf poll-interval {
             type uint32 {
@@ -1356,62 +1523,63 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             units "minute";
             description
               "Periodicity for polling of objects in this
-              schema in minutes";
+               schema in minutes";
           }
           leaf schema-name {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
-            description "The name of the schema";
+            description
+              "The name of the schema";
           }
         }
       }
-
       container objects {
-        description "Configure an Object List ";
-
+        description
+          "Configure an Object List ";
         list object {
           key "object-list-name";
-          description "Name of the object List";
-
+          description
+            "Name of the object List";
           container objects {
-            description "Configure an object List";
-
+            description
+              "Configure an object List";
             list object {
               key "oid";
-              description "Object name or OID";
+              description
+                "Object name or OID";
               leaf oid {
                 type string;
-                description "Object name or OID ";
+                description
+                  "Object name or OID ";
               }
             }
           }
           leaf type {
             type empty;
-            description "Configure object list name";
+            description
+              "Configure object list name";
           }
           leaf object-list-name {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
-            description "Name of the object List";
+            description
+              "Name of the object List";
           }
         }
       }
-
       container transfers {
         description
           "Periodicity for the transfer of bulk data in
-          minutes";
-
+           minutes";
         list transfer {
           key "transfer-name";
-          description "Name of bulk transfer";
-
+          description
+            "Name of bulk transfer";
           container transfer-schemas {
             description
               "Schema that contains objects to be collected";
-
             list transfer-schema {
               key "schema-name";
               description
@@ -1422,7 +1590,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
                 }
                 description
                   "Schema that contains objects to be
-                  collected";
+                   collected";
               }
             }
           }
@@ -1430,35 +1598,40 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             type string;
             description
               "FTP or rcp or TFTP can be used for file
-              transfer";
+               transfer";
           }
           leaf type {
             type empty;
-            description "Configure transfer list name";
+            description
+              "Configure transfer list name";
           }
           leaf buffer-size {
             type uint32 {
               range "1024..2147483647";
             }
             units "byte";
-            description "Bulkstat data file maximum size in bytes";
+            description
+              "Bulkstat data file maximum size in bytes";
           }
           leaf retain {
             type uint32 {
               range "0..20000";
             }
             units "minute";
-            description "Retention period in minutes";
+            description
+              "Retention period in minutes";
           }
           leaf format {
             type Snmp-bulkstat-file-format;
-            description "Format of the bulk data file";
+            description
+              "Format of the bulk data file";
           }
           leaf retry {
             type uint32 {
               range "0..100";
             }
-            description "Number of transmission retries";
+            description
+              "Number of transmission retries";
           }
           leaf enable {
             type empty;
@@ -1469,20 +1642,21 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             type string;
             description
               "FTP or rcp or TFTP can be used for file
-              transfer";
+               transfer";
           }
           leaf interval {
             type int32;
             units "minute";
             description
               "Periodicity for the transfer of bulk data in
-              minutes";
+               minutes";
           }
           leaf transfer-name {
             type xr:Cisco-ios-xr-string {
               length "1..32";
             }
-            description "Name of bulk transfer";
+            description
+              "Name of bulk transfer";
           }
         }
       }
@@ -1491,43 +1665,46 @@ module Cisco-IOS-XR-snmp-agent-cfg {
           range "100..200000";
         }
         units "kilobyte";
-        description "per process memory limit in kilo bytes";
+        description
+          "per process memory limit in kilo bytes";
       }
     }
-
     container default-community-maps {
       description
         "Container class to hold unencrpted community map";
-
       list default-community-map {
         key "community-name";
-        description "Unencrpted SNMP community map name ";
+        description
+          "Unencrpted SNMP community map name ";
         leaf community-name {
           type xr:Cisco-ios-xr-string {
             length "1..128";
           }
-          description "SNMP community map";
+          description
+            "SNMP community map";
         }
         leaf context {
           type string;
-          description "SNMP Context Name ";
+          description
+            "SNMP Context Name ";
         }
         leaf security {
           type string;
-          description "SNMP Security Name ";
+          description
+            "SNMP Security Name ";
         }
         leaf target-list {
           type string;
-          description "target list name ";
+          description
+            "target list name ";
         }
       }
     }
-
     container overload-control {
       presence "Indicates a overload-control node is configured.";
       description
         "Set overload control params for handling
-        incoming messages";
+         incoming messages";
       leaf drop-time {
         type uint32 {
           range "0..300";
@@ -1536,7 +1713,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         mandatory true;
         description
           "Drop time in seconds for incoming queue
-          (default 1 sec)";
+           (default 1 sec)";
       }
       leaf throttle-rate {
         type uint32 {
@@ -1546,19 +1723,20 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         mandatory true;
         description
           "Throttle time in milliseconds for incoming
-          queue (default 500 msec)";
+           queue (default 500 msec)";
       }
     }
-
     container timeouts {
-      description "SNMP timeouts";
+      description
+        "SNMP timeouts";
       leaf duplicates {
         type uint32 {
           range "0..20";
         }
         units "second";
         default "1";
-        description "Duplicate request feature timeout";
+        description
+          "Duplicate request feature timeout";
       }
       leaf in-qdrop {
         type uint32 {
@@ -1566,7 +1744,8 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         }
         units "second";
         default "10";
-        description "incoming queue drop feature timeout";
+        description
+          "incoming queue drop feature timeout";
       }
       leaf subagent {
         type uint32 {
@@ -1574,7 +1753,8 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         }
         units "second";
         default "10";
-        description "Sub-Agent Request timeout";
+        description
+          "Sub-Agent Request timeout";
       }
       leaf pdu-stats {
         type uint32 {
@@ -1582,163 +1762,187 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         }
         units "second";
         default "2";
-        description "SNMP pdu statistics timeout";
+        description
+          "SNMP pdu statistics timeout";
       }
     }
-
     container users {
-      description "Define a user who can access the SNMP engine";
-
+      description
+        "Define a user who can access the SNMP engine";
       list user {
         key "user-name";
-        description "Name of the user";
+        description
+          "Name of the user";
         leaf user-name {
           type string;
-          description "Name of the user";
+          description
+            "Name of the user";
         }
         leaf group-name {
           type string;
           mandatory true;
-          description "Group to which the user belongs";
+          description
+            "Group to which the user belongs";
         }
         leaf version {
           type User-snmp-version;
           mandatory true;
-          description "SNMP version to be used. v1,v2c or v3";
+          description
+            "SNMP version to be used. v1,v2c or v3";
         }
         leaf authentication-password-configured {
           type empty;
           description
             "Flag to indicate that authentication password
-            is configred for version 3";
+             is configred for version 3";
         }
         leaf algorithm {
           type Snmp-hash-algorithm;
-          description "The algorithm used md5 or sha";
+          description
+            "The algorithm used md5 or sha";
         }
         leaf authentication-password {
           type xr:Proprietary-password;
-          description "The authentication password";
+          description
+            "The authentication password";
         }
         leaf privacy-password-configured {
           type empty;
           description
             "Flag to indicate that the privacy password is
-            configured for version 3";
+             configured for version 3";
         }
         leaf priv-algorithm {
           type Snmp-priv-algorithm;
           description
             "The algorithm used des56 or aes128 or aes192or
-            aes256 or 3des";
+             aes256 or 3des";
         }
         leaf privacy-password {
           type xr:Proprietary-password;
-          description "The privacy password";
+          description
+            "The privacy password";
         }
         leaf v4acl-type {
           type Snmpacl;
-          description "Access-list type";
+          description
+            "Access-list type";
         }
         leaf v4-access-list {
           type string;
-          description "Ipv4 Access-list name";
+          description
+            "Ipv4 Access-list name";
         }
         leaf v6acl-type {
           type Snmpacl;
-          description "Access-list type";
+          description
+            "Access-list type";
         }
         leaf v6-access-list {
           type string;
-          description "Ipv6 Access-list name";
+          description
+            "Ipv6 Access-list name";
         }
         leaf owner {
           type Snmp-owner-access;
           description
             "The system access either SDROwner or
-            SystemOwner";
+             SystemOwner";
         }
         leaf remote-address {
           type inet:ip-address-no-zone;
-          description "IP address of remote SNMP entity";
+          description
+            "IP address of remote SNMP entity";
         }
         leaf port {
           type xr:Cisco-ios-xr-port-number;
-          description "UDP port number";
+          description
+            "UDP port number";
         }
       }
     }
-
     container vrfs {
-      description "SNMP VRF configuration commands";
-
+      description
+        "SNMP VRF configuration commands";
       list vrf {
         key "name";
-        description "VRF name";
+        description
+          "VRF name";
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "VRF name";
+          description
+            "VRF name";
         }
         uses TRAP-HOST-TABLE;
         uses CONTEXT-TABLE;
         uses CONTEXT-MAPPING-TABLE;
       }
     }
-
     container groups {
-      description "Define a User Security Model group";
-
+      description
+        "Define a User Security Model group";
       list group {
         key "name";
-        description "Name of the group";
+        description
+          "Name of the group";
         leaf name {
           type xr:Cisco-ios-xr-string {
             length "1..128";
           }
-          description "Name of the group";
+          description
+            "Name of the group";
         }
         leaf snmp-version {
           type Group-snmp-version;
           mandatory true;
-          description "snmp version";
+          description
+            "snmp version";
         }
         leaf security-model {
           type Snmp-security-model;
           description
             "security model like auth/noAuth/Priv
-            applicable for v3";
+             applicable for v3";
         }
         leaf notify-view {
           type string;
-          description "notify view name";
+          description
+            "notify view name";
         }
         leaf read-view {
           type string;
-          description "read view name";
+          description
+            "read view name";
         }
         leaf write-view {
           type string;
-          description "write view name";
+          description
+            "write view name";
         }
         leaf v4acl-type {
           type Snmpacl;
-          description "Access-list type";
+          description
+            "Access-list type";
         }
         leaf v4-access-list {
           type string;
-          description "Ipv4 Access-list name";
+          description
+            "Ipv4 Access-list name";
         }
         leaf v6acl-type {
           type Snmpacl;
-          description "Access-list type";
+          description
+            "Access-list type";
         }
         leaf v6-access-list {
           type string;
-          description "Ipv6 Access-list name";
+          description
+            "Ipv6 Access-list name";
         }
         leaf context-name {
           type string;
-          description "Context name";
+          description
+            "Context name";
         }
       }
     }
@@ -1748,29 +1952,31 @@ module Cisco-IOS-XR-snmp-agent-cfg {
       }
       description
         "Number of times to retry an Inform request
-        (default 3)";
+         (default 3)";
     }
     leaf trap-port {
       type uint32 {
         range "1024..65535";
       }
-      description "Change the source port of all traps";
+      description
+        "Change the source port of all traps";
     }
     leaf oid-poll-stats {
       type empty;
-      description "Enable Poll OID statistics";
+      description
+        "Enable Poll OID statistics";
     }
     leaf trap-source {
       type xr:Interface-name;
       description
         "Assign an interface for the source address of
-        all traps";
+         all traps";
     }
     leaf vrf-authentication-trap-disable {
       type empty;
       description
         "Disable authentication traps for packets on a
-        vrf";
+         vrf";
     }
     leaf inform-timeout {
       type uint32 {
@@ -1779,19 +1985,20 @@ module Cisco-IOS-XR-snmp-agent-cfg {
       units "second";
       description
         "Timeout value in seconds for Inform request
-        (default 15 sec)";
+         (default 15 sec)";
     }
     leaf trap-source-ipv6 {
       type xr:Interface-name;
       description
         "Assign an interface for the source IPV6 address
-        of all traps";
+         of all traps";
     }
     leaf packet-size {
       type uint32 {
         range "484..65500";
       }
-      description "Largest SNMP packet size";
+      description
+        "Largest SNMP packet size";
     }
     leaf throttle-time {
       type uint32 {
@@ -1799,13 +2006,13 @@ module Cisco-IOS-XR-snmp-agent-cfg {
       }
       description
         "Throttle time for incoming queue (default 0
-        msec)";
+         msec)";
     }
     leaf trap-source-ipv4 {
       type xr:Interface-name;
       description
         "Assign an interface for the source address of
-        all traps";
+         all traps";
     }
     leaf inform-pending {
       type uint32 {
@@ -1813,14 +2020,14 @@ module Cisco-IOS-XR-snmp-agent-cfg {
       }
       description
         "Max nmber of informs to hold in queue, (default
-        25)";
+         25)";
     }
     uses TRAP-HOST-TABLE;
     uses CONTEXT-TABLE;
     uses CONTEXT-MAPPING-TABLE;
   }
-
   container mib {
-    description "mib";
+    description
+      "mib";
   }
 }

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class GmplsOtuTtiMode(Enum):
     """
-    GmplsOtuTtiMode
+    GmplsOtuTtiMode (Enum Class)
 
     Gmpls otu tti mode
 
@@ -52,7 +54,7 @@ class GmplsOtuTtiMode(Enum):
 
 class OtuDerState(Enum):
     """
-    OtuDerState
+    OtuDerState (Enum Class)
 
     Otu der state
 
@@ -85,7 +87,7 @@ class OtuDerState(Enum):
 
 class OtuG709FecMode(Enum):
     """
-    OtuG709FecMode
+    OtuG709FecMode (Enum Class)
 
     Otu g709fec mode
 
@@ -154,7 +156,7 @@ class OtuG709FecMode(Enum):
 
 class OtuLoopBackMode(Enum):
     """
-    OtuLoopBackMode
+    OtuLoopBackMode (Enum Class)
 
     Otu loop back mode
 
@@ -181,7 +183,7 @@ class OtuLoopBackMode(Enum):
 
 class OtuPerMon(Enum):
     """
-    OtuPerMon
+    OtuPerMon (Enum Class)
 
     Otu per mon
 
@@ -202,7 +204,7 @@ class OtuPerMon(Enum):
 
 class OtuPpFsmState(Enum):
     """
-    OtuPpFsmState
+    OtuPpFsmState (Enum Class)
 
     Otu pp fsm state
 
@@ -277,7 +279,7 @@ class OtuPpFsmState(Enum):
 
 class OtuPpIntfState(Enum):
     """
-    OtuPpIntfState
+    OtuPpIntfState (Enum Class)
 
     Otu pp intf state
 
@@ -304,7 +306,7 @@ class OtuPpIntfState(Enum):
 
 class OtuPrbsMode(Enum):
     """
-    OtuPrbsMode
+    OtuPrbsMode (Enum Class)
 
     Otu prbs mode
 
@@ -337,7 +339,7 @@ class OtuPrbsMode(Enum):
 
 class OtuPrbsPattern(Enum):
     """
-    OtuPrbsPattern
+    OtuPrbsPattern (Enum Class)
 
     Otu prbs pattern
 
@@ -388,7 +390,7 @@ class OtuPrbsPattern(Enum):
 
 class OtuPrbsStatus(Enum):
     """
-    OtuPrbsStatus
+    OtuPrbsStatus (Enum Class)
 
     Otu prbs status
 
@@ -415,7 +417,7 @@ class OtuPrbsStatus(Enum):
 
 class OtuPrbsTest(Enum):
     """
-    OtuPrbsTest
+    OtuPrbsTest (Enum Class)
 
     Otu prbs test
 
@@ -436,7 +438,7 @@ class OtuPrbsTest(Enum):
 
 class OtuSecState(Enum):
     """
-    OtuSecState
+    OtuSecState (Enum Class)
 
     Otu sec state
 
@@ -463,7 +465,7 @@ class OtuSecState(Enum):
 
 class OtuStateEt(Enum):
     """
-    OtuStateEt
+    OtuStateEt (Enum Class)
 
     Otu state et
 
@@ -586,7 +588,7 @@ class OtuStateEt(Enum):
 
 class OtuTtiEt(Enum):
     """
-    OtuTtiEt
+    OtuTtiEt (Enum Class)
 
     Otu tti et
 
@@ -642,8 +644,10 @@ class Otu(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-controller-otu-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"controllers" : ("controllers", Otu.Controllers)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("controllers", ("controllers", Otu.Controllers))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.controllers = Otu.Controllers()
         self.controllers.parent = self
@@ -675,8 +679,10 @@ class Otu(Entity):
             self.yang_parent_name = "otu"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"controller" : ("controller", Otu.Controllers.Controller)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("controller", ("controller", Otu.Controllers.Controller))])
+            self._leafs = OrderedDict()
 
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
@@ -690,7 +696,7 @@ class Otu(Entity):
             """
             OTU Port operational data
             
-            .. attribute:: controller_name  <key>
+            .. attribute:: controller_name  (key)
             
             	Port name
             	**type**\: str
@@ -721,10 +727,13 @@ class Otu(Entity):
                 self.yang_parent_name = "controllers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"prbs" : ("prbs", Otu.Controllers.Controller.Prbs), "info" : ("info", Otu.Controllers.Controller.Info)}
-                self._child_list_classes = {}
-
-                self.controller_name = YLeaf(YType.str, "controller-name")
+                self.ylist_key_names = ['controller_name']
+                self._child_container_classes = OrderedDict([("prbs", ("prbs", Otu.Controllers.Controller.Prbs)), ("info", ("info", Otu.Controllers.Controller.Info))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                ])
+                self.controller_name = None
 
                 self.prbs = Otu.Controllers.Controller.Prbs()
                 self.prbs.parent = self
@@ -735,7 +744,7 @@ class Otu(Entity):
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._children_yang_names.add("info")
-                self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
+                self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-otu-oper:otu/controllers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -780,16 +789,19 @@ class Otu(Entity):
                     self.yang_parent_name = "controller"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.otu_prbs_test = YLeaf(YType.enumeration, "otu-prbs-test")
-
-                    self.otu_prbs_mode = YLeaf(YType.enumeration, "otu-prbs-mode")
-
-                    self.otu_prbs_pattern = YLeaf(YType.enumeration, "otu-prbs-pattern")
-
-                    self.otu_prbs_status = YLeaf(YType.enumeration, "otu-prbs-status")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('otu_prbs_test', YLeaf(YType.enumeration, 'otu-prbs-test')),
+                        ('otu_prbs_mode', YLeaf(YType.enumeration, 'otu-prbs-mode')),
+                        ('otu_prbs_pattern', YLeaf(YType.enumeration, 'otu-prbs-pattern')),
+                        ('otu_prbs_status', YLeaf(YType.enumeration, 'otu-prbs-status')),
+                    ])
+                    self.otu_prbs_test = None
+                    self.otu_prbs_mode = None
+                    self.otu_prbs_pattern = None
+                    self.otu_prbs_status = None
                     self._segment_path = lambda: "prbs"
 
                 def __setattr__(self, name, value):
@@ -997,60 +1009,63 @@ class Otu(Entity):
                     self.yang_parent_name = "controller"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local" : ("local", Otu.Controllers.Controller.Info.Local), "remote" : ("remote", Otu.Controllers.Controller.Info.Remote), "tti-mode" : ("tti_mode", Otu.Controllers.Controller.Info.TtiMode), "network-srlg" : ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg), "otu-alarm-info" : ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo), "proactive" : ("proactive", Otu.Controllers.Controller.Info.Proactive), "otu-fec-satistics" : ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics)}
-                    self._child_list_classes = {}
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.sf = YLeaf(YType.uint8, "sf")
-
-                    self.sd = YLeaf(YType.uint8, "sd")
-
-                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
-
-                    self.fec_mode = YLeaf(YType.enumeration, "fec-mode")
-
-                    self.derivedstate_mode = YLeaf(YType.enumeration, "derivedstate-mode")
-
-                    self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
-
-                    self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
-
-                    self.gcc_mode = YLeaf(YType.boolean, "gcc-mode")
-
-                    self.q = YLeaf(YType.uint64, "q")
-
-                    self.q_margin = YLeaf(YType.uint64, "q-margin")
-
-                    self.performance_monitoring = YLeaf(YType.enumeration, "performance-monitoring")
-
-                    self.ec = YLeaf(YType.uint64, "ec")
-
-                    self.uc = YLeaf(YType.uint64, "uc")
-
-                    self.pre_fec_val = YLeaf(YType.int32, "pre-fec-val")
-
-                    self.pre_fec_mantissa = YLeaf(YType.int8, "pre-fec-mantissa")
-
-                    self.ec_value = YLeaf(YType.boolean, "ec-value")
-
-                    self.uc_value = YLeaf(YType.boolean, "uc-value")
-
-                    self.pre_fec_ber_value = YLeaf(YType.boolean, "pre-fec-ber-value")
-
-                    self.pre_fec_ber_mantissa = YLeaf(YType.boolean, "pre-fec-ber-mantissa")
-
-                    self.nv_optical_support = YLeaf(YType.boolean, "nv-optical-support")
-
-                    self.gmpls_tti_mode = YLeaf(YType.enumeration, "gmpls-tti-mode")
-
-                    self.gmpls_tvm_id = YLeaf(YType.uint8, "gmpls-tvm-id")
-
-                    self.auto_tti_flag = YLeaf(YType.boolean, "auto-tti-flag")
-
-                    self.description = YLeaf(YType.str, "description")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("local", ("local", Otu.Controllers.Controller.Info.Local)), ("remote", ("remote", Otu.Controllers.Controller.Info.Remote)), ("tti-mode", ("tti_mode", Otu.Controllers.Controller.Info.TtiMode)), ("network-srlg", ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg)), ("otu-alarm-info", ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo)), ("proactive", ("proactive", Otu.Controllers.Controller.Info.Proactive)), ("otu-fec-satistics", ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('sf', YLeaf(YType.uint8, 'sf')),
+                        ('sd', YLeaf(YType.uint8, 'sd')),
+                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
+                        ('fec_mode', YLeaf(YType.enumeration, 'fec-mode')),
+                        ('derivedstate_mode', YLeaf(YType.enumeration, 'derivedstate-mode')),
+                        ('inherit_sec_state', YLeaf(YType.enumeration, 'inherit-sec-state')),
+                        ('config_sec_state', YLeaf(YType.enumeration, 'config-sec-state')),
+                        ('gcc_mode', YLeaf(YType.boolean, 'gcc-mode')),
+                        ('q', YLeaf(YType.uint64, 'q')),
+                        ('q_margin', YLeaf(YType.uint64, 'q-margin')),
+                        ('performance_monitoring', YLeaf(YType.enumeration, 'performance-monitoring')),
+                        ('ec', YLeaf(YType.uint64, 'ec')),
+                        ('uc', YLeaf(YType.uint64, 'uc')),
+                        ('pre_fec_val', YLeaf(YType.int32, 'pre-fec-val')),
+                        ('pre_fec_mantissa', YLeaf(YType.int8, 'pre-fec-mantissa')),
+                        ('ec_value', YLeaf(YType.boolean, 'ec-value')),
+                        ('uc_value', YLeaf(YType.boolean, 'uc-value')),
+                        ('pre_fec_ber_value', YLeaf(YType.boolean, 'pre-fec-ber-value')),
+                        ('pre_fec_ber_mantissa', YLeaf(YType.boolean, 'pre-fec-ber-mantissa')),
+                        ('nv_optical_support', YLeaf(YType.boolean, 'nv-optical-support')),
+                        ('gmpls_tti_mode', YLeaf(YType.enumeration, 'gmpls-tti-mode')),
+                        ('gmpls_tvm_id', YLeaf(YType.uint8, 'gmpls-tvm-id')),
+                        ('auto_tti_flag', YLeaf(YType.boolean, 'auto-tti-flag')),
+                        ('description', YLeaf(YType.str, 'description')),
+                    ])
+                    self.state = None
+                    self.name = None
+                    self.sf = None
+                    self.sd = None
+                    self.loopback_mode = None
+                    self.fec_mode = None
+                    self.derivedstate_mode = None
+                    self.inherit_sec_state = None
+                    self.config_sec_state = None
+                    self.gcc_mode = None
+                    self.q = None
+                    self.q_margin = None
+                    self.performance_monitoring = None
+                    self.ec = None
+                    self.uc = None
+                    self.pre_fec_val = None
+                    self.pre_fec_mantissa = None
+                    self.ec_value = None
+                    self.uc_value = None
+                    self.pre_fec_ber_value = None
+                    self.pre_fec_ber_mantissa = None
+                    self.nv_optical_support = None
+                    self.gmpls_tti_mode = None
+                    self.gmpls_tvm_id = None
+                    self.auto_tti_flag = None
+                    self.description = None
 
                     self.local = Otu.Controllers.Controller.Info.Local()
                     self.local.parent = self
@@ -1124,12 +1139,15 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.router_id = YLeaf(YType.uint32, "router-id")
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('router_id', YLeaf(YType.uint32, 'router-id')),
+                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                        ])
+                        self.router_id = None
+                        self.if_index = None
                         self._segment_path = lambda: "local"
 
                     def __setattr__(self, name, value):
@@ -1168,12 +1186,15 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.router_id = YLeaf(YType.uint32, "router-id")
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('router_id', YLeaf(YType.uint32, 'router-id')),
+                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                        ])
+                        self.router_id = None
+                        self.if_index = None
                         self._segment_path = lambda: "remote"
 
                     def __setattr__(self, name, value):
@@ -1243,20 +1264,23 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"tx" : ("tx", Otu.Controllers.Controller.Info.TtiMode.Tx), "exp" : ("exp", Otu.Controllers.Controller.Info.TtiMode.Exp), "rec" : ("rec", Otu.Controllers.Controller.Info.TtiMode.Rec)}
-                        self._child_list_classes = {}
-
-                        self.g709tti_sent_mode = YLeaf(YType.enumeration, "g709tti-sent-mode")
-
-                        self.g709tti_exp_mode = YLeaf(YType.enumeration, "g709tti-exp-mode")
-
-                        self.g709tti_rec_mode = YLeaf(YType.enumeration, "g709tti-rec-mode")
-
-                        self.remote_interface = YLeaf(YType.str, "remote-interface")
-
-                        self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-
-                        self.remote_ip_addr = YLeaf(YType.str, "remote-ip-addr")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("tx", ("tx", Otu.Controllers.Controller.Info.TtiMode.Tx)), ("exp", ("exp", Otu.Controllers.Controller.Info.TtiMode.Exp)), ("rec", ("rec", Otu.Controllers.Controller.Info.TtiMode.Rec))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('g709tti_sent_mode', YLeaf(YType.enumeration, 'g709tti-sent-mode')),
+                            ('g709tti_exp_mode', YLeaf(YType.enumeration, 'g709tti-exp-mode')),
+                            ('g709tti_rec_mode', YLeaf(YType.enumeration, 'g709tti-rec-mode')),
+                            ('remote_interface', YLeaf(YType.str, 'remote-interface')),
+                            ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
+                            ('remote_ip_addr', YLeaf(YType.str, 'remote-ip-addr')),
+                        ])
+                        self.g709tti_sent_mode = None
+                        self.g709tti_exp_mode = None
+                        self.g709tti_rec_mode = None
+                        self.remote_interface = None
+                        self.remote_host_name = None
+                        self.remote_ip_addr = None
 
                         self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
                         self.tx.parent = self
@@ -1322,16 +1346,19 @@ class Otu(Entity):
                             self.yang_parent_name = "tti-mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('sapi', YLeafList(YType.uint8, 'sapi')),
+                                ('dapi', YLeafList(YType.uint8, 'dapi')),
+                                ('operator_specific', YLeafList(YType.uint8, 'operator-specific')),
+                            ])
+                            self.full_tti_ascii_string = None
+                            self.sapi = []
+                            self.dapi = []
+                            self.operator_specific = []
                             self._segment_path = lambda: "tx"
 
                         def __setattr__(self, name, value):
@@ -1382,16 +1409,19 @@ class Otu(Entity):
                             self.yang_parent_name = "tti-mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('sapi', YLeafList(YType.uint8, 'sapi')),
+                                ('dapi', YLeafList(YType.uint8, 'dapi')),
+                                ('operator_specific', YLeafList(YType.uint8, 'operator-specific')),
+                            ])
+                            self.full_tti_ascii_string = None
+                            self.sapi = []
+                            self.dapi = []
+                            self.operator_specific = []
                             self._segment_path = lambda: "exp"
 
                         def __setattr__(self, name, value):
@@ -1442,16 +1472,19 @@ class Otu(Entity):
                             self.yang_parent_name = "tti-mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('sapi', YLeafList(YType.uint8, 'sapi')),
+                                ('dapi', YLeafList(YType.uint8, 'dapi')),
+                                ('operator_specific', YLeafList(YType.uint8, 'operator-specific')),
+                            ])
+                            self.full_tti_ascii_string = None
+                            self.sapi = []
+                            self.dapi = []
+                            self.operator_specific = []
                             self._segment_path = lambda: "rec"
 
                         def __setattr__(self, name, value):
@@ -1481,8 +1514,10 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"srlg-info" : ("srlg_info", Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("srlg-info", ("srlg_info", Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo))])
+                        self._leafs = OrderedDict()
 
                         self.srlg_info = YList(self)
                         self._segment_path = lambda: "network-srlg"
@@ -1524,12 +1559,15 @@ class Otu(Entity):
                             self.yang_parent_name = "network-srlg"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_id = YLeaf(YType.uint32, "set-id")
-
-                            self.srlg = YLeafList(YType.uint32, "srlg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                ('srlg', YLeafList(YType.uint32, 'srlg')),
+                            ])
+                            self.set_id = None
+                            self.srlg = []
                             self._segment_path = lambda: "srlg-info"
 
                         def __setattr__(self, name, value):
@@ -1639,8 +1677,10 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"los" : ("los", Otu.Controllers.Controller.Info.OtuAlarmInfo.Los), "lof" : ("lof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof), "lom" : ("lom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom), "oof" : ("oof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof), "oom" : ("oom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom), "ais" : ("ais", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais), "iae" : ("iae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae), "biae" : ("biae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae), "bdi" : ("bdi", Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi), "tim" : ("tim", Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim), "eoc" : ("eoc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc), "fec-mismatch" : ("fec_mismatch", Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch), "sf-ber" : ("sf_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer), "sd-ber" : ("sd_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer), "ec" : ("ec", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec), "uc" : ("uc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc), "fecunc" : ("fecunc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("los", ("los", Otu.Controllers.Controller.Info.OtuAlarmInfo.Los)), ("lof", ("lof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof)), ("lom", ("lom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom)), ("oof", ("oof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof)), ("oom", ("oom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom)), ("ais", ("ais", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais)), ("iae", ("iae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae)), ("biae", ("biae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae)), ("bdi", ("bdi", Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi)), ("tim", ("tim", Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim)), ("eoc", ("eoc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc)), ("fec-mismatch", ("fec_mismatch", Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch)), ("sf-ber", ("sf_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer)), ("sd-ber", ("sd_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer)), ("ec", ("ec", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec)), ("uc", ("uc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc)), ("fecunc", ("fecunc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
                         self.los.parent = self
@@ -1769,16 +1809,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "los"
 
                         def __setattr__(self, name, value):
@@ -1825,16 +1868,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "lof"
 
                         def __setattr__(self, name, value):
@@ -1881,16 +1927,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "lom"
 
                         def __setattr__(self, name, value):
@@ -1937,16 +1986,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "oof"
 
                         def __setattr__(self, name, value):
@@ -1993,16 +2045,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "oom"
 
                         def __setattr__(self, name, value):
@@ -2049,16 +2104,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "ais"
 
                         def __setattr__(self, name, value):
@@ -2105,16 +2163,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "iae"
 
                         def __setattr__(self, name, value):
@@ -2161,16 +2222,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "biae"
 
                         def __setattr__(self, name, value):
@@ -2217,16 +2281,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "bdi"
 
                         def __setattr__(self, name, value):
@@ -2273,16 +2340,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "tim"
 
                         def __setattr__(self, name, value):
@@ -2329,16 +2399,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "eoc"
 
                         def __setattr__(self, name, value):
@@ -2385,16 +2458,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "fec-mismatch"
 
                         def __setattr__(self, name, value):
@@ -2441,16 +2517,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "sf-ber"
 
                         def __setattr__(self, name, value):
@@ -2497,16 +2576,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "sd-ber"
 
                         def __setattr__(self, name, value):
@@ -2553,16 +2635,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "ec"
 
                         def __setattr__(self, name, value):
@@ -2609,16 +2694,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "uc"
 
                         def __setattr__(self, name, value):
@@ -2665,16 +2753,19 @@ class Otu(Entity):
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.counter = YLeaf(YType.uint64, "counter")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
+                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
+                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
+                                ('counter', YLeaf(YType.uint64, 'counter')),
+                            ])
+                            self.reporting_enabled = None
+                            self.is_detected = None
+                            self.is_asserted = None
+                            self.counter = None
                             self._segment_path = lambda: "fecunc"
 
                         def __setattr__(self, name, value):
@@ -2766,30 +2857,33 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.proactive_status = YLeaf(YType.boolean, "proactive-status")
-
-                        self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
-
-                        self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
-
-                        self.proactive_fsm_state = YLeaf(YType.enumeration, "proactive-fsm-state")
-
-                        self.proactive_fsm_if_state = YLeaf(YType.enumeration, "proactive-fsm-if-state")
-
-                        self.trig_thresh_coeff = YLeaf(YType.uint8, "trig-thresh-coeff")
-
-                        self.trig_thresh_power = YLeaf(YType.uint8, "trig-thresh-power")
-
-                        self.rvrt_thresh_coeff = YLeaf(YType.uint8, "rvrt-thresh-coeff")
-
-                        self.rvrt_thresh_power = YLeaf(YType.uint8, "rvrt-thresh-power")
-
-                        self.trigger_window = YLeaf(YType.uint32, "trigger-window")
-
-                        self.revert_window = YLeaf(YType.uint32, "revert-window")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('proactive_status', YLeaf(YType.boolean, 'proactive-status')),
+                            ('inherit_sec_state', YLeaf(YType.enumeration, 'inherit-sec-state')),
+                            ('config_sec_state', YLeaf(YType.enumeration, 'config-sec-state')),
+                            ('proactive_fsm_state', YLeaf(YType.enumeration, 'proactive-fsm-state')),
+                            ('proactive_fsm_if_state', YLeaf(YType.enumeration, 'proactive-fsm-if-state')),
+                            ('trig_thresh_coeff', YLeaf(YType.uint8, 'trig-thresh-coeff')),
+                            ('trig_thresh_power', YLeaf(YType.uint8, 'trig-thresh-power')),
+                            ('rvrt_thresh_coeff', YLeaf(YType.uint8, 'rvrt-thresh-coeff')),
+                            ('rvrt_thresh_power', YLeaf(YType.uint8, 'rvrt-thresh-power')),
+                            ('trigger_window', YLeaf(YType.uint32, 'trigger-window')),
+                            ('revert_window', YLeaf(YType.uint32, 'revert-window')),
+                        ])
+                        self.proactive_status = None
+                        self.inherit_sec_state = None
+                        self.config_sec_state = None
+                        self.proactive_fsm_state = None
+                        self.proactive_fsm_if_state = None
+                        self.trig_thresh_coeff = None
+                        self.trig_thresh_power = None
+                        self.rvrt_thresh_coeff = None
+                        self.rvrt_thresh_power = None
+                        self.trigger_window = None
+                        self.revert_window = None
                         self._segment_path = lambda: "proactive"
 
                     def __setattr__(self, name, value):
@@ -2824,12 +2918,15 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.post_fec_ber = YLeaf(YType.str, "post-fec-ber")
-
-                        self.pre_fec_ber = YLeaf(YType.str, "pre-fec-ber")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('post_fec_ber', YLeaf(YType.str, 'post-fec-ber')),
+                            ('pre_fec_ber', YLeaf(YType.str, 'pre-fec-ber')),
+                        ])
+                        self.post_fec_ber = None
+                        self.pre_fec_ber = None
                         self._segment_path = lambda: "otu-fec-satistics"
 
                     def __setattr__(self, name, value):

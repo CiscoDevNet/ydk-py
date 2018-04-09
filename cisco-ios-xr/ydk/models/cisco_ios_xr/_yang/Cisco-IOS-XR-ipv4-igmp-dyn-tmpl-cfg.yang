@@ -1,83 +1,78 @@
 module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg";
+  prefix ipv4-igmp-dyn-tmpl-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg {
+    prefix a1;
+  }
 
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg";
-
-
-  prefix "ipv4-igmp-dyn-tmpl-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg { prefix "a1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-igmp-dyn-tmpl package configuration.
-
+     
      This YANG module augments the
        Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
      module with configuration data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Dyn-tmpl-multicast-mode {
     type enumeration {
-      enum qos-correlation {
+      enum "qos-correlation" {
         value 1;
-        description "QOS Correlation";
+        description
+          "QOS Correlation";
       }
-      enum passive {
+      enum "passive" {
         value 2;
-        description "Passive";
+        description
+          "Passive";
       }
     }
-    description "Dyn tmpl multicast mode";
+    description
+      "Dyn tmpl multicast mode";
   }
 
   grouping IGMP {
-    description "Common node of ppp, ip-subscriber";
-
+    description
+      "Common node of ppp, ip-subscriber";
     container igmp {
-      description "IGMPconfiguration";
-
+      description
+        "IGMPconfiguration";
       container default-vrf {
-        description "Default VRF";
-
+        description
+          "Default VRF";
         container explicit-tracking {
-          presence "Indicates a explicit-tracking node is"+
-            " configured.";
-          description "IGMPv3 explicit host tracking";
+          presence "Indicates a explicit-tracking node is configured.";
+          description
+            "IGMPv3 explicit host tracking";
           leaf enable {
             type boolean;
             mandatory true;
             description
               "Enable or disable, when value is TRUE or
-              FALSE respectively";
+               FALSE respectively";
           }
           leaf access-list-name {
             type xr:Cisco-ios-xr-string {
@@ -92,7 +87,8 @@ module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
             range "1..40000";
           }
           default "25000";
-          description "IGMP Max Groups";
+          description
+            "IGMP Max Groups";
         }
         leaf access-group {
           type xr:Cisco-ios-xr-string {
@@ -106,7 +102,8 @@ module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
             range "1..3";
           }
           default "3";
-          description "IGMP Version";
+          description
+            "IGMP Version";
         }
         leaf query-interval {
           type uint32 {
@@ -114,7 +111,8 @@ module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
           }
           units "second";
           default "60";
-          description "Query interval in seconds";
+          description
+            "Query interval in seconds";
         }
         leaf query-max-response-time {
           type uint32 {
@@ -122,11 +120,13 @@ module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
           }
           units "second";
           default "10";
-          description "Query response value in seconds";
+          description
+            "Query response value in seconds";
         }
         leaf multicast-mode {
           type Dyn-tmpl-multicast-mode;
-          description "Configure Multicast mode variable";
+          description
+            "Configure Multicast mode variable";
         }
       }
     }
@@ -135,14 +135,13 @@ module Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg {
   augment "/a1:dynamic-template/a1:ip-subscribers/a1:ip-subscriber" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg'";
+       'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg'";
     uses IGMP;
   }
-
   augment "/a1:dynamic-template/a1:ppps/a1:ppp" {
     description
       "This augment extends the configuration data of
-      'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg'";
+       'Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg'";
     uses IGMP;
   }
 }

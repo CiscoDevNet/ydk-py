@@ -5,6 +5,8 @@ CISCO\-CBP\-BASE\-CFG\-MIB, CISCO\-CBP\-BASE\-MON\-MIB, and any MIB
 modules extending these MIB modules.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CbpExecutionStrategy(Enum):
     """
-    CbpExecutionStrategy
+    CbpExecutionStrategy (Enum Class)
 
     An enumerated integer\-value describing how to execute an
 

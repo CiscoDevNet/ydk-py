@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,10 +49,13 @@ class Ipv4Virtual(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-smiap-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Ipv4Virtual.Vrfs)}
-        self._child_list_classes = {}
-
-        self.use_as_source_address = YLeaf(YType.empty, "use-as-source-address")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Virtual.Vrfs))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('use_as_source_address', YLeaf(YType.empty, 'use-as-source-address')),
+        ])
+        self.use_as_source_address = None
 
         self.vrfs = Ipv4Virtual.Vrfs()
         self.vrfs.parent = self
@@ -85,8 +90,10 @@ class Ipv4Virtual(Entity):
             self.yang_parent_name = "ipv4-virtual"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Ipv4Virtual.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Virtual.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -101,7 +108,7 @@ class Ipv4Virtual(Entity):
             A VRF for a virtual IPv4 address.  Specify
             'default' for VRF default
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	Name of VRF
             	**type**\: str
@@ -129,15 +136,18 @@ class Ipv4Virtual(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"address" : ("address", Ipv4Virtual.Vrfs.Vrf.Address)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("address", ("address", Ipv4Virtual.Vrfs.Vrf.Address))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
 
                 self.address = None
                 self._children_name_map["address"] = "address"
                 self._children_yang_names.add("address")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-smiap-cfg:ipv4-virtual/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -182,13 +192,16 @@ class Ipv4Virtual(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.netmask = YLeaf(YType.uint8, "netmask")
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('netmask', YLeaf(YType.uint8, 'netmask')),
+                    ])
+                    self.address = None
+                    self.netmask = None
                     self._segment_path = lambda: "address"
 
                 def __setattr__(self, name, value):

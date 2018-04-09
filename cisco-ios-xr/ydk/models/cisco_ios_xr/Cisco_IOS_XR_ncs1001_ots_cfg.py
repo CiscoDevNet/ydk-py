@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class OtsAmplifierGridMode(Enum):
     """
-    OtsAmplifierGridMode
+    OtsAmplifierGridMode (Enum Class)
 
     Ots amplifier grid mode
 
@@ -46,7 +48,7 @@ class OtsAmplifierGridMode(Enum):
 
 class OtsAmplifierNode(Enum):
     """
-    OtsAmplifierNode
+    OtsAmplifierNode (Enum Class)
 
     Ots amplifier node
 
@@ -73,30 +75,9 @@ class OtsAmplifierNode(Enum):
 
 class OtsPsmLockoutFrom(Enum):
     """
-    OtsPsmLockoutFrom
+    OtsPsmLockoutFrom (Enum Class)
 
     Ots psm lockout from
-
-    .. data:: working = 1
-
-    	Working port
-
-    .. data:: protected = 2
-
-    	Protected port
-
-    """
-
-    working = Enum.YLeaf(1, "working")
-
-    protected = Enum.YLeaf(2, "protected")
-
-
-class OtsPsmManualSwitch(Enum):
-    """
-    OtsPsmManualSwitch
-
-    Ots psm manual switch
 
     .. data:: working = 1
 
@@ -128,7 +109,7 @@ class HardwareModule(Entity):
     """
 
     _prefix = 'ncs1001-ots-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-10-20'
 
     def __init__(self):
         super(HardwareModule, self).__init__()
@@ -138,8 +119,10 @@ class HardwareModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1001-ots-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"node" : ("node", HardwareModule.Node)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("node", ("node", HardwareModule.Node))])
+        self._leafs = OrderedDict()
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module"
@@ -152,7 +135,7 @@ class HardwareModule(Entity):
         """
         Node
         
-        .. attribute:: location  <key>
+        .. attribute:: location  (key)
         
         	Fully qualified line card specification
         	**type**\: str
@@ -169,7 +152,7 @@ class HardwareModule(Entity):
         """
 
         _prefix = 'ncs1001-ots-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-10-20'
 
         def __init__(self):
             super(HardwareModule.Node, self).__init__()
@@ -178,13 +161,16 @@ class HardwareModule(Entity):
             self.yang_parent_name = "hardware-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"slot" : ("slot", HardwareModule.Node.Slot)}
-
-            self.location = YLeaf(YType.str, "location")
+            self.ylist_key_names = ['location']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("slot", ("slot", HardwareModule.Node.Slot))])
+            self._leafs = OrderedDict([
+                ('location', YLeaf(YType.str, 'location')),
+            ])
+            self.location = None
 
             self.slot = YList(self)
-            self._segment_path = lambda: "node" + "[location='" + self.location.get() + "']"
+            self._segment_path = lambda: "node" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs1001-ots-cfg:hardware-module/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -195,7 +181,7 @@ class HardwareModule(Entity):
             """
             Slot Id
             
-            .. attribute:: slot_id  <key>
+            .. attribute:: slot_id  (key)
             
             	Set Slot
             	**type**\: int
@@ -217,7 +203,7 @@ class HardwareModule(Entity):
             """
 
             _prefix = 'ncs1001-ots-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-10-20'
 
             def __init__(self):
                 super(HardwareModule.Node.Slot, self).__init__()
@@ -226,10 +212,13 @@ class HardwareModule(Entity):
                 self.yang_parent_name = "node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"amplifier" : ("amplifier", HardwareModule.Node.Slot.Amplifier), "psm" : ("psm", HardwareModule.Node.Slot.Psm)}
-                self._child_list_classes = {}
-
-                self.slot_id = YLeaf(YType.uint32, "slot-id")
+                self.ylist_key_names = ['slot_id']
+                self._child_container_classes = OrderedDict([("amplifier", ("amplifier", HardwareModule.Node.Slot.Amplifier)), ("psm", ("psm", HardwareModule.Node.Slot.Psm))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('slot_id', YLeaf(YType.uint32, 'slot-id')),
+                ])
+                self.slot_id = None
 
                 self.amplifier = HardwareModule.Node.Slot.Amplifier()
                 self.amplifier.parent = self
@@ -240,7 +229,7 @@ class HardwareModule(Entity):
                 self.psm.parent = self
                 self._children_name_map["psm"] = "psm"
                 self._children_yang_names.add("psm")
-                self._segment_path = lambda: "slot" + "[slot-id='" + self.slot_id.get() + "']"
+                self._segment_path = lambda: "slot" + "[slot-id='" + str(self.slot_id) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModule.Node.Slot, ['slot_id'], name, value)
@@ -272,7 +261,7 @@ class HardwareModule(Entity):
                 """
 
                 _prefix = 'ncs1001-ots-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-20'
 
                 def __init__(self):
                     super(HardwareModule.Node.Slot.Amplifier, self).__init__()
@@ -281,14 +270,17 @@ class HardwareModule(Entity):
                     self.yang_parent_name = "slot"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node_type = YLeaf(YType.enumeration, "node-type")
-
-                    self.grid_mode = YLeaf(YType.enumeration, "grid-mode")
-
-                    self.udc_vlan = YLeaf(YType.uint32, "udc-vlan")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node_type', YLeaf(YType.enumeration, 'node-type')),
+                        ('grid_mode', YLeaf(YType.enumeration, 'grid-mode')),
+                        ('udc_vlan', YLeaf(YType.uint32, 'udc-vlan')),
+                    ])
+                    self.node_type = None
+                    self.grid_mode = None
+                    self.udc_vlan = None
                     self._segment_path = lambda: "amplifier"
 
                 def __setattr__(self, name, value):
@@ -324,17 +316,12 @@ class HardwareModule(Entity):
                 	Exclude selected port from protection
                 	**type**\:  :py:class:`OtsPsmLockoutFrom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmLockoutFrom>`
                 
-                .. attribute:: manual_switch_to
-                
-                	Switch active path on selected port
-                	**type**\:  :py:class:`OtsPsmManualSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg.OtsPsmManualSwitch>`
-                
                 
 
                 """
 
                 _prefix = 'ncs1001-ots-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-10-20'
 
                 def __init__(self):
                     super(HardwareModule.Node.Slot.Psm, self).__init__()
@@ -343,24 +330,25 @@ class HardwareModule(Entity):
                     self.yang_parent_name = "slot"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mono_dir = YLeaf(YType.boolean, "mono-dir")
-
-                    self.auto_threshold = YLeaf(YType.boolean, "auto-threshold")
-
-                    self.path_protection = YLeaf(YType.boolean, "path-protection")
-
-                    self.section_protection = YLeaf(YType.boolean, "section-protection")
-
-                    self.lockout_from = YLeaf(YType.enumeration, "lockout-from")
-
-                    self.manual_switch_to = YLeaf(YType.enumeration, "manual-switch-to")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mono_dir', YLeaf(YType.boolean, 'mono-dir')),
+                        ('auto_threshold', YLeaf(YType.boolean, 'auto-threshold')),
+                        ('path_protection', YLeaf(YType.boolean, 'path-protection')),
+                        ('section_protection', YLeaf(YType.boolean, 'section-protection')),
+                        ('lockout_from', YLeaf(YType.enumeration, 'lockout-from')),
+                    ])
+                    self.mono_dir = None
+                    self.auto_threshold = None
+                    self.path_protection = None
+                    self.section_protection = None
+                    self.lockout_from = None
                     self._segment_path = lambda: "psm"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HardwareModule.Node.Slot.Psm, ['mono_dir', 'auto_threshold', 'path_protection', 'section_protection', 'lockout_from', 'manual_switch_to'], name, value)
+                    self._perform_setattr(HardwareModule.Node.Slot.Psm, ['mono_dir', 'auto_threshold', 'path_protection', 'section_protection', 'lockout_from'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()

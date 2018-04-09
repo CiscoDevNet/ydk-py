@@ -412,6 +412,11 @@ class ImportTest(unittest.TestCase):
         from ydk.models.ietf.ietf_netconf import Validate
 
 
+    def test_ietf_netconf_acm(self):
+        from ydk.models.ietf.ietf_netconf_acm import ActionType
+        from ydk.models.ietf.ietf_netconf_acm import Nacm
+
+
     def test_ietf_netconf_monitoring(self):
         from ydk.models.ietf.ietf_netconf_monitoring import Transport
         from ydk.models.ietf.ietf_netconf_monitoring import NetconfSsh
@@ -426,8 +431,8 @@ class ImportTest(unittest.TestCase):
         from ydk.models.ietf.ietf_netconf_monitoring import Rng
         from ydk.models.ietf.ietf_netconf_monitoring import Rnc
         from ydk.models.ietf.ietf_netconf_monitoring import NetconfDatastoreType
-        from ydk.models.ietf.ietf_netconf_monitoring import NetconfState
         from ydk.models.ietf.ietf_netconf_monitoring import GetSchema
+        from ydk.models.ietf.ietf_netconf_monitoring import NetconfState
 
 
     def test_ietf_netconf_notifications(self):

@@ -29,6 +29,20 @@ module Cisco-IOS-XE-icmp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100 GE interface addition";
+  }
+ 
+  revision 2017-09-14 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -131,7 +145,19 @@ module Cisco-IOS-XE-icmp {
     uses config-interface-ip-icmp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-icmp-grouping;
   }
 
@@ -162,7 +188,19 @@ module Cisco-IOS-XE-icmp {
     uses config-interface-ip-icmp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ip-icmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
     uses config-interface-ip-icmp-grouping;
   }
 

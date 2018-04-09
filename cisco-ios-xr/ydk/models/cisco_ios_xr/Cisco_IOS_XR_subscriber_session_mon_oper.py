@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class SessionMon(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-subscriber-session-mon-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", SessionMon.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", SessionMon.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = SessionMon.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class SessionMon(Entity):
             self.yang_parent_name = "session-mon"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", SessionMon.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", SessionMon.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -91,7 +97,7 @@ class SessionMon(Entity):
             Subscriber sessionmon operational data for a
             particular node
             
-            .. attribute:: node_id  <key>
+            .. attribute:: node_id  (key)
             
             	Nodeid location 
             	**type**\: str
@@ -127,10 +133,13 @@ class SessionMon(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"session-mon-statistics" : ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics), "interface-all-statistics" : ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics), "license-statistics" : ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics)}
-                self._child_list_classes = {}
-
-                self.node_id = YLeaf(YType.str, "node-id")
+                self.ylist_key_names = ['node_id']
+                self._child_container_classes = OrderedDict([("session-mon-statistics", ("session_mon_statistics", SessionMon.Nodes.Node.SessionMonStatistics)), ("interface-all-statistics", ("interface_all_statistics", SessionMon.Nodes.Node.InterfaceAllStatistics)), ("license-statistics", ("license_statistics", SessionMon.Nodes.Node.LicenseStatistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_id', YLeaf(YType.str, 'node-id')),
+                ])
+                self.node_id = None
 
                 self.session_mon_statistics = SessionMon.Nodes.Node.SessionMonStatistics()
                 self.session_mon_statistics.parent = self
@@ -146,7 +155,7 @@ class SessionMon(Entity):
                 self.license_statistics.parent = self
                 self._children_name_map["license_statistics"] = "license-statistics"
                 self._children_yang_names.add("license-statistics")
-                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -262,34 +271,37 @@ class SessionMon(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total = YLeaf(YType.uint32, "total")
-
-                    self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                    self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
-
-                    self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
-
-                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
-
-                    self.ippkt = YLeaf(YType.uint32, "ippkt")
-
-                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
-                    self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
-
-                    self.peak_standby_sessions = YLeaf(YType.uint32, "peak-standby-sessions")
-
-                    self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
-
-                    self.timeout_value = YLeaf(YType.uint32, "timeout-value")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total', YLeaf(YType.uint32, 'total')),
+                        ('pppoe', YLeaf(YType.uint32, 'pppoe')),
+                        ('pppoe_ds', YLeaf(YType.uint32, 'pppoe-ds')),
+                        ('dhcpv4', YLeaf(YType.uint32, 'dhcpv4')),
+                        ('dhcpv6', YLeaf(YType.uint32, 'dhcpv6')),
+                        ('dhcp_ds', YLeaf(YType.uint32, 'dhcp-ds')),
+                        ('ippkt', YLeaf(YType.uint32, 'ippkt')),
+                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                        ('standby_sessions', YLeaf(YType.uint32, 'standby-sessions')),
+                        ('peak_active_sessions', YLeaf(YType.uint32, 'peak-active-sessions')),
+                        ('peak_standby_sessions', YLeaf(YType.uint32, 'peak-standby-sessions')),
+                        ('peak_start_time', YLeaf(YType.uint32, 'peak-start-time')),
+                        ('timeout_value', YLeaf(YType.uint32, 'timeout-value')),
+                    ])
+                    self.total = None
+                    self.pppoe = None
+                    self.pppoe_ds = None
+                    self.dhcpv4 = None
+                    self.dhcpv6 = None
+                    self.dhcp_ds = None
+                    self.ippkt = None
+                    self.active_sessions = None
+                    self.standby_sessions = None
+                    self.peak_active_sessions = None
+                    self.peak_standby_sessions = None
+                    self.peak_start_time = None
+                    self.timeout_value = None
                     self._segment_path = lambda: "session-mon-statistics"
 
                 def __setattr__(self, name, value):
@@ -319,8 +331,10 @@ class SessionMon(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-all-statistic" : ("interface_all_statistic", SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-all-statistic", ("interface_all_statistic", SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic))])
+                    self._leafs = OrderedDict()
 
                     self.interface_all_statistic = YList(self)
                     self._segment_path = lambda: "interface-all-statistics"
@@ -333,7 +347,7 @@ class SessionMon(Entity):
                     """
                     Statistics
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface Name
                     	**type**\: str
@@ -445,37 +459,40 @@ class SessionMon(Entity):
                         self.yang_parent_name = "interface-all-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.total = YLeaf(YType.uint32, "total")
-
-                        self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                        self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                        self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
-
-                        self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
-
-                        self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
-
-                        self.ippkt = YLeaf(YType.uint32, "ippkt")
-
-                        self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                        self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
-                        self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
-
-                        self.peak_standby_sessions = YLeaf(YType.uint32, "peak-standby-sessions")
-
-                        self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
-
-                        self.timeout_value = YLeaf(YType.uint32, "timeout-value")
-                        self._segment_path = lambda: "interface-all-statistic" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('total', YLeaf(YType.uint32, 'total')),
+                            ('pppoe', YLeaf(YType.uint32, 'pppoe')),
+                            ('pppoe_ds', YLeaf(YType.uint32, 'pppoe-ds')),
+                            ('dhcpv4', YLeaf(YType.uint32, 'dhcpv4')),
+                            ('dhcpv6', YLeaf(YType.uint32, 'dhcpv6')),
+                            ('dhcp_ds', YLeaf(YType.uint32, 'dhcp-ds')),
+                            ('ippkt', YLeaf(YType.uint32, 'ippkt')),
+                            ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                            ('standby_sessions', YLeaf(YType.uint32, 'standby-sessions')),
+                            ('peak_active_sessions', YLeaf(YType.uint32, 'peak-active-sessions')),
+                            ('peak_standby_sessions', YLeaf(YType.uint32, 'peak-standby-sessions')),
+                            ('peak_start_time', YLeaf(YType.uint32, 'peak-start-time')),
+                            ('timeout_value', YLeaf(YType.uint32, 'timeout-value')),
+                        ])
+                        self.interface_name = None
+                        self.total = None
+                        self.pppoe = None
+                        self.pppoe_ds = None
+                        self.dhcpv4 = None
+                        self.dhcpv6 = None
+                        self.dhcp_ds = None
+                        self.ippkt = None
+                        self.active_sessions = None
+                        self.standby_sessions = None
+                        self.peak_active_sessions = None
+                        self.peak_standby_sessions = None
+                        self.peak_start_time = None
+                        self.timeout_value = None
+                        self._segment_path = lambda: "interface-all-statistic" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
@@ -590,34 +607,37 @@ class SessionMon(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.total = YLeaf(YType.uint32, "total")
-
-                    self.pppoe = YLeaf(YType.uint32, "pppoe")
-
-                    self.pppoe_ds = YLeaf(YType.uint32, "pppoe-ds")
-
-                    self.dhcpv4 = YLeaf(YType.uint32, "dhcpv4")
-
-                    self.dhcpv6 = YLeaf(YType.uint32, "dhcpv6")
-
-                    self.dhcp_ds = YLeaf(YType.uint32, "dhcp-ds")
-
-                    self.ippkt = YLeaf(YType.uint32, "ippkt")
-
-                    self.active_sessions = YLeaf(YType.uint32, "active-sessions")
-
-                    self.standby_sessions = YLeaf(YType.uint32, "standby-sessions")
-
-                    self.peak_active_sessions = YLeaf(YType.uint32, "peak-active-sessions")
-
-                    self.peak_standby_sessions = YLeaf(YType.uint32, "peak-standby-sessions")
-
-                    self.peak_start_time = YLeaf(YType.uint32, "peak-start-time")
-
-                    self.timeout_value = YLeaf(YType.uint32, "timeout-value")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('total', YLeaf(YType.uint32, 'total')),
+                        ('pppoe', YLeaf(YType.uint32, 'pppoe')),
+                        ('pppoe_ds', YLeaf(YType.uint32, 'pppoe-ds')),
+                        ('dhcpv4', YLeaf(YType.uint32, 'dhcpv4')),
+                        ('dhcpv6', YLeaf(YType.uint32, 'dhcpv6')),
+                        ('dhcp_ds', YLeaf(YType.uint32, 'dhcp-ds')),
+                        ('ippkt', YLeaf(YType.uint32, 'ippkt')),
+                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                        ('standby_sessions', YLeaf(YType.uint32, 'standby-sessions')),
+                        ('peak_active_sessions', YLeaf(YType.uint32, 'peak-active-sessions')),
+                        ('peak_standby_sessions', YLeaf(YType.uint32, 'peak-standby-sessions')),
+                        ('peak_start_time', YLeaf(YType.uint32, 'peak-start-time')),
+                        ('timeout_value', YLeaf(YType.uint32, 'timeout-value')),
+                    ])
+                    self.total = None
+                    self.pppoe = None
+                    self.pppoe_ds = None
+                    self.dhcpv4 = None
+                    self.dhcpv6 = None
+                    self.dhcp_ds = None
+                    self.ippkt = None
+                    self.active_sessions = None
+                    self.standby_sessions = None
+                    self.peak_active_sessions = None
+                    self.peak_standby_sessions = None
+                    self.peak_start_time = None
+                    self.timeout_value = None
                     self._segment_path = lambda: "license-statistics"
 
                 def __setattr__(self, name, value):

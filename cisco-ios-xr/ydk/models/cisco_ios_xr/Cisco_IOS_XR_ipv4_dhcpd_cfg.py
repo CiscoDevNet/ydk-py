@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BaseAction(Enum):
     """
-    BaseAction
+    BaseAction (Enum Class)
 
     Base action
 
@@ -40,7 +42,7 @@ class BaseAction(Enum):
 
 class Dhcpv4AuthUsername(Enum):
     """
-    Dhcpv4AuthUsername
+    Dhcpv4AuthUsername (Enum Class)
 
     Dhcpv4 auth username
 
@@ -61,7 +63,7 @@ class Dhcpv4AuthUsername(Enum):
 
 class Dhcpv4LimitLease1(Enum):
     """
-    Dhcpv4LimitLease1
+    Dhcpv4LimitLease1 (Enum Class)
 
     Dhcpv4 limit lease1
 
@@ -94,7 +96,7 @@ class Dhcpv4LimitLease1(Enum):
 
 class Dhcpv4MatchOption(Enum):
     """
-    Dhcpv4MatchOption
+    Dhcpv4MatchOption (Enum Class)
 
     Dhcpv4 match option
 
@@ -127,7 +129,7 @@ class Dhcpv4MatchOption(Enum):
 
 class Ipv4dhcpdBroadcastFlagPolicy(Enum):
     """
-    Ipv4dhcpdBroadcastFlagPolicy
+    Ipv4dhcpdBroadcastFlagPolicy (Enum Class)
 
     Ipv4dhcpd broadcast flag policy
 
@@ -154,7 +156,7 @@ class Ipv4dhcpdBroadcastFlagPolicy(Enum):
 
 class Ipv4dhcpdFmt(Enum):
     """
-    Ipv4dhcpdFmt
+    Ipv4dhcpdFmt (Enum Class)
 
     Ipv4dhcpd fmt
 
@@ -175,7 +177,7 @@ class Ipv4dhcpdFmt(Enum):
 
 class Ipv4dhcpdFmtSpecifier(Enum):
     """
-    Ipv4dhcpdFmtSpecifier
+    Ipv4dhcpdFmtSpecifier (Enum Class)
 
     Ipv4dhcpd fmt specifier
 
@@ -232,22 +234,22 @@ class Ipv4dhcpdFmtSpecifier(Enum):
 
 class Ipv4dhcpdGiaddrPolicy(Enum):
     """
-    Ipv4dhcpdGiaddrPolicy
+    Ipv4dhcpdGiaddrPolicy (Enum Class)
 
     Ipv4dhcpd giaddr policy
 
-    .. data:: giaddr_policy_keep = 1
+    .. data:: giaddr_policy_keep = 0
 
     	Giaddr Policy Keep
 
     """
 
-    giaddr_policy_keep = Enum.YLeaf(1, "giaddr-policy-keep")
+    giaddr_policy_keep = Enum.YLeaf(0, "giaddr-policy-keep")
 
 
 class Ipv4dhcpdLayer(Enum):
     """
-    Ipv4dhcpdLayer
+    Ipv4dhcpdLayer (Enum Class)
 
     Ipv4dhcpd layer
 
@@ -268,7 +270,7 @@ class Ipv4dhcpdLayer(Enum):
 
 class Ipv4dhcpdMode(Enum):
     """
-    Ipv4dhcpdMode
+    Ipv4dhcpdMode (Enum Class)
 
     Ipv4dhcpd mode
 
@@ -313,7 +315,7 @@ class Ipv4dhcpdMode(Enum):
 
 class Ipv4dhcpdRelayInfoOptionAuthenticate(Enum):
     """
-    Ipv4dhcpdRelayInfoOptionAuthenticate
+    Ipv4dhcpdRelayInfoOptionAuthenticate (Enum Class)
 
     Ipv4dhcpd relay info option authenticate
 
@@ -334,7 +336,7 @@ class Ipv4dhcpdRelayInfoOptionAuthenticate(Enum):
 
 class Ipv4dhcpdRelayInfoOptionPolicy(Enum):
     """
-    Ipv4dhcpdRelayInfoOptionPolicy
+    Ipv4dhcpdRelayInfoOptionPolicy (Enum Class)
 
     Ipv4dhcpd relay info option policy
 
@@ -367,7 +369,7 @@ class Ipv4dhcpdRelayInfoOptionPolicy(Enum):
 
 class Ipv4dhcpdRelayInfoOptionvpnMode(Enum):
     """
-    Ipv4dhcpdRelayInfoOptionvpnMode
+    Ipv4dhcpdRelayInfoOptionvpnMode (Enum Class)
 
     Ipv4dhcpd relay info optionvpn mode
 
@@ -388,7 +390,7 @@ class Ipv4dhcpdRelayInfoOptionvpnMode(Enum):
 
 class LeaseLimitValue(Enum):
     """
-    LeaseLimitValue
+    LeaseLimitValue (Enum Class)
 
     Lease limit value
 
@@ -415,7 +417,7 @@ class LeaseLimitValue(Enum):
 
 class MacMismatchAction(Enum):
     """
-    MacMismatchAction
+    MacMismatchAction (Enum Class)
 
     Mac mismatch action
 
@@ -436,7 +438,7 @@ class MacMismatchAction(Enum):
 
 class Matchaction(Enum):
     """
-    Matchaction
+    Matchaction (Enum Class)
 
     Matchaction
 
@@ -457,7 +459,7 @@ class Matchaction(Enum):
 
 class Matchoption(Enum):
     """
-    Matchoption
+    Matchoption (Enum Class)
 
     Matchoption
 
@@ -510,7 +512,7 @@ class Matchoption(Enum):
 
 class Policy(Enum):
     """
-    Policy
+    Policy (Enum Class)
 
     Policy
 
@@ -537,7 +539,7 @@ class Policy(Enum):
 
 class ProxyAction(Enum):
     """
-    ProxyAction
+    ProxyAction (Enum Class)
 
     Proxy action
 
@@ -549,11 +551,17 @@ class ProxyAction(Enum):
 
     	Drop vendor specific DHCP Discover
 
+    .. data:: relay = 2
+
+    	Relay vendor-id specific DHCP packets unaltered
+
     """
 
     allow = Enum.YLeaf(0, "allow")
 
     drop = Enum.YLeaf(1, "drop")
+
+    relay = Enum.YLeaf(2, "relay")
 
 
 
@@ -632,16 +640,19 @@ class Ipv4Dhcpd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-dhcpd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Ipv4Dhcpd.Vrfs), "profiles" : ("profiles", Ipv4Dhcpd.Profiles), "database" : ("database", Ipv4Dhcpd.Database), "interfaces" : ("interfaces", Ipv4Dhcpd.Interfaces), "duplicate-mac-allowed" : ("duplicate_mac_allowed", Ipv4Dhcpd.DuplicateMacAllowed), "rate-limit" : ("rate_limit", Ipv4Dhcpd.RateLimit)}
-        self._child_list_classes = {}
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.outer_cos = YLeaf(YType.uint32, "outer-cos")
-
-        self.allow_client_id_change = YLeaf(YType.empty, "allow-client-id-change")
-
-        self.inner_cos = YLeaf(YType.uint32, "inner-cos")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Dhcpd.Vrfs)), ("profiles", ("profiles", Ipv4Dhcpd.Profiles)), ("database", ("database", Ipv4Dhcpd.Database)), ("interfaces", ("interfaces", Ipv4Dhcpd.Interfaces)), ("duplicate-mac-allowed", ("duplicate_mac_allowed", Ipv4Dhcpd.DuplicateMacAllowed)), ("rate-limit", ("rate_limit", Ipv4Dhcpd.RateLimit))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('outer_cos', YLeaf(YType.uint32, 'outer-cos')),
+            ('allow_client_id_change', YLeaf(YType.empty, 'allow-client-id-change')),
+            ('inner_cos', YLeaf(YType.uint32, 'inner-cos')),
+        ])
+        self.enable = None
+        self.outer_cos = None
+        self.allow_client_id_change = None
+        self.inner_cos = None
 
         self.vrfs = Ipv4Dhcpd.Vrfs()
         self.vrfs.parent = self
@@ -700,8 +711,10 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Dhcpd.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -715,7 +728,7 @@ class Ipv4Dhcpd(Entity):
             """
             VRF table
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF Name
             	**type**\: str
@@ -743,15 +756,18 @@ class Ipv4Dhcpd(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"profile" : ("profile", Ipv4Dhcpd.Vrfs.Vrf.Profile)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("profile", ("profile", Ipv4Dhcpd.Vrfs.Vrf.Profile))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
 
                 self.profile = None
                 self._children_name_map["profile"] = "profile"
                 self._children_yang_names.add("profile")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -792,13 +808,16 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.vrf_profile_name = YLeaf(YType.str, "vrf-profile-name")
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
+                    self._leafs = OrderedDict([
+                        ('vrf_profile_name', YLeaf(YType.str, 'vrf-profile-name')),
+                        ('mode', YLeaf(YType.enumeration, 'mode')),
+                    ])
+                    self.vrf_profile_name = None
+                    self.mode = None
                     self._segment_path = lambda: "profile"
 
                 def __setattr__(self, name, value):
@@ -828,8 +847,10 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Profiles.Profile)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("profile", ("profile", Ipv4Dhcpd.Profiles.Profile))])
+            self._leafs = OrderedDict()
 
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
@@ -843,7 +864,7 @@ class Ipv4Dhcpd(Entity):
             """
             DHCP IPV4 Profile
             
-            .. attribute:: profile_name  <key>
+            .. attribute:: profile_name  (key)
             
             	Profile Name
             	**type**\: str
@@ -869,16 +890,19 @@ class Ipv4Dhcpd(Entity):
                 self.yang_parent_name = "profiles"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"modes" : ("modes", Ipv4Dhcpd.Profiles.Profile.Modes)}
-                self._child_list_classes = {}
-
-                self.profile_name = YLeaf(YType.str, "profile-name")
+                self.ylist_key_names = ['profile_name']
+                self._child_container_classes = OrderedDict([("modes", ("modes", Ipv4Dhcpd.Profiles.Profile.Modes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                ])
+                self.profile_name = None
 
                 self.modes = Ipv4Dhcpd.Profiles.Profile.Modes()
                 self.modes.parent = self
                 self._children_name_map["modes"] = "modes"
                 self._children_yang_names.add("modes")
-                self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -908,8 +932,10 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"mode" : ("mode", Ipv4Dhcpd.Profiles.Profile.Modes.Mode)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("mode", ("mode", Ipv4Dhcpd.Profiles.Profile.Modes.Mode))])
+                    self._leafs = OrderedDict()
 
                     self.mode = YList(self)
                     self._segment_path = lambda: "modes"
@@ -922,7 +948,7 @@ class Ipv4Dhcpd(Entity):
                     """
                     DHCP IPV4 Profile mode
                     
-                    .. attribute:: mode  <key>
+                    .. attribute:: mode  (key)
                     
                     	DHCP IPV4 Profile mode
                     	**type**\:  :py:class:`Ipv4dhcpdMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdMode>`
@@ -971,12 +997,15 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "modes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"snoop" : ("snoop", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop), "base" : ("base", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base), "server" : ("server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server), "relay" : ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay), "proxy" : ("proxy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy)}
-                        self._child_list_classes = {}
-
-                        self.mode = YLeaf(YType.enumeration, "mode")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = ['mode']
+                        self._child_container_classes = OrderedDict([("snoop", ("snoop", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop)), ("base", ("base", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base)), ("server", ("server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server)), ("relay", ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay)), ("proxy", ("proxy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.mode = None
+                        self.enable = None
 
                         self.snoop = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop()
                         self.snoop.parent = self
@@ -1002,7 +1031,7 @@ class Ipv4Dhcpd(Entity):
                         self.proxy.parent = self
                         self._children_name_map["proxy"] = "proxy"
                         self._children_yang_names.add("proxy")
-                        self._segment_path = lambda: "mode" + "[mode='" + self.mode.get() + "']"
+                        self._segment_path = lambda: "mode" + "[mode='" + str(self.mode) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode, ['mode', 'enable'], name, value)
@@ -1036,10 +1065,13 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"relay-information-option" : ("relay_information_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption)}
-                            self._child_list_classes = {}
-
-                            self.trusted = YLeaf(YType.empty, "trusted")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("relay-information-option", ("relay_information_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('trusted', YLeaf(YType.empty, 'trusted')),
+                            ])
+                            self.trusted = None
 
                             self.relay_information_option = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption()
                             self.relay_information_option.parent = self
@@ -1089,14 +1121,17 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "snoop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"remote-id" : ("remote_id", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId)}
-                                self._child_list_classes = {}
-
-                                self.insert = YLeaf(YType.empty, "insert")
-
-                                self.allow_untrusted = YLeaf(YType.empty, "allow-untrusted")
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("remote-id", ("remote_id", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('insert', YLeaf(YType.empty, 'insert')),
+                                    ('allow_untrusted', YLeaf(YType.empty, 'allow-untrusted')),
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.insert = None
+                                self.allow_untrusted = None
+                                self.policy = None
 
                                 self.remote_id = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Snoop.RelayInformationOption.RemoteId()
                                 self.remote_id.parent = self
@@ -1138,12 +1173,15 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "relay-information-option"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.format_type = YLeaf(YType.uint32, "format-type")
-
-                                    self.remote_id_value = YLeaf(YType.str, "remote-id-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('format_type', YLeaf(YType.uint32, 'format-type')),
+                                        ('remote_id_value', YLeaf(YType.str, 'remote-id-value')),
+                                    ])
+                                    self.format_type = None
+                                    self.remote_id_value = None
                                     self._segment_path = lambda: "remote-id"
 
                                 def __setattr__(self, name, value):
@@ -1193,10 +1231,13 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"default-profile" : ("default_profile", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile), "match" : ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match), "base-relay-opt" : ("base_relay_opt", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt), "base-match" : ("base_match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("default-profile", ("default_profile", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile)), ("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match)), ("base-relay-opt", ("base_relay_opt", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseRelayOpt)), ("base-match", ("base_match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.default_profile = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.DefaultProfile()
                             self.default_profile.parent = self
@@ -1255,12 +1296,15 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "base"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.profile_mode = YLeaf(YType.int32, "profile-mode")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('profile_mode', YLeaf(YType.int32, 'profile-mode')),
+                                ])
+                                self.profile_name = None
+                                self.profile_mode = None
                                 self._segment_path = lambda: "default-profile"
 
                             def __setattr__(self, name, value):
@@ -1295,8 +1339,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "base"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"option-filters" : ("option_filters", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters), "def-options" : ("def_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("option-filters", ("option_filters", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters)), ("def-options", ("def_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.option_filters = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters()
                                 self.option_filters.parent = self
@@ -1333,8 +1379,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"option-filter" : ("option_filter", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("option-filter", ("option_filter", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter))])
+                                    self._leafs = OrderedDict()
 
                                     self.option_filter = YList(self)
                                     self._segment_path = lambda: "option-filters"
@@ -1347,21 +1395,21 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: matchoption  <key>
+                                    .. attribute:: matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: pattern  <key>
+                                    .. attribute:: pattern  (key)
                                     
                                     	Enter hex pattern string
                                     	**type**\: str
                                     
                                     	**length:** 1..64
                                     
-                                    .. attribute:: format  <key>
+                                    .. attribute:: format  (key)
                                     
                                     	Set constant integer
                                     	**type**\: int
@@ -1387,17 +1435,20 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "option-filters"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.matchoption = YLeaf(YType.int32, "matchoption")
-
-                                        self.pattern = YLeaf(YType.str, "pattern")
-
-                                        self.format = YLeaf(YType.int32, "format")
-
-                                        self.option_action = YLeaf(YType.enumeration, "option-action")
-                                        self._segment_path = lambda: "option-filter" + "[matchoption='" + self.matchoption.get() + "']" + "[pattern='" + self.pattern.get() + "']" + "[format='" + self.format.get() + "']"
+                                        self.ylist_key_names = ['matchoption','pattern','format']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('matchoption', YLeaf(YType.int32, 'matchoption')),
+                                            ('pattern', YLeaf(YType.str, 'pattern')),
+                                            ('format', YLeaf(YType.int32, 'format')),
+                                            ('option_action', YLeaf(YType.enumeration, 'option-action')),
+                                        ])
+                                        self.matchoption = None
+                                        self.pattern = None
+                                        self.format = None
+                                        self.option_action = None
+                                        self._segment_path = lambda: "option-filter" + "[matchoption='" + str(self.matchoption) + "']" + "[pattern='" + str(self.pattern) + "']" + "[format='" + str(self.format) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.OptionFilters.OptionFilter, ['matchoption', 'pattern', 'format', 'option_action'], name, value)
@@ -1426,8 +1477,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"def-option" : ("def_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("def-option", ("def_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption))])
+                                    self._leafs = OrderedDict()
 
                                     self.def_option = YList(self)
                                     self._segment_path = lambda: "def-options"
@@ -1440,7 +1493,7 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: def_matchoption  <key>
+                                    .. attribute:: def_matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\: int
@@ -1468,13 +1521,16 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "def-options"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.def_matchoption = YLeaf(YType.int32, "def-matchoption")
-
-                                        self.def_matchaction = YLeaf(YType.enumeration, "def-matchaction")
-                                        self._segment_path = lambda: "def-option" + "[def-matchoption='" + self.def_matchoption.get() + "']"
+                                        self.ylist_key_names = ['def_matchoption']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('def_matchoption', YLeaf(YType.int32, 'def-matchoption')),
+                                            ('def_matchaction', YLeaf(YType.enumeration, 'def-matchaction')),
+                                        ])
+                                        self.def_matchoption = None
+                                        self.def_matchaction = None
+                                        self._segment_path = lambda: "def-option" + "[def-matchoption='" + str(self.def_matchoption) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.Match.DefOptions.DefOption, ['def_matchoption', 'def_matchaction'], name, value)
@@ -1513,12 +1569,15 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "base"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.authenticate = YLeaf(YType.int32, "authenticate")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('authenticate', YLeaf(YType.int32, 'authenticate')),
+                                ])
+                                self.remote_id = None
+                                self.authenticate = None
                                 self._segment_path = lambda: "base-relay-opt"
 
                             def __setattr__(self, name, value):
@@ -1548,8 +1607,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "base"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"options" : ("options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("options", ("options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.options = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options()
                                 self.options.parent = self
@@ -1581,8 +1642,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "base-match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"option" : ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("option", ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option))])
+                                    self._leafs = OrderedDict()
 
                                     self.option = YList(self)
                                     self._segment_path = lambda: "options"
@@ -1595,21 +1658,21 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     none
                                     
-                                    .. attribute:: opt60  <key>
+                                    .. attribute:: opt60  (key)
                                     
                                     	none
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: opt60_hex_str  <key>
+                                    .. attribute:: opt60_hex_str  (key)
                                     
                                     	Enter hex pattern string
                                     	**type**\: str
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
-                                    .. attribute:: format  <key>
+                                    .. attribute:: format  (key)
                                     
                                     	Set constant integer
                                     	**type**\: int
@@ -1635,20 +1698,23 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "options"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"option-profile" : ("option_profile", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile)}
-                                        self._child_list_classes = {}
-
-                                        self.opt60 = YLeaf(YType.int32, "opt60")
-
-                                        self.opt60_hex_str = YLeaf(YType.str, "opt60-hex-str")
-
-                                        self.format = YLeaf(YType.int32, "format")
+                                        self.ylist_key_names = ['opt60','opt60_hex_str','format']
+                                        self._child_container_classes = OrderedDict([("option-profile", ("option_profile", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('opt60', YLeaf(YType.int32, 'opt60')),
+                                            ('opt60_hex_str', YLeaf(YType.str, 'opt60-hex-str')),
+                                            ('format', YLeaf(YType.int32, 'format')),
+                                        ])
+                                        self.opt60 = None
+                                        self.opt60_hex_str = None
+                                        self.format = None
 
                                         self.option_profile = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile()
                                         self.option_profile.parent = self
                                         self._children_name_map["option_profile"] = "option-profile"
                                         self._children_yang_names.add("option-profile")
-                                        self._segment_path = lambda: "option" + "[opt60='" + self.opt60.get() + "']" + "[opt60-hex-str='" + self.opt60_hex_str.get() + "']" + "[format='" + self.format.get() + "']"
+                                        self._segment_path = lambda: "option" + "[opt60='" + str(self.opt60) + "']" + "[opt60-hex-str='" + str(self.opt60_hex_str) + "']" + "[format='" + str(self.format) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option, ['opt60', 'opt60_hex_str', 'format'], name, value)
@@ -1686,12 +1752,15 @@ class Ipv4Dhcpd(Entity):
                                             self.yang_parent_name = "option"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                            self.profile_mode = YLeaf(YType.int32, "profile-mode")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                                ('profile_mode', YLeaf(YType.int32, 'profile-mode')),
+                                            ])
+                                            self.profile_name = None
+                                            self.profile_mode = None
                                             self._segment_path = lambda: "option-profile"
 
                                         def __setattr__(self, name, value):
@@ -1777,6 +1846,11 @@ class Ipv4Dhcpd(Entity):
                         	Allow dhcp subscriber move
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
+                        .. attribute:: enable
+                        
+                        	DHCP IPV4 profile mode enable
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
                         .. attribute:: subnet_mask
                         
                         	Configure Subnet Mask
@@ -1790,11 +1864,6 @@ class Ipv4Dhcpd(Entity):
                         	**type**\: str
                         
                         	**length:** 1..64
-                        
-                        .. attribute:: infinite_lease
-                        
-                        	Infinite lease
-                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: domain_name
                         
@@ -1841,24 +1910,27 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"server-id-check" : ("server_id_check", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck), "lease-limit" : ("lease_limit", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit), "requested-ip-address" : ("requested_ip_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress), "aaa-server" : ("aaa_server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer), "default-routers" : ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters), "net-bios-name-servers" : ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers), "match" : ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match), "broadcast-flag" : ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag), "session" : ("session", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session), "classes" : ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes), "relay" : ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay), "lease" : ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease), "netbios-node-type" : ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType), "dns-servers" : ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers), "option-codes" : ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes)}
-                            self._child_list_classes = {}
-
-                            self.server_allow_move = YLeaf(YType.empty, "server-allow-move")
-
-                            self.subnet_mask = YLeaf(YType.str, "subnet-mask")
-
-                            self.pool = YLeaf(YType.str, "pool")
-
-                            self.infinite_lease = YLeaf(YType.empty, "infinite-lease")
-
-                            self.domain_name = YLeaf(YType.str, "domain-name")
-
-                            self.secure_arp = YLeaf(YType.empty, "secure-arp")
-
-                            self.boot_filename = YLeaf(YType.str, "boot-filename")
-
-                            self.next_server = YLeaf(YType.str, "next-server")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("server-id-check", ("server_id_check", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck)), ("lease-limit", ("lease_limit", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.LeaseLimit)), ("requested-ip-address", ("requested_ip_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.RequestedIpAddress)), ("aaa-server", ("aaa_server", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer)), ("default-routers", ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DefaultRouters)), ("net-bios-name-servers", ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetBiosNameServers)), ("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match)), ("broadcast-flag", ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.BroadcastFlag)), ("session", ("session", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session)), ("classes", ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes)), ("relay", ("relay", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Relay)), ("lease", ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Lease)), ("netbios-node-type", ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.NetbiosNodeType)), ("dns-servers", ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.DnsServers)), ("option-codes", ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('server_allow_move', YLeaf(YType.empty, 'server-allow-move')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('subnet_mask', YLeaf(YType.str, 'subnet-mask')),
+                                ('pool', YLeaf(YType.str, 'pool')),
+                                ('domain_name', YLeaf(YType.str, 'domain-name')),
+                                ('secure_arp', YLeaf(YType.empty, 'secure-arp')),
+                                ('boot_filename', YLeaf(YType.str, 'boot-filename')),
+                                ('next_server', YLeaf(YType.str, 'next-server')),
+                            ])
+                            self.server_allow_move = None
+                            self.enable = None
+                            self.subnet_mask = None
+                            self.pool = None
+                            self.domain_name = None
+                            self.secure_arp = None
+                            self.boot_filename = None
+                            self.next_server = None
 
                             self.server_id_check = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.ServerIdCheck()
                             self.server_id_check.parent = self
@@ -1937,7 +2009,7 @@ class Ipv4Dhcpd(Entity):
                             self._segment_path = lambda: "server"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server, ['server_allow_move', 'subnet_mask', 'pool', 'infinite_lease', 'domain_name', 'secure_arp', 'boot_filename', 'next_server'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server, ['server_allow_move', 'enable', 'subnet_mask', 'pool', 'domain_name', 'secure_arp', 'boot_filename', 'next_server'], name, value)
 
 
                         class ServerIdCheck(Entity):
@@ -1963,10 +2035,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.check = YLeaf(YType.empty, "check")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('check', YLeaf(YType.empty, 'check')),
+                                ])
+                                self.check = None
                                 self._segment_path = lambda: "server-id-check"
 
                             def __setattr__(self, name, value):
@@ -2003,12 +2078,15 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lease_limit_value = YLeaf(YType.enumeration, "lease-limit-value")
-
-                                self.range = YLeaf(YType.uint32, "range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lease_limit_value', YLeaf(YType.enumeration, 'lease-limit-value')),
+                                    ('range', YLeaf(YType.uint32, 'range')),
+                                ])
+                                self.lease_limit_value = None
+                                self.range = None
                                 self._segment_path = lambda: "lease-limit"
 
                             def __setattr__(self, name, value):
@@ -2038,10 +2116,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.check = YLeaf(YType.empty, "check")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('check', YLeaf(YType.empty, 'check')),
+                                ])
+                                self.check = None
                                 self._segment_path = lambda: "requested-ip-address"
 
                             def __setattr__(self, name, value):
@@ -2071,8 +2152,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"dhcp-option" : ("dhcp_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("dhcp-option", ("dhcp_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.dhcp_option = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.AaaServer.DhcpOption()
                                 self.dhcp_option.parent = self
@@ -2104,10 +2187,13 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "aaa-server"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.force_insert = YLeaf(YType.empty, "force-insert")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('force_insert', YLeaf(YType.empty, 'force-insert')),
+                                    ])
+                                    self.force_insert = None
                                     self._segment_path = lambda: "dhcp-option"
 
                                 def __setattr__(self, name, value):
@@ -2139,10 +2225,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.default_router = YLeafList(YType.str, "default-router")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('default_router', YLeafList(YType.str, 'default-router')),
+                                ])
+                                self.default_router = []
                                 self._segment_path = lambda: "default-routers"
 
                             def __setattr__(self, name, value):
@@ -2174,10 +2263,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.net_bios_name_server = YLeafList(YType.str, "net-bios-name-server")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('net_bios_name_server', YLeafList(YType.str, 'net-bios-name-server')),
+                                ])
+                                self.net_bios_name_server = []
                                 self._segment_path = lambda: "net-bios-name-servers"
 
                             def __setattr__(self, name, value):
@@ -2212,8 +2304,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"option-defaults" : ("option_defaults", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults), "options" : ("options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("option-defaults", ("option_defaults", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults)), ("options", ("options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.option_defaults = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults()
                                 self.option_defaults.parent = self
@@ -2250,8 +2344,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"option-default" : ("option_default", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("option-default", ("option_default", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault))])
+                                    self._leafs = OrderedDict()
 
                                     self.option_default = YList(self)
                                     self._segment_path = lambda: "option-defaults"
@@ -2264,7 +2360,7 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: matchoption  <key>
+                                    .. attribute:: matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
@@ -2290,13 +2386,16 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "option-defaults"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.matchoption = YLeaf(YType.enumeration, "matchoption")
-
-                                        self.matchaction = YLeaf(YType.enumeration, "matchaction")
-                                        self._segment_path = lambda: "option-default" + "[matchoption='" + self.matchoption.get() + "']"
+                                        self.ylist_key_names = ['matchoption']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('matchoption', YLeaf(YType.enumeration, 'matchoption')),
+                                            ('matchaction', YLeaf(YType.enumeration, 'matchaction')),
+                                        ])
+                                        self.matchoption = None
+                                        self.matchaction = None
+                                        self._segment_path = lambda: "option-default" + "[matchoption='" + str(self.matchoption) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.OptionDefaults.OptionDefault, ['matchoption', 'matchaction'], name, value)
@@ -2325,8 +2424,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"option" : ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("option", ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option))])
+                                    self._leafs = OrderedDict()
 
                                     self.option = YList(self)
                                     self._segment_path = lambda: "options"
@@ -2339,19 +2440,19 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: matchoption  <key>
+                                    .. attribute:: matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
                                     
-                                    .. attribute:: pattern  <key>
+                                    .. attribute:: pattern  (key)
                                     
                                     	Enter hex pattern string
                                     	**type**\: str
                                     
                                     	**length:** 1..64
                                     
-                                    .. attribute:: format  <key>
+                                    .. attribute:: format  (key)
                                     
                                     	Set constant integer
                                     	**type**\: int
@@ -2379,17 +2480,20 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "options"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.matchoption = YLeaf(YType.enumeration, "matchoption")
-
-                                        self.pattern = YLeaf(YType.str, "pattern")
-
-                                        self.format = YLeaf(YType.int32, "format")
-
-                                        self.matchaction = YLeaf(YType.enumeration, "matchaction")
-                                        self._segment_path = lambda: "option" + "[matchoption='" + self.matchoption.get() + "']" + "[pattern='" + self.pattern.get() + "']" + "[format='" + self.format.get() + "']"
+                                        self.ylist_key_names = ['matchoption','pattern','format']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('matchoption', YLeaf(YType.enumeration, 'matchoption')),
+                                            ('pattern', YLeaf(YType.str, 'pattern')),
+                                            ('format', YLeaf(YType.int32, 'format')),
+                                            ('matchaction', YLeaf(YType.enumeration, 'matchaction')),
+                                        ])
+                                        self.matchoption = None
+                                        self.pattern = None
+                                        self.format = None
+                                        self.matchaction = None
+                                        self._segment_path = lambda: "option" + "[matchoption='" + str(self.matchoption) + "']" + "[pattern='" + str(self.pattern) + "']" + "[format='" + str(self.format) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Match.Options.Option, ['matchoption', 'pattern', 'format', 'matchaction'], name, value)
@@ -2418,10 +2522,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.policy = None
                                 self._segment_path = lambda: "broadcast-flag"
 
                             def __setattr__(self, name, value):
@@ -2451,8 +2558,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"throttle-type" : ("throttle_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("throttle-type", ("throttle_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.throttle_type = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType()
                                 self.throttle_type.parent = self
@@ -2485,8 +2594,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "session"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"mac-throttle" : ("mac_throttle", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("mac-throttle", ("mac_throttle", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.mac_throttle = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Session.ThrottleType.MacThrottle()
                                     self.mac_throttle.parent = self
@@ -2539,14 +2650,17 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "throttle-type"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_discover = YLeaf(YType.uint32, "num-discover")
-
-                                        self.num_request = YLeaf(YType.uint32, "num-request")
-
-                                        self.num_block = YLeaf(YType.uint32, "num-block")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_discover', YLeaf(YType.uint32, 'num-discover')),
+                                            ('num_request', YLeaf(YType.uint32, 'num-request')),
+                                            ('num_block', YLeaf(YType.uint32, 'num-block')),
+                                        ])
+                                        self.num_discover = None
+                                        self.num_request = None
+                                        self.num_block = None
                                         self._segment_path = lambda: "mac-throttle"
 
                                     def __setattr__(self, name, value):
@@ -2560,7 +2674,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: class_
                             
                             	Create or enter server profile class
-                            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_>`
+                            	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class>`
                             
                             
 
@@ -2576,8 +2690,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"class" : ("class_", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("class", ("class_", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class))])
+                                self._leafs = OrderedDict()
 
                                 self.class_ = YList(self)
                                 self._segment_path = lambda: "classes"
@@ -2586,11 +2702,11 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes, [], name, value)
 
 
-                            class Class_(Entity):
+                            class Class(Entity):
                                 """
                                 Create or enter server profile class
                                 
-                                .. attribute:: class_name  <key>
+                                .. attribute:: class_name  (key)
                                 
                                 	class name
                                 	**type**\: str
@@ -2600,32 +2716,32 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: default_routers
                                 
                                 	default routers
-                                	**type**\:  :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters>`
+                                	**type**\:  :py:class:`DefaultRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters>`
                                 
                                 .. attribute:: net_bios_name_servers
                                 
                                 	NetBIOS name servers
-                                	**type**\:  :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers>`
+                                	**type**\:  :py:class:`NetBiosNameServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers>`
                                 
                                 .. attribute:: class_match
                                 
                                 	Insert match keyword
-                                	**type**\:  :py:class:`ClassMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch>`
+                                	**type**\:  :py:class:`ClassMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch>`
                                 
                                 .. attribute:: lease
                                 
                                 	lease
-                                	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease>`
+                                	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease>`
                                 
                                 .. attribute:: netbios_node_type
                                 
                                 	NetBIOS node type
-                                	**type**\:  :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType>`
+                                	**type**\:  :py:class:`NetbiosNodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType>`
                                 
                                 .. attribute:: dns_servers
                                 
                                 	DNS servers
-                                	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers>`
+                                	**type**\:  :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers>`
                                 
                                 .. attribute:: subnet_mask
                                 
@@ -2642,11 +2758,6 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: enable
                                 
                                 	Enable Create or enter server profile class. Deletion of this object also causes deletion of all associated objects under Class
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                                
-                                .. attribute:: infinite_lease
-                                
-                                	Infinite lease
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: domain_name
@@ -2673,7 +2784,7 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: option_codes
                                 
                                 	Table of OptionCode
-                                	**type**\:  :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes>`
+                                	**type**\:  :py:class:`OptionCodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes>`
                                 
                                 
 
@@ -2683,69 +2794,70 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_, self).__init__()
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class, self).__init__()
 
                                     self.yang_name = "class"
                                     self.yang_parent_name = "classes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"default-routers" : ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters), "net-bios-name-servers" : ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers), "class-match" : ("class_match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch), "lease" : ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease), "netbios-node-type" : ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType), "dns-servers" : ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers), "option-codes" : ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = ['class_name']
+                                    self._child_container_classes = OrderedDict([("default-routers", ("default_routers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters)), ("net-bios-name-servers", ("net_bios_name_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers)), ("class-match", ("class_match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch)), ("lease", ("lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease)), ("netbios-node-type", ("netbios_node_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType)), ("dns-servers", ("dns_servers", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers)), ("option-codes", ("option_codes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                        ('subnet_mask', YLeaf(YType.str, 'subnet-mask')),
+                                        ('pool', YLeaf(YType.str, 'pool')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('domain_name', YLeaf(YType.str, 'domain-name')),
+                                        ('boot_filename', YLeaf(YType.str, 'boot-filename')),
+                                        ('next_server', YLeaf(YType.str, 'next-server')),
+                                    ])
+                                    self.class_name = None
+                                    self.subnet_mask = None
+                                    self.pool = None
+                                    self.enable = None
+                                    self.domain_name = None
+                                    self.boot_filename = None
+                                    self.next_server = None
 
-                                    self.class_name = YLeaf(YType.str, "class-name")
-
-                                    self.subnet_mask = YLeaf(YType.str, "subnet-mask")
-
-                                    self.pool = YLeaf(YType.str, "pool")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.infinite_lease = YLeaf(YType.empty, "infinite-lease")
-
-                                    self.domain_name = YLeaf(YType.str, "domain-name")
-
-                                    self.boot_filename = YLeaf(YType.str, "boot-filename")
-
-                                    self.next_server = YLeaf(YType.str, "next-server")
-
-                                    self.default_routers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters()
+                                    self.default_routers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters()
                                     self.default_routers.parent = self
                                     self._children_name_map["default_routers"] = "default-routers"
                                     self._children_yang_names.add("default-routers")
 
-                                    self.net_bios_name_servers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers()
+                                    self.net_bios_name_servers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers()
                                     self.net_bios_name_servers.parent = self
                                     self._children_name_map["net_bios_name_servers"] = "net-bios-name-servers"
                                     self._children_yang_names.add("net-bios-name-servers")
 
-                                    self.class_match = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch()
+                                    self.class_match = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch()
                                     self.class_match.parent = self
                                     self._children_name_map["class_match"] = "class-match"
                                     self._children_yang_names.add("class-match")
 
-                                    self.lease = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease()
+                                    self.lease = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease()
                                     self.lease.parent = self
                                     self._children_name_map["lease"] = "lease"
                                     self._children_yang_names.add("lease")
 
-                                    self.netbios_node_type = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType()
+                                    self.netbios_node_type = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType()
                                     self.netbios_node_type.parent = self
                                     self._children_name_map["netbios_node_type"] = "netbios-node-type"
                                     self._children_yang_names.add("netbios-node-type")
 
-                                    self.dns_servers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers()
+                                    self.dns_servers = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers()
                                     self.dns_servers.parent = self
                                     self._children_name_map["dns_servers"] = "dns-servers"
                                     self._children_yang_names.add("dns-servers")
 
-                                    self.option_codes = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes()
+                                    self.option_codes = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes()
                                     self.option_codes.parent = self
                                     self._children_name_map["option_codes"] = "option-codes"
                                     self._children_yang_names.add("option-codes")
-                                    self._segment_path = lambda: "class" + "[class-name='" + self.class_name.get() + "']"
+                                    self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_, ['class_name', 'subnet_mask', 'pool', 'enable', 'infinite_lease', 'domain_name', 'boot_filename', 'next_server'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class, ['class_name', 'subnet_mask', 'pool', 'enable', 'domain_name', 'boot_filename', 'next_server'], name, value)
 
 
                                 class DefaultRouters(Entity):
@@ -2767,20 +2879,23 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters, self).__init__()
 
                                         self.yang_name = "default-routers"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.default_router = YLeafList(YType.str, "default-router")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('default_router', YLeafList(YType.str, 'default-router')),
+                                        ])
+                                        self.default_router = []
                                         self._segment_path = lambda: "default-routers"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DefaultRouters, ['default_router'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DefaultRouters, ['default_router'], name, value)
 
 
                                 class NetBiosNameServers(Entity):
@@ -2802,20 +2917,23 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers, self).__init__()
 
                                         self.yang_name = "net-bios-name-servers"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.net_bios_name_server = YLeafList(YType.str, "net-bios-name-server")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('net_bios_name_server', YLeafList(YType.str, 'net-bios-name-server')),
+                                        ])
+                                        self.net_bios_name_server = []
                                         self._segment_path = lambda: "net-bios-name-servers"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetBiosNameServers, ['net_bios_name_server'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetBiosNameServers, ['net_bios_name_server'], name, value)
 
 
                                 class ClassMatch(Entity):
@@ -2825,7 +2943,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: class_options
                                     
                                     	Table of Class\-Option
-                                    	**type**\:  :py:class:`ClassOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions>`
+                                    	**type**\:  :py:class:`ClassOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions>`
                                     
                                     .. attribute:: l2_interface
                                     
@@ -2849,27 +2967,30 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch, self).__init__()
 
                                         self.yang_name = "class-match"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"class-options" : ("class_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("class-options", ("class_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('l2_interface', YLeaf(YType.str, 'l2-interface')),
+                                            ('vrf', YLeaf(YType.str, 'vrf')),
+                                        ])
+                                        self.l2_interface = None
+                                        self.vrf = None
 
-                                        self.l2_interface = YLeaf(YType.str, "l2-interface")
-
-                                        self.vrf = YLeaf(YType.str, "vrf")
-
-                                        self.class_options = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions()
+                                        self.class_options = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions()
                                         self.class_options.parent = self
                                         self._children_name_map["class_options"] = "class-options"
                                         self._children_yang_names.add("class-options")
                                         self._segment_path = lambda: "class-match"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch, ['l2_interface', 'vrf'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch, ['l2_interface', 'vrf'], name, value)
 
 
                                     class ClassOptions(Entity):
@@ -2879,7 +3000,7 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: class_option
                                         
                                         	Specify match option
-                                        	**type**\: list of  		 :py:class:`ClassOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption>`
+                                        	**type**\: list of  		 :py:class:`ClassOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption>`
                                         
                                         
 
@@ -2889,27 +3010,29 @@ class Ipv4Dhcpd(Entity):
                                         _revision = '2017-05-01'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions, self).__init__()
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions, self).__init__()
 
                                             self.yang_name = "class-options"
                                             self.yang_parent_name = "class-match"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"class-option" : ("class_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("class-option", ("class_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption))])
+                                            self._leafs = OrderedDict()
 
                                             self.class_option = YList(self)
                                             self._segment_path = lambda: "class-options"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions, [], name, value)
+                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions, [], name, value)
 
 
                                         class ClassOption(Entity):
                                             """
                                             Specify match option
                                             
-                                            .. attribute:: matchoption  <key>
+                                            .. attribute:: matchoption  (key)
                                             
                                             	Match options
                                             	**type**\:  :py:class:`Matchoption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Matchoption>`
@@ -2936,24 +3059,27 @@ class Ipv4Dhcpd(Entity):
                                             _revision = '2017-05-01'
 
                                             def __init__(self):
-                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption, self).__init__()
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption, self).__init__()
 
                                                 self.yang_name = "class-option"
                                                 self.yang_parent_name = "class-options"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.matchoption = YLeaf(YType.enumeration, "matchoption")
-
-                                                self.pattern = YLeaf(YType.str, "pattern")
-
-                                                self.bit_mask = YLeaf(YType.str, "bit-mask")
-                                                self._segment_path = lambda: "class-option" + "[matchoption='" + self.matchoption.get() + "']"
+                                                self.ylist_key_names = ['matchoption']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('matchoption', YLeaf(YType.enumeration, 'matchoption')),
+                                                    ('pattern', YLeaf(YType.str, 'pattern')),
+                                                    ('bit_mask', YLeaf(YType.str, 'bit-mask')),
+                                                ])
+                                                self.matchoption = None
+                                                self.pattern = None
+                                                self.bit_mask = None
+                                                self._segment_path = lambda: "class-option" + "[matchoption='" + str(self.matchoption) + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.ClassMatch.ClassOptions.ClassOption, ['matchoption', 'pattern', 'bit_mask'], name, value)
+                                                self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.ClassMatch.ClassOptions.ClassOption, ['matchoption', 'pattern', 'bit_mask'], name, value)
 
 
                                 class Lease(Entity):
@@ -2988,7 +3114,7 @@ class Ipv4Dhcpd(Entity):
                                     	Minutes
                                     	**type**\: int
                                     
-                                    	**range:** 0..59
+                                    	**range:** 1..59
                                     
                                     	**units**\: minute
                                     
@@ -3000,26 +3126,29 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease, self).__init__()
 
                                         self.yang_name = "lease"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.infinite = YLeaf(YType.str, "infinite")
-
-                                        self.days = YLeaf(YType.uint32, "days")
-
-                                        self.hours = YLeaf(YType.uint32, "hours")
-
-                                        self.minutes = YLeaf(YType.uint32, "minutes")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('infinite', YLeaf(YType.str, 'infinite')),
+                                            ('days', YLeaf(YType.uint32, 'days')),
+                                            ('hours', YLeaf(YType.uint32, 'hours')),
+                                            ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                        ])
+                                        self.infinite = None
+                                        self.days = None
+                                        self.hours = None
+                                        self.minutes = None
                                         self._segment_path = lambda: "lease"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
 
 
                                 class NetbiosNodeType(Entity):
@@ -3061,28 +3190,31 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType, self).__init__()
 
                                         self.yang_name = "netbios-node-type"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.broadcast_node = YLeaf(YType.str, "broadcast-node")
-
-                                        self.hybrid_node = YLeaf(YType.str, "hybrid-node")
-
-                                        self.mixed_node = YLeaf(YType.str, "mixed-node")
-
-                                        self.peer_to_peer_node = YLeaf(YType.str, "peer-to-peer-node")
-
-                                        self.hexadecimal = YLeaf(YType.str, "hexadecimal")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('broadcast_node', YLeaf(YType.str, 'broadcast-node')),
+                                            ('hybrid_node', YLeaf(YType.str, 'hybrid-node')),
+                                            ('mixed_node', YLeaf(YType.str, 'mixed-node')),
+                                            ('peer_to_peer_node', YLeaf(YType.str, 'peer-to-peer-node')),
+                                            ('hexadecimal', YLeaf(YType.str, 'hexadecimal')),
+                                        ])
+                                        self.broadcast_node = None
+                                        self.hybrid_node = None
+                                        self.mixed_node = None
+                                        self.peer_to_peer_node = None
+                                        self.hexadecimal = None
                                         self._segment_path = lambda: "netbios-node-type"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.NetbiosNodeType, ['broadcast_node', 'hybrid_node', 'mixed_node', 'peer_to_peer_node', 'hexadecimal'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.NetbiosNodeType, ['broadcast_node', 'hybrid_node', 'mixed_node', 'peer_to_peer_node', 'hexadecimal'], name, value)
 
 
                                 class DnsServers(Entity):
@@ -3104,20 +3236,23 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers, self).__init__()
 
                                         self.yang_name = "dns-servers"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.dns_server = YLeafList(YType.str, "dns-server")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('dns_server', YLeafList(YType.str, 'dns-server')),
+                                        ])
+                                        self.dns_server = []
                                         self._segment_path = lambda: "dns-servers"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.DnsServers, ['dns_server'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.DnsServers, ['dns_server'], name, value)
 
 
                                 class OptionCodes(Entity):
@@ -3127,7 +3262,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: option_code
                                     
                                     	DHCP option code
-                                    	**type**\: list of  		 :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode>`
+                                    	**type**\: list of  		 :py:class:`OptionCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode>`
                                     
                                     
 
@@ -3137,27 +3272,29 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes, self).__init__()
 
                                         self.yang_name = "option-codes"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"option-code" : ("option_code", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("option-code", ("option_code", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode))])
+                                        self._leafs = OrderedDict()
 
                                         self.option_code = YList(self)
                                         self._segment_path = lambda: "option-codes"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes, [], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes, [], name, value)
 
 
                                     class OptionCode(Entity):
                                         """
                                         DHCP option code
                                         
-                                        .. attribute:: option_code  <key>
+                                        .. attribute:: option_code  (key)
                                         
                                         	DHCP option code
                                         	**type**\: int
@@ -3196,28 +3333,31 @@ class Ipv4Dhcpd(Entity):
                                         _revision = '2017-05-01'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode, self).__init__()
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode, self).__init__()
 
                                             self.yang_name = "option-code"
                                             self.yang_parent_name = "option-codes"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.option_code = YLeaf(YType.uint32, "option-code")
-
-                                            self.ascii_string = YLeaf(YType.str, "ascii-string")
-
-                                            self.hex_string = YLeaf(YType.str, "hex-string")
-
-                                            self.force_insert = YLeaf(YType.int32, "force-insert")
-
-                                            self.ip_address = YLeafList(YType.str, "ip-address")
-                                            self._segment_path = lambda: "option-code" + "[option-code='" + self.option_code.get() + "']"
+                                            self.ylist_key_names = ['option_code']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('option_code', YLeaf(YType.uint32, 'option-code')),
+                                                ('ascii_string', YLeaf(YType.str, 'ascii-string')),
+                                                ('hex_string', YLeaf(YType.str, 'hex-string')),
+                                                ('force_insert', YLeaf(YType.int32, 'force-insert')),
+                                                ('ip_address', YLeafList(YType.str, 'ip-address')),
+                                            ])
+                                            self.option_code = None
+                                            self.ascii_string = None
+                                            self.hex_string = None
+                                            self.force_insert = None
+                                            self.ip_address = []
+                                            self._segment_path = lambda: "option-code" + "[option-code='" + str(self.option_code) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class_.OptionCodes.OptionCode, ['option_code', 'ascii_string', 'hex_string', 'force_insert', 'ip_address'], name, value)
+                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.Classes.Class.OptionCodes.OptionCode, ['option_code', 'ascii_string', 'hex_string', 'force_insert', 'ip_address'], name, value)
 
 
                         class Relay(Entity):
@@ -3246,10 +3386,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.authenticate = YLeaf(YType.int32, "authenticate")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('authenticate', YLeaf(YType.int32, 'authenticate')),
+                                ])
+                                self.authenticate = None
                                 self._segment_path = lambda: "relay"
 
                             def __setattr__(self, name, value):
@@ -3288,7 +3431,7 @@ class Ipv4Dhcpd(Entity):
                             	Minutes
                             	**type**\: int
                             
-                            	**range:** 0..59
+                            	**range:** 1..59
                             
                             	**units**\: minute
                             
@@ -3306,16 +3449,19 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.infinite = YLeaf(YType.str, "infinite")
-
-                                self.days = YLeaf(YType.uint32, "days")
-
-                                self.hours = YLeaf(YType.uint32, "hours")
-
-                                self.minutes = YLeaf(YType.uint32, "minutes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('infinite', YLeaf(YType.str, 'infinite')),
+                                    ('days', YLeaf(YType.uint32, 'days')),
+                                    ('hours', YLeaf(YType.uint32, 'hours')),
+                                    ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                ])
+                                self.infinite = None
+                                self.days = None
+                                self.hours = None
+                                self.minutes = None
                                 self._segment_path = lambda: "lease"
 
                             def __setattr__(self, name, value):
@@ -3367,18 +3513,21 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.broadcast_node = YLeaf(YType.str, "broadcast-node")
-
-                                self.hybrid_node = YLeaf(YType.str, "hybrid-node")
-
-                                self.mixed_node = YLeaf(YType.str, "mixed-node")
-
-                                self.peer_to_peer_node = YLeaf(YType.str, "peer-to-peer-node")
-
-                                self.hexadecimal = YLeaf(YType.str, "hexadecimal")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('broadcast_node', YLeaf(YType.str, 'broadcast-node')),
+                                    ('hybrid_node', YLeaf(YType.str, 'hybrid-node')),
+                                    ('mixed_node', YLeaf(YType.str, 'mixed-node')),
+                                    ('peer_to_peer_node', YLeaf(YType.str, 'peer-to-peer-node')),
+                                    ('hexadecimal', YLeaf(YType.str, 'hexadecimal')),
+                                ])
+                                self.broadcast_node = None
+                                self.hybrid_node = None
+                                self.mixed_node = None
+                                self.peer_to_peer_node = None
+                                self.hexadecimal = None
                                 self._segment_path = lambda: "netbios-node-type"
 
                             def __setattr__(self, name, value):
@@ -3410,10 +3559,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.dns_server = YLeafList(YType.str, "dns-server")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('dns_server', YLeafList(YType.str, 'dns-server')),
+                                ])
+                                self.dns_server = []
                                 self._segment_path = lambda: "dns-servers"
 
                             def __setattr__(self, name, value):
@@ -3443,8 +3595,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "server"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"option-code" : ("option_code", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("option-code", ("option_code", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode))])
+                                self._leafs = OrderedDict()
 
                                 self.option_code = YList(self)
                                 self._segment_path = lambda: "option-codes"
@@ -3457,7 +3611,7 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 DHCP option code
                                 
-                                .. attribute:: option_code  <key>
+                                .. attribute:: option_code  (key)
                                 
                                 	DHCP option code
                                 	**type**\: int
@@ -3502,19 +3656,22 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "option-codes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.option_code = YLeaf(YType.uint32, "option-code")
-
-                                    self.ascii_string = YLeaf(YType.str, "ascii-string")
-
-                                    self.hex_string = YLeaf(YType.str, "hex-string")
-
-                                    self.force_insert = YLeaf(YType.int32, "force-insert")
-
-                                    self.ip_address = YLeafList(YType.str, "ip-address")
-                                    self._segment_path = lambda: "option-code" + "[option-code='" + self.option_code.get() + "']"
+                                    self.ylist_key_names = ['option_code']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('option_code', YLeaf(YType.uint32, 'option-code')),
+                                        ('ascii_string', YLeaf(YType.str, 'ascii-string')),
+                                        ('hex_string', YLeaf(YType.str, 'hex-string')),
+                                        ('force_insert', YLeaf(YType.int32, 'force-insert')),
+                                        ('ip_address', YLeafList(YType.str, 'ip-address')),
+                                    ])
+                                    self.option_code = None
+                                    self.ascii_string = None
+                                    self.hex_string = None
+                                    self.force_insert = None
+                                    self.ip_address = []
+                                    self._segment_path = lambda: "option-code" + "[option-code='" + str(self.option_code) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Server.OptionCodes.OptionCode, ['option_code', 'ascii_string', 'hex_string', 'force_insert', 'ip_address'], name, value)
@@ -3563,10 +3720,13 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"gi-addr-policy" : ("gi_addr_policy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy), "vrfs" : ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs), "relay-information-option" : ("relay_information_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption), "broadcast-policy" : ("broadcast_policy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy)}
-                            self._child_list_classes = {}
-
-                            self.mac_mismatch_action = YLeaf(YType.enumeration, "mac-mismatch-action")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("gi-addr-policy", ("gi_addr_policy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy)), ("vrfs", ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs)), ("relay-information-option", ("relay_information_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.RelayInformationOption)), ("broadcast-policy", ("broadcast_policy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.BroadcastPolicy))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mac_mismatch_action', YLeaf(YType.enumeration, 'mac-mismatch-action')),
+                            ])
+                            self.mac_mismatch_action = None
 
                             self.gi_addr_policy = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.GiAddrPolicy()
                             self.gi_addr_policy.parent = self
@@ -3616,10 +3776,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "relay"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.policy = None
                                 self._segment_path = lambda: "gi-addr-policy"
 
                             def __setattr__(self, name, value):
@@ -3649,8 +3812,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "relay"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf))])
+                                self._leafs = OrderedDict()
 
                                 self.vrf = YList(self)
                                 self._segment_path = lambda: "vrfs"
@@ -3663,7 +3828,7 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 VRF Name
                                 
-                                .. attribute:: vrf_name  <key>
+                                .. attribute:: vrf_name  (key)
                                 
                                 	VRF Name
                                 	**type**\: str
@@ -3689,16 +3854,19 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "vrfs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"helper-addresses" : ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses)}
-                                    self._child_list_classes = {}
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                    self.ylist_key_names = ['vrf_name']
+                                    self._child_container_classes = OrderedDict([("helper-addresses", ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ])
+                                    self.vrf_name = None
 
                                     self.helper_addresses = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses()
                                     self.helper_addresses.parent = self
                                     self._children_name_map["helper_addresses"] = "helper-addresses"
                                     self._children_yang_names.add("helper-addresses")
-                                    self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -3727,8 +3895,10 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "vrf"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"helper-address" : ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("helper-address", ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress))])
+                                        self._leafs = OrderedDict()
 
                                         self.helper_address = YList(self)
                                         self._segment_path = lambda: "helper-addresses"
@@ -3741,7 +3911,7 @@ class Ipv4Dhcpd(Entity):
                                         """
                                         Helper Address
                                         
-                                        .. attribute:: ip_address  <key>
+                                        .. attribute:: ip_address  (key)
                                         
                                         	IPV4 Address
                                         	**type**\: str
@@ -3774,15 +3944,18 @@ class Ipv4Dhcpd(Entity):
                                             self.yang_parent_name = "helper-addresses"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                            self.enable = YLeaf(YType.empty, "enable")
-
-                                            self.gateway_address = YLeaf(YType.str, "gateway-address")
-                                            self._segment_path = lambda: "helper-address" + "[ip-address='" + self.ip_address.get() + "']"
+                                            self.ylist_key_names = ['ip_address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('gateway_address', YLeaf(YType.str, 'gateway-address')),
+                                            ])
+                                            self.ip_address = None
+                                            self.enable = None
+                                            self.gateway_address = None
+                                            self._segment_path = lambda: "helper-address" + "[ip-address='" + str(self.ip_address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Relay.Vrfs.Vrf.HelperAddresses.HelperAddress, ['ip_address', 'enable', 'gateway_address'], name, value)
@@ -3841,22 +4014,25 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "relay"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.vpn_mode = YLeaf(YType.enumeration, "vpn-mode")
-
-                                self.subscriber_id = YLeaf(YType.str, "subscriber-id")
-
-                                self.insert = YLeaf(YType.empty, "insert")
-
-                                self.check = YLeaf(YType.empty, "check")
-
-                                self.vpn = YLeaf(YType.empty, "vpn")
-
-                                self.allow_untrusted = YLeaf(YType.empty, "allow-untrusted")
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('vpn_mode', YLeaf(YType.enumeration, 'vpn-mode')),
+                                    ('subscriber_id', YLeaf(YType.str, 'subscriber-id')),
+                                    ('insert', YLeaf(YType.empty, 'insert')),
+                                    ('check', YLeaf(YType.empty, 'check')),
+                                    ('vpn', YLeaf(YType.empty, 'vpn')),
+                                    ('allow_untrusted', YLeaf(YType.empty, 'allow-untrusted')),
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.vpn_mode = None
+                                self.subscriber_id = None
+                                self.insert = None
+                                self.check = None
+                                self.vpn = None
+                                self.allow_untrusted = None
+                                self.policy = None
                                 self._segment_path = lambda: "relay-information-option"
 
                             def __setattr__(self, name, value):
@@ -3886,10 +4062,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "relay"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.policy = None
                                 self._segment_path = lambda: "broadcast-policy"
 
                             def __setattr__(self, name, value):
@@ -3921,6 +4100,11 @@ class Ipv4Dhcpd(Entity):
                         
                         	Relay agent information option
                         	**type**\:  :py:class:`RelayInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation>`
+                        
+                        .. attribute:: dhcp_to_aaa
+                        
+                        	Enable to provide the list of options need to send to aaa
+                        	**type**\:  :py:class:`DhcpToAaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa>`
                         
                         .. attribute:: vrfs
                         
@@ -3988,16 +4172,19 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "mode"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"giaddr" : ("giaddr", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr), "classes" : ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes), "auth-username" : ("auth_username", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername), "relay-information" : ("relay_information", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation), "vrfs" : ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs), "sessions" : ("sessions", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions), "limit-lease" : ("limit_lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease), "lease-proxy" : ("lease_proxy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy), "broadcast-flag" : ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag), "match" : ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match)}
-                            self._child_list_classes = {}
-
-                            self.proxy_allow_move = YLeaf(YType.empty, "proxy-allow-move")
-
-                            self.secure_arp = YLeaf(YType.empty, "secure-arp")
-
-                            self.delayed_authen_proxy = YLeaf(YType.empty, "delayed-authen-proxy")
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("giaddr", ("giaddr", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr)), ("classes", ("classes", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes)), ("auth-username", ("auth_username", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.AuthUsername)), ("relay-information", ("relay_information", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation)), ("dhcp-to-aaa", ("dhcp_to_aaa", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa)), ("vrfs", ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs)), ("sessions", ("sessions", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions)), ("limit-lease", ("limit_lease", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LimitLease)), ("lease-proxy", ("lease_proxy", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.LeaseProxy)), ("broadcast-flag", ("broadcast_flag", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.BroadcastFlag)), ("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('proxy_allow_move', YLeaf(YType.empty, 'proxy-allow-move')),
+                                ('secure_arp', YLeaf(YType.empty, 'secure-arp')),
+                                ('delayed_authen_proxy', YLeaf(YType.empty, 'delayed-authen-proxy')),
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.proxy_allow_move = None
+                            self.secure_arp = None
+                            self.delayed_authen_proxy = None
+                            self.enable = None
 
                             self.giaddr = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Giaddr()
                             self.giaddr.parent = self
@@ -4017,6 +4204,11 @@ class Ipv4Dhcpd(Entity):
                             self.relay_information.parent = self
                             self._children_name_map["relay_information"] = "relay-information"
                             self._children_yang_names.add("relay-information")
+
+                            self.dhcp_to_aaa = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa()
+                            self.dhcp_to_aaa.parent = self
+                            self._children_name_map["dhcp_to_aaa"] = "dhcp-to-aaa"
+                            self._children_yang_names.add("dhcp-to-aaa")
 
                             self.vrfs = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs()
                             self.vrfs.parent = self
@@ -4075,10 +4267,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.policy = None
                                 self._segment_path = lambda: "giaddr"
 
                             def __setattr__(self, name, value):
@@ -4092,7 +4287,7 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: class_
                             
                             	DHCP class
-                            	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_>`
+                            	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class>`
                             
                             
 
@@ -4108,8 +4303,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"class" : ("class_", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("class", ("class_", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class))])
+                                self._leafs = OrderedDict()
 
                                 self.class_ = YList(self)
                                 self._segment_path = lambda: "classes"
@@ -4118,11 +4315,11 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes, [], name, value)
 
 
-                            class Class_(Entity):
+                            class Class(Entity):
                                 """
                                 DHCP class
                                 
-                                .. attribute:: class_name  <key>
+                                .. attribute:: class_name  (key)
                                 
                                 	Class name
                                 	**type**\: str
@@ -4132,12 +4329,12 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: match
                                 
                                 	Match option
-                                	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match>`
+                                	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match>`
                                 
                                 .. attribute:: vrfs
                                 
                                 	List of VRFs
-                                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs>`
+                                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs>`
                                 
                                 .. attribute:: enable
                                 
@@ -4152,32 +4349,35 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_, self).__init__()
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class, self).__init__()
 
                                     self.yang_name = "class"
                                     self.yang_parent_name = "classes"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"match" : ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match), "vrfs" : ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = ['class_name']
+                                    self._child_container_classes = OrderedDict([("match", ("match", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match)), ("vrfs", ("vrfs", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.class_name = None
+                                    self.enable = None
 
-                                    self.class_name = YLeaf(YType.str, "class-name")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.match = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match()
+                                    self.match = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match()
                                     self.match.parent = self
                                     self._children_name_map["match"] = "match"
                                     self._children_yang_names.add("match")
 
-                                    self.vrfs = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs()
+                                    self.vrfs = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs()
                                     self.vrfs.parent = self
                                     self._children_name_map["vrfs"] = "vrfs"
                                     self._children_yang_names.add("vrfs")
-                                    self._segment_path = lambda: "class" + "[class-name='" + self.class_name.get() + "']"
+                                    self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_, ['class_name', 'enable'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class, ['class_name', 'enable'], name, value)
 
 
                                 class Match(Entity):
@@ -4187,7 +4387,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: option
                                     
                                     	Match option
-                                    	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option>`
+                                    	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option>`
                                     
                                     .. attribute:: vrf
                                     
@@ -4202,25 +4402,28 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match, self).__init__()
 
                                         self.yang_name = "match"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"option" : ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("option", ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vrf', YLeaf(YType.str, 'vrf')),
+                                        ])
+                                        self.vrf = None
 
-                                        self.vrf = YLeaf(YType.str, "vrf")
-
-                                        self.option = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option()
+                                        self.option = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option()
                                         self.option.parent = self
                                         self._children_name_map["option"] = "option"
                                         self._children_yang_names.add("option")
                                         self._segment_path = lambda: "match"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match, ['vrf'], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match, ['vrf'], name, value)
 
 
                                     class Option(Entity):
@@ -4250,24 +4453,27 @@ class Ipv4Dhcpd(Entity):
                                         _revision = '2017-05-01'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option, self).__init__()
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option, self).__init__()
 
                                             self.yang_name = "option"
                                             self.yang_parent_name = "match"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.option_type = YLeaf(YType.enumeration, "option-type")
-
-                                            self.pattern = YLeaf(YType.str, "pattern")
-
-                                            self.bit_mask = YLeaf(YType.str, "bit-mask")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('option_type', YLeaf(YType.enumeration, 'option-type')),
+                                                ('pattern', YLeaf(YType.str, 'pattern')),
+                                                ('bit_mask', YLeaf(YType.str, 'bit-mask')),
+                                            ])
+                                            self.option_type = None
+                                            self.pattern = None
+                                            self.bit_mask = None
                                             self._segment_path = lambda: "option"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Match.Option, ['option_type', 'pattern', 'bit_mask'], name, value)
+                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Match.Option, ['option_type', 'pattern', 'bit_mask'], name, value)
 
 
                                 class Vrfs(Entity):
@@ -4277,7 +4483,7 @@ class Ipv4Dhcpd(Entity):
                                     .. attribute:: vrf
                                     
                                     	VRF name
-                                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf>`
+                                    	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf>`
                                     
                                     
 
@@ -4287,27 +4493,29 @@ class Ipv4Dhcpd(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs, self).__init__()
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs, self).__init__()
 
                                         self.yang_name = "vrfs"
                                         self.yang_parent_name = "class"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf))])
+                                        self._leafs = OrderedDict()
 
                                         self.vrf = YList(self)
                                         self._segment_path = lambda: "vrfs"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs, [], name, value)
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs, [], name, value)
 
 
                                     class Vrf(Entity):
                                         """
                                         VRF name
                                         
-                                        .. attribute:: vrf_name  <key>
+                                        .. attribute:: vrf_name  (key)
                                         
                                         	VRF name
                                         	**type**\: str
@@ -4317,7 +4525,7 @@ class Ipv4Dhcpd(Entity):
                                         .. attribute:: helper_addresses
                                         
                                         	Helper addresses
-                                        	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses>`
+                                        	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses>`
                                         
                                         
 
@@ -4327,25 +4535,28 @@ class Ipv4Dhcpd(Entity):
                                         _revision = '2017-05-01'
 
                                         def __init__(self):
-                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf, self).__init__()
+                                            super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf, self).__init__()
 
                                             self.yang_name = "vrf"
                                             self.yang_parent_name = "vrfs"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"helper-addresses" : ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = ['vrf_name']
+                                            self._child_container_classes = OrderedDict([("helper-addresses", ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                            ])
+                                            self.vrf_name = None
 
-                                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                            self.helper_addresses = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses()
+                                            self.helper_addresses = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses()
                                             self.helper_addresses.parent = self
                                             self._children_name_map["helper_addresses"] = "helper-addresses"
                                             self._children_yang_names.add("helper-addresses")
-                                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                                            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf, ['vrf_name'], name, value)
+                                            self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
                                         class HelperAddresses(Entity):
@@ -4355,7 +4566,7 @@ class Ipv4Dhcpd(Entity):
                                             .. attribute:: helper_address
                                             
                                             	Helper address
-                                            	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                                            	**type**\: list of  		 :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress>`
                                             
                                             
 
@@ -4365,27 +4576,29 @@ class Ipv4Dhcpd(Entity):
                                             _revision = '2017-05-01'
 
                                             def __init__(self):
-                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses, self).__init__()
+                                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses, self).__init__()
 
                                                 self.yang_name = "helper-addresses"
                                                 self.yang_parent_name = "vrf"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"helper-address" : ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("helper-address", ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress))])
+                                                self._leafs = OrderedDict()
 
                                                 self.helper_address = YList(self)
                                                 self._segment_path = lambda: "helper-addresses"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses, [], name, value)
+                                                self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses, [], name, value)
 
 
                                             class HelperAddress(Entity):
                                                 """
                                                 Helper address
                                                 
-                                                .. attribute:: server_address  <key>
+                                                .. attribute:: server_address  (key)
                                                 
                                                 	IPv4 address
                                                 	**type**\: str
@@ -4409,22 +4622,25 @@ class Ipv4Dhcpd(Entity):
                                                 _revision = '2017-05-01'
 
                                                 def __init__(self):
-                                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
+                                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
 
                                                     self.yang_name = "helper-address"
                                                     self.yang_parent_name = "helper-addresses"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.server_address = YLeaf(YType.str, "server-address")
-
-                                                    self.gateway_address = YLeaf(YType.str, "gateway-address")
-                                                    self._segment_path = lambda: "helper-address" + "[server-address='" + self.server_address.get() + "']"
+                                                    self.ylist_key_names = ['server_address']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('server_address', YLeaf(YType.str, 'server-address')),
+                                                        ('gateway_address', YLeaf(YType.str, 'gateway-address')),
+                                                    ])
+                                                    self.server_address = None
+                                                    self.gateway_address = None
+                                                    self._segment_path = lambda: "helper-address" + "[server-address='" + str(self.server_address) + "']"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class_.Vrfs.Vrf.HelperAddresses.HelperAddress, ['server_address', 'gateway_address'], name, value)
+                                                    self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Classes.Class.Vrfs.Vrf.HelperAddresses.HelperAddress, ['server_address', 'gateway_address'], name, value)
 
 
                         class AuthUsername(Entity):
@@ -4459,13 +4675,16 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.arg1 = YLeaf(YType.enumeration, "arg1")
-
-                                self.arg2 = YLeaf(YType.enumeration, "arg2")
+                                self._leafs = OrderedDict([
+                                    ('arg1', YLeaf(YType.enumeration, 'arg1')),
+                                    ('arg2', YLeaf(YType.enumeration, 'arg2')),
+                                ])
+                                self.arg1 = None
+                                self.arg2 = None
                                 self._segment_path = lambda: "auth-username"
 
                             def __setattr__(self, name, value):
@@ -4545,34 +4764,155 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.option = YLeaf(YType.empty, "option")
-
-                                self.vpn = YLeaf(YType.empty, "vpn")
-
-                                self.allow_untrusted = YLeaf(YType.empty, "allow-untrusted")
-
-                                self.circuit_id = YLeaf(YType.empty, "circuit-id")
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
-
-                                self.vpn_mode = YLeaf(YType.enumeration, "vpn-mode")
-
-                                self.remote_id_xr = YLeaf(YType.empty, "remote-id-xr")
-
-                                self.remote_id_suppress = YLeaf(YType.empty, "remote-id-suppress")
-
-                                self.check = YLeaf(YType.empty, "check")
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.authenticate = YLeaf(YType.enumeration, "authenticate")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('option', YLeaf(YType.empty, 'option')),
+                                    ('vpn', YLeaf(YType.empty, 'vpn')),
+                                    ('allow_untrusted', YLeaf(YType.empty, 'allow-untrusted')),
+                                    ('circuit_id', YLeaf(YType.empty, 'circuit-id')),
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                    ('vpn_mode', YLeaf(YType.enumeration, 'vpn-mode')),
+                                    ('remote_id_xr', YLeaf(YType.empty, 'remote-id-xr')),
+                                    ('remote_id_suppress', YLeaf(YType.empty, 'remote-id-suppress')),
+                                    ('check', YLeaf(YType.empty, 'check')),
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('authenticate', YLeaf(YType.enumeration, 'authenticate')),
+                                ])
+                                self.option = None
+                                self.vpn = None
+                                self.allow_untrusted = None
+                                self.circuit_id = None
+                                self.policy = None
+                                self.vpn_mode = None
+                                self.remote_id_xr = None
+                                self.remote_id_suppress = None
+                                self.check = None
+                                self.remote_id = None
+                                self.authenticate = None
                                 self._segment_path = lambda: "relay-information"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.RelayInformation, ['option', 'vpn', 'allow_untrusted', 'circuit_id', 'policy', 'vpn_mode', 'remote_id_xr', 'remote_id_suppress', 'check', 'remote_id', 'authenticate'], name, value)
+
+
+                        class DhcpToAaa(Entity):
+                            """
+                            Enable to provide the list of options need
+                            to send to aaa
+                            
+                            .. attribute:: option
+                            
+                            	option type
+                            	**type**\:  :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa, self).__init__()
+
+                                self.yang_name = "dhcp-to-aaa"
+                                self.yang_parent_name = "proxy"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("option", ("option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+
+                                self.option = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option()
+                                self.option.parent = self
+                                self._children_name_map["option"] = "option"
+                                self._children_yang_names.add("option")
+                                self._segment_path = lambda: "dhcp-to-aaa"
+
+
+                            class Option(Entity):
+                                """
+                                option type
+                                
+                                .. attribute:: list
+                                
+                                	List of options
+                                	**type**\:  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option, self).__init__()
+
+                                    self.yang_name = "option"
+                                    self.yang_parent_name = "dhcp-to-aaa"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("list", ("list", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
+
+                                    self.list = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List()
+                                    self.list.parent = self
+                                    self._children_name_map["list"] = "list"
+                                    self._children_yang_names.add("list")
+                                    self._segment_path = lambda: "option"
+
+
+                                class List(Entity):
+                                    """
+                                    List of options
+                                    
+                                    .. attribute:: option_all
+                                    
+                                    	option all
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: option
+                                    
+                                    	List of options
+                                    	**type**\: list of int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-dhcpd-cfg'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List, self).__init__()
+
+                                        self.yang_name = "list"
+                                        self.yang_parent_name = "option"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('option_all', YLeaf(YType.int32, 'option-all')),
+                                            ('option', YLeafList(YType.uint32, 'option')),
+                                        ])
+                                        self.option_all = None
+                                        self.option = []
+                                        self._segment_path = lambda: "list"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.DhcpToAaa.Option.List, ['option_all', 'option'], name, value)
 
 
                         class Vrfs(Entity):
@@ -4598,8 +4938,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf))])
+                                self._leafs = OrderedDict()
 
                                 self.vrf = YList(self)
                                 self._segment_path = lambda: "vrfs"
@@ -4612,7 +4954,7 @@ class Ipv4Dhcpd(Entity):
                                 """
                                 VRF name
                                 
-                                .. attribute:: vrf_name  <key>
+                                .. attribute:: vrf_name  (key)
                                 
                                 	VRF name
                                 	**type**\: str
@@ -4638,16 +4980,19 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "vrfs"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"helper-addresses" : ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses)}
-                                    self._child_list_classes = {}
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                    self.ylist_key_names = ['vrf_name']
+                                    self._child_container_classes = OrderedDict([("helper-addresses", ("helper_addresses", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ])
+                                    self.vrf_name = None
 
                                     self.helper_addresses = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses()
                                     self.helper_addresses.parent = self
                                     self._children_name_map["helper_addresses"] = "helper-addresses"
                                     self._children_yang_names.add("helper-addresses")
-                                    self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -4676,8 +5021,10 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "vrf"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"helper-address" : ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("helper-address", ("helper_address", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress))])
+                                        self._leafs = OrderedDict()
 
                                         self.helper_address = YList(self)
                                         self._segment_path = lambda: "helper-addresses"
@@ -4690,7 +5037,7 @@ class Ipv4Dhcpd(Entity):
                                         """
                                         Helper address
                                         
-                                        .. attribute:: server_address  <key>
+                                        .. attribute:: server_address  (key)
                                         
                                         	IPv4 address
                                         	**type**\: str
@@ -4720,13 +5067,16 @@ class Ipv4Dhcpd(Entity):
                                             self.yang_parent_name = "helper-addresses"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.server_address = YLeaf(YType.str, "server-address")
-
-                                            self.gateway_address = YLeaf(YType.str, "gateway-address")
-                                            self._segment_path = lambda: "helper-address" + "[server-address='" + self.server_address.get() + "']"
+                                            self.ylist_key_names = ['server_address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('server_address', YLeaf(YType.str, 'server-address')),
+                                                ('gateway_address', YLeaf(YType.str, 'gateway-address')),
+                                            ])
+                                            self.server_address = None
+                                            self.gateway_address = None
+                                            self._segment_path = lambda: "helper-address" + "[server-address='" + str(self.server_address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['server_address', 'gateway_address'], name, value)
@@ -4755,8 +5105,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"proxy-throttle-type" : ("proxy_throttle_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("proxy-throttle-type", ("proxy_throttle_type", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.proxy_throttle_type = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType()
                                 self.proxy_throttle_type.parent = self
@@ -4789,8 +5141,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "sessions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"proxy-mac-throttle" : ("proxy_mac_throttle", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("proxy-mac-throttle", ("proxy_mac_throttle", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.proxy_mac_throttle = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Sessions.ProxyThrottleType.ProxyMacThrottle()
                                     self.proxy_mac_throttle.parent = self
@@ -4843,14 +5197,17 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "proxy-throttle-type"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.num_discover = YLeaf(YType.uint32, "num-discover")
-
-                                        self.num_request = YLeaf(YType.uint32, "num-request")
-
-                                        self.num_block = YLeaf(YType.uint32, "num-block")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('num_discover', YLeaf(YType.uint32, 'num-discover')),
+                                            ('num_request', YLeaf(YType.uint32, 'num-request')),
+                                            ('num_block', YLeaf(YType.uint32, 'num-block')),
+                                        ])
+                                        self.num_discover = None
+                                        self.num_request = None
+                                        self.num_block = None
                                         self._segment_path = lambda: "proxy-mac-throttle"
 
                                     def __setattr__(self, name, value):
@@ -4893,13 +5250,16 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.limit_type = YLeaf(YType.enumeration, "limit-type")
-
-                                self.limit_lease_count = YLeaf(YType.uint32, "limit-lease-count")
+                                self._leafs = OrderedDict([
+                                    ('limit_type', YLeaf(YType.enumeration, 'limit-type')),
+                                    ('limit_lease_count', YLeaf(YType.uint32, 'limit-lease-count')),
+                                ])
+                                self.limit_type = None
+                                self.limit_lease_count = None
                                 self._segment_path = lambda: "limit-lease"
 
                             def __setattr__(self, name, value):
@@ -4936,12 +5296,15 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.client_lease_time = YLeaf(YType.uint32, "client-lease-time")
-
-                                self.set_server_options = YLeaf(YType.empty, "set-server-options")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('client_lease_time', YLeaf(YType.uint32, 'client-lease-time')),
+                                    ('set_server_options', YLeaf(YType.empty, 'set-server-options')),
+                                ])
+                                self.client_lease_time = None
+                                self.set_server_options = None
                                 self._segment_path = lambda: "lease-proxy"
 
                             def __setattr__(self, name, value):
@@ -4971,10 +5334,13 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.policy = YLeaf(YType.enumeration, "policy")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('policy', YLeaf(YType.enumeration, 'policy')),
+                                ])
+                                self.policy = None
                                 self._segment_path = lambda: "broadcast-flag"
 
                             def __setattr__(self, name, value):
@@ -5009,8 +5375,10 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "proxy"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"def-options" : ("def_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions), "option-filters" : ("option_filters", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("def-options", ("def_options", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions)), ("option-filters", ("option_filters", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.def_options = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions()
                                 self.def_options.parent = self
@@ -5047,8 +5415,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"def-option" : ("def_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("def-option", ("def_option", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption))])
+                                    self._leafs = OrderedDict()
 
                                     self.def_option = YList(self)
                                     self._segment_path = lambda: "def-options"
@@ -5061,7 +5431,7 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: def_matchoption  <key>
+                                    .. attribute:: def_matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\: int
@@ -5089,13 +5459,16 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "def-options"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.def_matchoption = YLeaf(YType.int32, "def-matchoption")
-
-                                        self.def_matchaction = YLeaf(YType.enumeration, "def-matchaction")
-                                        self._segment_path = lambda: "def-option" + "[def-matchoption='" + self.def_matchoption.get() + "']"
+                                        self.ylist_key_names = ['def_matchoption']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('def_matchoption', YLeaf(YType.int32, 'def-matchoption')),
+                                            ('def_matchaction', YLeaf(YType.enumeration, 'def-matchaction')),
+                                        ])
+                                        self.def_matchoption = None
+                                        self.def_matchaction = None
+                                        self._segment_path = lambda: "def-option" + "[def-matchoption='" + str(self.def_matchoption) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.DefOptions.DefOption, ['def_matchoption', 'def_matchaction'], name, value)
@@ -5124,8 +5497,10 @@ class Ipv4Dhcpd(Entity):
                                     self.yang_parent_name = "match"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"option-filter" : ("option_filter", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("option-filter", ("option_filter", Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter))])
+                                    self._leafs = OrderedDict()
 
                                     self.option_filter = YList(self)
                                     self._segment_path = lambda: "option-filters"
@@ -5138,21 +5513,21 @@ class Ipv4Dhcpd(Entity):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: matchoption  <key>
+                                    .. attribute:: matchoption  (key)
                                     
                                     	Match option 60
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: pattern  <key>
+                                    .. attribute:: pattern  (key)
                                     
                                     	Enter hex pattern string
                                     	**type**\: str
                                     
                                     	**length:** 1..64
                                     
-                                    .. attribute:: format  <key>
+                                    .. attribute:: format  (key)
                                     
                                     	Set constant integer
                                     	**type**\: int
@@ -5180,17 +5555,20 @@ class Ipv4Dhcpd(Entity):
                                         self.yang_parent_name = "option-filters"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.matchoption = YLeaf(YType.int32, "matchoption")
-
-                                        self.pattern = YLeaf(YType.str, "pattern")
-
-                                        self.format = YLeaf(YType.int32, "format")
-
-                                        self.matchaction = YLeaf(YType.enumeration, "matchaction")
-                                        self._segment_path = lambda: "option-filter" + "[matchoption='" + self.matchoption.get() + "']" + "[pattern='" + self.pattern.get() + "']" + "[format='" + self.format.get() + "']"
+                                        self.ylist_key_names = ['matchoption','pattern','format']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('matchoption', YLeaf(YType.int32, 'matchoption')),
+                                            ('pattern', YLeaf(YType.str, 'pattern')),
+                                            ('format', YLeaf(YType.int32, 'format')),
+                                            ('matchaction', YLeaf(YType.enumeration, 'matchaction')),
+                                        ])
+                                        self.matchoption = None
+                                        self.pattern = None
+                                        self.format = None
+                                        self.matchaction = None
+                                        self._segment_path = lambda: "option-filter" + "[matchoption='" + str(self.matchoption) + "']" + "[pattern='" + str(self.pattern) + "']" + "[format='" + str(self.format) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Proxy.Match.OptionFilters.OptionFilter, ['matchoption', 'pattern', 'format', 'matchaction'], name, value)
@@ -5248,18 +5626,21 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.proxy = YLeaf(YType.empty, "proxy")
-
-            self.server = YLeaf(YType.empty, "server")
-
-            self.snoop = YLeaf(YType.empty, "snoop")
-
-            self.full_write_interval = YLeaf(YType.uint32, "full-write-interval")
-
-            self.incremental_write_interval = YLeaf(YType.uint32, "incremental-write-interval")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('proxy', YLeaf(YType.empty, 'proxy')),
+                ('server', YLeaf(YType.empty, 'server')),
+                ('snoop', YLeaf(YType.empty, 'snoop')),
+                ('full_write_interval', YLeaf(YType.uint32, 'full-write-interval')),
+                ('incremental_write_interval', YLeaf(YType.uint32, 'incremental-write-interval')),
+            ])
+            self.proxy = None
+            self.server = None
+            self.snoop = None
+            self.full_write_interval = None
+            self.incremental_write_interval = None
             self._segment_path = lambda: "database"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/%s" % self._segment_path()
 
@@ -5290,8 +5671,10 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Ipv4Dhcpd.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Ipv4Dhcpd.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -5305,7 +5688,7 @@ class Ipv4Dhcpd(Entity):
             """
             DHCP IPV4 Interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	Interface Name
             	**type**\: str
@@ -5363,10 +5746,13 @@ class Ipv4Dhcpd(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"proxy-interface" : ("proxy_interface", Ipv4Dhcpd.Interfaces.Interface.ProxyInterface), "base-interface" : ("base_interface", Ipv4Dhcpd.Interfaces.Interface.BaseInterface), "relay-interface" : ("relay_interface", Ipv4Dhcpd.Interfaces.Interface.RelayInterface), "static-mode" : ("static_mode", Ipv4Dhcpd.Interfaces.Interface.StaticMode), "profile" : ("profile", Ipv4Dhcpd.Interfaces.Interface.Profile), "server-interface" : ("server_interface", Ipv4Dhcpd.Interfaces.Interface.ServerInterface), "snoop-interface" : ("snoop_interface", Ipv4Dhcpd.Interfaces.Interface.SnoopInterface)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("proxy-interface", ("proxy_interface", Ipv4Dhcpd.Interfaces.Interface.ProxyInterface)), ("base-interface", ("base_interface", Ipv4Dhcpd.Interfaces.Interface.BaseInterface)), ("relay-interface", ("relay_interface", Ipv4Dhcpd.Interfaces.Interface.RelayInterface)), ("static-mode", ("static_mode", Ipv4Dhcpd.Interfaces.Interface.StaticMode)), ("profile", ("profile", Ipv4Dhcpd.Interfaces.Interface.Profile)), ("server-interface", ("server_interface", Ipv4Dhcpd.Interfaces.Interface.ServerInterface)), ("snoop-interface", ("snoop_interface", Ipv4Dhcpd.Interfaces.Interface.SnoopInterface))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_name = None
 
                 self.proxy_interface = Ipv4Dhcpd.Interfaces.Interface.ProxyInterface()
                 self.proxy_interface.parent = self
@@ -5401,7 +5787,7 @@ class Ipv4Dhcpd(Entity):
                 self.snoop_interface.parent = self
                 self._children_name_map["snoop_interface"] = "snoop-interface"
                 self._children_yang_names.add("snoop-interface")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5438,10 +5824,13 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"dhcp-circuit-id" : ("dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId)}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("dhcp-circuit-id", ("dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.ProxyInterface.DhcpCircuitId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('profile', YLeaf(YType.str, 'profile')),
+                    ])
+                    self.profile = None
 
                     self.dhcp_circuit_id = None
                     self._children_name_map["dhcp_circuit_id"] = "dhcp-circuit-id"
@@ -5566,45 +5955,48 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "proxy-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                        self.format = YLeaf(YType.enumeration, "format")
-
-                        self.argument1 = YLeaf(YType.enumeration, "argument1")
-
-                        self.argument2 = YLeaf(YType.enumeration, "argument2")
-
-                        self.argument3 = YLeaf(YType.enumeration, "argument3")
-
-                        self.argument4 = YLeaf(YType.enumeration, "argument4")
-
-                        self.argument5 = YLeaf(YType.enumeration, "argument5")
-
-                        self.argument6 = YLeaf(YType.enumeration, "argument6")
-
-                        self.argument7 = YLeaf(YType.enumeration, "argument7")
-
-                        self.argument8 = YLeaf(YType.enumeration, "argument8")
-
-                        self.argument9 = YLeaf(YType.enumeration, "argument9")
-
-                        self.argument10 = YLeaf(YType.enumeration, "argument10")
-
-                        self.argument11 = YLeaf(YType.enumeration, "argument11")
-
-                        self.argument12 = YLeaf(YType.enumeration, "argument12")
-
-                        self.argument13 = YLeaf(YType.enumeration, "argument13")
-
-                        self.argument14 = YLeaf(YType.enumeration, "argument14")
-
-                        self.argument15 = YLeaf(YType.enumeration, "argument15")
-
-                        self.argument16 = YLeaf(YType.enumeration, "argument16")
+                        self._leafs = OrderedDict([
+                            ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                            ('format', YLeaf(YType.enumeration, 'format')),
+                            ('argument1', YLeaf(YType.enumeration, 'argument1')),
+                            ('argument2', YLeaf(YType.enumeration, 'argument2')),
+                            ('argument3', YLeaf(YType.enumeration, 'argument3')),
+                            ('argument4', YLeaf(YType.enumeration, 'argument4')),
+                            ('argument5', YLeaf(YType.enumeration, 'argument5')),
+                            ('argument6', YLeaf(YType.enumeration, 'argument6')),
+                            ('argument7', YLeaf(YType.enumeration, 'argument7')),
+                            ('argument8', YLeaf(YType.enumeration, 'argument8')),
+                            ('argument9', YLeaf(YType.enumeration, 'argument9')),
+                            ('argument10', YLeaf(YType.enumeration, 'argument10')),
+                            ('argument11', YLeaf(YType.enumeration, 'argument11')),
+                            ('argument12', YLeaf(YType.enumeration, 'argument12')),
+                            ('argument13', YLeaf(YType.enumeration, 'argument13')),
+                            ('argument14', YLeaf(YType.enumeration, 'argument14')),
+                            ('argument15', YLeaf(YType.enumeration, 'argument15')),
+                            ('argument16', YLeaf(YType.enumeration, 'argument16')),
+                        ])
+                        self.circuit_id = None
+                        self.format = None
+                        self.argument1 = None
+                        self.argument2 = None
+                        self.argument3 = None
+                        self.argument4 = None
+                        self.argument5 = None
+                        self.argument6 = None
+                        self.argument7 = None
+                        self.argument8 = None
+                        self.argument9 = None
+                        self.argument10 = None
+                        self.argument11 = None
+                        self.argument12 = None
+                        self.argument13 = None
+                        self.argument14 = None
+                        self.argument15 = None
+                        self.argument16 = None
                         self._segment_path = lambda: "dhcp-circuit-id"
 
                     def __setattr__(self, name, value):
@@ -5641,10 +6033,13 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"base-dhcp-circuit-id" : ("base_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId)}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("base-dhcp-circuit-id", ("base_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.BaseInterface.BaseDhcpCircuitId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('profile', YLeaf(YType.str, 'profile')),
+                    ])
+                    self.profile = None
 
                     self.base_dhcp_circuit_id = None
                     self._children_name_map["base_dhcp_circuit_id"] = "base-dhcp-circuit-id"
@@ -5769,45 +6164,48 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "base-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                        self.format = YLeaf(YType.enumeration, "format")
-
-                        self.argument1 = YLeaf(YType.enumeration, "argument1")
-
-                        self.argument2 = YLeaf(YType.enumeration, "argument2")
-
-                        self.argument3 = YLeaf(YType.enumeration, "argument3")
-
-                        self.argument4 = YLeaf(YType.enumeration, "argument4")
-
-                        self.argument5 = YLeaf(YType.enumeration, "argument5")
-
-                        self.argument6 = YLeaf(YType.enumeration, "argument6")
-
-                        self.argument7 = YLeaf(YType.enumeration, "argument7")
-
-                        self.argument8 = YLeaf(YType.enumeration, "argument8")
-
-                        self.argument9 = YLeaf(YType.enumeration, "argument9")
-
-                        self.argument10 = YLeaf(YType.enumeration, "argument10")
-
-                        self.argument11 = YLeaf(YType.enumeration, "argument11")
-
-                        self.argument12 = YLeaf(YType.enumeration, "argument12")
-
-                        self.argument13 = YLeaf(YType.enumeration, "argument13")
-
-                        self.argument14 = YLeaf(YType.enumeration, "argument14")
-
-                        self.argument15 = YLeaf(YType.enumeration, "argument15")
-
-                        self.argument16 = YLeaf(YType.enumeration, "argument16")
+                        self._leafs = OrderedDict([
+                            ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                            ('format', YLeaf(YType.enumeration, 'format')),
+                            ('argument1', YLeaf(YType.enumeration, 'argument1')),
+                            ('argument2', YLeaf(YType.enumeration, 'argument2')),
+                            ('argument3', YLeaf(YType.enumeration, 'argument3')),
+                            ('argument4', YLeaf(YType.enumeration, 'argument4')),
+                            ('argument5', YLeaf(YType.enumeration, 'argument5')),
+                            ('argument6', YLeaf(YType.enumeration, 'argument6')),
+                            ('argument7', YLeaf(YType.enumeration, 'argument7')),
+                            ('argument8', YLeaf(YType.enumeration, 'argument8')),
+                            ('argument9', YLeaf(YType.enumeration, 'argument9')),
+                            ('argument10', YLeaf(YType.enumeration, 'argument10')),
+                            ('argument11', YLeaf(YType.enumeration, 'argument11')),
+                            ('argument12', YLeaf(YType.enumeration, 'argument12')),
+                            ('argument13', YLeaf(YType.enumeration, 'argument13')),
+                            ('argument14', YLeaf(YType.enumeration, 'argument14')),
+                            ('argument15', YLeaf(YType.enumeration, 'argument15')),
+                            ('argument16', YLeaf(YType.enumeration, 'argument16')),
+                        ])
+                        self.circuit_id = None
+                        self.format = None
+                        self.argument1 = None
+                        self.argument2 = None
+                        self.argument3 = None
+                        self.argument4 = None
+                        self.argument5 = None
+                        self.argument6 = None
+                        self.argument7 = None
+                        self.argument8 = None
+                        self.argument9 = None
+                        self.argument10 = None
+                        self.argument11 = None
+                        self.argument12 = None
+                        self.argument13 = None
+                        self.argument14 = None
+                        self.argument15 = None
+                        self.argument16 = None
                         self._segment_path = lambda: "base-dhcp-circuit-id"
 
                     def __setattr__(self, name, value):
@@ -5839,8 +6237,10 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"relay-dhcp-circuit-id" : ("relay_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("relay-dhcp-circuit-id", ("relay_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.RelayInterface.RelayDhcpCircuitId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.relay_dhcp_circuit_id = None
                     self._children_name_map["relay_dhcp_circuit_id"] = "relay-dhcp-circuit-id"
@@ -5962,45 +6362,48 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "relay-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                        self.format = YLeaf(YType.enumeration, "format")
-
-                        self.argument1 = YLeaf(YType.enumeration, "argument1")
-
-                        self.argument2 = YLeaf(YType.enumeration, "argument2")
-
-                        self.argument3 = YLeaf(YType.enumeration, "argument3")
-
-                        self.argument4 = YLeaf(YType.enumeration, "argument4")
-
-                        self.argument5 = YLeaf(YType.enumeration, "argument5")
-
-                        self.argument6 = YLeaf(YType.enumeration, "argument6")
-
-                        self.argument7 = YLeaf(YType.enumeration, "argument7")
-
-                        self.argument8 = YLeaf(YType.enumeration, "argument8")
-
-                        self.argument9 = YLeaf(YType.enumeration, "argument9")
-
-                        self.argument10 = YLeaf(YType.enumeration, "argument10")
-
-                        self.argument11 = YLeaf(YType.enumeration, "argument11")
-
-                        self.argument12 = YLeaf(YType.enumeration, "argument12")
-
-                        self.argument13 = YLeaf(YType.enumeration, "argument13")
-
-                        self.argument14 = YLeaf(YType.enumeration, "argument14")
-
-                        self.argument15 = YLeaf(YType.enumeration, "argument15")
-
-                        self.argument16 = YLeaf(YType.enumeration, "argument16")
+                        self._leafs = OrderedDict([
+                            ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                            ('format', YLeaf(YType.enumeration, 'format')),
+                            ('argument1', YLeaf(YType.enumeration, 'argument1')),
+                            ('argument2', YLeaf(YType.enumeration, 'argument2')),
+                            ('argument3', YLeaf(YType.enumeration, 'argument3')),
+                            ('argument4', YLeaf(YType.enumeration, 'argument4')),
+                            ('argument5', YLeaf(YType.enumeration, 'argument5')),
+                            ('argument6', YLeaf(YType.enumeration, 'argument6')),
+                            ('argument7', YLeaf(YType.enumeration, 'argument7')),
+                            ('argument8', YLeaf(YType.enumeration, 'argument8')),
+                            ('argument9', YLeaf(YType.enumeration, 'argument9')),
+                            ('argument10', YLeaf(YType.enumeration, 'argument10')),
+                            ('argument11', YLeaf(YType.enumeration, 'argument11')),
+                            ('argument12', YLeaf(YType.enumeration, 'argument12')),
+                            ('argument13', YLeaf(YType.enumeration, 'argument13')),
+                            ('argument14', YLeaf(YType.enumeration, 'argument14')),
+                            ('argument15', YLeaf(YType.enumeration, 'argument15')),
+                            ('argument16', YLeaf(YType.enumeration, 'argument16')),
+                        ])
+                        self.circuit_id = None
+                        self.format = None
+                        self.argument1 = None
+                        self.argument2 = None
+                        self.argument3 = None
+                        self.argument4 = None
+                        self.argument5 = None
+                        self.argument6 = None
+                        self.argument7 = None
+                        self.argument8 = None
+                        self.argument9 = None
+                        self.argument10 = None
+                        self.argument11 = None
+                        self.argument12 = None
+                        self.argument13 = None
+                        self.argument14 = None
+                        self.argument15 = None
+                        self.argument16 = None
                         self._segment_path = lambda: "relay-dhcp-circuit-id"
 
                     def __setattr__(self, name, value):
@@ -6031,8 +6434,10 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"statics" : ("statics", Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("statics", ("statics", Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.statics = Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics()
                     self.statics.parent = self
@@ -6065,8 +6470,10 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "static-mode"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"static" : ("static", Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("static", ("static", Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static))])
+                        self._leafs = OrderedDict()
 
                         self.static = YList(self)
                         self._segment_path = lambda: "statics"
@@ -6080,21 +6487,21 @@ class Ipv4Dhcpd(Entity):
                         DHCP static binding of Mac address to IP
                         address
                         
-                        .. attribute:: mac_address  <key>
+                        .. attribute:: mac_address  (key)
                         
                         	MACAddress
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
-                        .. attribute:: client_id  <key>
+                        .. attribute:: client_id  (key)
                         
                         	Client Id
                         	**type**\: int
                         
                         	**range:** 1..4294967295
                         
-                        .. attribute:: layer  <key>
+                        .. attribute:: layer  (key)
                         
                         	DHCP IPV4 Static layer
                         	**type**\:  :py:class:`Ipv4dhcpdLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4dhcpdLayer>`
@@ -6122,17 +6529,20 @@ class Ipv4Dhcpd(Entity):
                             self.yang_parent_name = "statics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.client_id = YLeaf(YType.uint32, "client-id")
-
-                            self.layer = YLeaf(YType.enumeration, "layer")
-
-                            self.static_address = YLeaf(YType.str, "static-address")
-                            self._segment_path = lambda: "static" + "[mac-address='" + self.mac_address.get() + "']" + "[client-id='" + self.client_id.get() + "']" + "[layer='" + self.layer.get() + "']"
+                            self.ylist_key_names = ['mac_address','client_id','layer']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('client_id', YLeaf(YType.uint32, 'client-id')),
+                                ('layer', YLeaf(YType.enumeration, 'layer')),
+                                ('static_address', YLeaf(YType.str, 'static-address')),
+                            ])
+                            self.mac_address = None
+                            self.client_id = None
+                            self.layer = None
+                            self.static_address = None
+                            self._segment_path = lambda: "static" + "[mac-address='" + str(self.mac_address) + "']" + "[client-id='" + str(self.client_id) + "']" + "[layer='" + str(self.layer) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Interfaces.Interface.StaticMode.Statics.Static, ['mac_address', 'client_id', 'layer', 'static_address'], name, value)
@@ -6172,13 +6582,16 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.profile_name = YLeaf(YType.str, "profile-name")
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
+                    self._leafs = OrderedDict([
+                        ('profile_name', YLeaf(YType.str, 'profile-name')),
+                        ('mode', YLeaf(YType.enumeration, 'mode')),
+                    ])
+                    self.profile_name = None
+                    self.mode = None
                     self._segment_path = lambda: "profile"
 
                 def __setattr__(self, name, value):
@@ -6215,10 +6628,13 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"server-dhcp-circuit-id" : ("server_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId)}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("server-dhcp-circuit-id", ("server_dhcp_circuit_id", Ipv4Dhcpd.Interfaces.Interface.ServerInterface.ServerDhcpCircuitId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('profile', YLeaf(YType.str, 'profile')),
+                    ])
+                    self.profile = None
 
                     self.server_dhcp_circuit_id = None
                     self._children_name_map["server_dhcp_circuit_id"] = "server-dhcp-circuit-id"
@@ -6343,45 +6759,48 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "server-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                        self.format = YLeaf(YType.enumeration, "format")
-
-                        self.argument1 = YLeaf(YType.enumeration, "argument1")
-
-                        self.argument2 = YLeaf(YType.enumeration, "argument2")
-
-                        self.argument3 = YLeaf(YType.enumeration, "argument3")
-
-                        self.argument4 = YLeaf(YType.enumeration, "argument4")
-
-                        self.argument5 = YLeaf(YType.enumeration, "argument5")
-
-                        self.argument6 = YLeaf(YType.enumeration, "argument6")
-
-                        self.argument7 = YLeaf(YType.enumeration, "argument7")
-
-                        self.argument8 = YLeaf(YType.enumeration, "argument8")
-
-                        self.argument9 = YLeaf(YType.enumeration, "argument9")
-
-                        self.argument10 = YLeaf(YType.enumeration, "argument10")
-
-                        self.argument11 = YLeaf(YType.enumeration, "argument11")
-
-                        self.argument12 = YLeaf(YType.enumeration, "argument12")
-
-                        self.argument13 = YLeaf(YType.enumeration, "argument13")
-
-                        self.argument14 = YLeaf(YType.enumeration, "argument14")
-
-                        self.argument15 = YLeaf(YType.enumeration, "argument15")
-
-                        self.argument16 = YLeaf(YType.enumeration, "argument16")
+                        self._leafs = OrderedDict([
+                            ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                            ('format', YLeaf(YType.enumeration, 'format')),
+                            ('argument1', YLeaf(YType.enumeration, 'argument1')),
+                            ('argument2', YLeaf(YType.enumeration, 'argument2')),
+                            ('argument3', YLeaf(YType.enumeration, 'argument3')),
+                            ('argument4', YLeaf(YType.enumeration, 'argument4')),
+                            ('argument5', YLeaf(YType.enumeration, 'argument5')),
+                            ('argument6', YLeaf(YType.enumeration, 'argument6')),
+                            ('argument7', YLeaf(YType.enumeration, 'argument7')),
+                            ('argument8', YLeaf(YType.enumeration, 'argument8')),
+                            ('argument9', YLeaf(YType.enumeration, 'argument9')),
+                            ('argument10', YLeaf(YType.enumeration, 'argument10')),
+                            ('argument11', YLeaf(YType.enumeration, 'argument11')),
+                            ('argument12', YLeaf(YType.enumeration, 'argument12')),
+                            ('argument13', YLeaf(YType.enumeration, 'argument13')),
+                            ('argument14', YLeaf(YType.enumeration, 'argument14')),
+                            ('argument15', YLeaf(YType.enumeration, 'argument15')),
+                            ('argument16', YLeaf(YType.enumeration, 'argument16')),
+                        ])
+                        self.circuit_id = None
+                        self.format = None
+                        self.argument1 = None
+                        self.argument2 = None
+                        self.argument3 = None
+                        self.argument4 = None
+                        self.argument5 = None
+                        self.argument6 = None
+                        self.argument7 = None
+                        self.argument8 = None
+                        self.argument9 = None
+                        self.argument10 = None
+                        self.argument11 = None
+                        self.argument12 = None
+                        self.argument13 = None
+                        self.argument14 = None
+                        self.argument15 = None
+                        self.argument16 = None
                         self._segment_path = lambda: "server-dhcp-circuit-id"
 
                     def __setattr__(self, name, value):
@@ -6411,8 +6830,10 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"snoop-circuit-id" : ("snoop_circuit_id", Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("snoop-circuit-id", ("snoop_circuit_id", Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.snoop_circuit_id = Ipv4Dhcpd.Interfaces.Interface.SnoopInterface.SnoopCircuitId()
                     self.snoop_circuit_id.parent = self
@@ -6452,12 +6873,15 @@ class Ipv4Dhcpd(Entity):
                         self.yang_parent_name = "snoop-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.format_type = YLeaf(YType.uint32, "format-type")
-
-                        self.circuit_id_value = YLeaf(YType.str, "circuit-id-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('format_type', YLeaf(YType.uint32, 'format-type')),
+                            ('circuit_id_value', YLeaf(YType.str, 'circuit-id-value')),
+                        ])
+                        self.format_type = None
+                        self.circuit_id_value = None
                         self._segment_path = lambda: "snoop-circuit-id"
 
                     def __setattr__(self, name, value):
@@ -6501,15 +6925,18 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.duplicate_mac = YLeaf(YType.empty, "duplicate-mac")
-
-            self.exclude_vlan = YLeaf(YType.empty, "exclude-vlan")
-
-            self.include_giaddr = YLeaf(YType.empty, "include-giaddr")
+            self._leafs = OrderedDict([
+                ('duplicate_mac', YLeaf(YType.empty, 'duplicate-mac')),
+                ('exclude_vlan', YLeaf(YType.empty, 'exclude-vlan')),
+                ('include_giaddr', YLeaf(YType.empty, 'include-giaddr')),
+            ])
+            self.duplicate_mac = None
+            self.exclude_vlan = None
+            self.include_giaddr = None
             self._segment_path = lambda: "duplicate-mac-allowed"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/%s" % self._segment_path()
 
@@ -6553,12 +6980,15 @@ class Ipv4Dhcpd(Entity):
             self.yang_parent_name = "ipv4-dhcpd"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.num_period = YLeaf(YType.uint32, "num-period")
-
-            self.num_discover = YLeaf(YType.uint32, "num-discover")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('num_period', YLeaf(YType.uint32, 'num-period')),
+                ('num_discover', YLeaf(YType.uint32, 'num-discover')),
+            ])
+            self.num_period = None
+            self.num_discover = None
             self._segment_path = lambda: "rate-limit"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/%s" % self._segment_path()
 

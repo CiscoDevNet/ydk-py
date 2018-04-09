@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BgpRouteTarget(Enum):
     """
-    BgpRouteTarget
+    BgpRouteTarget (Enum Class)
 
     Bgp route target
 
@@ -40,7 +42,7 @@ class BgpRouteTarget(Enum):
 
 class BgpRouteTargetFormat(Enum):
     """
-    BgpRouteTargetFormat
+    BgpRouteTargetFormat (Enum Class)
 
     Bgp route target format
 
@@ -79,7 +81,7 @@ class BgpRouteTargetFormat(Enum):
 
 class BgpRouteTargetRole(Enum):
     """
-    BgpRouteTargetRole
+    BgpRouteTargetRole (Enum Class)
 
     Bgp route target role
 
@@ -106,7 +108,7 @@ class BgpRouteTargetRole(Enum):
 
 class L2vpnAdRd(Enum):
     """
-    L2vpnAdRd
+    L2vpnAdRd (Enum Class)
 
     L2vpn ad rd
 
@@ -145,7 +147,7 @@ class L2vpnAdRd(Enum):
 
 class L2vpnAdRt(Enum):
     """
-    L2vpnAdRt
+    L2vpnAdRt (Enum Class)
 
     L2vpn ad rt
 
@@ -184,7 +186,7 @@ class L2vpnAdRt(Enum):
 
 class L2vpnAdRtRole(Enum):
     """
-    L2vpnAdRtRole
+    L2vpnAdRtRole (Enum Class)
 
     L2vpn ad rt role
 
@@ -211,7 +213,7 @@ class L2vpnAdRtRole(Enum):
 
 class L2vpnEvpn(Enum):
     """
-    L2vpnEvpn
+    L2vpnEvpn (Enum Class)
 
     L2vpn evpn
 
@@ -256,7 +258,7 @@ class L2vpnEvpn(Enum):
 
 class L2vpnEvpnEsi(Enum):
     """
-    L2vpnEvpnEsi
+    L2vpnEvpnEsi (Enum Class)
 
     EVPN ESI types
 
@@ -319,7 +321,7 @@ class L2vpnEvpnEsi(Enum):
 
 class L2vpnEvpnLbMode(Enum):
     """
-    L2vpnEvpnLbMode
+    L2vpnEvpnLbMode (Enum Class)
 
     L2VPN EVPN load balancing mode
 
@@ -356,7 +358,7 @@ class L2vpnEvpnLbMode(Enum):
 
 class L2vpnEvpnMfMode(Enum):
     """
-    L2vpnEvpnMfMode
+    L2vpnEvpnMfMode (Enum Class)
 
     L2VPN EVPN MAC flushing mode
 
@@ -383,7 +385,7 @@ class L2vpnEvpnMfMode(Enum):
 
 class L2vpnEvpnRtOrigin(Enum):
     """
-    L2vpnEvpnRtOrigin
+    L2vpnEvpnRtOrigin (Enum Class)
 
     L2vpn evpn rt origin
 
@@ -410,7 +412,7 @@ class L2vpnEvpnRtOrigin(Enum):
 
 class L2vpnEvpnScMode(Enum):
     """
-    L2vpnEvpnScMode
+    L2vpnEvpnScMode (Enum Class)
 
     EVPN Ethernet\-Segment service carving mode
 
@@ -437,7 +439,7 @@ class L2vpnEvpnScMode(Enum):
 
 class L2vpnEvpnSmacSrc(Enum):
     """
-    L2vpnEvpnSmacSrc
+    L2vpnEvpnSmacSrc (Enum Class)
 
     L2vpn evpn smac src
 
@@ -488,7 +490,7 @@ class L2vpnEvpnSmacSrc(Enum):
 
 class L2vpnRgRole(Enum):
     """
-    L2vpnRgRole
+    L2vpnRgRole (Enum Class)
 
     L2vpn rg role
 
@@ -554,8 +556,10 @@ class Evpn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-evpn-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Evpn.Nodes), "active" : ("active", Evpn.Active), "standby" : ("standby", Evpn.Standby)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Evpn.Nodes)), ("active", ("active", Evpn.Active)), ("standby", ("standby", Evpn.Standby))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Evpn.Nodes()
         self.nodes.parent = self
@@ -598,8 +602,10 @@ class Evpn(Entity):
             self.yang_parent_name = "evpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Evpn.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Evpn.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -613,7 +619,7 @@ class Evpn(Entity):
             """
             EVPN operational data for a particular node
             
-            .. attribute:: node_id  <key>
+            .. attribute:: node_id  (key)
             
             	Location
             	**type**\: str
@@ -634,6 +640,11 @@ class Evpn(Entity):
             
             	L2VPN EVI Detail Table
             	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
+            
+            .. attribute:: internal_labels
+            
+            	EVPN Internal Label Table
+            	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels>`
             
             .. attribute:: ethernet_segments
             
@@ -659,10 +670,13 @@ class Evpn(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"evis" : ("evis", Evpn.Nodes.Node.Evis), "summary" : ("summary", Evpn.Nodes.Node.Summary), "evi-detail" : ("evi_detail", Evpn.Nodes.Node.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Nodes.Node.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Nodes.Node.AcIds)}
-                self._child_list_classes = {}
-
-                self.node_id = YLeaf(YType.str, "node-id")
+                self.ylist_key_names = ['node_id']
+                self._child_container_classes = OrderedDict([("evis", ("evis", Evpn.Nodes.Node.Evis)), ("summary", ("summary", Evpn.Nodes.Node.Summary)), ("evi-detail", ("evi_detail", Evpn.Nodes.Node.EviDetail)), ("internal-labels", ("internal_labels", Evpn.Nodes.Node.InternalLabels)), ("ethernet-segments", ("ethernet_segments", Evpn.Nodes.Node.EthernetSegments)), ("ac-ids", ("ac_ids", Evpn.Nodes.Node.AcIds))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_id', YLeaf(YType.str, 'node-id')),
+                ])
+                self.node_id = None
 
                 self.evis = Evpn.Nodes.Node.Evis()
                 self.evis.parent = self
@@ -679,6 +693,11 @@ class Evpn(Entity):
                 self._children_name_map["evi_detail"] = "evi-detail"
                 self._children_yang_names.add("evi-detail")
 
+                self.internal_labels = Evpn.Nodes.Node.InternalLabels()
+                self.internal_labels.parent = self
+                self._children_name_map["internal_labels"] = "internal-labels"
+                self._children_yang_names.add("internal-labels")
+
                 self.ethernet_segments = Evpn.Nodes.Node.EthernetSegments()
                 self.ethernet_segments.parent = self
                 self._children_name_map["ethernet_segments"] = "ethernet-segments"
@@ -688,7 +707,7 @@ class Evpn(Entity):
                 self.ac_ids.parent = self
                 self._children_name_map["ac_ids"] = "ac-ids"
                 self._children_yang_names.add("ac-ids")
-                self._segment_path = lambda: "node" + "[node-id='" + self.node_id.get() + "']"
+                self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -718,8 +737,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"evi" : ("evi", Evpn.Nodes.Node.Evis.Evi)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("evi", ("evi", Evpn.Nodes.Node.Evis.Evi))])
+                    self._leafs = OrderedDict()
 
                     self.evi = YList(self)
                     self._segment_path = lambda: "evis"
@@ -732,7 +753,7 @@ class Evpn(Entity):
                     """
                     L2VPN EVPN EVI Entry
                     
-                    .. attribute:: evi  <key>
+                    .. attribute:: evi  (key)
                     
                     	EVPN id
                     	**type**\: int
@@ -770,17 +791,20 @@ class Evpn(Entity):
                         self.yang_parent_name = "evis"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-                        self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                        self.ylist_key_names = ['evi']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evi', YLeaf(YType.int32, 'evi')),
+                            ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                            ('bd_name', YLeaf(YType.str, 'bd-name')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                        ])
+                        self.evi = None
+                        self.evi_xr = None
+                        self.bd_name = None
+                        self.type = None
+                        self._segment_path = lambda: "evi" + "[evi='" + str(self.evi) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'evi_xr', 'bd_name', 'type'], name, value)
@@ -941,6 +965,15 @@ class Evpn(Entity):
                 
                 	**units**\: second
                 
+                .. attribute:: carving_time
+                
+                	EVPN ES Carving Time (seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
                 .. attribute:: mac_secure_move_count
                 
                 	Number of moves within the move interval before locking the MAC
@@ -1007,70 +1040,75 @@ class Evpn(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.router_id = YLeaf(YType.str, "router-id")
-
-                    self.as_ = YLeaf(YType.uint32, "as")
-
-                    self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                    self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                    self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                    self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                    self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                    self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                    self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                    self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                    self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                    self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                    self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                    self.labels = YLeaf(YType.uint32, "labels")
-
-                    self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                    self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                    self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                    self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                    self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                    self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                    self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                    self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                    self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                    self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                    self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                    self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                    self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-
-                    self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                    self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('router_id', YLeaf(YType.str, 'router-id')),
+                        ('as_', YLeaf(YType.uint32, 'as')),
+                        ('ev_is', YLeaf(YType.uint32, 'ev-is')),
+                        ('local_mac_routes', YLeaf(YType.uint32, 'local-mac-routes')),
+                        ('local_ipv4_mac_routes', YLeaf(YType.uint32, 'local-ipv4-mac-routes')),
+                        ('local_ipv6_mac_routes', YLeaf(YType.uint32, 'local-ipv6-mac-routes')),
+                        ('es_global_mac_routes', YLeaf(YType.uint32, 'es-global-mac-routes')),
+                        ('remote_mac_routes', YLeaf(YType.uint32, 'remote-mac-routes')),
+                        ('remote_soo_mac_routes', YLeaf(YType.uint32, 'remote-soo-mac-routes')),
+                        ('remote_ipv4_mac_routes', YLeaf(YType.uint32, 'remote-ipv4-mac-routes')),
+                        ('remote_ipv6_mac_routes', YLeaf(YType.uint32, 'remote-ipv6-mac-routes')),
+                        ('local_imcast_routes', YLeaf(YType.uint32, 'local-imcast-routes')),
+                        ('remote_imcast_routes', YLeaf(YType.uint32, 'remote-imcast-routes')),
+                        ('labels', YLeaf(YType.uint32, 'labels')),
+                        ('es_entries', YLeaf(YType.uint32, 'es-entries')),
+                        ('neighbor_entries', YLeaf(YType.uint32, 'neighbor-entries')),
+                        ('local_ead_routes', YLeaf(YType.uint32, 'local-ead-routes')),
+                        ('remote_ead_routes', YLeaf(YType.uint32, 'remote-ead-routes')),
+                        ('global_source_mac', YLeaf(YType.str, 'global-source-mac')),
+                        ('peering_time', YLeaf(YType.uint32, 'peering-time')),
+                        ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                        ('carving_time', YLeaf(YType.uint32, 'carving-time')),
+                        ('mac_secure_move_count', YLeaf(YType.uint32, 'mac-secure-move-count')),
+                        ('mac_secure_move_interval', YLeaf(YType.uint32, 'mac-secure-move-interval')),
+                        ('mac_secure_freeze_time', YLeaf(YType.uint32, 'mac-secure-freeze-time')),
+                        ('mac_secure_retry_count', YLeaf(YType.uint32, 'mac-secure-retry-count')),
+                        ('cost_out', YLeaf(YType.boolean, 'cost-out')),
+                        ('startup_cost_in_time', YLeaf(YType.uint32, 'startup-cost-in-time')),
+                        ('l2rib_throttle', YLeaf(YType.boolean, 'l2rib-throttle')),
+                        ('logging_df_election_enabled', YLeaf(YType.boolean, 'logging-df-election-enabled')),
+                    ])
+                    self.router_id = None
+                    self.as_ = None
+                    self.ev_is = None
+                    self.local_mac_routes = None
+                    self.local_ipv4_mac_routes = None
+                    self.local_ipv6_mac_routes = None
+                    self.es_global_mac_routes = None
+                    self.remote_mac_routes = None
+                    self.remote_soo_mac_routes = None
+                    self.remote_ipv4_mac_routes = None
+                    self.remote_ipv6_mac_routes = None
+                    self.local_imcast_routes = None
+                    self.remote_imcast_routes = None
+                    self.labels = None
+                    self.es_entries = None
+                    self.neighbor_entries = None
+                    self.local_ead_routes = None
+                    self.remote_ead_routes = None
+                    self.global_source_mac = None
+                    self.peering_time = None
+                    self.recovery_time = None
+                    self.carving_time = None
+                    self.mac_secure_move_count = None
+                    self.mac_secure_move_interval = None
+                    self.mac_secure_freeze_time = None
+                    self.mac_secure_retry_count = None
+                    self.cost_out = None
+                    self.startup_cost_in_time = None
+                    self.l2rib_throttle = None
+                    self.logging_df_election_enabled = None
                     self._segment_path = lambda: "summary"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
 
 
             class EviDetail(Entity):
@@ -1101,8 +1139,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"elements" : ("elements", Evpn.Nodes.Node.EviDetail.Elements), "evi-children" : ("evi_children", Evpn.Nodes.Node.EviDetail.EviChildren)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("elements", ("elements", Evpn.Nodes.Node.EviDetail.Elements)), ("evi-children", ("evi_children", Evpn.Nodes.Node.EviDetail.EviChildren))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.elements = Evpn.Nodes.Node.EviDetail.Elements()
                     self.elements.parent = self
@@ -1139,8 +1179,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"element" : ("element", Evpn.Nodes.Node.EviDetail.Elements.Element)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("element", ("element", Evpn.Nodes.Node.EviDetail.Elements.Element))])
+                        self._leafs = OrderedDict()
 
                         self.element = YList(self)
                         self._segment_path = lambda: "elements"
@@ -1153,7 +1195,7 @@ class Evpn(Entity):
                         """
                         EVI BGP RT Detail Info
                         
-                        .. attribute:: evi  <key>
+                        .. attribute:: evi  (key)
                         
                         	EVPN id
                         	**type**\: int
@@ -1301,46 +1343,49 @@ class Evpn(Entity):
                             self.yang_parent_name = "elements"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"flow-label" : ("flow_label", Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel), "rd-auto" : ("rd_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto), "rd-configured" : ("rd_configured", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured), "rt-auto" : ("rt_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto), "rt-auto-stitching" : ("rt_auto_stitching", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching)}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.bd_name = YLeaf(YType.str, "bd-name")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.unicast_label = YLeaf(YType.uint32, "unicast-label")
-
-                            self.multicast_label = YLeaf(YType.uint32, "multicast-label")
-
-                            self.cw_disable = YLeaf(YType.boolean, "cw-disable")
-
-                            self.table_policy_name = YLeaf(YType.str, "table-policy-name")
-
-                            self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                            self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
-
-                            self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
-
-                            self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
-
-                            self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
-
-                            self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
-
-                            self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
-
-                            self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
-
-                            self.stitching = YLeaf(YType.uint8, "stitching")
-
-                            self.encapsulation = YLeaf(YType.uint8, "encapsulation")
+                            self.ylist_key_names = ['evi']
+                            self._child_container_classes = OrderedDict([("flow-label", ("flow_label", Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel)), ("rd-auto", ("rd_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto)), ("rd-configured", ("rd_configured", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured)), ("rt-auto", ("rt_auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto)), ("rt-auto-stitching", ("rt_auto_stitching", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('bd_name', YLeaf(YType.str, 'bd-name')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('unicast_label', YLeaf(YType.uint32, 'unicast-label')),
+                                ('multicast_label', YLeaf(YType.uint32, 'multicast-label')),
+                                ('cw_disable', YLeaf(YType.boolean, 'cw-disable')),
+                                ('table_policy_name', YLeaf(YType.str, 'table-policy-name')),
+                                ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                                ('rt_import_block_set', YLeaf(YType.boolean, 'rt-import-block-set')),
+                                ('rt_export_block_set', YLeaf(YType.boolean, 'rt-export-block-set')),
+                                ('advertise_mac', YLeaf(YType.boolean, 'advertise-mac')),
+                                ('advertise_bvi_mac', YLeaf(YType.boolean, 'advertise-bvi-mac')),
+                                ('aliasing_disabled', YLeaf(YType.boolean, 'aliasing-disabled')),
+                                ('unknown_unicast_flooding_disabled', YLeaf(YType.boolean, 'unknown-unicast-flooding-disabled')),
+                                ('reoriginate_disabled', YLeaf(YType.boolean, 'reoriginate-disabled')),
+                                ('stitching', YLeaf(YType.uint8, 'stitching')),
+                                ('encapsulation', YLeaf(YType.uint8, 'encapsulation')),
+                            ])
+                            self.evi = None
+                            self.evi_xr = None
+                            self.description = None
+                            self.bd_name = None
+                            self.type = None
+                            self.unicast_label = None
+                            self.multicast_label = None
+                            self.cw_disable = None
+                            self.table_policy_name = None
+                            self.forward_class = None
+                            self.rt_import_block_set = None
+                            self.rt_export_block_set = None
+                            self.advertise_mac = None
+                            self.advertise_bvi_mac = None
+                            self.aliasing_disabled = None
+                            self.unknown_unicast_flooding_disabled = None
+                            self.reoriginate_disabled = None
+                            self.stitching = None
+                            self.encapsulation = None
 
                             self.flow_label = Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel()
                             self.flow_label.parent = self
@@ -1366,7 +1411,7 @@ class Evpn(Entity):
                             self.rt_auto_stitching.parent = self
                             self._children_name_map["rt_auto_stitching"] = "rt-auto-stitching"
                             self._children_yang_names.add("rt-auto-stitching")
-                            self._segment_path = lambda: "element" + "[evi='" + self.evi.get() + "']"
+                            self._segment_path = lambda: "element" + "[evi='" + str(self.evi) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'evi_xr', 'description', 'bd_name', 'type', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'encapsulation'], name, value)
@@ -1400,12 +1445,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "element"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
-
-                                self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('static_flow_label', YLeaf(YType.boolean, 'static-flow-label')),
+                                    ('global_flow_label', YLeaf(YType.boolean, 'global-flow-label')),
+                                ])
+                                self.static_flow_label = None
+                                self.global_flow_label = None
                                 self._segment_path = lambda: "flow-label"
 
                             def __setattr__(self, name, value):
@@ -1455,10 +1503,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "element"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rd = YLeaf(YType.enumeration, "rd")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rd', YLeaf(YType.enumeration, 'rd')),
+                                ])
+                                self.rd = None
 
                                 self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto()
                                 self.auto.parent = self
@@ -1517,12 +1568,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                    ])
+                                    self.router_id = None
+                                    self.auto_index = None
                                     self._segment_path = lambda: "auto"
 
                                 def __setattr__(self, name, value):
@@ -1561,12 +1615,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -1605,12 +1662,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -1649,12 +1709,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
 
                                 def __setattr__(self, name, value):
@@ -1704,10 +1767,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "element"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"auto" : ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr)}
-                                self._child_list_classes = {}
-
-                                self.rd = YLeaf(YType.enumeration, "rd")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rd', YLeaf(YType.enumeration, 'rd')),
+                                ])
+                                self.rd = None
 
                                 self.auto = Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto()
                                 self.auto.parent = self
@@ -1766,12 +1832,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-configured"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.router_id = YLeaf(YType.str, "router-id")
-
-                                    self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                    ])
+                                    self.router_id = None
+                                    self.auto_index = None
                                     self._segment_path = lambda: "auto"
 
                                 def __setattr__(self, name, value):
@@ -1810,12 +1879,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-configured"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -1854,12 +1926,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-configured"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -1898,12 +1973,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rd-configured"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
 
                                 def __setattr__(self, name, value):
@@ -1953,10 +2031,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "element"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport)}
-                                self._child_list_classes = {}
-
-                                self.rt = YLeaf(YType.enumeration, "rt")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr)), ("es-import", ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rt', YLeaf(YType.enumeration, 'rt')),
+                                ])
+                                self.rt = None
 
                                 self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs()
                                 self.two_byte_as.parent = self
@@ -2015,12 +2096,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -2059,12 +2143,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -2103,12 +2190,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
 
                                 def __setattr__(self, name, value):
@@ -2147,12 +2237,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                        ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                    ])
+                                    self.high_bytes = None
+                                    self.low_bytes = None
                                     self._segment_path = lambda: "es-import"
 
                                 def __setattr__(self, name, value):
@@ -2202,10 +2295,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "element"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
-                                self._child_list_classes = {}
-
-                                self.rt = YLeaf(YType.enumeration, "rt")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.V4Addr)), ("es-import", ("es_import", Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.EsImport))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rt', YLeaf(YType.enumeration, 'rt')),
+                                ])
+                                self.rt = None
 
                                 self.two_byte_as = Evpn.Nodes.Node.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
                                 self.two_byte_as.parent = self
@@ -2264,12 +2360,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto-stitching"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -2308,12 +2407,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto-stitching"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
 
                                 def __setattr__(self, name, value):
@@ -2352,12 +2454,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto-stitching"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
 
                                 def __setattr__(self, name, value):
@@ -2396,12 +2501,15 @@ class Evpn(Entity):
                                     self.yang_parent_name = "rt-auto-stitching"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                        ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                    ])
+                                    self.high_bytes = None
+                                    self.low_bytes = None
                                     self._segment_path = lambda: "es-import"
 
                                 def __setattr__(self, name, value):
@@ -2451,8 +2559,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Nodes.Node.EviDetail.EviChildren.Macs)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors)), ("ethernet-auto-discoveries", ("ethernet_auto_discoveries", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries)), ("inclusive-multicasts", ("inclusive_multicasts", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts)), ("route-targets", ("route_targets", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets)), ("macs", ("macs", Evpn.Nodes.Node.EviDetail.EviChildren.Macs))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.neighbors = Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors()
                         self.neighbors.parent = self
@@ -2504,8 +2614,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evi-children"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor))])
+                            self._leafs = OrderedDict()
 
                             self.neighbor = YList(self)
                             self._segment_path = lambda: "neighbors"
@@ -2566,16 +2678,19 @@ class Evpn(Entity):
                                 self.yang_parent_name = "neighbors"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.neighbor = YLeaf(YType.str, "neighbor")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('evi', YLeaf(YType.int32, 'evi')),
+                                    ('neighbor_ip', YLeaf(YType.str, 'neighbor-ip')),
+                                    ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                    ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                ])
+                                self.evi = None
+                                self.neighbor_ip = None
+                                self.evi_xr = None
+                                self.neighbor = None
                                 self._segment_path = lambda: "neighbor"
 
                             def __setattr__(self, name, value):
@@ -2605,8 +2720,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evi-children"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ethernet-auto-discovery" : ("ethernet_auto_discovery", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ethernet-auto-discovery", ("ethernet_auto_discovery", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery))])
+                            self._leafs = OrderedDict()
 
                             self.ethernet_auto_discovery = YList(self)
                             self._segment_path = lambda: "ethernet-auto-discoveries"
@@ -2718,6 +2835,11 @@ class Evpn(Entity):
                             	Single\-active redundancy configured at remote EAD
                             	**type**\: bool
                             
+                            .. attribute:: redundancy_single_flow_active
+                            
+                            	Single\-flow\-active redundancy configured at remote EAD
+                            	**type**\: bool
+                            
                             .. attribute:: num_paths
                             
                             	 Number of items in path list buffer
@@ -2749,47 +2871,52 @@ class Evpn(Entity):
                                 self.yang_parent_name = "ethernet-auto-discoveries"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.esi1 = YLeaf(YType.str, "esi1")
-
-                                self.esi2 = YLeaf(YType.str, "esi2")
-
-                                self.esi3 = YLeaf(YType.str, "esi3")
-
-                                self.esi4 = YLeaf(YType.str, "esi4")
-
-                                self.esi5 = YLeaf(YType.str, "esi5")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.local_next_hop = YLeaf(YType.str, "local-next-hop")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
-
-                                self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                                self.encap = YLeaf(YType.uint8, "encap")
-
-                                self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
-
-                                self.num_paths = YLeaf(YType.uint32, "num-paths")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer))])
+                                self._leafs = OrderedDict([
+                                    ('evi', YLeaf(YType.int32, 'evi')),
+                                    ('esi1', YLeaf(YType.str, 'esi1')),
+                                    ('esi2', YLeaf(YType.str, 'esi2')),
+                                    ('esi3', YLeaf(YType.str, 'esi3')),
+                                    ('esi4', YLeaf(YType.str, 'esi4')),
+                                    ('esi5', YLeaf(YType.str, 'esi5')),
+                                    ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                    ('ethernet_vpnid', YLeaf(YType.uint32, 'ethernet-vpnid')),
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                    ('local_next_hop', YLeaf(YType.str, 'local-next-hop')),
+                                    ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                    ('is_local_ead', YLeaf(YType.boolean, 'is-local-ead')),
+                                    ('encap', YLeaf(YType.uint8, 'encap')),
+                                    ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                                    ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                                    ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                                ])
+                                self.evi = None
+                                self.esi1 = None
+                                self.esi2 = None
+                                self.esi3 = None
+                                self.esi4 = None
+                                self.esi5 = None
+                                self.ethernet_tag = None
+                                self.ethernet_vpnid = None
+                                self.type = None
+                                self.ethernet_tag_xr = None
+                                self.local_next_hop = None
+                                self.local_label = None
+                                self.is_local_ead = None
+                                self.encap = None
+                                self.redundancy_single_active = None
+                                self.redundancy_single_flow_active = None
+                                self.num_paths = None
 
                                 self.ethernet_segment_identifier = YList(self)
                                 self.path_buffer = YList(self)
                                 self._segment_path = lambda: "ethernet-auto-discovery"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
                             class EthernetSegmentIdentifier(Entity):
@@ -2817,10 +2944,13 @@ class Evpn(Entity):
                                     self.yang_parent_name = "ethernet-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ])
+                                    self.entry = None
                                     self._segment_path = lambda: "ethernet-segment-identifier"
 
                                 def __setattr__(self, name, value):
@@ -2866,14 +2996,17 @@ class Evpn(Entity):
                                     self.yang_parent_name = "ethernet-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                        ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                        ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                    ])
+                                    self.next_hop = None
+                                    self.output_label = None
+                                    self.srte_tunnel = None
                                     self._segment_path = lambda: "path-buffer"
 
                                 def __setattr__(self, name, value):
@@ -2903,8 +3036,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evi-children"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"inclusive-multicast" : ("inclusive_multicast", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("inclusive-multicast", ("inclusive_multicast", Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast))])
+                            self._leafs = OrderedDict()
 
                             self.inclusive_multicast = YList(self)
                             self._segment_path = lambda: "inclusive-multicasts"
@@ -3010,30 +3145,33 @@ class Evpn(Entity):
                                 self.yang_parent_name = "inclusive-multicasts"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
-
-                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                                self.encap_type = YLeaf(YType.uint8, "encap-type")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('evi', YLeaf(YType.int32, 'evi')),
+                                    ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                    ('originating_ip', YLeaf(YType.str, 'originating-ip')),
+                                    ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                    ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                    ('originating_ip_xr', YLeaf(YType.str, 'originating-ip-xr')),
+                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                    ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                    ('is_local_entry', YLeaf(YType.boolean, 'is-local-entry')),
+                                    ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                    ('encap_type', YLeaf(YType.uint8, 'encap-type')),
+                                ])
+                                self.evi = None
+                                self.ethernet_tag = None
+                                self.originating_ip = None
+                                self.evi_xr = None
+                                self.ethernet_tag_xr = None
+                                self.originating_ip_xr = None
+                                self.next_hop = None
+                                self.output_label = None
+                                self.is_local_entry = None
+                                self.is_proxy_entry = None
+                                self.encap_type = None
                                 self._segment_path = lambda: "inclusive-multicast"
 
                             def __setattr__(self, name, value):
@@ -3063,8 +3201,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evi-children"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("route-target", ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget))])
+                            self._leafs = OrderedDict()
 
                             self.route_target = YList(self)
                             self._segment_path = lambda: "route-targets"
@@ -3130,7 +3270,7 @@ class Evpn(Entity):
                             .. attribute:: route_target
                             
                             	Route Target
-                            	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                            	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                             
                             .. attribute:: bd_name
                             
@@ -3168,34 +3308,37 @@ class Evpn(Entity):
                                 self.yang_parent_name = "route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"route-target" : ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("route-target", ("route_target", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('evi', YLeaf(YType.int32, 'evi')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                    ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('bd_name', YLeaf(YType.str, 'bd-name')),
+                                    ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                    ('route_target_role', YLeaf(YType.enumeration, 'route-target-role')),
+                                    ('route_target_stitching', YLeaf(YType.boolean, 'route-target-stitching')),
+                                ])
+                                self.evi = None
+                                self.role = None
+                                self.type = None
+                                self.format = None
+                                self.as_ = None
+                                self.as_index = None
+                                self.addr_index = None
+                                self.address = None
+                                self.bd_name = None
+                                self.evi_xr = None
+                                self.route_target_role = None
+                                self.route_target_stitching = None
 
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.bd_name = YLeaf(YType.str, "bd-name")
-
-                                self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                                self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
-
-                                self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                                self.route_target = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
+                                self.route_target = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_()
                                 self.route_target.parent = self
                                 self._children_name_map["route_target"] = "route-target"
                                 self._children_yang_names.add("route-target")
@@ -3205,29 +3348,29 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                            class RouteTarget(Entity):
+                            class RouteTarget_(Entity):
                                 """
                                 Route Target
                                 
                                 .. attribute:: two_byte_as
                                 
                                 	two byte as
-                                	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                                	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                                 
                                 .. attribute:: four_byte_as
                                 
                                 	four byte as
-                                	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                                	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
                                 
                                 .. attribute:: v4_addr
                                 
                                 	v4 addr
-                                	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                                	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                                 
                                 .. attribute:: es_import
                                 
                                 	es import
-                                	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                                	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                                 
                                 .. attribute:: rt
                                 
@@ -3242,40 +3385,43 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, self).__init__()
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                     self.yang_name = "route-target"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr)), ("es-import", ("es_import", Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('rt', YLeaf(YType.enumeration, 'rt')),
+                                    ])
+                                    self.rt = None
 
-                                    self.rt = YLeaf(YType.enumeration, "rt")
-
-                                    self.two_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
+                                    self.two_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs()
                                     self.two_byte_as.parent = self
                                     self._children_name_map["two_byte_as"] = "two-byte-as"
                                     self._children_yang_names.add("two-byte-as")
 
-                                    self.four_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                    self.four_byte_as = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs()
                                     self.four_byte_as.parent = self
                                     self._children_name_map["four_byte_as"] = "four-byte-as"
                                     self._children_yang_names.add("four-byte-as")
 
-                                    self.v4_addr = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
+                                    self.v4_addr = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr()
                                     self.v4_addr.parent = self
                                     self._children_name_map["v4_addr"] = "v4-addr"
                                     self._children_yang_names.add("v4-addr")
 
-                                    self.es_import = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                    self.es_import = Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport()
                                     self.es_import.parent = self
                                     self._children_name_map["es_import"] = "es-import"
                                     self._children_yang_names.add("es-import")
                                     self._segment_path = lambda: "route-target"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
                                 class TwoByteAs(Entity):
@@ -3304,22 +3450,25 @@ class Evpn(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                         self.yang_name = "two-byte-as"
                                         self.yang_parent_name = "route-target"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                        self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                            ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                        ])
+                                        self.two_byte_as = None
+                                        self.four_byte_index = None
                                         self._segment_path = lambda: "two-byte-as"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                                 class FourByteAs(Entity):
@@ -3348,22 +3497,25 @@ class Evpn(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, self).__init__()
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                         self.yang_name = "four-byte-as"
                                         self.yang_parent_name = "route-target"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                            ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                        ])
+                                        self.four_byte_as = None
+                                        self.two_byte_index = None
                                         self._segment_path = lambda: "four-byte-as"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
                                 class V4Addr(Entity):
@@ -3392,22 +3544,25 @@ class Evpn(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, self).__init__()
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                         self.yang_name = "v4-addr"
                                         self.yang_parent_name = "route-target"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                            ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                        ])
+                                        self.ipv4_address = None
+                                        self.two_byte_index = None
                                         self._segment_path = lambda: "v4-addr"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
                                 class EsImport(Entity):
@@ -3436,22 +3591,25 @@ class Evpn(Entity):
                                     _revision = '2017-05-01'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                         self.yang_name = "es-import"
                                         self.yang_parent_name = "route-target"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                        self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                            ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                        ])
+                                        self.high_bytes = None
+                                        self.low_bytes = None
                                         self._segment_path = lambda: "es-import"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
 
                     class Macs(Entity):
@@ -3477,8 +3635,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evi-children"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"mac" : ("mac", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("mac", ("mac", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac))])
+                            self._leafs = OrderedDict()
 
                             self.mac = YList(self)
                             self._segment_path = lambda: "macs"
@@ -3708,64 +3868,67 @@ class Evpn(Entity):
                                 self.yang_parent_name = "macs"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
-
-                                self.evi = YLeaf(YType.int32, "evi")
-
-                                self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                                self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                                self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
-
-                                self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                                self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                                self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                                self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                                self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                                self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                                self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                                self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                                self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                                self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                                self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                                self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                                self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                                self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                                self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                                self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                                self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                                self.resolved = YLeaf(YType.boolean, "resolved")
-
-                                self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                                self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("local-ethernet-segment-identifier", ("local_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier)), ("remote-ethernet-segment-identifier", ("remote_ethernet_segment_identifier", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer))])
+                                self._leafs = OrderedDict([
+                                    ('evi', YLeaf(YType.int32, 'evi')),
+                                    ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                    ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                    ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
+                                    ('ip_address_xr', YLeaf(YType.str, 'ip-address-xr')),
+                                    ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                    ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                                    ('is_local_mac', YLeaf(YType.boolean, 'is-local-mac')),
+                                    ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                    ('is_remote_mac', YLeaf(YType.boolean, 'is-remote-mac')),
+                                    ('soo_nexthop', YLeaf(YType.str, 'soo-nexthop')),
+                                    ('ipnh_address', YLeaf(YType.str, 'ipnh-address')),
+                                    ('esi_port_key', YLeaf(YType.uint16, 'esi-port-key')),
+                                    ('local_encap_type', YLeaf(YType.uint8, 'local-encap-type')),
+                                    ('remote_encap_type', YLeaf(YType.uint8, 'remote-encap-type')),
+                                    ('learned_bridge_port_name', YLeaf(YType.str, 'learned-bridge-port-name')),
+                                    ('local_seq_id', YLeaf(YType.uint32, 'local-seq-id')),
+                                    ('remote_seq_id', YLeaf(YType.uint32, 'remote-seq-id')),
+                                    ('local_l3_label', YLeaf(YType.uint32, 'local-l3-label')),
+                                    ('router_mac_address', YLeaf(YType.str, 'router-mac-address')),
+                                    ('mac_flush_requested', YLeaf(YType.uint16, 'mac-flush-requested')),
+                                    ('mac_flush_received', YLeaf(YType.uint16, 'mac-flush-received')),
+                                    ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                                    ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                    ('local_is_static', YLeaf(YType.boolean, 'local-is-static')),
+                                    ('remote_is_static', YLeaf(YType.boolean, 'remote-is-static')),
+                                ])
+                                self.evi = None
+                                self.ethernet_tag = None
+                                self.mac_address = None
+                                self.ip_address = None
+                                self.ethernet_tag_xr = None
+                                self.mac_address_xr = None
+                                self.ip_address_xr = None
+                                self.local_label = None
+                                self.num_paths = None
+                                self.is_local_mac = None
+                                self.is_proxy_entry = None
+                                self.is_remote_mac = None
+                                self.soo_nexthop = None
+                                self.ipnh_address = None
+                                self.esi_port_key = None
+                                self.local_encap_type = None
+                                self.remote_encap_type = None
+                                self.learned_bridge_port_name = None
+                                self.local_seq_id = None
+                                self.remote_seq_id = None
+                                self.local_l3_label = None
+                                self.router_mac_address = None
+                                self.mac_flush_requested = None
+                                self.mac_flush_received = None
+                                self.internal_label = None
+                                self.resolved = None
+                                self.local_is_static = None
+                                self.remote_is_static = None
 
                                 self.local_ethernet_segment_identifier = YList(self)
                                 self.remote_ethernet_segment_identifier = YList(self)
@@ -3801,10 +3964,13 @@ class Evpn(Entity):
                                     self.yang_parent_name = "mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ])
+                                    self.entry = None
                                     self._segment_path = lambda: "local-ethernet-segment-identifier"
 
                                 def __setattr__(self, name, value):
@@ -3836,10 +4002,13 @@ class Evpn(Entity):
                                     self.yang_parent_name = "mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.entry = YLeaf(YType.uint8, "entry")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ])
+                                    self.entry = None
                                     self._segment_path = lambda: "remote-ethernet-segment-identifier"
 
                                 def __setattr__(self, name, value):
@@ -3885,18 +4054,515 @@ class Evpn(Entity):
                                     self.yang_parent_name = "mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                    self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                    self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                        ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                        ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                    ])
+                                    self.next_hop = None
+                                    self.output_label = None
+                                    self.srte_tunnel = None
                                     self._segment_path = lambda: "path-buffer"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+            class InternalLabels(Entity):
+                """
+                EVPN Internal Label Table
+                
+                .. attribute:: internal_label
+                
+                	L2VPN EVPN Internal Label
+                	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Nodes.Node.InternalLabels, self).__init__()
+
+                    self.yang_name = "internal-labels"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("internal-label", ("internal_label", Evpn.Nodes.Node.InternalLabels.InternalLabel))])
+                    self._leafs = OrderedDict()
+
+                    self.internal_label = YList(self)
+                    self._segment_path = lambda: "internal-labels"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Nodes.Node.InternalLabels, [], name, value)
+
+
+                class InternalLabel(Entity):
+                    """
+                    L2VPN EVPN Internal Label
+                    
+                    .. attribute:: evi
+                    
+                    	EVPN id
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: esi1
+                    
+                    	ES id (part 1/5)
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: esi2
+                    
+                    	ES id (part 2/5)
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: esi3
+                    
+                    	ES id (part 3/5)
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: esi4
+                    
+                    	ES id (part 4/5)
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: esi5
+                    
+                    	ES id (part 5/5)
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: ethernet_tag
+                    
+                    	Ethernet Tag ID
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: evi_xr
+                    
+                    	EVPN id
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: esi
+                    
+                    	Ethernet Segment id
+                    	**type**\: str
+                    
+                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                    
+                    .. attribute:: tag
+                    
+                    	Label Tag
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_label
+                    
+                    	MPLS Internal Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: encap
+                    
+                    	Encap type of remote EAD/ES, EAD/EVI and MAC routes
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: mac_num_paths
+                    
+                    	Number of items in the MAC path buffer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ead_num_paths
+                    
+                    	Number of items in the ead path buffer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: evi_num_paths
+                    
+                    	Number of items in the evi path buffer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sum_num_paths
+                    
+                    	Number of items in the sum path buffer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sum_num_active_paths
+                    
+                    	Number of items in the sum path buffer that are Active Paths
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resolved
+                    
+                    	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                    	**type**\: bool
+                    
+                    .. attribute:: ecmp_disable
+                    
+                    	ECMP Disable Per EVI Resolution
+                    	**type**\: bool
+                    
+                    .. attribute:: redundancy_single_active
+                    
+                    	Single\-active redundancy configured at remote ES
+                    	**type**\: bool
+                    
+                    .. attribute:: redundancy_single_flow_active
+                    
+                    	Single\-flow\-active redundancy at remote ES (MST\-AG)
+                    	**type**\: bool
+                    
+                    .. attribute:: mac_path_buffer
+                    
+                    	MAC Path list buffer
+                    	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer>`
+                    
+                    .. attribute:: ead_path_buffer
+                    
+                    	EAD/ES Path list buffer
+                    	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer>`
+                    
+                    .. attribute:: evi_path_buffer
+                    
+                    	EAD/EVI Path list buffer
+                    	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer>`
+                    
+                    .. attribute:: summary_path_buffer
+                    
+                    	Summary Path list buffer
+                    	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Nodes.Node.InternalLabels.InternalLabel, self).__init__()
+
+                        self.yang_name = "internal-label"
+                        self.yang_parent_name = "internal-labels"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mac-path-buffer", ("mac_path_buffer", Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer)), ("ead-path-buffer", ("ead_path_buffer", Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer)), ("evi-path-buffer", ("evi_path_buffer", Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer)), ("summary-path-buffer", ("summary_path_buffer", Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer))])
+                        self._leafs = OrderedDict([
+                            ('evi', YLeaf(YType.int32, 'evi')),
+                            ('esi1', YLeaf(YType.str, 'esi1')),
+                            ('esi2', YLeaf(YType.str, 'esi2')),
+                            ('esi3', YLeaf(YType.str, 'esi3')),
+                            ('esi4', YLeaf(YType.str, 'esi4')),
+                            ('esi5', YLeaf(YType.str, 'esi5')),
+                            ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                            ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                            ('esi', YLeaf(YType.str, 'esi')),
+                            ('tag', YLeaf(YType.uint32, 'tag')),
+                            ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                            ('encap', YLeaf(YType.uint8, 'encap')),
+                            ('mac_num_paths', YLeaf(YType.uint32, 'mac-num-paths')),
+                            ('ead_num_paths', YLeaf(YType.uint32, 'ead-num-paths')),
+                            ('evi_num_paths', YLeaf(YType.uint32, 'evi-num-paths')),
+                            ('sum_num_paths', YLeaf(YType.uint32, 'sum-num-paths')),
+                            ('sum_num_active_paths', YLeaf(YType.uint32, 'sum-num-active-paths')),
+                            ('resolved', YLeaf(YType.boolean, 'resolved')),
+                            ('ecmp_disable', YLeaf(YType.boolean, 'ecmp-disable')),
+                            ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                            ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                        ])
+                        self.evi = None
+                        self.esi1 = None
+                        self.esi2 = None
+                        self.esi3 = None
+                        self.esi4 = None
+                        self.esi5 = None
+                        self.ethernet_tag = None
+                        self.evi_xr = None
+                        self.esi = None
+                        self.tag = None
+                        self.internal_label = None
+                        self.encap = None
+                        self.mac_num_paths = None
+                        self.ead_num_paths = None
+                        self.evi_num_paths = None
+                        self.sum_num_paths = None
+                        self.sum_num_active_paths = None
+                        self.resolved = None
+                        self.ecmp_disable = None
+                        self.redundancy_single_active = None
+                        self.redundancy_single_flow_active = None
+
+                        self.mac_path_buffer = YList(self)
+                        self.ead_path_buffer = YList(self)
+                        self.evi_path_buffer = YList(self)
+                        self.summary_path_buffer = YList(self)
+                        self._segment_path = lambda: "internal-label"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'evi_xr', 'esi', 'tag', 'internal_label', 'encap', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+
+
+                    class MacPathBuffer(Entity):
+                        """
+                        MAC Path list buffer
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: output_label
+                        
+                        	Output Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: srte_tunnel
+                        
+                        	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+
+                            self.yang_name = "mac-path-buffer"
+                            self.yang_parent_name = "internal-label"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                            ])
+                            self.next_hop = None
+                            self.output_label = None
+                            self.srte_tunnel = None
+                            self._segment_path = lambda: "mac-path-buffer"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                    class EadPathBuffer(Entity):
+                        """
+                        EAD/ES Path list buffer
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: output_label
+                        
+                        	Output Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: srte_tunnel
+                        
+                        	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+
+                            self.yang_name = "ead-path-buffer"
+                            self.yang_parent_name = "internal-label"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                            ])
+                            self.next_hop = None
+                            self.output_label = None
+                            self.srte_tunnel = None
+                            self._segment_path = lambda: "ead-path-buffer"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                    class EviPathBuffer(Entity):
+                        """
+                        EAD/EVI Path list buffer
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: output_label
+                        
+                        	Output Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: srte_tunnel
+                        
+                        	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+
+                            self.yang_name = "evi-path-buffer"
+                            self.yang_parent_name = "internal-label"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                            ])
+                            self.next_hop = None
+                            self.output_label = None
+                            self.srte_tunnel = None
+                            self._segment_path = lambda: "evi-path-buffer"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                    class SummaryPathBuffer(Entity):
+                        """
+                        Summary Path list buffer
+                        
+                        .. attribute:: next_hop
+                        
+                        	Next\-hop IP address (v6 format)
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: output_label
+                        
+                        	Output Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: srte_tunnel
+                        
+                        	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'evpn-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+
+                            self.yang_name = "summary-path-buffer"
+                            self.yang_parent_name = "internal-label"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                            ])
+                            self.next_hop = None
+                            self.output_label = None
+                            self.srte_tunnel = None
+                            self._segment_path = lambda: "summary-path-buffer"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
 
 
             class EthernetSegments(Entity):
@@ -3922,8 +4588,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Nodes.Node.EthernetSegments.EthernetSegment)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ethernet-segment", ("ethernet_segment", Evpn.Nodes.Node.EthernetSegments.EthernetSegment))])
+                    self._leafs = OrderedDict()
 
                     self.ethernet_segment = YList(self)
                     self._segment_path = lambda: "ethernet-segments"
@@ -3982,6 +4650,25 @@ class Evpn(Entity):
                     
                     	ESI Type
                     	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                    
+                    .. attribute:: esi_system_identifier
+                    
+                    	ESI System Identifier
+                    	**type**\: str
+                    
+                    .. attribute:: esi_port_key
+                    
+                    	ESI Port Key
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: esi_system_priority
+                    
+                    	ESI System Priority
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: ethernet_segment_name
                     
@@ -4116,6 +4803,24 @@ class Evpn(Entity):
                     
                     	**units**\: millisecond
                     
+                    .. attribute:: carving_timer
+                    
+                    	Configured timer for delaying DF election (seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: carving_timer_left
+                    
+                    	Milliseconds left on carving timer
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
+                    
                     .. attribute:: service_carving_mode
                     
                     	Service carving mode
@@ -4179,6 +4884,11 @@ class Evpn(Entity):
                     .. attribute:: nve_ingress_replication
                     
                     	Ingress\-Replication is configured on NVE main\-interface
+                    	**type**\: bool
+                    
+                    .. attribute:: local_split_horizon_group_label_valid
+                    
+                    	Local split horizon group label is valid
                     	**type**\: bool
                     
                     .. attribute:: local_split_horizon_group_label
@@ -4252,88 +4962,103 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segments"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.esi1 = YLeaf(YType.str, "esi1")
-
-                        self.esi2 = YLeaf(YType.str, "esi2")
-
-                        self.esi3 = YLeaf(YType.str, "esi3")
-
-                        self.esi4 = YLeaf(YType.str, "esi4")
-
-                        self.esi5 = YLeaf(YType.str, "esi5")
-
-                        self.esi_type = YLeaf(YType.enumeration, "esi-type")
-
-                        self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
-
-                        self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
-
-                        self.if_handle = YLeaf(YType.str, "if-handle")
-
-                        self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                        self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                        self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                        self.route_target = YLeaf(YType.str, "route-target")
-
-                        self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                        self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                        self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
-
-                        self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                        self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
-
-                        self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
-
-                        self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
-
-                        self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                        self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
-
-                        self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
-
-                        self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                        self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                        self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                        self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                        self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
-
-                        self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                        self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                        self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
-                        self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                        self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                        self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                        self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                        self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                        self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                        self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                        self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier)), ("primary-service", ("primary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService)), ("secondary-service", ("secondary_service", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService)), ("service-carving-i-sidelected-result", ("service_carving_i_sidelected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult)), ("service-carving-isid-not-elected-result", ("service_carving_isid_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult)), ("service-carving-evi-elected-result", ("service_carving_evi_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult)), ("service-carving-evi-not-elected-result", ("service_carving_evi_not_elected_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult)), ("next-hop", ("next_hop", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop)), ("service-carving-vpws-permanent-result", ("service_carving_vpws_permanent_result", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)), ("remote-split-horizon-group-label", ("remote_split_horizon_group_label", Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('esi1', YLeaf(YType.str, 'esi1')),
+                            ('esi2', YLeaf(YType.str, 'esi2')),
+                            ('esi3', YLeaf(YType.str, 'esi3')),
+                            ('esi4', YLeaf(YType.str, 'esi4')),
+                            ('esi5', YLeaf(YType.str, 'esi5')),
+                            ('esi_type', YLeaf(YType.enumeration, 'esi-type')),
+                            ('esi_system_identifier', YLeaf(YType.str, 'esi-system-identifier')),
+                            ('esi_port_key', YLeaf(YType.uint32, 'esi-port-key')),
+                            ('esi_system_priority', YLeaf(YType.uint32, 'esi-system-priority')),
+                            ('ethernet_segment_name', YLeaf(YType.str, 'ethernet-segment-name')),
+                            ('ethernet_segment_state', YLeaf(YType.uint32, 'ethernet-segment-state')),
+                            ('if_handle', YLeaf(YType.str, 'if-handle')),
+                            ('main_port_role', YLeaf(YType.enumeration, 'main-port-role')),
+                            ('main_port_mac', YLeaf(YType.str, 'main-port-mac')),
+                            ('num_up_p_ws', YLeaf(YType.uint32, 'num-up-p-ws')),
+                            ('route_target', YLeaf(YType.str, 'route-target')),
+                            ('rt_origin', YLeaf(YType.enumeration, 'rt-origin')),
+                            ('es_bgp_gates', YLeaf(YType.str, 'es-bgp-gates')),
+                            ('es_l2fib_gates', YLeaf(YType.str, 'es-l2fib-gates')),
+                            ('mac_flushing_mode_config', YLeaf(YType.enumeration, 'mac-flushing-mode-config')),
+                            ('load_balance_mode_config', YLeaf(YType.enumeration, 'load-balance-mode-config')),
+                            ('load_balance_mode_is_default', YLeaf(YType.boolean, 'load-balance-mode-is-default')),
+                            ('load_balance_mode_oper', YLeaf(YType.enumeration, 'load-balance-mode-oper')),
+                            ('force_single_home', YLeaf(YType.boolean, 'force-single-home')),
+                            ('source_mac_oper', YLeaf(YType.str, 'source-mac-oper')),
+                            ('source_mac_origin', YLeaf(YType.enumeration, 'source-mac-origin')),
+                            ('peering_timer', YLeaf(YType.uint32, 'peering-timer')),
+                            ('peering_timer_left', YLeaf(YType.uint32, 'peering-timer-left')),
+                            ('recovery_timer', YLeaf(YType.uint32, 'recovery-timer')),
+                            ('recovery_timer_left', YLeaf(YType.uint32, 'recovery-timer-left')),
+                            ('carving_timer', YLeaf(YType.uint32, 'carving-timer')),
+                            ('carving_timer_left', YLeaf(YType.uint32, 'carving-timer-left')),
+                            ('service_carving_mode', YLeaf(YType.enumeration, 'service-carving-mode')),
+                            ('primary_services_input', YLeaf(YType.str, 'primary-services-input')),
+                            ('secondary_services_input', YLeaf(YType.str, 'secondary-services-input')),
+                            ('forwarder_ports', YLeaf(YType.uint32, 'forwarder-ports')),
+                            ('permanent_forwarder_ports', YLeaf(YType.uint32, 'permanent-forwarder-ports')),
+                            ('elected_forwarder_ports', YLeaf(YType.uint32, 'elected-forwarder-ports')),
+                            ('not_elected_forwarder_ports', YLeaf(YType.uint32, 'not-elected-forwarder-ports')),
+                            ('not_config_forwarder_ports', YLeaf(YType.uint32, 'not-config-forwarder-ports')),
+                            ('mp_protected', YLeaf(YType.boolean, 'mp-protected')),
+                            ('nve_anycast_vtep', YLeaf(YType.boolean, 'nve-anycast-vtep')),
+                            ('nve_ingress_replication', YLeaf(YType.boolean, 'nve-ingress-replication')),
+                            ('local_split_horizon_group_label_valid', YLeaf(YType.boolean, 'local-split-horizon-group-label-valid')),
+                            ('local_split_horizon_group_label', YLeaf(YType.uint32, 'local-split-horizon-group-label')),
+                        ])
+                        self.interface_name = None
+                        self.esi1 = None
+                        self.esi2 = None
+                        self.esi3 = None
+                        self.esi4 = None
+                        self.esi5 = None
+                        self.esi_type = None
+                        self.esi_system_identifier = None
+                        self.esi_port_key = None
+                        self.esi_system_priority = None
+                        self.ethernet_segment_name = None
+                        self.ethernet_segment_state = None
+                        self.if_handle = None
+                        self.main_port_role = None
+                        self.main_port_mac = None
+                        self.num_up_p_ws = None
+                        self.route_target = None
+                        self.rt_origin = None
+                        self.es_bgp_gates = None
+                        self.es_l2fib_gates = None
+                        self.mac_flushing_mode_config = None
+                        self.load_balance_mode_config = None
+                        self.load_balance_mode_is_default = None
+                        self.load_balance_mode_oper = None
+                        self.force_single_home = None
+                        self.source_mac_oper = None
+                        self.source_mac_origin = None
+                        self.peering_timer = None
+                        self.peering_timer_left = None
+                        self.recovery_timer = None
+                        self.recovery_timer_left = None
+                        self.carving_timer = None
+                        self.carving_timer_left = None
+                        self.service_carving_mode = None
+                        self.primary_services_input = None
+                        self.secondary_services_input = None
+                        self.forwarder_ports = None
+                        self.permanent_forwarder_ports = None
+                        self.elected_forwarder_ports = None
+                        self.not_elected_forwarder_ports = None
+                        self.not_config_forwarder_ports = None
+                        self.mp_protected = None
+                        self.nve_anycast_vtep = None
+                        self.nve_ingress_replication = None
+                        self.local_split_horizon_group_label_valid = None
+                        self.local_split_horizon_group_label = None
 
                         self.ethernet_segment_identifier = YList(self)
                         self.primary_service = YList(self)
@@ -4348,7 +5073,7 @@ class Evpn(Entity):
                         self._segment_path = lambda: "ethernet-segment"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
                     class EthernetSegmentIdentifier(Entity):
@@ -4376,10 +5101,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint8, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint8, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "ethernet-segment-identifier"
 
                         def __setattr__(self, name, value):
@@ -4411,10 +5139,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "primary-service"
 
                         def __setattr__(self, name, value):
@@ -4446,10 +5177,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "secondary-service"
 
                         def __setattr__(self, name, value):
@@ -4481,10 +5215,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "service-carving-i-sidelected-result"
 
                         def __setattr__(self, name, value):
@@ -4516,10 +5253,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "service-carving-isid-not-elected-result"
 
                         def __setattr__(self, name, value):
@@ -4551,10 +5291,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "service-carving-evi-elected-result"
 
                         def __setattr__(self, name, value):
@@ -4586,10 +5329,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.entry = YLeaf(YType.uint32, "entry")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint32, 'entry')),
+                            ])
+                            self.entry = None
                             self._segment_path = lambda: "service-carving-evi-not-elected-result"
 
                         def __setattr__(self, name, value):
@@ -4621,10 +5367,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ])
+                            self.next_hop = None
                             self._segment_path = lambda: "next-hop"
 
                         def __setattr__(self, name, value):
@@ -4668,14 +5417,17 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.vpn_id = YLeaf(YType.uint32, "vpn-id")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vpn_id', YLeaf(YType.uint32, 'vpn-id')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('ethernet_tag', YLeaf(YType.uint32, 'ethernet-tag')),
+                            ])
+                            self.vpn_id = None
+                            self.type = None
+                            self.ethernet_tag = None
                             self._segment_path = lambda: "service-carving-vpws-permanent-result"
 
                         def __setattr__(self, name, value):
@@ -4714,12 +5466,15 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.label = YLeaf(YType.uint32, "label")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('label', YLeaf(YType.uint32, 'label')),
+                            ])
+                            self.next_hop = None
+                            self.label = None
                             self._segment_path = lambda: "remote-split-horizon-group-label"
 
                         def __setattr__(self, name, value):
@@ -4749,8 +5504,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Nodes.Node.AcIds.AcId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ac-id", ("ac_id", Evpn.Nodes.Node.AcIds.AcId))])
+                    self._leafs = OrderedDict()
 
                     self.ac_id = YList(self)
                     self._segment_path = lambda: "ac-ids"
@@ -4805,16 +5562,19 @@ class Evpn(Entity):
                         self.yang_parent_name = "ac-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.ac_id = YLeaf(YType.int32, "ac-id")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.neighbor = YLeaf(YType.str, "neighbor")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evi', YLeaf(YType.int32, 'evi')),
+                            ('ac_id', YLeaf(YType.int32, 'ac-id')),
+                            ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                            ('neighbor', YLeaf(YType.str, 'neighbor')),
+                        ])
+                        self.evi = None
+                        self.ac_id = None
+                        self.evi_xr = None
+                        self.neighbor = None
                         self._segment_path = lambda: "ac-id"
 
                     def __setattr__(self, name, value):
@@ -4840,6 +5600,11 @@ class Evpn(Entity):
         	L2VPN EVI Detail Table
         	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
         
+        .. attribute:: internal_labels
+        
+        	EVPN Internal Label Table
+        	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels>`
+        
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
@@ -4864,8 +5629,10 @@ class Evpn(Entity):
             self.yang_parent_name = "evpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"evis" : ("evis", Evpn.Active.Evis), "summary" : ("summary", Evpn.Active.Summary), "evi-detail" : ("evi_detail", Evpn.Active.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Active.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Active.AcIds)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("evis", ("evis", Evpn.Active.Evis)), ("summary", ("summary", Evpn.Active.Summary)), ("evi-detail", ("evi_detail", Evpn.Active.EviDetail)), ("internal-labels", ("internal_labels", Evpn.Active.InternalLabels)), ("ethernet-segments", ("ethernet_segments", Evpn.Active.EthernetSegments)), ("ac-ids", ("ac_ids", Evpn.Active.AcIds))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.evis = Evpn.Active.Evis()
             self.evis.parent = self
@@ -4881,6 +5648,11 @@ class Evpn(Entity):
             self.evi_detail.parent = self
             self._children_name_map["evi_detail"] = "evi-detail"
             self._children_yang_names.add("evi-detail")
+
+            self.internal_labels = Evpn.Active.InternalLabels()
+            self.internal_labels.parent = self
+            self._children_name_map["internal_labels"] = "internal-labels"
+            self._children_yang_names.add("internal-labels")
 
             self.ethernet_segments = Evpn.Active.EthernetSegments()
             self.ethernet_segments.parent = self
@@ -4918,8 +5690,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evi" : ("evi", Evpn.Active.Evis.Evi)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evi", ("evi", Evpn.Active.Evis.Evi))])
+                self._leafs = OrderedDict()
 
                 self.evi = YList(self)
                 self._segment_path = lambda: "evis"
@@ -4933,7 +5707,7 @@ class Evpn(Entity):
                 """
                 L2VPN EVPN EVI Entry
                 
-                .. attribute:: evi  <key>
+                .. attribute:: evi  (key)
                 
                 	EVPN id
                 	**type**\: int
@@ -4971,17 +5745,20 @@ class Evpn(Entity):
                     self.yang_parent_name = "evis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.bd_name = YLeaf(YType.str, "bd-name")
-
-                    self.type = YLeaf(YType.enumeration, "type")
-                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                    self.ylist_key_names = ['evi']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('bd_name', YLeaf(YType.str, 'bd-name')),
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                    ])
+                    self.evi = None
+                    self.evi_xr = None
+                    self.bd_name = None
+                    self.type = None
+                    self._segment_path = lambda: "evi" + "[evi='" + str(self.evi) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5143,6 +5920,15 @@ class Evpn(Entity):
             
             	**units**\: second
             
+            .. attribute:: carving_time
+            
+            	EVPN ES Carving Time (seconds)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
             .. attribute:: mac_secure_move_count
             
             	Number of moves within the move interval before locking the MAC
@@ -5209,71 +5995,76 @@ class Evpn(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                self.labels = YLeaf(YType.uint32, "labels")
-
-                self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-
-                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('router_id', YLeaf(YType.str, 'router-id')),
+                    ('as_', YLeaf(YType.uint32, 'as')),
+                    ('ev_is', YLeaf(YType.uint32, 'ev-is')),
+                    ('local_mac_routes', YLeaf(YType.uint32, 'local-mac-routes')),
+                    ('local_ipv4_mac_routes', YLeaf(YType.uint32, 'local-ipv4-mac-routes')),
+                    ('local_ipv6_mac_routes', YLeaf(YType.uint32, 'local-ipv6-mac-routes')),
+                    ('es_global_mac_routes', YLeaf(YType.uint32, 'es-global-mac-routes')),
+                    ('remote_mac_routes', YLeaf(YType.uint32, 'remote-mac-routes')),
+                    ('remote_soo_mac_routes', YLeaf(YType.uint32, 'remote-soo-mac-routes')),
+                    ('remote_ipv4_mac_routes', YLeaf(YType.uint32, 'remote-ipv4-mac-routes')),
+                    ('remote_ipv6_mac_routes', YLeaf(YType.uint32, 'remote-ipv6-mac-routes')),
+                    ('local_imcast_routes', YLeaf(YType.uint32, 'local-imcast-routes')),
+                    ('remote_imcast_routes', YLeaf(YType.uint32, 'remote-imcast-routes')),
+                    ('labels', YLeaf(YType.uint32, 'labels')),
+                    ('es_entries', YLeaf(YType.uint32, 'es-entries')),
+                    ('neighbor_entries', YLeaf(YType.uint32, 'neighbor-entries')),
+                    ('local_ead_routes', YLeaf(YType.uint32, 'local-ead-routes')),
+                    ('remote_ead_routes', YLeaf(YType.uint32, 'remote-ead-routes')),
+                    ('global_source_mac', YLeaf(YType.str, 'global-source-mac')),
+                    ('peering_time', YLeaf(YType.uint32, 'peering-time')),
+                    ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                    ('carving_time', YLeaf(YType.uint32, 'carving-time')),
+                    ('mac_secure_move_count', YLeaf(YType.uint32, 'mac-secure-move-count')),
+                    ('mac_secure_move_interval', YLeaf(YType.uint32, 'mac-secure-move-interval')),
+                    ('mac_secure_freeze_time', YLeaf(YType.uint32, 'mac-secure-freeze-time')),
+                    ('mac_secure_retry_count', YLeaf(YType.uint32, 'mac-secure-retry-count')),
+                    ('cost_out', YLeaf(YType.boolean, 'cost-out')),
+                    ('startup_cost_in_time', YLeaf(YType.uint32, 'startup-cost-in-time')),
+                    ('l2rib_throttle', YLeaf(YType.boolean, 'l2rib-throttle')),
+                    ('logging_df_election_enabled', YLeaf(YType.boolean, 'logging-df-election-enabled')),
+                ])
+                self.router_id = None
+                self.as_ = None
+                self.ev_is = None
+                self.local_mac_routes = None
+                self.local_ipv4_mac_routes = None
+                self.local_ipv6_mac_routes = None
+                self.es_global_mac_routes = None
+                self.remote_mac_routes = None
+                self.remote_soo_mac_routes = None
+                self.remote_ipv4_mac_routes = None
+                self.remote_ipv6_mac_routes = None
+                self.local_imcast_routes = None
+                self.remote_imcast_routes = None
+                self.labels = None
+                self.es_entries = None
+                self.neighbor_entries = None
+                self.local_ead_routes = None
+                self.remote_ead_routes = None
+                self.global_source_mac = None
+                self.peering_time = None
+                self.recovery_time = None
+                self.carving_time = None
+                self.mac_secure_move_count = None
+                self.mac_secure_move_interval = None
+                self.mac_secure_freeze_time = None
+                self.mac_secure_retry_count = None
+                self.cost_out = None
+                self.startup_cost_in_time = None
+                self.l2rib_throttle = None
+                self.logging_df_election_enabled = None
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
 
 
         class EviDetail(Entity):
@@ -5304,8 +6095,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"elements" : ("elements", Evpn.Active.EviDetail.Elements), "evi-children" : ("evi_children", Evpn.Active.EviDetail.EviChildren)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("elements", ("elements", Evpn.Active.EviDetail.Elements)), ("evi-children", ("evi_children", Evpn.Active.EviDetail.EviChildren))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.elements = Evpn.Active.EviDetail.Elements()
                 self.elements.parent = self
@@ -5343,8 +6136,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"element" : ("element", Evpn.Active.EviDetail.Elements.Element)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("element", ("element", Evpn.Active.EviDetail.Elements.Element))])
+                    self._leafs = OrderedDict()
 
                     self.element = YList(self)
                     self._segment_path = lambda: "elements"
@@ -5358,7 +6153,7 @@ class Evpn(Entity):
                     """
                     EVI BGP RT Detail Info
                     
-                    .. attribute:: evi  <key>
+                    .. attribute:: evi  (key)
                     
                     	EVPN id
                     	**type**\: int
@@ -5506,46 +6301,49 @@ class Evpn(Entity):
                         self.yang_parent_name = "elements"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"flow-label" : ("flow_label", Evpn.Active.EviDetail.Elements.Element.FlowLabel), "rd-auto" : ("rd_auto", Evpn.Active.EviDetail.Elements.Element.RdAuto), "rd-configured" : ("rd_configured", Evpn.Active.EviDetail.Elements.Element.RdConfigured), "rt-auto" : ("rt_auto", Evpn.Active.EviDetail.Elements.Element.RtAuto), "rt-auto-stitching" : ("rt_auto_stitching", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching)}
-                        self._child_list_classes = {}
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.unicast_label = YLeaf(YType.uint32, "unicast-label")
-
-                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
-
-                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
-
-                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
-
-                        self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
-
-                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
-
-                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
-
-                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
-
-                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
-
-                        self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
-
-                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
-
-                        self.stitching = YLeaf(YType.uint8, "stitching")
-
-                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
+                        self.ylist_key_names = ['evi']
+                        self._child_container_classes = OrderedDict([("flow-label", ("flow_label", Evpn.Active.EviDetail.Elements.Element.FlowLabel)), ("rd-auto", ("rd_auto", Evpn.Active.EviDetail.Elements.Element.RdAuto)), ("rd-configured", ("rd_configured", Evpn.Active.EviDetail.Elements.Element.RdConfigured)), ("rt-auto", ("rt_auto", Evpn.Active.EviDetail.Elements.Element.RtAuto)), ("rt-auto-stitching", ("rt_auto_stitching", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evi', YLeaf(YType.int32, 'evi')),
+                            ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('bd_name', YLeaf(YType.str, 'bd-name')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('unicast_label', YLeaf(YType.uint32, 'unicast-label')),
+                            ('multicast_label', YLeaf(YType.uint32, 'multicast-label')),
+                            ('cw_disable', YLeaf(YType.boolean, 'cw-disable')),
+                            ('table_policy_name', YLeaf(YType.str, 'table-policy-name')),
+                            ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                            ('rt_import_block_set', YLeaf(YType.boolean, 'rt-import-block-set')),
+                            ('rt_export_block_set', YLeaf(YType.boolean, 'rt-export-block-set')),
+                            ('advertise_mac', YLeaf(YType.boolean, 'advertise-mac')),
+                            ('advertise_bvi_mac', YLeaf(YType.boolean, 'advertise-bvi-mac')),
+                            ('aliasing_disabled', YLeaf(YType.boolean, 'aliasing-disabled')),
+                            ('unknown_unicast_flooding_disabled', YLeaf(YType.boolean, 'unknown-unicast-flooding-disabled')),
+                            ('reoriginate_disabled', YLeaf(YType.boolean, 'reoriginate-disabled')),
+                            ('stitching', YLeaf(YType.uint8, 'stitching')),
+                            ('encapsulation', YLeaf(YType.uint8, 'encapsulation')),
+                        ])
+                        self.evi = None
+                        self.evi_xr = None
+                        self.description = None
+                        self.bd_name = None
+                        self.type = None
+                        self.unicast_label = None
+                        self.multicast_label = None
+                        self.cw_disable = None
+                        self.table_policy_name = None
+                        self.forward_class = None
+                        self.rt_import_block_set = None
+                        self.rt_export_block_set = None
+                        self.advertise_mac = None
+                        self.advertise_bvi_mac = None
+                        self.aliasing_disabled = None
+                        self.unknown_unicast_flooding_disabled = None
+                        self.reoriginate_disabled = None
+                        self.stitching = None
+                        self.encapsulation = None
 
                         self.flow_label = Evpn.Active.EviDetail.Elements.Element.FlowLabel()
                         self.flow_label.parent = self
@@ -5571,7 +6369,7 @@ class Evpn(Entity):
                         self.rt_auto_stitching.parent = self
                         self._children_name_map["rt_auto_stitching"] = "rt-auto-stitching"
                         self._children_yang_names.add("rt-auto-stitching")
-                        self._segment_path = lambda: "element" + "[evi='" + self.evi.get() + "']"
+                        self._segment_path = lambda: "element" + "[evi='" + str(self.evi) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -5606,12 +6404,15 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
-
-                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('static_flow_label', YLeaf(YType.boolean, 'static-flow-label')),
+                                ('global_flow_label', YLeaf(YType.boolean, 'global-flow-label')),
+                            ])
+                            self.static_flow_label = None
+                            self.global_flow_label = None
                             self._segment_path = lambda: "flow-label"
 
                         def __setattr__(self, name, value):
@@ -5661,10 +6462,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rd = YLeaf(YType.enumeration, "rd")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rd', YLeaf(YType.enumeration, 'rd')),
+                            ])
+                            self.rd = None
 
                             self.auto = Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto()
                             self.auto.parent = self
@@ -5723,12 +6527,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                ])
+                                self.router_id = None
+                                self.auto_index = None
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
@@ -5767,12 +6574,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -5811,12 +6621,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -5855,12 +6668,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -5910,10 +6726,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rd = YLeaf(YType.enumeration, "rd")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rd', YLeaf(YType.enumeration, 'rd')),
+                            ])
+                            self.rd = None
 
                             self.auto = Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto()
                             self.auto.parent = self
@@ -5972,12 +6791,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                ])
+                                self.router_id = None
+                                self.auto_index = None
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
@@ -6016,12 +6838,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6060,12 +6885,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6104,12 +6932,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -6159,10 +6990,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr)), ("es-import", ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rt', YLeaf(YType.enumeration, 'rt')),
+                            ])
+                            self.rt = None
 
                             self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs()
                             self.two_byte_as.parent = self
@@ -6221,12 +7055,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6265,12 +7102,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6309,12 +7149,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -6353,12 +7196,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                    ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                ])
+                                self.high_bytes = None
+                                self.low_bytes = None
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
@@ -6408,10 +7254,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.V4Addr)), ("es-import", ("es_import", Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.EsImport))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rt', YLeaf(YType.enumeration, 'rt')),
+                            ])
+                            self.rt = None
 
                             self.two_byte_as = Evpn.Active.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
                             self.two_byte_as.parent = self
@@ -6470,12 +7319,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6514,12 +7366,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -6558,12 +7413,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -6602,12 +7460,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                    ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                ])
+                                self.high_bytes = None
+                                self.low_bytes = None
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
@@ -6657,8 +7518,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Active.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Active.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Active.EviDetail.EviChildren.Macs)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Evpn.Active.EviDetail.EviChildren.Neighbors)), ("ethernet-auto-discoveries", ("ethernet_auto_discoveries", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries)), ("inclusive-multicasts", ("inclusive_multicasts", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts)), ("route-targets", ("route_targets", Evpn.Active.EviDetail.EviChildren.RouteTargets)), ("macs", ("macs", Evpn.Active.EviDetail.EviChildren.Macs))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.neighbors = Evpn.Active.EviDetail.EviChildren.Neighbors()
                     self.neighbors.parent = self
@@ -6711,8 +7574,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor))])
+                        self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "neighbors"
@@ -6774,16 +7639,19 @@ class Evpn(Entity):
                             self.yang_parent_name = "neighbors"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.neighbor = YLeaf(YType.str, "neighbor")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('neighbor_ip', YLeaf(YType.str, 'neighbor-ip')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('neighbor', YLeaf(YType.str, 'neighbor')),
+                            ])
+                            self.evi = None
+                            self.neighbor_ip = None
+                            self.evi_xr = None
+                            self.neighbor = None
                             self._segment_path = lambda: "neighbor"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/%s" % self._segment_path()
 
@@ -6814,8 +7682,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ethernet-auto-discovery" : ("ethernet_auto_discovery", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ethernet-auto-discovery", ("ethernet_auto_discovery", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery))])
+                        self._leafs = OrderedDict()
 
                         self.ethernet_auto_discovery = YList(self)
                         self._segment_path = lambda: "ethernet-auto-discoveries"
@@ -6928,6 +7798,11 @@ class Evpn(Entity):
                         	Single\-active redundancy configured at remote EAD
                         	**type**\: bool
                         
+                        .. attribute:: redundancy_single_flow_active
+                        
+                        	Single\-flow\-active redundancy configured at remote EAD
+                        	**type**\: bool
+                        
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
@@ -6959,40 +7834,45 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-auto-discoveries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.esi1 = YLeaf(YType.str, "esi1")
-
-                            self.esi2 = YLeaf(YType.str, "esi2")
-
-                            self.esi3 = YLeaf(YType.str, "esi3")
-
-                            self.esi4 = YLeaf(YType.str, "esi4")
-
-                            self.esi5 = YLeaf(YType.str, "esi5")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.local_next_hop = YLeaf(YType.str, "local-next-hop")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                            self.encap = YLeaf(YType.uint8, "encap")
-
-                            self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer))])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('esi1', YLeaf(YType.str, 'esi1')),
+                                ('esi2', YLeaf(YType.str, 'esi2')),
+                                ('esi3', YLeaf(YType.str, 'esi3')),
+                                ('esi4', YLeaf(YType.str, 'esi4')),
+                                ('esi5', YLeaf(YType.str, 'esi5')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('ethernet_vpnid', YLeaf(YType.uint32, 'ethernet-vpnid')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('local_next_hop', YLeaf(YType.str, 'local-next-hop')),
+                                ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ('is_local_ead', YLeaf(YType.boolean, 'is-local-ead')),
+                                ('encap', YLeaf(YType.uint8, 'encap')),
+                                ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                                ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                                ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                            ])
+                            self.evi = None
+                            self.esi1 = None
+                            self.esi2 = None
+                            self.esi3 = None
+                            self.esi4 = None
+                            self.esi5 = None
+                            self.ethernet_tag = None
+                            self.ethernet_vpnid = None
+                            self.type = None
+                            self.ethernet_tag_xr = None
+                            self.local_next_hop = None
+                            self.local_label = None
+                            self.is_local_ead = None
+                            self.encap = None
+                            self.redundancy_single_active = None
+                            self.redundancy_single_flow_active = None
+                            self.num_paths = None
 
                             self.ethernet_segment_identifier = YList(self)
                             self.path_buffer = YList(self)
@@ -7000,7 +7880,7 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -7028,10 +7908,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "ethernet-auto-discovery"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/%s" % self._segment_path()
 
@@ -7078,14 +7961,17 @@ class Evpn(Entity):
                                 self.yang_parent_name = "ethernet-auto-discovery"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                    ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                    ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                ])
+                                self.next_hop = None
+                                self.output_label = None
+                                self.srte_tunnel = None
                                 self._segment_path = lambda: "path-buffer"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/%s" % self._segment_path()
 
@@ -7116,8 +8002,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"inclusive-multicast" : ("inclusive_multicast", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("inclusive-multicast", ("inclusive_multicast", Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast))])
+                        self._leafs = OrderedDict()
 
                         self.inclusive_multicast = YList(self)
                         self._segment_path = lambda: "inclusive-multicasts"
@@ -7224,30 +8112,33 @@ class Evpn(Entity):
                             self.yang_parent_name = "inclusive-multicasts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.output_label = YLeaf(YType.uint32, "output-label")
-
-                            self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.encap_type = YLeaf(YType.uint8, "encap-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('originating_ip', YLeaf(YType.str, 'originating-ip')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('originating_ip_xr', YLeaf(YType.str, 'originating-ip-xr')),
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('is_local_entry', YLeaf(YType.boolean, 'is-local-entry')),
+                                ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                ('encap_type', YLeaf(YType.uint8, 'encap-type')),
+                            ])
+                            self.evi = None
+                            self.ethernet_tag = None
+                            self.originating_ip = None
+                            self.evi_xr = None
+                            self.ethernet_tag_xr = None
+                            self.originating_ip_xr = None
+                            self.next_hop = None
+                            self.output_label = None
+                            self.is_local_entry = None
+                            self.is_proxy_entry = None
+                            self.encap_type = None
                             self._segment_path = lambda: "inclusive-multicast"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/inclusive-multicasts/%s" % self._segment_path()
 
@@ -7278,8 +8169,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"route-target" : ("route_target", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("route-target", ("route_target", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget))])
+                        self._leafs = OrderedDict()
 
                         self.route_target = YList(self)
                         self._segment_path = lambda: "route-targets"
@@ -7346,7 +8239,7 @@ class Evpn(Entity):
                         .. attribute:: route_target
                         
                         	Route Target
-                        	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                         
                         .. attribute:: bd_name
                         
@@ -7384,34 +8277,37 @@ class Evpn(Entity):
                             self.yang_parent_name = "route-targets"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"route-target" : ("route_target", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("route-target", ("route_target", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('role', YLeaf(YType.enumeration, 'role')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('format', YLeaf(YType.enumeration, 'format')),
+                                ('as_', YLeaf(YType.uint32, 'as')),
+                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('bd_name', YLeaf(YType.str, 'bd-name')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('route_target_role', YLeaf(YType.enumeration, 'route-target-role')),
+                                ('route_target_stitching', YLeaf(YType.boolean, 'route-target-stitching')),
+                            ])
+                            self.evi = None
+                            self.role = None
+                            self.type = None
+                            self.format = None
+                            self.as_ = None
+                            self.as_index = None
+                            self.addr_index = None
+                            self.address = None
+                            self.bd_name = None
+                            self.evi_xr = None
+                            self.route_target_role = None
+                            self.route_target_stitching = None
 
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.role = YLeaf(YType.enumeration, "role")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.format = YLeaf(YType.enumeration, "format")
-
-                            self.as_ = YLeaf(YType.uint32, "as")
-
-                            self.as_index = YLeaf(YType.uint32, "as-index")
-
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.bd_name = YLeaf(YType.str, "bd-name")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
-
-                            self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                            self.route_target = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
+                            self.route_target = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_()
                             self.route_target.parent = self
                             self._children_name_map["route_target"] = "route-target"
                             self._children_yang_names.add("route-target")
@@ -7422,29 +8318,29 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget_(Entity):
                             """
                             Route Target
                             
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                             
                             .. attribute:: rt
                             
@@ -7459,33 +8355,36 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, self).__init__()
+                                super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-target"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr)), ("es-import", ("es_import", Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rt', YLeaf(YType.enumeration, 'rt')),
+                                ])
+                                self.rt = None
 
-                                self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.two_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
+                                self.two_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs()
                                 self.two_byte_as.parent = self
                                 self._children_name_map["two_byte_as"] = "two-byte-as"
                                 self._children_yang_names.add("two-byte-as")
 
-                                self.four_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                self.four_byte_as = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs()
                                 self.four_byte_as.parent = self
                                 self._children_name_map["four_byte_as"] = "four-byte-as"
                                 self._children_yang_names.add("four-byte-as")
 
-                                self.v4_addr = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
+                                self.v4_addr = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr()
                                 self.v4_addr.parent = self
                                 self._children_name_map["v4_addr"] = "v4-addr"
                                 self._children_yang_names.add("v4-addr")
 
-                                self.es_import = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                self.es_import = Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport()
                                 self.es_import.parent = self
                                 self._children_name_map["es_import"] = "es-import"
                                 self._children_yang_names.add("es-import")
@@ -7493,7 +8392,7 @@ class Evpn(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
                             class TwoByteAs(Entity):
@@ -7522,23 +8421,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                             class FourByteAs(Entity):
@@ -7567,23 +8469,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, self).__init__()
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
                             class V4Addr(Entity):
@@ -7612,23 +8517,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, self).__init__()
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
                             class EsImport(Entity):
@@ -7657,23 +8565,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                     self.yang_name = "es-import"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                        ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                    ])
+                                    self.high_bytes = None
+                                    self.low_bytes = None
                                     self._segment_path = lambda: "es-import"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
 
                 class Macs(Entity):
@@ -7699,8 +8610,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mac" : ("mac", Evpn.Active.EviDetail.EviChildren.Macs.Mac)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mac", ("mac", Evpn.Active.EviDetail.EviChildren.Macs.Mac))])
+                        self._leafs = OrderedDict()
 
                         self.mac = YList(self)
                         self._segment_path = lambda: "macs"
@@ -7931,64 +8844,67 @@ class Evpn(Entity):
                             self.yang_parent_name = "macs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                            self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                            self.resolved = YLeaf(YType.boolean, "resolved")
-
-                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("local-ethernet-segment-identifier", ("local_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier)), ("remote-ethernet-segment-identifier", ("remote_ethernet_segment_identifier", Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer))])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
+                                ('ip_address_xr', YLeaf(YType.str, 'ip-address-xr')),
+                                ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                                ('is_local_mac', YLeaf(YType.boolean, 'is-local-mac')),
+                                ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                ('is_remote_mac', YLeaf(YType.boolean, 'is-remote-mac')),
+                                ('soo_nexthop', YLeaf(YType.str, 'soo-nexthop')),
+                                ('ipnh_address', YLeaf(YType.str, 'ipnh-address')),
+                                ('esi_port_key', YLeaf(YType.uint16, 'esi-port-key')),
+                                ('local_encap_type', YLeaf(YType.uint8, 'local-encap-type')),
+                                ('remote_encap_type', YLeaf(YType.uint8, 'remote-encap-type')),
+                                ('learned_bridge_port_name', YLeaf(YType.str, 'learned-bridge-port-name')),
+                                ('local_seq_id', YLeaf(YType.uint32, 'local-seq-id')),
+                                ('remote_seq_id', YLeaf(YType.uint32, 'remote-seq-id')),
+                                ('local_l3_label', YLeaf(YType.uint32, 'local-l3-label')),
+                                ('router_mac_address', YLeaf(YType.str, 'router-mac-address')),
+                                ('mac_flush_requested', YLeaf(YType.uint16, 'mac-flush-requested')),
+                                ('mac_flush_received', YLeaf(YType.uint16, 'mac-flush-received')),
+                                ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                                ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                ('local_is_static', YLeaf(YType.boolean, 'local-is-static')),
+                                ('remote_is_static', YLeaf(YType.boolean, 'remote-is-static')),
+                            ])
+                            self.evi = None
+                            self.ethernet_tag = None
+                            self.mac_address = None
+                            self.ip_address = None
+                            self.ethernet_tag_xr = None
+                            self.mac_address_xr = None
+                            self.ip_address_xr = None
+                            self.local_label = None
+                            self.num_paths = None
+                            self.is_local_mac = None
+                            self.is_proxy_entry = None
+                            self.is_remote_mac = None
+                            self.soo_nexthop = None
+                            self.ipnh_address = None
+                            self.esi_port_key = None
+                            self.local_encap_type = None
+                            self.remote_encap_type = None
+                            self.learned_bridge_port_name = None
+                            self.local_seq_id = None
+                            self.remote_seq_id = None
+                            self.local_l3_label = None
+                            self.router_mac_address = None
+                            self.mac_flush_requested = None
+                            self.mac_flush_received = None
+                            self.internal_label = None
+                            self.resolved = None
+                            self.local_is_static = None
+                            self.remote_is_static = None
 
                             self.local_ethernet_segment_identifier = YList(self)
                             self.remote_ethernet_segment_identifier = YList(self)
@@ -8025,10 +8941,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "local-ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
@@ -8061,10 +8980,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "remote-ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
@@ -8111,19 +9033,522 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                    ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                    ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                ])
+                                self.next_hop = None
+                                self.output_label = None
+                                self.srte_tunnel = None
                                 self._segment_path = lambda: "path-buffer"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+        class InternalLabels(Entity):
+            """
+            EVPN Internal Label Table
+            
+            .. attribute:: internal_label
+            
+            	L2VPN EVPN Internal Label
+            	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel>`
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Active.InternalLabels, self).__init__()
+
+                self.yang_name = "internal-labels"
+                self.yang_parent_name = "active"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("internal-label", ("internal_label", Evpn.Active.InternalLabels.InternalLabel))])
+                self._leafs = OrderedDict()
+
+                self.internal_label = YList(self)
+                self._segment_path = lambda: "internal-labels"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Active.InternalLabels, [], name, value)
+
+
+            class InternalLabel(Entity):
+                """
+                L2VPN EVPN Internal Label
+                
+                .. attribute:: evi
+                
+                	EVPN id
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: esi1
+                
+                	ES id (part 1/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi2
+                
+                	ES id (part 2/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi3
+                
+                	ES id (part 3/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi4
+                
+                	ES id (part 4/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi5
+                
+                	ES id (part 5/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: ethernet_tag
+                
+                	Ethernet Tag ID
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: evi_xr
+                
+                	EVPN id
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: esi
+                
+                	Ethernet Segment id
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                
+                .. attribute:: tag
+                
+                	Label Tag
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: internal_label
+                
+                	MPLS Internal Label
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: encap
+                
+                	Encap type of remote EAD/ES, EAD/EVI and MAC routes
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_num_paths
+                
+                	Number of items in the MAC path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ead_num_paths
+                
+                	Number of items in the ead path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: evi_num_paths
+                
+                	Number of items in the evi path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sum_num_paths
+                
+                	Number of items in the sum path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sum_num_active_paths
+                
+                	Number of items in the sum path buffer that are Active Paths
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: resolved
+                
+                	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                	**type**\: bool
+                
+                .. attribute:: ecmp_disable
+                
+                	ECMP Disable Per EVI Resolution
+                	**type**\: bool
+                
+                .. attribute:: redundancy_single_active
+                
+                	Single\-active redundancy configured at remote ES
+                	**type**\: bool
+                
+                .. attribute:: redundancy_single_flow_active
+                
+                	Single\-flow\-active redundancy at remote ES (MST\-AG)
+                	**type**\: bool
+                
+                .. attribute:: mac_path_buffer
+                
+                	MAC Path list buffer
+                	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer>`
+                
+                .. attribute:: ead_path_buffer
+                
+                	EAD/ES Path list buffer
+                	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer>`
+                
+                .. attribute:: evi_path_buffer
+                
+                	EAD/EVI Path list buffer
+                	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer>`
+                
+                .. attribute:: summary_path_buffer
+                
+                	Summary Path list buffer
+                	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Active.InternalLabels.InternalLabel, self).__init__()
+
+                    self.yang_name = "internal-label"
+                    self.yang_parent_name = "internal-labels"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("mac-path-buffer", ("mac_path_buffer", Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer)), ("ead-path-buffer", ("ead_path_buffer", Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer)), ("evi-path-buffer", ("evi_path_buffer", Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer)), ("summary-path-buffer", ("summary_path_buffer", Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer))])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('esi1', YLeaf(YType.str, 'esi1')),
+                        ('esi2', YLeaf(YType.str, 'esi2')),
+                        ('esi3', YLeaf(YType.str, 'esi3')),
+                        ('esi4', YLeaf(YType.str, 'esi4')),
+                        ('esi5', YLeaf(YType.str, 'esi5')),
+                        ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('esi', YLeaf(YType.str, 'esi')),
+                        ('tag', YLeaf(YType.uint32, 'tag')),
+                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('encap', YLeaf(YType.uint8, 'encap')),
+                        ('mac_num_paths', YLeaf(YType.uint32, 'mac-num-paths')),
+                        ('ead_num_paths', YLeaf(YType.uint32, 'ead-num-paths')),
+                        ('evi_num_paths', YLeaf(YType.uint32, 'evi-num-paths')),
+                        ('sum_num_paths', YLeaf(YType.uint32, 'sum-num-paths')),
+                        ('sum_num_active_paths', YLeaf(YType.uint32, 'sum-num-active-paths')),
+                        ('resolved', YLeaf(YType.boolean, 'resolved')),
+                        ('ecmp_disable', YLeaf(YType.boolean, 'ecmp-disable')),
+                        ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                        ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                    ])
+                    self.evi = None
+                    self.esi1 = None
+                    self.esi2 = None
+                    self.esi3 = None
+                    self.esi4 = None
+                    self.esi5 = None
+                    self.ethernet_tag = None
+                    self.evi_xr = None
+                    self.esi = None
+                    self.tag = None
+                    self.internal_label = None
+                    self.encap = None
+                    self.mac_num_paths = None
+                    self.ead_num_paths = None
+                    self.evi_num_paths = None
+                    self.sum_num_paths = None
+                    self.sum_num_active_paths = None
+                    self.resolved = None
+                    self.ecmp_disable = None
+                    self.redundancy_single_active = None
+                    self.redundancy_single_flow_active = None
+
+                    self.mac_path_buffer = YList(self)
+                    self.ead_path_buffer = YList(self)
+                    self.evi_path_buffer = YList(self)
+                    self.summary_path_buffer = YList(self)
+                    self._segment_path = lambda: "internal-label"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'evi_xr', 'esi', 'tag', 'internal_label', 'encap', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+
+
+                class MacPathBuffer(Entity):
+                    """
+                    MAC Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+
+                        self.yang_name = "mac-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "mac-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class EadPathBuffer(Entity):
+                    """
+                    EAD/ES Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+
+                        self.yang_name = "ead-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "ead-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class EviPathBuffer(Entity):
+                    """
+                    EAD/EVI Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+
+                        self.yang_name = "evi-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "evi-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class SummaryPathBuffer(Entity):
+                    """
+                    Summary Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+
+                        self.yang_name = "summary-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "summary-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
 
 
         class EthernetSegments(Entity):
@@ -8149,8 +9574,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Active.EthernetSegments.EthernetSegment)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ethernet-segment", ("ethernet_segment", Evpn.Active.EthernetSegments.EthernetSegment))])
+                self._leafs = OrderedDict()
 
                 self.ethernet_segment = YList(self)
                 self._segment_path = lambda: "ethernet-segments"
@@ -8210,6 +9637,25 @@ class Evpn(Entity):
                 
                 	ESI Type
                 	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                
+                .. attribute:: esi_system_identifier
+                
+                	ESI System Identifier
+                	**type**\: str
+                
+                .. attribute:: esi_port_key
+                
+                	ESI Port Key
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: esi_system_priority
+                
+                	ESI System Priority
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: ethernet_segment_name
                 
@@ -8344,6 +9790,24 @@ class Evpn(Entity):
                 
                 	**units**\: millisecond
                 
+                .. attribute:: carving_timer
+                
+                	Configured timer for delaying DF election (seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: carving_timer_left
+                
+                	Milliseconds left on carving timer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
                 .. attribute:: service_carving_mode
                 
                 	Service carving mode
@@ -8407,6 +9871,11 @@ class Evpn(Entity):
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
+                	**type**\: bool
+                
+                .. attribute:: local_split_horizon_group_label_valid
+                
+                	Local split horizon group label is valid
                 	**type**\: bool
                 
                 .. attribute:: local_split_horizon_group_label
@@ -8480,88 +9949,103 @@ class Evpn(Entity):
                     self.yang_parent_name = "ethernet-segments"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Active.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.esi1 = YLeaf(YType.str, "esi1")
-
-                    self.esi2 = YLeaf(YType.str, "esi2")
-
-                    self.esi3 = YLeaf(YType.str, "esi3")
-
-                    self.esi4 = YLeaf(YType.str, "esi4")
-
-                    self.esi5 = YLeaf(YType.str, "esi5")
-
-                    self.esi_type = YLeaf(YType.enumeration, "esi-type")
-
-                    self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
-
-                    self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
-
-                    self.if_handle = YLeaf(YType.str, "if-handle")
-
-                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                    self.route_target = YLeaf(YType.str, "route-target")
-
-                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
-
-                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                    self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
-
-                    self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
-
-                    self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
-
-                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                    self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
-
-                    self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
-
-                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
-
-                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
-                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier)), ("primary-service", ("primary_service", Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService)), ("secondary-service", ("secondary_service", Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService)), ("service-carving-i-sidelected-result", ("service_carving_i_sidelected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult)), ("service-carving-isid-not-elected-result", ("service_carving_isid_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult)), ("service-carving-evi-elected-result", ("service_carving_evi_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult)), ("service-carving-evi-not-elected-result", ("service_carving_evi_not_elected_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult)), ("next-hop", ("next_hop", Evpn.Active.EthernetSegments.EthernetSegment.NextHop)), ("service-carving-vpws-permanent-result", ("service_carving_vpws_permanent_result", Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)), ("remote-split-horizon-group-label", ("remote_split_horizon_group_label", Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('esi1', YLeaf(YType.str, 'esi1')),
+                        ('esi2', YLeaf(YType.str, 'esi2')),
+                        ('esi3', YLeaf(YType.str, 'esi3')),
+                        ('esi4', YLeaf(YType.str, 'esi4')),
+                        ('esi5', YLeaf(YType.str, 'esi5')),
+                        ('esi_type', YLeaf(YType.enumeration, 'esi-type')),
+                        ('esi_system_identifier', YLeaf(YType.str, 'esi-system-identifier')),
+                        ('esi_port_key', YLeaf(YType.uint32, 'esi-port-key')),
+                        ('esi_system_priority', YLeaf(YType.uint32, 'esi-system-priority')),
+                        ('ethernet_segment_name', YLeaf(YType.str, 'ethernet-segment-name')),
+                        ('ethernet_segment_state', YLeaf(YType.uint32, 'ethernet-segment-state')),
+                        ('if_handle', YLeaf(YType.str, 'if-handle')),
+                        ('main_port_role', YLeaf(YType.enumeration, 'main-port-role')),
+                        ('main_port_mac', YLeaf(YType.str, 'main-port-mac')),
+                        ('num_up_p_ws', YLeaf(YType.uint32, 'num-up-p-ws')),
+                        ('route_target', YLeaf(YType.str, 'route-target')),
+                        ('rt_origin', YLeaf(YType.enumeration, 'rt-origin')),
+                        ('es_bgp_gates', YLeaf(YType.str, 'es-bgp-gates')),
+                        ('es_l2fib_gates', YLeaf(YType.str, 'es-l2fib-gates')),
+                        ('mac_flushing_mode_config', YLeaf(YType.enumeration, 'mac-flushing-mode-config')),
+                        ('load_balance_mode_config', YLeaf(YType.enumeration, 'load-balance-mode-config')),
+                        ('load_balance_mode_is_default', YLeaf(YType.boolean, 'load-balance-mode-is-default')),
+                        ('load_balance_mode_oper', YLeaf(YType.enumeration, 'load-balance-mode-oper')),
+                        ('force_single_home', YLeaf(YType.boolean, 'force-single-home')),
+                        ('source_mac_oper', YLeaf(YType.str, 'source-mac-oper')),
+                        ('source_mac_origin', YLeaf(YType.enumeration, 'source-mac-origin')),
+                        ('peering_timer', YLeaf(YType.uint32, 'peering-timer')),
+                        ('peering_timer_left', YLeaf(YType.uint32, 'peering-timer-left')),
+                        ('recovery_timer', YLeaf(YType.uint32, 'recovery-timer')),
+                        ('recovery_timer_left', YLeaf(YType.uint32, 'recovery-timer-left')),
+                        ('carving_timer', YLeaf(YType.uint32, 'carving-timer')),
+                        ('carving_timer_left', YLeaf(YType.uint32, 'carving-timer-left')),
+                        ('service_carving_mode', YLeaf(YType.enumeration, 'service-carving-mode')),
+                        ('primary_services_input', YLeaf(YType.str, 'primary-services-input')),
+                        ('secondary_services_input', YLeaf(YType.str, 'secondary-services-input')),
+                        ('forwarder_ports', YLeaf(YType.uint32, 'forwarder-ports')),
+                        ('permanent_forwarder_ports', YLeaf(YType.uint32, 'permanent-forwarder-ports')),
+                        ('elected_forwarder_ports', YLeaf(YType.uint32, 'elected-forwarder-ports')),
+                        ('not_elected_forwarder_ports', YLeaf(YType.uint32, 'not-elected-forwarder-ports')),
+                        ('not_config_forwarder_ports', YLeaf(YType.uint32, 'not-config-forwarder-ports')),
+                        ('mp_protected', YLeaf(YType.boolean, 'mp-protected')),
+                        ('nve_anycast_vtep', YLeaf(YType.boolean, 'nve-anycast-vtep')),
+                        ('nve_ingress_replication', YLeaf(YType.boolean, 'nve-ingress-replication')),
+                        ('local_split_horizon_group_label_valid', YLeaf(YType.boolean, 'local-split-horizon-group-label-valid')),
+                        ('local_split_horizon_group_label', YLeaf(YType.uint32, 'local-split-horizon-group-label')),
+                    ])
+                    self.interface_name = None
+                    self.esi1 = None
+                    self.esi2 = None
+                    self.esi3 = None
+                    self.esi4 = None
+                    self.esi5 = None
+                    self.esi_type = None
+                    self.esi_system_identifier = None
+                    self.esi_port_key = None
+                    self.esi_system_priority = None
+                    self.ethernet_segment_name = None
+                    self.ethernet_segment_state = None
+                    self.if_handle = None
+                    self.main_port_role = None
+                    self.main_port_mac = None
+                    self.num_up_p_ws = None
+                    self.route_target = None
+                    self.rt_origin = None
+                    self.es_bgp_gates = None
+                    self.es_l2fib_gates = None
+                    self.mac_flushing_mode_config = None
+                    self.load_balance_mode_config = None
+                    self.load_balance_mode_is_default = None
+                    self.load_balance_mode_oper = None
+                    self.force_single_home = None
+                    self.source_mac_oper = None
+                    self.source_mac_origin = None
+                    self.peering_timer = None
+                    self.peering_timer_left = None
+                    self.recovery_timer = None
+                    self.recovery_timer_left = None
+                    self.carving_timer = None
+                    self.carving_timer_left = None
+                    self.service_carving_mode = None
+                    self.primary_services_input = None
+                    self.secondary_services_input = None
+                    self.forwarder_ports = None
+                    self.permanent_forwarder_ports = None
+                    self.elected_forwarder_ports = None
+                    self.not_elected_forwarder_ports = None
+                    self.not_config_forwarder_ports = None
+                    self.mp_protected = None
+                    self.nve_anycast_vtep = None
+                    self.nve_ingress_replication = None
+                    self.local_split_horizon_group_label_valid = None
+                    self.local_split_horizon_group_label = None
 
                     self.ethernet_segment_identifier = YList(self)
                     self.primary_service = YList(self)
@@ -8577,7 +10061,7 @@ class Evpn(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
+                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -8605,10 +10089,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint8, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint8, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "ethernet-segment-identifier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8641,10 +10128,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "primary-service"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8677,10 +10167,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "secondary-service"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8713,10 +10206,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-i-sidelected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8749,10 +10245,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-isid-not-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8785,10 +10284,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-evi-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8821,10 +10323,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-evi-not-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8857,10 +10362,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                        ])
+                        self.next_hop = None
                         self._segment_path = lambda: "next-hop"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8905,14 +10413,17 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vpn_id', YLeaf(YType.uint32, 'vpn-id')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('ethernet_tag', YLeaf(YType.uint32, 'ethernet-tag')),
+                        ])
+                        self.vpn_id = None
+                        self.type = None
+                        self.ethernet_tag = None
                         self._segment_path = lambda: "service-carving-vpws-permanent-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8952,12 +10463,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-
-                        self.label = YLeaf(YType.uint32, "label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('label', YLeaf(YType.uint32, 'label')),
+                        ])
+                        self.next_hop = None
+                        self.label = None
                         self._segment_path = lambda: "remote-split-horizon-group-label"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -8988,8 +10502,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "active"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Active.AcIds.AcId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ac-id", ("ac_id", Evpn.Active.AcIds.AcId))])
+                self._leafs = OrderedDict()
 
                 self.ac_id = YList(self)
                 self._segment_path = lambda: "ac-ids"
@@ -9045,16 +10561,19 @@ class Evpn(Entity):
                     self.yang_parent_name = "ac-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.ac_id = YLeaf(YType.int32, "ac-id")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.neighbor = YLeaf(YType.str, "neighbor")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('ac_id', YLeaf(YType.int32, 'ac-id')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('neighbor', YLeaf(YType.str, 'neighbor')),
+                    ])
+                    self.evi = None
+                    self.ac_id = None
+                    self.evi_xr = None
+                    self.neighbor = None
                     self._segment_path = lambda: "ac-id"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/%s" % self._segment_path()
 
@@ -9081,6 +10600,11 @@ class Evpn(Entity):
         	L2VPN EVI Detail Table
         	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
         
+        .. attribute:: internal_labels
+        
+        	EVPN Internal Label Table
+        	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels>`
+        
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
@@ -9105,8 +10629,10 @@ class Evpn(Entity):
             self.yang_parent_name = "evpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"evis" : ("evis", Evpn.Standby.Evis), "summary" : ("summary", Evpn.Standby.Summary), "evi-detail" : ("evi_detail", Evpn.Standby.EviDetail), "ethernet-segments" : ("ethernet_segments", Evpn.Standby.EthernetSegments), "ac-ids" : ("ac_ids", Evpn.Standby.AcIds)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("evis", ("evis", Evpn.Standby.Evis)), ("summary", ("summary", Evpn.Standby.Summary)), ("evi-detail", ("evi_detail", Evpn.Standby.EviDetail)), ("internal-labels", ("internal_labels", Evpn.Standby.InternalLabels)), ("ethernet-segments", ("ethernet_segments", Evpn.Standby.EthernetSegments)), ("ac-ids", ("ac_ids", Evpn.Standby.AcIds))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.evis = Evpn.Standby.Evis()
             self.evis.parent = self
@@ -9122,6 +10648,11 @@ class Evpn(Entity):
             self.evi_detail.parent = self
             self._children_name_map["evi_detail"] = "evi-detail"
             self._children_yang_names.add("evi-detail")
+
+            self.internal_labels = Evpn.Standby.InternalLabels()
+            self.internal_labels.parent = self
+            self._children_name_map["internal_labels"] = "internal-labels"
+            self._children_yang_names.add("internal-labels")
 
             self.ethernet_segments = Evpn.Standby.EthernetSegments()
             self.ethernet_segments.parent = self
@@ -9159,8 +10690,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evi" : ("evi", Evpn.Standby.Evis.Evi)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evi", ("evi", Evpn.Standby.Evis.Evi))])
+                self._leafs = OrderedDict()
 
                 self.evi = YList(self)
                 self._segment_path = lambda: "evis"
@@ -9174,7 +10707,7 @@ class Evpn(Entity):
                 """
                 L2VPN EVPN EVI Entry
                 
-                .. attribute:: evi  <key>
+                .. attribute:: evi  (key)
                 
                 	EVPN id
                 	**type**\: int
@@ -9212,17 +10745,20 @@ class Evpn(Entity):
                     self.yang_parent_name = "evis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.bd_name = YLeaf(YType.str, "bd-name")
-
-                    self.type = YLeaf(YType.enumeration, "type")
-                    self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                    self.ylist_key_names = ['evi']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('bd_name', YLeaf(YType.str, 'bd-name')),
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                    ])
+                    self.evi = None
+                    self.evi_xr = None
+                    self.bd_name = None
+                    self.type = None
+                    self._segment_path = lambda: "evi" + "[evi='" + str(self.evi) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -9384,6 +10920,15 @@ class Evpn(Entity):
             
             	**units**\: second
             
+            .. attribute:: carving_time
+            
+            	EVPN ES Carving Time (seconds)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
             .. attribute:: mac_secure_move_count
             
             	Number of moves within the move interval before locking the MAC
@@ -9450,71 +10995,76 @@ class Evpn(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.router_id = YLeaf(YType.str, "router-id")
-
-                self.as_ = YLeaf(YType.uint32, "as")
-
-                self.ev_is = YLeaf(YType.uint32, "ev-is")
-
-                self.local_mac_routes = YLeaf(YType.uint32, "local-mac-routes")
-
-                self.local_ipv4_mac_routes = YLeaf(YType.uint32, "local-ipv4-mac-routes")
-
-                self.local_ipv6_mac_routes = YLeaf(YType.uint32, "local-ipv6-mac-routes")
-
-                self.es_global_mac_routes = YLeaf(YType.uint32, "es-global-mac-routes")
-
-                self.remote_mac_routes = YLeaf(YType.uint32, "remote-mac-routes")
-
-                self.remote_soo_mac_routes = YLeaf(YType.uint32, "remote-soo-mac-routes")
-
-                self.remote_ipv4_mac_routes = YLeaf(YType.uint32, "remote-ipv4-mac-routes")
-
-                self.remote_ipv6_mac_routes = YLeaf(YType.uint32, "remote-ipv6-mac-routes")
-
-                self.local_imcast_routes = YLeaf(YType.uint32, "local-imcast-routes")
-
-                self.remote_imcast_routes = YLeaf(YType.uint32, "remote-imcast-routes")
-
-                self.labels = YLeaf(YType.uint32, "labels")
-
-                self.es_entries = YLeaf(YType.uint32, "es-entries")
-
-                self.neighbor_entries = YLeaf(YType.uint32, "neighbor-entries")
-
-                self.local_ead_routes = YLeaf(YType.uint32, "local-ead-routes")
-
-                self.remote_ead_routes = YLeaf(YType.uint32, "remote-ead-routes")
-
-                self.global_source_mac = YLeaf(YType.str, "global-source-mac")
-
-                self.peering_time = YLeaf(YType.uint32, "peering-time")
-
-                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
-
-                self.mac_secure_move_count = YLeaf(YType.uint32, "mac-secure-move-count")
-
-                self.mac_secure_move_interval = YLeaf(YType.uint32, "mac-secure-move-interval")
-
-                self.mac_secure_freeze_time = YLeaf(YType.uint32, "mac-secure-freeze-time")
-
-                self.mac_secure_retry_count = YLeaf(YType.uint32, "mac-secure-retry-count")
-
-                self.cost_out = YLeaf(YType.boolean, "cost-out")
-
-                self.startup_cost_in_time = YLeaf(YType.uint32, "startup-cost-in-time")
-
-                self.l2rib_throttle = YLeaf(YType.boolean, "l2rib-throttle")
-
-                self.logging_df_election_enabled = YLeaf(YType.boolean, "logging-df-election-enabled")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('router_id', YLeaf(YType.str, 'router-id')),
+                    ('as_', YLeaf(YType.uint32, 'as')),
+                    ('ev_is', YLeaf(YType.uint32, 'ev-is')),
+                    ('local_mac_routes', YLeaf(YType.uint32, 'local-mac-routes')),
+                    ('local_ipv4_mac_routes', YLeaf(YType.uint32, 'local-ipv4-mac-routes')),
+                    ('local_ipv6_mac_routes', YLeaf(YType.uint32, 'local-ipv6-mac-routes')),
+                    ('es_global_mac_routes', YLeaf(YType.uint32, 'es-global-mac-routes')),
+                    ('remote_mac_routes', YLeaf(YType.uint32, 'remote-mac-routes')),
+                    ('remote_soo_mac_routes', YLeaf(YType.uint32, 'remote-soo-mac-routes')),
+                    ('remote_ipv4_mac_routes', YLeaf(YType.uint32, 'remote-ipv4-mac-routes')),
+                    ('remote_ipv6_mac_routes', YLeaf(YType.uint32, 'remote-ipv6-mac-routes')),
+                    ('local_imcast_routes', YLeaf(YType.uint32, 'local-imcast-routes')),
+                    ('remote_imcast_routes', YLeaf(YType.uint32, 'remote-imcast-routes')),
+                    ('labels', YLeaf(YType.uint32, 'labels')),
+                    ('es_entries', YLeaf(YType.uint32, 'es-entries')),
+                    ('neighbor_entries', YLeaf(YType.uint32, 'neighbor-entries')),
+                    ('local_ead_routes', YLeaf(YType.uint32, 'local-ead-routes')),
+                    ('remote_ead_routes', YLeaf(YType.uint32, 'remote-ead-routes')),
+                    ('global_source_mac', YLeaf(YType.str, 'global-source-mac')),
+                    ('peering_time', YLeaf(YType.uint32, 'peering-time')),
+                    ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                    ('carving_time', YLeaf(YType.uint32, 'carving-time')),
+                    ('mac_secure_move_count', YLeaf(YType.uint32, 'mac-secure-move-count')),
+                    ('mac_secure_move_interval', YLeaf(YType.uint32, 'mac-secure-move-interval')),
+                    ('mac_secure_freeze_time', YLeaf(YType.uint32, 'mac-secure-freeze-time')),
+                    ('mac_secure_retry_count', YLeaf(YType.uint32, 'mac-secure-retry-count')),
+                    ('cost_out', YLeaf(YType.boolean, 'cost-out')),
+                    ('startup_cost_in_time', YLeaf(YType.uint32, 'startup-cost-in-time')),
+                    ('l2rib_throttle', YLeaf(YType.boolean, 'l2rib-throttle')),
+                    ('logging_df_election_enabled', YLeaf(YType.boolean, 'logging-df-election-enabled')),
+                ])
+                self.router_id = None
+                self.as_ = None
+                self.ev_is = None
+                self.local_mac_routes = None
+                self.local_ipv4_mac_routes = None
+                self.local_ipv6_mac_routes = None
+                self.es_global_mac_routes = None
+                self.remote_mac_routes = None
+                self.remote_soo_mac_routes = None
+                self.remote_ipv4_mac_routes = None
+                self.remote_ipv6_mac_routes = None
+                self.local_imcast_routes = None
+                self.remote_imcast_routes = None
+                self.labels = None
+                self.es_entries = None
+                self.neighbor_entries = None
+                self.local_ead_routes = None
+                self.remote_ead_routes = None
+                self.global_source_mac = None
+                self.peering_time = None
+                self.recovery_time = None
+                self.carving_time = None
+                self.mac_secure_move_count = None
+                self.mac_secure_move_interval = None
+                self.mac_secure_freeze_time = None
+                self.mac_secure_retry_count = None
+                self.cost_out = None
+                self.startup_cost_in_time = None
+                self.l2rib_throttle = None
+                self.logging_df_election_enabled = None
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
 
 
         class EviDetail(Entity):
@@ -9545,8 +11095,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"elements" : ("elements", Evpn.Standby.EviDetail.Elements), "evi-children" : ("evi_children", Evpn.Standby.EviDetail.EviChildren)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("elements", ("elements", Evpn.Standby.EviDetail.Elements)), ("evi-children", ("evi_children", Evpn.Standby.EviDetail.EviChildren))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.elements = Evpn.Standby.EviDetail.Elements()
                 self.elements.parent = self
@@ -9584,8 +11136,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"element" : ("element", Evpn.Standby.EviDetail.Elements.Element)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("element", ("element", Evpn.Standby.EviDetail.Elements.Element))])
+                    self._leafs = OrderedDict()
 
                     self.element = YList(self)
                     self._segment_path = lambda: "elements"
@@ -9599,7 +11153,7 @@ class Evpn(Entity):
                     """
                     EVI BGP RT Detail Info
                     
-                    .. attribute:: evi  <key>
+                    .. attribute:: evi  (key)
                     
                     	EVPN id
                     	**type**\: int
@@ -9747,46 +11301,49 @@ class Evpn(Entity):
                         self.yang_parent_name = "elements"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"flow-label" : ("flow_label", Evpn.Standby.EviDetail.Elements.Element.FlowLabel), "rd-auto" : ("rd_auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto), "rd-configured" : ("rd_configured", Evpn.Standby.EviDetail.Elements.Element.RdConfigured), "rt-auto" : ("rt_auto", Evpn.Standby.EviDetail.Elements.Element.RtAuto), "rt-auto-stitching" : ("rt_auto_stitching", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching)}
-                        self._child_list_classes = {}
-
-                        self.evi = YLeaf(YType.int32, "evi")
-
-                        self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.bd_name = YLeaf(YType.str, "bd-name")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.unicast_label = YLeaf(YType.uint32, "unicast-label")
-
-                        self.multicast_label = YLeaf(YType.uint32, "multicast-label")
-
-                        self.cw_disable = YLeaf(YType.boolean, "cw-disable")
-
-                        self.table_policy_name = YLeaf(YType.str, "table-policy-name")
-
-                        self.forward_class = YLeaf(YType.uint8, "forward-class")
-
-                        self.rt_import_block_set = YLeaf(YType.boolean, "rt-import-block-set")
-
-                        self.rt_export_block_set = YLeaf(YType.boolean, "rt-export-block-set")
-
-                        self.advertise_mac = YLeaf(YType.boolean, "advertise-mac")
-
-                        self.advertise_bvi_mac = YLeaf(YType.boolean, "advertise-bvi-mac")
-
-                        self.aliasing_disabled = YLeaf(YType.boolean, "aliasing-disabled")
-
-                        self.unknown_unicast_flooding_disabled = YLeaf(YType.boolean, "unknown-unicast-flooding-disabled")
-
-                        self.reoriginate_disabled = YLeaf(YType.boolean, "reoriginate-disabled")
-
-                        self.stitching = YLeaf(YType.uint8, "stitching")
-
-                        self.encapsulation = YLeaf(YType.uint8, "encapsulation")
+                        self.ylist_key_names = ['evi']
+                        self._child_container_classes = OrderedDict([("flow-label", ("flow_label", Evpn.Standby.EviDetail.Elements.Element.FlowLabel)), ("rd-auto", ("rd_auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto)), ("rd-configured", ("rd_configured", Evpn.Standby.EviDetail.Elements.Element.RdConfigured)), ("rt-auto", ("rt_auto", Evpn.Standby.EviDetail.Elements.Element.RtAuto)), ("rt-auto-stitching", ("rt_auto_stitching", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evi', YLeaf(YType.int32, 'evi')),
+                            ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                            ('description', YLeaf(YType.str, 'description')),
+                            ('bd_name', YLeaf(YType.str, 'bd-name')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('unicast_label', YLeaf(YType.uint32, 'unicast-label')),
+                            ('multicast_label', YLeaf(YType.uint32, 'multicast-label')),
+                            ('cw_disable', YLeaf(YType.boolean, 'cw-disable')),
+                            ('table_policy_name', YLeaf(YType.str, 'table-policy-name')),
+                            ('forward_class', YLeaf(YType.uint8, 'forward-class')),
+                            ('rt_import_block_set', YLeaf(YType.boolean, 'rt-import-block-set')),
+                            ('rt_export_block_set', YLeaf(YType.boolean, 'rt-export-block-set')),
+                            ('advertise_mac', YLeaf(YType.boolean, 'advertise-mac')),
+                            ('advertise_bvi_mac', YLeaf(YType.boolean, 'advertise-bvi-mac')),
+                            ('aliasing_disabled', YLeaf(YType.boolean, 'aliasing-disabled')),
+                            ('unknown_unicast_flooding_disabled', YLeaf(YType.boolean, 'unknown-unicast-flooding-disabled')),
+                            ('reoriginate_disabled', YLeaf(YType.boolean, 'reoriginate-disabled')),
+                            ('stitching', YLeaf(YType.uint8, 'stitching')),
+                            ('encapsulation', YLeaf(YType.uint8, 'encapsulation')),
+                        ])
+                        self.evi = None
+                        self.evi_xr = None
+                        self.description = None
+                        self.bd_name = None
+                        self.type = None
+                        self.unicast_label = None
+                        self.multicast_label = None
+                        self.cw_disable = None
+                        self.table_policy_name = None
+                        self.forward_class = None
+                        self.rt_import_block_set = None
+                        self.rt_export_block_set = None
+                        self.advertise_mac = None
+                        self.advertise_bvi_mac = None
+                        self.aliasing_disabled = None
+                        self.unknown_unicast_flooding_disabled = None
+                        self.reoriginate_disabled = None
+                        self.stitching = None
+                        self.encapsulation = None
 
                         self.flow_label = Evpn.Standby.EviDetail.Elements.Element.FlowLabel()
                         self.flow_label.parent = self
@@ -9812,7 +11369,7 @@ class Evpn(Entity):
                         self.rt_auto_stitching.parent = self
                         self._children_name_map["rt_auto_stitching"] = "rt-auto-stitching"
                         self._children_yang_names.add("rt-auto-stitching")
-                        self._segment_path = lambda: "element" + "[evi='" + self.evi.get() + "']"
+                        self._segment_path = lambda: "element" + "[evi='" + str(self.evi) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -9847,12 +11404,15 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.static_flow_label = YLeaf(YType.boolean, "static-flow-label")
-
-                            self.global_flow_label = YLeaf(YType.boolean, "global-flow-label")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('static_flow_label', YLeaf(YType.boolean, 'static-flow-label')),
+                                ('global_flow_label', YLeaf(YType.boolean, 'global-flow-label')),
+                            ])
+                            self.static_flow_label = None
+                            self.global_flow_label = None
                             self._segment_path = lambda: "flow-label"
 
                         def __setattr__(self, name, value):
@@ -9902,10 +11462,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rd = YLeaf(YType.enumeration, "rd")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rd', YLeaf(YType.enumeration, 'rd')),
+                            ])
+                            self.rd = None
 
                             self.auto = Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto()
                             self.auto.parent = self
@@ -9964,12 +11527,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                ])
+                                self.router_id = None
+                                self.auto_index = None
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
@@ -10008,12 +11574,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10052,12 +11621,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10096,12 +11668,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -10151,10 +11726,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"auto" : ("auto", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto), "two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr)}
-                            self._child_list_classes = {}
-
-                            self.rd = YLeaf(YType.enumeration, "rd")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("auto", ("auto", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto)), ("two-byte-as", ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rd', YLeaf(YType.enumeration, 'rd')),
+                            ])
+                            self.rd = None
 
                             self.auto = Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto()
                             self.auto.parent = self
@@ -10213,12 +11791,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.router_id = YLeaf(YType.str, "router-id")
-
-                                self.auto_index = YLeaf(YType.uint16, "auto-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('router_id', YLeaf(YType.str, 'router-id')),
+                                    ('auto_index', YLeaf(YType.uint16, 'auto-index')),
+                                ])
+                                self.router_id = None
+                                self.auto_index = None
                                 self._segment_path = lambda: "auto"
 
                             def __setattr__(self, name, value):
@@ -10257,12 +11838,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10301,12 +11885,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10345,12 +11932,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rd-configured"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -10400,10 +11990,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr)), ("es-import", ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rt', YLeaf(YType.enumeration, 'rt')),
+                            ])
+                            self.rt = None
 
                             self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs()
                             self.two_byte_as.parent = self
@@ -10462,12 +12055,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10506,12 +12102,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10550,12 +12149,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -10594,12 +12196,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                    ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                ])
+                                self.high_bytes = None
+                                self.low_bytes = None
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
@@ -10649,10 +12254,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "element"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport)}
-                            self._child_list_classes = {}
-
-                            self.rt = YLeaf(YType.enumeration, "rt")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.V4Addr)), ("es-import", ("es_import", Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.EsImport))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('rt', YLeaf(YType.enumeration, 'rt')),
+                            ])
+                            self.rt = None
 
                             self.two_byte_as = Evpn.Standby.EviDetail.Elements.Element.RtAutoStitching.TwoByteAs()
                             self.two_byte_as.parent = self
@@ -10711,12 +12319,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                    ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                ])
+                                self.two_byte_as = None
+                                self.four_byte_index = None
                                 self._segment_path = lambda: "two-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10755,12 +12366,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.four_byte_as = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "four-byte-as"
 
                             def __setattr__(self, name, value):
@@ -10799,12 +12413,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                    ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                ])
+                                self.ipv4_address = None
+                                self.two_byte_index = None
                                 self._segment_path = lambda: "v4-addr"
 
                             def __setattr__(self, name, value):
@@ -10843,12 +12460,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "rt-auto-stitching"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                    ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                ])
+                                self.high_bytes = None
+                                self.low_bytes = None
                                 self._segment_path = lambda: "es-import"
 
                             def __setattr__(self, name, value):
@@ -10898,8 +12518,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "evi-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"neighbors" : ("neighbors", Evpn.Standby.EviDetail.EviChildren.Neighbors), "ethernet-auto-discoveries" : ("ethernet_auto_discoveries", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries), "inclusive-multicasts" : ("inclusive_multicasts", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts), "route-targets" : ("route_targets", Evpn.Standby.EviDetail.EviChildren.RouteTargets), "macs" : ("macs", Evpn.Standby.EviDetail.EviChildren.Macs)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Evpn.Standby.EviDetail.EviChildren.Neighbors)), ("ethernet-auto-discoveries", ("ethernet_auto_discoveries", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries)), ("inclusive-multicasts", ("inclusive_multicasts", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts)), ("route-targets", ("route_targets", Evpn.Standby.EviDetail.EviChildren.RouteTargets)), ("macs", ("macs", Evpn.Standby.EviDetail.EviChildren.Macs))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.neighbors = Evpn.Standby.EviDetail.EviChildren.Neighbors()
                     self.neighbors.parent = self
@@ -10952,8 +12574,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"neighbor" : ("neighbor", Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor))])
+                        self._leafs = OrderedDict()
 
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "neighbors"
@@ -11015,16 +12639,19 @@ class Evpn(Entity):
                             self.yang_parent_name = "neighbors"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.neighbor_ip = YLeaf(YType.str, "neighbor-ip")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.neighbor = YLeaf(YType.str, "neighbor")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('neighbor_ip', YLeaf(YType.str, 'neighbor-ip')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('neighbor', YLeaf(YType.str, 'neighbor')),
+                            ])
+                            self.evi = None
+                            self.neighbor_ip = None
+                            self.evi_xr = None
+                            self.neighbor = None
                             self._segment_path = lambda: "neighbor"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/%s" % self._segment_path()
 
@@ -11055,8 +12682,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ethernet-auto-discovery" : ("ethernet_auto_discovery", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ethernet-auto-discovery", ("ethernet_auto_discovery", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery))])
+                        self._leafs = OrderedDict()
 
                         self.ethernet_auto_discovery = YList(self)
                         self._segment_path = lambda: "ethernet-auto-discoveries"
@@ -11169,6 +12798,11 @@ class Evpn(Entity):
                         	Single\-active redundancy configured at remote EAD
                         	**type**\: bool
                         
+                        .. attribute:: redundancy_single_flow_active
+                        
+                        	Single\-flow\-active redundancy configured at remote EAD
+                        	**type**\: bool
+                        
                         .. attribute:: num_paths
                         
                         	 Number of items in path list buffer
@@ -11200,40 +12834,45 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-auto-discoveries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer)}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.esi1 = YLeaf(YType.str, "esi1")
-
-                            self.esi2 = YLeaf(YType.str, "esi2")
-
-                            self.esi3 = YLeaf(YType.str, "esi3")
-
-                            self.esi4 = YLeaf(YType.str, "esi4")
-
-                            self.esi5 = YLeaf(YType.str, "esi5")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.ethernet_vpnid = YLeaf(YType.uint32, "ethernet-vpnid")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.local_next_hop = YLeaf(YType.str, "local-next-hop")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.is_local_ead = YLeaf(YType.boolean, "is-local-ead")
-
-                            self.encap = YLeaf(YType.uint8, "encap")
-
-                            self.redundancy_single_active = YLeaf(YType.boolean, "redundancy-single-active")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer))])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('esi1', YLeaf(YType.str, 'esi1')),
+                                ('esi2', YLeaf(YType.str, 'esi2')),
+                                ('esi3', YLeaf(YType.str, 'esi3')),
+                                ('esi4', YLeaf(YType.str, 'esi4')),
+                                ('esi5', YLeaf(YType.str, 'esi5')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('ethernet_vpnid', YLeaf(YType.uint32, 'ethernet-vpnid')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('local_next_hop', YLeaf(YType.str, 'local-next-hop')),
+                                ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ('is_local_ead', YLeaf(YType.boolean, 'is-local-ead')),
+                                ('encap', YLeaf(YType.uint8, 'encap')),
+                                ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                                ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                                ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                            ])
+                            self.evi = None
+                            self.esi1 = None
+                            self.esi2 = None
+                            self.esi3 = None
+                            self.esi4 = None
+                            self.esi5 = None
+                            self.ethernet_tag = None
+                            self.ethernet_vpnid = None
+                            self.type = None
+                            self.ethernet_tag_xr = None
+                            self.local_next_hop = None
+                            self.local_label = None
+                            self.is_local_ead = None
+                            self.encap = None
+                            self.redundancy_single_active = None
+                            self.redundancy_single_flow_active = None
+                            self.num_paths = None
 
                             self.ethernet_segment_identifier = YList(self)
                             self.path_buffer = YList(self)
@@ -11241,7 +12880,7 @@ class Evpn(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'num_paths'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_vpnid', 'type', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'encap', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -11269,10 +12908,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "ethernet-auto-discovery"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/%s" % self._segment_path()
 
@@ -11319,14 +12961,17 @@ class Evpn(Entity):
                                 self.yang_parent_name = "ethernet-auto-discovery"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                    ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                    ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                ])
+                                self.next_hop = None
+                                self.output_label = None
+                                self.srte_tunnel = None
                                 self._segment_path = lambda: "path-buffer"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/%s" % self._segment_path()
 
@@ -11357,8 +13002,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"inclusive-multicast" : ("inclusive_multicast", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("inclusive-multicast", ("inclusive_multicast", Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast))])
+                        self._leafs = OrderedDict()
 
                         self.inclusive_multicast = YList(self)
                         self._segment_path = lambda: "inclusive-multicasts"
@@ -11465,30 +13112,33 @@ class Evpn(Entity):
                             self.yang_parent_name = "inclusive-multicasts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.originating_ip = YLeaf(YType.str, "originating-ip")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.originating_ip_xr = YLeaf(YType.str, "originating-ip-xr")
-
-                            self.next_hop = YLeaf(YType.str, "next-hop")
-
-                            self.output_label = YLeaf(YType.uint32, "output-label")
-
-                            self.is_local_entry = YLeaf(YType.boolean, "is-local-entry")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.encap_type = YLeaf(YType.uint8, "encap-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('originating_ip', YLeaf(YType.str, 'originating-ip')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('originating_ip_xr', YLeaf(YType.str, 'originating-ip-xr')),
+                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                ('is_local_entry', YLeaf(YType.boolean, 'is-local-entry')),
+                                ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                ('encap_type', YLeaf(YType.uint8, 'encap-type')),
+                            ])
+                            self.evi = None
+                            self.ethernet_tag = None
+                            self.originating_ip = None
+                            self.evi_xr = None
+                            self.ethernet_tag_xr = None
+                            self.originating_ip_xr = None
+                            self.next_hop = None
+                            self.output_label = None
+                            self.is_local_entry = None
+                            self.is_proxy_entry = None
+                            self.encap_type = None
                             self._segment_path = lambda: "inclusive-multicast"
                             self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/inclusive-multicasts/%s" % self._segment_path()
 
@@ -11519,8 +13169,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"route-target" : ("route_target", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("route-target", ("route_target", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget))])
+                        self._leafs = OrderedDict()
 
                         self.route_target = YList(self)
                         self._segment_path = lambda: "route-targets"
@@ -11587,7 +13239,7 @@ class Evpn(Entity):
                         .. attribute:: route_target
                         
                         	Route Target
-                        	**type**\:  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget>`
+                        	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                         
                         .. attribute:: bd_name
                         
@@ -11625,34 +13277,37 @@ class Evpn(Entity):
                             self.yang_parent_name = "route-targets"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"route-target" : ("route_target", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("route-target", ("route_target", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('role', YLeaf(YType.enumeration, 'role')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('format', YLeaf(YType.enumeration, 'format')),
+                                ('as_', YLeaf(YType.uint32, 'as')),
+                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('bd_name', YLeaf(YType.str, 'bd-name')),
+                                ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                                ('route_target_role', YLeaf(YType.enumeration, 'route-target-role')),
+                                ('route_target_stitching', YLeaf(YType.boolean, 'route-target-stitching')),
+                            ])
+                            self.evi = None
+                            self.role = None
+                            self.type = None
+                            self.format = None
+                            self.as_ = None
+                            self.as_index = None
+                            self.addr_index = None
+                            self.address = None
+                            self.bd_name = None
+                            self.evi_xr = None
+                            self.route_target_role = None
+                            self.route_target_stitching = None
 
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.role = YLeaf(YType.enumeration, "role")
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.format = YLeaf(YType.enumeration, "format")
-
-                            self.as_ = YLeaf(YType.uint32, "as")
-
-                            self.as_index = YLeaf(YType.uint32, "as-index")
-
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.bd_name = YLeaf(YType.str, "bd-name")
-
-                            self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                            self.route_target_role = YLeaf(YType.enumeration, "route-target-role")
-
-                            self.route_target_stitching = YLeaf(YType.boolean, "route-target-stitching")
-
-                            self.route_target = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget()
+                            self.route_target = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_()
                             self.route_target.parent = self
                             self._children_name_map["route_target"] = "route-target"
                             self._children_yang_names.add("route-target")
@@ -11663,29 +13318,29 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'role', 'type', 'format', 'as_', 'as_index', 'addr_index', 'address', 'bd_name', 'evi_xr', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget_(Entity):
                             """
                             Route Target
                             
                             .. attribute:: two_byte_as
                             
                             	two byte as
-                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs>`
+                            	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
-                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs>`
+                            	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
-                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr>`
+                            	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                             
                             .. attribute:: es_import
                             
                             	es import
-                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport>`
+                            	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                             
                             .. attribute:: rt
                             
@@ -11700,33 +13355,36 @@ class Evpn(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, self).__init__()
+                                super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-target"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"two-byte-as" : ("two_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs), "four-byte-as" : ("four_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs), "v4-addr" : ("v4_addr", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr), "es-import" : ("es_import", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("two-byte-as", ("two_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs)), ("four-byte-as", ("four_byte_as", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs)), ("v4-addr", ("v4_addr", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr)), ("es-import", ("es_import", Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('rt', YLeaf(YType.enumeration, 'rt')),
+                                ])
+                                self.rt = None
 
-                                self.rt = YLeaf(YType.enumeration, "rt")
-
-                                self.two_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs()
+                                self.two_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs()
                                 self.two_byte_as.parent = self
                                 self._children_name_map["two_byte_as"] = "two-byte-as"
                                 self._children_yang_names.add("two-byte-as")
 
-                                self.four_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs()
+                                self.four_byte_as = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs()
                                 self.four_byte_as.parent = self
                                 self._children_name_map["four_byte_as"] = "four-byte-as"
                                 self._children_yang_names.add("four-byte-as")
 
-                                self.v4_addr = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr()
+                                self.v4_addr = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr()
                                 self.v4_addr.parent = self
                                 self._children_name_map["v4_addr"] = "v4-addr"
                                 self._children_yang_names.add("v4-addr")
 
-                                self.es_import = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport()
+                                self.es_import = Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport()
                                 self.es_import.parent = self
                                 self._children_name_map["es_import"] = "es-import"
                                 self._children_yang_names.add("es-import")
@@ -11734,7 +13392,7 @@ class Evpn(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget, ['rt'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
                             class TwoByteAs(Entity):
@@ -11763,23 +13421,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, self).__init__()
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.two_byte_as = YLeaf(YType.uint16, "two-byte-as")
-
-                                    self.four_byte_index = YLeaf(YType.uint32, "four-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('two_byte_as', YLeaf(YType.uint16, 'two-byte-as')),
+                                        ('four_byte_index', YLeaf(YType.uint32, 'four-byte-index')),
+                                    ])
+                                    self.two_byte_as = None
+                                    self.four_byte_index = None
                                     self._segment_path = lambda: "two-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
 
                             class FourByteAs(Entity):
@@ -11808,23 +13469,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, self).__init__()
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.four_byte_as = YLeaf(YType.uint32, "four-byte-as")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('four_byte_as', YLeaf(YType.uint32, 'four-byte-as')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.four_byte_as = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "four-byte-as"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
 
                             class V4Addr(Entity):
@@ -11853,23 +13517,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, self).__init__()
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.two_byte_index = YLeaf(YType.uint16, "two-byte-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('two_byte_index', YLeaf(YType.uint16, 'two-byte-index')),
+                                    ])
+                                    self.ipv4_address = None
+                                    self.two_byte_index = None
                                     self._segment_path = lambda: "v4-addr"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
 
                             class EsImport(Entity):
@@ -11898,23 +13565,26 @@ class Evpn(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, self).__init__()
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                     self.yang_name = "es-import"
                                     self.yang_parent_name = "route-target"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.high_bytes = YLeaf(YType.uint32, "high-bytes")
-
-                                    self.low_bytes = YLeaf(YType.uint16, "low-bytes")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('high_bytes', YLeaf(YType.uint32, 'high-bytes')),
+                                        ('low_bytes', YLeaf(YType.uint16, 'low-bytes')),
+                                    ])
+                                    self.high_bytes = None
+                                    self.low_bytes = None
                                     self._segment_path = lambda: "es-import"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
 
                 class Macs(Entity):
@@ -11940,8 +13610,10 @@ class Evpn(Entity):
                         self.yang_parent_name = "evi-children"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mac" : ("mac", Evpn.Standby.EviDetail.EviChildren.Macs.Mac)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mac", ("mac", Evpn.Standby.EviDetail.EviChildren.Macs.Mac))])
+                        self._leafs = OrderedDict()
 
                         self.mac = YList(self)
                         self._segment_path = lambda: "macs"
@@ -12172,64 +13844,67 @@ class Evpn(Entity):
                             self.yang_parent_name = "macs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-ethernet-segment-identifier" : ("local_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier), "remote-ethernet-segment-identifier" : ("remote_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier), "path-buffer" : ("path_buffer", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer)}
-
-                            self.evi = YLeaf(YType.int32, "evi")
-
-                            self.ethernet_tag = YLeaf(YType.int32, "ethernet-tag")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.ethernet_tag_xr = YLeaf(YType.uint32, "ethernet-tag-xr")
-
-                            self.mac_address_xr = YLeaf(YType.str, "mac-address-xr")
-
-                            self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                            self.local_label = YLeaf(YType.uint32, "local-label")
-
-                            self.num_paths = YLeaf(YType.uint32, "num-paths")
-
-                            self.is_local_mac = YLeaf(YType.boolean, "is-local-mac")
-
-                            self.is_proxy_entry = YLeaf(YType.boolean, "is-proxy-entry")
-
-                            self.is_remote_mac = YLeaf(YType.boolean, "is-remote-mac")
-
-                            self.soo_nexthop = YLeaf(YType.str, "soo-nexthop")
-
-                            self.ipnh_address = YLeaf(YType.str, "ipnh-address")
-
-                            self.esi_port_key = YLeaf(YType.uint16, "esi-port-key")
-
-                            self.local_encap_type = YLeaf(YType.uint8, "local-encap-type")
-
-                            self.remote_encap_type = YLeaf(YType.uint8, "remote-encap-type")
-
-                            self.learned_bridge_port_name = YLeaf(YType.str, "learned-bridge-port-name")
-
-                            self.local_seq_id = YLeaf(YType.uint32, "local-seq-id")
-
-                            self.remote_seq_id = YLeaf(YType.uint32, "remote-seq-id")
-
-                            self.local_l3_label = YLeaf(YType.uint32, "local-l3-label")
-
-                            self.router_mac_address = YLeaf(YType.str, "router-mac-address")
-
-                            self.mac_flush_requested = YLeaf(YType.uint16, "mac-flush-requested")
-
-                            self.mac_flush_received = YLeaf(YType.uint16, "mac-flush-received")
-
-                            self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                            self.resolved = YLeaf(YType.boolean, "resolved")
-
-                            self.local_is_static = YLeaf(YType.boolean, "local-is-static")
-
-                            self.remote_is_static = YLeaf(YType.boolean, "remote-is-static")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("local-ethernet-segment-identifier", ("local_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier)), ("remote-ethernet-segment-identifier", ("remote_ethernet_segment_identifier", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier)), ("path-buffer", ("path_buffer", Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer))])
+                            self._leafs = OrderedDict([
+                                ('evi', YLeaf(YType.int32, 'evi')),
+                                ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                ('ethernet_tag_xr', YLeaf(YType.uint32, 'ethernet-tag-xr')),
+                                ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
+                                ('ip_address_xr', YLeaf(YType.str, 'ip-address-xr')),
+                                ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ('num_paths', YLeaf(YType.uint32, 'num-paths')),
+                                ('is_local_mac', YLeaf(YType.boolean, 'is-local-mac')),
+                                ('is_proxy_entry', YLeaf(YType.boolean, 'is-proxy-entry')),
+                                ('is_remote_mac', YLeaf(YType.boolean, 'is-remote-mac')),
+                                ('soo_nexthop', YLeaf(YType.str, 'soo-nexthop')),
+                                ('ipnh_address', YLeaf(YType.str, 'ipnh-address')),
+                                ('esi_port_key', YLeaf(YType.uint16, 'esi-port-key')),
+                                ('local_encap_type', YLeaf(YType.uint8, 'local-encap-type')),
+                                ('remote_encap_type', YLeaf(YType.uint8, 'remote-encap-type')),
+                                ('learned_bridge_port_name', YLeaf(YType.str, 'learned-bridge-port-name')),
+                                ('local_seq_id', YLeaf(YType.uint32, 'local-seq-id')),
+                                ('remote_seq_id', YLeaf(YType.uint32, 'remote-seq-id')),
+                                ('local_l3_label', YLeaf(YType.uint32, 'local-l3-label')),
+                                ('router_mac_address', YLeaf(YType.str, 'router-mac-address')),
+                                ('mac_flush_requested', YLeaf(YType.uint16, 'mac-flush-requested')),
+                                ('mac_flush_received', YLeaf(YType.uint16, 'mac-flush-received')),
+                                ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                                ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                ('local_is_static', YLeaf(YType.boolean, 'local-is-static')),
+                                ('remote_is_static', YLeaf(YType.boolean, 'remote-is-static')),
+                            ])
+                            self.evi = None
+                            self.ethernet_tag = None
+                            self.mac_address = None
+                            self.ip_address = None
+                            self.ethernet_tag_xr = None
+                            self.mac_address_xr = None
+                            self.ip_address_xr = None
+                            self.local_label = None
+                            self.num_paths = None
+                            self.is_local_mac = None
+                            self.is_proxy_entry = None
+                            self.is_remote_mac = None
+                            self.soo_nexthop = None
+                            self.ipnh_address = None
+                            self.esi_port_key = None
+                            self.local_encap_type = None
+                            self.remote_encap_type = None
+                            self.learned_bridge_port_name = None
+                            self.local_seq_id = None
+                            self.remote_seq_id = None
+                            self.local_l3_label = None
+                            self.router_mac_address = None
+                            self.mac_flush_requested = None
+                            self.mac_flush_received = None
+                            self.internal_label = None
+                            self.resolved = None
+                            self.local_is_static = None
+                            self.remote_is_static = None
 
                             self.local_ethernet_segment_identifier = YList(self)
                             self.remote_ethernet_segment_identifier = YList(self)
@@ -12266,10 +13941,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "local-ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
@@ -12302,10 +13980,13 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.entry = YLeaf(YType.uint8, "entry")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                ])
+                                self.entry = None
                                 self._segment_path = lambda: "remote-ethernet-segment-identifier"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
@@ -12352,19 +14033,522 @@ class Evpn(Entity):
                                 self.yang_parent_name = "mac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.next_hop = YLeaf(YType.str, "next-hop")
-
-                                self.output_label = YLeaf(YType.uint32, "output-label")
-
-                                self.srte_tunnel = YLeaf(YType.str, "srte-tunnel")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                    ('output_label', YLeaf(YType.uint32, 'output-label')),
+                                    ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                                ])
+                                self.next_hop = None
+                                self.output_label = None
+                                self.srte_tunnel = None
                                 self._segment_path = lambda: "path-buffer"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+        class InternalLabels(Entity):
+            """
+            EVPN Internal Label Table
+            
+            .. attribute:: internal_label
+            
+            	L2VPN EVPN Internal Label
+            	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel>`
+            
+            
+
+            """
+
+            _prefix = 'evpn-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Evpn.Standby.InternalLabels, self).__init__()
+
+                self.yang_name = "internal-labels"
+                self.yang_parent_name = "standby"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("internal-label", ("internal_label", Evpn.Standby.InternalLabels.InternalLabel))])
+                self._leafs = OrderedDict()
+
+                self.internal_label = YList(self)
+                self._segment_path = lambda: "internal-labels"
+                self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Evpn.Standby.InternalLabels, [], name, value)
+
+
+            class InternalLabel(Entity):
+                """
+                L2VPN EVPN Internal Label
+                
+                .. attribute:: evi
+                
+                	EVPN id
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: esi1
+                
+                	ES id (part 1/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi2
+                
+                	ES id (part 2/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi3
+                
+                	ES id (part 3/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi4
+                
+                	ES id (part 4/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: esi5
+                
+                	ES id (part 5/5)
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                .. attribute:: ethernet_tag
+                
+                	Ethernet Tag ID
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: evi_xr
+                
+                	EVPN id
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: esi
+                
+                	Ethernet Segment id
+                	**type**\: str
+                
+                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                
+                .. attribute:: tag
+                
+                	Label Tag
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: internal_label
+                
+                	MPLS Internal Label
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: encap
+                
+                	Encap type of remote EAD/ES, EAD/EVI and MAC routes
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: mac_num_paths
+                
+                	Number of items in the MAC path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ead_num_paths
+                
+                	Number of items in the ead path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: evi_num_paths
+                
+                	Number of items in the evi path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sum_num_paths
+                
+                	Number of items in the sum path buffer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sum_num_active_paths
+                
+                	Number of items in the sum path buffer that are Active Paths
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: resolved
+                
+                	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
+                	**type**\: bool
+                
+                .. attribute:: ecmp_disable
+                
+                	ECMP Disable Per EVI Resolution
+                	**type**\: bool
+                
+                .. attribute:: redundancy_single_active
+                
+                	Single\-active redundancy configured at remote ES
+                	**type**\: bool
+                
+                .. attribute:: redundancy_single_flow_active
+                
+                	Single\-flow\-active redundancy at remote ES (MST\-AG)
+                	**type**\: bool
+                
+                .. attribute:: mac_path_buffer
+                
+                	MAC Path list buffer
+                	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer>`
+                
+                .. attribute:: ead_path_buffer
+                
+                	EAD/ES Path list buffer
+                	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer>`
+                
+                .. attribute:: evi_path_buffer
+                
+                	EAD/EVI Path list buffer
+                	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer>`
+                
+                .. attribute:: summary_path_buffer
+                
+                	Summary Path list buffer
+                	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                
+                
+
+                """
+
+                _prefix = 'evpn-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Evpn.Standby.InternalLabels.InternalLabel, self).__init__()
+
+                    self.yang_name = "internal-label"
+                    self.yang_parent_name = "internal-labels"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("mac-path-buffer", ("mac_path_buffer", Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer)), ("ead-path-buffer", ("ead_path_buffer", Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer)), ("evi-path-buffer", ("evi_path_buffer", Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer)), ("summary-path-buffer", ("summary_path_buffer", Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer))])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('esi1', YLeaf(YType.str, 'esi1')),
+                        ('esi2', YLeaf(YType.str, 'esi2')),
+                        ('esi3', YLeaf(YType.str, 'esi3')),
+                        ('esi4', YLeaf(YType.str, 'esi4')),
+                        ('esi5', YLeaf(YType.str, 'esi5')),
+                        ('ethernet_tag', YLeaf(YType.int32, 'ethernet-tag')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('esi', YLeaf(YType.str, 'esi')),
+                        ('tag', YLeaf(YType.uint32, 'tag')),
+                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('encap', YLeaf(YType.uint8, 'encap')),
+                        ('mac_num_paths', YLeaf(YType.uint32, 'mac-num-paths')),
+                        ('ead_num_paths', YLeaf(YType.uint32, 'ead-num-paths')),
+                        ('evi_num_paths', YLeaf(YType.uint32, 'evi-num-paths')),
+                        ('sum_num_paths', YLeaf(YType.uint32, 'sum-num-paths')),
+                        ('sum_num_active_paths', YLeaf(YType.uint32, 'sum-num-active-paths')),
+                        ('resolved', YLeaf(YType.boolean, 'resolved')),
+                        ('ecmp_disable', YLeaf(YType.boolean, 'ecmp-disable')),
+                        ('redundancy_single_active', YLeaf(YType.boolean, 'redundancy-single-active')),
+                        ('redundancy_single_flow_active', YLeaf(YType.boolean, 'redundancy-single-flow-active')),
+                    ])
+                    self.evi = None
+                    self.esi1 = None
+                    self.esi2 = None
+                    self.esi3 = None
+                    self.esi4 = None
+                    self.esi5 = None
+                    self.ethernet_tag = None
+                    self.evi_xr = None
+                    self.esi = None
+                    self.tag = None
+                    self.internal_label = None
+                    self.encap = None
+                    self.mac_num_paths = None
+                    self.ead_num_paths = None
+                    self.evi_num_paths = None
+                    self.sum_num_paths = None
+                    self.sum_num_active_paths = None
+                    self.resolved = None
+                    self.ecmp_disable = None
+                    self.redundancy_single_active = None
+                    self.redundancy_single_flow_active = None
+
+                    self.mac_path_buffer = YList(self)
+                    self.ead_path_buffer = YList(self)
+                    self.evi_path_buffer = YList(self)
+                    self.summary_path_buffer = YList(self)
+                    self._segment_path = lambda: "internal-label"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'evi_xr', 'esi', 'tag', 'internal_label', 'encap', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+
+
+                class MacPathBuffer(Entity):
+                    """
+                    MAC Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+
+                        self.yang_name = "mac-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "mac-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class EadPathBuffer(Entity):
+                    """
+                    EAD/ES Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+
+                        self.yang_name = "ead-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "ead-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class EviPathBuffer(Entity):
+                    """
+                    EAD/EVI Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+
+                        self.yang_name = "evi-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "evi-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
+
+
+                class SummaryPathBuffer(Entity):
+                    """
+                    Summary Path list buffer
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next\-hop IP address (v6 format)
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: output_label
+                    
+                    	Output Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srte_tunnel
+                    
+                    	Segment\-Routing Traffic Engineering Tunnel Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    
+
+                    """
+
+                    _prefix = 'evpn-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+
+                        self.yang_name = "summary-path-buffer"
+                        self.yang_parent_name = "internal-label"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('output_label', YLeaf(YType.uint32, 'output-label')),
+                            ('srte_tunnel', YLeaf(YType.str, 'srte-tunnel')),
+                        ])
+                        self.next_hop = None
+                        self.output_label = None
+                        self.srte_tunnel = None
+                        self._segment_path = lambda: "summary-path-buffer"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, ['next_hop', 'output_label', 'srte_tunnel'], name, value)
 
 
         class EthernetSegments(Entity):
@@ -12390,8 +14574,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ethernet-segment" : ("ethernet_segment", Evpn.Standby.EthernetSegments.EthernetSegment)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ethernet-segment", ("ethernet_segment", Evpn.Standby.EthernetSegments.EthernetSegment))])
+                self._leafs = OrderedDict()
 
                 self.ethernet_segment = YList(self)
                 self._segment_path = lambda: "ethernet-segments"
@@ -12451,6 +14637,25 @@ class Evpn(Entity):
                 
                 	ESI Type
                 	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
+                
+                .. attribute:: esi_system_identifier
+                
+                	ESI System Identifier
+                	**type**\: str
+                
+                .. attribute:: esi_port_key
+                
+                	ESI Port Key
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: esi_system_priority
+                
+                	ESI System Priority
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: ethernet_segment_name
                 
@@ -12585,6 +14790,24 @@ class Evpn(Entity):
                 
                 	**units**\: millisecond
                 
+                .. attribute:: carving_timer
+                
+                	Configured timer for delaying DF election (seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: carving_timer_left
+                
+                	Milliseconds left on carving timer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: millisecond
+                
                 .. attribute:: service_carving_mode
                 
                 	Service carving mode
@@ -12648,6 +14871,11 @@ class Evpn(Entity):
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
+                	**type**\: bool
+                
+                .. attribute:: local_split_horizon_group_label_valid
+                
+                	Local split horizon group label is valid
                 	**type**\: bool
                 
                 .. attribute:: local_split_horizon_group_label
@@ -12721,88 +14949,103 @@ class Evpn(Entity):
                     self.yang_parent_name = "ethernet-segments"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ethernet-segment-identifier" : ("ethernet_segment_identifier", Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier), "primary-service" : ("primary_service", Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService), "secondary-service" : ("secondary_service", Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService), "service-carving-i-sidelected-result" : ("service_carving_i_sidelected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult), "service-carving-isid-not-elected-result" : ("service_carving_isid_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult), "service-carving-evi-elected-result" : ("service_carving_evi_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult), "service-carving-evi-not-elected-result" : ("service_carving_evi_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult), "next-hop" : ("next_hop", Evpn.Standby.EthernetSegments.EthernetSegment.NextHop), "service-carving-vpws-permanent-result" : ("service_carving_vpws_permanent_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult), "remote-split-horizon-group-label" : ("remote_split_horizon_group_label", Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.esi1 = YLeaf(YType.str, "esi1")
-
-                    self.esi2 = YLeaf(YType.str, "esi2")
-
-                    self.esi3 = YLeaf(YType.str, "esi3")
-
-                    self.esi4 = YLeaf(YType.str, "esi4")
-
-                    self.esi5 = YLeaf(YType.str, "esi5")
-
-                    self.esi_type = YLeaf(YType.enumeration, "esi-type")
-
-                    self.ethernet_segment_name = YLeaf(YType.str, "ethernet-segment-name")
-
-                    self.ethernet_segment_state = YLeaf(YType.uint32, "ethernet-segment-state")
-
-                    self.if_handle = YLeaf(YType.str, "if-handle")
-
-                    self.main_port_role = YLeaf(YType.enumeration, "main-port-role")
-
-                    self.main_port_mac = YLeaf(YType.str, "main-port-mac")
-
-                    self.num_up_p_ws = YLeaf(YType.uint32, "num-up-p-ws")
-
-                    self.route_target = YLeaf(YType.str, "route-target")
-
-                    self.rt_origin = YLeaf(YType.enumeration, "rt-origin")
-
-                    self.es_bgp_gates = YLeaf(YType.str, "es-bgp-gates")
-
-                    self.es_l2fib_gates = YLeaf(YType.str, "es-l2fib-gates")
-
-                    self.mac_flushing_mode_config = YLeaf(YType.enumeration, "mac-flushing-mode-config")
-
-                    self.load_balance_mode_config = YLeaf(YType.enumeration, "load-balance-mode-config")
-
-                    self.load_balance_mode_is_default = YLeaf(YType.boolean, "load-balance-mode-is-default")
-
-                    self.load_balance_mode_oper = YLeaf(YType.enumeration, "load-balance-mode-oper")
-
-                    self.force_single_home = YLeaf(YType.boolean, "force-single-home")
-
-                    self.source_mac_oper = YLeaf(YType.str, "source-mac-oper")
-
-                    self.source_mac_origin = YLeaf(YType.enumeration, "source-mac-origin")
-
-                    self.peering_timer = YLeaf(YType.uint32, "peering-timer")
-
-                    self.peering_timer_left = YLeaf(YType.uint32, "peering-timer-left")
-
-                    self.recovery_timer = YLeaf(YType.uint32, "recovery-timer")
-
-                    self.recovery_timer_left = YLeaf(YType.uint32, "recovery-timer-left")
-
-                    self.service_carving_mode = YLeaf(YType.enumeration, "service-carving-mode")
-
-                    self.primary_services_input = YLeaf(YType.str, "primary-services-input")
-
-                    self.secondary_services_input = YLeaf(YType.str, "secondary-services-input")
-
-                    self.forwarder_ports = YLeaf(YType.uint32, "forwarder-ports")
-
-                    self.permanent_forwarder_ports = YLeaf(YType.uint32, "permanent-forwarder-ports")
-
-                    self.elected_forwarder_ports = YLeaf(YType.uint32, "elected-forwarder-ports")
-
-                    self.not_elected_forwarder_ports = YLeaf(YType.uint32, "not-elected-forwarder-ports")
-
-                    self.not_config_forwarder_ports = YLeaf(YType.uint32, "not-config-forwarder-ports")
-
-                    self.mp_protected = YLeaf(YType.boolean, "mp-protected")
-
-                    self.nve_anycast_vtep = YLeaf(YType.boolean, "nve-anycast-vtep")
-
-                    self.nve_ingress_replication = YLeaf(YType.boolean, "nve-ingress-replication")
-
-                    self.local_split_horizon_group_label = YLeaf(YType.uint32, "local-split-horizon-group-label")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ethernet-segment-identifier", ("ethernet_segment_identifier", Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier)), ("primary-service", ("primary_service", Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService)), ("secondary-service", ("secondary_service", Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService)), ("service-carving-i-sidelected-result", ("service_carving_i_sidelected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult)), ("service-carving-isid-not-elected-result", ("service_carving_isid_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult)), ("service-carving-evi-elected-result", ("service_carving_evi_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult)), ("service-carving-evi-not-elected-result", ("service_carving_evi_not_elected_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult)), ("next-hop", ("next_hop", Evpn.Standby.EthernetSegments.EthernetSegment.NextHop)), ("service-carving-vpws-permanent-result", ("service_carving_vpws_permanent_result", Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult)), ("remote-split-horizon-group-label", ("remote_split_horizon_group_label", Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('esi1', YLeaf(YType.str, 'esi1')),
+                        ('esi2', YLeaf(YType.str, 'esi2')),
+                        ('esi3', YLeaf(YType.str, 'esi3')),
+                        ('esi4', YLeaf(YType.str, 'esi4')),
+                        ('esi5', YLeaf(YType.str, 'esi5')),
+                        ('esi_type', YLeaf(YType.enumeration, 'esi-type')),
+                        ('esi_system_identifier', YLeaf(YType.str, 'esi-system-identifier')),
+                        ('esi_port_key', YLeaf(YType.uint32, 'esi-port-key')),
+                        ('esi_system_priority', YLeaf(YType.uint32, 'esi-system-priority')),
+                        ('ethernet_segment_name', YLeaf(YType.str, 'ethernet-segment-name')),
+                        ('ethernet_segment_state', YLeaf(YType.uint32, 'ethernet-segment-state')),
+                        ('if_handle', YLeaf(YType.str, 'if-handle')),
+                        ('main_port_role', YLeaf(YType.enumeration, 'main-port-role')),
+                        ('main_port_mac', YLeaf(YType.str, 'main-port-mac')),
+                        ('num_up_p_ws', YLeaf(YType.uint32, 'num-up-p-ws')),
+                        ('route_target', YLeaf(YType.str, 'route-target')),
+                        ('rt_origin', YLeaf(YType.enumeration, 'rt-origin')),
+                        ('es_bgp_gates', YLeaf(YType.str, 'es-bgp-gates')),
+                        ('es_l2fib_gates', YLeaf(YType.str, 'es-l2fib-gates')),
+                        ('mac_flushing_mode_config', YLeaf(YType.enumeration, 'mac-flushing-mode-config')),
+                        ('load_balance_mode_config', YLeaf(YType.enumeration, 'load-balance-mode-config')),
+                        ('load_balance_mode_is_default', YLeaf(YType.boolean, 'load-balance-mode-is-default')),
+                        ('load_balance_mode_oper', YLeaf(YType.enumeration, 'load-balance-mode-oper')),
+                        ('force_single_home', YLeaf(YType.boolean, 'force-single-home')),
+                        ('source_mac_oper', YLeaf(YType.str, 'source-mac-oper')),
+                        ('source_mac_origin', YLeaf(YType.enumeration, 'source-mac-origin')),
+                        ('peering_timer', YLeaf(YType.uint32, 'peering-timer')),
+                        ('peering_timer_left', YLeaf(YType.uint32, 'peering-timer-left')),
+                        ('recovery_timer', YLeaf(YType.uint32, 'recovery-timer')),
+                        ('recovery_timer_left', YLeaf(YType.uint32, 'recovery-timer-left')),
+                        ('carving_timer', YLeaf(YType.uint32, 'carving-timer')),
+                        ('carving_timer_left', YLeaf(YType.uint32, 'carving-timer-left')),
+                        ('service_carving_mode', YLeaf(YType.enumeration, 'service-carving-mode')),
+                        ('primary_services_input', YLeaf(YType.str, 'primary-services-input')),
+                        ('secondary_services_input', YLeaf(YType.str, 'secondary-services-input')),
+                        ('forwarder_ports', YLeaf(YType.uint32, 'forwarder-ports')),
+                        ('permanent_forwarder_ports', YLeaf(YType.uint32, 'permanent-forwarder-ports')),
+                        ('elected_forwarder_ports', YLeaf(YType.uint32, 'elected-forwarder-ports')),
+                        ('not_elected_forwarder_ports', YLeaf(YType.uint32, 'not-elected-forwarder-ports')),
+                        ('not_config_forwarder_ports', YLeaf(YType.uint32, 'not-config-forwarder-ports')),
+                        ('mp_protected', YLeaf(YType.boolean, 'mp-protected')),
+                        ('nve_anycast_vtep', YLeaf(YType.boolean, 'nve-anycast-vtep')),
+                        ('nve_ingress_replication', YLeaf(YType.boolean, 'nve-ingress-replication')),
+                        ('local_split_horizon_group_label_valid', YLeaf(YType.boolean, 'local-split-horizon-group-label-valid')),
+                        ('local_split_horizon_group_label', YLeaf(YType.uint32, 'local-split-horizon-group-label')),
+                    ])
+                    self.interface_name = None
+                    self.esi1 = None
+                    self.esi2 = None
+                    self.esi3 = None
+                    self.esi4 = None
+                    self.esi5 = None
+                    self.esi_type = None
+                    self.esi_system_identifier = None
+                    self.esi_port_key = None
+                    self.esi_system_priority = None
+                    self.ethernet_segment_name = None
+                    self.ethernet_segment_state = None
+                    self.if_handle = None
+                    self.main_port_role = None
+                    self.main_port_mac = None
+                    self.num_up_p_ws = None
+                    self.route_target = None
+                    self.rt_origin = None
+                    self.es_bgp_gates = None
+                    self.es_l2fib_gates = None
+                    self.mac_flushing_mode_config = None
+                    self.load_balance_mode_config = None
+                    self.load_balance_mode_is_default = None
+                    self.load_balance_mode_oper = None
+                    self.force_single_home = None
+                    self.source_mac_oper = None
+                    self.source_mac_origin = None
+                    self.peering_timer = None
+                    self.peering_timer_left = None
+                    self.recovery_timer = None
+                    self.recovery_timer_left = None
+                    self.carving_timer = None
+                    self.carving_timer_left = None
+                    self.service_carving_mode = None
+                    self.primary_services_input = None
+                    self.secondary_services_input = None
+                    self.forwarder_ports = None
+                    self.permanent_forwarder_ports = None
+                    self.elected_forwarder_ports = None
+                    self.not_elected_forwarder_ports = None
+                    self.not_config_forwarder_ports = None
+                    self.mp_protected = None
+                    self.nve_anycast_vtep = None
+                    self.nve_ingress_replication = None
+                    self.local_split_horizon_group_label_valid = None
+                    self.local_split_horizon_group_label = None
 
                     self.ethernet_segment_identifier = YList(self)
                     self.primary_service = YList(self)
@@ -12818,7 +15061,7 @@ class Evpn(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label'], name, value)
+                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -12846,10 +15089,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint8, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint8, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "ethernet-segment-identifier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -12882,10 +15128,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "primary-service"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -12918,10 +15167,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "secondary-service"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -12954,10 +15206,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-i-sidelected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -12990,10 +15245,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-isid-not-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13026,10 +15284,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-evi-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13062,10 +15323,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.uint32, "entry")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.uint32, 'entry')),
+                        ])
+                        self.entry = None
                         self._segment_path = lambda: "service-carving-evi-not-elected-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13098,10 +15362,13 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                        ])
+                        self.next_hop = None
                         self._segment_path = lambda: "next-hop"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13146,14 +15413,17 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vpn_id = YLeaf(YType.uint32, "vpn-id")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.ethernet_tag = YLeaf(YType.uint32, "ethernet-tag")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vpn_id', YLeaf(YType.uint32, 'vpn-id')),
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('ethernet_tag', YLeaf(YType.uint32, 'ethernet-tag')),
+                        ])
+                        self.vpn_id = None
+                        self.type = None
+                        self.ethernet_tag = None
                         self._segment_path = lambda: "service-carving-vpws-permanent-result"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13193,12 +15463,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "ethernet-segment"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.next_hop = YLeaf(YType.str, "next-hop")
-
-                        self.label = YLeaf(YType.uint32, "label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('label', YLeaf(YType.uint32, 'label')),
+                        ])
+                        self.next_hop = None
+                        self.label = None
                         self._segment_path = lambda: "remote-split-horizon-group-label"
                         self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/%s" % self._segment_path()
 
@@ -13229,8 +15502,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "standby"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ac-id" : ("ac_id", Evpn.Standby.AcIds.AcId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ac-id", ("ac_id", Evpn.Standby.AcIds.AcId))])
+                self._leafs = OrderedDict()
 
                 self.ac_id = YList(self)
                 self._segment_path = lambda: "ac-ids"
@@ -13286,16 +15561,19 @@ class Evpn(Entity):
                     self.yang_parent_name = "ac-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.ac_id = YLeaf(YType.int32, "ac-id")
-
-                    self.evi_xr = YLeaf(YType.uint32, "evi-xr")
-
-                    self.neighbor = YLeaf(YType.str, "neighbor")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.int32, 'evi')),
+                        ('ac_id', YLeaf(YType.int32, 'ac-id')),
+                        ('evi_xr', YLeaf(YType.uint32, 'evi-xr')),
+                        ('neighbor', YLeaf(YType.str, 'neighbor')),
+                    ])
+                    self.evi = None
+                    self.ac_id = None
+                    self.evi_xr = None
+                    self.neighbor = None
                     self._segment_path = lambda: "ac-id"
                     self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/%s" % self._segment_path()
 

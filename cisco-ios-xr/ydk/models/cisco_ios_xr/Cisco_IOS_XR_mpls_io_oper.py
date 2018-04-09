@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,8 +45,10 @@ class MplsEa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-io-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", MplsEa.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", MplsEa.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = MplsEa.Nodes()
         self.nodes.parent = self
@@ -77,8 +81,10 @@ class MplsEa(Entity):
             self.yang_parent_name = "mpls-ea"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", MplsEa.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", MplsEa.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -92,7 +98,7 @@ class MplsEa(Entity):
             """
             Per node MPLS IO EA operational data
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -118,16 +124,19 @@ class MplsEa(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interfaces" : ("interfaces", MplsEa.Nodes.Node.Interfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MplsEa.Nodes.Node.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.interfaces = MplsEa.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -157,8 +166,10 @@ class MplsEa(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", MplsEa.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsEa.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -171,7 +182,7 @@ class MplsEa(Entity):
                     """
                     MPLS IO EA NODE Interface data 
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -220,19 +231,22 @@ class MplsEa(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.mtu = YLeaf(YType.uint32, "mtu")
-
-                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
-
-                        self.srte_label_stack_depth = YLeaf(YType.uint8, "srte-label-stack-depth")
-
-                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('mtu', YLeaf(YType.uint32, 'mtu')),
+                            ('bkp_label_stack_depth', YLeaf(YType.uint8, 'bkp-label-stack-depth')),
+                            ('srte_label_stack_depth', YLeaf(YType.uint8, 'srte-label-stack-depth')),
+                            ('pri_label_stack_depth', YLeaf(YType.uint8, 'pri-label-stack-depth')),
+                        ])
+                        self.interface_name = None
+                        self.mtu = None
+                        self.bkp_label_stack_depth = None
+                        self.srte_label_stack_depth = None
+                        self.pri_label_stack_depth = None
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
@@ -265,8 +279,10 @@ class MplsMa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-io-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", MplsMa.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", MplsMa.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = MplsMa.Nodes()
         self.nodes.parent = self
@@ -299,8 +315,10 @@ class MplsMa(Entity):
             self.yang_parent_name = "mpls-ma"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", MplsMa.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", MplsMa.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -314,7 +332,7 @@ class MplsMa(Entity):
             """
             Per node MPLS IO MA operational data
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -340,16 +358,19 @@ class MplsMa(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interfaces" : ("interfaces", MplsMa.Nodes.Node.Interfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", MplsMa.Nodes.Node.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.interfaces = MplsMa.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -379,8 +400,10 @@ class MplsMa(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", MplsMa.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", MplsMa.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -393,7 +416,7 @@ class MplsMa(Entity):
                     """
                     MPLS IO MA NODE Interface data 
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -442,19 +465,22 @@ class MplsMa(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.mtu = YLeaf(YType.uint32, "mtu")
-
-                        self.bkp_label_stack_depth = YLeaf(YType.uint8, "bkp-label-stack-depth")
-
-                        self.srte_label_stack_depth = YLeaf(YType.uint8, "srte-label-stack-depth")
-
-                        self.pri_label_stack_depth = YLeaf(YType.uint8, "pri-label-stack-depth")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('mtu', YLeaf(YType.uint32, 'mtu')),
+                            ('bkp_label_stack_depth', YLeaf(YType.uint8, 'bkp-label-stack-depth')),
+                            ('srte_label_stack_depth', YLeaf(YType.uint8, 'srte-label-stack-depth')),
+                            ('pri_label_stack_depth', YLeaf(YType.uint8, 'pri-label-stack-depth')),
+                        ])
+                        self.interface_name = None
+                        self.mtu = None
+                        self.bkp_label_stack_depth = None
+                        self.srte_label_stack_depth = None
+                        self.pri_label_stack_depth = None
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)

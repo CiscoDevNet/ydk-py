@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -83,20 +85,23 @@ class Grpc(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-ems-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"service-layer" : ("service_layer", Grpc.ServiceLayer), "tls" : ("tls", Grpc.Tls)}
-        self._child_list_classes = {}
-
-        self.port = YLeaf(YType.uint32, "port")
-
-        self.vrf = YLeaf(YType.str, "vrf")
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.max_request_per_user = YLeaf(YType.uint32, "max-request-per-user")
-
-        self.address_family = YLeaf(YType.str, "address-family")
-
-        self.max_request_total = YLeaf(YType.uint32, "max-request-total")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("service-layer", ("service_layer", Grpc.ServiceLayer)), ("tls", ("tls", Grpc.Tls))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('port', YLeaf(YType.uint32, 'port')),
+            ('vrf', YLeaf(YType.str, 'vrf')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('max_request_per_user', YLeaf(YType.uint32, 'max-request-per-user')),
+            ('address_family', YLeaf(YType.str, 'address-family')),
+            ('max_request_total', YLeaf(YType.uint32, 'max-request-total')),
+        ])
+        self.port = None
+        self.vrf = None
+        self.enable = None
+        self.max_request_per_user = None
+        self.address_family = None
+        self.max_request_total = None
 
         self.service_layer = Grpc.ServiceLayer()
         self.service_layer.parent = self
@@ -136,10 +141,13 @@ class Grpc(Entity):
             self.yang_parent_name = "grpc"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.enable = YLeaf(YType.empty, "enable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.enable = None
             self._segment_path = lambda: "service-layer"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self._segment_path()
 
@@ -175,12 +183,15 @@ class Grpc(Entity):
             self.yang_parent_name = "grpc"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.trustpoint = YLeaf(YType.str, "trustpoint")
-
-            self.enable = YLeaf(YType.empty, "enable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('trustpoint', YLeaf(YType.str, 'trustpoint')),
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.trustpoint = None
+            self.enable = None
             self._segment_path = lambda: "tls"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self._segment_path()
 

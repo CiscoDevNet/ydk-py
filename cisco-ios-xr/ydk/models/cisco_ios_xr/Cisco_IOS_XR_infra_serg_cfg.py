@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class SergAddrFamily(Enum):
     """
-    SergAddrFamily
+    SergAddrFamily (Enum Class)
 
     Serg addr family
 
@@ -40,7 +42,7 @@ class SergAddrFamily(Enum):
 
 class SessionRedundancyGroupRole(Enum):
     """
-    SessionRedundancyGroupRole
+    SessionRedundancyGroupRole (Enum Class)
 
     Session redundancy group role
 
@@ -120,18 +122,21 @@ class SessionRedundancy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-serg-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"groups" : ("groups", SessionRedundancy.Groups), "revertive-timer" : ("revertive_timer", SessionRedundancy.RevertiveTimer)}
-        self._child_list_classes = {}
-
-        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.source_interface = YLeaf(YType.str, "source-interface")
-
-        self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
-
-        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("groups", ("groups", SessionRedundancy.Groups)), ("revertive-timer", ("revertive_timer", SessionRedundancy.RevertiveTimer))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('redundancy_disable', YLeaf(YType.empty, 'redundancy-disable')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
+            ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
+        ])
+        self.redundancy_disable = None
+        self.enable = None
+        self.source_interface = None
+        self.preferred_role = None
+        self.hold_timer = None
 
         self.groups = SessionRedundancy.Groups()
         self.groups.parent = self
@@ -171,8 +176,10 @@ class SessionRedundancy(Entity):
             self.yang_parent_name = "session-redundancy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"group" : ("group", SessionRedundancy.Groups.Group)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("group", ("group", SessionRedundancy.Groups.Group))])
+            self._leafs = OrderedDict()
 
             self.group = YList(self)
             self._segment_path = lambda: "groups"
@@ -186,7 +193,7 @@ class SessionRedundancy(Entity):
             """
             Redundancy Group configuration
             
-            .. attribute:: group_id  <key>
+            .. attribute:: group_id  (key)
             
             	Group ID
             	**type**\: int
@@ -266,26 +273,29 @@ class SessionRedundancy(Entity):
                 self.yang_parent_name = "groups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"peer" : ("peer", SessionRedundancy.Groups.Group.Peer), "revertive-timer" : ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer), "interface-list" : ("interface_list", SessionRedundancy.Groups.Group.InterfaceList)}
-                self._child_list_classes = {}
-
-                self.group_id = YLeaf(YType.uint32, "group-id")
-
-                self.core_tracking_object = YLeaf(YType.str, "core-tracking-object")
-
-                self.disable_tracking_object = YLeaf(YType.empty, "disable-tracking-object")
-
-                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
-
-                self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
-
-                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+                self.ylist_key_names = ['group_id']
+                self._child_container_classes = OrderedDict([("peer", ("peer", SessionRedundancy.Groups.Group.Peer)), ("revertive-timer", ("revertive_timer", SessionRedundancy.Groups.Group.RevertiveTimer)), ("interface-list", ("interface_list", SessionRedundancy.Groups.Group.InterfaceList))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('group_id', YLeaf(YType.uint32, 'group-id')),
+                    ('core_tracking_object', YLeaf(YType.str, 'core-tracking-object')),
+                    ('disable_tracking_object', YLeaf(YType.empty, 'disable-tracking-object')),
+                    ('redundancy_disable', YLeaf(YType.empty, 'redundancy-disable')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('access_tracking_object', YLeaf(YType.str, 'access-tracking-object')),
+                    ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
+                    ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
+                ])
+                self.group_id = None
+                self.core_tracking_object = None
+                self.disable_tracking_object = None
+                self.redundancy_disable = None
+                self.enable = None
+                self.description = None
+                self.access_tracking_object = None
+                self.preferred_role = None
+                self.hold_timer = None
 
                 self.peer = SessionRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
@@ -301,7 +311,7 @@ class SessionRedundancy(Entity):
                 self.interface_list.parent = self
                 self._children_name_map["interface_list"] = "interface-list"
                 self._children_yang_names.add("interface-list")
-                self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
+                self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/groups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -331,8 +341,10 @@ class SessionRedundancy(Entity):
                     self.yang_parent_name = "group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"ipaddress" : ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("ipaddress", ("ipaddress", SessionRedundancy.Groups.Group.Peer.Ipaddress))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
                     self.ipaddress.parent = self
@@ -377,12 +389,15 @@ class SessionRedundancy(Entity):
                         self.yang_parent_name = "peer"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                        self.prefix_string = YLeaf(YType.str, "prefix-string")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                            ('prefix_string', YLeaf(YType.str, 'prefix-string')),
+                        ])
+                        self.address_family = None
+                        self.prefix_string = None
                         self._segment_path = lambda: "ipaddress"
 
                     def __setattr__(self, name, value):
@@ -423,12 +438,15 @@ class SessionRedundancy(Entity):
                     self.yang_parent_name = "group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.max_value = YLeaf(YType.uint32, "max-value")
-
-                    self.value = YLeaf(YType.uint32, "value")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('max_value', YLeaf(YType.uint32, 'max-value')),
+                        ('value', YLeaf(YType.uint32, 'value')),
+                    ])
+                    self.max_value = None
+                    self.value = None
                     self._segment_path = lambda: "revertive-timer"
 
                 def __setattr__(self, name, value):
@@ -468,10 +486,13 @@ class SessionRedundancy(Entity):
                     self.yang_parent_name = "group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"interface-ranges" : ("interface_ranges", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges), "interfaces" : ("interfaces", SessionRedundancy.Groups.Group.InterfaceList.Interfaces)}
-                    self._child_list_classes = {}
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("interface-ranges", ("interface_ranges", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges)), ("interfaces", ("interfaces", SessionRedundancy.Groups.Group.InterfaceList.Interfaces))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.enable = None
 
                     self.interface_ranges = SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
                     self.interface_ranges.parent = self
@@ -511,8 +532,10 @@ class SessionRedundancy(Entity):
                         self.yang_parent_name = "interface-list"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface-range" : ("interface_range", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface-range", ("interface_range", SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange))])
+                        self._leafs = OrderedDict()
 
                         self.interface_range = YList(self)
                         self._segment_path = lambda: "interface-ranges"
@@ -525,21 +548,21 @@ class SessionRedundancy(Entity):
                         """
                         Interface for this Group
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface name
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9./\-]+
                         
-                        .. attribute:: sub_interface_range_start  <key>
+                        .. attribute:: sub_interface_range_start  (key)
                         
                         	Sub Interface Start Range
                         	**type**\: int
                         
                         	**range:** 0..2147483647
                         
-                        .. attribute:: sub_interface_range_end  <key>
+                        .. attribute:: sub_interface_range_end  (key)
                         
                         	Sub Interface End Range
                         	**type**\: int
@@ -574,19 +597,22 @@ class SessionRedundancy(Entity):
                             self.yang_parent_name = "interface-ranges"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.sub_interface_range_start = YLeaf(YType.uint32, "sub-interface-range-start")
-
-                            self.sub_interface_range_end = YLeaf(YType.uint32, "sub-interface-range-end")
-
-                            self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
-
-                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
-                            self._segment_path = lambda: "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']"
+                            self.ylist_key_names = ['interface_name','sub_interface_range_start','sub_interface_range_end']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('sub_interface_range_start', YLeaf(YType.uint32, 'sub-interface-range-start')),
+                                ('sub_interface_range_end', YLeaf(YType.uint32, 'sub-interface-range-end')),
+                                ('interface_id_range_start', YLeaf(YType.uint32, 'interface-id-range-start')),
+                                ('interface_id_range_end', YLeaf(YType.uint32, 'interface-id-range-end')),
+                            ])
+                            self.interface_name = None
+                            self.sub_interface_range_start = None
+                            self.sub_interface_range_end = None
+                            self.interface_id_range_start = None
+                            self.interface_id_range_end = None
+                            self._segment_path = lambda: "interface-range" + "[interface-name='" + str(self.interface_name) + "']" + "[sub-interface-range-start='" + str(self.sub_interface_range_start) + "']" + "[sub-interface-range-end='" + str(self.sub_interface_range_end) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
@@ -615,8 +641,10 @@ class SessionRedundancy(Entity):
                         self.yang_parent_name = "interface-list"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
+                        self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
@@ -629,7 +657,7 @@ class SessionRedundancy(Entity):
                         """
                         Interface for this Group
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Interface name
                         	**type**\: str
@@ -659,13 +687,16 @@ class SessionRedundancy(Entity):
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_id = YLeaf(YType.uint32, "interface-id")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                            ])
+                            self.interface_name = None
+                            self.interface_id = None
+                            self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
@@ -705,12 +736,15 @@ class SessionRedundancy(Entity):
             self.yang_parent_name = "session-redundancy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.max_value = YLeaf(YType.uint32, "max-value")
-
-            self.value = YLeaf(YType.uint32, "value")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('max_value', YLeaf(YType.uint32, 'max-value')),
+                ('value', YLeaf(YType.uint32, 'value')),
+            ])
+            self.max_value = None
+            self.value = None
             self._segment_path = lambda: "revertive-timer"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/%s" % self._segment_path()
 

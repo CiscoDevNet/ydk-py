@@ -29,6 +29,20 @@ module Cisco-IOS-XE-power {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -151,6 +165,11 @@ module Cisco-IOS-XE-power {
               "Apply poe-ha to the port";
 	        type empty;
           }
+	      leaf perpetual-poe-ha {
+            description 
+              "Apply perpetual-poe-ha to the port";
+	        type empty;
+          }
           leaf two-event {
             description 
               "Enable 2-event classification";
@@ -209,10 +228,32 @@ module Cisco-IOS-XE-power {
   }
 
   /////////////////////////////////////////////////////////
-  // native / interface TwentyFiveGigabitEthernet * power
+  // native / interface TwentyFiveGigE * power
   /////////////////////////////////////////////////////////
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-power-grouping;
   }
+ 
+  /////////////////////////////////////////////////////////
+  // native / interface Two GigabitEthernet * power
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-power-grouping;
+  }
+ 
+  /////////////////////////////////////////////////////////
+  // native / interface Forty GigabitEthernet * power
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-power-grouping;
+  }
+ 
+  /////////////////////////////////////////////////////////
+  // native / interface Hundred GigabitEthernet * power
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-power-grouping;
+  }
+
 
 } //module

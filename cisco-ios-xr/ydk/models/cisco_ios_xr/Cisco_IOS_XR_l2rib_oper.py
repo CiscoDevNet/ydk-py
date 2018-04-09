@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class L2ribAfi(Enum):
     """
-    L2ribAfi
+    L2ribAfi (Enum Class)
 
     L2rib afi
 
@@ -46,7 +48,7 @@ class L2ribAfi(Enum):
 
 class L2ribBagObj(Enum):
     """
-    L2ribBagObj
+    L2ribBagObj (Enum Class)
 
     L2RIB Object Types
 
@@ -121,7 +123,7 @@ class L2ribBagObj(Enum):
 
 class L2ribBagProducerId(Enum):
     """
-    L2ribBagProducerId
+    L2ribBagProducerId (Enum Class)
 
     L2RIB Producer Types
 
@@ -220,7 +222,7 @@ class L2ribBagProducerId(Enum):
 
 class L2ribBagProducerState(Enum):
     """
-    L2ribBagProducerState
+    L2ribBagProducerState (Enum Class)
 
     L2RIB Producer States
 
@@ -259,7 +261,7 @@ class L2ribBagProducerState(Enum):
 
 class L2ribMacRoute(Enum):
     """
-    L2ribMacRoute
+    L2ribMacRoute (Enum Class)
 
     L2rib mac route
 
@@ -292,7 +294,7 @@ class L2ribMacRoute(Enum):
 
 class L2ribNextHop(Enum):
     """
-    L2ribNextHop
+    L2ribNextHop (Enum Class)
 
     L2rib next hop
 
@@ -409,7 +411,7 @@ class L2Rib(Entity):
     """
 
     _prefix = 'l2rib-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-08-16'
 
     def __init__(self):
         super(L2Rib, self).__init__()
@@ -419,8 +421,10 @@ class L2Rib(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2rib-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"producers-details" : ("producers_details", L2Rib.ProducersDetails), "summary" : ("summary", L2Rib.Summary), "producers" : ("producers", L2Rib.Producers), "clients" : ("clients", L2Rib.Clients), "evis-xr" : ("evis_xr", L2Rib.EvisXr), "clients-details" : ("clients_details", L2Rib.ClientsDetails), "evi-child-tables" : ("evi_child_tables", L2Rib.EviChildTables), "evis" : ("evis", L2Rib.Evis)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("producers-details", ("producers_details", L2Rib.ProducersDetails)), ("summary", ("summary", L2Rib.Summary)), ("producers", ("producers", L2Rib.Producers)), ("clients", ("clients", L2Rib.Clients)), ("evis-xr", ("evis_xr", L2Rib.EvisXr)), ("clients-details", ("clients_details", L2Rib.ClientsDetails)), ("evi-child-tables", ("evi_child_tables", L2Rib.EviChildTables)), ("evis", ("evis", L2Rib.Evis))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.producers_details = L2Rib.ProducersDetails()
         self.producers_details.parent = self
@@ -478,7 +482,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.ProducersDetails, self).__init__()
@@ -487,8 +491,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"producers-detail" : ("producers_detail", L2Rib.ProducersDetails.ProducersDetail)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("producers-detail", ("producers_detail", L2Rib.ProducersDetails.ProducersDetail))])
+            self._leafs = OrderedDict()
 
             self.producers_detail = YList(self)
             self._segment_path = lambda: "producers-details"
@@ -507,14 +513,14 @@ class L2Rib(Entity):
             	Object ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: product_id
             
             	Product ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: producer
             
@@ -538,7 +544,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.ProducersDetails.ProducersDetail, self).__init__()
@@ -547,14 +553,17 @@ class L2Rib(Entity):
                 self.yang_parent_name = "producers-details"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"producer" : ("producer", L2Rib.ProducersDetails.ProducersDetail.Producer), "statistics" : ("statistics", L2Rib.ProducersDetails.ProducersDetail.Statistics)}
-                self._child_list_classes = {}
-
-                self.object_id = YLeaf(YType.int32, "object-id")
-
-                self.product_id = YLeaf(YType.int32, "product-id")
-
-                self.last_update_timestamp = YLeaf(YType.uint64, "last-update-timestamp")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("producer", ("producer", L2Rib.ProducersDetails.ProducersDetail.Producer)), ("statistics", ("statistics", L2Rib.ProducersDetails.ProducersDetail.Statistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('object_id', YLeaf(YType.uint32, 'object-id')),
+                    ('product_id', YLeaf(YType.uint32, 'product-id')),
+                    ('last_update_timestamp', YLeaf(YType.uint64, 'last-update-timestamp')),
+                ])
+                self.object_id = None
+                self.product_id = None
+                self.last_update_timestamp = None
 
                 self.producer = L2Rib.ProducersDetails.ProducersDetail.Producer()
                 self.producer.parent = self
@@ -622,7 +631,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.ProducersDetails.ProducersDetail.Producer, self).__init__()
@@ -631,22 +640,25 @@ class L2Rib(Entity):
                     self.yang_parent_name = "producers-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.client_id = YLeaf(YType.uint32, "client-id")
-
-                    self.object_type = YLeaf(YType.enumeration, "object-type")
-
-                    self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                    self.producer_name = YLeaf(YType.str, "producer-name")
-
-                    self.admin_distance = YLeaf(YType.uint32, "admin-distance")
-
-                    self.purge_time = YLeaf(YType.uint32, "purge-time")
-
-                    self.state = YLeaf(YType.enumeration, "state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('client_id', YLeaf(YType.uint32, 'client-id')),
+                        ('object_type', YLeaf(YType.enumeration, 'object-type')),
+                        ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                        ('producer_name', YLeaf(YType.str, 'producer-name')),
+                        ('admin_distance', YLeaf(YType.uint32, 'admin-distance')),
+                        ('purge_time', YLeaf(YType.uint32, 'purge-time')),
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                    ])
+                    self.client_id = None
+                    self.object_type = None
+                    self.producer_id = None
+                    self.producer_name = None
+                    self.admin_distance = None
+                    self.purge_time = None
+                    self.state = None
                     self._segment_path = lambda: "producer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/%s" % self._segment_path()
 
@@ -661,7 +673,7 @@ class L2Rib(Entity):
                 .. attribute:: statistics
                 
                 	Statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics>`
+                	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_>`
                 
                 .. attribute:: producer_id
                 
@@ -678,7 +690,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.ProducersDetails.ProducersDetail.Statistics, self).__init__()
@@ -687,14 +699,17 @@ class L2Rib(Entity):
                     self.yang_parent_name = "producers-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"statistics" : ("statistics", L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                        ('producer_name', YLeaf(YType.str, 'producer-name')),
+                    ])
+                    self.producer_id = None
+                    self.producer_name = None
 
-                    self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                    self.producer_name = YLeaf(YType.str, "producer-name")
-
-                    self.statistics = L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics()
+                    self.statistics = L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
@@ -705,7 +720,7 @@ class L2Rib(Entity):
                     self._perform_setattr(L2Rib.ProducersDetails.ProducersDetail.Statistics, ['producer_id', 'producer_name'], name, value)
 
 
-                class Statistics(Entity):
+                class Statistics_(Entity):
                     """
                     Statistics
                     
@@ -733,37 +748,40 @@ class L2Rib(Entity):
                     .. attribute:: extended_counter
                     
                     	Extended Counters
-                    	**type**\: list of  		 :py:class:`ExtendedCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics.ExtendedCounter>`
+                    	**type**\: list of  		 :py:class:`ExtendedCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter>`
                     
                     
 
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
-                        super(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics, self).__init__()
+                        super(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"extended-counter" : ("extended_counter", L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics.ExtendedCounter)}
-
-                        self.memory_size = YLeaf(YType.uint32, "memory-size")
-
-                        self.object_count = YLeaf(YType.uint32, "object-count")
-
-                        self.endof_interval_ts = YLeaf(YType.uint64, "endof-interval-ts")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("extended-counter", ("extended_counter", L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter))])
+                        self._leafs = OrderedDict([
+                            ('memory_size', YLeaf(YType.uint32, 'memory-size')),
+                            ('object_count', YLeaf(YType.uint32, 'object-count')),
+                            ('endof_interval_ts', YLeaf(YType.uint64, 'endof-interval-ts')),
+                        ])
+                        self.memory_size = None
+                        self.object_count = None
+                        self.endof_interval_ts = None
 
                         self.extended_counter = YList(self)
                         self._segment_path = lambda: "statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/statistics/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics, ['memory_size', 'object_count', 'endof_interval_ts'], name, value)
+                        self._perform_setattr(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_, ['memory_size', 'object_count', 'endof_interval_ts'], name, value)
 
 
                     class ExtendedCounter(Entity):
@@ -815,34 +833,37 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
-                            super(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics.ExtendedCounter, self).__init__()
+                            super(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter, self).__init__()
 
                             self.yang_name = "extended-counter"
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter_type = YLeaf(YType.uint8, "counter-type")
-
-                            self.counter_name = YLeaf(YType.str, "counter-name")
-
-                            self.l2rb_first_event_ts = YLeaf(YType.uint64, "l2rb-first-event-ts")
-
-                            self.l2rb_last_event_ts = YLeaf(YType.uint64, "l2rb-last-event-ts")
-
-                            self.l2rb_interval_event_count = YLeaf(YType.uint32, "l2rb-interval-event-count")
-
-                            self.l2rb_total_event_count = YLeaf(YType.uint32, "l2rb-total-event-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('counter_type', YLeaf(YType.uint8, 'counter-type')),
+                                ('counter_name', YLeaf(YType.str, 'counter-name')),
+                                ('l2rb_first_event_ts', YLeaf(YType.uint64, 'l2rb-first-event-ts')),
+                                ('l2rb_last_event_ts', YLeaf(YType.uint64, 'l2rb-last-event-ts')),
+                                ('l2rb_interval_event_count', YLeaf(YType.uint32, 'l2rb-interval-event-count')),
+                                ('l2rb_total_event_count', YLeaf(YType.uint32, 'l2rb-total-event-count')),
+                            ])
+                            self.counter_type = None
+                            self.counter_name = None
+                            self.l2rb_first_event_ts = None
+                            self.l2rb_last_event_ts = None
+                            self.l2rb_interval_event_count = None
+                            self.l2rb_total_event_count = None
                             self._segment_path = lambda: "extended-counter"
                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/statistics/statistics/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
+                            self._perform_setattr(L2Rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
     class Summary(Entity):
@@ -873,7 +894,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.Summary, self).__init__()
@@ -882,12 +903,15 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"table-summary" : ("table_summary", L2Rib.Summary.TableSummary)}
-
-            self.converged_tables_count = YLeaf(YType.uint32, "converged-tables-count")
-
-            self.total_memory = YLeaf(YType.uint32, "total-memory")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("table-summary", ("table_summary", L2Rib.Summary.TableSummary))])
+            self._leafs = OrderedDict([
+                ('converged_tables_count', YLeaf(YType.uint32, 'converged-tables-count')),
+                ('total_memory', YLeaf(YType.uint32, 'total-memory')),
+            ])
+            self.converged_tables_count = None
+            self.total_memory = None
 
             self.table_summary = YList(self)
             self._segment_path = lambda: "summary"
@@ -930,7 +954,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.Summary.TableSummary, self).__init__()
@@ -939,14 +963,17 @@ class L2Rib(Entity):
                 self.yang_parent_name = "summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"producer-stat" : ("producer_stat", L2Rib.Summary.TableSummary.ProducerStat)}
-
-                self.object_type = YLeaf(YType.enumeration, "object-type")
-
-                self.object_count = YLeaf(YType.uint32, "object-count")
-
-                self.table_memory = YLeaf(YType.uint32, "table-memory")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("producer-stat", ("producer_stat", L2Rib.Summary.TableSummary.ProducerStat))])
+                self._leafs = OrderedDict([
+                    ('object_type', YLeaf(YType.enumeration, 'object-type')),
+                    ('object_count', YLeaf(YType.uint32, 'object-count')),
+                    ('table_memory', YLeaf(YType.uint32, 'table-memory')),
+                ])
+                self.object_type = None
+                self.object_count = None
+                self.table_memory = None
 
                 self.producer_stat = YList(self)
                 self._segment_path = lambda: "table-summary"
@@ -980,7 +1007,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.Summary.TableSummary.ProducerStat, self).__init__()
@@ -989,12 +1016,15 @@ class L2Rib(Entity):
                     self.yang_parent_name = "table-summary"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"statistics" : ("statistics", L2Rib.Summary.TableSummary.ProducerStat.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                    self.producer_name = YLeaf(YType.str, "producer-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", L2Rib.Summary.TableSummary.ProducerStat.Statistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                        ('producer_name', YLeaf(YType.str, 'producer-name')),
+                    ])
+                    self.producer_id = None
+                    self.producer_name = None
 
                     self.statistics = L2Rib.Summary.TableSummary.ProducerStat.Statistics()
                     self.statistics.parent = self
@@ -1042,7 +1072,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.Summary.TableSummary.ProducerStat.Statistics, self).__init__()
@@ -1051,14 +1081,17 @@ class L2Rib(Entity):
                         self.yang_parent_name = "producer-stat"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"extended-counter" : ("extended_counter", L2Rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter)}
-
-                        self.memory_size = YLeaf(YType.uint32, "memory-size")
-
-                        self.object_count = YLeaf(YType.uint32, "object-count")
-
-                        self.endof_interval_ts = YLeaf(YType.uint64, "endof-interval-ts")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("extended-counter", ("extended_counter", L2Rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter))])
+                        self._leafs = OrderedDict([
+                            ('memory_size', YLeaf(YType.uint32, 'memory-size')),
+                            ('object_count', YLeaf(YType.uint32, 'object-count')),
+                            ('endof_interval_ts', YLeaf(YType.uint64, 'endof-interval-ts')),
+                        ])
+                        self.memory_size = None
+                        self.object_count = None
+                        self.endof_interval_ts = None
 
                         self.extended_counter = YList(self)
                         self._segment_path = lambda: "statistics"
@@ -1117,7 +1150,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter, self).__init__()
@@ -1126,20 +1159,23 @@ class L2Rib(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter_type = YLeaf(YType.uint8, "counter-type")
-
-                            self.counter_name = YLeaf(YType.str, "counter-name")
-
-                            self.l2rb_first_event_ts = YLeaf(YType.uint64, "l2rb-first-event-ts")
-
-                            self.l2rb_last_event_ts = YLeaf(YType.uint64, "l2rb-last-event-ts")
-
-                            self.l2rb_interval_event_count = YLeaf(YType.uint32, "l2rb-interval-event-count")
-
-                            self.l2rb_total_event_count = YLeaf(YType.uint32, "l2rb-total-event-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('counter_type', YLeaf(YType.uint8, 'counter-type')),
+                                ('counter_name', YLeaf(YType.str, 'counter-name')),
+                                ('l2rb_first_event_ts', YLeaf(YType.uint64, 'l2rb-first-event-ts')),
+                                ('l2rb_last_event_ts', YLeaf(YType.uint64, 'l2rb-last-event-ts')),
+                                ('l2rb_interval_event_count', YLeaf(YType.uint32, 'l2rb-interval-event-count')),
+                                ('l2rb_total_event_count', YLeaf(YType.uint32, 'l2rb-total-event-count')),
+                            ])
+                            self.counter_type = None
+                            self.counter_name = None
+                            self.l2rb_first_event_ts = None
+                            self.l2rb_last_event_ts = None
+                            self.l2rb_interval_event_count = None
+                            self.l2rb_total_event_count = None
                             self._segment_path = lambda: "extended-counter"
                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/summary/table-summary/producer-stat/statistics/%s" % self._segment_path()
 
@@ -1161,7 +1197,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.Producers, self).__init__()
@@ -1170,8 +1206,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"producer" : ("producer", L2Rib.Producers.Producer)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("producer", ("producer", L2Rib.Producers.Producer))])
+            self._leafs = OrderedDict()
 
             self.producer = YList(self)
             self._segment_path = lambda: "producers"
@@ -1190,14 +1228,14 @@ class L2Rib(Entity):
             	Object ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: product_id
             
             	Product ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: client_id
             
@@ -1245,7 +1283,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.Producers.Producer, self).__init__()
@@ -1254,26 +1292,29 @@ class L2Rib(Entity):
                 self.yang_parent_name = "producers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.object_id = YLeaf(YType.int32, "object-id")
-
-                self.product_id = YLeaf(YType.int32, "product-id")
-
-                self.client_id = YLeaf(YType.uint32, "client-id")
-
-                self.object_type = YLeaf(YType.enumeration, "object-type")
-
-                self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                self.producer_name = YLeaf(YType.str, "producer-name")
-
-                self.admin_distance = YLeaf(YType.uint32, "admin-distance")
-
-                self.purge_time = YLeaf(YType.uint32, "purge-time")
-
-                self.state = YLeaf(YType.enumeration, "state")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('object_id', YLeaf(YType.uint32, 'object-id')),
+                    ('product_id', YLeaf(YType.uint32, 'product-id')),
+                    ('client_id', YLeaf(YType.uint32, 'client-id')),
+                    ('object_type', YLeaf(YType.enumeration, 'object-type')),
+                    ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                    ('producer_name', YLeaf(YType.str, 'producer-name')),
+                    ('admin_distance', YLeaf(YType.uint32, 'admin-distance')),
+                    ('purge_time', YLeaf(YType.uint32, 'purge-time')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                ])
+                self.object_id = None
+                self.product_id = None
+                self.client_id = None
+                self.object_type = None
+                self.producer_id = None
+                self.producer_name = None
+                self.admin_distance = None
+                self.purge_time = None
+                self.state = None
                 self._segment_path = lambda: "producer"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/producers/%s" % self._segment_path()
 
@@ -1295,7 +1336,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.Clients, self).__init__()
@@ -1304,8 +1345,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"client" : ("client", L2Rib.Clients.Client)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("client", ("client", L2Rib.Clients.Client))])
+            self._leafs = OrderedDict()
 
             self.client = YList(self)
             self._segment_path = lambda: "clients"
@@ -1319,12 +1362,12 @@ class L2Rib(Entity):
             """
             L2RIB clients
             
-            .. attribute:: client_id  <key>
+            .. attribute:: client_id  (key)
             
             	Client ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: client_id_xr
             
@@ -1362,7 +1405,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.Clients.Client, self).__init__()
@@ -1371,21 +1414,24 @@ class L2Rib(Entity):
                 self.yang_parent_name = "clients"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.client_id = YLeaf(YType.int32, "client-id")
-
-                self.client_id_xr = YLeaf(YType.uint32, "client-id-xr")
-
-                self.process_id = YLeaf(YType.uint32, "process-id")
-
-                self.node_id = YLeaf(YType.str, "node-id")
-
-                self.proc_name = YLeaf(YType.str, "proc-name")
-
-                self.proc_suffix = YLeaf(YType.str, "proc-suffix")
-                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+                self.ylist_key_names = ['client_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('client_id', YLeaf(YType.uint32, 'client-id')),
+                    ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
+                    ('process_id', YLeaf(YType.uint32, 'process-id')),
+                    ('node_id', YLeaf(YType.str, 'node-id')),
+                    ('proc_name', YLeaf(YType.str, 'proc-name')),
+                    ('proc_suffix', YLeaf(YType.str, 'proc-suffix')),
+                ])
+                self.client_id = None
+                self.client_id_xr = None
+                self.process_id = None
+                self.node_id = None
+                self.proc_name = None
+                self.proc_suffix = None
+                self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/clients/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1406,7 +1452,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.EvisXr, self).__init__()
@@ -1415,8 +1461,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"evi" : ("evi", L2Rib.EvisXr.Evi)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("evi", ("evi", L2Rib.EvisXr.Evi))])
+            self._leafs = OrderedDict()
 
             self.evi = YList(self)
             self._segment_path = lambda: "evis-xr"
@@ -1430,12 +1478,12 @@ class L2Rib(Entity):
             """
             L2RIB EVPN EVI Entry
             
-            .. attribute:: evi  <key>
+            .. attribute:: evi  (key)
             
             	EVI ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: topology
             
@@ -1494,7 +1542,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.EvisXr.Evi, self).__init__()
@@ -1503,30 +1551,33 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evis-xr"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"topology" : ("topology", L2Rib.EvisXr.Evi.Topology)}
-                self._child_list_classes = {}
-
-                self.evi = YLeaf(YType.int32, "evi")
-
-                self.l2r_vni = YLeaf(YType.uint32, "l2r-vni")
-
-                self.l2r_encap_type = YLeaf(YType.uint16, "l2r-encap-type")
-
-                self.l2r_nve_iod = YLeaf(YType.uint32, "l2r-nve-iod")
-
-                self.l2r_nve_ifhandle = YLeaf(YType.uint32, "l2r-nve-ifhandle")
-
-                self.vtep_ip = YLeaf(YType.str, "vtep-ip")
-
-                self.l2r_topo_txid = YLeaf(YType.uint32, "l2r-topo-txid")
-
-                self.l2r_topo_flags = YLeaf(YType.uint32, "l2r-topo-flags")
+                self.ylist_key_names = ['evi']
+                self._child_container_classes = OrderedDict([("topology", ("topology", L2Rib.EvisXr.Evi.Topology))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('evi', YLeaf(YType.uint32, 'evi')),
+                    ('l2r_vni', YLeaf(YType.uint32, 'l2r-vni')),
+                    ('l2r_encap_type', YLeaf(YType.uint16, 'l2r-encap-type')),
+                    ('l2r_nve_iod', YLeaf(YType.uint32, 'l2r-nve-iod')),
+                    ('l2r_nve_ifhandle', YLeaf(YType.uint32, 'l2r-nve-ifhandle')),
+                    ('vtep_ip', YLeaf(YType.str, 'vtep-ip')),
+                    ('l2r_topo_txid', YLeaf(YType.uint32, 'l2r-topo-txid')),
+                    ('l2r_topo_flags', YLeaf(YType.uint32, 'l2r-topo-flags')),
+                ])
+                self.evi = None
+                self.l2r_vni = None
+                self.l2r_encap_type = None
+                self.l2r_nve_iod = None
+                self.l2r_nve_ifhandle = None
+                self.vtep_ip = None
+                self.l2r_topo_txid = None
+                self.l2r_topo_flags = None
 
                 self.topology = L2Rib.EvisXr.Evi.Topology()
                 self.topology.parent = self
                 self._children_name_map["topology"] = "topology"
                 self._children_yang_names.add("topology")
-                self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                self._segment_path = lambda: "evi" + "[evi='" + str(self.evi) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evis-xr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1561,7 +1612,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.EvisXr.Evi.Topology, self).__init__()
@@ -1570,14 +1621,17 @@ class L2Rib(Entity):
                     self.yang_parent_name = "evi"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                    self.topology_name = YLeaf(YType.str, "topology-name")
-
-                    self.topology_type = YLeaf(YType.uint32, "topology-type")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                        ('topology_name', YLeaf(YType.str, 'topology-name')),
+                        ('topology_type', YLeaf(YType.uint32, 'topology-type')),
+                    ])
+                    self.topology_id = None
+                    self.topology_name = None
+                    self.topology_type = None
                     self._segment_path = lambda: "topology"
 
                 def __setattr__(self, name, value):
@@ -1598,7 +1652,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.ClientsDetails, self).__init__()
@@ -1607,8 +1661,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"clients-detail" : ("clients_detail", L2Rib.ClientsDetails.ClientsDetail)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("clients-detail", ("clients_detail", L2Rib.ClientsDetails.ClientsDetail))])
+            self._leafs = OrderedDict()
 
             self.clients_detail = YList(self)
             self._segment_path = lambda: "clients-details"
@@ -1622,12 +1678,12 @@ class L2Rib(Entity):
             """
             L2RIB clients detail information
             
-            .. attribute:: client_id  <key>
+            .. attribute:: client_id  (key)
             
             	Client ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: client
             
@@ -1663,7 +1719,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.ClientsDetails.ClientsDetail, self).__init__()
@@ -1672,14 +1728,17 @@ class L2Rib(Entity):
                 self.yang_parent_name = "clients-details"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"client" : ("client", L2Rib.ClientsDetails.ClientsDetail.Client), "registration-table-statistics" : ("registration_table_statistics", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics)}
-                self._child_list_classes = {"producer-array" : ("producer_array", L2Rib.ClientsDetails.ClientsDetail.ProducerArray)}
-
-                self.client_id = YLeaf(YType.int32, "client-id")
-
-                self.producer_count = YLeaf(YType.uint8, "producer-count")
-
-                self.last_update_timestamp = YLeaf(YType.uint64, "last-update-timestamp")
+                self.ylist_key_names = ['client_id']
+                self._child_container_classes = OrderedDict([("client", ("client", L2Rib.ClientsDetails.ClientsDetail.Client)), ("registration-table-statistics", ("registration_table_statistics", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics))])
+                self._child_list_classes = OrderedDict([("producer-array", ("producer_array", L2Rib.ClientsDetails.ClientsDetail.ProducerArray))])
+                self._leafs = OrderedDict([
+                    ('client_id', YLeaf(YType.uint32, 'client-id')),
+                    ('producer_count', YLeaf(YType.uint8, 'producer-count')),
+                    ('last_update_timestamp', YLeaf(YType.uint64, 'last-update-timestamp')),
+                ])
+                self.client_id = None
+                self.producer_count = None
+                self.last_update_timestamp = None
 
                 self.client = L2Rib.ClientsDetails.ClientsDetail.Client()
                 self.client.parent = self
@@ -1692,7 +1751,7 @@ class L2Rib(Entity):
                 self._children_yang_names.add("registration-table-statistics")
 
                 self.producer_array = YList(self)
-                self._segment_path = lambda: "clients-detail" + "[client-id='" + self.client_id.get() + "']"
+                self._segment_path = lambda: "clients-detail" + "[client-id='" + str(self.client_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1739,7 +1798,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.ClientsDetails.ClientsDetail.Client, self).__init__()
@@ -1748,18 +1807,21 @@ class L2Rib(Entity):
                     self.yang_parent_name = "clients-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.client_id_xr = YLeaf(YType.uint32, "client-id-xr")
-
-                    self.process_id = YLeaf(YType.uint32, "process-id")
-
-                    self.node_id = YLeaf(YType.str, "node-id")
-
-                    self.proc_name = YLeaf(YType.str, "proc-name")
-
-                    self.proc_suffix = YLeaf(YType.str, "proc-suffix")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
+                        ('process_id', YLeaf(YType.uint32, 'process-id')),
+                        ('node_id', YLeaf(YType.str, 'node-id')),
+                        ('proc_name', YLeaf(YType.str, 'proc-name')),
+                        ('proc_suffix', YLeaf(YType.str, 'proc-suffix')),
+                    ])
+                    self.client_id_xr = None
+                    self.process_id = None
+                    self.node_id = None
+                    self.proc_name = None
+                    self.proc_suffix = None
                     self._segment_path = lambda: "client"
 
                 def __setattr__(self, name, value):
@@ -1790,7 +1852,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics, self).__init__()
@@ -1799,12 +1861,15 @@ class L2Rib(Entity):
                     self.yang_parent_name = "clients-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"statistics" : ("statistics", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics)}
-                    self._child_list_classes = {}
-
-                    self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                    self.producer_name = YLeaf(YType.str, "producer-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("statistics", ("statistics", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                        ('producer_name', YLeaf(YType.str, 'producer-name')),
+                    ])
+                    self.producer_id = None
+                    self.producer_name = None
 
                     self.statistics = L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics()
                     self.statistics.parent = self
@@ -1851,7 +1916,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics, self).__init__()
@@ -1860,14 +1925,17 @@ class L2Rib(Entity):
                         self.yang_parent_name = "registration-table-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"extended-counter" : ("extended_counter", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter)}
-
-                        self.memory_size = YLeaf(YType.uint32, "memory-size")
-
-                        self.object_count = YLeaf(YType.uint32, "object-count")
-
-                        self.endof_interval_ts = YLeaf(YType.uint64, "endof-interval-ts")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("extended-counter", ("extended_counter", L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter))])
+                        self._leafs = OrderedDict([
+                            ('memory_size', YLeaf(YType.uint32, 'memory-size')),
+                            ('object_count', YLeaf(YType.uint32, 'object-count')),
+                            ('endof_interval_ts', YLeaf(YType.uint64, 'endof-interval-ts')),
+                        ])
+                        self.memory_size = None
+                        self.object_count = None
+                        self.endof_interval_ts = None
 
                         self.extended_counter = YList(self)
                         self._segment_path = lambda: "statistics"
@@ -1925,7 +1993,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter, self).__init__()
@@ -1934,20 +2002,23 @@ class L2Rib(Entity):
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter_type = YLeaf(YType.uint8, "counter-type")
-
-                            self.counter_name = YLeaf(YType.str, "counter-name")
-
-                            self.l2rb_first_event_ts = YLeaf(YType.uint64, "l2rb-first-event-ts")
-
-                            self.l2rb_last_event_ts = YLeaf(YType.uint64, "l2rb-last-event-ts")
-
-                            self.l2rb_interval_event_count = YLeaf(YType.uint32, "l2rb-interval-event-count")
-
-                            self.l2rb_total_event_count = YLeaf(YType.uint32, "l2rb-total-event-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('counter_type', YLeaf(YType.uint8, 'counter-type')),
+                                ('counter_name', YLeaf(YType.str, 'counter-name')),
+                                ('l2rb_first_event_ts', YLeaf(YType.uint64, 'l2rb-first-event-ts')),
+                                ('l2rb_last_event_ts', YLeaf(YType.uint64, 'l2rb-last-event-ts')),
+                                ('l2rb_interval_event_count', YLeaf(YType.uint32, 'l2rb-interval-event-count')),
+                                ('l2rb_total_event_count', YLeaf(YType.uint32, 'l2rb-total-event-count')),
+                            ])
+                            self.counter_type = None
+                            self.counter_name = None
+                            self.l2rb_first_event_ts = None
+                            self.l2rb_last_event_ts = None
+                            self.l2rb_interval_event_count = None
+                            self.l2rb_total_event_count = None
                             self._segment_path = lambda: "extended-counter"
 
                         def __setattr__(self, name, value):
@@ -1992,7 +2063,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.ClientsDetails.ClientsDetail.ProducerArray, self).__init__()
@@ -2001,18 +2072,21 @@ class L2Rib(Entity):
                     self.yang_parent_name = "clients-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object_type = YLeaf(YType.enumeration, "object-type")
-
-                    self.producer_id = YLeaf(YType.enumeration, "producer-id")
-
-                    self.producer_name = YLeaf(YType.str, "producer-name")
-
-                    self.admin_distance = YLeaf(YType.uint32, "admin-distance")
-
-                    self.purge_time = YLeaf(YType.uint32, "purge-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object_type', YLeaf(YType.enumeration, 'object-type')),
+                        ('producer_id', YLeaf(YType.enumeration, 'producer-id')),
+                        ('producer_name', YLeaf(YType.str, 'producer-name')),
+                        ('admin_distance', YLeaf(YType.uint32, 'admin-distance')),
+                        ('purge_time', YLeaf(YType.uint32, 'purge-time')),
+                    ])
+                    self.object_type = None
+                    self.producer_id = None
+                    self.producer_name = None
+                    self.admin_distance = None
+                    self.purge_time = None
                     self._segment_path = lambda: "producer-array"
 
                 def __setattr__(self, name, value):
@@ -2048,7 +2122,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.EviChildTables, self).__init__()
@@ -2057,8 +2131,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"macip-details" : ("macip_details", L2Rib.EviChildTables.MacipDetails), "mac-ips" : ("mac_ips", L2Rib.EviChildTables.MacIps), "macs" : ("macs", L2Rib.EviChildTables.Macs), "mac-details" : ("mac_details", L2Rib.EviChildTables.MacDetails)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("macip-details", ("macip_details", L2Rib.EviChildTables.MacipDetails)), ("mac-ips", ("mac_ips", L2Rib.EviChildTables.MacIps)), ("macs", ("macs", L2Rib.EviChildTables.Macs)), ("mac-details", ("mac_details", L2Rib.EviChildTables.MacDetails))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.macip_details = L2Rib.EviChildTables.MacipDetails()
             self.macip_details.parent = self
@@ -2097,7 +2173,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.EviChildTables.MacipDetails, self).__init__()
@@ -2106,8 +2182,10 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evi-child-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"macip-detail" : ("macip_detail", L2Rib.EviChildTables.MacipDetails.MacipDetail)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("macip-detail", ("macip_detail", L2Rib.EviChildTables.MacipDetails.MacipDetail))])
+                self._leafs = OrderedDict()
 
                 self.macip_detail = YList(self)
                 self._segment_path = lambda: "macip-details"
@@ -2126,14 +2204,14 @@ class L2Rib(Entity):
                 	EVPN ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_addr
                 
@@ -2154,14 +2232,14 @@ class L2Rib(Entity):
                 	Admin distance
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: prod_id
                 
                 	Producer ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_ip_route
                 
@@ -2211,7 +2289,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.EviChildTables.MacipDetails.MacipDetail, self).__init__()
@@ -2220,28 +2298,31 @@ class L2Rib(Entity):
                     self.yang_parent_name = "macip-details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"mac-ip-route" : ("mac_ip_route", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute), "rt-tlv" : ("rt_tlv", L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv), "nh-tlv" : ("nh_tlv", L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv)}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.tag_id = YLeaf(YType.int32, "tag-id")
-
-                    self.mac_addr = YLeaf(YType.str, "mac-addr")
-
-                    self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-                    self.admin_dist = YLeaf(YType.int32, "admin-dist")
-
-                    self.prod_id = YLeaf(YType.int32, "prod-id")
-
-                    self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                    self.flags = YLeaf(YType.uint32, "flags")
-
-                    self.soo = YLeaf(YType.uint32, "soo")
-
-                    self.last_update_timestamp = YLeaf(YType.uint64, "last-update-timestamp")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("mac-ip-route", ("mac_ip_route", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute)), ("rt-tlv", ("rt_tlv", L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv)), ("nh-tlv", ("nh_tlv", L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.uint32, 'evi')),
+                        ('tag_id', YLeaf(YType.uint32, 'tag-id')),
+                        ('mac_addr', YLeaf(YType.str, 'mac-addr')),
+                        ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                        ('admin_dist', YLeaf(YType.uint32, 'admin-dist')),
+                        ('prod_id', YLeaf(YType.uint32, 'prod-id')),
+                        ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                        ('flags', YLeaf(YType.uint32, 'flags')),
+                        ('soo', YLeaf(YType.uint32, 'soo')),
+                        ('last_update_timestamp', YLeaf(YType.uint64, 'last-update-timestamp')),
+                    ])
+                    self.evi = None
+                    self.tag_id = None
+                    self.mac_addr = None
+                    self.ip_addr = None
+                    self.admin_dist = None
+                    self.prod_id = None
+                    self.sequence_number = None
+                    self.flags = None
+                    self.soo = None
+                    self.last_update_timestamp = None
 
                     self.mac_ip_route = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute()
                     self.mac_ip_route.parent = self
@@ -2311,7 +2392,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute, self).__init__()
@@ -2320,18 +2401,21 @@ class L2Rib(Entity):
                         self.yang_parent_name = "macip-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop)}
-                        self._child_list_classes = {}
-
-                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.admin_distance = YLeaf(YType.uint8, "admin-distance")
-
-                        self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                        self.topology_id = YLeaf(YType.uint32, "topology-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('admin_distance', YLeaf(YType.uint8, 'admin-distance')),
+                            ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                            ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                        ])
+                        self.mac_address = None
+                        self.ip_address = None
+                        self.admin_distance = None
+                        self.producer_id = None
+                        self.topology_id = None
 
                         self.next_hop = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop()
                         self.next_hop.parent = self
@@ -2351,7 +2435,7 @@ class L2Rib(Entity):
                         .. attribute:: next_hop
                         
                         	Next hop
-                        	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop>`
+                        	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_>`
                         
                         .. attribute:: topology_id
                         
@@ -2372,7 +2456,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop, self).__init__()
@@ -2381,14 +2465,17 @@ class L2Rib(Entity):
                             self.yang_parent_name = "mac-ip-route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                ('flags', YLeaf(YType.uint16, 'flags')),
+                            ])
+                            self.topology_id = None
+                            self.flags = None
 
-                            self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                            self.flags = YLeaf(YType.uint16, "flags")
-
-                            self.next_hop = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop()
+                            self.next_hop = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_()
                             self.next_hop.parent = self
                             self._children_name_map["next_hop"] = "next-hop"
                             self._children_yang_names.add("next-hop")
@@ -2399,14 +2486,14 @@ class L2Rib(Entity):
                             self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop, ['topology_id', 'flags'], name, value)
 
 
-                        class NextHop(Entity):
+                        class NextHop_(Entity):
                             """
                             Next hop
                             
                             .. attribute:: labeled
                             
                             	Labeled Next Hop
-                            	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop.Labeled>`
+                            	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled>`
                             
                             .. attribute:: type
                             
@@ -2453,31 +2540,34 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
-                                super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop, self).__init__()
+                                super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_, self).__init__()
 
                                 self.yang_name = "next-hop"
                                 self.yang_parent_name = "next-hop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop.Labeled)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('mac', YLeaf(YType.str, 'mac')),
+                                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                    ('xid', YLeaf(YType.uint32, 'xid')),
+                                ])
+                                self.type = None
+                                self.ipv4 = None
+                                self.ipv6 = None
+                                self.mac = None
+                                self.interface_handle = None
+                                self.xid = None
 
-                                self.type = YLeaf(YType.enumeration, "type")
-
-                                self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                self.mac = YLeaf(YType.str, "mac")
-
-                                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                self.xid = YLeaf(YType.uint32, "xid")
-
-                                self.labeled = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop.Labeled()
+                                self.labeled = L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled()
                                 self.labeled.parent = self
                                 self._children_name_map["labeled"] = "labeled"
                                 self._children_yang_names.add("labeled")
@@ -2485,7 +2575,7 @@ class L2Rib(Entity):
                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/mac-ip-route/next-hop/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
+                                self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                             class Labeled(Entity):
@@ -2521,30 +2611,33 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
-                                    super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop.Labeled, self).__init__()
+                                    super(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled, self).__init__()
 
                                     self.yang_name = "labeled"
                                     self.yang_parent_name = "next-hop"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                    self.label = YLeaf(YType.uint32, "label")
-
-                                    self.internal = YLeaf(YType.boolean, "internal")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                        ('label', YLeaf(YType.uint32, 'label')),
+                                        ('internal', YLeaf(YType.boolean, 'internal')),
+                                    ])
+                                    self.address_family = None
+                                    self.ip_address = None
+                                    self.label = None
+                                    self.internal = None
                                     self._segment_path = lambda: "labeled"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/mac-ip-route/next-hop/next-hop/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
+                                    self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
                 class RtTlv(Entity):
@@ -2568,16 +2661,14 @@ class L2Rib(Entity):
                     .. attribute:: tlv_val
                     
                     	TLV Value
-                    	**type**\: list of int
-                    
-                    	**range:** 0..255
+                    	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal>`
                     
                     
 
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv, self).__init__()
@@ -2586,19 +2677,61 @@ class L2Rib(Entity):
                         self.yang_parent_name = "macip-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tlv-val", ("tlv_val", L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal))])
+                        self._leafs = OrderedDict([
+                            ('tlv_type', YLeaf(YType.uint16, 'tlv-type')),
+                            ('tlv_len', YLeaf(YType.uint16, 'tlv-len')),
+                        ])
+                        self.tlv_type = None
+                        self.tlv_len = None
 
-                        self.tlv_type = YLeaf(YType.uint16, "tlv-type")
-
-                        self.tlv_len = YLeaf(YType.uint16, "tlv-len")
-
-                        self.tlv_val = YLeafList(YType.uint8, "tlv-val")
+                        self.tlv_val = YList(self)
                         self._segment_path = lambda: "rt-tlv"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv, ['tlv_type', 'tlv_len', 'tlv_val'], name, value)
+                        self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv, ['tlv_type', 'tlv_len'], name, value)
+
+
+                    class TlvVal(Entity):
+                        """
+                        TLV Value
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2rib-oper'
+                        _revision = '2017-08-16'
+
+                        def __init__(self):
+                            super(L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal, self).__init__()
+
+                            self.yang_name = "tlv-val"
+                            self.yang_parent_name = "rt-tlv"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint8, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "tlv-val"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/rt-tlv/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
                 class NhTlv(Entity):
@@ -2622,16 +2755,14 @@ class L2Rib(Entity):
                     .. attribute:: tlv_val
                     
                     	TLV Value
-                    	**type**\: list of int
-                    
-                    	**range:** 0..255
+                    	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal>`
                     
                     
 
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv, self).__init__()
@@ -2640,19 +2771,61 @@ class L2Rib(Entity):
                         self.yang_parent_name = "macip-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tlv-val", ("tlv_val", L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal))])
+                        self._leafs = OrderedDict([
+                            ('tlv_type', YLeaf(YType.uint16, 'tlv-type')),
+                            ('tlv_len', YLeaf(YType.uint16, 'tlv-len')),
+                        ])
+                        self.tlv_type = None
+                        self.tlv_len = None
 
-                        self.tlv_type = YLeaf(YType.uint16, "tlv-type")
-
-                        self.tlv_len = YLeaf(YType.uint16, "tlv-len")
-
-                        self.tlv_val = YLeafList(YType.uint8, "tlv-val")
+                        self.tlv_val = YList(self)
                         self._segment_path = lambda: "nh-tlv"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv, ['tlv_type', 'tlv_len', 'tlv_val'], name, value)
+                        self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv, ['tlv_type', 'tlv_len'], name, value)
+
+
+                    class TlvVal(Entity):
+                        """
+                        TLV Value
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2rib-oper'
+                        _revision = '2017-08-16'
+
+                        def __init__(self):
+                            super(L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal, self).__init__()
+
+                            self.yang_name = "tlv-val"
+                            self.yang_parent_name = "nh-tlv"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint8, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "tlv-val"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/nh-tlv/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2Rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal, ['entry'], name, value)
 
 
         class MacIps(Entity):
@@ -2669,7 +2842,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.EviChildTables.MacIps, self).__init__()
@@ -2678,8 +2851,10 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evi-child-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"mac-ip" : ("mac_ip", L2Rib.EviChildTables.MacIps.MacIp)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("mac-ip", ("mac_ip", L2Rib.EviChildTables.MacIps.MacIp))])
+                self._leafs = OrderedDict()
 
                 self.mac_ip = YList(self)
                 self._segment_path = lambda: "mac-ips"
@@ -2698,14 +2873,14 @@ class L2Rib(Entity):
                 	EVPN ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_addr
                 
@@ -2726,14 +2901,14 @@ class L2Rib(Entity):
                 	Admin distance
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: prod_id
                 
                 	Producer ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: next_hop
                 
@@ -2778,7 +2953,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.EviChildTables.MacIps.MacIp, self).__init__()
@@ -2787,30 +2962,33 @@ class L2Rib(Entity):
                     self.yang_parent_name = "mac-ips"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacIps.MacIp.NextHop)}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.tag_id = YLeaf(YType.int32, "tag-id")
-
-                    self.mac_addr = YLeaf(YType.str, "mac-addr")
-
-                    self.ip_addr = YLeaf(YType.str, "ip-addr")
-
-                    self.admin_dist = YLeaf(YType.int32, "admin-dist")
-
-                    self.prod_id = YLeaf(YType.int32, "prod-id")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                    self.admin_distance = YLeaf(YType.uint8, "admin-distance")
-
-                    self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                    self.topology_id = YLeaf(YType.uint32, "topology-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacIps.MacIp.NextHop))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.uint32, 'evi')),
+                        ('tag_id', YLeaf(YType.uint32, 'tag-id')),
+                        ('mac_addr', YLeaf(YType.str, 'mac-addr')),
+                        ('ip_addr', YLeaf(YType.str, 'ip-addr')),
+                        ('admin_dist', YLeaf(YType.uint32, 'admin-dist')),
+                        ('prod_id', YLeaf(YType.uint32, 'prod-id')),
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                        ('admin_distance', YLeaf(YType.uint8, 'admin-distance')),
+                        ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                    ])
+                    self.evi = None
+                    self.tag_id = None
+                    self.mac_addr = None
+                    self.ip_addr = None
+                    self.admin_dist = None
+                    self.prod_id = None
+                    self.mac_address = None
+                    self.ip_address = None
+                    self.admin_distance = None
+                    self.producer_id = None
+                    self.topology_id = None
 
                     self.next_hop = L2Rib.EviChildTables.MacIps.MacIp.NextHop()
                     self.next_hop.parent = self
@@ -2830,7 +3008,7 @@ class L2Rib(Entity):
                     .. attribute:: next_hop
                     
                     	Next hop
-                    	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop>`
+                    	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_>`
                     
                     .. attribute:: topology_id
                     
@@ -2851,7 +3029,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacIps.MacIp.NextHop, self).__init__()
@@ -2860,14 +3038,17 @@ class L2Rib(Entity):
                         self.yang_parent_name = "mac-ip"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                            ('flags', YLeaf(YType.uint16, 'flags')),
+                        ])
+                        self.topology_id = None
+                        self.flags = None
 
-                        self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                        self.flags = YLeaf(YType.uint16, "flags")
-
-                        self.next_hop = L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop()
+                        self.next_hop = L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_()
                         self.next_hop.parent = self
                         self._children_name_map["next_hop"] = "next-hop"
                         self._children_yang_names.add("next-hop")
@@ -2878,14 +3059,14 @@ class L2Rib(Entity):
                         self._perform_setattr(L2Rib.EviChildTables.MacIps.MacIp.NextHop, ['topology_id', 'flags'], name, value)
 
 
-                    class NextHop(Entity):
+                    class NextHop_(Entity):
                         """
                         Next hop
                         
                         .. attribute:: labeled
                         
                         	Labeled Next Hop
-                        	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop.Labeled>`
+                        	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled>`
                         
                         .. attribute:: type
                         
@@ -2932,31 +3113,34 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
-                            super(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop, self).__init__()
+                            super(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_, self).__init__()
 
                             self.yang_name = "next-hop"
                             self.yang_parent_name = "next-hop"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop.Labeled)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('mac', YLeaf(YType.str, 'mac')),
+                                ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                ('xid', YLeaf(YType.uint32, 'xid')),
+                            ])
+                            self.type = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self.mac = None
+                            self.interface_handle = None
+                            self.xid = None
 
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                            self.mac = YLeaf(YType.str, "mac")
-
-                            self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                            self.xid = YLeaf(YType.uint32, "xid")
-
-                            self.labeled = L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop.Labeled()
+                            self.labeled = L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled()
                             self.labeled.parent = self
                             self._children_name_map["labeled"] = "labeled"
                             self._children_yang_names.add("labeled")
@@ -2964,7 +3148,7 @@ class L2Rib(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/mac-ip/next-hop/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
+                            self._perform_setattr(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                         class Labeled(Entity):
@@ -3000,30 +3184,33 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
-                                super(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop.Labeled, self).__init__()
+                                super(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled, self).__init__()
 
                                 self.yang_name = "labeled"
                                 self.yang_parent_name = "next-hop"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                self.label = YLeaf(YType.uint32, "label")
-
-                                self.internal = YLeaf(YType.boolean, "internal")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                    ('label', YLeaf(YType.uint32, 'label')),
+                                    ('internal', YLeaf(YType.boolean, 'internal')),
+                                ])
+                                self.address_family = None
+                                self.ip_address = None
+                                self.label = None
+                                self.internal = None
                                 self._segment_path = lambda: "labeled"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/mac-ip/next-hop/next-hop/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
+                                self._perform_setattr(L2Rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
         class Macs(Entity):
@@ -3040,7 +3227,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.EviChildTables.Macs, self).__init__()
@@ -3049,8 +3236,10 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evi-child-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"mac" : ("mac", L2Rib.EviChildTables.Macs.Mac)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("mac", ("mac", L2Rib.EviChildTables.Macs.Mac))])
+                self._leafs = OrderedDict()
 
                 self.mac = YList(self)
                 self._segment_path = lambda: "macs"
@@ -3069,14 +3258,14 @@ class L2Rib(Entity):
                 	EVPN ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_addr
                 
@@ -3090,14 +3279,14 @@ class L2Rib(Entity):
                 	Admin distance
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: prod_id
                 
                 	Producer ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: route
                 
@@ -3137,7 +3326,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.EviChildTables.Macs.Mac, self).__init__()
@@ -3146,26 +3335,29 @@ class L2Rib(Entity):
                     self.yang_parent_name = "macs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"route" : ("route", L2Rib.EviChildTables.Macs.Mac.Route)}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.tag_id = YLeaf(YType.int32, "tag-id")
-
-                    self.mac_addr = YLeaf(YType.str, "mac-addr")
-
-                    self.admin_dist = YLeaf(YType.int32, "admin-dist")
-
-                    self.prod_id = YLeaf(YType.int32, "prod-id")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.admin_distance = YLeaf(YType.uint8, "admin-distance")
-
-                    self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                    self.topology_id = YLeaf(YType.uint32, "topology-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("route", ("route", L2Rib.EviChildTables.Macs.Mac.Route))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.uint32, 'evi')),
+                        ('tag_id', YLeaf(YType.uint32, 'tag-id')),
+                        ('mac_addr', YLeaf(YType.str, 'mac-addr')),
+                        ('admin_dist', YLeaf(YType.uint32, 'admin-dist')),
+                        ('prod_id', YLeaf(YType.uint32, 'prod-id')),
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('admin_distance', YLeaf(YType.uint8, 'admin-distance')),
+                        ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                    ])
+                    self.evi = None
+                    self.tag_id = None
+                    self.mac_addr = None
+                    self.admin_dist = None
+                    self.prod_id = None
+                    self.mac_address = None
+                    self.admin_distance = None
+                    self.producer_id = None
+                    self.topology_id = None
 
                     self.route = L2Rib.EviChildTables.Macs.Mac.Route()
                     self.route.parent = self
@@ -3207,7 +3399,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.Macs.Mac.Route, self).__init__()
@@ -3216,10 +3408,13 @@ class L2Rib(Entity):
                         self.yang_parent_name = "mac"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"regular" : ("regular", L2Rib.EviChildTables.Macs.Mac.Route.Regular), "evpn-esi" : ("evpn_esi", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi), "bmac" : ("bmac", L2Rib.EviChildTables.Macs.Mac.Route.Bmac)}
-                        self._child_list_classes = {}
-
-                        self.type = YLeaf(YType.enumeration, "type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("regular", ("regular", L2Rib.EviChildTables.Macs.Mac.Route.Regular)), ("evpn-esi", ("evpn_esi", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi)), ("bmac", ("bmac", L2Rib.EviChildTables.Macs.Mac.Route.Bmac))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                        ])
+                        self.type = None
 
                         self.regular = L2Rib.EviChildTables.Macs.Mac.Route.Regular()
                         self.regular.parent = self
@@ -3256,7 +3451,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.EviChildTables.Macs.Mac.Route.Regular, self).__init__()
@@ -3265,8 +3460,10 @@ class L2Rib(Entity):
                             self.yang_parent_name = "route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop()
                             self.next_hop.parent = self
@@ -3283,7 +3480,7 @@ class L2Rib(Entity):
                             .. attribute:: next_hop
                             
                             	Next hop
-                            	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop>`
+                            	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_>`
                             
                             .. attribute:: topology_id
                             
@@ -3304,7 +3501,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop, self).__init__()
@@ -3313,14 +3510,17 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "regular"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                    ('flags', YLeaf(YType.uint16, 'flags')),
+                                ])
+                                self.topology_id = None
+                                self.flags = None
 
-                                self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                self.flags = YLeaf(YType.uint16, "flags")
-
-                                self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop()
+                                self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_()
                                 self.next_hop.parent = self
                                 self._children_name_map["next_hop"] = "next-hop"
                                 self._children_yang_names.add("next-hop")
@@ -3331,14 +3531,14 @@ class L2Rib(Entity):
                                 self._perform_setattr(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop, ['topology_id', 'flags'], name, value)
 
 
-                            class NextHop(Entity):
+                            class NextHop_(Entity):
                                 """
                                 Next hop
                                 
                                 .. attribute:: labeled
                                 
                                 	Labeled Next Hop
-                                	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop.Labeled>`
+                                	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled>`
                                 
                                 .. attribute:: type
                                 
@@ -3385,31 +3585,34 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
-                                    super(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop, self).__init__()
+                                    super(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_, self).__init__()
 
                                     self.yang_name = "next-hop"
                                     self.yang_parent_name = "next-hop"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop.Labeled)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                        ('mac', YLeaf(YType.str, 'mac')),
+                                        ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                        ('xid', YLeaf(YType.uint32, 'xid')),
+                                    ])
+                                    self.type = None
+                                    self.ipv4 = None
+                                    self.ipv6 = None
+                                    self.mac = None
+                                    self.interface_handle = None
+                                    self.xid = None
 
-                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                    self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                    self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                    self.mac = YLeaf(YType.str, "mac")
-
-                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                    self.xid = YLeaf(YType.uint32, "xid")
-
-                                    self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop.Labeled()
+                                    self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled()
                                     self.labeled.parent = self
                                     self._children_name_map["labeled"] = "labeled"
                                     self._children_yang_names.add("labeled")
@@ -3417,7 +3620,7 @@ class L2Rib(Entity):
                                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/regular/next-hop/%s" % self._segment_path()
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
+                                    self._perform_setattr(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                 class Labeled(Entity):
@@ -3453,30 +3656,33 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
-                                        super(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop.Labeled, self).__init__()
+                                        super(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled, self).__init__()
 
                                         self.yang_name = "labeled"
                                         self.yang_parent_name = "next-hop"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                        self.label = YLeaf(YType.uint32, "label")
-
-                                        self.internal = YLeaf(YType.boolean, "internal")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                            ('label', YLeaf(YType.uint32, 'label')),
+                                            ('internal', YLeaf(YType.boolean, 'internal')),
+                                        ])
+                                        self.address_family = None
+                                        self.ip_address = None
+                                        self.label = None
+                                        self.internal = None
                                         self._segment_path = lambda: "labeled"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/regular/next-hop/next-hop/%s" % self._segment_path()
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
+                                        self._perform_setattr(L2Rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
                     class EvpnEsi(Entity):
@@ -3510,7 +3716,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi, self).__init__()
@@ -3519,12 +3725,15 @@ class L2Rib(Entity):
                             self.yang_parent_name = "route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId), "path-list" : ("path_list", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList)}
-                            self._child_list_classes = {}
-
-                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                            self.forward_state = YLeaf(YType.boolean, "forward-state")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId)), ("path-list", ("path_list", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                ('forward_state', YLeaf(YType.boolean, 'forward-state')),
+                            ])
+                            self.sequence_number = None
+                            self.forward_state = None
 
                             self.ethernet_segment_id = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId()
                             self.ethernet_segment_id.parent = self
@@ -3572,7 +3781,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId, self).__init__()
@@ -3581,14 +3790,17 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "evpn-esi"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                self.port_key = YLeaf(YType.uint16, "port-key")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                    ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                ])
+                                self.system_priority = None
+                                self.system_id = None
+                                self.port_key = None
                                 self._segment_path = lambda: "ethernet-segment-id"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/%s" % self._segment_path()
 
@@ -3637,7 +3849,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList, self).__init__()
@@ -3646,14 +3858,17 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "evpn-esi"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"path-list-info" : ("path_list_info", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo)}
-                                self._child_list_classes = {"next-hop-array" : ("next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray)}
-
-                                self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                                self.mac_count = YLeaf(YType.uint32, "mac-count")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("path-list-info", ("path_list_info", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo))])
+                                self._child_list_classes = OrderedDict([("next-hop-array", ("next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray))])
+                                self._leafs = OrderedDict([
+                                    ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                                    ('mac_count', YLeaf(YType.uint32, 'mac-count')),
+                                    ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ])
+                                self.producer_id = None
+                                self.mac_count = None
+                                self.local_label = None
 
                                 self.path_list_info = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo()
                                 self.path_list_info.parent = self
@@ -3692,7 +3907,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo, self).__init__()
@@ -3701,10 +3916,13 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "path-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"path-list-esi" : ("path_list_esi", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi), "path-list-mac" : ("path_list_mac", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("path-list-esi", ("path_list_esi", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi)), ("path-list-mac", ("path_list_mac", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                    ])
+                                    self.type = None
 
                                     self.path_list_esi = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi()
                                     self.path_list_esi.parent = self
@@ -3746,7 +3964,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, self).__init__()
@@ -3755,10 +3973,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId)}
-                                        self._child_list_classes = {"mac-update-next-hop-array" : ("mac_update_next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray)}
-
-                                        self.resolved = YLeaf(YType.boolean, "resolved")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId))])
+                                        self._child_list_classes = OrderedDict([("mac-update-next-hop-array", ("mac_update_next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray))])
+                                        self._leafs = OrderedDict([
+                                            ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                        ])
+                                        self.resolved = None
 
                                         self.ethernet_segment_id = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId()
                                         self.ethernet_segment_id.parent = self
@@ -3803,7 +4024,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, self).__init__()
@@ -3812,14 +4033,17 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-esi"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                            self.system_id = YLeaf(YType.str, "system-id")
-
-                                            self.port_key = YLeaf(YType.uint16, "port-key")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                                ('system_id', YLeaf(YType.str, 'system-id')),
+                                                ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                            ])
+                                            self.system_priority = None
+                                            self.system_id = None
+                                            self.port_key = None
                                             self._segment_path = lambda: "ethernet-segment-id"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/%s" % self._segment_path()
 
@@ -3855,7 +4079,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, self).__init__()
@@ -3864,12 +4088,15 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-esi"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop)}
-                                            self._child_list_classes = {}
-
-                                            self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                            self.flags = YLeaf(YType.uint16, "flags")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                                ('flags', YLeaf(YType.uint16, 'flags')),
+                                            ])
+                                            self.topology_id = None
+                                            self.flags = None
 
                                             self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop()
                                             self.next_hop.parent = self
@@ -3936,7 +4163,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, self).__init__()
@@ -3945,20 +4172,23 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "mac-update-next-hop-array"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled)}
-                                                self._child_list_classes = {}
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-
-                                                self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                                self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                                self.mac = YLeaf(YType.str, "mac")
-
-                                                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                                self.xid = YLeaf(YType.uint32, "xid")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                    ('mac', YLeaf(YType.str, 'mac')),
+                                                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                    ('xid', YLeaf(YType.uint32, 'xid')),
+                                                ])
+                                                self.type = None
+                                                self.ipv4 = None
+                                                self.ipv6 = None
+                                                self.mac = None
+                                                self.interface_handle = None
+                                                self.xid = None
 
                                                 self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled()
                                                 self.labeled.parent = self
@@ -4004,7 +4234,7 @@ class L2Rib(Entity):
                                                 """
 
                                                 _prefix = 'l2rib-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-16'
 
                                                 def __init__(self):
                                                     super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, self).__init__()
@@ -4013,16 +4243,19 @@ class L2Rib(Entity):
                                                     self.yang_parent_name = "next-hop"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = False
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                    self.label = YLeaf(YType.uint32, "label")
-
-                                                    self.internal = YLeaf(YType.boolean, "internal")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                        ('label', YLeaf(YType.uint32, 'label')),
+                                                        ('internal', YLeaf(YType.boolean, 'internal')),
+                                                    ])
+                                                    self.address_family = None
+                                                    self.ip_address = None
+                                                    self.label = None
+                                                    self.internal = None
                                                     self._segment_path = lambda: "labeled"
                                                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -4046,7 +4279,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac, self).__init__()
@@ -4055,10 +4288,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ])
+                                        self.mac_address = None
                                         self._segment_path = lambda: "path-list-mac"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/%s" % self._segment_path()
 
@@ -4094,7 +4330,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray, self).__init__()
@@ -4103,12 +4339,15 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "path-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop)}
-                                    self._child_list_classes = {}
-
-                                    self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                    self.flags = YLeaf(YType.uint16, "flags")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                        ('flags', YLeaf(YType.uint16, 'flags')),
+                                    ])
+                                    self.topology_id = None
+                                    self.flags = None
 
                                     self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop()
                                     self.next_hop.parent = self
@@ -4175,7 +4414,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop, self).__init__()
@@ -4184,20 +4423,23 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "next-hop-array"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled)}
-                                        self._child_list_classes = {}
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                        self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                        self.mac = YLeaf(YType.str, "mac")
-
-                                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                        self.xid = YLeaf(YType.uint32, "xid")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                            ('mac', YLeaf(YType.str, 'mac')),
+                                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                            ('xid', YLeaf(YType.uint32, 'xid')),
+                                        ])
+                                        self.type = None
+                                        self.ipv4 = None
+                                        self.ipv6 = None
+                                        self.mac = None
+                                        self.interface_handle = None
+                                        self.xid = None
 
                                         self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled()
                                         self.labeled.parent = self
@@ -4243,7 +4485,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, self).__init__()
@@ -4252,16 +4494,19 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                            self.label = YLeaf(YType.uint32, "label")
-
-                                            self.internal = YLeaf(YType.boolean, "internal")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                ('label', YLeaf(YType.uint32, 'label')),
+                                                ('internal', YLeaf(YType.boolean, 'internal')),
+                                            ])
+                                            self.address_family = None
+                                            self.ip_address = None
+                                            self.label = None
+                                            self.internal = None
                                             self._segment_path = lambda: "labeled"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -4295,7 +4540,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac, self).__init__()
@@ -4304,12 +4549,15 @@ class L2Rib(Entity):
                             self.yang_parent_name = "route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"path-list" : ("path_list", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList)}
-                            self._child_list_classes = {}
-
-                            self.bmac_address = YLeaf(YType.str, "bmac-address")
-
-                            self.forward_state = YLeaf(YType.boolean, "forward-state")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("path-list", ("path_list", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('bmac_address', YLeaf(YType.str, 'bmac-address')),
+                                ('forward_state', YLeaf(YType.boolean, 'forward-state')),
+                            ])
+                            self.bmac_address = None
+                            self.forward_state = None
 
                             self.path_list = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList()
                             self.path_list.parent = self
@@ -4362,7 +4610,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList, self).__init__()
@@ -4371,14 +4619,17 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "bmac"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"path-list-info" : ("path_list_info", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo)}
-                                self._child_list_classes = {"next-hop-array" : ("next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray)}
-
-                                self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                                self.mac_count = YLeaf(YType.uint32, "mac-count")
-
-                                self.local_label = YLeaf(YType.uint32, "local-label")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("path-list-info", ("path_list_info", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo))])
+                                self._child_list_classes = OrderedDict([("next-hop-array", ("next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray))])
+                                self._leafs = OrderedDict([
+                                    ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                                    ('mac_count', YLeaf(YType.uint32, 'mac-count')),
+                                    ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                ])
+                                self.producer_id = None
+                                self.mac_count = None
+                                self.local_label = None
 
                                 self.path_list_info = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo()
                                 self.path_list_info.parent = self
@@ -4417,7 +4668,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo, self).__init__()
@@ -4426,10 +4677,13 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "path-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"path-list-esi" : ("path_list_esi", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi), "path-list-mac" : ("path_list_mac", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac)}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("path-list-esi", ("path_list_esi", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi)), ("path-list-mac", ("path_list_mac", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                    ])
+                                    self.type = None
 
                                     self.path_list_esi = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi()
                                     self.path_list_esi.parent = self
@@ -4471,7 +4725,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi, self).__init__()
@@ -4480,10 +4734,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId)}
-                                        self._child_list_classes = {"mac-update-next-hop-array" : ("mac_update_next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray)}
-
-                                        self.resolved = YLeaf(YType.boolean, "resolved")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId))])
+                                        self._child_list_classes = OrderedDict([("mac-update-next-hop-array", ("mac_update_next_hop_array", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray))])
+                                        self._leafs = OrderedDict([
+                                            ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                        ])
+                                        self.resolved = None
 
                                         self.ethernet_segment_id = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId()
                                         self.ethernet_segment_id.parent = self
@@ -4528,7 +4785,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, self).__init__()
@@ -4537,14 +4794,17 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-esi"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                            self.system_id = YLeaf(YType.str, "system-id")
-
-                                            self.port_key = YLeaf(YType.uint16, "port-key")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                                ('system_id', YLeaf(YType.str, 'system-id')),
+                                                ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                            ])
+                                            self.system_priority = None
+                                            self.system_id = None
+                                            self.port_key = None
                                             self._segment_path = lambda: "ethernet-segment-id"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/%s" % self._segment_path()
 
@@ -4580,7 +4840,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, self).__init__()
@@ -4589,12 +4849,15 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-esi"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop)}
-                                            self._child_list_classes = {}
-
-                                            self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                            self.flags = YLeaf(YType.uint16, "flags")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                                ('flags', YLeaf(YType.uint16, 'flags')),
+                                            ])
+                                            self.topology_id = None
+                                            self.flags = None
 
                                             self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop()
                                             self.next_hop.parent = self
@@ -4661,7 +4924,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, self).__init__()
@@ -4670,20 +4933,23 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "mac-update-next-hop-array"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled)}
-                                                self._child_list_classes = {}
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-
-                                                self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                                self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                                self.mac = YLeaf(YType.str, "mac")
-
-                                                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                                self.xid = YLeaf(YType.uint32, "xid")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                    ('mac', YLeaf(YType.str, 'mac')),
+                                                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                    ('xid', YLeaf(YType.uint32, 'xid')),
+                                                ])
+                                                self.type = None
+                                                self.ipv4 = None
+                                                self.ipv6 = None
+                                                self.mac = None
+                                                self.interface_handle = None
+                                                self.xid = None
 
                                                 self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled()
                                                 self.labeled.parent = self
@@ -4729,7 +4995,7 @@ class L2Rib(Entity):
                                                 """
 
                                                 _prefix = 'l2rib-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-16'
 
                                                 def __init__(self):
                                                     super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, self).__init__()
@@ -4738,16 +5004,19 @@ class L2Rib(Entity):
                                                     self.yang_parent_name = "next-hop"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = False
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                    self.label = YLeaf(YType.uint32, "label")
-
-                                                    self.internal = YLeaf(YType.boolean, "internal")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                        ('label', YLeaf(YType.uint32, 'label')),
+                                                        ('internal', YLeaf(YType.boolean, 'internal')),
+                                                    ])
+                                                    self.address_family = None
+                                                    self.ip_address = None
+                                                    self.label = None
+                                                    self.internal = None
                                                     self._segment_path = lambda: "labeled"
                                                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -4771,7 +5040,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac, self).__init__()
@@ -4780,10 +5049,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ])
+                                        self.mac_address = None
                                         self._segment_path = lambda: "path-list-mac"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/%s" % self._segment_path()
 
@@ -4819,7 +5091,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray, self).__init__()
@@ -4828,12 +5100,15 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "path-list"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop)}
-                                    self._child_list_classes = {}
-
-                                    self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                    self.flags = YLeaf(YType.uint16, "flags")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                        ('flags', YLeaf(YType.uint16, 'flags')),
+                                    ])
+                                    self.topology_id = None
+                                    self.flags = None
 
                                     self.next_hop = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop()
                                     self.next_hop.parent = self
@@ -4900,7 +5175,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop, self).__init__()
@@ -4909,20 +5184,23 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "next-hop-array"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled)}
-                                        self._child_list_classes = {}
-
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                        self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                        self.mac = YLeaf(YType.str, "mac")
-
-                                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                        self.xid = YLeaf(YType.uint32, "xid")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                            ('mac', YLeaf(YType.str, 'mac')),
+                                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                            ('xid', YLeaf(YType.uint32, 'xid')),
+                                        ])
+                                        self.type = None
+                                        self.ipv4 = None
+                                        self.ipv6 = None
+                                        self.mac = None
+                                        self.interface_handle = None
+                                        self.xid = None
 
                                         self.labeled = L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled()
                                         self.labeled.parent = self
@@ -4968,7 +5246,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, self).__init__()
@@ -4977,16 +5255,19 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                            self.label = YLeaf(YType.uint32, "label")
-
-                                            self.internal = YLeaf(YType.boolean, "internal")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                ('label', YLeaf(YType.uint32, 'label')),
+                                                ('internal', YLeaf(YType.boolean, 'internal')),
+                                            ])
+                                            self.address_family = None
+                                            self.ip_address = None
+                                            self.label = None
+                                            self.internal = None
                                             self._segment_path = lambda: "labeled"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -5008,7 +5289,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.EviChildTables.MacDetails, self).__init__()
@@ -5017,8 +5298,10 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evi-child-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"mac-detail" : ("mac_detail", L2Rib.EviChildTables.MacDetails.MacDetail)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("mac-detail", ("mac_detail", L2Rib.EviChildTables.MacDetails.MacDetail))])
+                self._leafs = OrderedDict()
 
                 self.mac_detail = YList(self)
                 self._segment_path = lambda: "mac-details"
@@ -5037,14 +5320,14 @@ class L2Rib(Entity):
                 	EVPN ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_addr
                 
@@ -5058,14 +5341,14 @@ class L2Rib(Entity):
                 	Admin distance
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: prod_id
                 
                 	Producer ID
                 	**type**\: int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 .. attribute:: mac_route
                 
@@ -5129,7 +5412,7 @@ class L2Rib(Entity):
                 """
 
                 _prefix = 'l2rib-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-16'
 
                 def __init__(self):
                     super(L2Rib.EviChildTables.MacDetails.MacDetail, self).__init__()
@@ -5138,32 +5421,35 @@ class L2Rib(Entity):
                     self.yang_parent_name = "mac-details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"mac-route" : ("mac_route", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute), "rt-tlv" : ("rt_tlv", L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv)}
-                    self._child_list_classes = {}
-
-                    self.evi = YLeaf(YType.int32, "evi")
-
-                    self.tag_id = YLeaf(YType.int32, "tag-id")
-
-                    self.mac_addr = YLeaf(YType.str, "mac-addr")
-
-                    self.admin_dist = YLeaf(YType.int32, "admin-dist")
-
-                    self.prod_id = YLeaf(YType.int32, "prod-id")
-
-                    self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                    self.flags = YLeaf(YType.uint32, "flags")
-
-                    self.baseflags = YLeaf(YType.uint32, "baseflags")
-
-                    self.soo = YLeaf(YType.uint32, "soo")
-
-                    self.slot_id = YLeaf(YType.uint32, "slot-id")
-
-                    self.esi = YLeaf(YType.str, "esi")
-
-                    self.last_update_timestamp = YLeaf(YType.uint64, "last-update-timestamp")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("mac-route", ("mac_route", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute)), ("rt-tlv", ("rt_tlv", L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evi', YLeaf(YType.uint32, 'evi')),
+                        ('tag_id', YLeaf(YType.uint32, 'tag-id')),
+                        ('mac_addr', YLeaf(YType.str, 'mac-addr')),
+                        ('admin_dist', YLeaf(YType.uint32, 'admin-dist')),
+                        ('prod_id', YLeaf(YType.uint32, 'prod-id')),
+                        ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                        ('flags', YLeaf(YType.uint32, 'flags')),
+                        ('baseflags', YLeaf(YType.uint32, 'baseflags')),
+                        ('soo', YLeaf(YType.uint32, 'soo')),
+                        ('slot_id', YLeaf(YType.uint32, 'slot-id')),
+                        ('esi', YLeaf(YType.str, 'esi')),
+                        ('last_update_timestamp', YLeaf(YType.uint64, 'last-update-timestamp')),
+                    ])
+                    self.evi = None
+                    self.tag_id = None
+                    self.mac_addr = None
+                    self.admin_dist = None
+                    self.prod_id = None
+                    self.sequence_number = None
+                    self.flags = None
+                    self.baseflags = None
+                    self.soo = None
+                    self.slot_id = None
+                    self.esi = None
+                    self.last_update_timestamp = None
 
                     self.mac_route = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute()
                     self.mac_route.parent = self
@@ -5223,7 +5509,7 @@ class L2Rib(Entity):
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute, self).__init__()
@@ -5232,16 +5518,19 @@ class L2Rib(Entity):
                         self.yang_parent_name = "mac-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"route" : ("route", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route)}
-                        self._child_list_classes = {}
-
-                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                        self.admin_distance = YLeaf(YType.uint8, "admin-distance")
-
-                        self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                        self.topology_id = YLeaf(YType.uint32, "topology-id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("route", ("route", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                            ('admin_distance', YLeaf(YType.uint8, 'admin-distance')),
+                            ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                            ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                        ])
+                        self.mac_address = None
+                        self.admin_distance = None
+                        self.producer_id = None
+                        self.topology_id = None
 
                         self.route = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route()
                         self.route.parent = self
@@ -5283,7 +5572,7 @@ class L2Rib(Entity):
                         """
 
                         _prefix = 'l2rib-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-16'
 
                         def __init__(self):
                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route, self).__init__()
@@ -5292,10 +5581,13 @@ class L2Rib(Entity):
                             self.yang_parent_name = "mac-route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"regular" : ("regular", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular), "evpn-esi" : ("evpn_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi), "bmac" : ("bmac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac)}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("regular", ("regular", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular)), ("evpn-esi", ("evpn_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi)), ("bmac", ("bmac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                            ])
+                            self.type = None
 
                             self.regular = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular()
                             self.regular.parent = self
@@ -5332,7 +5624,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular, self).__init__()
@@ -5341,8 +5633,10 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "route"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop()
                                 self.next_hop.parent = self
@@ -5359,7 +5653,7 @@ class L2Rib(Entity):
                                 .. attribute:: next_hop
                                 
                                 	Next hop
-                                	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop>`
+                                	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_>`
                                 
                                 .. attribute:: topology_id
                                 
@@ -5380,7 +5674,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop, self).__init__()
@@ -5389,14 +5683,17 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "regular"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                        ('flags', YLeaf(YType.uint16, 'flags')),
+                                    ])
+                                    self.topology_id = None
+                                    self.flags = None
 
-                                    self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                    self.flags = YLeaf(YType.uint16, "flags")
-
-                                    self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop()
+                                    self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_()
                                     self.next_hop.parent = self
                                     self._children_name_map["next_hop"] = "next-hop"
                                     self._children_yang_names.add("next-hop")
@@ -5407,14 +5704,14 @@ class L2Rib(Entity):
                                     self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop, ['topology_id', 'flags'], name, value)
 
 
-                                class NextHop(Entity):
+                                class NextHop_(Entity):
                                     """
                                     Next hop
                                     
                                     .. attribute:: labeled
                                     
                                     	Labeled Next Hop
-                                    	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop.Labeled>`
+                                    	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled>`
                                     
                                     .. attribute:: type
                                     
@@ -5461,31 +5758,34 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
-                                        super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop, self).__init__()
+                                        super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_, self).__init__()
 
                                         self.yang_name = "next-hop"
                                         self.yang_parent_name = "next-hop"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop.Labeled)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                            ('mac', YLeaf(YType.str, 'mac')),
+                                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                            ('xid', YLeaf(YType.uint32, 'xid')),
+                                        ])
+                                        self.type = None
+                                        self.ipv4 = None
+                                        self.ipv6 = None
+                                        self.mac = None
+                                        self.interface_handle = None
+                                        self.xid = None
 
-                                        self.type = YLeaf(YType.enumeration, "type")
-
-                                        self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                        self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                        self.mac = YLeaf(YType.str, "mac")
-
-                                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                        self.xid = YLeaf(YType.uint32, "xid")
-
-                                        self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop.Labeled()
+                                        self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled()
                                         self.labeled.parent = self
                                         self._children_name_map["labeled"] = "labeled"
                                         self._children_yang_names.add("labeled")
@@ -5493,7 +5793,7 @@ class L2Rib(Entity):
                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/regular/next-hop/%s" % self._segment_path()
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
+                                        self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_, ['type', 'ipv4', 'ipv6', 'mac', 'interface_handle', 'xid'], name, value)
 
 
                                     class Labeled(Entity):
@@ -5529,30 +5829,33 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
-                                            super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop.Labeled, self).__init__()
+                                            super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled, self).__init__()
 
                                             self.yang_name = "labeled"
                                             self.yang_parent_name = "next-hop"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                            self.label = YLeaf(YType.uint32, "label")
-
-                                            self.internal = YLeaf(YType.boolean, "internal")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                ('label', YLeaf(YType.uint32, 'label')),
+                                                ('internal', YLeaf(YType.boolean, 'internal')),
+                                            ])
+                                            self.address_family = None
+                                            self.ip_address = None
+                                            self.label = None
+                                            self.internal = None
                                             self._segment_path = lambda: "labeled"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/regular/next-hop/next-hop/%s" % self._segment_path()
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
+                                            self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
                         class EvpnEsi(Entity):
@@ -5586,7 +5889,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi, self).__init__()
@@ -5595,12 +5898,15 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "route"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId), "path-list" : ("path_list", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList)}
-                                self._child_list_classes = {}
-
-                                self.sequence_number = YLeaf(YType.uint32, "sequence-number")
-
-                                self.forward_state = YLeaf(YType.boolean, "forward-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId)), ("path-list", ("path_list", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
+                                    ('forward_state', YLeaf(YType.boolean, 'forward-state')),
+                                ])
+                                self.sequence_number = None
+                                self.forward_state = None
 
                                 self.ethernet_segment_id = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId()
                                 self.ethernet_segment_id.parent = self
@@ -5648,7 +5954,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId, self).__init__()
@@ -5657,14 +5963,17 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "evpn-esi"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                    self.system_id = YLeaf(YType.str, "system-id")
-
-                                    self.port_key = YLeaf(YType.uint16, "port-key")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                        ('system_id', YLeaf(YType.str, 'system-id')),
+                                        ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                    ])
+                                    self.system_priority = None
+                                    self.system_id = None
+                                    self.port_key = None
                                     self._segment_path = lambda: "ethernet-segment-id"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/%s" % self._segment_path()
 
@@ -5713,7 +6022,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList, self).__init__()
@@ -5722,14 +6031,17 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "evpn-esi"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"path-list-info" : ("path_list_info", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo)}
-                                    self._child_list_classes = {"next-hop-array" : ("next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray)}
-
-                                    self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                                    self.mac_count = YLeaf(YType.uint32, "mac-count")
-
-                                    self.local_label = YLeaf(YType.uint32, "local-label")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("path-list-info", ("path_list_info", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo))])
+                                    self._child_list_classes = OrderedDict([("next-hop-array", ("next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray))])
+                                    self._leafs = OrderedDict([
+                                        ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                                        ('mac_count', YLeaf(YType.uint32, 'mac-count')),
+                                        ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                    ])
+                                    self.producer_id = None
+                                    self.mac_count = None
+                                    self.local_label = None
 
                                     self.path_list_info = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo()
                                     self.path_list_info.parent = self
@@ -5768,7 +6080,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo, self).__init__()
@@ -5777,10 +6089,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"path-list-esi" : ("path_list_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi), "path-list-mac" : ("path_list_mac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac)}
-                                        self._child_list_classes = {}
-
-                                        self.type = YLeaf(YType.enumeration, "type")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("path-list-esi", ("path_list_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi)), ("path-list-mac", ("path_list_mac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                        ])
+                                        self.type = None
 
                                         self.path_list_esi = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi()
                                         self.path_list_esi.parent = self
@@ -5822,7 +6137,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi, self).__init__()
@@ -5831,10 +6146,13 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId)}
-                                            self._child_list_classes = {"mac-update-next-hop-array" : ("mac_update_next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray)}
-
-                                            self.resolved = YLeaf(YType.boolean, "resolved")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId))])
+                                            self._child_list_classes = OrderedDict([("mac-update-next-hop-array", ("mac_update_next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray))])
+                                            self._leafs = OrderedDict([
+                                                ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                            ])
+                                            self.resolved = None
 
                                             self.ethernet_segment_id = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId()
                                             self.ethernet_segment_id.parent = self
@@ -5879,7 +6197,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, self).__init__()
@@ -5888,14 +6206,17 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "path-list-esi"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                                self.port_key = YLeaf(YType.uint16, "port-key")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                                    ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                                ])
+                                                self.system_priority = None
+                                                self.system_id = None
+                                                self.port_key = None
                                                 self._segment_path = lambda: "ethernet-segment-id"
                                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/%s" % self._segment_path()
 
@@ -5931,7 +6252,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, self).__init__()
@@ -5940,12 +6261,15 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "path-list-esi"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop)}
-                                                self._child_list_classes = {}
-
-                                                self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                                self.flags = YLeaf(YType.uint16, "flags")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                                    ('flags', YLeaf(YType.uint16, 'flags')),
+                                                ])
+                                                self.topology_id = None
+                                                self.flags = None
 
                                                 self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop()
                                                 self.next_hop.parent = self
@@ -6012,7 +6336,7 @@ class L2Rib(Entity):
                                                 """
 
                                                 _prefix = 'l2rib-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-16'
 
                                                 def __init__(self):
                                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, self).__init__()
@@ -6021,20 +6345,23 @@ class L2Rib(Entity):
                                                     self.yang_parent_name = "mac-update-next-hop-array"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = False
-                                                    self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled)}
-                                                    self._child_list_classes = {}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                                    self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                                    self.mac = YLeaf(YType.str, "mac")
-
-                                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                                    self.xid = YLeaf(YType.uint32, "xid")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                        ('mac', YLeaf(YType.str, 'mac')),
+                                                        ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                        ('xid', YLeaf(YType.uint32, 'xid')),
+                                                    ])
+                                                    self.type = None
+                                                    self.ipv4 = None
+                                                    self.ipv6 = None
+                                                    self.mac = None
+                                                    self.interface_handle = None
+                                                    self.xid = None
 
                                                     self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled()
                                                     self.labeled.parent = self
@@ -6080,7 +6407,7 @@ class L2Rib(Entity):
                                                     """
 
                                                     _prefix = 'l2rib-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-16'
 
                                                     def __init__(self):
                                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, self).__init__()
@@ -6089,16 +6416,19 @@ class L2Rib(Entity):
                                                         self.yang_parent_name = "next-hop"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = False
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                        self.label = YLeaf(YType.uint32, "label")
-
-                                                        self.internal = YLeaf(YType.boolean, "internal")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                            ('label', YLeaf(YType.uint32, 'label')),
+                                                            ('internal', YLeaf(YType.boolean, 'internal')),
+                                                        ])
+                                                        self.address_family = None
+                                                        self.ip_address = None
+                                                        self.label = None
+                                                        self.internal = None
                                                         self._segment_path = lambda: "labeled"
                                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -6122,7 +6452,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac, self).__init__()
@@ -6131,10 +6461,13 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mac_address = YLeaf(YType.str, "mac-address")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ])
+                                            self.mac_address = None
                                             self._segment_path = lambda: "path-list-mac"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/%s" % self._segment_path()
 
@@ -6170,7 +6503,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray, self).__init__()
@@ -6179,12 +6512,15 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop)}
-                                        self._child_list_classes = {}
-
-                                        self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                        self.flags = YLeaf(YType.uint16, "flags")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                            ('flags', YLeaf(YType.uint16, 'flags')),
+                                        ])
+                                        self.topology_id = None
+                                        self.flags = None
 
                                         self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop()
                                         self.next_hop.parent = self
@@ -6251,7 +6587,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop, self).__init__()
@@ -6260,20 +6596,23 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "next-hop-array"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled)}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                            self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                            self.mac = YLeaf(YType.str, "mac")
-
-                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                            self.xid = YLeaf(YType.uint32, "xid")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                ('mac', YLeaf(YType.str, 'mac')),
+                                                ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                ('xid', YLeaf(YType.uint32, 'xid')),
+                                            ])
+                                            self.type = None
+                                            self.ipv4 = None
+                                            self.ipv6 = None
+                                            self.mac = None
+                                            self.interface_handle = None
+                                            self.xid = None
 
                                             self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled()
                                             self.labeled.parent = self
@@ -6319,7 +6658,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, self).__init__()
@@ -6328,16 +6667,19 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "next-hop"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                self.label = YLeaf(YType.uint32, "label")
-
-                                                self.internal = YLeaf(YType.boolean, "internal")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                    ('label', YLeaf(YType.uint32, 'label')),
+                                                    ('internal', YLeaf(YType.boolean, 'internal')),
+                                                ])
+                                                self.address_family = None
+                                                self.ip_address = None
+                                                self.label = None
+                                                self.internal = None
                                                 self._segment_path = lambda: "labeled"
                                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -6371,7 +6713,7 @@ class L2Rib(Entity):
                             """
 
                             _prefix = 'l2rib-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-16'
 
                             def __init__(self):
                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac, self).__init__()
@@ -6380,12 +6722,15 @@ class L2Rib(Entity):
                                 self.yang_parent_name = "route"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = False
-                                self._child_container_classes = {"path-list" : ("path_list", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList)}
-                                self._child_list_classes = {}
-
-                                self.bmac_address = YLeaf(YType.str, "bmac-address")
-
-                                self.forward_state = YLeaf(YType.boolean, "forward-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("path-list", ("path_list", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bmac_address', YLeaf(YType.str, 'bmac-address')),
+                                    ('forward_state', YLeaf(YType.boolean, 'forward-state')),
+                                ])
+                                self.bmac_address = None
+                                self.forward_state = None
 
                                 self.path_list = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList()
                                 self.path_list.parent = self
@@ -6438,7 +6783,7 @@ class L2Rib(Entity):
                                 """
 
                                 _prefix = 'l2rib-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-16'
 
                                 def __init__(self):
                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList, self).__init__()
@@ -6447,14 +6792,17 @@ class L2Rib(Entity):
                                     self.yang_parent_name = "bmac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = False
-                                    self._child_container_classes = {"path-list-info" : ("path_list_info", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo)}
-                                    self._child_list_classes = {"next-hop-array" : ("next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray)}
-
-                                    self.producer_id = YLeaf(YType.uint8, "producer-id")
-
-                                    self.mac_count = YLeaf(YType.uint32, "mac-count")
-
-                                    self.local_label = YLeaf(YType.uint32, "local-label")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("path-list-info", ("path_list_info", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo))])
+                                    self._child_list_classes = OrderedDict([("next-hop-array", ("next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray))])
+                                    self._leafs = OrderedDict([
+                                        ('producer_id', YLeaf(YType.uint8, 'producer-id')),
+                                        ('mac_count', YLeaf(YType.uint32, 'mac-count')),
+                                        ('local_label', YLeaf(YType.uint32, 'local-label')),
+                                    ])
+                                    self.producer_id = None
+                                    self.mac_count = None
+                                    self.local_label = None
 
                                     self.path_list_info = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo()
                                     self.path_list_info.parent = self
@@ -6493,7 +6841,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo, self).__init__()
@@ -6502,10 +6850,13 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"path-list-esi" : ("path_list_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi), "path-list-mac" : ("path_list_mac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac)}
-                                        self._child_list_classes = {}
-
-                                        self.type = YLeaf(YType.enumeration, "type")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("path-list-esi", ("path_list_esi", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi)), ("path-list-mac", ("path_list_mac", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                        ])
+                                        self.type = None
 
                                         self.path_list_esi = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi()
                                         self.path_list_esi.parent = self
@@ -6547,7 +6898,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi, self).__init__()
@@ -6556,10 +6907,13 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"ethernet-segment-id" : ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId)}
-                                            self._child_list_classes = {"mac-update-next-hop-array" : ("mac_update_next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray)}
-
-                                            self.resolved = YLeaf(YType.boolean, "resolved")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("ethernet-segment-id", ("ethernet_segment_id", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId))])
+                                            self._child_list_classes = OrderedDict([("mac-update-next-hop-array", ("mac_update_next_hop_array", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray))])
+                                            self._leafs = OrderedDict([
+                                                ('resolved', YLeaf(YType.boolean, 'resolved')),
+                                            ])
+                                            self.resolved = None
 
                                             self.ethernet_segment_id = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId()
                                             self.ethernet_segment_id.parent = self
@@ -6604,7 +6958,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, self).__init__()
@@ -6613,14 +6967,17 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "path-list-esi"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.system_priority = YLeaf(YType.uint16, "system-priority")
-
-                                                self.system_id = YLeaf(YType.str, "system-id")
-
-                                                self.port_key = YLeaf(YType.uint16, "port-key")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                                                    ('system_id', YLeaf(YType.str, 'system-id')),
+                                                    ('port_key', YLeaf(YType.uint16, 'port-key')),
+                                                ])
+                                                self.system_priority = None
+                                                self.system_id = None
+                                                self.port_key = None
                                                 self._segment_path = lambda: "ethernet-segment-id"
                                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/%s" % self._segment_path()
 
@@ -6656,7 +7013,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray, self).__init__()
@@ -6665,12 +7022,15 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "path-list-esi"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop)}
-                                                self._child_list_classes = {}
-
-                                                self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                                self.flags = YLeaf(YType.uint16, "flags")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                                    ('flags', YLeaf(YType.uint16, 'flags')),
+                                                ])
+                                                self.topology_id = None
+                                                self.flags = None
 
                                                 self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop()
                                                 self.next_hop.parent = self
@@ -6737,7 +7097,7 @@ class L2Rib(Entity):
                                                 """
 
                                                 _prefix = 'l2rib-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-16'
 
                                                 def __init__(self):
                                                     super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop, self).__init__()
@@ -6746,20 +7106,23 @@ class L2Rib(Entity):
                                                     self.yang_parent_name = "mac-update-next-hop-array"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = False
-                                                    self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled)}
-                                                    self._child_list_classes = {}
-
-                                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                                    self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                                    self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                                    self.mac = YLeaf(YType.str, "mac")
-
-                                                    self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                                    self.xid = YLeaf(YType.uint32, "xid")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled))])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                                        ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                        ('mac', YLeaf(YType.str, 'mac')),
+                                                        ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                        ('xid', YLeaf(YType.uint32, 'xid')),
+                                                    ])
+                                                    self.type = None
+                                                    self.ipv4 = None
+                                                    self.ipv6 = None
+                                                    self.mac = None
+                                                    self.interface_handle = None
+                                                    self.xid = None
 
                                                     self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled()
                                                     self.labeled.parent = self
@@ -6805,7 +7168,7 @@ class L2Rib(Entity):
                                                     """
 
                                                     _prefix = 'l2rib-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-16'
 
                                                     def __init__(self):
                                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, self).__init__()
@@ -6814,16 +7177,19 @@ class L2Rib(Entity):
                                                         self.yang_parent_name = "next-hop"
                                                         self.is_top_level_class = False
                                                         self.has_list_ancestor = False
-                                                        self._child_container_classes = {}
-                                                        self._child_list_classes = {}
-
-                                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                        self.label = YLeaf(YType.uint32, "label")
-
-                                                        self.internal = YLeaf(YType.boolean, "internal")
+                                                        self.ylist_key_names = []
+                                                        self._child_container_classes = OrderedDict([])
+                                                        self._child_list_classes = OrderedDict([])
+                                                        self._leafs = OrderedDict([
+                                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                            ('label', YLeaf(YType.uint32, 'label')),
+                                                            ('internal', YLeaf(YType.boolean, 'internal')),
+                                                        ])
+                                                        self.address_family = None
+                                                        self.ip_address = None
+                                                        self.label = None
+                                                        self.internal = None
                                                         self._segment_path = lambda: "labeled"
                                                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -6847,7 +7213,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac, self).__init__()
@@ -6856,10 +7222,13 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "path-list-info"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mac_address = YLeaf(YType.str, "mac-address")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ])
+                                            self.mac_address = None
                                             self._segment_path = lambda: "path-list-mac"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/%s" % self._segment_path()
 
@@ -6895,7 +7264,7 @@ class L2Rib(Entity):
                                     """
 
                                     _prefix = 'l2rib-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-16'
 
                                     def __init__(self):
                                         super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray, self).__init__()
@@ -6904,12 +7273,15 @@ class L2Rib(Entity):
                                         self.yang_parent_name = "path-list"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = False
-                                        self._child_container_classes = {"next-hop" : ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop)}
-                                        self._child_list_classes = {}
-
-                                        self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                                        self.flags = YLeaf(YType.uint16, "flags")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("next-hop", ("next_hop", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                                            ('flags', YLeaf(YType.uint16, 'flags')),
+                                        ])
+                                        self.topology_id = None
+                                        self.flags = None
 
                                         self.next_hop = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop()
                                         self.next_hop.parent = self
@@ -6976,7 +7348,7 @@ class L2Rib(Entity):
                                         """
 
                                         _prefix = 'l2rib-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-16'
 
                                         def __init__(self):
                                             super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop, self).__init__()
@@ -6985,20 +7357,23 @@ class L2Rib(Entity):
                                             self.yang_parent_name = "next-hop-array"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = False
-                                            self._child_container_classes = {"labeled" : ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled)}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                                            self.ipv6 = YLeaf(YType.str, "ipv6")
-
-                                            self.mac = YLeaf(YType.str, "mac")
-
-                                            self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                            self.xid = YLeaf(YType.uint32, "xid")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("labeled", ("labeled", L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                                ('mac', YLeaf(YType.str, 'mac')),
+                                                ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                                ('xid', YLeaf(YType.uint32, 'xid')),
+                                            ])
+                                            self.type = None
+                                            self.ipv4 = None
+                                            self.ipv6 = None
+                                            self.mac = None
+                                            self.interface_handle = None
+                                            self.xid = None
 
                                             self.labeled = L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled()
                                             self.labeled.parent = self
@@ -7044,7 +7419,7 @@ class L2Rib(Entity):
                                             """
 
                                             _prefix = 'l2rib-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-16'
 
                                             def __init__(self):
                                                 super(L2Rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, self).__init__()
@@ -7053,16 +7428,19 @@ class L2Rib(Entity):
                                                 self.yang_parent_name = "next-hop"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = False
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                                self.label = YLeaf(YType.uint32, "label")
-
-                                                self.internal = YLeaf(YType.boolean, "internal")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                                    ('label', YLeaf(YType.uint32, 'label')),
+                                                    ('internal', YLeaf(YType.boolean, 'internal')),
+                                                ])
+                                                self.address_family = None
+                                                self.ip_address = None
+                                                self.label = None
+                                                self.internal = None
                                                 self._segment_path = lambda: "labeled"
                                                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/next-hop-array/next-hop/%s" % self._segment_path()
 
@@ -7091,16 +7469,14 @@ class L2Rib(Entity):
                     .. attribute:: tlv_val
                     
                     	TLV Value
-                    	**type**\: list of int
-                    
-                    	**range:** 0..255
+                    	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal>`
                     
                     
 
                     """
 
                     _prefix = 'l2rib-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-16'
 
                     def __init__(self):
                         super(L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv, self).__init__()
@@ -7109,19 +7485,61 @@ class L2Rib(Entity):
                         self.yang_parent_name = "mac-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tlv-val", ("tlv_val", L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal))])
+                        self._leafs = OrderedDict([
+                            ('tlv_type', YLeaf(YType.uint16, 'tlv-type')),
+                            ('tlv_len', YLeaf(YType.uint16, 'tlv-len')),
+                        ])
+                        self.tlv_type = None
+                        self.tlv_len = None
 
-                        self.tlv_type = YLeaf(YType.uint16, "tlv-type")
-
-                        self.tlv_len = YLeaf(YType.uint16, "tlv-len")
-
-                        self.tlv_val = YLeafList(YType.uint8, "tlv-val")
+                        self.tlv_val = YList(self)
                         self._segment_path = lambda: "rt-tlv"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv, ['tlv_type', 'tlv_len', 'tlv_val'], name, value)
+                        self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv, ['tlv_type', 'tlv_len'], name, value)
+
+
+                    class TlvVal(Entity):
+                        """
+                        TLV Value
+                        
+                        .. attribute:: entry
+                        
+                        	
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2rib-oper'
+                        _revision = '2017-08-16'
+
+                        def __init__(self):
+                            super(L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal, self).__init__()
+
+                            self.yang_name = "tlv-val"
+                            self.yang_parent_name = "rt-tlv"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry', YLeaf(YType.uint8, 'entry')),
+                            ])
+                            self.entry = None
+                            self._segment_path = lambda: "tlv-val"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/rt-tlv/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2Rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
     class Evis(Entity):
@@ -7138,7 +7556,7 @@ class L2Rib(Entity):
         """
 
         _prefix = 'l2rib-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-16'
 
         def __init__(self):
             super(L2Rib.Evis, self).__init__()
@@ -7147,8 +7565,10 @@ class L2Rib(Entity):
             self.yang_parent_name = "l2rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"evi" : ("evi", L2Rib.Evis.Evi)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("evi", ("evi", L2Rib.Evis.Evi))])
+            self._leafs = OrderedDict()
 
             self.evi = YList(self)
             self._segment_path = lambda: "evis"
@@ -7162,12 +7582,12 @@ class L2Rib(Entity):
             """
             L2RIB EVPN EVI Entry
             
-            .. attribute:: evi  <key>
+            .. attribute:: evi  (key)
             
             	EVI ID
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: topology_id
             
@@ -7193,7 +7613,7 @@ class L2Rib(Entity):
             """
 
             _prefix = 'l2rib-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-16'
 
             def __init__(self):
                 super(L2Rib.Evis.Evi, self).__init__()
@@ -7202,17 +7622,20 @@ class L2Rib(Entity):
                 self.yang_parent_name = "evis"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.evi = YLeaf(YType.int32, "evi")
-
-                self.topology_id = YLeaf(YType.uint32, "topology-id")
-
-                self.topology_name = YLeaf(YType.str, "topology-name")
-
-                self.topology_type = YLeaf(YType.uint32, "topology-type")
-                self._segment_path = lambda: "evi" + "[evi='" + self.evi.get() + "']"
+                self.ylist_key_names = ['evi']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('evi', YLeaf(YType.uint32, 'evi')),
+                    ('topology_id', YLeaf(YType.uint32, 'topology-id')),
+                    ('topology_name', YLeaf(YType.str, 'topology-name')),
+                    ('topology_type', YLeaf(YType.uint32, 'topology-type')),
+                ])
+                self.evi = None
+                self.topology_id = None
+                self.topology_name = None
+                self.topology_type = None
+                self._segment_path = lambda: "evi" + "[evi='" + str(self.evi) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2rib-oper:l2rib/evis/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

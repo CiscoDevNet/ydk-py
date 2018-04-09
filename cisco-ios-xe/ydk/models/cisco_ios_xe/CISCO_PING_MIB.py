@@ -3,6 +3,8 @@
 Modified description of ciscoPingAddress object.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -34,8 +36,10 @@ class CISCOPINGMIB(Entity):
         self.yang_parent_name = "CISCO-PING-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoPingTable" : ("ciscopingtable", CISCOPINGMIB.Ciscopingtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoPingTable", ("ciscopingtable", CISCOPINGMIB.Ciscopingtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciscopingtable = CISCOPINGMIB.Ciscopingtable()
         self.ciscopingtable.parent = self
@@ -67,8 +71,10 @@ class CISCOPINGMIB(Entity):
             self.yang_parent_name = "CISCO-PING-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoPingEntry" : ("ciscopingentry", CISCOPINGMIB.Ciscopingtable.Ciscopingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoPingEntry", ("ciscopingentry", CISCOPINGMIB.Ciscopingtable.Ciscopingentry))])
+            self._leafs = OrderedDict()
 
             self.ciscopingentry = YList(self)
             self._segment_path = lambda: "ciscoPingTable"
@@ -111,7 +117,7 @@ class CISCOPINGMIB(Entity):
             but an entry will never be deleted within 5 minutes of
             completing.
             
-            .. attribute:: ciscopingserialnumber  <key>
+            .. attribute:: ciscopingserialnumber  (key)
             
             	Object which specifies a unique entry in the ciscoPingTable.  A management station wishing to initiate a ping operation should use a pseudo\-random value for this object when creating or modifying an instance of a ciscoPingEntry. The RowStatus semantics of the ciscoPingEntryStatus object will prevent access conflicts
             	**type**\: int
@@ -242,43 +248,46 @@ class CISCOPINGMIB(Entity):
                 self.yang_parent_name = "ciscoPingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscopingserialnumber = YLeaf(YType.int32, "ciscoPingSerialNumber")
-
-                self.ciscopingprotocol = YLeaf(YType.enumeration, "ciscoPingProtocol")
-
-                self.ciscopingaddress = YLeaf(YType.str, "ciscoPingAddress")
-
-                self.ciscopingpacketcount = YLeaf(YType.int32, "ciscoPingPacketCount")
-
-                self.ciscopingpacketsize = YLeaf(YType.int32, "ciscoPingPacketSize")
-
-                self.ciscopingpackettimeout = YLeaf(YType.int32, "ciscoPingPacketTimeout")
-
-                self.ciscopingdelay = YLeaf(YType.int32, "ciscoPingDelay")
-
-                self.ciscopingtraponcompletion = YLeaf(YType.boolean, "ciscoPingTrapOnCompletion")
-
-                self.ciscopingsentpackets = YLeaf(YType.uint32, "ciscoPingSentPackets")
-
-                self.ciscopingreceivedpackets = YLeaf(YType.uint32, "ciscoPingReceivedPackets")
-
-                self.ciscopingminrtt = YLeaf(YType.int32, "ciscoPingMinRtt")
-
-                self.ciscopingavgrtt = YLeaf(YType.int32, "ciscoPingAvgRtt")
-
-                self.ciscopingmaxrtt = YLeaf(YType.int32, "ciscoPingMaxRtt")
-
-                self.ciscopingcompleted = YLeaf(YType.boolean, "ciscoPingCompleted")
-
-                self.ciscopingentryowner = YLeaf(YType.str, "ciscoPingEntryOwner")
-
-                self.ciscopingentrystatus = YLeaf(YType.enumeration, "ciscoPingEntryStatus")
-
-                self.ciscopingvrfname = YLeaf(YType.str, "ciscoPingVrfName")
-                self._segment_path = lambda: "ciscoPingEntry" + "[ciscoPingSerialNumber='" + self.ciscopingserialnumber.get() + "']"
+                self.ylist_key_names = ['ciscopingserialnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscopingserialnumber', YLeaf(YType.int32, 'ciscoPingSerialNumber')),
+                    ('ciscopingprotocol', YLeaf(YType.enumeration, 'ciscoPingProtocol')),
+                    ('ciscopingaddress', YLeaf(YType.str, 'ciscoPingAddress')),
+                    ('ciscopingpacketcount', YLeaf(YType.int32, 'ciscoPingPacketCount')),
+                    ('ciscopingpacketsize', YLeaf(YType.int32, 'ciscoPingPacketSize')),
+                    ('ciscopingpackettimeout', YLeaf(YType.int32, 'ciscoPingPacketTimeout')),
+                    ('ciscopingdelay', YLeaf(YType.int32, 'ciscoPingDelay')),
+                    ('ciscopingtraponcompletion', YLeaf(YType.boolean, 'ciscoPingTrapOnCompletion')),
+                    ('ciscopingsentpackets', YLeaf(YType.uint32, 'ciscoPingSentPackets')),
+                    ('ciscopingreceivedpackets', YLeaf(YType.uint32, 'ciscoPingReceivedPackets')),
+                    ('ciscopingminrtt', YLeaf(YType.int32, 'ciscoPingMinRtt')),
+                    ('ciscopingavgrtt', YLeaf(YType.int32, 'ciscoPingAvgRtt')),
+                    ('ciscopingmaxrtt', YLeaf(YType.int32, 'ciscoPingMaxRtt')),
+                    ('ciscopingcompleted', YLeaf(YType.boolean, 'ciscoPingCompleted')),
+                    ('ciscopingentryowner', YLeaf(YType.str, 'ciscoPingEntryOwner')),
+                    ('ciscopingentrystatus', YLeaf(YType.enumeration, 'ciscoPingEntryStatus')),
+                    ('ciscopingvrfname', YLeaf(YType.str, 'ciscoPingVrfName')),
+                ])
+                self.ciscopingserialnumber = None
+                self.ciscopingprotocol = None
+                self.ciscopingaddress = None
+                self.ciscopingpacketcount = None
+                self.ciscopingpacketsize = None
+                self.ciscopingpackettimeout = None
+                self.ciscopingdelay = None
+                self.ciscopingtraponcompletion = None
+                self.ciscopingsentpackets = None
+                self.ciscopingreceivedpackets = None
+                self.ciscopingminrtt = None
+                self.ciscopingavgrtt = None
+                self.ciscopingmaxrtt = None
+                self.ciscopingcompleted = None
+                self.ciscopingentryowner = None
+                self.ciscopingentrystatus = None
+                self.ciscopingvrfname = None
+                self._segment_path = lambda: "ciscoPingEntry" + "[ciscoPingSerialNumber='" + str(self.ciscopingserialnumber) + "']"
                 self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -1,92 +1,99 @@
 submodule Cisco-IOS-XR-subscriber-session-mon-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-subscriber-session-mon-oper {
     prefix Cisco-IOS-XR-subscriber-session-mon-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR subscriber-session-mon package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
-
   grouping SHOW-SESSIONMON-STAT {
-    description "show session_mon statistics";
+    description
+      "show session_mon statistics";
     leaf total {
       type uint32;
-      description "total";
+      description
+        "total";
     }
     leaf pppoe {
       type uint32;
-      description "pppoe";
+      description
+        "pppoe";
     }
     leaf pppoe-ds {
       type uint32;
-      description "pppoe ds";
+      description
+        "pppoe ds";
     }
     leaf dhcpv4 {
       type uint32;
-      description "dhcpv4";
+      description
+        "dhcpv4";
     }
     leaf dhcpv6 {
       type uint32;
-      description "dhcpv6";
+      description
+        "dhcpv6";
     }
     leaf dhcp-ds {
       type uint32;
-      description "dhcp ds";
+      description
+        "dhcp ds";
     }
     leaf ippkt {
       type uint32;
-      description "ippkt";
+      description
+        "ippkt";
     }
     leaf active-sessions {
       type uint32;
-      description "active sessions";
+      description
+        "active sessions";
     }
     leaf standby-sessions {
       type uint32;
-      description "standby sessions";
+      description
+        "standby sessions";
     }
     leaf peak-active-sessions {
       type uint32;
-      description "peak active sessions";
+      description
+        "peak active sessions";
     }
     leaf peak-standby-sessions {
       type uint32;
-      description "peak standby sessions";
+      description
+        "peak standby sessions";
     }
     leaf peak-start-time {
       type uint32;
-      description "peak start time";
+      description
+        "peak start time";
     }
     leaf timeout-value {
       type uint32;
-      description "timeout value";
+      description
+        "timeout value";
     }
   }
 }

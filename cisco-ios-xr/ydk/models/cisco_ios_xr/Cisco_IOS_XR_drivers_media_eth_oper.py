@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EthCtrlrAlarmState(Enum):
     """
-    EthCtrlrAlarmState
+    EthCtrlrAlarmState (Enum Class)
 
     Ethernet alarm state
 
@@ -46,7 +48,7 @@ class EthCtrlrAlarmState(Enum):
 
 class EtherAinsStatus(Enum):
     """
-    EtherAinsStatus
+    EtherAinsStatus (Enum Class)
 
     Ether ains status
 
@@ -73,7 +75,7 @@ class EtherAinsStatus(Enum):
 
 class EtherDomAlarm(Enum):
     """
-    EtherDomAlarm
+    EtherDomAlarm (Enum Class)
 
     Ether dom alarm
 
@@ -118,7 +120,7 @@ class EtherDomAlarm(Enum):
 
 class EtherFlowcontrol(Enum):
     """
-    EtherFlowcontrol
+    EtherFlowcontrol (Enum Class)
 
     Flowcontrol type
 
@@ -151,7 +153,7 @@ class EtherFlowcontrol(Enum):
 
 class EtherLedState(Enum):
     """
-    EtherLedState
+    EtherLedState (Enum Class)
 
     Ether led state
 
@@ -208,7 +210,7 @@ class EtherLedState(Enum):
 
 class EtherLinkState(Enum):
     """
-    EtherLinkState
+    EtherLinkState (Enum Class)
 
     Ethernet link state\: IEEE 802.3/802.3ae clause 30
 
@@ -330,6 +332,10 @@ class EtherLinkState(Enum):
 
     	OTN Framing Error
 
+    .. data:: shutdown = 28
+
+    	Link is shutdown
+
     """
 
     state_undefined = Enum.YLeaf(0, "state-undefined")
@@ -388,10 +394,12 @@ class EtherLinkState(Enum):
 
     otn_framing_error = Enum.YLeaf(27, "otn-framing-error")
 
+    shutdown = Enum.YLeaf(28, "shutdown")
+
 
 class EtherPfc(Enum):
     """
-    EtherPfc
+    EtherPfc (Enum Class)
 
     Priority flowcontrol type
 
@@ -412,7 +420,7 @@ class EtherPfc(Enum):
 
 class EtherPhyPresent(Enum):
     """
-    EtherPhyPresent
+    EtherPhyPresent (Enum Class)
 
     Ether phy present
 
@@ -439,7 +447,7 @@ class EtherPhyPresent(Enum):
 
 class EthernetBertErrCnt(Enum):
     """
-    EthernetBertErrCnt
+    EthernetBertErrCnt (Enum Class)
 
     Ethernet bert err cnt
 
@@ -478,7 +486,7 @@ class EthernetBertErrCnt(Enum):
 
 class EthernetBertPattern(Enum):
     """
-    EthernetBertPattern
+    EthernetBertPattern (Enum Class)
 
     Ethernet test patterns (IEEE spec 36A/48A)
 
@@ -571,7 +579,7 @@ class EthernetBertPattern(Enum):
 
 class EthernetDev(Enum):
     """
-    EthernetDev
+    EthernetDev (Enum Class)
 
     Ethernet dev
 
@@ -622,7 +630,7 @@ class EthernetDev(Enum):
 
 class EthernetDevIf(Enum):
     """
-    EthernetDevIf
+    EthernetDevIf (Enum Class)
 
     Ethernet dev if
 
@@ -655,7 +663,7 @@ class EthernetDevIf(Enum):
 
 class EthernetDuplex(Enum):
     """
-    EthernetDuplex
+    EthernetDuplex (Enum Class)
 
     Duplexity
 
@@ -682,7 +690,7 @@ class EthernetDuplex(Enum):
 
 class EthernetFec(Enum):
     """
-    EthernetFec
+    EthernetFec (Enum Class)
 
     FEC type
 
@@ -715,7 +723,7 @@ class EthernetFec(Enum):
 
 class EthernetIpg(Enum):
     """
-    EthernetIpg
+    EthernetIpg (Enum Class)
 
     Inter packet gap
 
@@ -736,7 +744,7 @@ class EthernetIpg(Enum):
 
 class EthernetLoopback(Enum):
     """
-    EthernetLoopback
+    EthernetLoopback (Enum Class)
 
     Loopback type
 
@@ -769,7 +777,7 @@ class EthernetLoopback(Enum):
 
 class EthernetMedia(Enum):
     """
-    EthernetMedia
+    EthernetMedia (Enum Class)
 
     Ethernet media types\: IEEE 802.3/802.3ae clause
 
@@ -2187,7 +2195,35 @@ class EthernetMedia(Enum):
 
     	4 lanes Passive Copper
 
-    .. data:: ethernet_base_max = 350
+    .. data:: ethernet_10gbase_cu1m = 350
+
+    	Passive Twinax cable assembly 1m
+
+    .. data:: ethernet_10gbase_cu3m = 351
+
+    	Passive Twinax cable assembly 3m
+
+    .. data:: ethernet_10gbase_cu5m = 352
+
+    	Passive Twinax cable assembly 5m
+
+    .. data:: ethernet_10gbase_acu7m = 353
+
+    	Active Twinax cable assembly 7m
+
+    .. data:: ethernet_10gbase_acu10m = 354
+
+    	Active Twinax cable assembly 10m
+
+    .. data:: ethernet_40gbase_aoc = 355
+
+    	Active optical cable
+
+    .. data:: ethernet_4x10g_base_lr = 356
+
+    	fiber over 4 lane optics (long reach)
+
+    .. data:: ethernet_base_max = 357
 
     	ethernet base max
 
@@ -2893,12 +2929,26 @@ class EthernetMedia(Enum):
 
     ethernet_400gbase_cr4 = Enum.YLeaf(349, "ethernet-400gbase-cr4")
 
-    ethernet_base_max = Enum.YLeaf(350, "ethernet-base-max")
+    ethernet_10gbase_cu1m = Enum.YLeaf(350, "ethernet-10gbase-cu1m")
+
+    ethernet_10gbase_cu3m = Enum.YLeaf(351, "ethernet-10gbase-cu3m")
+
+    ethernet_10gbase_cu5m = Enum.YLeaf(352, "ethernet-10gbase-cu5m")
+
+    ethernet_10gbase_acu7m = Enum.YLeaf(353, "ethernet-10gbase-acu7m")
+
+    ethernet_10gbase_acu10m = Enum.YLeaf(354, "ethernet-10gbase-acu10m")
+
+    ethernet_40gbase_aoc = Enum.YLeaf(355, "ethernet-40gbase-aoc")
+
+    ethernet_4x10g_base_lr = Enum.YLeaf(356, "ethernet-4x10g-base-lr")
+
+    ethernet_base_max = Enum.YLeaf(357, "ethernet-base-max")
 
 
 class EthernetPortEnable(Enum):
     """
-    EthernetPortEnable
+    EthernetPortEnable (Enum Class)
 
     Port admin state
 
@@ -2931,7 +2981,7 @@ class EthernetPortEnable(Enum):
 
 class EthernetSpeed(Enum):
     """
-    EthernetSpeed
+    EthernetSpeed (Enum Class)
 
     Speed
 
@@ -3045,8 +3095,10 @@ class EthernetInterface(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-drivers-media-eth-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"statistics" : ("statistics", EthernetInterface.Statistics), "interfaces" : ("interfaces", EthernetInterface.Interfaces), "berts" : ("berts", EthernetInterface.Berts)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("statistics", ("statistics", EthernetInterface.Statistics)), ("interfaces", ("interfaces", EthernetInterface.Interfaces)), ("berts", ("berts", EthernetInterface.Berts))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.statistics = EthernetInterface.Statistics()
         self.statistics.parent = self
@@ -3088,8 +3140,10 @@ class EthernetInterface(Entity):
             self.yang_parent_name = "ethernet-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"statistic" : ("statistic", EthernetInterface.Statistics.Statistic)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("statistic", ("statistic", EthernetInterface.Statistics.Statistic))])
+            self._leafs = OrderedDict()
 
             self.statistic = YList(self)
             self._segment_path = lambda: "statistics"
@@ -3103,7 +3157,7 @@ class EthernetInterface(Entity):
             """
             Ethernet statistics information
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -3509,121 +3563,124 @@ class EthernetInterface(Entity):
                 self.yang_parent_name = "statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.received_total_bytes = YLeaf(YType.uint64, "received-total-bytes")
-
-                self.received_good_bytes = YLeaf(YType.uint64, "received-good-bytes")
-
-                self.received_total_frames = YLeaf(YType.uint64, "received-total-frames")
-
-                self.received8021q_frames = YLeaf(YType.uint64, "received8021q-frames")
-
-                self.received_pause_frames = YLeaf(YType.uint64, "received-pause-frames")
-
-                self.received_unknown_opcodes = YLeaf(YType.uint64, "received-unknown-opcodes")
-
-                self.received_total64_octet_frames = YLeaf(YType.uint64, "received-total64-octet-frames")
-
-                self.received_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "received-total-octet-frames-from65-to127")
-
-                self.received_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "received-total-octet-frames-from128-to255")
-
-                self.received_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "received-total-octet-frames-from256-to511")
-
-                self.received_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "received-total-octet-frames-from512-to1023")
-
-                self.received_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "received-total-octet-frames-from1024-to1518")
-
-                self.received_total_octet_frames_from1519_to_max = YLeaf(YType.uint64, "received-total-octet-frames-from1519-to-max")
-
-                self.received_good_frames = YLeaf(YType.uint64, "received-good-frames")
-
-                self.received_unicast_frames = YLeaf(YType.uint64, "received-unicast-frames")
-
-                self.received_multicast_frames = YLeaf(YType.uint64, "received-multicast-frames")
-
-                self.received_broadcast_frames = YLeaf(YType.uint64, "received-broadcast-frames")
-
-                self.number_of_buffer_overrun_packets_dropped = YLeaf(YType.uint64, "number-of-buffer-overrun-packets-dropped")
-
-                self.number_of_aborted_packets_dropped = YLeaf(YType.uint64, "number-of-aborted-packets-dropped")
-
-                self.numberof_invalid_vlan_id_packets_dropped = YLeaf(YType.uint64, "numberof-invalid-vlan-id-packets-dropped")
-
-                self.invalid_dest_mac_drop_packets = YLeaf(YType.uint64, "invalid-dest-mac-drop-packets")
-
-                self.invalid_encap_drop_packets = YLeaf(YType.uint64, "invalid-encap-drop-packets")
-
-                self.number_of_miscellaneous_packets_dropped = YLeaf(YType.uint64, "number-of-miscellaneous-packets-dropped")
-
-                self.dropped_giant_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-giant-packets-greaterthan-mru")
-
-                self.dropped_ether_stats_undersize_pkts = YLeaf(YType.uint64, "dropped-ether-stats-undersize-pkts")
-
-                self.dropped_jabbers_packets_greaterthan_mru = YLeaf(YType.uint64, "dropped-jabbers-packets-greaterthan-mru")
-
-                self.dropped_ether_stats_fragments = YLeaf(YType.uint64, "dropped-ether-stats-fragments")
-
-                self.dropped_packets_with_crc_align_errors = YLeaf(YType.uint64, "dropped-packets-with-crc-align-errors")
-
-                self.ether_stats_collisions = YLeaf(YType.uint64, "ether-stats-collisions")
-
-                self.symbol_errors = YLeaf(YType.uint64, "symbol-errors")
-
-                self.dropped_miscellaneous_error_packets = YLeaf(YType.uint64, "dropped-miscellaneous-error-packets")
-
-                self.rfc2819_ether_stats_oversized_pkts = YLeaf(YType.uint64, "rfc2819-ether-stats-oversized-pkts")
-
-                self.rfc2819_ether_stats_jabbers = YLeaf(YType.uint64, "rfc2819-ether-stats-jabbers")
-
-                self.rfc2819_ether_stats_crc_align_errors = YLeaf(YType.uint64, "rfc2819-ether-stats-crc-align-errors")
-
-                self.rfc3635dot3_stats_alignment_errors = YLeaf(YType.uint64, "rfc3635dot3-stats-alignment-errors")
-
-                self.total_bytes_transmitted = YLeaf(YType.uint64, "total-bytes-transmitted")
-
-                self.total_good_bytes_transmitted = YLeaf(YType.uint64, "total-good-bytes-transmitted")
-
-                self.total_frames_transmitted = YLeaf(YType.uint64, "total-frames-transmitted")
-
-                self.transmitted8021q_frames = YLeaf(YType.uint64, "transmitted8021q-frames")
-
-                self.transmitted_total_pause_frames = YLeaf(YType.uint64, "transmitted-total-pause-frames")
-
-                self.transmitted_total64_octet_frames = YLeaf(YType.uint64, "transmitted-total64-octet-frames")
-
-                self.transmitted_total_octet_frames_from65_to127 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from65-to127")
-
-                self.transmitted_total_octet_frames_from128_to255 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from128-to255")
-
-                self.transmitted_total_octet_frames_from256_to511 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from256-to511")
-
-                self.transmitted_total_octet_frames_from512_to1023 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from512-to1023")
-
-                self.transmitted_total_octet_frames_from1024_to1518 = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1024-to1518")
-
-                self.transmitted_total_octet_frames_from1518_to_max = YLeaf(YType.uint64, "transmitted-total-octet-frames-from1518-to-max")
-
-                self.transmitted_good_frames = YLeaf(YType.uint64, "transmitted-good-frames")
-
-                self.transmitted_unicast_frames = YLeaf(YType.uint64, "transmitted-unicast-frames")
-
-                self.transmitted_multicast_frames = YLeaf(YType.uint64, "transmitted-multicast-frames")
-
-                self.transmitted_broadcast_frames = YLeaf(YType.uint64, "transmitted-broadcast-frames")
-
-                self.buffer_underrun_packet_drops = YLeaf(YType.uint64, "buffer-underrun-packet-drops")
-
-                self.aborted_packet_drops = YLeaf(YType.uint64, "aborted-packet-drops")
-
-                self.uncounted_dropped_frames = YLeaf(YType.uint64, "uncounted-dropped-frames")
-
-                self.miscellaneous_output_errors = YLeaf(YType.uint64, "miscellaneous-output-errors")
-                self._segment_path = lambda: "statistic" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('received_total_bytes', YLeaf(YType.uint64, 'received-total-bytes')),
+                    ('received_good_bytes', YLeaf(YType.uint64, 'received-good-bytes')),
+                    ('received_total_frames', YLeaf(YType.uint64, 'received-total-frames')),
+                    ('received8021q_frames', YLeaf(YType.uint64, 'received8021q-frames')),
+                    ('received_pause_frames', YLeaf(YType.uint64, 'received-pause-frames')),
+                    ('received_unknown_opcodes', YLeaf(YType.uint64, 'received-unknown-opcodes')),
+                    ('received_total64_octet_frames', YLeaf(YType.uint64, 'received-total64-octet-frames')),
+                    ('received_total_octet_frames_from65_to127', YLeaf(YType.uint64, 'received-total-octet-frames-from65-to127')),
+                    ('received_total_octet_frames_from128_to255', YLeaf(YType.uint64, 'received-total-octet-frames-from128-to255')),
+                    ('received_total_octet_frames_from256_to511', YLeaf(YType.uint64, 'received-total-octet-frames-from256-to511')),
+                    ('received_total_octet_frames_from512_to1023', YLeaf(YType.uint64, 'received-total-octet-frames-from512-to1023')),
+                    ('received_total_octet_frames_from1024_to1518', YLeaf(YType.uint64, 'received-total-octet-frames-from1024-to1518')),
+                    ('received_total_octet_frames_from1519_to_max', YLeaf(YType.uint64, 'received-total-octet-frames-from1519-to-max')),
+                    ('received_good_frames', YLeaf(YType.uint64, 'received-good-frames')),
+                    ('received_unicast_frames', YLeaf(YType.uint64, 'received-unicast-frames')),
+                    ('received_multicast_frames', YLeaf(YType.uint64, 'received-multicast-frames')),
+                    ('received_broadcast_frames', YLeaf(YType.uint64, 'received-broadcast-frames')),
+                    ('number_of_buffer_overrun_packets_dropped', YLeaf(YType.uint64, 'number-of-buffer-overrun-packets-dropped')),
+                    ('number_of_aborted_packets_dropped', YLeaf(YType.uint64, 'number-of-aborted-packets-dropped')),
+                    ('numberof_invalid_vlan_id_packets_dropped', YLeaf(YType.uint64, 'numberof-invalid-vlan-id-packets-dropped')),
+                    ('invalid_dest_mac_drop_packets', YLeaf(YType.uint64, 'invalid-dest-mac-drop-packets')),
+                    ('invalid_encap_drop_packets', YLeaf(YType.uint64, 'invalid-encap-drop-packets')),
+                    ('number_of_miscellaneous_packets_dropped', YLeaf(YType.uint64, 'number-of-miscellaneous-packets-dropped')),
+                    ('dropped_giant_packets_greaterthan_mru', YLeaf(YType.uint64, 'dropped-giant-packets-greaterthan-mru')),
+                    ('dropped_ether_stats_undersize_pkts', YLeaf(YType.uint64, 'dropped-ether-stats-undersize-pkts')),
+                    ('dropped_jabbers_packets_greaterthan_mru', YLeaf(YType.uint64, 'dropped-jabbers-packets-greaterthan-mru')),
+                    ('dropped_ether_stats_fragments', YLeaf(YType.uint64, 'dropped-ether-stats-fragments')),
+                    ('dropped_packets_with_crc_align_errors', YLeaf(YType.uint64, 'dropped-packets-with-crc-align-errors')),
+                    ('ether_stats_collisions', YLeaf(YType.uint64, 'ether-stats-collisions')),
+                    ('symbol_errors', YLeaf(YType.uint64, 'symbol-errors')),
+                    ('dropped_miscellaneous_error_packets', YLeaf(YType.uint64, 'dropped-miscellaneous-error-packets')),
+                    ('rfc2819_ether_stats_oversized_pkts', YLeaf(YType.uint64, 'rfc2819-ether-stats-oversized-pkts')),
+                    ('rfc2819_ether_stats_jabbers', YLeaf(YType.uint64, 'rfc2819-ether-stats-jabbers')),
+                    ('rfc2819_ether_stats_crc_align_errors', YLeaf(YType.uint64, 'rfc2819-ether-stats-crc-align-errors')),
+                    ('rfc3635dot3_stats_alignment_errors', YLeaf(YType.uint64, 'rfc3635dot3-stats-alignment-errors')),
+                    ('total_bytes_transmitted', YLeaf(YType.uint64, 'total-bytes-transmitted')),
+                    ('total_good_bytes_transmitted', YLeaf(YType.uint64, 'total-good-bytes-transmitted')),
+                    ('total_frames_transmitted', YLeaf(YType.uint64, 'total-frames-transmitted')),
+                    ('transmitted8021q_frames', YLeaf(YType.uint64, 'transmitted8021q-frames')),
+                    ('transmitted_total_pause_frames', YLeaf(YType.uint64, 'transmitted-total-pause-frames')),
+                    ('transmitted_total64_octet_frames', YLeaf(YType.uint64, 'transmitted-total64-octet-frames')),
+                    ('transmitted_total_octet_frames_from65_to127', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from65-to127')),
+                    ('transmitted_total_octet_frames_from128_to255', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from128-to255')),
+                    ('transmitted_total_octet_frames_from256_to511', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from256-to511')),
+                    ('transmitted_total_octet_frames_from512_to1023', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from512-to1023')),
+                    ('transmitted_total_octet_frames_from1024_to1518', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1024-to1518')),
+                    ('transmitted_total_octet_frames_from1518_to_max', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1518-to-max')),
+                    ('transmitted_good_frames', YLeaf(YType.uint64, 'transmitted-good-frames')),
+                    ('transmitted_unicast_frames', YLeaf(YType.uint64, 'transmitted-unicast-frames')),
+                    ('transmitted_multicast_frames', YLeaf(YType.uint64, 'transmitted-multicast-frames')),
+                    ('transmitted_broadcast_frames', YLeaf(YType.uint64, 'transmitted-broadcast-frames')),
+                    ('buffer_underrun_packet_drops', YLeaf(YType.uint64, 'buffer-underrun-packet-drops')),
+                    ('aborted_packet_drops', YLeaf(YType.uint64, 'aborted-packet-drops')),
+                    ('uncounted_dropped_frames', YLeaf(YType.uint64, 'uncounted-dropped-frames')),
+                    ('miscellaneous_output_errors', YLeaf(YType.uint64, 'miscellaneous-output-errors')),
+                ])
+                self.interface_name = None
+                self.received_total_bytes = None
+                self.received_good_bytes = None
+                self.received_total_frames = None
+                self.received8021q_frames = None
+                self.received_pause_frames = None
+                self.received_unknown_opcodes = None
+                self.received_total64_octet_frames = None
+                self.received_total_octet_frames_from65_to127 = None
+                self.received_total_octet_frames_from128_to255 = None
+                self.received_total_octet_frames_from256_to511 = None
+                self.received_total_octet_frames_from512_to1023 = None
+                self.received_total_octet_frames_from1024_to1518 = None
+                self.received_total_octet_frames_from1519_to_max = None
+                self.received_good_frames = None
+                self.received_unicast_frames = None
+                self.received_multicast_frames = None
+                self.received_broadcast_frames = None
+                self.number_of_buffer_overrun_packets_dropped = None
+                self.number_of_aborted_packets_dropped = None
+                self.numberof_invalid_vlan_id_packets_dropped = None
+                self.invalid_dest_mac_drop_packets = None
+                self.invalid_encap_drop_packets = None
+                self.number_of_miscellaneous_packets_dropped = None
+                self.dropped_giant_packets_greaterthan_mru = None
+                self.dropped_ether_stats_undersize_pkts = None
+                self.dropped_jabbers_packets_greaterthan_mru = None
+                self.dropped_ether_stats_fragments = None
+                self.dropped_packets_with_crc_align_errors = None
+                self.ether_stats_collisions = None
+                self.symbol_errors = None
+                self.dropped_miscellaneous_error_packets = None
+                self.rfc2819_ether_stats_oversized_pkts = None
+                self.rfc2819_ether_stats_jabbers = None
+                self.rfc2819_ether_stats_crc_align_errors = None
+                self.rfc3635dot3_stats_alignment_errors = None
+                self.total_bytes_transmitted = None
+                self.total_good_bytes_transmitted = None
+                self.total_frames_transmitted = None
+                self.transmitted8021q_frames = None
+                self.transmitted_total_pause_frames = None
+                self.transmitted_total64_octet_frames = None
+                self.transmitted_total_octet_frames_from65_to127 = None
+                self.transmitted_total_octet_frames_from128_to255 = None
+                self.transmitted_total_octet_frames_from256_to511 = None
+                self.transmitted_total_octet_frames_from512_to1023 = None
+                self.transmitted_total_octet_frames_from1024_to1518 = None
+                self.transmitted_total_octet_frames_from1518_to_max = None
+                self.transmitted_good_frames = None
+                self.transmitted_unicast_frames = None
+                self.transmitted_multicast_frames = None
+                self.transmitted_broadcast_frames = None
+                self.buffer_underrun_packet_drops = None
+                self.aborted_packet_drops = None
+                self.uncounted_dropped_frames = None
+                self.miscellaneous_output_errors = None
+                self._segment_path = lambda: "statistic" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/statistics/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3653,8 +3710,10 @@ class EthernetInterface(Entity):
             self.yang_parent_name = "ethernet-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", EthernetInterface.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", EthernetInterface.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -3668,7 +3727,7 @@ class EthernetInterface(Entity):
             """
             Ethernet controller information
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -3719,14 +3778,17 @@ class EthernetInterface(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"phy-info" : ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo), "layer1-info" : ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info), "mac-info" : ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo), "transport-info" : ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                self.oper_state_up = YLeaf(YType.boolean, "oper-state-up")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("phy-info", ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo)), ("layer1-info", ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info)), ("mac-info", ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo)), ("transport-info", ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                    ('oper_state_up', YLeaf(YType.boolean, 'oper-state-up')),
+                ])
+                self.interface_name = None
+                self.admin_state = None
+                self.oper_state_up = None
 
                 self.phy_info = EthernetInterface.Interfaces.Interface.PhyInfo()
                 self.phy_info.parent = self
@@ -3747,7 +3809,7 @@ class EthernetInterface(Entity):
                 self.transport_info.parent = self
                 self._children_name_map["transport_info"] = "transport-info"
                 self._children_yang_names.add("transport-info")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3802,14 +3864,17 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"phy-details" : ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails), "fec-details" : ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails)}
-                    self._child_list_classes = {"extended-loopback" : ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback)}
-
-                    self.media_type = YLeaf(YType.enumeration, "media-type")
-
-                    self.phy_present = YLeaf(YType.enumeration, "phy-present")
-
-                    self.loopback = YLeaf(YType.enumeration, "loopback")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("phy-details", ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails)), ("fec-details", ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails))])
+                    self._child_list_classes = OrderedDict([("extended-loopback", ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback))])
+                    self._leafs = OrderedDict([
+                        ('media_type', YLeaf(YType.enumeration, 'media-type')),
+                        ('phy_present', YLeaf(YType.enumeration, 'phy-present')),
+                        ('loopback', YLeaf(YType.enumeration, 'loopback')),
+                    ])
+                    self.media_type = None
+                    self.phy_present = None
+                    self.loopback = None
 
                     self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
                     self.phy_details.parent = self
@@ -3933,30 +3998,33 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "phy-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"lane-field-validity" : ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity), "dig-opt-mon-alarm-thresholds" : ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds), "dig-opt-mon-alarms" : ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms)}
-                        self._child_list_classes = {"lane" : ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane)}
-
-                        self.vendor = YLeaf(YType.str, "vendor")
-
-                        self.vendor_part_number = YLeaf(YType.str, "vendor-part-number")
-
-                        self.vendor_serial_number = YLeaf(YType.str, "vendor-serial-number")
-
-                        self.transceiver_temperature = YLeaf(YType.int32, "transceiver-temperature")
-
-                        self.transceiver_voltage = YLeaf(YType.int32, "transceiver-voltage")
-
-                        self.transceiver_tx_power = YLeaf(YType.int32, "transceiver-tx-power")
-
-                        self.transceiver_rx_power = YLeaf(YType.int32, "transceiver-rx-power")
-
-                        self.transceiver_tx_bias = YLeaf(YType.int32, "transceiver-tx-bias")
-
-                        self.optics_wavelength = YLeaf(YType.uint32, "optics-wavelength")
-
-                        self.optics_type = YLeaf(YType.str, "optics-type")
-
-                        self.revision_number = YLeaf(YType.str, "revision-number")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("lane-field-validity", ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity)), ("dig-opt-mon-alarm-thresholds", ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds)), ("dig-opt-mon-alarms", ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms))])
+                        self._child_list_classes = OrderedDict([("lane", ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane))])
+                        self._leafs = OrderedDict([
+                            ('vendor', YLeaf(YType.str, 'vendor')),
+                            ('vendor_part_number', YLeaf(YType.str, 'vendor-part-number')),
+                            ('vendor_serial_number', YLeaf(YType.str, 'vendor-serial-number')),
+                            ('transceiver_temperature', YLeaf(YType.int32, 'transceiver-temperature')),
+                            ('transceiver_voltage', YLeaf(YType.int32, 'transceiver-voltage')),
+                            ('transceiver_tx_power', YLeaf(YType.int32, 'transceiver-tx-power')),
+                            ('transceiver_rx_power', YLeaf(YType.int32, 'transceiver-rx-power')),
+                            ('transceiver_tx_bias', YLeaf(YType.int32, 'transceiver-tx-bias')),
+                            ('optics_wavelength', YLeaf(YType.uint32, 'optics-wavelength')),
+                            ('optics_type', YLeaf(YType.str, 'optics-type')),
+                            ('revision_number', YLeaf(YType.str, 'revision-number')),
+                        ])
+                        self.vendor = None
+                        self.vendor_part_number = None
+                        self.vendor_serial_number = None
+                        self.transceiver_temperature = None
+                        self.transceiver_voltage = None
+                        self.transceiver_tx_power = None
+                        self.transceiver_rx_power = None
+                        self.transceiver_tx_bias = None
+                        self.optics_wavelength = None
+                        self.optics_type = None
+                        self.revision_number = None
 
                         self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
                         self.lane_field_validity.parent = self
@@ -4027,16 +4095,19 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "phy-details"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.wavelength_valid = YLeaf(YType.int32, "wavelength-valid")
-
-                            self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
-
-                            self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
-
-                            self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('wavelength_valid', YLeaf(YType.int32, 'wavelength-valid')),
+                                ('transmit_power_valid', YLeaf(YType.int32, 'transmit-power-valid')),
+                                ('receive_power_valid', YLeaf(YType.int32, 'receive-power-valid')),
+                                ('laser_bias_valid', YLeaf(YType.int32, 'laser-bias-valid')),
+                            ])
+                            self.wavelength_valid = None
+                            self.transmit_power_valid = None
+                            self.receive_power_valid = None
+                            self.laser_bias_valid = None
                             self._segment_path = lambda: "lane-field-validity"
 
                         def __setattr__(self, name, value):
@@ -4206,48 +4277,51 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "phy-details"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"field-validity" : ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity)}
-                            self._child_list_classes = {}
-
-                            self.transceiver_temperature_alarm_high = YLeaf(YType.int32, "transceiver-temperature-alarm-high")
-
-                            self.transceiver_temperature_warning_high = YLeaf(YType.int32, "transceiver-temperature-warning-high")
-
-                            self.transceiver_temperature_warning_low = YLeaf(YType.int32, "transceiver-temperature-warning-low")
-
-                            self.transceiver_temperature_alarm_low = YLeaf(YType.int32, "transceiver-temperature-alarm-low")
-
-                            self.transceiver_voltage_alarm_high = YLeaf(YType.uint32, "transceiver-voltage-alarm-high")
-
-                            self.transceiver_voltage_warning_high = YLeaf(YType.uint32, "transceiver-voltage-warning-high")
-
-                            self.transceiver_voltage_warning_low = YLeaf(YType.uint32, "transceiver-voltage-warning-low")
-
-                            self.transceiver_voltage_alarm_low = YLeaf(YType.uint32, "transceiver-voltage-alarm-low")
-
-                            self.laser_bias_alarm_high = YLeaf(YType.uint32, "laser-bias-alarm-high")
-
-                            self.laser_bias_warning_high = YLeaf(YType.uint32, "laser-bias-warning-high")
-
-                            self.laser_bias_warning_low = YLeaf(YType.uint32, "laser-bias-warning-low")
-
-                            self.laser_bias_alarm_low = YLeaf(YType.uint32, "laser-bias-alarm-low")
-
-                            self.optical_transmit_power_alarm_high = YLeaf(YType.uint32, "optical-transmit-power-alarm-high")
-
-                            self.optical_transmit_power_warning_high = YLeaf(YType.uint32, "optical-transmit-power-warning-high")
-
-                            self.optical_transmit_power_warning_low = YLeaf(YType.uint32, "optical-transmit-power-warning-low")
-
-                            self.optical_transmit_power_alarm_low = YLeaf(YType.uint32, "optical-transmit-power-alarm-low")
-
-                            self.optical_receive_power_alarm_high = YLeaf(YType.uint32, "optical-receive-power-alarm-high")
-
-                            self.optical_receive_power_warning_high = YLeaf(YType.uint32, "optical-receive-power-warning-high")
-
-                            self.optical_receive_power_warning_low = YLeaf(YType.uint32, "optical-receive-power-warning-low")
-
-                            self.optical_receive_power_alarm_low = YLeaf(YType.uint32, "optical-receive-power-alarm-low")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("field-validity", ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('transceiver_temperature_alarm_high', YLeaf(YType.int32, 'transceiver-temperature-alarm-high')),
+                                ('transceiver_temperature_warning_high', YLeaf(YType.int32, 'transceiver-temperature-warning-high')),
+                                ('transceiver_temperature_warning_low', YLeaf(YType.int32, 'transceiver-temperature-warning-low')),
+                                ('transceiver_temperature_alarm_low', YLeaf(YType.int32, 'transceiver-temperature-alarm-low')),
+                                ('transceiver_voltage_alarm_high', YLeaf(YType.uint32, 'transceiver-voltage-alarm-high')),
+                                ('transceiver_voltage_warning_high', YLeaf(YType.uint32, 'transceiver-voltage-warning-high')),
+                                ('transceiver_voltage_warning_low', YLeaf(YType.uint32, 'transceiver-voltage-warning-low')),
+                                ('transceiver_voltage_alarm_low', YLeaf(YType.uint32, 'transceiver-voltage-alarm-low')),
+                                ('laser_bias_alarm_high', YLeaf(YType.uint32, 'laser-bias-alarm-high')),
+                                ('laser_bias_warning_high', YLeaf(YType.uint32, 'laser-bias-warning-high')),
+                                ('laser_bias_warning_low', YLeaf(YType.uint32, 'laser-bias-warning-low')),
+                                ('laser_bias_alarm_low', YLeaf(YType.uint32, 'laser-bias-alarm-low')),
+                                ('optical_transmit_power_alarm_high', YLeaf(YType.uint32, 'optical-transmit-power-alarm-high')),
+                                ('optical_transmit_power_warning_high', YLeaf(YType.uint32, 'optical-transmit-power-warning-high')),
+                                ('optical_transmit_power_warning_low', YLeaf(YType.uint32, 'optical-transmit-power-warning-low')),
+                                ('optical_transmit_power_alarm_low', YLeaf(YType.uint32, 'optical-transmit-power-alarm-low')),
+                                ('optical_receive_power_alarm_high', YLeaf(YType.uint32, 'optical-receive-power-alarm-high')),
+                                ('optical_receive_power_warning_high', YLeaf(YType.uint32, 'optical-receive-power-warning-high')),
+                                ('optical_receive_power_warning_low', YLeaf(YType.uint32, 'optical-receive-power-warning-low')),
+                                ('optical_receive_power_alarm_low', YLeaf(YType.uint32, 'optical-receive-power-alarm-low')),
+                            ])
+                            self.transceiver_temperature_alarm_high = None
+                            self.transceiver_temperature_warning_high = None
+                            self.transceiver_temperature_warning_low = None
+                            self.transceiver_temperature_alarm_low = None
+                            self.transceiver_voltage_alarm_high = None
+                            self.transceiver_voltage_warning_high = None
+                            self.transceiver_voltage_warning_low = None
+                            self.transceiver_voltage_alarm_low = None
+                            self.laser_bias_alarm_high = None
+                            self.laser_bias_warning_high = None
+                            self.laser_bias_warning_low = None
+                            self.laser_bias_alarm_low = None
+                            self.optical_transmit_power_alarm_high = None
+                            self.optical_transmit_power_warning_high = None
+                            self.optical_transmit_power_warning_low = None
+                            self.optical_transmit_power_alarm_low = None
+                            self.optical_receive_power_alarm_high = None
+                            self.optical_receive_power_warning_high = None
+                            self.optical_receive_power_warning_low = None
+                            self.optical_receive_power_alarm_low = None
 
                             self.field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity()
                             self.field_validity.parent = self
@@ -4312,18 +4386,21 @@ class EthernetInterface(Entity):
                                 self.yang_parent_name = "dig-opt-mon-alarm-thresholds"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.temperature_valid = YLeaf(YType.int32, "temperature-valid")
-
-                                self.voltage_valid = YLeaf(YType.int32, "voltage-valid")
-
-                                self.laser_bias_valid = YLeaf(YType.int32, "laser-bias-valid")
-
-                                self.transmit_power_valid = YLeaf(YType.int32, "transmit-power-valid")
-
-                                self.receive_power_valid = YLeaf(YType.int32, "receive-power-valid")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('temperature_valid', YLeaf(YType.int32, 'temperature-valid')),
+                                    ('voltage_valid', YLeaf(YType.int32, 'voltage-valid')),
+                                    ('laser_bias_valid', YLeaf(YType.int32, 'laser-bias-valid')),
+                                    ('transmit_power_valid', YLeaf(YType.int32, 'transmit-power-valid')),
+                                    ('receive_power_valid', YLeaf(YType.int32, 'receive-power-valid')),
+                                ])
+                                self.temperature_valid = None
+                                self.voltage_valid = None
+                                self.laser_bias_valid = None
+                                self.transmit_power_valid = None
+                                self.receive_power_valid = None
                                 self._segment_path = lambda: "field-validity"
 
                             def __setattr__(self, name, value):
@@ -4373,18 +4450,21 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "phy-details"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.transceiver_temperature = YLeaf(YType.enumeration, "transceiver-temperature")
-
-                            self.transceiver_voltage = YLeaf(YType.enumeration, "transceiver-voltage")
-
-                            self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
-
-                            self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
-
-                            self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('transceiver_temperature', YLeaf(YType.enumeration, 'transceiver-temperature')),
+                                ('transceiver_voltage', YLeaf(YType.enumeration, 'transceiver-voltage')),
+                                ('transmit_laser_power', YLeaf(YType.enumeration, 'transmit-laser-power')),
+                                ('received_laser_power', YLeaf(YType.enumeration, 'received-laser-power')),
+                                ('laser_bias_current', YLeaf(YType.enumeration, 'laser-bias-current')),
+                            ])
+                            self.transceiver_temperature = None
+                            self.transceiver_voltage = None
+                            self.transmit_laser_power = None
+                            self.received_laser_power = None
+                            self.laser_bias_current = None
                             self._segment_path = lambda: "dig-opt-mon-alarms"
 
                         def __setattr__(self, name, value):
@@ -4450,18 +4530,21 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "phy-details"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"dig-opt-mon-alarm" : ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm)}
-                            self._child_list_classes = {}
-
-                            self.center_wavelength = YLeaf(YType.uint32, "center-wavelength")
-
-                            self.transmit_laser_power = YLeaf(YType.int32, "transmit-laser-power")
-
-                            self.received_laser_power = YLeaf(YType.int32, "received-laser-power")
-
-                            self.laser_bias_current = YLeaf(YType.uint32, "laser-bias-current")
-
-                            self.lane_id = YLeaf(YType.uint32, "lane-id")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("dig-opt-mon-alarm", ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('center_wavelength', YLeaf(YType.uint32, 'center-wavelength')),
+                                ('transmit_laser_power', YLeaf(YType.int32, 'transmit-laser-power')),
+                                ('received_laser_power', YLeaf(YType.int32, 'received-laser-power')),
+                                ('laser_bias_current', YLeaf(YType.uint32, 'laser-bias-current')),
+                                ('lane_id', YLeaf(YType.uint32, 'lane-id')),
+                            ])
+                            self.center_wavelength = None
+                            self.transmit_laser_power = None
+                            self.received_laser_power = None
+                            self.laser_bias_current = None
+                            self.lane_id = None
 
                             self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
                             self.dig_opt_mon_alarm.parent = self
@@ -4506,14 +4589,17 @@ class EthernetInterface(Entity):
                                 self.yang_parent_name = "lane"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.transmit_laser_power = YLeaf(YType.enumeration, "transmit-laser-power")
-
-                                self.received_laser_power = YLeaf(YType.enumeration, "received-laser-power")
-
-                                self.laser_bias_current = YLeaf(YType.enumeration, "laser-bias-current")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('transmit_laser_power', YLeaf(YType.enumeration, 'transmit-laser-power')),
+                                    ('received_laser_power', YLeaf(YType.enumeration, 'received-laser-power')),
+                                    ('laser_bias_current', YLeaf(YType.enumeration, 'laser-bias-current')),
+                                ])
+                                self.transmit_laser_power = None
+                                self.received_laser_power = None
+                                self.laser_bias_current = None
                                 self._segment_path = lambda: "dig-opt-mon-alarm"
 
                             def __setattr__(self, name, value):
@@ -4557,14 +4643,17 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "phy-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.fec = YLeaf(YType.enumeration, "fec")
-
-                        self.corrected_codeword_count = YLeaf(YType.uint64, "corrected-codeword-count")
-
-                        self.uncorrected_codeword_count = YLeaf(YType.uint64, "uncorrected-codeword-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('fec', YLeaf(YType.enumeration, 'fec')),
+                            ('corrected_codeword_count', YLeaf(YType.uint64, 'corrected-codeword-count')),
+                            ('uncorrected_codeword_count', YLeaf(YType.uint64, 'uncorrected-codeword-count')),
+                        ])
+                        self.fec = None
+                        self.corrected_codeword_count = None
+                        self.uncorrected_codeword_count = None
                         self._segment_path = lambda: "fec-details"
 
                     def __setattr__(self, name, value):
@@ -4601,12 +4690,15 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "phy-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.level = YLeaf(YType.uint32, "level")
-
-                        self.loopback = YLeaf(YType.enumeration, "loopback")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('level', YLeaf(YType.uint32, 'level')),
+                            ('loopback', YLeaf(YType.enumeration, 'loopback')),
+                        ])
+                        self.level = None
+                        self.loopback = None
                         self._segment_path = lambda: "extended-loopback"
 
                     def __setattr__(self, name, value):
@@ -4717,26 +4809,29 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"autoneg" : ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg), "current-alarms" : ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms), "previous-alarms" : ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms), "error-counts" : ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts), "ber-monitoring" : ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring), "opd-monitoring" : ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring), "pfc-info" : ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo)}
-                    self._child_list_classes = {}
-
-                    self.link_state = YLeaf(YType.enumeration, "link-state")
-
-                    self.led_state = YLeaf(YType.enumeration, "led-state")
-
-                    self.speed = YLeaf(YType.enumeration, "speed")
-
-                    self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                    self.flowcontrol = YLeaf(YType.enumeration, "flowcontrol")
-
-                    self.ipg = YLeaf(YType.enumeration, "ipg")
-
-                    self.laser_squelch_enabled = YLeaf(YType.boolean, "laser-squelch-enabled")
-
-                    self.bandwidth_utilization = YLeaf(YType.uint32, "bandwidth-utilization")
-
-                    self.bandwidth = YLeaf(YType.uint64, "bandwidth")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("autoneg", ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg)), ("current-alarms", ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms)), ("previous-alarms", ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms)), ("error-counts", ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts)), ("ber-monitoring", ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring)), ("opd-monitoring", ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring)), ("pfc-info", ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('link_state', YLeaf(YType.enumeration, 'link-state')),
+                        ('led_state', YLeaf(YType.enumeration, 'led-state')),
+                        ('speed', YLeaf(YType.enumeration, 'speed')),
+                        ('duplex', YLeaf(YType.enumeration, 'duplex')),
+                        ('flowcontrol', YLeaf(YType.enumeration, 'flowcontrol')),
+                        ('ipg', YLeaf(YType.enumeration, 'ipg')),
+                        ('laser_squelch_enabled', YLeaf(YType.boolean, 'laser-squelch-enabled')),
+                        ('bandwidth_utilization', YLeaf(YType.uint32, 'bandwidth-utilization')),
+                        ('bandwidth', YLeaf(YType.uint64, 'bandwidth')),
+                    ])
+                    self.link_state = None
+                    self.led_state = None
+                    self.speed = None
+                    self.duplex = None
+                    self.flowcontrol = None
+                    self.ipg = None
+                    self.laser_squelch_enabled = None
+                    self.bandwidth_utilization = None
+                    self.bandwidth = None
 
                     self.autoneg = EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg()
                     self.autoneg.parent = self
@@ -4837,22 +4932,25 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.autoneg_enabled = YLeaf(YType.int32, "autoneg-enabled")
-
-                        self.mask = YLeaf(YType.uint32, "mask")
-
-                        self.speed = YLeaf(YType.enumeration, "speed")
-
-                        self.duplex = YLeaf(YType.enumeration, "duplex")
-
-                        self.flowcontrol = YLeaf(YType.enumeration, "flowcontrol")
-
-                        self.config_override = YLeaf(YType.int32, "config-override")
-
-                        self.fec = YLeaf(YType.enumeration, "fec")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('autoneg_enabled', YLeaf(YType.int32, 'autoneg-enabled')),
+                            ('mask', YLeaf(YType.uint32, 'mask')),
+                            ('speed', YLeaf(YType.enumeration, 'speed')),
+                            ('duplex', YLeaf(YType.enumeration, 'duplex')),
+                            ('flowcontrol', YLeaf(YType.enumeration, 'flowcontrol')),
+                            ('config_override', YLeaf(YType.int32, 'config-override')),
+                            ('fec', YLeaf(YType.enumeration, 'fec')),
+                        ])
+                        self.autoneg_enabled = None
+                        self.mask = None
+                        self.speed = None
+                        self.duplex = None
+                        self.flowcontrol = None
+                        self.config_override = None
+                        self.fec = None
                         self._segment_path = lambda: "autoneg"
 
                     def __setattr__(self, name, value):
@@ -4927,28 +5025,31 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
-
-                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
-
-                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
-
-                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
-
-                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
-
-                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
-
-                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
-
-                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
-
-                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
-
-                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
+                            ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
+                            ('local_fault_alarm', YLeaf(YType.enumeration, 'local-fault-alarm')),
+                            ('remote_fault_alarm', YLeaf(YType.enumeration, 'remote-fault-alarm')),
+                            ('sd_ber_alarm', YLeaf(YType.enumeration, 'sd-ber-alarm')),
+                            ('sf_ber_alarm', YLeaf(YType.enumeration, 'sf-ber-alarm')),
+                            ('loss_of_synchronization_data_alarm', YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm')),
+                            ('hi_ber_alarm', YLeaf(YType.enumeration, 'hi-ber-alarm')),
+                            ('squelch_alarm', YLeaf(YType.enumeration, 'squelch-alarm')),
+                            ('rx_opd_alarm', YLeaf(YType.enumeration, 'rx-opd-alarm')),
+                        ])
+                        self.received_loss_of_signal_alarm = None
+                        self.pcs_loss_of_block_lock_alarm = None
+                        self.local_fault_alarm = None
+                        self.remote_fault_alarm = None
+                        self.sd_ber_alarm = None
+                        self.sf_ber_alarm = None
+                        self.loss_of_synchronization_data_alarm = None
+                        self.hi_ber_alarm = None
+                        self.squelch_alarm = None
+                        self.rx_opd_alarm = None
                         self._segment_path = lambda: "current-alarms"
 
                     def __setattr__(self, name, value):
@@ -5023,28 +5124,31 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.received_loss_of_signal_alarm = YLeaf(YType.enumeration, "received-loss-of-signal-alarm")
-
-                        self.pcs_loss_of_block_lock_alarm = YLeaf(YType.enumeration, "pcs-loss-of-block-lock-alarm")
-
-                        self.local_fault_alarm = YLeaf(YType.enumeration, "local-fault-alarm")
-
-                        self.remote_fault_alarm = YLeaf(YType.enumeration, "remote-fault-alarm")
-
-                        self.sd_ber_alarm = YLeaf(YType.enumeration, "sd-ber-alarm")
-
-                        self.sf_ber_alarm = YLeaf(YType.enumeration, "sf-ber-alarm")
-
-                        self.loss_of_synchronization_data_alarm = YLeaf(YType.enumeration, "loss-of-synchronization-data-alarm")
-
-                        self.hi_ber_alarm = YLeaf(YType.enumeration, "hi-ber-alarm")
-
-                        self.squelch_alarm = YLeaf(YType.enumeration, "squelch-alarm")
-
-                        self.rx_opd_alarm = YLeaf(YType.enumeration, "rx-opd-alarm")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
+                            ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
+                            ('local_fault_alarm', YLeaf(YType.enumeration, 'local-fault-alarm')),
+                            ('remote_fault_alarm', YLeaf(YType.enumeration, 'remote-fault-alarm')),
+                            ('sd_ber_alarm', YLeaf(YType.enumeration, 'sd-ber-alarm')),
+                            ('sf_ber_alarm', YLeaf(YType.enumeration, 'sf-ber-alarm')),
+                            ('loss_of_synchronization_data_alarm', YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm')),
+                            ('hi_ber_alarm', YLeaf(YType.enumeration, 'hi-ber-alarm')),
+                            ('squelch_alarm', YLeaf(YType.enumeration, 'squelch-alarm')),
+                            ('rx_opd_alarm', YLeaf(YType.enumeration, 'rx-opd-alarm')),
+                        ])
+                        self.received_loss_of_signal_alarm = None
+                        self.pcs_loss_of_block_lock_alarm = None
+                        self.local_fault_alarm = None
+                        self.remote_fault_alarm = None
+                        self.sd_ber_alarm = None
+                        self.sf_ber_alarm = None
+                        self.loss_of_synchronization_data_alarm = None
+                        self.hi_ber_alarm = None
+                        self.squelch_alarm = None
+                        self.rx_opd_alarm = None
                         self._segment_path = lambda: "previous-alarms"
 
                     def __setattr__(self, name, value):
@@ -5083,12 +5187,15 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sync_header_errors = YLeaf(YType.uint64, "sync-header-errors")
-
-                        self.pcsbip_errors = YLeaf(YType.uint64, "pcsbip-errors")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sync_header_errors', YLeaf(YType.uint64, 'sync-header-errors')),
+                            ('pcsbip_errors', YLeaf(YType.uint64, 'pcsbip-errors')),
+                        ])
+                        self.sync_header_errors = None
+                        self.pcsbip_errors = None
                         self._segment_path = lambda: "error-counts"
 
                     def __setattr__(self, name, value):
@@ -5103,6 +5210,11 @@ class EthernetInterface(Entity):
                     
                     	The BER monitoring settings to be applied
                     	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
+                    
+                    .. attribute:: state
+                    
+                    	The BER state
+                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State>`
                     
                     .. attribute:: supported
                     
@@ -5125,15 +5237,23 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"settings" : ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings)}
-                        self._child_list_classes = {}
-
-                        self.supported = YLeaf(YType.int32, "supported")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings)), ("state", ("state", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('supported', YLeaf(YType.int32, 'supported')),
+                        ])
+                        self.supported = None
 
                         self.settings = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings()
                         self.settings.parent = self
                         self._children_name_map["settings"] = "settings"
                         self._children_yang_names.add("settings")
+
+                        self.state = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
                         self._segment_path = lambda: "ber-monitoring"
 
                     def __setattr__(self, name, value):
@@ -5193,22 +5313,72 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "ber-monitoring"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.signal_degrade_threshold = YLeaf(YType.uint32, "signal-degrade-threshold")
-
-                            self.signal_degrade_alarm = YLeaf(YType.int32, "signal-degrade-alarm")
-
-                            self.signal_fail_threshold = YLeaf(YType.uint32, "signal-fail-threshold")
-
-                            self.signal_fail_alarm = YLeaf(YType.int32, "signal-fail-alarm")
-
-                            self.signal_remote_fault = YLeaf(YType.int32, "signal-remote-fault")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('signal_degrade_threshold', YLeaf(YType.uint32, 'signal-degrade-threshold')),
+                                ('signal_degrade_alarm', YLeaf(YType.int32, 'signal-degrade-alarm')),
+                                ('signal_fail_threshold', YLeaf(YType.uint32, 'signal-fail-threshold')),
+                                ('signal_fail_alarm', YLeaf(YType.int32, 'signal-fail-alarm')),
+                                ('signal_remote_fault', YLeaf(YType.int32, 'signal-remote-fault')),
+                            ])
+                            self.signal_degrade_threshold = None
+                            self.signal_degrade_alarm = None
+                            self.signal_fail_threshold = None
+                            self.signal_fail_alarm = None
+                            self.signal_remote_fault = None
                             self._segment_path = lambda: "settings"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        The BER state
+                        
+                        .. attribute:: sd_current_ber
+                        
+                        	Current SD\-BER
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sf_current_ber
+                        
+                        	Current SF\-BER
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "ber-monitoring"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sd_current_ber', YLeaf(YType.uint32, 'sd-current-ber')),
+                                ('sf_current_ber', YLeaf(YType.uint32, 'sf-current-ber')),
+                            ])
+                            self.sd_current_ber = None
+                            self.sf_current_ber = None
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, ['sd_current_ber', 'sf_current_ber'], name, value)
 
 
                 class OpdMonitoring(Entity):
@@ -5241,10 +5411,13 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"settings" : ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings)}
-                        self._child_list_classes = {}
-
-                        self.supported = YLeaf(YType.int32, "supported")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('supported', YLeaf(YType.int32, 'supported')),
+                        ])
+                        self.supported = None
 
                         self.settings = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings()
                         self.settings.parent = self
@@ -5288,12 +5461,15 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "opd-monitoring"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.received_optical_power_degrade_threshold_set = YLeaf(YType.int32, "received-optical-power-degrade-threshold-set")
-
-                            self.received_optical_power_degrade_threshold = YLeaf(YType.int32, "received-optical-power-degrade-threshold")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('received_optical_power_degrade_threshold_set', YLeaf(YType.int32, 'received-optical-power-degrade-threshold-set')),
+                                ('received_optical_power_degrade_threshold', YLeaf(YType.int32, 'received-optical-power-degrade-threshold')),
+                            ])
+                            self.received_optical_power_degrade_threshold_set = None
+                            self.received_optical_power_degrade_threshold = None
                             self._segment_path = lambda: "settings"
 
                         def __setattr__(self, name, value):
@@ -5344,16 +5520,19 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "layer1-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.priority_flowcontrol = YLeaf(YType.enumeration, "priority-flowcontrol")
-
-                        self.priority_enabled_bitmap = YLeaf(YType.uint8, "priority-enabled-bitmap")
-
-                        self.rx_frame = YLeafList(YType.uint64, "rx-frame")
-
-                        self.tx_frame = YLeafList(YType.uint64, "tx-frame")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('priority_flowcontrol', YLeaf(YType.enumeration, 'priority-flowcontrol')),
+                            ('priority_enabled_bitmap', YLeaf(YType.uint8, 'priority-enabled-bitmap')),
+                            ('rx_frame', YLeafList(YType.uint64, 'rx-frame')),
+                            ('tx_frame', YLeafList(YType.uint64, 'tx-frame')),
+                        ])
+                        self.priority_flowcontrol = None
+                        self.priority_enabled_bitmap = None
+                        self.rx_frame = []
+                        self.tx_frame = []
                         self._segment_path = lambda: "pfc-info"
 
                     def __setattr__(self, name, value):
@@ -5416,16 +5595,19 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"unicast-mac-filters" : ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters), "multicast-mac-filters" : ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters)}
-                    self._child_list_classes = {}
-
-                    self.mtu = YLeaf(YType.uint32, "mtu")
-
-                    self.mru = YLeaf(YType.uint32, "mru")
-
-                    self.burned_in_mac_address = YLeaf(YType.str, "burned-in-mac-address")
-
-                    self.operational_mac_address = YLeaf(YType.str, "operational-mac-address")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters)), ("multicast-mac-filters", ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mtu', YLeaf(YType.uint32, 'mtu')),
+                        ('mru', YLeaf(YType.uint32, 'mru')),
+                        ('burned_in_mac_address', YLeaf(YType.str, 'burned-in-mac-address')),
+                        ('operational_mac_address', YLeaf(YType.str, 'operational-mac-address')),
+                    ])
+                    self.mtu = None
+                    self.mru = None
+                    self.burned_in_mac_address = None
+                    self.operational_mac_address = None
 
                     self.unicast_mac_filters = EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters()
                     self.unicast_mac_filters.parent = self
@@ -5467,10 +5649,13 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "mac-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.unicast_mac_address = YLeafList(YType.str, "unicast-mac-address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('unicast_mac_address', YLeafList(YType.str, 'unicast-mac-address')),
+                        ])
+                        self.unicast_mac_address = []
                         self._segment_path = lambda: "unicast-mac-filters"
 
                     def __setattr__(self, name, value):
@@ -5505,10 +5690,13 @@ class EthernetInterface(Entity):
                         self.yang_parent_name = "mac-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"multicast-mac-address" : ("multicast_mac_address", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress)}
-
-                        self.multicast_promiscuous = YLeaf(YType.boolean, "multicast-promiscuous")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("multicast-mac-address", ("multicast_mac_address", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress))])
+                        self._leafs = OrderedDict([
+                            ('multicast_promiscuous', YLeaf(YType.boolean, 'multicast-promiscuous')),
+                        ])
+                        self.multicast_promiscuous = None
 
                         self.multicast_mac_address = YList(self)
                         self._segment_path = lambda: "multicast-mac-filters"
@@ -5550,12 +5738,15 @@ class EthernetInterface(Entity):
                             self.yang_parent_name = "multicast-mac-filters"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.mask = YLeaf(YType.str, "mask")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('mask', YLeaf(YType.str, 'mask')),
+                            ])
+                            self.mac_address = None
+                            self.mask = None
                             self._segment_path = lambda: "multicast-mac-address"
 
                         def __setattr__(self, name, value):
@@ -5608,16 +5799,19 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.maintenance_mode_enabled = YLeaf(YType.boolean, "maintenance-mode-enabled")
-
-                    self.ains_status = YLeaf(YType.enumeration, "ains-status")
-
-                    self.total_duration = YLeaf(YType.uint32, "total-duration")
-
-                    self.remaining_duration = YLeaf(YType.uint32, "remaining-duration")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('maintenance_mode_enabled', YLeaf(YType.boolean, 'maintenance-mode-enabled')),
+                        ('ains_status', YLeaf(YType.enumeration, 'ains-status')),
+                        ('total_duration', YLeaf(YType.uint32, 'total-duration')),
+                        ('remaining_duration', YLeaf(YType.uint32, 'remaining-duration')),
+                    ])
+                    self.maintenance_mode_enabled = None
+                    self.ains_status = None
+                    self.total_duration = None
+                    self.remaining_duration = None
                     self._segment_path = lambda: "transport-info"
 
                 def __setattr__(self, name, value):
@@ -5647,8 +5841,10 @@ class EthernetInterface(Entity):
             self.yang_parent_name = "ethernet-interface"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"bert" : ("bert", EthernetInterface.Berts.Bert)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("bert", ("bert", EthernetInterface.Berts.Bert))])
+            self._leafs = OrderedDict()
 
             self.bert = YList(self)
             self._segment_path = lambda: "berts"
@@ -5662,7 +5858,7 @@ class EthernetInterface(Entity):
             """
             Ethernet BERT information
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -5704,20 +5900,23 @@ class EthernetInterface(Entity):
                 self.yang_parent_name = "berts"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bert-status" : ("bert_status", EthernetInterface.Berts.Bert.BertStatus)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.time_left = YLeaf(YType.uint32, "time-left")
-
-                self.port_bert_interval = YLeaf(YType.uint32, "port-bert-interval")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("bert-status", ("bert_status", EthernetInterface.Berts.Bert.BertStatus))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('time_left', YLeaf(YType.uint32, 'time-left')),
+                    ('port_bert_interval', YLeaf(YType.uint32, 'port-bert-interval')),
+                ])
+                self.interface_name = None
+                self.time_left = None
+                self.port_bert_interval = None
 
                 self.bert_status = EthernetInterface.Berts.Bert.BertStatus()
                 self.bert_status.parent = self
                 self._children_name_map["bert_status"] = "bert-status"
                 self._children_yang_names.add("bert-status")
-                self._segment_path = lambda: "bert" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "bert" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/berts/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5795,26 +5994,29 @@ class EthernetInterface(Entity):
                     self.yang_parent_name = "bert"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.bert_state_enabled = YLeaf(YType.boolean, "bert-state-enabled")
-
-                    self.data_availability = YLeaf(YType.uint32, "data-availability")
-
-                    self.receive_count = YLeaf(YType.uint64, "receive-count")
-
-                    self.transmit_count = YLeaf(YType.uint64, "transmit-count")
-
-                    self.receive_errors = YLeaf(YType.uint64, "receive-errors")
-
-                    self.error_type = YLeaf(YType.enumeration, "error-type")
-
-                    self.test_pattern = YLeaf(YType.enumeration, "test-pattern")
-
-                    self.device_under_test = YLeaf(YType.enumeration, "device-under-test")
-
-                    self.interface_device = YLeaf(YType.enumeration, "interface-device")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('bert_state_enabled', YLeaf(YType.boolean, 'bert-state-enabled')),
+                        ('data_availability', YLeaf(YType.uint32, 'data-availability')),
+                        ('receive_count', YLeaf(YType.uint64, 'receive-count')),
+                        ('transmit_count', YLeaf(YType.uint64, 'transmit-count')),
+                        ('receive_errors', YLeaf(YType.uint64, 'receive-errors')),
+                        ('error_type', YLeaf(YType.enumeration, 'error-type')),
+                        ('test_pattern', YLeaf(YType.enumeration, 'test-pattern')),
+                        ('device_under_test', YLeaf(YType.enumeration, 'device-under-test')),
+                        ('interface_device', YLeaf(YType.enumeration, 'interface-device')),
+                    ])
+                    self.bert_state_enabled = None
+                    self.data_availability = None
+                    self.receive_count = None
+                    self.transmit_count = None
+                    self.receive_errors = None
+                    self.error_type = None
+                    self.test_pattern = None
+                    self.device_under_test = None
+                    self.interface_device = None
                     self._segment_path = lambda: "bert-status"
 
                 def __setattr__(self, name, value):

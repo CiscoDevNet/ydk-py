@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,8 +45,10 @@ class XrXml(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"agent" : ("agent", XrXml.Agent)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("agent", ("agent", XrXml.Agent))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.agent = XrXml.Agent()
         self.agent.parent = self
@@ -86,8 +90,10 @@ class XrXml(Entity):
             self.yang_parent_name = "xr-xml"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"default" : ("default", XrXml.Agent.Default), "tty" : ("tty", XrXml.Agent.Tty), "ssl" : ("ssl", XrXml.Agent.Ssl)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("default", ("default", XrXml.Agent.Default)), ("tty", ("tty", XrXml.Agent.Tty)), ("ssl", ("ssl", XrXml.Agent.Ssl))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.default = XrXml.Agent.Default()
             self.default.parent = self
@@ -175,18 +181,21 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"session" : ("session", XrXml.Agent.Default.Session), "throttle" : ("throttle", XrXml.Agent.Default.Throttle), "vrfs" : ("vrfs", XrXml.Agent.Default.Vrfs)}
-                self._child_list_classes = {}
-
-                self.ipv6_enable = YLeaf(YType.boolean, "ipv6-enable")
-
-                self.ipv4_disable = YLeaf(YType.boolean, "ipv4-disable")
-
-                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("session", ("session", XrXml.Agent.Default.Session)), ("throttle", ("throttle", XrXml.Agent.Default.Throttle)), ("vrfs", ("vrfs", XrXml.Agent.Default.Vrfs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ipv6_enable', YLeaf(YType.boolean, 'ipv6-enable')),
+                    ('ipv4_disable', YLeaf(YType.boolean, 'ipv4-disable')),
+                    ('iteration_size', YLeaf(YType.uint32, 'iteration-size')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('streaming_size', YLeaf(YType.uint32, 'streaming-size')),
+                ])
+                self.ipv6_enable = None
+                self.ipv4_disable = None
+                self.iteration_size = None
+                self.enable = None
+                self.streaming_size = None
 
                 self.session = XrXml.Agent.Default.Session()
                 self.session.parent = self
@@ -236,10 +245,13 @@ class XrXml(Entity):
                     self.yang_parent_name = "default"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.timeout = None
                     self._segment_path = lambda: "session"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/%s" % self._segment_path()
 
@@ -263,7 +275,7 @@ class XrXml(Entity):
                 	Size of memory usage, in MBytes, per session
                 	**type**\: int
                 
-                	**range:** 100..600
+                	**range:** 100..1024
                 
                 	**units**\: megabyte
                 
@@ -283,12 +295,15 @@ class XrXml(Entity):
                     self.yang_parent_name = "default"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.process_rate = YLeaf(YType.uint32, "process-rate")
-
-                    self.memory = YLeaf(YType.uint32, "memory")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('process_rate', YLeaf(YType.uint32, 'process-rate')),
+                        ('memory', YLeaf(YType.uint32, 'memory')),
+                    ])
+                    self.process_rate = None
+                    self.memory = None
                     self._segment_path = lambda: "throttle"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/%s" % self._segment_path()
 
@@ -319,8 +334,10 @@ class XrXml(Entity):
                     self.yang_parent_name = "default"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vrf" : ("vrf", XrXml.Agent.Default.Vrfs.Vrf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vrf", ("vrf", XrXml.Agent.Default.Vrfs.Vrf))])
+                    self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
@@ -334,7 +351,7 @@ class XrXml(Entity):
                     """
                     A specific VRF
                     
-                    .. attribute:: vrf_name  <key>
+                    .. attribute:: vrf_name  (key)
                     
                     	VRF name
                     	**type**\: str
@@ -381,19 +398,22 @@ class XrXml(Entity):
                         self.yang_parent_name = "vrfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
-
-                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
-
-                        self.access_list = YLeaf(YType.str, "access-list")
-
-                        self.shutdown = YLeaf(YType.empty, "shutdown")
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self.ylist_key_names = ['vrf_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('ipv6_access_list', YLeaf(YType.str, 'ipv6-access-list')),
+                            ('ipv4_access_list', YLeaf(YType.str, 'ipv4-access-list')),
+                            ('access_list', YLeaf(YType.str, 'access-list')),
+                            ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                        ])
+                        self.vrf_name = None
+                        self.ipv6_access_list = None
+                        self.ipv4_access_list = None
+                        self.access_list = None
+                        self.shutdown = None
+                        self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/vrfs/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -453,14 +473,17 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"session" : ("session", XrXml.Agent.Tty.Session), "throttle" : ("throttle", XrXml.Agent.Tty.Throttle)}
-                self._child_list_classes = {}
-
-                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("session", ("session", XrXml.Agent.Tty.Session)), ("throttle", ("throttle", XrXml.Agent.Tty.Throttle))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('iteration_size', YLeaf(YType.uint32, 'iteration-size')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('streaming_size', YLeaf(YType.uint32, 'streaming-size')),
+                ])
+                self.iteration_size = None
+                self.enable = None
+                self.streaming_size = None
 
                 self.session = XrXml.Agent.Tty.Session()
                 self.session.parent = self
@@ -505,10 +528,13 @@ class XrXml(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.timeout = None
                     self._segment_path = lambda: "session"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/%s" % self._segment_path()
 
@@ -532,7 +558,7 @@ class XrXml(Entity):
                 	Size of memory usage, in MBytes, per session
                 	**type**\: int
                 
-                	**range:** 100..600
+                	**range:** 100..1024
                 
                 	**units**\: megabyte
                 
@@ -552,12 +578,15 @@ class XrXml(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.process_rate = YLeaf(YType.uint32, "process-rate")
-
-                    self.memory = YLeaf(YType.uint32, "memory")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('process_rate', YLeaf(YType.uint32, 'process-rate')),
+                        ('memory', YLeaf(YType.uint32, 'memory')),
+                    ])
+                    self.process_rate = None
+                    self.memory = None
                     self._segment_path = lambda: "throttle"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/%s" % self._segment_path()
 
@@ -623,14 +652,17 @@ class XrXml(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"session" : ("session", XrXml.Agent.Ssl.Session), "throttle" : ("throttle", XrXml.Agent.Ssl.Throttle), "vrfs" : ("vrfs", XrXml.Agent.Ssl.Vrfs)}
-                self._child_list_classes = {}
-
-                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("session", ("session", XrXml.Agent.Ssl.Session)), ("throttle", ("throttle", XrXml.Agent.Ssl.Throttle)), ("vrfs", ("vrfs", XrXml.Agent.Ssl.Vrfs))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('iteration_size', YLeaf(YType.uint32, 'iteration-size')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('streaming_size', YLeaf(YType.uint32, 'streaming-size')),
+                ])
+                self.iteration_size = None
+                self.enable = None
+                self.streaming_size = None
 
                 self.session = XrXml.Agent.Ssl.Session()
                 self.session.parent = self
@@ -680,10 +712,13 @@ class XrXml(Entity):
                     self.yang_parent_name = "ssl"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.timeout = None
                     self._segment_path = lambda: "session"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/%s" % self._segment_path()
 
@@ -707,7 +742,7 @@ class XrXml(Entity):
                 	Size of memory usage, in MBytes, per session
                 	**type**\: int
                 
-                	**range:** 100..600
+                	**range:** 100..1024
                 
                 	**units**\: megabyte
                 
@@ -727,12 +762,15 @@ class XrXml(Entity):
                     self.yang_parent_name = "ssl"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.process_rate = YLeaf(YType.uint32, "process-rate")
-
-                    self.memory = YLeaf(YType.uint32, "memory")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('process_rate', YLeaf(YType.uint32, 'process-rate')),
+                        ('memory', YLeaf(YType.uint32, 'memory')),
+                    ])
+                    self.process_rate = None
+                    self.memory = None
                     self._segment_path = lambda: "throttle"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/%s" % self._segment_path()
 
@@ -763,8 +801,10 @@ class XrXml(Entity):
                     self.yang_parent_name = "ssl"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vrf" : ("vrf", XrXml.Agent.Ssl.Vrfs.Vrf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vrf", ("vrf", XrXml.Agent.Ssl.Vrfs.Vrf))])
+                    self._leafs = OrderedDict()
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
@@ -778,7 +818,7 @@ class XrXml(Entity):
                     """
                     A specific VRF
                     
-                    .. attribute:: vrf_name  <key>
+                    .. attribute:: vrf_name  (key)
                     
                     	VRF name
                     	**type**\: str
@@ -825,19 +865,22 @@ class XrXml(Entity):
                         self.yang_parent_name = "vrfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
-
-                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
-
-                        self.access_list = YLeaf(YType.str, "access-list")
-
-                        self.shutdown = YLeaf(YType.empty, "shutdown")
-                        self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self.ylist_key_names = ['vrf_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('ipv6_access_list', YLeaf(YType.str, 'ipv6-access-list')),
+                            ('ipv4_access_list', YLeaf(YType.str, 'ipv4-access-list')),
+                            ('access_list', YLeaf(YType.str, 'access-list')),
+                            ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                        ])
+                        self.vrf_name = None
+                        self.ipv6_access_list = None
+                        self.ipv4_access_list = None
+                        self.access_list = None
+                        self.shutdown = None
+                        self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/vrfs/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -871,8 +914,10 @@ class Netconf(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"agent" : ("agent", Netconf.Agent)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("agent", ("agent", Netconf.Agent))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.agent = Netconf.Agent()
         self.agent.parent = self
@@ -904,8 +949,10 @@ class Netconf(Entity):
             self.yang_parent_name = "netconf"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"tty" : ("tty", Netconf.Agent.Tty)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("tty", ("tty", Netconf.Agent.Tty))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.tty = Netconf.Agent.Tty()
             self.tty.parent = self
@@ -948,10 +995,13 @@ class Netconf(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"throttle" : ("throttle", Netconf.Agent.Tty.Throttle), "session" : ("session", Netconf.Agent.Tty.Session)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("throttle", ("throttle", Netconf.Agent.Tty.Throttle)), ("session", ("session", Netconf.Agent.Tty.Session))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.throttle = Netconf.Agent.Tty.Throttle()
                 self.throttle.parent = self
@@ -978,7 +1028,7 @@ class Netconf(Entity):
                 	Size of memory usage, in MBytes, per session
                 	**type**\: int
                 
-                	**range:** 100..600
+                	**range:** 100..1024
                 
                 	**units**\: megabyte
                 
@@ -1016,14 +1066,17 @@ class Netconf(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.memory = YLeaf(YType.uint32, "memory")
-
-                    self.offload_memory = YLeaf(YType.uint32, "offload-memory")
-
-                    self.process_rate = YLeaf(YType.uint32, "process-rate")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('memory', YLeaf(YType.uint32, 'memory')),
+                        ('offload_memory', YLeaf(YType.uint32, 'offload-memory')),
+                        ('process_rate', YLeaf(YType.uint32, 'process-rate')),
+                    ])
+                    self.memory = None
+                    self.offload_memory = None
+                    self.process_rate = None
                     self._segment_path = lambda: "throttle"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/%s" % self._segment_path()
 
@@ -1058,10 +1111,13 @@ class Netconf(Entity):
                     self.yang_parent_name = "tty"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.timeout = None
                     self._segment_path = lambda: "session"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/%s" % self._segment_path()
 

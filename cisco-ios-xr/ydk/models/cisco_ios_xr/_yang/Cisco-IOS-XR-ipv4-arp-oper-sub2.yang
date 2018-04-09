@@ -1,185 +1,212 @@
 submodule Cisco-IOS-XR-ipv4-arp-oper-sub2 {
-
   belongs-to Cisco-IOS-XR-ipv4-arp-oper {
     prefix Cisco-IOS-XR-ipv4-arp-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  import ietf-inet-types { prefix "inet"; }
-
-  import ietf-yang-types { prefix "yang"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-arp package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2016-12-19" {
+  revision 2016-12-19 {
     description
       "IOS XR 6.2.1 revision.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Arp-gmp-bag-entry {
     type enumeration {
-      enum null {
+      enum "null" {
         value 0;
-        description "No state";
+        description
+          "No state";
       }
-      enum static {
+      enum "static" {
         value 1;
-        description "Static";
+        description
+          "Static";
       }
-      enum alias {
+      enum "alias" {
         value 2;
-        description "Alias";
+        description
+          "Alias";
       }
     }
-    description "ARP Entry type";
+    description
+      "ARP Entry type";
   }
+
   typedef Arp-gmp-bag-encap {
     type enumeration {
-      enum none {
+      enum "none" {
         value 0;
-        description "No encapsulation";
+        description
+          "No encapsulation";
       }
-      enum arpa {
+      enum "arpa" {
         value 1;
-        description "ARPA";
+        description
+          "ARPA";
       }
-      enum snap {
+      enum "snap" {
         value 2;
-        description "SNAP";
+        description
+          "SNAP";
       }
-      enum ieee802-1q {
+      enum "ieee802-1q" {
         value 3;
-        description "802 1Q";
+        description
+          "802 1Q";
       }
-      enum srp {
+      enum "srp" {
         value 4;
-        description "SRP";
+        description
+          "SRP";
       }
-      enum srpa {
+      enum "srpa" {
         value 5;
-        description "SRPA";
+        description
+          "SRPA";
       }
-      enum srpb {
+      enum "srpb" {
         value 6;
-        description "SRPB";
+        description
+          "SRPB";
       }
     }
-    description "ARP encapsulation";
+    description
+      "ARP encapsulation";
   }
 
   grouping ARP-GMP-INTF-ENTRY {
-    description "ARP GMP entries associated with an interface";
-
+    description
+      "ARP GMP entries associated with an interface";
     container associated-configuration-entry {
-      description "Associated configuration entry";
+      description
+        "Associated configuration entry";
       uses ARP-GMP-CONFIG-ENTRY;
     }
     leaf interface-name-xr {
       type xr:Interface-name;
-      description "Interface name";
+      description
+        "Interface name";
     }
     leaf reference-count {
       type uint32;
-      description "Route reference count";
+      description
+        "Route reference count";
     }
   }
 
   grouping ARP-GMP-ROUTE-ENTRY {
-    description "ARP GMP route entry";
+    description
+      "ARP GMP route entry";
     leaf ip-address {
       type inet:ipv4-address;
-      description "IP address";
+      description
+        "IP address";
     }
     leaf prefix-length-xr {
       type uint8;
-      description "IP address length";
+      description
+        "IP address length";
     }
     leaf interface-name-xr {
       type xr:Interface-name;
       description
         "Interface name (first element of InterfaceNames
-        array)";
+         array)";
     }
     leaf-list interface-name {
       type xr:Interface-name;
-      description "Interface names";
+      description
+        "Interface names";
     }
   }
 
   grouping ARP-GMP-CONFIG-ENTRY {
-    description "ARP GMP configuration entry";
+    description
+      "ARP GMP configuration entry";
     leaf ip-address {
       type inet:ipv4-address;
-      description "IP address";
+      description
+        "IP address";
     }
     leaf hardware-address {
       type yang:mac-address;
-      description "Hardware address ";
+      description
+        "Hardware address ";
     }
     leaf encapsulation-type {
       type Arp-gmp-bag-encap;
-      description "Encap type";
+      description
+        "Encap type";
     }
     leaf entry-type {
       type Arp-gmp-bag-entry;
-      description "Entry type static/alias";
+      description
+        "Entry type static/alias";
     }
   }
 
   grouping ARP-GMP-VRF-ENTRY {
-    description "ARP GMP VRF entry";
+    description
+      "ARP GMP VRF entry";
     leaf vrf-name-xr {
       type string;
-      description "VRF Name";
+      description
+        "VRF Name";
     }
     leaf vrf-id-number {
       type uint32;
-      description "VRF ID";
+      description
+        "VRF ID";
     }
     leaf table-id {
       type uint32;
-      description "IPv4 unicast table ID";
+      description
+        "IPv4 unicast table ID";
     }
     leaf rsi-handle {
       type uint32;
-      description "RSI registration handle";
+      description
+        "RSI registration handle";
     }
     leaf rsi-handle-high {
       type uint32;
-      description "RSI registration handle (top 32-bits)";
+      description
+        "RSI registration handle (top 32-bits)";
     }
   }
 }

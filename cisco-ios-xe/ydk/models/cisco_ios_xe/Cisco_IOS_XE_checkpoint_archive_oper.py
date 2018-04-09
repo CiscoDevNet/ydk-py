@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -56,14 +58,17 @@ class CheckpointArchives(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-checkpoint-archive-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"archives" : ("archives", CheckpointArchives.Archives)}
-        self._child_list_classes = {}
-
-        self.max = YLeaf(YType.uint8, "max")
-
-        self.current = YLeaf(YType.uint8, "current")
-
-        self.recent = YLeaf(YType.str, "recent")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("archives", ("archives", CheckpointArchives.Archives))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('max', YLeaf(YType.uint8, 'max')),
+            ('current', YLeaf(YType.uint8, 'current')),
+            ('recent', YLeaf(YType.str, 'recent')),
+        ])
+        self.max = None
+        self.current = None
+        self.recent = None
 
         self.archives = CheckpointArchives.Archives()
         self.archives.parent = self
@@ -98,8 +103,10 @@ class CheckpointArchives(Entity):
             self.yang_parent_name = "checkpoint-archives"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"archive" : ("archive", CheckpointArchives.Archives.Archive)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("archive", ("archive", CheckpointArchives.Archives.Archive))])
+            self._leafs = OrderedDict()
 
             self.archive = YList(self)
             self._segment_path = lambda: "archives"
@@ -113,7 +120,7 @@ class CheckpointArchives(Entity):
             """
             List of archives
             
-            .. attribute:: number  <key>
+            .. attribute:: number  (key)
             
             	The archive number
             	**type**\: int
@@ -139,13 +146,16 @@ class CheckpointArchives(Entity):
                 self.yang_parent_name = "archives"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.number = YLeaf(YType.uint16, "number")
-
-                self.name = YLeaf(YType.str, "name")
-                self._segment_path = lambda: "archive" + "[number='" + self.number.get() + "']"
+                self.ylist_key_names = ['number']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('number', YLeaf(YType.uint16, 'number')),
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.number = None
+                self.name = None
+                self._segment_path = lambda: "archive" + "[number='" + str(self.number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives/archives/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

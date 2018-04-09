@@ -35,6 +35,8 @@ b) Capability Parameters
 5) Notifications Group
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,7 +45,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CryptomapSetBindStatus(Enum):
     """
-    CryptomapSetBindStatus
+    CryptomapSetBindStatus (Enum Class)
 
     The status of the binding of a cryptomap set 
 
@@ -74,7 +76,7 @@ class CryptomapSetBindStatus(Enum):
 
 class CryptomapType(Enum):
     """
-    CryptomapType
+    CryptomapType (Enum Class)
 
     The type of a cryptomap entry. Cryptomap 
 
@@ -109,7 +111,7 @@ class CryptomapType(Enum):
 
 class DiffHellmanGrp(Enum):
     """
-    DiffHellmanGrp
+    DiffHellmanGrp (Enum Class)
 
     The Diffie Hellman Group used in negotiations.
 
@@ -130,7 +132,7 @@ class DiffHellmanGrp(Enum):
 
 class EncryptAlgo(Enum):
     """
-    EncryptAlgo
+    EncryptAlgo (Enum Class)
 
     The encryption algorithm used in negotiations.
 
@@ -151,7 +153,7 @@ class EncryptAlgo(Enum):
 
 class IkeAuthMethod(Enum):
     """
-    IkeAuthMethod
+    IkeAuthMethod (Enum Class)
 
     The authentication method used in IPsec Phase\-1 IKE
 
@@ -182,7 +184,7 @@ class IkeAuthMethod(Enum):
 
 class IkeHashAlgo(Enum):
     """
-    IkeHashAlgo
+    IkeHashAlgo (Enum Class)
 
     The hash algorithm used in IPsec Phase\-1 
 
@@ -205,7 +207,7 @@ class IkeHashAlgo(Enum):
 
 class IkeIdentityType(Enum):
     """
-    IkeIdentityType
+    IkeIdentityType (Enum Class)
 
     The type of identity used by the local entity to
 
@@ -234,7 +236,7 @@ class IkeIdentityType(Enum):
 
 class TrapStatus(Enum):
     """
-    TrapStatus
+    TrapStatus (Enum Class)
 
     The administrative status for sending a TRAP.
 
@@ -319,8 +321,10 @@ class CISCOIPSECMIB(Entity):
         self.yang_parent_name = "CISCO-IPSEC-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipsIsakmpGroup" : ("cipsisakmpgroup", CISCOIPSECMIB.Cipsisakmpgroup), "cipsIPsecGlobals" : ("cipsipsecglobals", CISCOIPSECMIB.Cipsipsecglobals), "cipsIPsecStatistics" : ("cipsipsecstatistics", CISCOIPSECMIB.Cipsipsecstatistics), "cipsSysCapacityGroup" : ("cipssyscapacitygroup", CISCOIPSECMIB.Cipssyscapacitygroup), "cipsTrapCntlGroup" : ("cipstrapcntlgroup", CISCOIPSECMIB.Cipstrapcntlgroup), "cipsIsakmpPolicyTable" : ("cipsisakmppolicytable", CISCOIPSECMIB.Cipsisakmppolicytable), "cipsStaticCryptomapSetTable" : ("cipsstaticcryptomapsettable", CISCOIPSECMIB.Cipsstaticcryptomapsettable), "cipsDynamicCryptomapSetTable" : ("cipsdynamiccryptomapsettable", CISCOIPSECMIB.Cipsdynamiccryptomapsettable), "cipsStaticCryptomapTable" : ("cipsstaticcryptomaptable", CISCOIPSECMIB.Cipsstaticcryptomaptable), "cipsCryptomapSetIfTable" : ("cipscryptomapsetiftable", CISCOIPSECMIB.Cipscryptomapsetiftable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cipsIsakmpGroup", ("cipsisakmpgroup", CISCOIPSECMIB.Cipsisakmpgroup)), ("cipsIPsecGlobals", ("cipsipsecglobals", CISCOIPSECMIB.Cipsipsecglobals)), ("cipsIPsecStatistics", ("cipsipsecstatistics", CISCOIPSECMIB.Cipsipsecstatistics)), ("cipsSysCapacityGroup", ("cipssyscapacitygroup", CISCOIPSECMIB.Cipssyscapacitygroup)), ("cipsTrapCntlGroup", ("cipstrapcntlgroup", CISCOIPSECMIB.Cipstrapcntlgroup)), ("cipsIsakmpPolicyTable", ("cipsisakmppolicytable", CISCOIPSECMIB.Cipsisakmppolicytable)), ("cipsStaticCryptomapSetTable", ("cipsstaticcryptomapsettable", CISCOIPSECMIB.Cipsstaticcryptomapsettable)), ("cipsDynamicCryptomapSetTable", ("cipsdynamiccryptomapsettable", CISCOIPSECMIB.Cipsdynamiccryptomapsettable)), ("cipsStaticCryptomapTable", ("cipsstaticcryptomaptable", CISCOIPSECMIB.Cipsstaticcryptomaptable)), ("cipsCryptomapSetIfTable", ("cipscryptomapsetiftable", CISCOIPSECMIB.Cipscryptomapsetiftable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cipsisakmpgroup = CISCOIPSECMIB.Cipsisakmpgroup()
         self.cipsisakmpgroup.parent = self
@@ -418,16 +422,19 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsisakmpenabled = YLeaf(YType.boolean, "cipsIsakmpEnabled")
-
-            self.cipsisakmpidentity = YLeaf(YType.enumeration, "cipsIsakmpIdentity")
-
-            self.cipsisakmpkeepaliveinterval = YLeaf(YType.int32, "cipsIsakmpKeepaliveInterval")
-
-            self.cipsnumisakmppolicies = YLeaf(YType.int32, "cipsNumIsakmpPolicies")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsisakmpenabled', YLeaf(YType.boolean, 'cipsIsakmpEnabled')),
+                ('cipsisakmpidentity', YLeaf(YType.enumeration, 'cipsIsakmpIdentity')),
+                ('cipsisakmpkeepaliveinterval', YLeaf(YType.int32, 'cipsIsakmpKeepaliveInterval')),
+                ('cipsnumisakmppolicies', YLeaf(YType.int32, 'cipsNumIsakmpPolicies')),
+            ])
+            self.cipsisakmpenabled = None
+            self.cipsisakmpidentity = None
+            self.cipsisakmpkeepaliveinterval = None
+            self.cipsnumisakmppolicies = None
             self._segment_path = lambda: "cipsIsakmpGroup"
             self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
 
@@ -507,20 +514,23 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipssalifetime = YLeaf(YType.uint32, "cipsSALifetime")
-
-            self.cipssalifesize = YLeaf(YType.uint32, "cipsSALifesize")
-
-            self.cipsnumstaticcryptomapsets = YLeaf(YType.uint32, "cipsNumStaticCryptomapSets")
-
-            self.cipsnumcetcryptomapsets = YLeaf(YType.uint32, "cipsNumCETCryptomapSets")
-
-            self.cipsnumdynamiccryptomapsets = YLeaf(YType.uint32, "cipsNumDynamicCryptomapSets")
-
-            self.cipsnumtedcryptomapsets = YLeaf(YType.uint32, "cipsNumTEDCryptomapSets")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipssalifetime', YLeaf(YType.uint32, 'cipsSALifetime')),
+                ('cipssalifesize', YLeaf(YType.uint32, 'cipsSALifesize')),
+                ('cipsnumstaticcryptomapsets', YLeaf(YType.uint32, 'cipsNumStaticCryptomapSets')),
+                ('cipsnumcetcryptomapsets', YLeaf(YType.uint32, 'cipsNumCETCryptomapSets')),
+                ('cipsnumdynamiccryptomapsets', YLeaf(YType.uint32, 'cipsNumDynamicCryptomapSets')),
+                ('cipsnumtedcryptomapsets', YLeaf(YType.uint32, 'cipsNumTEDCryptomapSets')),
+            ])
+            self.cipssalifetime = None
+            self.cipssalifesize = None
+            self.cipsnumstaticcryptomapsets = None
+            self.cipsnumcetcryptomapsets = None
+            self.cipsnumdynamiccryptomapsets = None
+            self.cipsnumtedcryptomapsets = None
             self._segment_path = lambda: "cipsIPsecGlobals"
             self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
 
@@ -573,14 +583,17 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsnumtedprobesreceived = YLeaf(YType.uint32, "cipsNumTEDProbesReceived")
-
-            self.cipsnumtedprobessent = YLeaf(YType.uint32, "cipsNumTEDProbesSent")
-
-            self.cipsnumtedfailures = YLeaf(YType.uint32, "cipsNumTEDFailures")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsnumtedprobesreceived', YLeaf(YType.uint32, 'cipsNumTEDProbesReceived')),
+                ('cipsnumtedprobessent', YLeaf(YType.uint32, 'cipsNumTEDProbesSent')),
+                ('cipsnumtedfailures', YLeaf(YType.uint32, 'cipsNumTEDFailures')),
+            ])
+            self.cipsnumtedprobesreceived = None
+            self.cipsnumtedprobessent = None
+            self.cipsnumtedfailures = None
             self._segment_path = lambda: "cipsIPsecStatistics"
             self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
 
@@ -620,12 +633,15 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsmaxsas = YLeaf(YType.int32, "cipsMaxSAs")
-
-            self.cips3descapable = YLeaf(YType.boolean, "cips3DesCapable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipsmaxsas', YLeaf(YType.int32, 'cipsMaxSAs')),
+                ('cips3descapable', YLeaf(YType.boolean, 'cips3DesCapable')),
+            ])
+            self.cipsmaxsas = None
+            self.cips3descapable = None
             self._segment_path = lambda: "cipsSysCapacityGroup"
             self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
 
@@ -686,22 +702,25 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipscntlisakmppolicyadded = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyAdded")
-
-            self.cipscntlisakmppolicydeleted = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyDeleted")
-
-            self.cipscntlcryptomapadded = YLeaf(YType.enumeration, "cipsCntlCryptomapAdded")
-
-            self.cipscntlcryptomapdeleted = YLeaf(YType.enumeration, "cipsCntlCryptomapDeleted")
-
-            self.cipscntlcryptomapsetattached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetAttached")
-
-            self.cipscntlcryptomapsetdetached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetDetached")
-
-            self.cipscntltoomanysas = YLeaf(YType.enumeration, "cipsCntlTooManySAs")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cipscntlisakmppolicyadded', YLeaf(YType.enumeration, 'cipsCntlIsakmpPolicyAdded')),
+                ('cipscntlisakmppolicydeleted', YLeaf(YType.enumeration, 'cipsCntlIsakmpPolicyDeleted')),
+                ('cipscntlcryptomapadded', YLeaf(YType.enumeration, 'cipsCntlCryptomapAdded')),
+                ('cipscntlcryptomapdeleted', YLeaf(YType.enumeration, 'cipsCntlCryptomapDeleted')),
+                ('cipscntlcryptomapsetattached', YLeaf(YType.enumeration, 'cipsCntlCryptomapSetAttached')),
+                ('cipscntlcryptomapsetdetached', YLeaf(YType.enumeration, 'cipsCntlCryptomapSetDetached')),
+                ('cipscntltoomanysas', YLeaf(YType.enumeration, 'cipsCntlTooManySAs')),
+            ])
+            self.cipscntlisakmppolicyadded = None
+            self.cipscntlisakmppolicydeleted = None
+            self.cipscntlcryptomapadded = None
+            self.cipscntlcryptomapdeleted = None
+            self.cipscntlcryptomapsetattached = None
+            self.cipscntlcryptomapsetdetached = None
+            self.cipscntltoomanysas = None
             self._segment_path = lambda: "cipsTrapCntlGroup"
             self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
 
@@ -733,8 +752,10 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsIsakmpPolicyEntry" : ("cipsisakmppolicyentry", CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipsIsakmpPolicyEntry", ("cipsisakmppolicyentry", CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry))])
+            self._leafs = OrderedDict()
 
             self.cipsisakmppolicyentry = YList(self)
             self._segment_path = lambda: "cipsIsakmpPolicyTable"
@@ -750,7 +771,7 @@ class CISCOIPSECMIB(Entity):
             associated with a single ISAKMP
             Policy entry.
             
-            .. attribute:: cipsisakmppolpriority  <key>
+            .. attribute:: cipsisakmppolpriority  (key)
             
             	The priotity of this ISAKMP Policy entry. This is also the index of this table
             	**type**\: int
@@ -800,21 +821,24 @@ class CISCOIPSECMIB(Entity):
                 self.yang_parent_name = "cipsIsakmpPolicyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsisakmppolpriority = YLeaf(YType.int32, "cipsIsakmpPolPriority")
-
-                self.cipsisakmppolencr = YLeaf(YType.enumeration, "cipsIsakmpPolEncr")
-
-                self.cipsisakmppolhash = YLeaf(YType.enumeration, "cipsIsakmpPolHash")
-
-                self.cipsisakmppolauth = YLeaf(YType.enumeration, "cipsIsakmpPolAuth")
-
-                self.cipsisakmppolgroup = YLeaf(YType.enumeration, "cipsIsakmpPolGroup")
-
-                self.cipsisakmppollifetime = YLeaf(YType.int32, "cipsIsakmpPolLifetime")
-                self._segment_path = lambda: "cipsIsakmpPolicyEntry" + "[cipsIsakmpPolPriority='" + self.cipsisakmppolpriority.get() + "']"
+                self.ylist_key_names = ['cipsisakmppolpriority']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsisakmppolpriority', YLeaf(YType.int32, 'cipsIsakmpPolPriority')),
+                    ('cipsisakmppolencr', YLeaf(YType.enumeration, 'cipsIsakmpPolEncr')),
+                    ('cipsisakmppolhash', YLeaf(YType.enumeration, 'cipsIsakmpPolHash')),
+                    ('cipsisakmppolauth', YLeaf(YType.enumeration, 'cipsIsakmpPolAuth')),
+                    ('cipsisakmppolgroup', YLeaf(YType.enumeration, 'cipsIsakmpPolGroup')),
+                    ('cipsisakmppollifetime', YLeaf(YType.int32, 'cipsIsakmpPolLifetime')),
+                ])
+                self.cipsisakmppolpriority = None
+                self.cipsisakmppolencr = None
+                self.cipsisakmppolhash = None
+                self.cipsisakmppolauth = None
+                self.cipsisakmppolgroup = None
+                self.cipsisakmppollifetime = None
+                self._segment_path = lambda: "cipsIsakmpPolicyEntry" + "[cipsIsakmpPolPriority='" + str(self.cipsisakmppolpriority) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsIsakmpPolicyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -850,8 +874,10 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsStaticCryptomapSetEntry" : ("cipsstaticcryptomapsetentry", CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipsStaticCryptomapSetEntry", ("cipsstaticcryptomapsetentry", CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry))])
+            self._leafs = OrderedDict()
 
             self.cipsstaticcryptomapsetentry = YList(self)
             self._segment_path = lambda: "cipsStaticCryptomapSetTable"
@@ -867,7 +893,7 @@ class CISCOIPSECMIB(Entity):
             associated with a single static 
             cryptomap set.
             
-            .. attribute:: cipsstaticcryptomapsetname  <key>
+            .. attribute:: cipsstaticcryptomapsetname  (key)
             
             	The index of the static cryptomap table. The value  of the string is the name string assigned by the  operator in defining the cryptomap set
             	**type**\: str
@@ -935,25 +961,28 @@ class CISCOIPSECMIB(Entity):
                 self.yang_parent_name = "cipsStaticCryptomapSetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
-
-                self.cipsstaticcryptomapsetsize = YLeaf(YType.uint32, "cipsStaticCryptomapSetSize")
-
-                self.cipsstaticcryptomapsetnumisakmp = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumIsakmp")
-
-                self.cipsstaticcryptomapsetnummanual = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumManual")
-
-                self.cipsstaticcryptomapsetnumcet = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumCET")
-
-                self.cipsstaticcryptomapsetnumdynamic = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDynamic")
-
-                self.cipsstaticcryptomapsetnumdisc = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDisc")
-
-                self.cipsstaticcryptomapsetnumsas = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumSAs")
-                self._segment_path = lambda: "cipsStaticCryptomapSetEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']"
+                self.ylist_key_names = ['cipsstaticcryptomapsetname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsstaticcryptomapsetname', YLeaf(YType.str, 'cipsStaticCryptomapSetName')),
+                    ('cipsstaticcryptomapsetsize', YLeaf(YType.uint32, 'cipsStaticCryptomapSetSize')),
+                    ('cipsstaticcryptomapsetnumisakmp', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumIsakmp')),
+                    ('cipsstaticcryptomapsetnummanual', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumManual')),
+                    ('cipsstaticcryptomapsetnumcet', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumCET')),
+                    ('cipsstaticcryptomapsetnumdynamic', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumDynamic')),
+                    ('cipsstaticcryptomapsetnumdisc', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumDisc')),
+                    ('cipsstaticcryptomapsetnumsas', YLeaf(YType.uint32, 'cipsStaticCryptomapSetNumSAs')),
+                ])
+                self.cipsstaticcryptomapsetname = None
+                self.cipsstaticcryptomapsetsize = None
+                self.cipsstaticcryptomapsetnumisakmp = None
+                self.cipsstaticcryptomapsetnummanual = None
+                self.cipsstaticcryptomapsetnumcet = None
+                self.cipsstaticcryptomapsetnumdynamic = None
+                self.cipsstaticcryptomapsetnumdisc = None
+                self.cipsstaticcryptomapsetnumsas = None
+                self._segment_path = lambda: "cipsStaticCryptomapSetEntry" + "[cipsStaticCryptomapSetName='" + str(self.cipsstaticcryptomapsetname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapSetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -985,8 +1014,10 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsDynamicCryptomapSetEntry" : ("cipsdynamiccryptomapsetentry", CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipsDynamicCryptomapSetEntry", ("cipsdynamiccryptomapsetentry", CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry))])
+            self._leafs = OrderedDict()
 
             self.cipsdynamiccryptomapsetentry = YList(self)
             self._segment_path = lambda: "cipsDynamicCryptomapSetTable"
@@ -1001,7 +1032,7 @@ class CISCOIPSECMIB(Entity):
             Each entry contains the attributes associated
             with a single dynamic cryptomap template.
             
-            .. attribute:: cipsdynamiccryptomapsetname  <key>
+            .. attribute:: cipsdynamiccryptomapsetname  (key)
             
             	The index of the dynamic cryptomap table.  The value of the string is the one assigned  by the operator in defining the cryptomap set
             	**type**\: str
@@ -1034,15 +1065,18 @@ class CISCOIPSECMIB(Entity):
                 self.yang_parent_name = "cipsDynamicCryptomapSetTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsdynamiccryptomapsetname = YLeaf(YType.str, "cipsDynamicCryptomapSetName")
-
-                self.cipsdynamiccryptomapsetsize = YLeaf(YType.uint32, "cipsDynamicCryptomapSetSize")
-
-                self.cipsdynamiccryptomapsetnumassoc = YLeaf(YType.uint32, "cipsDynamicCryptomapSetNumAssoc")
-                self._segment_path = lambda: "cipsDynamicCryptomapSetEntry" + "[cipsDynamicCryptomapSetName='" + self.cipsdynamiccryptomapsetname.get() + "']"
+                self.ylist_key_names = ['cipsdynamiccryptomapsetname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsdynamiccryptomapsetname', YLeaf(YType.str, 'cipsDynamicCryptomapSetName')),
+                    ('cipsdynamiccryptomapsetsize', YLeaf(YType.uint32, 'cipsDynamicCryptomapSetSize')),
+                    ('cipsdynamiccryptomapsetnumassoc', YLeaf(YType.uint32, 'cipsDynamicCryptomapSetNumAssoc')),
+                ])
+                self.cipsdynamiccryptomapsetname = None
+                self.cipsdynamiccryptomapsetsize = None
+                self.cipsdynamiccryptomapsetnumassoc = None
+                self._segment_path = lambda: "cipsDynamicCryptomapSetEntry" + "[cipsDynamicCryptomapSetName='" + str(self.cipsdynamiccryptomapsetname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsDynamicCryptomapSetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1074,8 +1108,10 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsStaticCryptomapEntry" : ("cipsstaticcryptomapentry", CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipsStaticCryptomapEntry", ("cipsstaticcryptomapentry", CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry))])
+            self._leafs = OrderedDict()
 
             self.cipsstaticcryptomapentry = YList(self)
             self._segment_path = lambda: "cipsStaticCryptomapTable"
@@ -1094,14 +1130,14 @@ class CISCOIPSECMIB(Entity):
             of dynamic cryptomap sets that may be
             linked with the parent static cryptomap set.
             
-            .. attribute:: cipsstaticcryptomapsetname  <key>
+            .. attribute:: cipsstaticcryptomapsetname  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
             
-            .. attribute:: cipsstaticcryptomappriority  <key>
+            .. attribute:: cipsstaticcryptomappriority  (key)
             
             	The priority of the cryptomap entry in the  cryptomap set. This is the second index component of this table
             	**type**\: int
@@ -1170,29 +1206,32 @@ class CISCOIPSECMIB(Entity):
                 self.yang_parent_name = "cipsStaticCryptomapTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
-
-                self.cipsstaticcryptomappriority = YLeaf(YType.int32, "cipsStaticCryptomapPriority")
-
-                self.cipsstaticcryptomaptype = YLeaf(YType.enumeration, "cipsStaticCryptomapType")
-
-                self.cipsstaticcryptomapdescr = YLeaf(YType.str, "cipsStaticCryptomapDescr")
-
-                self.cipsstaticcryptomappeer = YLeaf(YType.str, "cipsStaticCryptomapPeer")
-
-                self.cipsstaticcryptomapnumpeers = YLeaf(YType.int32, "cipsStaticCryptomapNumPeers")
-
-                self.cipsstaticcryptomappfs = YLeaf(YType.enumeration, "cipsStaticCryptomapPfs")
-
-                self.cipsstaticcryptomaplifetime = YLeaf(YType.int32, "cipsStaticCryptomapLifetime")
-
-                self.cipsstaticcryptomaplifesize = YLeaf(YType.int32, "cipsStaticCryptomapLifesize")
-
-                self.cipsstaticcryptomaplevelhost = YLeaf(YType.boolean, "cipsStaticCryptomapLevelHost")
-                self._segment_path = lambda: "cipsStaticCryptomapEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']" + "[cipsStaticCryptomapPriority='" + self.cipsstaticcryptomappriority.get() + "']"
+                self.ylist_key_names = ['cipsstaticcryptomapsetname','cipsstaticcryptomappriority']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cipsstaticcryptomapsetname', YLeaf(YType.str, 'cipsStaticCryptomapSetName')),
+                    ('cipsstaticcryptomappriority', YLeaf(YType.int32, 'cipsStaticCryptomapPriority')),
+                    ('cipsstaticcryptomaptype', YLeaf(YType.enumeration, 'cipsStaticCryptomapType')),
+                    ('cipsstaticcryptomapdescr', YLeaf(YType.str, 'cipsStaticCryptomapDescr')),
+                    ('cipsstaticcryptomappeer', YLeaf(YType.str, 'cipsStaticCryptomapPeer')),
+                    ('cipsstaticcryptomapnumpeers', YLeaf(YType.int32, 'cipsStaticCryptomapNumPeers')),
+                    ('cipsstaticcryptomappfs', YLeaf(YType.enumeration, 'cipsStaticCryptomapPfs')),
+                    ('cipsstaticcryptomaplifetime', YLeaf(YType.int32, 'cipsStaticCryptomapLifetime')),
+                    ('cipsstaticcryptomaplifesize', YLeaf(YType.int32, 'cipsStaticCryptomapLifesize')),
+                    ('cipsstaticcryptomaplevelhost', YLeaf(YType.boolean, 'cipsStaticCryptomapLevelHost')),
+                ])
+                self.cipsstaticcryptomapsetname = None
+                self.cipsstaticcryptomappriority = None
+                self.cipsstaticcryptomaptype = None
+                self.cipsstaticcryptomapdescr = None
+                self.cipsstaticcryptomappeer = None
+                self.cipsstaticcryptomapnumpeers = None
+                self.cipsstaticcryptomappfs = None
+                self.cipsstaticcryptomaplifetime = None
+                self.cipsstaticcryptomaplifesize = None
+                self.cipsstaticcryptomaplevelhost = None
+                self._segment_path = lambda: "cipsStaticCryptomapEntry" + "[cipsStaticCryptomapSetName='" + str(self.cipsstaticcryptomapsetname) + "']" + "[cipsStaticCryptomapPriority='" + str(self.cipsstaticcryptomappriority) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1223,8 +1262,10 @@ class CISCOIPSECMIB(Entity):
             self.yang_parent_name = "CISCO-IPSEC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsCryptomapSetIfEntry" : ("cipscryptomapsetifentry", CISCOIPSECMIB.Cipscryptomapsetiftable.Cipscryptomapsetifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cipsCryptomapSetIfEntry", ("cipscryptomapsetifentry", CISCOIPSECMIB.Cipscryptomapsetiftable.Cipscryptomapsetifentry))])
+            self._leafs = OrderedDict()
 
             self.cipscryptomapsetifentry = YList(self)
             self._segment_path = lambda: "cipsCryptomapSetIfTable"
@@ -1245,7 +1286,7 @@ class CISCOIPSECMIB(Entity):
             this binding must static. Dynamic cryptomaps cannot
             be bound to interfaces.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1254,7 +1295,7 @@ class CISCOIPSECMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: cipsstaticcryptomapsetname  <key>
+            .. attribute:: cipsstaticcryptomapsetname  (key)
             
             	
             	**type**\: str
@@ -1285,17 +1326,20 @@ class CISCOIPSECMIB(Entity):
                 self.yang_parent_name = "cipsCryptomapSetIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
-
-                self.cipscryptomapsetifvirtual = YLeaf(YType.boolean, "cipsCryptomapSetIfVirtual")
-
-                self.cipscryptomapsetifstatus = YLeaf(YType.enumeration, "cipsCryptomapSetIfStatus")
-                self._segment_path = lambda: "cipsCryptomapSetIfEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']"
+                self.ylist_key_names = ['ifindex','cipsstaticcryptomapsetname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cipsstaticcryptomapsetname', YLeaf(YType.str, 'cipsStaticCryptomapSetName')),
+                    ('cipscryptomapsetifvirtual', YLeaf(YType.boolean, 'cipsCryptomapSetIfVirtual')),
+                    ('cipscryptomapsetifstatus', YLeaf(YType.enumeration, 'cipsCryptomapSetIfStatus')),
+                ])
+                self.ifindex = None
+                self.cipsstaticcryptomapsetname = None
+                self.cipscryptomapsetifvirtual = None
+                self.cipscryptomapsetifstatus = None
+                self._segment_path = lambda: "cipsCryptomapSetIfEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cipsStaticCryptomapSetName='" + str(self.cipsstaticcryptomapsetname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsCryptomapSetIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

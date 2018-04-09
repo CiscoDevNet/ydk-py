@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AlAlarmBistate(Enum):
     """
-    AlAlarmBistate
+    AlAlarmBistate (Enum Class)
 
     Al alarm bistate
 
@@ -46,7 +48,7 @@ class AlAlarmBistate(Enum):
 
 class AlAlarmSeverity(Enum):
     """
-    AlAlarmSeverity
+    AlAlarmSeverity (Enum Class)
 
     Al alarm severity
 
@@ -137,8 +139,10 @@ class AlarmLogger(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-alarm-logger-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"buffer-status" : ("buffer_status", AlarmLogger.BufferStatus), "alarms" : ("alarms", AlarmLogger.Alarms)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("buffer-status", ("buffer_status", AlarmLogger.BufferStatus)), ("alarms", ("alarms", AlarmLogger.Alarms))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.buffer_status = AlarmLogger.BufferStatus()
         self.buffer_status.parent = self
@@ -210,18 +214,21 @@ class AlarmLogger(Entity):
             self.yang_parent_name = "alarm-logger"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.log_buffer_size = YLeaf(YType.uint32, "log-buffer-size")
-
-            self.max_log_buffer_size = YLeaf(YType.uint32, "max-log-buffer-size")
-
-            self.record_count = YLeaf(YType.uint32, "record-count")
-
-            self.capacity_threshold = YLeaf(YType.uint32, "capacity-threshold")
-
-            self.severity_filter = YLeaf(YType.enumeration, "severity-filter")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('log_buffer_size', YLeaf(YType.uint32, 'log-buffer-size')),
+                ('max_log_buffer_size', YLeaf(YType.uint32, 'max-log-buffer-size')),
+                ('record_count', YLeaf(YType.uint32, 'record-count')),
+                ('capacity_threshold', YLeaf(YType.uint32, 'capacity-threshold')),
+                ('severity_filter', YLeaf(YType.enumeration, 'severity-filter')),
+            ])
+            self.log_buffer_size = None
+            self.max_log_buffer_size = None
+            self.record_count = None
+            self.capacity_threshold = None
+            self.severity_filter = None
             self._segment_path = lambda: "buffer-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self._segment_path()
 
@@ -253,8 +260,10 @@ class AlarmLogger(Entity):
             self.yang_parent_name = "alarm-logger"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"alarm" : ("alarm", AlarmLogger.Alarms.Alarm)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("alarm", ("alarm", AlarmLogger.Alarms.Alarm))])
+            self._leafs = OrderedDict()
 
             self.alarm = YList(self)
             self._segment_path = lambda: "alarms"
@@ -268,7 +277,7 @@ class AlarmLogger(Entity):
             """
             One of the logged alarms
             
-            .. attribute:: event_id  <key>
+            .. attribute:: event_id  (key)
             
             	Event ID
             	**type**\: int
@@ -345,31 +354,34 @@ class AlarmLogger(Entity):
                 self.yang_parent_name = "alarms"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.event_id = YLeaf(YType.int32, "event-id")
-
-                self.source_id = YLeaf(YType.str, "source-id")
-
-                self.timestamp = YLeaf(YType.uint64, "timestamp")
-
-                self.category = YLeaf(YType.str, "category")
-
-                self.group = YLeaf(YType.str, "group")
-
-                self.code = YLeaf(YType.str, "code")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.correlation_id = YLeaf(YType.uint32, "correlation-id")
-
-                self.is_admin = YLeaf(YType.boolean, "is-admin")
-
-                self.additional_text = YLeaf(YType.str, "additional-text")
-                self._segment_path = lambda: "alarm" + "[event-id='" + self.event_id.get() + "']"
+                self.ylist_key_names = ['event_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('event_id', YLeaf(YType.int32, 'event-id')),
+                    ('source_id', YLeaf(YType.str, 'source-id')),
+                    ('timestamp', YLeaf(YType.uint64, 'timestamp')),
+                    ('category', YLeaf(YType.str, 'category')),
+                    ('group', YLeaf(YType.str, 'group')),
+                    ('code', YLeaf(YType.str, 'code')),
+                    ('severity', YLeaf(YType.enumeration, 'severity')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
+                    ('is_admin', YLeaf(YType.boolean, 'is-admin')),
+                    ('additional_text', YLeaf(YType.str, 'additional-text')),
+                ])
+                self.event_id = None
+                self.source_id = None
+                self.timestamp = None
+                self.category = None
+                self.group = None
+                self.code = None
+                self.severity = None
+                self.state = None
+                self.correlation_id = None
+                self.is_admin = None
+                self.additional_text = None
+                self._segment_path = lambda: "alarm" + "[event-id='" + str(self.event_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/alarms/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

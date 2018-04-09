@@ -8,6 +8,8 @@ used by a device and VLAN membership assignments of
 non\-trunk bridge ports of the device.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -79,8 +81,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vmVmps" : ("vmvmps", CISCOVLANMEMBERSHIPMIB.Vmvmps), "vmMembership" : ("vmmembership", CISCOVLANMEMBERSHIPMIB.Vmmembership), "vmStatistics" : ("vmstatistics", CISCOVLANMEMBERSHIPMIB.Vmstatistics), "vmStatus" : ("vmstatus", CISCOVLANMEMBERSHIPMIB.Vmstatus), "vmVmpsTable" : ("vmvmpstable", CISCOVLANMEMBERSHIPMIB.Vmvmpstable), "vmMembershipSummaryTable" : ("vmmembershipsummarytable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable), "vmMembershipTable" : ("vmmembershiptable", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable), "vmMembershipSummaryExtTable" : ("vmmembershipsummaryexttable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable), "vmVoiceVlanTable" : ("vmvoicevlantable", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vmVmps", ("vmvmps", CISCOVLANMEMBERSHIPMIB.Vmvmps)), ("vmMembership", ("vmmembership", CISCOVLANMEMBERSHIPMIB.Vmmembership)), ("vmStatistics", ("vmstatistics", CISCOVLANMEMBERSHIPMIB.Vmstatistics)), ("vmStatus", ("vmstatus", CISCOVLANMEMBERSHIPMIB.Vmstatus)), ("vmVmpsTable", ("vmvmpstable", CISCOVLANMEMBERSHIPMIB.Vmvmpstable)), ("vmMembershipSummaryTable", ("vmmembershipsummarytable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable)), ("vmMembershipTable", ("vmmembershiptable", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable)), ("vmMembershipSummaryExtTable", ("vmmembershipsummaryexttable", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable)), ("vmVoiceVlanTable", ("vmvoicevlantable", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.vmvmps = CISCOVLANMEMBERSHIPMIB.Vmvmps()
         self.vmvmps.parent = self
@@ -187,20 +191,23 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vmvmpsvqpversion = YLeaf(YType.int32, "vmVmpsVQPVersion")
-
-            self.vmvmpsretries = YLeaf(YType.int32, "vmVmpsRetries")
-
-            self.vmvmpsreconfirminterval = YLeaf(YType.int32, "vmVmpsReconfirmInterval")
-
-            self.vmvmpsreconfirm = YLeaf(YType.enumeration, "vmVmpsReconfirm")
-
-            self.vmvmpsreconfirmresult = YLeaf(YType.enumeration, "vmVmpsReconfirmResult")
-
-            self.vmvmpscurrent = YLeaf(YType.str, "vmVmpsCurrent")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vmvmpsvqpversion', YLeaf(YType.int32, 'vmVmpsVQPVersion')),
+                ('vmvmpsretries', YLeaf(YType.int32, 'vmVmpsRetries')),
+                ('vmvmpsreconfirminterval', YLeaf(YType.int32, 'vmVmpsReconfirmInterval')),
+                ('vmvmpsreconfirm', YLeaf(YType.enumeration, 'vmVmpsReconfirm')),
+                ('vmvmpsreconfirmresult', YLeaf(YType.enumeration, 'vmVmpsReconfirmResult')),
+                ('vmvmpscurrent', YLeaf(YType.str, 'vmVmpsCurrent')),
+            ])
+            self.vmvmpsvqpversion = None
+            self.vmvmpsretries = None
+            self.vmvmpsreconfirminterval = None
+            self.vmvmpsreconfirm = None
+            self.vmvmpsreconfirmresult = None
+            self.vmvmpscurrent = None
             self._segment_path = lambda: "vmVmps"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
@@ -209,7 +216,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
         class Vmvmpsreconfirm(Enum):
             """
-            Vmvmpsreconfirm
+            Vmvmpsreconfirm (Enum Class)
 
             Setting this object to execute(2) causes the switch
 
@@ -230,7 +237,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
         class Vmvmpsreconfirmresult(Enum):
             """
-            Vmvmpsreconfirmresult
+            Vmvmpsreconfirmresult (Enum Class)
 
             This object returns the result of the last request
 
@@ -309,10 +316,13 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vmvlancreationmode = YLeaf(YType.enumeration, "vmVlanCreationMode")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vmvlancreationmode', YLeaf(YType.enumeration, 'vmVlanCreationMode')),
+            ])
+            self.vmvlancreationmode = None
             self._segment_path = lambda: "vmMembership"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
@@ -321,7 +331,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
         class Vmvlancreationmode(Enum):
             """
-            Vmvlancreationmode
+            Vmvlancreationmode (Enum Class)
 
             This object is used to determine whether or not
 
@@ -429,24 +439,27 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vmvqpqueries = YLeaf(YType.uint32, "vmVQPQueries")
-
-            self.vmvqpresponses = YLeaf(YType.uint32, "vmVQPResponses")
-
-            self.vmvmpschanges = YLeaf(YType.uint32, "vmVmpsChanges")
-
-            self.vmvqpshutdown = YLeaf(YType.uint32, "vmVQPShutdown")
-
-            self.vmvqpdenied = YLeaf(YType.uint32, "vmVQPDenied")
-
-            self.vmvqpwrongdomain = YLeaf(YType.uint32, "vmVQPWrongDomain")
-
-            self.vmvqpwrongversion = YLeaf(YType.uint32, "vmVQPWrongVersion")
-
-            self.vminsufficientresources = YLeaf(YType.uint32, "vmInsufficientResources")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vmvqpqueries', YLeaf(YType.uint32, 'vmVQPQueries')),
+                ('vmvqpresponses', YLeaf(YType.uint32, 'vmVQPResponses')),
+                ('vmvmpschanges', YLeaf(YType.uint32, 'vmVmpsChanges')),
+                ('vmvqpshutdown', YLeaf(YType.uint32, 'vmVQPShutdown')),
+                ('vmvqpdenied', YLeaf(YType.uint32, 'vmVQPDenied')),
+                ('vmvqpwrongdomain', YLeaf(YType.uint32, 'vmVQPWrongDomain')),
+                ('vmvqpwrongversion', YLeaf(YType.uint32, 'vmVQPWrongVersion')),
+                ('vminsufficientresources', YLeaf(YType.uint32, 'vmInsufficientResources')),
+            ])
+            self.vmvqpqueries = None
+            self.vmvqpresponses = None
+            self.vmvmpschanges = None
+            self.vmvqpshutdown = None
+            self.vmvqpdenied = None
+            self.vmvqpwrongdomain = None
+            self.vmvqpwrongversion = None
+            self.vminsufficientresources = None
             self._segment_path = lambda: "vmStatistics"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
@@ -477,10 +490,13 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.vmnotificationsenabled = YLeaf(YType.boolean, "vmNotificationsEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vmnotificationsenabled', YLeaf(YType.boolean, 'vmNotificationsEnabled')),
+            ])
+            self.vmnotificationsenabled = None
             self._segment_path = lambda: "vmStatus"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
 
@@ -519,8 +535,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vmVmpsEntry" : ("vmvmpsentry", CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vmVmpsEntry", ("vmvmpsentry", CISCOVLANMEMBERSHIPMIB.Vmvmpstable.Vmvmpsentry))])
+            self._leafs = OrderedDict()
 
             self.vmvmpsentry = YList(self)
             self._segment_path = lambda: "vmVmpsTable"
@@ -534,7 +552,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             """
             An entry (conceptual row) in the vmVmpsTable.
             
-            .. attribute:: vmvmpsipaddress  <key>
+            .. attribute:: vmvmpsipaddress  (key)
             
             	The Ip Address of the VMPS
             	**type**\: str
@@ -565,15 +583,18 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.yang_parent_name = "vmVmpsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vmvmpsipaddress = YLeaf(YType.str, "vmVmpsIpAddress")
-
-                self.vmvmpsprimary = YLeaf(YType.boolean, "vmVmpsPrimary")
-
-                self.vmvmpsrowstatus = YLeaf(YType.enumeration, "vmVmpsRowStatus")
-                self._segment_path = lambda: "vmVmpsEntry" + "[vmVmpsIpAddress='" + self.vmvmpsipaddress.get() + "']"
+                self.ylist_key_names = ['vmvmpsipaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vmvmpsipaddress', YLeaf(YType.str, 'vmVmpsIpAddress')),
+                    ('vmvmpsprimary', YLeaf(YType.boolean, 'vmVmpsPrimary')),
+                    ('vmvmpsrowstatus', YLeaf(YType.enumeration, 'vmVmpsRowStatus')),
+                ])
+                self.vmvmpsipaddress = None
+                self.vmvmpsprimary = None
+                self.vmvmpsrowstatus = None
+                self._segment_path = lambda: "vmVmpsEntry" + "[vmVmpsIpAddress='" + str(self.vmvmpsipaddress) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVmpsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -612,8 +633,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vmMembershipSummaryEntry" : ("vmmembershipsummaryentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vmMembershipSummaryEntry", ("vmmembershipsummaryentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry))])
+            self._leafs = OrderedDict()
 
             self.vmmembershipsummaryentry = YList(self)
             self._segment_path = lambda: "vmMembershipSummaryTable"
@@ -628,7 +651,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             An entry (conceptual row) in the
             vmMembershipSummaryTable.
             
-            .. attribute:: vmmembershipsummaryvlanindex  <key>
+            .. attribute:: vmmembershipsummaryvlanindex  (key)
             
             	The VLAN id of the VLAN
             	**type**\: int
@@ -665,15 +688,18 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.yang_parent_name = "vmMembershipSummaryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vmmembershipsummaryvlanindex = YLeaf(YType.int32, "vmMembershipSummaryVlanIndex")
-
-                self.vmmembershipsummarymemberports = YLeaf(YType.str, "vmMembershipSummaryMemberPorts")
-
-                self.vmmembershipsummarymember2kports = YLeaf(YType.str, "vmMembershipSummaryMember2kPorts")
-                self._segment_path = lambda: "vmMembershipSummaryEntry" + "[vmMembershipSummaryVlanIndex='" + self.vmmembershipsummaryvlanindex.get() + "']"
+                self.ylist_key_names = ['vmmembershipsummaryvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vmmembershipsummaryvlanindex', YLeaf(YType.int32, 'vmMembershipSummaryVlanIndex')),
+                    ('vmmembershipsummarymemberports', YLeaf(YType.str, 'vmMembershipSummaryMemberPorts')),
+                    ('vmmembershipsummarymember2kports', YLeaf(YType.str, 'vmMembershipSummaryMember2kPorts')),
+                ])
+                self.vmmembershipsummaryvlanindex = None
+                self.vmmembershipsummarymemberports = None
+                self.vmmembershipsummarymember2kports = None
+                self._segment_path = lambda: "vmMembershipSummaryEntry" + "[vmMembershipSummaryVlanIndex='" + str(self.vmmembershipsummaryvlanindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -709,8 +735,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vmMembershipEntry" : ("vmmembershipentry", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vmMembershipEntry", ("vmmembershipentry", CISCOVLANMEMBERSHIPMIB.Vmmembershiptable.Vmmembershipentry))])
+            self._leafs = OrderedDict()
 
             self.vmmembershipentry = YList(self)
             self._segment_path = lambda: "vmMembershipTable"
@@ -724,7 +752,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             """
             An entry (conceptual row) in the vmMembershipTable.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -792,25 +820,28 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.yang_parent_name = "vmMembershipTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.vmvlantype = YLeaf(YType.enumeration, "vmVlanType")
-
-                self.vmvlan = YLeaf(YType.int32, "vmVlan")
-
-                self.vmportstatus = YLeaf(YType.enumeration, "vmPortStatus")
-
-                self.vmvlans = YLeaf(YType.str, "vmVlans")
-
-                self.vmvlans2k = YLeaf(YType.str, "vmVlans2k")
-
-                self.vmvlans3k = YLeaf(YType.str, "vmVlans3k")
-
-                self.vmvlans4k = YLeaf(YType.str, "vmVlans4k")
-                self._segment_path = lambda: "vmMembershipEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('vmvlantype', YLeaf(YType.enumeration, 'vmVlanType')),
+                    ('vmvlan', YLeaf(YType.int32, 'vmVlan')),
+                    ('vmportstatus', YLeaf(YType.enumeration, 'vmPortStatus')),
+                    ('vmvlans', YLeaf(YType.str, 'vmVlans')),
+                    ('vmvlans2k', YLeaf(YType.str, 'vmVlans2k')),
+                    ('vmvlans3k', YLeaf(YType.str, 'vmVlans3k')),
+                    ('vmvlans4k', YLeaf(YType.str, 'vmVlans4k')),
+                ])
+                self.ifindex = None
+                self.vmvlantype = None
+                self.vmvlan = None
+                self.vmportstatus = None
+                self.vmvlans = None
+                self.vmvlans2k = None
+                self.vmvlans3k = None
+                self.vmvlans4k = None
+                self._segment_path = lambda: "vmMembershipEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -818,7 +849,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
             class Vmportstatus(Enum):
                 """
-                Vmportstatus
+                Vmportstatus (Enum Class)
 
                 An indication of the current VLAN status of the port.
 
@@ -853,7 +884,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
 
             class Vmvlantype(Enum):
                 """
-                Vmvlantype
+                Vmvlantype (Enum Class)
 
                 The type of VLAN membership assigned to this port.
 
@@ -925,8 +956,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vmMembershipSummaryExtEntry" : ("vmmembershipsummaryextentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vmMembershipSummaryExtEntry", ("vmmembershipsummaryextentry", CISCOVLANMEMBERSHIPMIB.Vmmembershipsummaryexttable.Vmmembershipsummaryextentry))])
+            self._leafs = OrderedDict()
 
             self.vmmembershipsummaryextentry = YList(self)
             self._segment_path = lambda: "vmMembershipSummaryExtTable"
@@ -941,7 +974,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             An entry (conceptual row) in the
             vmMembershipSummaryExtTable.
             
-            .. attribute:: vmmembershipsummaryvlanindex  <key>
+            .. attribute:: vmmembershipsummaryvlanindex  (key)
             
             	
             	**type**\: int
@@ -950,7 +983,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             
             	**refers to**\:  :py:class:`vmmembershipsummaryvlanindex <ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB.CISCOVLANMEMBERSHIPMIB.Vmmembershipsummarytable.Vmmembershipsummaryentry>`
             
-            .. attribute:: vmmembershipportrangeindex  <key>
+            .. attribute:: vmmembershipportrangeindex  (key)
             
             	The bridge port range index of this row
             	**type**\:  :py:class:`CiscoPortListRange <ydk.models.cisco_ios_xe.CISCO_TC.CiscoPortListRange>`
@@ -976,15 +1009,18 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.yang_parent_name = "vmMembershipSummaryExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vmmembershipsummaryvlanindex = YLeaf(YType.str, "vmMembershipSummaryVlanIndex")
-
-                self.vmmembershipportrangeindex = YLeaf(YType.enumeration, "vmMembershipPortRangeIndex")
-
-                self.vmmembershipsummaryextports = YLeaf(YType.str, "vmMembershipSummaryExtPorts")
-                self._segment_path = lambda: "vmMembershipSummaryExtEntry" + "[vmMembershipSummaryVlanIndex='" + self.vmmembershipsummaryvlanindex.get() + "']" + "[vmMembershipPortRangeIndex='" + self.vmmembershipportrangeindex.get() + "']"
+                self.ylist_key_names = ['vmmembershipsummaryvlanindex','vmmembershipportrangeindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vmmembershipsummaryvlanindex', YLeaf(YType.str, 'vmMembershipSummaryVlanIndex')),
+                    ('vmmembershipportrangeindex', YLeaf(YType.enumeration, 'vmMembershipPortRangeIndex')),
+                    ('vmmembershipsummaryextports', YLeaf(YType.str, 'vmMembershipSummaryExtPorts')),
+                ])
+                self.vmmembershipsummaryvlanindex = None
+                self.vmmembershipportrangeindex = None
+                self.vmmembershipsummaryextports = None
+                self._segment_path = lambda: "vmMembershipSummaryExtEntry" + "[vmMembershipSummaryVlanIndex='" + str(self.vmmembershipsummaryvlanindex) + "']" + "[vmMembershipPortRangeIndex='" + str(self.vmmembershipportrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1016,8 +1052,10 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.yang_parent_name = "CISCO-VLAN-MEMBERSHIP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vmVoiceVlanEntry" : ("vmvoicevlanentry", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vmVoiceVlanEntry", ("vmvoicevlanentry", CISCOVLANMEMBERSHIPMIB.Vmvoicevlantable.Vmvoicevlanentry))])
+            self._leafs = OrderedDict()
 
             self.vmvoicevlanentry = YList(self)
             self._segment_path = lambda: "vmVoiceVlanTable"
@@ -1033,7 +1071,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             Only interfaces which support Voice Vlan feature
             are shown.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1068,15 +1106,18 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.yang_parent_name = "vmVoiceVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.vmvoicevlanid = YLeaf(YType.int32, "vmVoiceVlanId")
-
-                self.vmvoicevlancdpverifyenable = YLeaf(YType.boolean, "vmVoiceVlanCdpVerifyEnable")
-                self._segment_path = lambda: "vmVoiceVlanEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('vmvoicevlanid', YLeaf(YType.int32, 'vmVoiceVlanId')),
+                    ('vmvoicevlancdpverifyenable', YLeaf(YType.boolean, 'vmVoiceVlanCdpVerifyEnable')),
+                ])
+                self.ifindex = None
+                self.vmvoicevlanid = None
+                self.vmvoicevlancdpverifyenable = None
+                self._segment_path = lambda: "vmVoiceVlanEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVoiceVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

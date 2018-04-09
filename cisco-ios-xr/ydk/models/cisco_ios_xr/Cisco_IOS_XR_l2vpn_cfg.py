@@ -18,6 +18,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -26,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BackupDisable(Enum):
     """
-    BackupDisable
+    BackupDisable (Enum Class)
 
     Backup disable
 
@@ -47,7 +49,7 @@ class BackupDisable(Enum):
 
 class BdmacLearn(Enum):
     """
-    BdmacLearn
+    BdmacLearn (Enum Class)
 
     Bdmac learn
 
@@ -62,7 +64,7 @@ class BdmacLearn(Enum):
 
 class BgpRouteDistinguisher(Enum):
     """
-    BgpRouteDistinguisher
+    BgpRouteDistinguisher (Enum Class)
 
     Bgp route distinguisher
 
@@ -95,7 +97,7 @@ class BgpRouteDistinguisher(Enum):
 
 class BgpRouteTarget(Enum):
     """
-    BgpRouteTarget
+    BgpRouteTarget (Enum Class)
 
     Bgp route target
 
@@ -116,7 +118,7 @@ class BgpRouteTarget(Enum):
 
 class BgpRouteTargetFormat(Enum):
     """
-    BgpRouteTargetFormat
+    BgpRouteTargetFormat (Enum Class)
 
     Bgp route target format
 
@@ -155,7 +157,7 @@ class BgpRouteTargetFormat(Enum):
 
 class BgpRouteTargetRole(Enum):
     """
-    BgpRouteTargetRole
+    BgpRouteTargetRole (Enum Class)
 
     Bgp route target role
 
@@ -182,7 +184,7 @@ class BgpRouteTargetRole(Enum):
 
 class BridgeDomainTransportMode(Enum):
     """
-    BridgeDomainTransportMode
+    BridgeDomainTransportMode (Enum Class)
 
     Bridge domain transport mode
 
@@ -197,7 +199,7 @@ class BridgeDomainTransportMode(Enum):
 
 class ControlWord(Enum):
     """
-    ControlWord
+    ControlWord (Enum Class)
 
     Control word
 
@@ -218,7 +220,7 @@ class ControlWord(Enum):
 
 class ErpPort(Enum):
     """
-    ErpPort
+    ErpPort (Enum Class)
 
     Erp port
 
@@ -245,7 +247,7 @@ class ErpPort(Enum):
 
 class ErpPort1(Enum):
     """
-    ErpPort1
+    ErpPort1 (Enum Class)
 
     Erp port1
 
@@ -266,7 +268,7 @@ class ErpPort1(Enum):
 
 class Erpaps(Enum):
     """
-    Erpaps
+    Erpaps (Enum Class)
 
     Erpaps
 
@@ -299,7 +301,7 @@ class Erpaps(Enum):
 
 class EthernetSegmentIdentifier(Enum):
     """
-    EthernetSegmentIdentifier
+    EthernetSegmentIdentifier (Enum Class)
 
     Ethernet segment identifier
 
@@ -326,7 +328,7 @@ class EthernetSegmentIdentifier(Enum):
 
 class EvpnEncapsulation(Enum):
     """
-    EvpnEncapsulation
+    EvpnEncapsulation (Enum Class)
 
     Evpn encapsulation
 
@@ -347,7 +349,7 @@ class EvpnEncapsulation(Enum):
 
 class EvpnSide(Enum):
     """
-    EvpnSide
+    EvpnSide (Enum Class)
 
     Evpn side
 
@@ -362,7 +364,7 @@ class EvpnSide(Enum):
 
 class FlowLabelLoadBalance(Enum):
     """
-    FlowLabelLoadBalance
+    FlowLabelLoadBalance (Enum Class)
 
     Flow label load balance
 
@@ -397,7 +399,7 @@ class FlowLabelLoadBalance(Enum):
 
 class FlowLabelTlvCode(Enum):
     """
-    FlowLabelTlvCode
+    FlowLabelTlvCode (Enum Class)
 
     Flow label tlv code
 
@@ -418,7 +420,7 @@ class FlowLabelTlvCode(Enum):
 
 class InterfaceProfile(Enum):
     """
-    InterfaceProfile
+    InterfaceProfile (Enum Class)
 
     Interface profile
 
@@ -439,7 +441,7 @@ class InterfaceProfile(Enum):
 
 class InterfaceTrafficFlood(Enum):
     """
-    InterfaceTrafficFlood
+    InterfaceTrafficFlood (Enum Class)
 
     Interface traffic flood
 
@@ -466,7 +468,7 @@ class InterfaceTrafficFlood(Enum):
 
 class Interworking(Enum):
     """
-    Interworking
+    Interworking (Enum Class)
 
     Interworking
 
@@ -487,7 +489,7 @@ class Interworking(Enum):
 
 class L2Encapsulation(Enum):
     """
-    L2Encapsulation
+    L2Encapsulation (Enum Class)
 
     L2 encapsulation
 
@@ -508,7 +510,7 @@ class L2Encapsulation(Enum):
 
 class L2tpCookieSize(Enum):
     """
-    L2tpCookieSize
+    L2tpCookieSize (Enum Class)
 
     L2tp cookie size
 
@@ -535,7 +537,7 @@ class L2tpCookieSize(Enum):
 
 class L2tpSignalingProtocol(Enum):
     """
-    L2tpSignalingProtocol
+    L2tpSignalingProtocol (Enum Class)
 
     L2tp signaling protocol
 
@@ -556,7 +558,7 @@ class L2tpSignalingProtocol(Enum):
 
 class L2tpv3Sequencing(Enum):
     """
-    L2tpv3Sequencing
+    L2tpv3Sequencing (Enum Class)
 
     L2tpv3 sequencing
 
@@ -577,7 +579,7 @@ class L2tpv3Sequencing(Enum):
 
 class L2vpnCapabilityMode(Enum):
     """
-    L2vpnCapabilityMode
+    L2vpnCapabilityMode (Enum Class)
 
     L2vpn capability mode
 
@@ -600,7 +602,7 @@ class L2vpnCapabilityMode(Enum):
 
 class L2vpnLogging(Enum):
     """
-    L2vpnLogging
+    L2vpnLogging (Enum Class)
 
     L2vpn logging
 
@@ -621,7 +623,7 @@ class L2vpnLogging(Enum):
 
 class L2vpnVerification(Enum):
     """
-    L2vpnVerification
+    L2vpnVerification (Enum Class)
 
     L2vpn verification
 
@@ -642,7 +644,7 @@ class L2vpnVerification(Enum):
 
 class LdpVplsId(Enum):
     """
-    LdpVplsId
+    LdpVplsId (Enum Class)
 
     Ldp vpls id
 
@@ -663,7 +665,7 @@ class LdpVplsId(Enum):
 
 class LoadBalance(Enum):
     """
-    LoadBalance
+    LoadBalance (Enum Class)
 
     Load balance
 
@@ -690,7 +692,7 @@ class LoadBalance(Enum):
 
 class MacAging(Enum):
     """
-    MacAging
+    MacAging (Enum Class)
 
     Mac aging
 
@@ -709,9 +711,24 @@ class MacAging(Enum):
     inactivity = Enum.YLeaf(2, "inactivity")
 
 
+class MacFlushMode(Enum):
+    """
+    MacFlushMode (Enum Class)
+
+    Mac flush mode
+
+    .. data:: mvrp = 1
+
+    	MVRP MAC Flushing
+
+    """
+
+    mvrp = Enum.YLeaf(1, "mvrp")
+
+
 class MacLearn(Enum):
     """
-    MacLearn
+    MacLearn (Enum Class)
 
     Mac learn
 
@@ -738,7 +755,7 @@ class MacLearn(Enum):
 
 class MacLimitAction(Enum):
     """
-    MacLimitAction
+    MacLimitAction (Enum Class)
 
     Mac limit action
 
@@ -771,7 +788,7 @@ class MacLimitAction(Enum):
 
 class MacNotification(Enum):
     """
-    MacNotification
+    MacNotification (Enum Class)
 
     Mac notification
 
@@ -804,7 +821,7 @@ class MacNotification(Enum):
 
 class MacSecureAction(Enum):
     """
-    MacSecureAction
+    MacSecureAction (Enum Class)
 
     Mac secure action
 
@@ -831,7 +848,7 @@ class MacSecureAction(Enum):
 
 class MacWithdrawBehavior(Enum):
     """
-    MacWithdrawBehavior
+    MacWithdrawBehavior (Enum Class)
 
     Mac withdraw behavior
 
@@ -852,7 +869,7 @@ class MacWithdrawBehavior(Enum):
 
 class MplsSequencing(Enum):
     """
-    MplsSequencing
+    MplsSequencing (Enum Class)
 
     Mpls sequencing
 
@@ -885,7 +902,7 @@ class MplsSequencing(Enum):
 
 class MplsSignalingProtocol(Enum):
     """
-    MplsSignalingProtocol
+    MplsSignalingProtocol (Enum Class)
 
     Mpls signaling protocol
 
@@ -906,7 +923,7 @@ class MplsSignalingProtocol(Enum):
 
 class PortDownFlush(Enum):
     """
-    PortDownFlush
+    PortDownFlush (Enum Class)
 
     Port down flush
 
@@ -933,7 +950,7 @@ class PortDownFlush(Enum):
 
 class PreferredPath(Enum):
     """
-    PreferredPath
+    PreferredPath (Enum Class)
 
     Preferred path
 
@@ -966,7 +983,7 @@ class PreferredPath(Enum):
 
 class PwSwitchingPointTlv(Enum):
     """
-    PwSwitchingPointTlv
+    PwSwitchingPointTlv (Enum Class)
 
     Pw switching point tlv
 
@@ -981,7 +998,7 @@ class PwSwitchingPointTlv(Enum):
 
 class RplRole(Enum):
     """
-    RplRole
+    RplRole (Enum Class)
 
     Rpl role
 
@@ -1008,7 +1025,7 @@ class RplRole(Enum):
 
 class StormControl(Enum):
     """
-    StormControl
+    StormControl (Enum Class)
 
     Storm control
 
@@ -1035,7 +1052,7 @@ class StormControl(Enum):
 
 class TransportMode(Enum):
     """
-    TransportMode
+    TransportMode (Enum Class)
 
     Transport mode
 
@@ -1062,7 +1079,7 @@ class TransportMode(Enum):
 
 class TypeOfServiceMode(Enum):
     """
-    TypeOfServiceMode
+    TypeOfServiceMode (Enum Class)
 
     Type of service mode
 
@@ -1083,7 +1100,7 @@ class TypeOfServiceMode(Enum):
 
 class VccvVerification(Enum):
     """
-    VccvVerification
+    VccvVerification (Enum Class)
 
     Vccv verification
 
@@ -1229,32 +1246,35 @@ class L2Vpn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2vpn-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"pw-routing" : ("pw_routing", L2Vpn.PwRouting), "neighbor" : ("neighbor", L2Vpn.Neighbor), "database" : ("database", L2Vpn.Database), "pbb" : ("pbb", L2Vpn.Pbb), "auto-discovery" : ("auto_discovery", L2Vpn.AutoDiscovery), "utility" : ("utility", L2Vpn.Utility), "snmp" : ("snmp", L2Vpn.Snmp)}
-        self._child_list_classes = {}
-
-        self.nsr = YLeaf(YType.empty, "nsr")
-
-        self.mtu_mismatch_ignore = YLeaf(YType.empty, "mtu-mismatch-ignore")
-
-        self.tcn_propagation = YLeaf(YType.empty, "tcn-propagation")
-
-        self.pwoam_refresh = YLeaf(YType.uint32, "pwoam-refresh")
-
-        self.load_balance = YLeaf(YType.enumeration, "load-balance")
-
-        self.mspw_description = YLeaf(YType.str, "mspw-description")
-
-        self.mac_limit_threshold = YLeaf(YType.uint32, "mac-limit-threshold")
-
-        self.pw_status_disable = YLeaf(YType.empty, "pw-status-disable")
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.pw_grouping = YLeaf(YType.empty, "pw-grouping")
-
-        self.capability = YLeaf(YType.enumeration, "capability")
-
-        self.l2vpn_router_id = YLeaf(YType.str, "l2vpn-router-id")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("pw-routing", ("pw_routing", L2Vpn.PwRouting)), ("neighbor", ("neighbor", L2Vpn.Neighbor)), ("database", ("database", L2Vpn.Database)), ("pbb", ("pbb", L2Vpn.Pbb)), ("auto-discovery", ("auto_discovery", L2Vpn.AutoDiscovery)), ("utility", ("utility", L2Vpn.Utility)), ("snmp", ("snmp", L2Vpn.Snmp))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('nsr', YLeaf(YType.empty, 'nsr')),
+            ('mtu_mismatch_ignore', YLeaf(YType.empty, 'mtu-mismatch-ignore')),
+            ('tcn_propagation', YLeaf(YType.empty, 'tcn-propagation')),
+            ('pwoam_refresh', YLeaf(YType.uint32, 'pwoam-refresh')),
+            ('load_balance', YLeaf(YType.enumeration, 'load-balance')),
+            ('mspw_description', YLeaf(YType.str, 'mspw-description')),
+            ('mac_limit_threshold', YLeaf(YType.uint32, 'mac-limit-threshold')),
+            ('pw_status_disable', YLeaf(YType.empty, 'pw-status-disable')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('pw_grouping', YLeaf(YType.empty, 'pw-grouping')),
+            ('capability', YLeaf(YType.enumeration, 'capability')),
+            ('l2vpn_router_id', YLeaf(YType.str, 'l2vpn-router-id')),
+        ])
+        self.nsr = None
+        self.mtu_mismatch_ignore = None
+        self.tcn_propagation = None
+        self.pwoam_refresh = None
+        self.load_balance = None
+        self.mspw_description = None
+        self.mac_limit_threshold = None
+        self.pw_status_disable = None
+        self.enable = None
+        self.pw_grouping = None
+        self.capability = None
+        self.l2vpn_router_id = None
 
         self.pw_routing = L2Vpn.PwRouting()
         self.pw_routing.parent = self
@@ -1326,10 +1346,13 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"pw-routing-bgp" : ("pw_routing_bgp", L2Vpn.PwRouting.PwRoutingBgp)}
-            self._child_list_classes = {}
-
-            self.pw_routing_global_id = YLeaf(YType.uint32, "pw-routing-global-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("pw-routing-bgp", ("pw_routing_bgp", L2Vpn.PwRouting.PwRoutingBgp))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('pw_routing_global_id', YLeaf(YType.uint32, 'pw-routing-global-id')),
+            ])
+            self.pw_routing_global_id = None
 
             self.pw_routing_bgp = L2Vpn.PwRouting.PwRoutingBgp()
             self.pw_routing_bgp.parent = self
@@ -1370,10 +1393,13 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "pw-routing"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"evpn-route-distinguisher" : ("evpn_route_distinguisher", L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.evpn_route_distinguisher = L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher()
                 self.evpn_route_distinguisher.parent = self
@@ -1437,18 +1463,21 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "pw-routing-bgp"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.as_ = YLeaf(YType.uint32, "as")
-
-                    self.as_index = YLeaf(YType.uint32, "as-index")
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.addr_index = YLeaf(YType.uint32, "addr-index")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('as_', YLeaf(YType.uint32, 'as')),
+                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                    ])
+                    self.type = None
+                    self.as_ = None
+                    self.as_index = None
+                    self.address = None
+                    self.addr_index = None
                     self._segment_path = lambda: "evpn-route-distinguisher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/pw-routing/pw-routing-bgp/%s" % self._segment_path()
 
@@ -1479,10 +1508,13 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ldp_flap = YLeaf(YType.empty, "ldp-flap")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ldp_flap', YLeaf(YType.empty, 'ldp-flap')),
+            ])
+            self.ldp_flap = None
             self._segment_path = lambda: "neighbor"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
 
@@ -1538,8 +1570,10 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"g8032-rings" : ("g8032_rings", L2Vpn.Database.G8032Rings), "xconnect-groups" : ("xconnect_groups", L2Vpn.Database.XconnectGroups), "bridge-domain-groups" : ("bridge_domain_groups", L2Vpn.Database.BridgeDomainGroups), "pseudowire-classes" : ("pseudowire_classes", L2Vpn.Database.PseudowireClasses), "flexible-xconnect-service-table" : ("flexible_xconnect_service_table", L2Vpn.Database.FlexibleXconnectServiceTable), "redundancy" : ("redundancy", L2Vpn.Database.Redundancy)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("g8032-rings", ("g8032_rings", L2Vpn.Database.G8032Rings)), ("xconnect-groups", ("xconnect_groups", L2Vpn.Database.XconnectGroups)), ("bridge-domain-groups", ("bridge_domain_groups", L2Vpn.Database.BridgeDomainGroups)), ("pseudowire-classes", ("pseudowire_classes", L2Vpn.Database.PseudowireClasses)), ("flexible-xconnect-service-table", ("flexible_xconnect_service_table", L2Vpn.Database.FlexibleXconnectServiceTable)), ("redundancy", ("redundancy", L2Vpn.Database.Redundancy))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.g8032_rings = L2Vpn.Database.G8032Rings()
             self.g8032_rings.parent = self
@@ -1597,8 +1631,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"g8032-ring" : ("g8032_ring", L2Vpn.Database.G8032Rings.G8032Ring)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("g8032-ring", ("g8032_ring", L2Vpn.Database.G8032Rings.G8032Ring))])
+                self._leafs = OrderedDict()
 
                 self.g8032_ring = YList(self)
                 self._segment_path = lambda: "g8032-rings"
@@ -1612,7 +1648,7 @@ class L2Vpn(Entity):
                 """
                 G8032 Ring
                 
-                .. attribute:: g8032_ring_name  <key>
+                .. attribute:: g8032_ring_name  (key)
                 
                 	Name of the G8032 ring
                 	**type**\: str
@@ -1663,16 +1699,19 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "g8032-rings"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"erp-port0s" : ("erp_port0s", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S), "erp-instances" : ("erp_instances", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances), "erp-port1s" : ("erp_port1s", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S)}
-                    self._child_list_classes = {}
-
-                    self.g8032_ring_name = YLeaf(YType.str, "g8032-ring-name")
-
-                    self.open_ring = YLeaf(YType.empty, "open-ring")
-
-                    self.exclusion_list = YLeaf(YType.str, "exclusion-list")
-
-                    self.erp_provider_bridge = YLeaf(YType.empty, "erp-provider-bridge")
+                    self.ylist_key_names = ['g8032_ring_name']
+                    self._child_container_classes = OrderedDict([("erp-port0s", ("erp_port0s", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S)), ("erp-instances", ("erp_instances", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances)), ("erp-port1s", ("erp_port1s", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('g8032_ring_name', YLeaf(YType.str, 'g8032-ring-name')),
+                        ('open_ring', YLeaf(YType.empty, 'open-ring')),
+                        ('exclusion_list', YLeaf(YType.str, 'exclusion-list')),
+                        ('erp_provider_bridge', YLeaf(YType.empty, 'erp-provider-bridge')),
+                    ])
+                    self.g8032_ring_name = None
+                    self.open_ring = None
+                    self.exclusion_list = None
+                    self.erp_provider_bridge = None
 
                     self.erp_port0s = L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S()
                     self.erp_port0s.parent = self
@@ -1688,7 +1727,7 @@ class L2Vpn(Entity):
                     self.erp_port1s.parent = self
                     self._children_name_map["erp_port1s"] = "erp-port1s"
                     self._children_yang_names.add("erp-port1s")
-                    self._segment_path = lambda: "g8032-ring" + "[g8032-ring-name='" + self.g8032_ring_name.get() + "']"
+                    self._segment_path = lambda: "g8032-ring" + "[g8032-ring-name='" + str(self.g8032_ring_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1718,8 +1757,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "g8032-ring"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"erp-port0" : ("erp_port0", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("erp-port0", ("erp_port0", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0))])
+                        self._leafs = OrderedDict()
 
                         self.erp_port0 = YList(self)
                         self._segment_path = lambda: "erp-port0s"
@@ -1732,7 +1773,7 @@ class L2Vpn(Entity):
                         """
                         Configure ERP main port0
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	Port0 interface
                         	**type**\: str
@@ -1760,13 +1801,16 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "erp-port0s"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.monitor = YLeaf(YType.str, "monitor")
-                            self._segment_path = lambda: "erp-port0" + "[interface-name='" + self.interface_name.get() + "']"
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('monitor', YLeaf(YType.str, 'monitor')),
+                            ])
+                            self.interface_name = None
+                            self.monitor = None
+                            self._segment_path = lambda: "erp-port0" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0, ['interface_name', 'monitor'], name, value)
@@ -1795,8 +1839,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "g8032-ring"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"erp-instance" : ("erp_instance", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("erp-instance", ("erp_instance", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance))])
+                        self._leafs = OrderedDict()
 
                         self.erp_instance = YList(self)
                         self._segment_path = lambda: "erp-instances"
@@ -1809,7 +1855,7 @@ class L2Vpn(Entity):
                         """
                         Ethernet ring protection instance
                         
-                        .. attribute:: erp_instance_id  <key>
+                        .. attribute:: erp_instance_id  (key)
                         
                         	ERP instance number
                         	**type**\: int
@@ -1859,16 +1905,19 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "erp-instances"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"rpl" : ("rpl", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl), "aps" : ("aps", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps)}
-                            self._child_list_classes = {}
-
-                            self.erp_instance_id = YLeaf(YType.uint32, "erp-instance-id")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.inclusion_list = YLeaf(YType.str, "inclusion-list")
-
-                            self.profile = YLeaf(YType.str, "profile")
+                            self.ylist_key_names = ['erp_instance_id']
+                            self._child_container_classes = OrderedDict([("rpl", ("rpl", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl)), ("aps", ("aps", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('erp_instance_id', YLeaf(YType.uint32, 'erp-instance-id')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('inclusion_list', YLeaf(YType.str, 'inclusion-list')),
+                                ('profile', YLeaf(YType.str, 'profile')),
+                            ])
+                            self.erp_instance_id = None
+                            self.description = None
+                            self.inclusion_list = None
+                            self.profile = None
 
                             self.rpl = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl()
                             self.rpl.parent = self
@@ -1879,7 +1928,7 @@ class L2Vpn(Entity):
                             self.aps.parent = self
                             self._children_name_map["aps"] = "aps"
                             self._children_yang_names.add("aps")
-                            self._segment_path = lambda: "erp-instance" + "[erp-instance-id='" + self.erp_instance_id.get() + "']"
+                            self._segment_path = lambda: "erp-instance" + "[erp-instance-id='" + str(self.erp_instance_id) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, ['erp_instance_id', 'description', 'inclusion_list', 'profile'], name, value)
@@ -1913,12 +1962,15 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "erp-instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.port = YLeaf(YType.enumeration, "port")
-
-                                self.role = YLeaf(YType.enumeration, "role")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('port', YLeaf(YType.enumeration, 'port')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                ])
+                                self.port = None
+                                self.role = None
                                 self._segment_path = lambda: "rpl"
 
                             def __setattr__(self, name, value):
@@ -1965,14 +2017,17 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "erp-instance"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"port1" : ("port1", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1)}
-                                self._child_list_classes = {}
-
-                                self.port0 = YLeaf(YType.str, "port0")
-
-                                self.enable = YLeaf(YType.empty, "enable")
-
-                                self.level = YLeaf(YType.uint32, "level")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("port1", ("port1", L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('port0', YLeaf(YType.str, 'port0')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('level', YLeaf(YType.uint32, 'level')),
+                                ])
+                                self.port0 = None
+                                self.enable = None
+                                self.level = None
 
                                 self.port1 = L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1()
                                 self.port1.parent = self
@@ -2012,12 +2067,15 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "aps"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.aps_type = YLeaf(YType.enumeration, "aps-type")
-
-                                    self.aps_channel = YLeaf(YType.str, "aps-channel")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('aps_type', YLeaf(YType.enumeration, 'aps-type')),
+                                        ('aps_channel', YLeaf(YType.str, 'aps-channel')),
+                                    ])
+                                    self.aps_type = None
+                                    self.aps_channel = None
                                     self._segment_path = lambda: "port1"
 
                                 def __setattr__(self, name, value):
@@ -2047,8 +2105,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "g8032-ring"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"erp-port1" : ("erp_port1", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("erp-port1", ("erp_port1", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1))])
+                        self._leafs = OrderedDict()
 
                         self.erp_port1 = YList(self)
                         self._segment_path = lambda: "erp-port1s"
@@ -2061,7 +2121,7 @@ class L2Vpn(Entity):
                         """
                         Ethernet ring protection port1
                         
-                        .. attribute:: erp_port_type  <key>
+                        .. attribute:: erp_port_type  (key)
                         
                         	Port1 type
                         	**type**\:  :py:class:`ErpPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpPort>`
@@ -2092,17 +2152,20 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "erp-port1s"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"none-or-virtual" : ("none_or_virtual", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual)}
-                            self._child_list_classes = {"interface" : ("interface", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface)}
-
-                            self.erp_port_type = YLeaf(YType.enumeration, "erp-port-type")
+                            self.ylist_key_names = ['erp_port_type']
+                            self._child_container_classes = OrderedDict([("none-or-virtual", ("none_or_virtual", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual))])
+                            self._child_list_classes = OrderedDict([("interface", ("interface", L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface))])
+                            self._leafs = OrderedDict([
+                                ('erp_port_type', YLeaf(YType.enumeration, 'erp-port-type')),
+                            ])
+                            self.erp_port_type = None
 
                             self.none_or_virtual = None
                             self._children_name_map["none_or_virtual"] = "none-or-virtual"
                             self._children_yang_names.add("none-or-virtual")
 
                             self.interface = YList(self)
-                            self._segment_path = lambda: "erp-port1" + "[erp-port-type='" + self.erp_port_type.get() + "']"
+                            self._segment_path = lambda: "erp-port1" + "[erp-port-type='" + str(self.erp_port_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1, ['erp_port_type'], name, value)
@@ -2135,11 +2198,14 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "erp-port1"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
                                 self.is_presence_container = True
-
-                                self.monitor = YLeaf(YType.str, "monitor")
+                                self._leafs = OrderedDict([
+                                    ('monitor', YLeaf(YType.str, 'monitor')),
+                                ])
+                                self.monitor = None
                                 self._segment_path = lambda: "none-or-virtual"
 
                             def __setattr__(self, name, value):
@@ -2150,7 +2216,7 @@ class L2Vpn(Entity):
                             """
                             interface
                             
-                            .. attribute:: interface_name  <key>
+                            .. attribute:: interface_name  (key)
                             
                             	Port1 interface
                             	**type**\: str
@@ -2178,13 +2244,16 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "erp-port1"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.monitor = YLeaf(YType.str, "monitor")
-                                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                self.ylist_key_names = ['interface_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('monitor', YLeaf(YType.str, 'monitor')),
+                                ])
+                                self.interface_name = None
+                                self.monitor = None
+                                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface, ['interface_name', 'monitor'], name, value)
@@ -2213,8 +2282,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"xconnect-group" : ("xconnect_group", L2Vpn.Database.XconnectGroups.XconnectGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("xconnect-group", ("xconnect_group", L2Vpn.Database.XconnectGroups.XconnectGroup))])
+                self._leafs = OrderedDict()
 
                 self.xconnect_group = YList(self)
                 self._segment_path = lambda: "xconnect-groups"
@@ -2228,7 +2299,7 @@ class L2Vpn(Entity):
                 """
                 Xconnect group
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Name of the xconnect group
                 	**type**\: str
@@ -2259,10 +2330,13 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "xconnect-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"p2p-xconnects" : ("p2p_xconnects", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects), "mp2mp-xconnects" : ("mp2mp_xconnects", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("p2p-xconnects", ("p2p_xconnects", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects)), ("mp2mp-xconnects", ("mp2mp_xconnects", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.p2p_xconnects = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects()
                     self.p2p_xconnects.parent = self
@@ -2273,7 +2347,7 @@ class L2Vpn(Entity):
                     self.mp2mp_xconnects.parent = self
                     self._children_name_map["mp2mp_xconnects"] = "mp2mp-xconnects"
                     self._children_yang_names.add("mp2mp-xconnects")
-                    self._segment_path = lambda: "xconnect-group" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "xconnect-group" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2303,8 +2377,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "xconnect-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"p2p-xconnect" : ("p2p_xconnect", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("p2p-xconnect", ("p2p_xconnect", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect))])
+                        self._leafs = OrderedDict()
 
                         self.p2p_xconnect = YList(self)
                         self._segment_path = lambda: "p2p-xconnects"
@@ -2317,7 +2393,7 @@ class L2Vpn(Entity):
                         """
                         Point to point xconnect
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Name of the point to point xconnect
                         	**type**\: str
@@ -2380,14 +2456,17 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "p2p-xconnects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"backup-attachment-circuits" : ("backup_attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits), "pseudowire-evpns" : ("pseudowire_evpns", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns), "pseudowires" : ("pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires), "monitor-sessions" : ("monitor_sessions", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions), "pseudowire-routeds" : ("pseudowire_routeds", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds), "attachment-circuits" : ("attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits)}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.p2p_description = YLeaf(YType.str, "p2p-description")
-
-                            self.interworking = YLeaf(YType.enumeration, "interworking")
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([("backup-attachment-circuits", ("backup_attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits)), ("pseudowire-evpns", ("pseudowire_evpns", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns)), ("pseudowires", ("pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires)), ("monitor-sessions", ("monitor_sessions", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions)), ("pseudowire-routeds", ("pseudowire_routeds", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds)), ("attachment-circuits", ("attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('p2p_description', YLeaf(YType.str, 'p2p-description')),
+                                ('interworking', YLeaf(YType.enumeration, 'interworking')),
+                            ])
+                            self.name = None
+                            self.p2p_description = None
+                            self.interworking = None
 
                             self.backup_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits()
                             self.backup_attachment_circuits.parent = self
@@ -2418,7 +2497,7 @@ class L2Vpn(Entity):
                             self.attachment_circuits.parent = self
                             self._children_name_map["attachment_circuits"] = "attachment-circuits"
                             self._children_yang_names.add("attachment-circuits")
-                            self._segment_path = lambda: "p2p-xconnect" + "[name='" + self.name.get() + "']"
+                            self._segment_path = lambda: "p2p-xconnect" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect, ['name', 'p2p_description', 'interworking'], name, value)
@@ -2447,8 +2526,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"backup-attachment-circuit" : ("backup_attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("backup-attachment-circuit", ("backup_attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit))])
+                                self._leafs = OrderedDict()
 
                                 self.backup_attachment_circuit = YList(self)
                                 self._segment_path = lambda: "backup-attachment-circuits"
@@ -2461,7 +2542,7 @@ class L2Vpn(Entity):
                                 """
                                 Backup attachment circuit
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	Name of the attachment circuit interface
                                 	**type**\: str
@@ -2482,11 +2563,14 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "backup-attachment-circuits"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-                                    self._segment_path = lambda: "backup-attachment-circuit" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.interface_name = None
+                                    self._segment_path = lambda: "backup-attachment-circuit" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, ['interface_name'], name, value)
@@ -2515,8 +2599,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"pseudowire-evpn" : ("pseudowire_evpn", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("pseudowire-evpn", ("pseudowire_evpn", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn))])
+                                self._leafs = OrderedDict()
 
                                 self.pseudowire_evpn = YList(self)
                                 self._segment_path = lambda: "pseudowire-evpns"
@@ -2529,26 +2615,33 @@ class L2Vpn(Entity):
                                 """
                                 EVPN P2P Service Configuration
                                 
-                                .. attribute:: eviid  <key>
+                                .. attribute:: eviid  (key)
                                 
                                 	Ethernet VPN ID
                                 	**type**\: int
                                 
                                 	**range:** 1..65534
                                 
-                                .. attribute:: remote_acid  <key>
+                                .. attribute:: remote_acid  (key)
                                 
                                 	Remote AC ID
                                 	**type**\: int
                                 
                                 	**range:** 1..16777215
                                 
-                                .. attribute:: source_acid  <key>
+                                .. attribute:: source_acid  (key)
                                 
                                 	Source AC ID
                                 	**type**\: int
                                 
                                 	**range:** 1..16777215
+                                
+                                .. attribute:: class_
+                                
+                                	Name of the pseudowire class
+                                	**type**\: str
+                                
+                                	**length:** 1..32
                                 
                                 
 
@@ -2564,18 +2657,23 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "pseudowire-evpns"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.eviid = YLeaf(YType.uint32, "eviid")
-
-                                    self.remote_acid = YLeaf(YType.uint32, "remote-acid")
-
-                                    self.source_acid = YLeaf(YType.uint32, "source-acid")
-                                    self._segment_path = lambda: "pseudowire-evpn" + "[eviid='" + self.eviid.get() + "']" + "[remote-acid='" + self.remote_acid.get() + "']" + "[source-acid='" + self.source_acid.get() + "']"
+                                    self.ylist_key_names = ['eviid','remote_acid','source_acid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                        ('remote_acid', YLeaf(YType.uint32, 'remote-acid')),
+                                        ('source_acid', YLeaf(YType.uint32, 'source-acid')),
+                                        ('class_', YLeaf(YType.str, 'class')),
+                                    ])
+                                    self.eviid = None
+                                    self.remote_acid = None
+                                    self.source_acid = None
+                                    self.class_ = None
+                                    self._segment_path = lambda: "pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[remote-acid='" + str(self.remote_acid) + "']" + "[source-acid='" + str(self.source_acid) + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid'], name, value)
+                                    self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid', 'class_'], name, value)
 
 
                         class Pseudowires(Entity):
@@ -2601,8 +2699,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"pseudowire" : ("pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("pseudowire", ("pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire))])
+                                self._leafs = OrderedDict()
 
                                 self.pseudowire = YList(self)
                                 self._segment_path = lambda: "pseudowires"
@@ -2615,7 +2715,7 @@ class L2Vpn(Entity):
                                 """
                                 Pseudowire configuration
                                 
-                                .. attribute:: pseudowire_id  <key>
+                                .. attribute:: pseudowire_id  (key)
                                 
                                 	Pseudowire ID
                                 	**type**\: int
@@ -2646,14 +2746,17 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "pseudowires"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"neighbor" : ("neighbor", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor), "pseudowire-address" : ("pseudowire_address", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress)}
-
-                                    self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+                                    self.ylist_key_names = ['pseudowire_id']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("neighbor", ("neighbor", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor)), ("pseudowire-address", ("pseudowire_address", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress))])
+                                    self._leafs = OrderedDict([
+                                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                    ])
+                                    self.pseudowire_id = None
 
                                     self.neighbor = YList(self)
                                     self.pseudowire_address = YList(self)
-                                    self._segment_path = lambda: "pseudowire" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                    self._segment_path = lambda: "pseudowire" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire, ['pseudowire_id'], name, value)
@@ -2663,7 +2766,7 @@ class L2Vpn(Entity):
                                     """
                                     keys\: neighbor
                                     
-                                    .. attribute:: neighbor  <key>
+                                    .. attribute:: neighbor  (key)
                                     
                                     	Pseudowire IPv4 address
                                     	**type**\: str
@@ -2738,18 +2841,21 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"mpls-static-labels" : ("mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels), "backup-pseudowires" : ("backup_pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires), "l2tp-static-attributes" : ("l2tp_static_attributes", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes), "l2tp-static" : ("l2tp_static", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic)}
-                                        self._child_list_classes = {}
-
-                                        self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                        self.tag_impose = YLeaf(YType.uint32, "tag-impose")
-
-                                        self.class_ = YLeaf(YType.str, "class")
-
-                                        self.source_address = YLeaf(YType.str, "source-address")
-
-                                        self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                                        self.ylist_key_names = ['neighbor']
+                                        self._child_container_classes = OrderedDict([("mpls-static-labels", ("mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels)), ("backup-pseudowires", ("backup_pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires)), ("l2tp-static-attributes", ("l2tp_static_attributes", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes)), ("l2tp-static", ("l2tp_static", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                            ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
+                                            ('class_', YLeaf(YType.str, 'class')),
+                                            ('source_address', YLeaf(YType.str, 'source-address')),
+                                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                        ])
+                                        self.neighbor = None
+                                        self.tag_impose = None
+                                        self.class_ = None
+                                        self.source_address = None
+                                        self.bandwidth = None
 
                                         self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels()
                                         self.mpls_static_labels.parent = self
@@ -2770,7 +2876,7 @@ class L2Vpn(Entity):
                                         self.l2tp_static.parent = self
                                         self._children_name_map["l2tp_static"] = "l2tp-static"
                                         self._children_yang_names.add("l2tp-static")
-                                        self._segment_path = lambda: "neighbor" + "[neighbor='" + self.neighbor.get() + "']"
+                                        self._segment_path = lambda: "neighbor" + "[neighbor='" + str(self.neighbor) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor, ['neighbor', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
@@ -2808,12 +2914,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "neighbor"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                            self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                                ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                            ])
+                                            self.local_static_label = None
+                                            self.remote_static_label = None
                                             self._segment_path = lambda: "mpls-static-labels"
 
                                         def __setattr__(self, name, value):
@@ -2843,8 +2952,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "neighbor"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"backup-pseudowire" : ("backup_pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("backup-pseudowire", ("backup_pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire))])
+                                            self._leafs = OrderedDict()
 
                                             self.backup_pseudowire = YList(self)
                                             self._segment_path = lambda: "backup-pseudowires"
@@ -2857,14 +2968,14 @@ class L2Vpn(Entity):
                                             """
                                             Backup pseudowire for the cross connect
                                             
-                                            .. attribute:: neighbor  <key>
+                                            .. attribute:: neighbor  (key)
                                             
                                             	Neighbor IP address
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            .. attribute:: pseudowire_id  <key>
+                                            .. attribute:: pseudowire_id  (key)
                                             
                                             	Pseudowire ID
                                             	**type**\: int
@@ -2897,20 +3008,23 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "backup-pseudowires"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"backup-mpls-static-labels" : ("backup_mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels)}
-                                                self._child_list_classes = {}
-
-                                                self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                                self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                                self.backup_pw_class = YLeaf(YType.str, "backup-pw-class")
+                                                self.ylist_key_names = ['neighbor','pseudowire_id']
+                                                self._child_container_classes = OrderedDict([("backup-mpls-static-labels", ("backup_mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                                    ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                                    ('backup_pw_class', YLeaf(YType.str, 'backup-pw-class')),
+                                                ])
+                                                self.neighbor = None
+                                                self.pseudowire_id = None
+                                                self.backup_pw_class = None
 
                                                 self.backup_mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
                                                 self.backup_mpls_static_labels.parent = self
                                                 self._children_name_map["backup_mpls_static_labels"] = "backup-mpls-static-labels"
                                                 self._children_yang_names.add("backup-mpls-static-labels")
-                                                self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                                self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
@@ -2948,12 +3062,15 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "backup-pseudowire"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                                    self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                                        ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                    ])
+                                                    self.local_static_label = None
+                                                    self.remote_static_label = None
                                                     self._segment_path = lambda: "backup-mpls-static-labels"
 
                                                 def __setattr__(self, name, value):
@@ -3007,12 +3124,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "neighbor"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"l2tp-remote-cookie" : ("l2tp_remote_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie), "l2tp-secondary-local-cookie" : ("l2tp_secondary_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie), "l2tp-local-cookie" : ("l2tp_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie)}
-                                            self._child_list_classes = {}
-
-                                            self.l2tp_remote_session_id = YLeaf(YType.uint32, "l2tp-remote-session-id")
-
-                                            self.l2tp_local_session_id = YLeaf(YType.uint32, "l2tp-local-session-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("l2tp-remote-cookie", ("l2tp_remote_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie)), ("l2tp-secondary-local-cookie", ("l2tp_secondary_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie)), ("l2tp-local-cookie", ("l2tp_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('l2tp_remote_session_id', YLeaf(YType.uint32, 'l2tp-remote-session-id')),
+                                                ('l2tp_local_session_id', YLeaf(YType.uint32, 'l2tp-local-session-id')),
+                                            ])
+                                            self.l2tp_remote_session_id = None
+                                            self.l2tp_local_session_id = None
 
                                             self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie()
                                             self.l2tp_remote_cookie.parent = self
@@ -3071,14 +3191,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-remote-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3122,14 +3245,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-secondary-local-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3173,14 +3299,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-local-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3210,10 +3339,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "neighbor"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.enable = None
                                             self._segment_path = lambda: "l2tp-static"
 
                                         def __setattr__(self, name, value):
@@ -3224,7 +3356,7 @@ class L2Vpn(Entity):
                                     """
                                     keys\: pseudowire\-address
                                     
-                                    .. attribute:: pseudowire_address  <key>
+                                    .. attribute:: pseudowire_address  (key)
                                     
                                     	Pseudowire IPv6 address. A pseudowire can have only one address\: IPv4 or IPv6
                                     	**type**\: str
@@ -3299,18 +3431,21 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"mpls-static-labels" : ("mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels), "backup-pseudowires" : ("backup_pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires), "l2tp-static-attributes" : ("l2tp_static_attributes", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes), "l2tp-static" : ("l2tp_static", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic)}
-                                        self._child_list_classes = {}
-
-                                        self.pseudowire_address = YLeaf(YType.str, "pseudowire-address")
-
-                                        self.tag_impose = YLeaf(YType.uint32, "tag-impose")
-
-                                        self.class_ = YLeaf(YType.str, "class")
-
-                                        self.source_address = YLeaf(YType.str, "source-address")
-
-                                        self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                                        self.ylist_key_names = ['pseudowire_address']
+                                        self._child_container_classes = OrderedDict([("mpls-static-labels", ("mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels)), ("backup-pseudowires", ("backup_pseudowires", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires)), ("l2tp-static-attributes", ("l2tp_static_attributes", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes)), ("l2tp-static", ("l2tp_static", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('pseudowire_address', YLeaf(YType.str, 'pseudowire-address')),
+                                            ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
+                                            ('class_', YLeaf(YType.str, 'class')),
+                                            ('source_address', YLeaf(YType.str, 'source-address')),
+                                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                        ])
+                                        self.pseudowire_address = None
+                                        self.tag_impose = None
+                                        self.class_ = None
+                                        self.source_address = None
+                                        self.bandwidth = None
 
                                         self.mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels()
                                         self.mpls_static_labels.parent = self
@@ -3331,7 +3466,7 @@ class L2Vpn(Entity):
                                         self.l2tp_static.parent = self
                                         self._children_name_map["l2tp_static"] = "l2tp-static"
                                         self._children_yang_names.add("l2tp-static")
-                                        self._segment_path = lambda: "pseudowire-address" + "[pseudowire-address='" + self.pseudowire_address.get() + "']"
+                                        self._segment_path = lambda: "pseudowire-address" + "[pseudowire-address='" + str(self.pseudowire_address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress, ['pseudowire_address', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
@@ -3369,12 +3504,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-address"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                            self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                                ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                            ])
+                                            self.local_static_label = None
+                                            self.remote_static_label = None
                                             self._segment_path = lambda: "mpls-static-labels"
 
                                         def __setattr__(self, name, value):
@@ -3404,8 +3542,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-address"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"backup-pseudowire" : ("backup_pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("backup-pseudowire", ("backup_pseudowire", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire))])
+                                            self._leafs = OrderedDict()
 
                                             self.backup_pseudowire = YList(self)
                                             self._segment_path = lambda: "backup-pseudowires"
@@ -3418,14 +3558,14 @@ class L2Vpn(Entity):
                                             """
                                             Backup pseudowire for the cross connect
                                             
-                                            .. attribute:: neighbor  <key>
+                                            .. attribute:: neighbor  (key)
                                             
                                             	Neighbor IP address
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
-                                            .. attribute:: pseudowire_id  <key>
+                                            .. attribute:: pseudowire_id  (key)
                                             
                                             	Pseudowire ID
                                             	**type**\: int
@@ -3458,20 +3598,23 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "backup-pseudowires"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {"backup-mpls-static-labels" : ("backup_mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels)}
-                                                self._child_list_classes = {}
-
-                                                self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                                self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                                self.backup_pw_class = YLeaf(YType.str, "backup-pw-class")
+                                                self.ylist_key_names = ['neighbor','pseudowire_id']
+                                                self._child_container_classes = OrderedDict([("backup-mpls-static-labels", ("backup_mpls_static_labels", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels))])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                                    ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                                    ('backup_pw_class', YLeaf(YType.str, 'backup-pw-class')),
+                                                ])
+                                                self.neighbor = None
+                                                self.pseudowire_id = None
+                                                self.backup_pw_class = None
 
                                                 self.backup_mpls_static_labels = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels()
                                                 self.backup_mpls_static_labels.parent = self
                                                 self._children_name_map["backup_mpls_static_labels"] = "backup-mpls-static-labels"
                                                 self._children_yang_names.add("backup-mpls-static-labels")
-                                                self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                                self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
@@ -3509,12 +3652,15 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "backup-pseudowire"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                                    self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                                        ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                    ])
+                                                    self.local_static_label = None
+                                                    self.remote_static_label = None
                                                     self._segment_path = lambda: "backup-mpls-static-labels"
 
                                                 def __setattr__(self, name, value):
@@ -3568,12 +3714,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-address"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"l2tp-remote-cookie" : ("l2tp_remote_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie), "l2tp-secondary-local-cookie" : ("l2tp_secondary_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie), "l2tp-local-cookie" : ("l2tp_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie)}
-                                            self._child_list_classes = {}
-
-                                            self.l2tp_remote_session_id = YLeaf(YType.uint32, "l2tp-remote-session-id")
-
-                                            self.l2tp_local_session_id = YLeaf(YType.uint32, "l2tp-local-session-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("l2tp-remote-cookie", ("l2tp_remote_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie)), ("l2tp-secondary-local-cookie", ("l2tp_secondary_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie)), ("l2tp-local-cookie", ("l2tp_local_cookie", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('l2tp_remote_session_id', YLeaf(YType.uint32, 'l2tp-remote-session-id')),
+                                                ('l2tp_local_session_id', YLeaf(YType.uint32, 'l2tp-local-session-id')),
+                                            ])
+                                            self.l2tp_remote_session_id = None
+                                            self.l2tp_local_session_id = None
 
                                             self.l2tp_remote_cookie = L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie()
                                             self.l2tp_remote_cookie.parent = self
@@ -3632,14 +3781,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-remote-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3683,14 +3835,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-secondary-local-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3734,14 +3889,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "l2tp-static-attributes"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.size = YLeaf(YType.enumeration, "size")
-
-                                                self.lower_value = YLeaf(YType.uint32, "lower-value")
-
-                                                self.higher_value = YLeaf(YType.uint32, "higher-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('size', YLeaf(YType.enumeration, 'size')),
+                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
+                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                ])
+                                                self.size = None
+                                                self.lower_value = None
+                                                self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-local-cookie"
 
                                             def __setattr__(self, name, value):
@@ -3771,10 +3929,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-address"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.enable = None
                                             self._segment_path = lambda: "l2tp-static"
 
                                         def __setattr__(self, name, value):
@@ -3804,8 +3965,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"monitor-session" : ("monitor_session", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("monitor-session", ("monitor_session", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession))])
+                                self._leafs = OrderedDict()
 
                                 self.monitor_session = YList(self)
                                 self._segment_path = lambda: "monitor-sessions"
@@ -3818,7 +3981,7 @@ class L2Vpn(Entity):
                                 """
                                 Monitor session segment
                                 
-                                .. attribute:: name  <key>
+                                .. attribute:: name  (key)
                                 
                                 	Name of the monitor session
                                 	**type**\: str
@@ -3844,13 +4007,16 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "monitor-sessions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-                                    self._segment_path = lambda: "monitor-session" + "[name='" + self.name.get() + "']"
+                                    self.ylist_key_names = ['name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.name = None
+                                    self.enable = None
+                                    self._segment_path = lambda: "monitor-session" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession, ['name', 'enable'], name, value)
@@ -3879,8 +4045,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"pseudowire-routed" : ("pseudowire_routed", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("pseudowire-routed", ("pseudowire_routed", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted))])
+                                self._leafs = OrderedDict()
 
                                 self.pseudowire_routed = YList(self)
                                 self._segment_path = lambda: "pseudowire-routeds"
@@ -3893,28 +4061,28 @@ class L2Vpn(Entity):
                                 """
                                 Pseudowire configuration
                                 
-                                .. attribute:: global_id  <key>
+                                .. attribute:: global_id  (key)
                                 
                                 	Target Global ID
                                 	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
-                                .. attribute:: prefix  <key>
+                                .. attribute:: prefix  (key)
                                 
                                 	Target Prefix
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: acid  <key>
+                                .. attribute:: acid  (key)
                                 
                                 	Target AC ID
                                 	**type**\: int
                                 
                                 	**range:** 1..4294967295
                                 
-                                .. attribute:: sacid  <key>
+                                .. attribute:: sacid  (key)
                                 
                                 	Source AC ID
                                 	**type**\: int
@@ -3949,21 +4117,24 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "pseudowire-routeds"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.global_id = YLeaf(YType.uint32, "global-id")
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.acid = YLeaf(YType.uint32, "acid")
-
-                                    self.sacid = YLeaf(YType.uint32, "sacid")
-
-                                    self.tag_impose = YLeaf(YType.uint32, "tag-impose")
-
-                                    self.class_ = YLeaf(YType.str, "class")
-                                    self._segment_path = lambda: "pseudowire-routed" + "[global-id='" + self.global_id.get() + "']" + "[prefix='" + self.prefix.get() + "']" + "[acid='" + self.acid.get() + "']" + "[sacid='" + self.sacid.get() + "']"
+                                    self.ylist_key_names = ['global_id','prefix','acid','sacid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('global_id', YLeaf(YType.uint32, 'global-id')),
+                                        ('prefix', YLeaf(YType.str, 'prefix')),
+                                        ('acid', YLeaf(YType.uint32, 'acid')),
+                                        ('sacid', YLeaf(YType.uint32, 'sacid')),
+                                        ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
+                                        ('class_', YLeaf(YType.str, 'class')),
+                                    ])
+                                    self.global_id = None
+                                    self.prefix = None
+                                    self.acid = None
+                                    self.sacid = None
+                                    self.tag_impose = None
+                                    self.class_ = None
+                                    self._segment_path = lambda: "pseudowire-routed" + "[global-id='" + str(self.global_id) + "']" + "[prefix='" + str(self.prefix) + "']" + "[acid='" + str(self.acid) + "']" + "[sacid='" + str(self.sacid) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted, ['global_id', 'prefix', 'acid', 'sacid', 'tag_impose', 'class_'], name, value)
@@ -3992,8 +4163,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "p2p-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"attachment-circuit" : ("attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("attachment-circuit", ("attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit))])
+                                self._leafs = OrderedDict()
 
                                 self.attachment_circuit = YList(self)
                                 self._segment_path = lambda: "attachment-circuits"
@@ -4006,7 +4179,7 @@ class L2Vpn(Entity):
                                 """
                                 Attachment circuit interface
                                 
-                                .. attribute:: name  <key>
+                                .. attribute:: name  (key)
                                 
                                 	Name of the attachment circuit interface
                                 	**type**\: str
@@ -4032,13 +4205,16 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "attachment-circuits"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-                                    self._segment_path = lambda: "attachment-circuit" + "[name='" + self.name.get() + "']"
+                                    self.ylist_key_names = ['name']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.name = None
+                                    self.enable = None
+                                    self._segment_path = lambda: "attachment-circuit" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit, ['name', 'enable'], name, value)
@@ -4067,8 +4243,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "xconnect-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"mp2mp-xconnect" : ("mp2mp_xconnect", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("mp2mp-xconnect", ("mp2mp_xconnect", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect))])
+                        self._leafs = OrderedDict()
 
                         self.mp2mp_xconnect = YList(self)
                         self._segment_path = lambda: "mp2mp-xconnects"
@@ -4081,7 +4259,7 @@ class L2Vpn(Entity):
                         """
                         Multi point to multi point xconnect
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Name of the multi point to multi point xconnect
                         	**type**\: str
@@ -4143,28 +4321,31 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "mp2mp-xconnects"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"mp2mp-auto-discovery" : ("mp2mp_auto_discovery", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery)}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.mp2mpmtu = YLeaf(YType.uint32, "mp2mpmtu")
-
-                            self.mp2mp_control_word = YLeaf(YType.empty, "mp2mp-control-word")
-
-                            self.mp2mpl2_encapsulation = YLeaf(YType.enumeration, "mp2mpl2-encapsulation")
-
-                            self.mp2mp_interworking = YLeaf(YType.enumeration, "mp2mp-interworking")
-
-                            self.mp2mp_shutdown = YLeaf(YType.empty, "mp2mp-shutdown")
-
-                            self.mp2mpvpn_id = YLeaf(YType.uint32, "mp2mpvpn-id")
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([("mp2mp-auto-discovery", ("mp2mp_auto_discovery", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('mp2mpmtu', YLeaf(YType.uint32, 'mp2mpmtu')),
+                                ('mp2mp_control_word', YLeaf(YType.empty, 'mp2mp-control-word')),
+                                ('mp2mpl2_encapsulation', YLeaf(YType.enumeration, 'mp2mpl2-encapsulation')),
+                                ('mp2mp_interworking', YLeaf(YType.enumeration, 'mp2mp-interworking')),
+                                ('mp2mp_shutdown', YLeaf(YType.empty, 'mp2mp-shutdown')),
+                                ('mp2mpvpn_id', YLeaf(YType.uint32, 'mp2mpvpn-id')),
+                            ])
+                            self.name = None
+                            self.mp2mpmtu = None
+                            self.mp2mp_control_word = None
+                            self.mp2mpl2_encapsulation = None
+                            self.mp2mp_interworking = None
+                            self.mp2mp_shutdown = None
+                            self.mp2mpvpn_id = None
 
                             self.mp2mp_auto_discovery = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery()
                             self.mp2mp_auto_discovery.parent = self
                             self._children_name_map["mp2mp_auto_discovery"] = "mp2mp-auto-discovery"
                             self._children_yang_names.add("mp2mp-auto-discovery")
-                            self._segment_path = lambda: "mp2mp-xconnect" + "[name='" + self.name.get() + "']"
+                            self._segment_path = lambda: "mp2mp-xconnect" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect, ['name', 'mp2mpmtu', 'mp2mp_control_word', 'mp2mpl2_encapsulation', 'mp2mp_interworking', 'mp2mp_shutdown', 'mp2mpvpn_id'], name, value)
@@ -4213,10 +4394,13 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "mp2mp-xconnect"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"route-distinguisher" : ("route_distinguisher", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher), "mp2mp-route-policy" : ("mp2mp_route_policy", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRoutePolicy), "mp2mp-route-targets" : ("mp2mp_route_targets", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets), "mp2mp-signaling-protocol" : ("mp2mp_signaling_protocol", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol)}
-                                self._child_list_classes = {}
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher)), ("mp2mp-route-policy", ("mp2mp_route_policy", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRoutePolicy)), ("mp2mp-route-targets", ("mp2mp_route_targets", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets)), ("mp2mp-signaling-protocol", ("mp2mp_signaling_protocol", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.enable = None
 
                                 self.route_distinguisher = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher()
                                 self.route_distinguisher.parent = self
@@ -4294,18 +4478,21 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "mp2mp-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.type = YLeaf(YType.enumeration, "type")
-
-                                    self.as_ = YLeaf(YType.uint32, "as")
-
-                                    self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                    self.address = YLeaf(YType.str, "address")
-
-                                    self.addr_index = YLeaf(YType.uint32, "addr-index")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('as_', YLeaf(YType.uint32, 'as')),
+                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                    ])
+                                    self.type = None
+                                    self.as_ = None
+                                    self.as_index = None
+                                    self.address = None
+                                    self.addr_index = None
                                     self._segment_path = lambda: "route-distinguisher"
 
                                 def __setattr__(self, name, value):
@@ -4335,10 +4522,13 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "mp2mp-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.export = YLeaf(YType.str, "export")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('export', YLeaf(YType.str, 'export')),
+                                    ])
+                                    self.export = None
                                     self._segment_path = lambda: "mp2mp-route-policy"
 
                                 def __setattr__(self, name, value):
@@ -4368,8 +4558,10 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "mp2mp-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mp2mp-route-target" : ("mp2mp_route_target", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mp2mp-route-target", ("mp2mp_route_target", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget))])
+                                    self._leafs = OrderedDict()
 
                                     self.mp2mp_route_target = YList(self)
                                     self._segment_path = lambda: "mp2mp-route-targets"
@@ -4382,12 +4574,12 @@ class L2Vpn(Entity):
                                     """
                                     Name of the Route Target
                                     
-                                    .. attribute:: role  <key>
+                                    .. attribute:: role  (key)
                                     
                                     	Role of the router target type
                                     	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                                     
-                                    .. attribute:: format  <key>
+                                    .. attribute:: format  (key)
                                     
                                     	Format of the route target
                                     	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
@@ -4416,16 +4608,19 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "mp2mp-route-targets"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"two-byte-as-or-four-byte-as" : ("two_byte_as_or_four_byte_as", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs), "ipv4-address" : ("ipv4_address", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address)}
-
-                                        self.role = YLeaf(YType.enumeration, "role")
-
-                                        self.format = YLeaf(YType.enumeration, "format")
+                                        self.ylist_key_names = ['role','format']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("two-byte-as-or-four-byte-as", ("two_byte_as_or_four_byte_as", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs)), ("ipv4-address", ("ipv4_address", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address))])
+                                        self._leafs = OrderedDict([
+                                            ('role', YLeaf(YType.enumeration, 'role')),
+                                            ('format', YLeaf(YType.enumeration, 'format')),
+                                        ])
+                                        self.role = None
+                                        self.format = None
 
                                         self.two_byte_as_or_four_byte_as = YList(self)
                                         self.ipv4_address = YList(self)
-                                        self._segment_path = lambda: "mp2mp-route-target" + "[role='" + self.role.get() + "']" + "[format='" + self.format.get() + "']"
+                                        self._segment_path = lambda: "mp2mp-route-target" + "[role='" + str(self.role) + "']" + "[format='" + str(self.format) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget, ['role', 'format'], name, value)
@@ -4435,14 +4630,14 @@ class L2Vpn(Entity):
                                         """
                                         two byte as or four byte as
                                         
-                                        .. attribute:: as_  <key>
+                                        .. attribute:: as_  (key)
                                         
                                         	Two byte or 4 byte AS number
                                         	**type**\: int
                                         
                                         	**range:** 1..4294967295
                                         
-                                        .. attribute:: as_index  <key>
+                                        .. attribute:: as_index  (key)
                                         
                                         	AS\:nn (hex or decimal format)
                                         	**type**\: int
@@ -4463,13 +4658,16 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "mp2mp-route-target"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.as_ = YLeaf(YType.uint32, "as")
-
-                                            self.as_index = YLeaf(YType.uint32, "as-index")
-                                            self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + self.as_.get() + "']" + "[as-index='" + self.as_index.get() + "']"
+                                            self.ylist_key_names = ['as_','as_index']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('as_', YLeaf(YType.uint32, 'as')),
+                                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                            ])
+                                            self.as_ = None
+                                            self.as_index = None
+                                            self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
@@ -4479,14 +4677,14 @@ class L2Vpn(Entity):
                                         """
                                         ipv4 address
                                         
-                                        .. attribute:: address  <key>
+                                        .. attribute:: address  (key)
                                         
                                         	IPV4 address
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: addr_index  <key>
+                                        .. attribute:: addr_index  (key)
                                         
                                         	Addr index
                                         	**type**\: int
@@ -4507,13 +4705,16 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "mp2mp-route-target"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.addr_index = YLeaf(YType.uint32, "addr-index")
-                                            self._segment_path = lambda: "ipv4-address" + "[address='" + self.address.get() + "']" + "[addr-index='" + self.addr_index.get() + "']"
+                                            self.ylist_key_names = ['address','addr_index']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                            ])
+                                            self.address = None
+                                            self.addr_index = None
+                                            self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
@@ -4559,12 +4760,15 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "mp2mp-auto-discovery"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"flow-label-load-balance" : ("flow_label_load_balance", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance), "ceids" : ("ceids", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids)}
-                                    self._child_list_classes = {}
-
-                                    self.ce_range = YLeaf(YType.uint32, "ce-range")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance)), ("ceids", ("ceids", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ce_range', YLeaf(YType.uint32, 'ce-range')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.ce_range = None
+                                    self.enable = None
 
                                     self.flow_label_load_balance = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance()
                                     self.flow_label_load_balance.parent = self
@@ -4609,12 +4813,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "mp2mp-signaling-protocol"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.flow_label = YLeaf(YType.enumeration, "flow-label")
-
-                                        self.static = YLeaf(YType.empty, "static")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
+                                            ('static', YLeaf(YType.empty, 'static')),
+                                        ])
+                                        self.flow_label = None
+                                        self.static = None
                                         self._segment_path = lambda: "flow-label-load-balance"
 
                                     def __setattr__(self, name, value):
@@ -4644,8 +4851,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "mp2mp-signaling-protocol"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"ceid" : ("ceid", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("ceid", ("ceid", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid))])
+                                        self._leafs = OrderedDict()
 
                                         self.ceid = YList(self)
                                         self._segment_path = lambda: "ceids"
@@ -4658,7 +4867,7 @@ class L2Vpn(Entity):
                                         """
                                         Local Customer Edge Identifier 
                                         
-                                        .. attribute:: ce_id  <key>
+                                        .. attribute:: ce_id  (key)
                                         
                                         	Local Customer Edge Identifier
                                         	**type**\: int
@@ -4684,16 +4893,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "ceids"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"remote-ceid-attachment-circuits" : ("remote_ceid_attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits)}
-                                            self._child_list_classes = {}
-
-                                            self.ce_id = YLeaf(YType.uint32, "ce-id")
+                                            self.ylist_key_names = ['ce_id']
+                                            self._child_container_classes = OrderedDict([("remote-ceid-attachment-circuits", ("remote_ceid_attachment_circuits", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ce_id', YLeaf(YType.uint32, 'ce-id')),
+                                            ])
+                                            self.ce_id = None
 
                                             self.remote_ceid_attachment_circuits = L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits()
                                             self.remote_ceid_attachment_circuits.parent = self
                                             self._children_name_map["remote_ceid_attachment_circuits"] = "remote-ceid-attachment-circuits"
                                             self._children_yang_names.add("remote-ceid-attachment-circuits")
-                                            self._segment_path = lambda: "ceid" + "[ce-id='" + self.ce_id.get() + "']"
+                                            self._segment_path = lambda: "ceid" + "[ce-id='" + str(self.ce_id) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid, ['ce_id'], name, value)
@@ -4723,8 +4935,10 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "ceid"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"remote-ceid-attachment-circuit" : ("remote_ceid_attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("remote-ceid-attachment-circuit", ("remote_ceid_attachment_circuit", L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit))])
+                                                self._leafs = OrderedDict()
 
                                                 self.remote_ceid_attachment_circuit = YList(self)
                                                 self._segment_path = lambda: "remote-ceid-attachment-circuits"
@@ -4737,14 +4951,14 @@ class L2Vpn(Entity):
                                                 """
                                                 AC And Remote Customer Edge Identifier
                                                 
-                                                .. attribute:: name  <key>
+                                                .. attribute:: name  (key)
                                                 
                                                 	The name of the Attachment Circuit
                                                 	**type**\: str
                                                 
                                                 	**pattern:** [a\-zA\-Z0\-9./\-]+
                                                 
-                                                .. attribute:: remote_ce_id  <key>
+                                                .. attribute:: remote_ce_id  (key)
                                                 
                                                 	Remote Customer Edge Identifier
                                                 	**type**\: int
@@ -4765,13 +4979,16 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "remote-ceid-attachment-circuits"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.name = YLeaf(YType.str, "name")
-
-                                                    self.remote_ce_id = YLeaf(YType.uint32, "remote-ce-id")
-                                                    self._segment_path = lambda: "remote-ceid-attachment-circuit" + "[name='" + self.name.get() + "']" + "[remote-ce-id='" + self.remote_ce_id.get() + "']"
+                                                    self.ylist_key_names = ['name','remote_ce_id']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('name', YLeaf(YType.str, 'name')),
+                                                        ('remote_ce_id', YLeaf(YType.uint32, 'remote-ce-id')),
+                                                    ])
+                                                    self.name = None
+                                                    self.remote_ce_id = None
+                                                    self._segment_path = lambda: "remote-ceid-attachment-circuit" + "[name='" + str(self.name) + "']" + "[remote-ce-id='" + str(self.remote_ce_id) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, ['name', 'remote_ce_id'], name, value)
@@ -4800,8 +5017,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"bridge-domain-group" : ("bridge_domain_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("bridge-domain-group", ("bridge_domain_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup))])
+                self._leafs = OrderedDict()
 
                 self.bridge_domain_group = YList(self)
                 self._segment_path = lambda: "bridge-domain-groups"
@@ -4815,7 +5034,7 @@ class L2Vpn(Entity):
                 """
                 Bridge group
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Name of the Bridge group
                 	**type**\: str
@@ -4841,16 +5060,19 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "bridge-domain-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"bridge-domains" : ("bridge_domains", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("bridge-domains", ("bridge_domains", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.bridge_domains = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains()
                     self.bridge_domains.parent = self
                     self._children_name_map["bridge_domains"] = "bridge-domains"
                     self._children_yang_names.add("bridge-domains")
-                    self._segment_path = lambda: "bridge-domain-group" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "bridge-domain-group" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4880,8 +5102,10 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "bridge-domain-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"bridge-domain" : ("bridge_domain", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("bridge-domain", ("bridge_domain", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain))])
+                        self._leafs = OrderedDict()
 
                         self.bridge_domain = YList(self)
                         self._segment_path = lambda: "bridge-domains"
@@ -4894,7 +5118,7 @@ class L2Vpn(Entity):
                         """
                         bridge domain
                         
-                        .. attribute:: name  <key>
+                        .. attribute:: name  (key)
                         
                         	Name of the bridge domain
                         	**type**\: str
@@ -5052,32 +5276,35 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "bridge-domains"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"bd-storm-controls" : ("bd_storm_controls", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls), "member-vnis" : ("member_vnis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis), "bridge-domain-mac" : ("bridge_domain_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac), "nv-satellite" : ("nv_satellite", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite), "bridge-domain-pbb" : ("bridge_domain_pbb", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb), "bridge-domain-evis" : ("bridge_domain_evis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis), "access-vfis" : ("access_vfis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis), "bd-pseudowires" : ("bd_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires), "vfis" : ("vfis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis), "bd-attachment-circuits" : ("bd_attachment_circuits", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits), "bd-pseudowire-evpns" : ("bd_pseudowire_evpns", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns), "ip-source-guard" : ("ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard), "dai" : ("dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai), "routed-interfaces" : ("routed_interfaces", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces)}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.coupled_mode = YLeaf(YType.empty, "coupled-mode")
-
-                            self.shutdown = YLeaf(YType.empty, "shutdown")
-
-                            self.flooding_unknown_unicast = YLeaf(YType.empty, "flooding-unknown-unicast")
-
-                            self.igmp_snooping_disable = YLeaf(YType.empty, "igmp-snooping-disable")
-
-                            self.transport_mode = YLeaf(YType.enumeration, "transport-mode")
-
-                            self.mld_snooping = YLeaf(YType.str, "mld-snooping")
-
-                            self.bridge_domain_mtu = YLeaf(YType.uint32, "bridge-domain-mtu")
-
-                            self.dhcp = YLeaf(YType.str, "dhcp")
-
-                            self.bridge_description = YLeaf(YType.str, "bridge-description")
-
-                            self.igmp_snooping = YLeaf(YType.str, "igmp-snooping")
-
-                            self.flooding = YLeaf(YType.empty, "flooding")
+                            self.ylist_key_names = ['name']
+                            self._child_container_classes = OrderedDict([("bd-storm-controls", ("bd_storm_controls", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls)), ("member-vnis", ("member_vnis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis)), ("bridge-domain-mac", ("bridge_domain_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac)), ("nv-satellite", ("nv_satellite", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite)), ("bridge-domain-pbb", ("bridge_domain_pbb", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb)), ("bridge-domain-evis", ("bridge_domain_evis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis)), ("access-vfis", ("access_vfis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis)), ("bd-pseudowires", ("bd_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires)), ("vfis", ("vfis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis)), ("bd-attachment-circuits", ("bd_attachment_circuits", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits)), ("bd-pseudowire-evpns", ("bd_pseudowire_evpns", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns)), ("ip-source-guard", ("ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard)), ("dai", ("dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai)), ("routed-interfaces", ("routed_interfaces", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('coupled_mode', YLeaf(YType.empty, 'coupled-mode')),
+                                ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                                ('flooding_unknown_unicast', YLeaf(YType.empty, 'flooding-unknown-unicast')),
+                                ('igmp_snooping_disable', YLeaf(YType.empty, 'igmp-snooping-disable')),
+                                ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
+                                ('mld_snooping', YLeaf(YType.str, 'mld-snooping')),
+                                ('bridge_domain_mtu', YLeaf(YType.uint32, 'bridge-domain-mtu')),
+                                ('dhcp', YLeaf(YType.str, 'dhcp')),
+                                ('bridge_description', YLeaf(YType.str, 'bridge-description')),
+                                ('igmp_snooping', YLeaf(YType.str, 'igmp-snooping')),
+                                ('flooding', YLeaf(YType.empty, 'flooding')),
+                            ])
+                            self.name = None
+                            self.coupled_mode = None
+                            self.shutdown = None
+                            self.flooding_unknown_unicast = None
+                            self.igmp_snooping_disable = None
+                            self.transport_mode = None
+                            self.mld_snooping = None
+                            self.bridge_domain_mtu = None
+                            self.dhcp = None
+                            self.bridge_description = None
+                            self.igmp_snooping = None
+                            self.flooding = None
 
                             self.bd_storm_controls = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls()
                             self.bd_storm_controls.parent = self
@@ -5148,7 +5375,7 @@ class L2Vpn(Entity):
                             self.routed_interfaces.parent = self
                             self._children_name_map["routed_interfaces"] = "routed-interfaces"
                             self._children_yang_names.add("routed-interfaces")
-                            self._segment_path = lambda: "bridge-domain" + "[name='" + self.name.get() + "']"
+                            self._segment_path = lambda: "bridge-domain" + "[name='" + str(self.name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
@@ -5177,8 +5404,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"bd-storm-control" : ("bd_storm_control", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bd-storm-control", ("bd_storm_control", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl))])
+                                self._leafs = OrderedDict()
 
                                 self.bd_storm_control = YList(self)
                                 self._segment_path = lambda: "bd-storm-controls"
@@ -5191,7 +5420,7 @@ class L2Vpn(Entity):
                                 """
                                 Storm Control Type
                                 
-                                .. attribute:: sctype  <key>
+                                .. attribute:: sctype  (key)
                                 
                                 	Storm Control Type
                                 	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
@@ -5215,16 +5444,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bd-storm-controls"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"storm-control-unit" : ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit)}
-                                    self._child_list_classes = {}
-
-                                    self.sctype = YLeaf(YType.enumeration, "sctype")
+                                    self.ylist_key_names = ['sctype']
+                                    self._child_container_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                    ])
+                                    self.sctype = None
 
                                     self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit()
                                     self.storm_control_unit.parent = self
                                     self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                     self._children_yang_names.add("storm-control-unit")
-                                    self._segment_path = lambda: "bd-storm-control" + "[sctype='" + self.sctype.get() + "']"
+                                    self._segment_path = lambda: "bd-storm-control" + "[sctype='" + str(self.sctype) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
@@ -5266,12 +5498,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-storm-control"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.kbits_per_sec = YLeaf(YType.uint32, "kbits-per-sec")
-
-                                        self.pkts_per_sec = YLeaf(YType.uint32, "pkts-per-sec")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
+                                            ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                        ])
+                                        self.kbits_per_sec = None
+                                        self.pkts_per_sec = None
                                         self._segment_path = lambda: "storm-control-unit"
 
                                     def __setattr__(self, name, value):
@@ -5302,8 +5537,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"member-vni" : ("member_vni", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("member-vni", ("member_vni", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni))])
+                                self._leafs = OrderedDict()
 
                                 self.member_vni = YList(self)
                                 self._segment_path = lambda: "member-vnis"
@@ -5317,7 +5554,7 @@ class L2Vpn(Entity):
                                 Bridge Domain Member VxLAN Network
                                 Identifier 
                                 
-                                .. attribute:: vni  <key>
+                                .. attribute:: vni  (key)
                                 
                                 	VxLAN Network Identifier number
                                 	**type**\: int
@@ -5343,16 +5580,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "member-vnis"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"member-vni-static-mac-addresses" : ("member_vni_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses)}
-                                    self._child_list_classes = {}
-
-                                    self.vni = YLeaf(YType.uint32, "vni")
+                                    self.ylist_key_names = ['vni']
+                                    self._child_container_classes = OrderedDict([("member-vni-static-mac-addresses", ("member_vni_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vni', YLeaf(YType.uint32, 'vni')),
+                                    ])
+                                    self.vni = None
 
                                     self.member_vni_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses()
                                     self.member_vni_static_mac_addresses.parent = self
                                     self._children_name_map["member_vni_static_mac_addresses"] = "member-vni-static-mac-addresses"
                                     self._children_yang_names.add("member-vni-static-mac-addresses")
-                                    self._segment_path = lambda: "member-vni" + "[vni='" + self.vni.get() + "']"
+                                    self._segment_path = lambda: "member-vni" + "[vni='" + str(self.vni) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
@@ -5381,8 +5621,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "member-vni"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"member-vni-static-mac-address" : ("member_vni_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("member-vni-static-mac-address", ("member_vni_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress))])
+                                        self._leafs = OrderedDict()
 
                                         self.member_vni_static_mac_address = YList(self)
                                         self._segment_path = lambda: "member-vni-static-mac-addresses"
@@ -5395,7 +5637,7 @@ class L2Vpn(Entity):
                                         """
                                         Static Mac Address Configuration
                                         
-                                        .. attribute:: mac_address  <key>
+                                        .. attribute:: mac_address  (key)
                                         
                                         	Static MAC address
                                         	**type**\: str
@@ -5423,13 +5665,16 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "member-vni-static-mac-addresses"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                            self.next_hop_ip = YLeaf(YType.str, "next-hop-ip")
-                                            self._segment_path = lambda: "member-vni-static-mac-address" + "[mac-address='" + self.mac_address.get() + "']"
+                                            self.ylist_key_names = ['mac_address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                                ('next_hop_ip', YLeaf(YType.str, 'next-hop-ip')),
+                                            ])
+                                            self.mac_address = None
+                                            self.next_hop_ip = None
+                                            self._segment_path = lambda: "member-vni-static-mac-address" + "[mac-address='" + str(self.mac_address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
@@ -5503,20 +5748,23 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"bd-mac-limit" : ("bd_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit), "bd-mac-filters" : ("bd_mac_filters", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters), "mac-secure" : ("mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure), "bd-mac-aging" : ("bd_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging)}
-                                self._child_list_classes = {}
-
-                                self.bd_mac_withdraw_relay = YLeaf(YType.empty, "bd-mac-withdraw-relay")
-
-                                self.bd_mac_withdraw_access_pw_disable = YLeaf(YType.empty, "bd-mac-withdraw-access-pw-disable")
-
-                                self.bd_mac_port_down_flush = YLeaf(YType.empty, "bd-mac-port-down-flush")
-
-                                self.bd_mac_withdraw = YLeaf(YType.empty, "bd-mac-withdraw")
-
-                                self.bd_mac_withdraw_behavior = YLeaf(YType.enumeration, "bd-mac-withdraw-behavior")
-
-                                self.bd_mac_learn = YLeaf(YType.enumeration, "bd-mac-learn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("bd-mac-limit", ("bd_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit)), ("bd-mac-filters", ("bd_mac_filters", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters)), ("mac-secure", ("mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure)), ("bd-mac-aging", ("bd_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bd_mac_withdraw_relay', YLeaf(YType.empty, 'bd-mac-withdraw-relay')),
+                                    ('bd_mac_withdraw_access_pw_disable', YLeaf(YType.empty, 'bd-mac-withdraw-access-pw-disable')),
+                                    ('bd_mac_port_down_flush', YLeaf(YType.empty, 'bd-mac-port-down-flush')),
+                                    ('bd_mac_withdraw', YLeaf(YType.empty, 'bd-mac-withdraw')),
+                                    ('bd_mac_withdraw_behavior', YLeaf(YType.enumeration, 'bd-mac-withdraw-behavior')),
+                                    ('bd_mac_learn', YLeaf(YType.enumeration, 'bd-mac-learn')),
+                                ])
+                                self.bd_mac_withdraw_relay = None
+                                self.bd_mac_withdraw_access_pw_disable = None
+                                self.bd_mac_port_down_flush = None
+                                self.bd_mac_withdraw = None
+                                self.bd_mac_withdraw_behavior = None
+                                self.bd_mac_learn = None
 
                                 self.bd_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
                                 self.bd_mac_limit.parent = self
@@ -5578,14 +5826,17 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.bd_mac_limit_action = YLeaf(YType.enumeration, "bd-mac-limit-action")
-
-                                    self.bd_mac_limit_notif = YLeaf(YType.enumeration, "bd-mac-limit-notif")
-
-                                    self.bd_mac_limit_max = YLeaf(YType.uint32, "bd-mac-limit-max")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('bd_mac_limit_action', YLeaf(YType.enumeration, 'bd-mac-limit-action')),
+                                        ('bd_mac_limit_notif', YLeaf(YType.enumeration, 'bd-mac-limit-notif')),
+                                        ('bd_mac_limit_max', YLeaf(YType.uint32, 'bd-mac-limit-max')),
+                                    ])
+                                    self.bd_mac_limit_action = None
+                                    self.bd_mac_limit_notif = None
+                                    self.bd_mac_limit_max = None
                                     self._segment_path = lambda: "bd-mac-limit"
 
                                 def __setattr__(self, name, value):
@@ -5615,8 +5866,10 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"bd-mac-filter" : ("bd_mac_filter", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("bd-mac-filter", ("bd_mac_filter", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter))])
+                                    self._leafs = OrderedDict()
 
                                     self.bd_mac_filter = YList(self)
                                     self._segment_path = lambda: "bd-mac-filters"
@@ -5629,7 +5882,7 @@ class L2Vpn(Entity):
                                     """
                                     Static MAC address
                                     
-                                    .. attribute:: address  <key>
+                                    .. attribute:: address  (key)
                                     
                                     	Static MAC address
                                     	**type**\: str
@@ -5655,13 +5908,16 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-mac-filters"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address = YLeaf(YType.str, "address")
-
-                                        self.drop = YLeaf(YType.empty, "drop")
-                                        self._segment_path = lambda: "bd-mac-filter" + "[address='" + self.address.get() + "']"
+                                        self.ylist_key_names = ['address']
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('drop', YLeaf(YType.empty, 'drop')),
+                                        ])
+                                        self.address = None
+                                        self.drop = None
+                                        self._segment_path = lambda: "bd-mac-filter" + "[address='" + str(self.address) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
@@ -5705,16 +5961,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.logging = YLeaf(YType.empty, "logging")
-
-                                    self.action = YLeaf(YType.enumeration, "action")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
-
-                                    self.threshold = YLeaf(YType.empty, "threshold")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('logging', YLeaf(YType.empty, 'logging')),
+                                        ('action', YLeaf(YType.enumeration, 'action')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('threshold', YLeaf(YType.empty, 'threshold')),
+                                    ])
+                                    self.logging = None
+                                    self.action = None
+                                    self.enable = None
+                                    self.threshold = None
                                     self._segment_path = lambda: "mac-secure"
 
                                 def __setattr__(self, name, value):
@@ -5751,12 +6010,15 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-mac"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.bd_mac_aging_type = YLeaf(YType.enumeration, "bd-mac-aging-type")
-
-                                    self.bd_mac_aging_time = YLeaf(YType.uint32, "bd-mac-aging-time")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('bd_mac_aging_type', YLeaf(YType.enumeration, 'bd-mac-aging-type')),
+                                        ('bd_mac_aging_time', YLeaf(YType.uint32, 'bd-mac-aging-time')),
+                                    ])
+                                    self.bd_mac_aging_type = None
+                                    self.bd_mac_aging_time = None
                                     self._segment_path = lambda: "bd-mac-aging"
 
                                 def __setattr__(self, name, value):
@@ -5791,12 +6053,15 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.offload_ipv4_multicast_enable = YLeaf(YType.empty, "offload-ipv4-multicast-enable")
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('offload_ipv4_multicast_enable', YLeaf(YType.empty, 'offload-ipv4-multicast-enable')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.offload_ipv4_multicast_enable = None
+                                self.enable = None
                                 self._segment_path = lambda: "nv-satellite"
 
                             def __setattr__(self, name, value):
@@ -5831,8 +6096,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"pbb-edges" : ("pbb_edges", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges), "pbb-core" : ("pbb_core", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("pbb-edges", ("pbb_edges", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges)), ("pbb-core", ("pbb_core", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.pbb_edges = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
                                 self.pbb_edges.parent = self
@@ -5869,8 +6136,10 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-pbb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"pbb-edge" : ("pbb_edge", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("pbb-edge", ("pbb_edge", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge))])
+                                    self._leafs = OrderedDict()
 
                                     self.pbb_edge = YList(self)
                                     self._segment_path = lambda: "pbb-edges"
@@ -5884,14 +6153,14 @@ class L2Vpn(Entity):
                                     Configure BD as PBB Edge with ISID and
                                     associated PBB Core BD
                                     
-                                    .. attribute:: isid  <key>
+                                    .. attribute:: isid  (key)
                                     
                                     	ISID
                                     	**type**\: int
                                     
                                     	**range:** 256..16777214
                                     
-                                    .. attribute:: core_bd_name  <key>
+                                    .. attribute:: core_bd_name  (key)
                                     
                                     	Core BD Name
                                     	**type**\: str
@@ -5946,16 +6215,19 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pbb-edges"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pbb-edge-split-horizon-group" : ("pbb_edge_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup), "pbb-static-mac-mappings" : ("pbb_static_mac_mappings", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings), "pbb-edge-dhcp-profile" : ("pbb_edge_dhcp_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile), "pbb-edge-mac" : ("pbb_edge_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac)}
-                                        self._child_list_classes = {}
-
-                                        self.isid = YLeaf(YType.uint32, "isid")
-
-                                        self.core_bd_name = YLeaf(YType.str, "core-bd-name")
-
-                                        self.pbb_edge_igmp_profile = YLeaf(YType.str, "pbb-edge-igmp-profile")
-
-                                        self.unknown_unicast_bmac = YLeaf(YType.str, "unknown-unicast-bmac")
+                                        self.ylist_key_names = ['isid','core_bd_name']
+                                        self._child_container_classes = OrderedDict([("pbb-edge-split-horizon-group", ("pbb_edge_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup)), ("pbb-static-mac-mappings", ("pbb_static_mac_mappings", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings)), ("pbb-edge-dhcp-profile", ("pbb_edge_dhcp_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile)), ("pbb-edge-mac", ("pbb_edge_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('isid', YLeaf(YType.uint32, 'isid')),
+                                            ('core_bd_name', YLeaf(YType.str, 'core-bd-name')),
+                                            ('pbb_edge_igmp_profile', YLeaf(YType.str, 'pbb-edge-igmp-profile')),
+                                            ('unknown_unicast_bmac', YLeaf(YType.str, 'unknown-unicast-bmac')),
+                                        ])
+                                        self.isid = None
+                                        self.core_bd_name = None
+                                        self.pbb_edge_igmp_profile = None
+                                        self.unknown_unicast_bmac = None
 
                                         self.pbb_edge_split_horizon_group = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup()
                                         self.pbb_edge_split_horizon_group.parent = self
@@ -5976,7 +6248,7 @@ class L2Vpn(Entity):
                                         self.pbb_edge_mac.parent = self
                                         self._children_name_map["pbb_edge_mac"] = "pbb-edge-mac"
                                         self._children_yang_names.add("pbb-edge-mac")
-                                        self._segment_path = lambda: "pbb-edge" + "[isid='" + self.isid.get() + "']" + "[core-bd-name='" + self.core_bd_name.get() + "']"
+                                        self._segment_path = lambda: "pbb-edge" + "[isid='" + str(self.isid) + "']" + "[core-bd-name='" + str(self.core_bd_name) + "']"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
@@ -6005,10 +6277,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-edge"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.disable = YLeaf(YType.empty, "disable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('disable', YLeaf(YType.empty, 'disable')),
+                                            ])
+                                            self.disable = None
                                             self._segment_path = lambda: "pbb-edge-split-horizon-group"
 
                                         def __setattr__(self, name, value):
@@ -6038,8 +6313,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-edge"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"pbb-static-mac-mapping" : ("pbb_static_mac_mapping", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("pbb-static-mac-mapping", ("pbb_static_mac_mapping", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping))])
+                                            self._leafs = OrderedDict()
 
                                             self.pbb_static_mac_mapping = YList(self)
                                             self._segment_path = lambda: "pbb-static-mac-mappings"
@@ -6053,7 +6330,7 @@ class L2Vpn(Entity):
                                             PBB Static Mac Address Mapping
                                             Configuration
                                             
-                                            .. attribute:: address  <key>
+                                            .. attribute:: address  (key)
                                             
                                             	Static MAC address
                                             	**type**\: str
@@ -6081,13 +6358,16 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "pbb-static-mac-mappings"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.address = YLeaf(YType.str, "address")
-
-                                                self.pbb_static_mac_mapping_bmac = YLeaf(YType.str, "pbb-static-mac-mapping-bmac")
-                                                self._segment_path = lambda: "pbb-static-mac-mapping" + "[address='" + self.address.get() + "']"
+                                                self.ylist_key_names = ['address']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('pbb_static_mac_mapping_bmac', YLeaf(YType.str, 'pbb-static-mac-mapping-bmac')),
+                                                ])
+                                                self.address = None
+                                                self.pbb_static_mac_mapping_bmac = None
+                                                self._segment_path = lambda: "pbb-static-mac-mapping" + "[address='" + str(self.address) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
@@ -6121,12 +6401,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-edge"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.profile_id = YLeaf(YType.enumeration, "profile-id")
-
-                                            self.dhcp_snooping_id = YLeaf(YType.str, "dhcp-snooping-id")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
+                                                ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                            ])
+                                            self.profile_id = None
+                                            self.dhcp_snooping_id = None
                                             self._segment_path = lambda: "pbb-edge-dhcp-profile"
 
                                         def __setattr__(self, name, value):
@@ -6171,10 +6454,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-edge"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"pbb-edge-mac-limit" : ("pbb_edge_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit), "pbb-edge-mac-aging" : ("pbb_edge_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging), "pbb-edge-mac-secure" : ("pbb_edge_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure)}
-                                            self._child_list_classes = {}
-
-                                            self.pbb_edge_mac_learning = YLeaf(YType.enumeration, "pbb-edge-mac-learning")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("pbb-edge-mac-limit", ("pbb_edge_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit)), ("pbb-edge-mac-aging", ("pbb_edge_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging)), ("pbb-edge-mac-secure", ("pbb_edge_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_edge_mac_learning', YLeaf(YType.enumeration, 'pbb-edge-mac-learning')),
+                                            ])
+                                            self.pbb_edge_mac_learning = None
 
                                             self.pbb_edge_mac_limit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
                                             self.pbb_edge_mac_limit.parent = self
@@ -6231,14 +6517,17 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "pbb-edge-mac"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.pbb_edge_mac_limit_action = YLeaf(YType.enumeration, "pbb-edge-mac-limit-action")
-
-                                                self.pbb_edge_mac_limit_max = YLeaf(YType.uint32, "pbb-edge-mac-limit-max")
-
-                                                self.pbb_edge_mac_limit_notif = YLeaf(YType.enumeration, "pbb-edge-mac-limit-notif")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('pbb_edge_mac_limit_action', YLeaf(YType.enumeration, 'pbb-edge-mac-limit-action')),
+                                                    ('pbb_edge_mac_limit_max', YLeaf(YType.uint32, 'pbb-edge-mac-limit-max')),
+                                                    ('pbb_edge_mac_limit_notif', YLeaf(YType.enumeration, 'pbb-edge-mac-limit-notif')),
+                                                ])
+                                                self.pbb_edge_mac_limit_action = None
+                                                self.pbb_edge_mac_limit_max = None
+                                                self.pbb_edge_mac_limit_notif = None
                                                 self._segment_path = lambda: "pbb-edge-mac-limit"
 
                                             def __setattr__(self, name, value):
@@ -6275,12 +6564,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "pbb-edge-mac"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.pbb_edge_mac_aging_type = YLeaf(YType.enumeration, "pbb-edge-mac-aging-type")
-
-                                                self.pbb_edge_mac_aging_time = YLeaf(YType.uint32, "pbb-edge-mac-aging-time")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('pbb_edge_mac_aging_type', YLeaf(YType.enumeration, 'pbb-edge-mac-aging-type')),
+                                                    ('pbb_edge_mac_aging_time', YLeaf(YType.uint32, 'pbb-edge-mac-aging-time')),
+                                                ])
+                                                self.pbb_edge_mac_aging_type = None
+                                                self.pbb_edge_mac_aging_time = None
                                                 self._segment_path = lambda: "pbb-edge-mac-aging"
 
                                             def __setattr__(self, name, value):
@@ -6330,18 +6622,21 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "pbb-edge-mac"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.logging = YLeaf(YType.enumeration, "logging")
-
-                                                self.disable = YLeaf(YType.empty, "disable")
-
-                                                self.action = YLeaf(YType.enumeration, "action")
-
-                                                self.enable = YLeaf(YType.empty, "enable")
-
-                                                self.accept_shutdown = YLeaf(YType.empty, "accept-shutdown")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('logging', YLeaf(YType.enumeration, 'logging')),
+                                                    ('disable', YLeaf(YType.empty, 'disable')),
+                                                    ('action', YLeaf(YType.enumeration, 'action')),
+                                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                                    ('accept_shutdown', YLeaf(YType.empty, 'accept-shutdown')),
+                                                ])
+                                                self.logging = None
+                                                self.disable = None
+                                                self.action = None
+                                                self.enable = None
+                                                self.accept_shutdown = None
                                                 self._segment_path = lambda: "pbb-edge-mac-secure"
 
                                             def __setattr__(self, name, value):
@@ -6405,16 +6700,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-pbb"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"pbb-core-mac" : ("pbb_core_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac), "pbb-core-evis" : ("pbb_core_evis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis), "pbb-core-dhcp-profile" : ("pbb_core_dhcp_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile)}
-                                    self._child_list_classes = {}
-
-                                    self.pbb_core_mmrp_flood_optimization = YLeaf(YType.empty, "pbb-core-mmrp-flood-optimization")
-
-                                    self.vlan_id = YLeaf(YType.uint32, "vlan-id")
-
-                                    self.pbb_core_igmp_profile = YLeaf(YType.str, "pbb-core-igmp-profile")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("pbb-core-mac", ("pbb_core_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac)), ("pbb-core-evis", ("pbb_core_evis", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis)), ("pbb-core-dhcp-profile", ("pbb_core_dhcp_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('pbb_core_mmrp_flood_optimization', YLeaf(YType.empty, 'pbb-core-mmrp-flood-optimization')),
+                                        ('vlan_id', YLeaf(YType.uint32, 'vlan-id')),
+                                        ('pbb_core_igmp_profile', YLeaf(YType.str, 'pbb-core-igmp-profile')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.pbb_core_mmrp_flood_optimization = None
+                                    self.vlan_id = None
+                                    self.pbb_core_igmp_profile = None
+                                    self.enable = None
 
                                     self.pbb_core_mac = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
                                     self.pbb_core_mac.parent = self
@@ -6469,10 +6767,13 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pbb-core"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pbb-core-mac-aging" : ("pbb_core_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging), "pbb-core-mac-limit" : ("pbb_core_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit)}
-                                        self._child_list_classes = {}
-
-                                        self.pbb_core_mac_learning = YLeaf(YType.enumeration, "pbb-core-mac-learning")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("pbb-core-mac-aging", ("pbb_core_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging)), ("pbb-core-mac-limit", ("pbb_core_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('pbb_core_mac_learning', YLeaf(YType.enumeration, 'pbb-core-mac-learning')),
+                                        ])
+                                        self.pbb_core_mac_learning = None
 
                                         self.pbb_core_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging()
                                         self.pbb_core_mac_aging.parent = self
@@ -6519,12 +6820,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-core-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.pbb_core_mac_aging_type = YLeaf(YType.enumeration, "pbb-core-mac-aging-type")
-
-                                            self.pbb_core_mac_aging_time = YLeaf(YType.uint32, "pbb-core-mac-aging-time")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_core_mac_aging_type', YLeaf(YType.enumeration, 'pbb-core-mac-aging-type')),
+                                                ('pbb_core_mac_aging_time', YLeaf(YType.uint32, 'pbb-core-mac-aging-time')),
+                                            ])
+                                            self.pbb_core_mac_aging_type = None
+                                            self.pbb_core_mac_aging_time = None
                                             self._segment_path = lambda: "pbb-core-mac-aging"
 
                                         def __setattr__(self, name, value):
@@ -6566,14 +6870,17 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-core-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.pbb_core_mac_limit_max = YLeaf(YType.uint32, "pbb-core-mac-limit-max")
-
-                                            self.pbb_core_mac_limit_notif = YLeaf(YType.enumeration, "pbb-core-mac-limit-notif")
-
-                                            self.pbb_core_mac_limit_action = YLeaf(YType.enumeration, "pbb-core-mac-limit-action")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_core_mac_limit_max', YLeaf(YType.uint32, 'pbb-core-mac-limit-max')),
+                                                ('pbb_core_mac_limit_notif', YLeaf(YType.enumeration, 'pbb-core-mac-limit-notif')),
+                                                ('pbb_core_mac_limit_action', YLeaf(YType.enumeration, 'pbb-core-mac-limit-action')),
+                                            ])
+                                            self.pbb_core_mac_limit_max = None
+                                            self.pbb_core_mac_limit_notif = None
+                                            self.pbb_core_mac_limit_action = None
                                             self._segment_path = lambda: "pbb-core-mac-limit"
 
                                         def __setattr__(self, name, value):
@@ -6603,8 +6910,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pbb-core"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"pbb-core-evi" : ("pbb_core_evi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("pbb-core-evi", ("pbb_core_evi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi))])
+                                        self._leafs = OrderedDict()
 
                                         self.pbb_core_evi = YList(self)
                                         self._segment_path = lambda: "pbb-core-evis"
@@ -6617,7 +6926,7 @@ class L2Vpn(Entity):
                                         """
                                         PBB Core EVI
                                         
-                                        .. attribute:: eviid  <key>
+                                        .. attribute:: eviid  (key)
                                         
                                         	Ethernet VPN ID
                                         	**type**\: int
@@ -6638,11 +6947,14 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pbb-core-evis"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.eviid = YLeaf(YType.uint32, "eviid")
-                                            self._segment_path = lambda: "pbb-core-evi" + "[eviid='" + self.eviid.get() + "']"
+                                            self.ylist_key_names = ['eviid']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                            ])
+                                            self.eviid = None
+                                            self._segment_path = lambda: "pbb-core-evi" + "[eviid='" + str(self.eviid) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
@@ -6676,12 +6988,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "pbb-core"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.profile_id = YLeaf(YType.enumeration, "profile-id")
-
-                                        self.dhcp_snooping_id = YLeaf(YType.str, "dhcp-snooping-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
+                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "pbb-core-dhcp-profile"
 
                                     def __setattr__(self, name, value):
@@ -6711,8 +7026,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"bridge-domain-evi" : ("bridge_domain_evi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bridge-domain-evi", ("bridge_domain_evi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi))])
+                                self._leafs = OrderedDict()
 
                                 self.bridge_domain_evi = YList(self)
                                 self._segment_path = lambda: "bridge-domain-evis"
@@ -6725,12 +7042,12 @@ class L2Vpn(Entity):
                                 """
                                 Bridge Domain EVI
                                 
-                                .. attribute:: eviid  <key>
+                                .. attribute:: eviid  (key)
                                 
                                 	Ethernet VPN ID
                                 	**type**\: int
                                 
-                                	**range:** 1..4294967295
+                                	**range:** 1..65534
                                 
                                 
 
@@ -6746,11 +7063,14 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-evis"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.eviid = YLeaf(YType.uint32, "eviid")
-                                    self._segment_path = lambda: "bridge-domain-evi" + "[eviid='" + self.eviid.get() + "']"
+                                    self.ylist_key_names = ['eviid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                    ])
+                                    self.eviid = None
+                                    self._segment_path = lambda: "bridge-domain-evi" + "[eviid='" + str(self.eviid) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['eviid'], name, value)
@@ -6780,8 +7100,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"access-vfi" : ("access_vfi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("access-vfi", ("access_vfi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi))])
+                                self._leafs = OrderedDict()
 
                                 self.access_vfi = YList(self)
                                 self._segment_path = lambda: "access-vfis"
@@ -6795,7 +7117,7 @@ class L2Vpn(Entity):
                                 Name of the Acess Virtual Forwarding
                                 Interface
                                 
-                                .. attribute:: name  <key>
+                                .. attribute:: name  (key)
                                 
                                 	Name of the AccessVirtual Forwarding Interface
                                 	**type**\: str
@@ -6826,18 +7148,21 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "access-vfis"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"access-vfi-pseudowires" : ("access_vfi_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires)}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.access_vfi_shutdown = YLeaf(YType.empty, "access-vfi-shutdown")
+                                    self.ylist_key_names = ['name']
+                                    self._child_container_classes = OrderedDict([("access-vfi-pseudowires", ("access_vfi_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('access_vfi_shutdown', YLeaf(YType.empty, 'access-vfi-shutdown')),
+                                    ])
+                                    self.name = None
+                                    self.access_vfi_shutdown = None
 
                                     self.access_vfi_pseudowires = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires()
                                     self.access_vfi_pseudowires.parent = self
                                     self._children_name_map["access_vfi_pseudowires"] = "access-vfi-pseudowires"
                                     self._children_yang_names.add("access-vfi-pseudowires")
-                                    self._segment_path = lambda: "access-vfi" + "[name='" + self.name.get() + "']"
+                                    self._segment_path = lambda: "access-vfi" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
@@ -6866,8 +7191,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "access-vfi"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"access-vfi-pseudowire" : ("access_vfi_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("access-vfi-pseudowire", ("access_vfi_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire))])
+                                        self._leafs = OrderedDict()
 
                                         self.access_vfi_pseudowire = YList(self)
                                         self._segment_path = lambda: "access-vfi-pseudowires"
@@ -6880,14 +7207,14 @@ class L2Vpn(Entity):
                                         """
                                         Pseudowire configuration
                                         
-                                        .. attribute:: neighbor  <key>
+                                        .. attribute:: neighbor  (key)
                                         
                                         	Neighbor IP address
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: pseudowire_id  <key>
+                                        .. attribute:: pseudowire_id  (key)
                                         
                                         	Pseudowire ID
                                         	**type**\: int
@@ -6920,20 +7247,23 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "access-vfi-pseudowires"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"access-vfi-pseudowire-static-mac-addresses" : ("access_vfi_pseudowire_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses)}
-                                            self._child_list_classes = {}
-
-                                            self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                            self.access_vfi_pw_class = YLeaf(YType.str, "access-vfi-pw-class")
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_container_classes = OrderedDict([("access-vfi-pseudowire-static-mac-addresses", ("access_vfi_pseudowire_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                                ('access_vfi_pw_class', YLeaf(YType.str, 'access-vfi-pw-class')),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.access_vfi_pw_class = None
 
                                             self.access_vfi_pseudowire_static_mac_addresses = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses()
                                             self.access_vfi_pseudowire_static_mac_addresses.parent = self
                                             self._children_name_map["access_vfi_pseudowire_static_mac_addresses"] = "access-vfi-pseudowire-static-mac-addresses"
                                             self._children_yang_names.add("access-vfi-pseudowire-static-mac-addresses")
-                                            self._segment_path = lambda: "access-vfi-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                            self._segment_path = lambda: "access-vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
@@ -6962,8 +7292,10 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "access-vfi-pseudowire"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"access-vfi-pseudowire-static-mac-address" : ("access_vfi_pseudowire_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("access-vfi-pseudowire-static-mac-address", ("access_vfi_pseudowire_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress))])
+                                                self._leafs = OrderedDict()
 
                                                 self.access_vfi_pseudowire_static_mac_address = YList(self)
                                                 self._segment_path = lambda: "access-vfi-pseudowire-static-mac-addresses"
@@ -6976,7 +7308,7 @@ class L2Vpn(Entity):
                                                 """
                                                 Static Mac Address Configuration
                                                 
-                                                .. attribute:: address  <key>
+                                                .. attribute:: address  (key)
                                                 
                                                 	Static MAC address
                                                 	**type**\: str
@@ -6997,11 +7329,14 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "access-vfi-pseudowire-static-mac-addresses"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.address = YLeaf(YType.str, "address")
-                                                    self._segment_path = lambda: "access-vfi-pseudowire-static-mac-address" + "[address='" + self.address.get() + "']"
+                                                    self.ylist_key_names = ['address']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', YLeaf(YType.str, 'address')),
+                                                    ])
+                                                    self.address = None
+                                                    self._segment_path = lambda: "access-vfi-pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
@@ -7030,8 +7365,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"bd-pseudowire" : ("bd_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bd-pseudowire", ("bd_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire))])
+                                self._leafs = OrderedDict()
 
                                 self.bd_pseudowire = YList(self)
                                 self._segment_path = lambda: "bd-pseudowires"
@@ -7044,14 +7381,14 @@ class L2Vpn(Entity):
                                 """
                                 Pseudowire configuration
                                 
-                                .. attribute:: neighbor  <key>
+                                .. attribute:: neighbor  (key)
                                 
                                 	Neighbor IP address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: pseudowire_id  <key>
+                                .. attribute:: pseudowire_id  (key)
                                 
                                 	Pseudowire ID
                                 	**type**\: int
@@ -7148,22 +7485,25 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bd-pseudowires"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"pseudowire-dai" : ("pseudowire_dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai), "bdpw-storm-control-types" : ("bdpw_storm_control_types", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes), "pseudowire-profile" : ("pseudowire_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile), "bd-pw-static-mac-addresses" : ("bd_pw_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses), "pseudowire-ip-source-guard" : ("pseudowire_ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard), "pseudowire-mac" : ("pseudowire_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac), "bd-pw-split-horizon" : ("bd_pw_split_horizon", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon), "bd-pw-mpls-static-labels" : ("bd_pw_mpls_static_labels", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels), "bridge-domain-backup-pseudowires" : ("bridge_domain_backup_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires)}
-                                    self._child_list_classes = {}
-
-                                    self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                    self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                    self.pseudowire_mld_snoop = YLeaf(YType.str, "pseudowire-mld-snoop")
-
-                                    self.pseudowire_igmp_snoop = YLeaf(YType.str, "pseudowire-igmp-snoop")
-
-                                    self.pseudowire_flooding = YLeaf(YType.enumeration, "pseudowire-flooding")
-
-                                    self.bd_pw_class = YLeaf(YType.str, "bd-pw-class")
-
-                                    self.pseudowire_flooding_unknown_unicast = YLeaf(YType.enumeration, "pseudowire-flooding-unknown-unicast")
+                                    self.ylist_key_names = ['neighbor','pseudowire_id']
+                                    self._child_container_classes = OrderedDict([("pseudowire-dai", ("pseudowire_dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai)), ("bdpw-storm-control-types", ("bdpw_storm_control_types", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes)), ("pseudowire-profile", ("pseudowire_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile)), ("bd-pw-static-mac-addresses", ("bd_pw_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses)), ("pseudowire-ip-source-guard", ("pseudowire_ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard)), ("pseudowire-mac", ("pseudowire_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac)), ("bd-pw-split-horizon", ("bd_pw_split_horizon", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon)), ("bd-pw-mpls-static-labels", ("bd_pw_mpls_static_labels", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels)), ("bridge-domain-backup-pseudowires", ("bridge_domain_backup_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                        ('pseudowire_mld_snoop', YLeaf(YType.str, 'pseudowire-mld-snoop')),
+                                        ('pseudowire_igmp_snoop', YLeaf(YType.str, 'pseudowire-igmp-snoop')),
+                                        ('pseudowire_flooding', YLeaf(YType.enumeration, 'pseudowire-flooding')),
+                                        ('bd_pw_class', YLeaf(YType.str, 'bd-pw-class')),
+                                        ('pseudowire_flooding_unknown_unicast', YLeaf(YType.enumeration, 'pseudowire-flooding-unknown-unicast')),
+                                    ])
+                                    self.neighbor = None
+                                    self.pseudowire_id = None
+                                    self.pseudowire_mld_snoop = None
+                                    self.pseudowire_igmp_snoop = None
+                                    self.pseudowire_flooding = None
+                                    self.bd_pw_class = None
+                                    self.pseudowire_flooding_unknown_unicast = None
 
                                     self.pseudowire_dai = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
                                     self.pseudowire_dai.parent = self
@@ -7209,7 +7549,7 @@ class L2Vpn(Entity):
                                     self.bridge_domain_backup_pseudowires.parent = self
                                     self._children_name_map["bridge_domain_backup_pseudowires"] = "bridge-domain-backup-pseudowires"
                                     self._children_yang_names.add("bridge-domain-backup-pseudowires")
-                                    self._segment_path = lambda: "bd-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                    self._segment_path = lambda: "bd-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
@@ -7253,14 +7593,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pseudowire-dai-address-validation" : ("pseudowire_dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation)}
-                                        self._child_list_classes = {}
-
-                                        self.logging = YLeaf(YType.enumeration, "logging")
-
-                                        self.disable = YLeaf(YType.empty, "disable")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("pseudowire-dai-address-validation", ("pseudowire_dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', YLeaf(YType.enumeration, 'logging')),
+                                            ('disable', YLeaf(YType.empty, 'disable')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
 
                                         self.pseudowire_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
                                         self.pseudowire_dai_address_validation.parent = self
@@ -7305,14 +7648,17 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-dai"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ipv4_verification = YLeaf(YType.enumeration, "ipv4-verification")
-
-                                            self.destination_mac_verification = YLeaf(YType.enumeration, "destination-mac-verification")
-
-                                            self.source_mac_verification = YLeaf(YType.enumeration, "source-mac-verification")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ipv4_verification', YLeaf(YType.enumeration, 'ipv4-verification')),
+                                                ('destination_mac_verification', YLeaf(YType.enumeration, 'destination-mac-verification')),
+                                                ('source_mac_verification', YLeaf(YType.enumeration, 'source-mac-verification')),
+                                            ])
+                                            self.ipv4_verification = None
+                                            self.destination_mac_verification = None
+                                            self.source_mac_verification = None
                                             self._segment_path = lambda: "pseudowire-dai-address-validation"
 
                                         def __setattr__(self, name, value):
@@ -7342,8 +7688,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"bdpw-storm-control-type" : ("bdpw_storm_control_type", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("bdpw-storm-control-type", ("bdpw_storm_control_type", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType))])
+                                        self._leafs = OrderedDict()
 
                                         self.bdpw_storm_control_type = YList(self)
                                         self._segment_path = lambda: "bdpw-storm-control-types"
@@ -7356,7 +7704,7 @@ class L2Vpn(Entity):
                                         """
                                         Storm Control Type
                                         
-                                        .. attribute:: sctype  <key>
+                                        .. attribute:: sctype  (key)
                                         
                                         	Storm Control Type
                                         	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
@@ -7380,16 +7728,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bdpw-storm-control-types"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"storm-control-unit" : ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit)}
-                                            self._child_list_classes = {}
-
-                                            self.sctype = YLeaf(YType.enumeration, "sctype")
+                                            self.ylist_key_names = ['sctype']
+                                            self._child_container_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                            ])
+                                            self.sctype = None
 
                                             self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit()
                                             self.storm_control_unit.parent = self
                                             self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                             self._children_yang_names.add("storm-control-unit")
-                                            self._segment_path = lambda: "bdpw-storm-control-type" + "[sctype='" + self.sctype.get() + "']"
+                                            self._segment_path = lambda: "bdpw-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
@@ -7431,12 +7782,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "bdpw-storm-control-type"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.kbits_per_sec = YLeaf(YType.uint32, "kbits-per-sec")
-
-                                                self.pkts_per_sec = YLeaf(YType.uint32, "pkts-per-sec")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
+                                                    ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                                ])
+                                                self.kbits_per_sec = None
+                                                self.pkts_per_sec = None
                                                 self._segment_path = lambda: "storm-control-unit"
 
                                             def __setattr__(self, name, value):
@@ -7471,12 +7825,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.profile_id = YLeaf(YType.enumeration, "profile-id")
-
-                                        self.dhcp_snooping_id = YLeaf(YType.str, "dhcp-snooping-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
+                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "pseudowire-profile"
 
                                     def __setattr__(self, name, value):
@@ -7506,8 +7863,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"bd-pw-static-mac-address" : ("bd_pw_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("bd-pw-static-mac-address", ("bd_pw_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress))])
+                                        self._leafs = OrderedDict()
 
                                         self.bd_pw_static_mac_address = YList(self)
                                         self._segment_path = lambda: "bd-pw-static-mac-addresses"
@@ -7520,7 +7879,7 @@ class L2Vpn(Entity):
                                         """
                                         Static Mac Address Configuration
                                         
-                                        .. attribute:: address  <key>
+                                        .. attribute:: address  (key)
                                         
                                         	Static MAC address
                                         	**type**\: str
@@ -7541,11 +7900,14 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bd-pw-static-mac-addresses"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address = YLeaf(YType.str, "address")
-                                            self._segment_path = lambda: "bd-pw-static-mac-address" + "[address='" + self.address.get() + "']"
+                                            self.ylist_key_names = ['address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', YLeaf(YType.str, 'address')),
+                                            ])
+                                            self.address = None
+                                            self._segment_path = lambda: "bd-pw-static-mac-address" + "[address='" + str(self.address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
@@ -7584,14 +7946,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.logging = YLeaf(YType.enumeration, "logging")
-
-                                        self.disable = YLeaf(YType.empty, "disable")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', YLeaf(YType.enumeration, 'logging')),
+                                            ('disable', YLeaf(YType.empty, 'disable')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
                                         self._segment_path = lambda: "pseudowire-ip-source-guard"
 
                                     def __setattr__(self, name, value):
@@ -7647,14 +8012,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"pseudowire-mac-secure" : ("pseudowire_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure), "pseudowire-mac-aging" : ("pseudowire_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging), "pseudowire-mac-limit" : ("pseudowire_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit)}
-                                        self._child_list_classes = {}
-
-                                        self.pseudowire_mac_port_down_flush = YLeaf(YType.enumeration, "pseudowire-mac-port-down-flush")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
-
-                                        self.pseudowire_mac_learning = YLeaf(YType.enumeration, "pseudowire-mac-learning")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("pseudowire-mac-secure", ("pseudowire_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure)), ("pseudowire-mac-aging", ("pseudowire_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging)), ("pseudowire-mac-limit", ("pseudowire_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('pseudowire_mac_port_down_flush', YLeaf(YType.enumeration, 'pseudowire-mac-port-down-flush')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('pseudowire_mac_learning', YLeaf(YType.enumeration, 'pseudowire-mac-learning')),
+                                        ])
+                                        self.pseudowire_mac_port_down_flush = None
+                                        self.enable = None
+                                        self.pseudowire_mac_learning = None
 
                                         self.pseudowire_mac_secure = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
                                         self.pseudowire_mac_secure.parent = self
@@ -7714,16 +8082,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.logging = YLeaf(YType.enumeration, "logging")
-
-                                            self.disable = YLeaf(YType.empty, "disable")
-
-                                            self.action = YLeaf(YType.enumeration, "action")
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('logging', YLeaf(YType.enumeration, 'logging')),
+                                                ('disable', YLeaf(YType.empty, 'disable')),
+                                                ('action', YLeaf(YType.enumeration, 'action')),
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.logging = None
+                                            self.disable = None
+                                            self.action = None
+                                            self.enable = None
                                             self._segment_path = lambda: "pseudowire-mac-secure"
 
                                         def __setattr__(self, name, value):
@@ -7760,12 +8131,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.pseudowire_mac_aging_type = YLeaf(YType.enumeration, "pseudowire-mac-aging-type")
-
-                                            self.pseudowire_mac_aging_time = YLeaf(YType.uint32, "pseudowire-mac-aging-time")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pseudowire_mac_aging_type', YLeaf(YType.enumeration, 'pseudowire-mac-aging-type')),
+                                                ('pseudowire_mac_aging_time', YLeaf(YType.uint32, 'pseudowire-mac-aging-time')),
+                                            ])
+                                            self.pseudowire_mac_aging_type = None
+                                            self.pseudowire_mac_aging_time = None
                                             self._segment_path = lambda: "pseudowire-mac-aging"
 
                                         def __setattr__(self, name, value):
@@ -7807,14 +8181,17 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "pseudowire-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.pseudowire_mac_limit_action = YLeaf(YType.enumeration, "pseudowire-mac-limit-action")
-
-                                            self.pseudowire_mac_limit_notif = YLeaf(YType.enumeration, "pseudowire-mac-limit-notif")
-
-                                            self.pseudowire_mac_limit_max = YLeaf(YType.uint32, "pseudowire-mac-limit-max")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pseudowire_mac_limit_action', YLeaf(YType.enumeration, 'pseudowire-mac-limit-action')),
+                                                ('pseudowire_mac_limit_notif', YLeaf(YType.enumeration, 'pseudowire-mac-limit-notif')),
+                                                ('pseudowire_mac_limit_max', YLeaf(YType.uint32, 'pseudowire-mac-limit-max')),
+                                            ])
+                                            self.pseudowire_mac_limit_action = None
+                                            self.pseudowire_mac_limit_notif = None
+                                            self.pseudowire_mac_limit_max = None
                                             self._segment_path = lambda: "pseudowire-mac-limit"
 
                                         def __setattr__(self, name, value):
@@ -7844,8 +8221,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"bd-pw-split-horizon-group" : ("bd_pw_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("bd-pw-split-horizon-group", ("bd_pw_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.bd_pw_split_horizon_group = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup()
                                         self.bd_pw_split_horizon_group.parent = self
@@ -7877,10 +8256,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bd-pw-split-horizon"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.enable = None
                                             self._segment_path = lambda: "bd-pw-split-horizon-group"
 
                                         def __setattr__(self, name, value):
@@ -7919,12 +8301,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                        self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                            ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                        ])
+                                        self.local_static_label = None
+                                        self.remote_static_label = None
                                         self._segment_path = lambda: "bd-pw-mpls-static-labels"
 
                                     def __setattr__(self, name, value):
@@ -7954,8 +8339,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-pseudowire"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"bridge-domain-backup-pseudowire" : ("bridge_domain_backup_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("bridge-domain-backup-pseudowire", ("bridge_domain_backup_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire))])
+                                        self._leafs = OrderedDict()
 
                                         self.bridge_domain_backup_pseudowire = YList(self)
                                         self._segment_path = lambda: "bridge-domain-backup-pseudowires"
@@ -7968,14 +8355,14 @@ class L2Vpn(Entity):
                                         """
                                         Backup pseudowire configuration
                                         
-                                        .. attribute:: neighbor  <key>
+                                        .. attribute:: neighbor  (key)
                                         
                                         	Neighbor IP address
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: pseudowire_id  <key>
+                                        .. attribute:: pseudowire_id  (key)
                                         
                                         	Pseudowire ID
                                         	**type**\: int
@@ -8003,15 +8390,18 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bridge-domain-backup-pseudowires"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                            self.bridge_domain_backup_pw_class = YLeaf(YType.str, "bridge-domain-backup-pw-class")
-                                            self._segment_path = lambda: "bridge-domain-backup-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                                ('bridge_domain_backup_pw_class', YLeaf(YType.str, 'bridge-domain-backup-pw-class')),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.bridge_domain_backup_pw_class = None
+                                            self._segment_path = lambda: "bridge-domain-backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
@@ -8041,8 +8431,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"vfi" : ("vfi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("vfi", ("vfi", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi))])
+                                self._leafs = OrderedDict()
 
                                 self.vfi = YList(self)
                                 self._segment_path = lambda: "vfis"
@@ -8055,7 +8447,7 @@ class L2Vpn(Entity):
                                 """
                                 Name of the Virtual Forwarding Interface
                                 
-                                .. attribute:: name  <key>
+                                .. attribute:: name  (key)
                                 
                                 	Name of the Virtual Forwarding Interface
                                 	**type**\: str
@@ -8103,14 +8495,17 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "vfis"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"multicast-p2mp" : ("multicast_p2mp", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp), "vfi-pseudowires" : ("vfi_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires), "bgp-auto-discovery" : ("bgp_auto_discovery", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery)}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.vfi_shutdown = YLeaf(YType.empty, "vfi-shutdown")
-
-                                    self.vpnid = YLeaf(YType.uint32, "vpnid")
+                                    self.ylist_key_names = ['name']
+                                    self._child_container_classes = OrderedDict([("multicast-p2mp", ("multicast_p2mp", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp)), ("vfi-pseudowires", ("vfi_pseudowires", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires)), ("bgp-auto-discovery", ("bgp_auto_discovery", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('vfi_shutdown', YLeaf(YType.empty, 'vfi-shutdown')),
+                                        ('vpnid', YLeaf(YType.uint32, 'vpnid')),
+                                    ])
+                                    self.name = None
+                                    self.vfi_shutdown = None
+                                    self.vpnid = None
 
                                     self.multicast_p2mp = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp()
                                     self.multicast_p2mp.parent = self
@@ -8126,7 +8521,7 @@ class L2Vpn(Entity):
                                     self.bgp_auto_discovery.parent = self
                                     self._children_name_map["bgp_auto_discovery"] = "bgp-auto-discovery"
                                     self._children_yang_names.add("bgp-auto-discovery")
-                                    self._segment_path = lambda: "vfi" + "[name='" + self.name.get() + "']"
+                                    self._segment_path = lambda: "vfi" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
@@ -8165,10 +8560,13 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "vfi"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"transports" : ("transports", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports), "signalings" : ("signalings", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings)}
-                                        self._child_list_classes = {}
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("transports", ("transports", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports)), ("signalings", ("signalings", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.enable = None
 
                                         self.transports = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports()
                                         self.transports.parent = self
@@ -8208,8 +8606,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "multicast-p2mp"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"transport" : ("transport", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("transport", ("transport", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport))])
+                                            self._leafs = OrderedDict()
 
                                             self.transport = YList(self)
                                             self._segment_path = lambda: "transports"
@@ -8222,7 +8622,7 @@ class L2Vpn(Entity):
                                             """
                                             Multicast P2MP Transport Type
                                             
-                                            .. attribute:: transport_name  <key>
+                                            .. attribute:: transport_name  (key)
                                             
                                             	Transport Type
                                             	**type**\: str
@@ -8250,13 +8650,16 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "transports"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.transport_name = YLeaf(YType.str, "transport-name")
-
-                                                self.attribute_set_name = YLeaf(YType.str, "attribute-set-name")
-                                                self._segment_path = lambda: "transport" + "[transport-name='" + self.transport_name.get() + "']"
+                                                self.ylist_key_names = ['transport_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('transport_name', YLeaf(YType.str, 'transport-name')),
+                                                    ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                                                ])
+                                                self.transport_name = None
+                                                self.attribute_set_name = None
+                                                self._segment_path = lambda: "transport" + "[transport-name='" + str(self.transport_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
@@ -8285,8 +8688,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "multicast-p2mp"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"signaling" : ("signaling", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("signaling", ("signaling", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling))])
+                                            self._leafs = OrderedDict()
 
                                             self.signaling = YList(self)
                                             self._segment_path = lambda: "signalings"
@@ -8299,7 +8704,7 @@ class L2Vpn(Entity):
                                             """
                                             Multicast P2MP Signaling Type
                                             
-                                            .. attribute:: signaling_name  <key>
+                                            .. attribute:: signaling_name  (key)
                                             
                                             	Signaling Type
                                             	**type**\: str
@@ -8320,11 +8725,14 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "signalings"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.signaling_name = YLeaf(YType.str, "signaling-name")
-                                                self._segment_path = lambda: "signaling" + "[signaling-name='" + self.signaling_name.get() + "']"
+                                                self.ylist_key_names = ['signaling_name']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('signaling_name', YLeaf(YType.str, 'signaling-name')),
+                                                ])
+                                                self.signaling_name = None
+                                                self._segment_path = lambda: "signaling" + "[signaling-name='" + str(self.signaling_name) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling, ['signaling_name'], name, value)
@@ -8353,8 +8761,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "vfi"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"vfi-pseudowire" : ("vfi_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("vfi-pseudowire", ("vfi_pseudowire", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire))])
+                                        self._leafs = OrderedDict()
 
                                         self.vfi_pseudowire = YList(self)
                                         self._segment_path = lambda: "vfi-pseudowires"
@@ -8367,14 +8777,14 @@ class L2Vpn(Entity):
                                         """
                                         Pseudowire configuration
                                         
-                                        .. attribute:: neighbor  <key>
+                                        .. attribute:: neighbor  (key)
                                         
                                         	Neighbor IP address
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: pseudowire_id  <key>
+                                        .. attribute:: pseudowire_id  (key)
                                         
                                         	Pseudowire ID
                                         	**type**\: int
@@ -8431,18 +8841,21 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "vfi-pseudowires"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"vfi-pw-dhcp-snoop" : ("vfi_pw_dhcp_snoop", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop), "vfi-pw-mpls-static-labels" : ("vfi_pw_mpls_static_labels", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels), "pseudowire-static-mac-addresses" : ("pseudowire_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses)}
-                                            self._child_list_classes = {}
-
-                                            self.neighbor = YLeaf(YType.str, "neighbor")
-
-                                            self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                            self.vfi_pw_class = YLeaf(YType.str, "vfi-pw-class")
-
-                                            self.vfi_pw_igmp_snoop = YLeaf(YType.str, "vfi-pw-igmp-snoop")
-
-                                            self.vfi_pw_mld_snoop = YLeaf(YType.str, "vfi-pw-mld-snoop")
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_container_classes = OrderedDict([("vfi-pw-dhcp-snoop", ("vfi_pw_dhcp_snoop", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop)), ("vfi-pw-mpls-static-labels", ("vfi_pw_mpls_static_labels", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels)), ("pseudowire-static-mac-addresses", ("pseudowire_static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
+                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                                ('vfi_pw_class', YLeaf(YType.str, 'vfi-pw-class')),
+                                                ('vfi_pw_igmp_snoop', YLeaf(YType.str, 'vfi-pw-igmp-snoop')),
+                                                ('vfi_pw_mld_snoop', YLeaf(YType.str, 'vfi-pw-mld-snoop')),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.vfi_pw_class = None
+                                            self.vfi_pw_igmp_snoop = None
+                                            self.vfi_pw_mld_snoop = None
 
                                             self.vfi_pw_dhcp_snoop = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
                                             self.vfi_pw_dhcp_snoop.parent = self
@@ -8458,7 +8871,7 @@ class L2Vpn(Entity):
                                             self.pseudowire_static_mac_addresses.parent = self
                                             self._children_name_map["pseudowire_static_mac_addresses"] = "pseudowire-static-mac-addresses"
                                             self._children_yang_names.add("pseudowire-static-mac-addresses")
-                                            self._segment_path = lambda: "vfi-pseudowire" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                                            self._segment_path = lambda: "vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
@@ -8492,12 +8905,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "vfi-pseudowire"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.profile_id = YLeaf(YType.enumeration, "profile-id")
-
-                                                self.dhcp_snooping_id = YLeaf(YType.str, "dhcp-snooping-id")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
+                                                    ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                                ])
+                                                self.profile_id = None
+                                                self.dhcp_snooping_id = None
                                                 self._segment_path = lambda: "vfi-pw-dhcp-snoop"
 
                                             def __setattr__(self, name, value):
@@ -8536,12 +8952,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "vfi-pseudowire"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.local_static_label = YLeaf(YType.uint32, "local-static-label")
-
-                                                self.remote_static_label = YLeaf(YType.uint32, "remote-static-label")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
+                                                    ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                ])
+                                                self.local_static_label = None
+                                                self.remote_static_label = None
                                                 self._segment_path = lambda: "vfi-pw-mpls-static-labels"
 
                                             def __setattr__(self, name, value):
@@ -8571,8 +8990,10 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "vfi-pseudowire"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"pseudowire-static-mac-address" : ("pseudowire_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("pseudowire-static-mac-address", ("pseudowire_static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress))])
+                                                self._leafs = OrderedDict()
 
                                                 self.pseudowire_static_mac_address = YList(self)
                                                 self._segment_path = lambda: "pseudowire-static-mac-addresses"
@@ -8585,7 +9006,7 @@ class L2Vpn(Entity):
                                                 """
                                                 Static Mac Address Configuration
                                                 
-                                                .. attribute:: address  <key>
+                                                .. attribute:: address  (key)
                                                 
                                                 	Static MAC address
                                                 	**type**\: str
@@ -8606,11 +9027,14 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "pseudowire-static-mac-addresses"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.address = YLeaf(YType.str, "address")
-                                                    self._segment_path = lambda: "pseudowire-static-mac-address" + "[address='" + self.address.get() + "']"
+                                                    self.ylist_key_names = ['address']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', YLeaf(YType.str, 'address')),
+                                                    ])
+                                                    self.address = None
+                                                    self._segment_path = lambda: "pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
@@ -8674,14 +9098,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "vfi"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"ldp-signaling-protocol" : ("ldp_signaling_protocol", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol), "bgp-route-policy" : ("bgp_route_policy", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy), "route-distinguisher" : ("route_distinguisher", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher), "bgp-signaling-protocol" : ("bgp_signaling_protocol", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol), "route-targets" : ("route_targets", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets)}
-                                        self._child_list_classes = {}
-
-                                        self.table_policy = YLeaf(YType.str, "table-policy")
-
-                                        self.ad_control_word = YLeaf(YType.empty, "ad-control-word")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("ldp-signaling-protocol", ("ldp_signaling_protocol", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol)), ("bgp-route-policy", ("bgp_route_policy", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy)), ("route-distinguisher", ("route_distinguisher", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher)), ("bgp-signaling-protocol", ("bgp_signaling_protocol", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol)), ("route-targets", ("route_targets", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('table_policy', YLeaf(YType.str, 'table-policy')),
+                                            ('ad_control_word', YLeaf(YType.empty, 'ad-control-word')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.table_policy = None
+                                        self.ad_control_word = None
+                                        self.enable = None
 
                                         self.ldp_signaling_protocol = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol()
                                         self.ldp_signaling_protocol.parent = self
@@ -8747,10 +9174,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bgp-auto-discovery"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"vpls-id" : ("vpls_id", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId), "flow-label-load-balance" : ("flow_label_load_balance", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance)}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("vpls-id", ("vpls_id", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId)), ("flow-label-load-balance", ("flow_label_load_balance", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.enable = None
 
                                             self.vpls_id = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId()
                                             self.vpls_id.parent = self
@@ -8818,18 +9248,21 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "ldp-signaling-protocol"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.type = YLeaf(YType.enumeration, "type")
-
-                                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                                self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                                self.address = YLeaf(YType.str, "address")
-
-                                                self.address_index = YLeaf(YType.uint32, "address-index")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address_index', YLeaf(YType.uint32, 'address-index')),
+                                                ])
+                                                self.type = None
+                                                self.as_ = None
+                                                self.as_index = None
+                                                self.address = None
+                                                self.address_index = None
                                                 self._segment_path = lambda: "vpls-id"
 
                                             def __setattr__(self, name, value):
@@ -8864,12 +9297,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "ldp-signaling-protocol"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.flow_label = YLeaf(YType.enumeration, "flow-label")
-
-                                                self.static = YLeaf(YType.empty, "static")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
+                                                    ('static', YLeaf(YType.empty, 'static')),
+                                                ])
+                                                self.flow_label = None
+                                                self.static = None
                                                 self._segment_path = lambda: "flow-label-load-balance"
 
                                             def __setattr__(self, name, value):
@@ -8899,10 +9335,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bgp-auto-discovery"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.export = YLeaf(YType.str, "export")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('export', YLeaf(YType.str, 'export')),
+                                            ])
+                                            self.export = None
                                             self._segment_path = lambda: "bgp-route-policy"
 
                                         def __setattr__(self, name, value):
@@ -8960,18 +9399,21 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bgp-auto-discovery"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.as_ = YLeaf(YType.uint32, "as")
-
-                                            self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                            self.address = YLeaf(YType.str, "address")
-
-                                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('as_', YLeaf(YType.uint32, 'as')),
+                                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                            ])
+                                            self.type = None
+                                            self.as_ = None
+                                            self.as_index = None
+                                            self.address = None
+                                            self.addr_index = None
                                             self._segment_path = lambda: "route-distinguisher"
 
                                         def __setattr__(self, name, value):
@@ -9021,14 +9463,17 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bgp-auto-discovery"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"flow-label-load-balance" : ("flow_label_load_balance", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance)}
-                                            self._child_list_classes = {}
-
-                                            self.ve_range = YLeaf(YType.uint32, "ve-range")
-
-                                            self.veid = YLeaf(YType.uint32, "veid")
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ve_range', YLeaf(YType.uint32, 've-range')),
+                                                ('veid', YLeaf(YType.uint32, 'veid')),
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.ve_range = None
+                                            self.veid = None
+                                            self.enable = None
 
                                             self.flow_label_load_balance = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance()
                                             self.flow_label_load_balance.parent = self
@@ -9068,12 +9513,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "bgp-signaling-protocol"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.flow_label = YLeaf(YType.enumeration, "flow-label")
-
-                                                self.static = YLeaf(YType.empty, "static")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
+                                                    ('static', YLeaf(YType.empty, 'static')),
+                                                ])
+                                                self.flow_label = None
+                                                self.static = None
                                                 self._segment_path = lambda: "flow-label-load-balance"
 
                                             def __setattr__(self, name, value):
@@ -9103,8 +9551,10 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bgp-auto-discovery"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"route-target" : ("route_target", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget)}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("route-target", ("route_target", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget))])
+                                            self._leafs = OrderedDict()
 
                                             self.route_target = YList(self)
                                             self._segment_path = lambda: "route-targets"
@@ -9117,12 +9567,12 @@ class L2Vpn(Entity):
                                             """
                                             Name of the Route Target
                                             
-                                            .. attribute:: role  <key>
+                                            .. attribute:: role  (key)
                                             
                                             	Role of the router target type
                                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                                             
-                                            .. attribute:: format  <key>
+                                            .. attribute:: format  (key)
                                             
                                             	Format of the route target
                                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
@@ -9151,16 +9601,19 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "route-targets"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"two-byte-as-or-four-byte-as" : ("two_byte_as_or_four_byte_as", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs), "ipv4-address" : ("ipv4_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address)}
-
-                                                self.role = YLeaf(YType.enumeration, "role")
-
-                                                self.format = YLeaf(YType.enumeration, "format")
+                                                self.ylist_key_names = ['role','format']
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("two-byte-as-or-four-byte-as", ("two_byte_as_or_four_byte_as", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs)), ("ipv4-address", ("ipv4_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address))])
+                                                self._leafs = OrderedDict([
+                                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                                ])
+                                                self.role = None
+                                                self.format = None
 
                                                 self.two_byte_as_or_four_byte_as = YList(self)
                                                 self.ipv4_address = YList(self)
-                                                self._segment_path = lambda: "route-target" + "[role='" + self.role.get() + "']" + "[format='" + self.format.get() + "']"
+                                                self._segment_path = lambda: "route-target" + "[role='" + str(self.role) + "']" + "[format='" + str(self.format) + "']"
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
@@ -9170,14 +9623,14 @@ class L2Vpn(Entity):
                                                 """
                                                 two byte as or four byte as
                                                 
-                                                .. attribute:: as_  <key>
+                                                .. attribute:: as_  (key)
                                                 
                                                 	Two byte or 4 byte AS number
                                                 	**type**\: int
                                                 
                                                 	**range:** 1..4294967295
                                                 
-                                                .. attribute:: as_index  <key>
+                                                .. attribute:: as_index  (key)
                                                 
                                                 	AS\:nn (hex or decimal format)
                                                 	**type**\: int
@@ -9198,13 +9651,16 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "route-target"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.as_ = YLeaf(YType.uint32, "as")
-
-                                                    self.as_index = YLeaf(YType.uint32, "as-index")
-                                                    self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + self.as_.get() + "']" + "[as-index='" + self.as_index.get() + "']"
+                                                    self.ylist_key_names = ['as_','as_index']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('as_', YLeaf(YType.uint32, 'as')),
+                                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                                    ])
+                                                    self.as_ = None
+                                                    self.as_index = None
+                                                    self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
@@ -9214,14 +9670,14 @@ class L2Vpn(Entity):
                                                 """
                                                 ipv4 address
                                                 
-                                                .. attribute:: address  <key>
+                                                .. attribute:: address  (key)
                                                 
                                                 	IPV4 address
                                                 	**type**\: str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
-                                                .. attribute:: addr_index  <key>
+                                                .. attribute:: addr_index  (key)
                                                 
                                                 	Addr index
                                                 	**type**\: int
@@ -9242,13 +9698,16 @@ class L2Vpn(Entity):
                                                     self.yang_parent_name = "route-target"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.address = YLeaf(YType.str, "address")
-
-                                                    self.addr_index = YLeaf(YType.uint32, "addr-index")
-                                                    self._segment_path = lambda: "ipv4-address" + "[address='" + self.address.get() + "']" + "[addr-index='" + self.addr_index.get() + "']"
+                                                    self.ylist_key_names = ['address','addr_index']
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', YLeaf(YType.str, 'address')),
+                                                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                                    ])
+                                                    self.address = None
+                                                    self.addr_index = None
+                                                    self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']"
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
@@ -9277,8 +9736,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"bd-attachment-circuit" : ("bd_attachment_circuit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bd-attachment-circuit", ("bd_attachment_circuit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit))])
+                                self._leafs = OrderedDict()
 
                                 self.bd_attachment_circuit = YList(self)
                                 self._segment_path = lambda: "bd-attachment-circuits"
@@ -9291,7 +9752,7 @@ class L2Vpn(Entity):
                                 """
                                 Name of the Attachment Circuit
                                 
-                                .. attribute:: name  <key>
+                                .. attribute:: name  (key)
                                 
                                 	The name of the Attachment Circuit
                                 	**type**\: str
@@ -9371,18 +9832,21 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bd-attachment-circuits"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"interface-ip-source-guard" : ("interface_ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard), "interface-dai" : ("interface_dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai), "interface-profile" : ("interface_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile), "bdac-storm-control-types" : ("bdac_storm_control_types", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes), "split-horizon" : ("split_horizon", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon), "static-mac-addresses" : ("static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses), "interface-mac" : ("interface_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac)}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.interface_flooding = YLeaf(YType.enumeration, "interface-flooding")
-
-                                    self.interface_igmp_snoop = YLeaf(YType.str, "interface-igmp-snoop")
-
-                                    self.interface_flooding_unknown_unicast = YLeaf(YType.enumeration, "interface-flooding-unknown-unicast")
-
-                                    self.interface_mld_snoop = YLeaf(YType.str, "interface-mld-snoop")
+                                    self.ylist_key_names = ['name']
+                                    self._child_container_classes = OrderedDict([("interface-ip-source-guard", ("interface_ip_source_guard", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard)), ("interface-dai", ("interface_dai", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai)), ("interface-profile", ("interface_profile", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile)), ("bdac-storm-control-types", ("bdac_storm_control_types", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes)), ("split-horizon", ("split_horizon", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon)), ("static-mac-addresses", ("static_mac_addresses", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses)), ("interface-mac", ("interface_mac", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('interface_flooding', YLeaf(YType.enumeration, 'interface-flooding')),
+                                        ('interface_igmp_snoop', YLeaf(YType.str, 'interface-igmp-snoop')),
+                                        ('interface_flooding_unknown_unicast', YLeaf(YType.enumeration, 'interface-flooding-unknown-unicast')),
+                                        ('interface_mld_snoop', YLeaf(YType.str, 'interface-mld-snoop')),
+                                    ])
+                                    self.name = None
+                                    self.interface_flooding = None
+                                    self.interface_igmp_snoop = None
+                                    self.interface_flooding_unknown_unicast = None
+                                    self.interface_mld_snoop = None
 
                                     self.interface_ip_source_guard = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
                                     self.interface_ip_source_guard.parent = self
@@ -9418,7 +9882,7 @@ class L2Vpn(Entity):
                                     self.interface_mac.parent = self
                                     self._children_name_map["interface_mac"] = "interface-mac"
                                     self._children_yang_names.add("interface-mac")
-                                    self._segment_path = lambda: "bd-attachment-circuit" + "[name='" + self.name.get() + "']"
+                                    self._segment_path = lambda: "bd-attachment-circuit" + "[name='" + str(self.name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
@@ -9457,14 +9921,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.logging = YLeaf(YType.enumeration, "logging")
-
-                                        self.disable = YLeaf(YType.empty, "disable")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', YLeaf(YType.enumeration, 'logging')),
+                                            ('disable', YLeaf(YType.empty, 'disable')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
                                         self._segment_path = lambda: "interface-ip-source-guard"
 
                                     def __setattr__(self, name, value):
@@ -9509,14 +9976,17 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"interface-dai-address-validation" : ("interface_dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation)}
-                                        self._child_list_classes = {}
-
-                                        self.logging = YLeaf(YType.enumeration, "logging")
-
-                                        self.disable = YLeaf(YType.empty, "disable")
-
-                                        self.enable = YLeaf(YType.empty, "enable")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("interface-dai-address-validation", ("interface_dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', YLeaf(YType.enumeration, 'logging')),
+                                            ('disable', YLeaf(YType.empty, 'disable')),
+                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
 
                                         self.interface_dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation()
                                         self.interface_dai_address_validation.parent = self
@@ -9566,16 +10036,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "interface-dai"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ipv4_verification = YLeaf(YType.enumeration, "ipv4-verification")
-
-                                            self.destination_mac_verification = YLeaf(YType.enumeration, "destination-mac-verification")
-
-                                            self.source_mac_verification = YLeaf(YType.enumeration, "source-mac-verification")
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ipv4_verification', YLeaf(YType.enumeration, 'ipv4-verification')),
+                                                ('destination_mac_verification', YLeaf(YType.enumeration, 'destination-mac-verification')),
+                                                ('source_mac_verification', YLeaf(YType.enumeration, 'source-mac-verification')),
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.ipv4_verification = None
+                                            self.destination_mac_verification = None
+                                            self.source_mac_verification = None
+                                            self.enable = None
                                             self._segment_path = lambda: "interface-dai-address-validation"
 
                                         def __setattr__(self, name, value):
@@ -9610,12 +10083,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.profile_id = YLeaf(YType.enumeration, "profile-id")
-
-                                        self.dhcp_snooping_id = YLeaf(YType.str, "dhcp-snooping-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
+                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "interface-profile"
 
                                     def __setattr__(self, name, value):
@@ -9645,8 +10121,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"bdac-storm-control-type" : ("bdac_storm_control_type", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("bdac-storm-control-type", ("bdac_storm_control_type", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType))])
+                                        self._leafs = OrderedDict()
 
                                         self.bdac_storm_control_type = YList(self)
                                         self._segment_path = lambda: "bdac-storm-control-types"
@@ -9659,7 +10137,7 @@ class L2Vpn(Entity):
                                         """
                                         Storm Control Type
                                         
-                                        .. attribute:: sctype  <key>
+                                        .. attribute:: sctype  (key)
                                         
                                         	Storm Control Type
                                         	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
@@ -9683,16 +10161,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "bdac-storm-control-types"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"storm-control-unit" : ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit)}
-                                            self._child_list_classes = {}
-
-                                            self.sctype = YLeaf(YType.enumeration, "sctype")
+                                            self.ylist_key_names = ['sctype']
+                                            self._child_container_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                            ])
+                                            self.sctype = None
 
                                             self.storm_control_unit = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit()
                                             self.storm_control_unit.parent = self
                                             self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                             self._children_yang_names.add("storm-control-unit")
-                                            self._segment_path = lambda: "bdac-storm-control-type" + "[sctype='" + self.sctype.get() + "']"
+                                            self._segment_path = lambda: "bdac-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
@@ -9734,12 +10215,15 @@ class L2Vpn(Entity):
                                                 self.yang_parent_name = "bdac-storm-control-type"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.kbits_per_sec = YLeaf(YType.uint32, "kbits-per-sec")
-
-                                                self.pkts_per_sec = YLeaf(YType.uint32, "pkts-per-sec")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
+                                                    ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                                ])
+                                                self.kbits_per_sec = None
+                                                self.pkts_per_sec = None
                                                 self._segment_path = lambda: "storm-control-unit"
 
                                             def __setattr__(self, name, value):
@@ -9769,8 +10253,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"split-horizon-group-id" : ("split_horizon_group_id", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("split-horizon-group-id", ("split_horizon_group_id", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.split_horizon_group_id = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId()
                                         self.split_horizon_group_id.parent = self
@@ -9802,10 +10288,13 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "split-horizon"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.enable = None
                                             self._segment_path = lambda: "split-horizon-group-id"
 
                                         def __setattr__(self, name, value):
@@ -9835,8 +10324,10 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"static-mac-address" : ("static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("static-mac-address", ("static_mac_address", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress))])
+                                        self._leafs = OrderedDict()
 
                                         self.static_mac_address = YList(self)
                                         self._segment_path = lambda: "static-mac-addresses"
@@ -9849,7 +10340,7 @@ class L2Vpn(Entity):
                                         """
                                         Static Mac Address Configuration
                                         
-                                        .. attribute:: address  <key>
+                                        .. attribute:: address  (key)
                                         
                                         	Static MAC address
                                         	**type**\: str
@@ -9870,11 +10361,14 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "static-mac-addresses"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.address = YLeaf(YType.str, "address")
-                                            self._segment_path = lambda: "static-mac-address" + "[address='" + self.address.get() + "']"
+                                            self.ylist_key_names = ['address']
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', YLeaf(YType.str, 'address')),
+                                            ])
+                                            self.address = None
+                                            self._segment_path = lambda: "static-mac-address" + "[address='" + str(self.address) + "']"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
@@ -9923,12 +10417,15 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "bd-attachment-circuit"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"interface-mac-aging" : ("interface_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging), "interface-mac-secure" : ("interface_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure), "interface-mac-limit" : ("interface_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit)}
-                                        self._child_list_classes = {}
-
-                                        self.interface_mac_port_down_flush = YLeaf(YType.enumeration, "interface-mac-port-down-flush")
-
-                                        self.interface_mac_learning = YLeaf(YType.enumeration, "interface-mac-learning")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("interface-mac-aging", ("interface_mac_aging", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging)), ("interface-mac-secure", ("interface_mac_secure", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure)), ("interface-mac-limit", ("interface_mac_limit", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('interface_mac_port_down_flush', YLeaf(YType.enumeration, 'interface-mac-port-down-flush')),
+                                            ('interface_mac_learning', YLeaf(YType.enumeration, 'interface-mac-learning')),
+                                        ])
+                                        self.interface_mac_port_down_flush = None
+                                        self.interface_mac_learning = None
 
                                         self.interface_mac_aging = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging()
                                         self.interface_mac_aging.parent = self
@@ -9980,12 +10477,15 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "interface-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_mac_aging_time = YLeaf(YType.uint32, "interface-mac-aging-time")
-
-                                            self.interface_mac_aging_type = YLeaf(YType.enumeration, "interface-mac-aging-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_mac_aging_time', YLeaf(YType.uint32, 'interface-mac-aging-time')),
+                                                ('interface_mac_aging_type', YLeaf(YType.enumeration, 'interface-mac-aging-type')),
+                                            ])
+                                            self.interface_mac_aging_time = None
+                                            self.interface_mac_aging_type = None
                                             self._segment_path = lambda: "interface-mac-aging"
 
                                         def __setattr__(self, name, value):
@@ -10030,16 +10530,19 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "interface-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.logging = YLeaf(YType.enumeration, "logging")
-
-                                            self.disable = YLeaf(YType.empty, "disable")
-
-                                            self.action = YLeaf(YType.enumeration, "action")
-
-                                            self.enable = YLeaf(YType.empty, "enable")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('logging', YLeaf(YType.enumeration, 'logging')),
+                                                ('disable', YLeaf(YType.empty, 'disable')),
+                                                ('action', YLeaf(YType.enumeration, 'action')),
+                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                            ])
+                                            self.logging = None
+                                            self.disable = None
+                                            self.action = None
+                                            self.enable = None
                                             self._segment_path = lambda: "interface-mac-secure"
 
                                         def __setattr__(self, name, value):
@@ -10081,14 +10584,17 @@ class L2Vpn(Entity):
                                             self.yang_parent_name = "interface-mac"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.interface_mac_limit_max = YLeaf(YType.uint32, "interface-mac-limit-max")
-
-                                            self.interface_mac_limit_notif = YLeaf(YType.enumeration, "interface-mac-limit-notif")
-
-                                            self.interface_mac_limit_action = YLeaf(YType.enumeration, "interface-mac-limit-action")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_mac_limit_max', YLeaf(YType.uint32, 'interface-mac-limit-max')),
+                                                ('interface_mac_limit_notif', YLeaf(YType.enumeration, 'interface-mac-limit-notif')),
+                                                ('interface_mac_limit_action', YLeaf(YType.enumeration, 'interface-mac-limit-action')),
+                                            ])
+                                            self.interface_mac_limit_max = None
+                                            self.interface_mac_limit_notif = None
+                                            self.interface_mac_limit_action = None
                                             self._segment_path = lambda: "interface-mac-limit"
 
                                         def __setattr__(self, name, value):
@@ -10118,8 +10624,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"bd-pseudowire-evpn" : ("bd_pseudowire_evpn", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("bd-pseudowire-evpn", ("bd_pseudowire_evpn", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn))])
+                                self._leafs = OrderedDict()
 
                                 self.bd_pseudowire_evpn = YList(self)
                                 self._segment_path = lambda: "bd-pseudowire-evpns"
@@ -10132,14 +10640,14 @@ class L2Vpn(Entity):
                                 """
                                 EVPN Pseudowire configuration
                                 
-                                .. attribute:: eviid  <key>
+                                .. attribute:: eviid  (key)
                                 
                                 	Ethernet VPN ID
                                 	**type**\: int
                                 
                                 	**range:** 1..65534
                                 
-                                .. attribute:: acid  <key>
+                                .. attribute:: acid  (key)
                                 
                                 	AC ID
                                 	**type**\: int
@@ -10160,13 +10668,16 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "bd-pseudowire-evpns"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.eviid = YLeaf(YType.uint32, "eviid")
-
-                                    self.acid = YLeaf(YType.uint32, "acid")
-                                    self._segment_path = lambda: "bd-pseudowire-evpn" + "[eviid='" + self.eviid.get() + "']" + "[acid='" + self.acid.get() + "']"
+                                    self.ylist_key_names = ['eviid','acid']
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                        ('acid', YLeaf(YType.uint32, 'acid')),
+                                    ])
+                                    self.eviid = None
+                                    self.acid = None
+                                    self._segment_path = lambda: "bd-pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[acid='" + str(self.acid) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
@@ -10200,12 +10711,15 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.logging = YLeaf(YType.empty, "logging")
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.logging = None
+                                self.enable = None
                                 self._segment_path = lambda: "ip-source-guard"
 
                             def __setattr__(self, name, value):
@@ -10245,12 +10759,15 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"dai-address-validation" : ("dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation)}
-                                self._child_list_classes = {}
-
-                                self.logging = YLeaf(YType.empty, "logging")
-
-                                self.enable = YLeaf(YType.empty, "enable")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("dai-address-validation", ("dai_address_validation", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                ])
+                                self.logging = None
+                                self.enable = None
 
                                 self.dai_address_validation = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation()
                                 self.dai_address_validation.parent = self
@@ -10300,16 +10817,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "dai"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_verification = YLeaf(YType.empty, "ipv4-verification")
-
-                                    self.destination_mac_verification = YLeaf(YType.empty, "destination-mac-verification")
-
-                                    self.source_mac_verification = YLeaf(YType.empty, "source-mac-verification")
-
-                                    self.enable = YLeaf(YType.empty, "enable")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_verification', YLeaf(YType.empty, 'ipv4-verification')),
+                                        ('destination_mac_verification', YLeaf(YType.empty, 'destination-mac-verification')),
+                                        ('source_mac_verification', YLeaf(YType.empty, 'source-mac-verification')),
+                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                    ])
+                                    self.ipv4_verification = None
+                                    self.destination_mac_verification = None
+                                    self.source_mac_verification = None
+                                    self.enable = None
                                     self._segment_path = lambda: "dai-address-validation"
 
                                 def __setattr__(self, name, value):
@@ -10339,8 +10859,10 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "bridge-domain"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"routed-interface" : ("routed_interface", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface)}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("routed-interface", ("routed_interface", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface))])
+                                self._leafs = OrderedDict()
 
                                 self.routed_interface = YList(self)
                                 self._segment_path = lambda: "routed-interfaces"
@@ -10353,7 +10875,7 @@ class L2Vpn(Entity):
                                 """
                                 Bridge Domain Routed Interface
                                 
-                                .. attribute:: interface_name  <key>
+                                .. attribute:: interface_name  (key)
                                 
                                 	The name of the Routed Interface
                                 	**type**\: str
@@ -10379,16 +10901,19 @@ class L2Vpn(Entity):
                                     self.yang_parent_name = "routed-interfaces"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"routed-interface-split-horizon-group" : ("routed_interface_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup)}
-                                    self._child_list_classes = {}
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_container_classes = OrderedDict([("routed-interface-split-horizon-group", ("routed_interface_split_horizon_group", L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ])
+                                    self.interface_name = None
 
                                     self.routed_interface_split_horizon_group = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup()
                                     self.routed_interface_split_horizon_group.parent = self
                                     self._children_name_map["routed_interface_split_horizon_group"] = "routed-interface-split-horizon-group"
                                     self._children_yang_names.add("routed-interface-split-horizon-group")
-                                    self._segment_path = lambda: "routed-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                    self._segment_path = lambda: "routed-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
@@ -10417,10 +10942,13 @@ class L2Vpn(Entity):
                                         self.yang_parent_name = "routed-interface"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.routed_interface_split_horizon_group_core = YLeaf(YType.empty, "routed-interface-split-horizon-group-core")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('routed_interface_split_horizon_group_core', YLeaf(YType.empty, 'routed-interface-split-horizon-group-core')),
+                                        ])
+                                        self.routed_interface_split_horizon_group_core = None
                                         self._segment_path = lambda: "routed-interface-split-horizon-group"
 
                                     def __setattr__(self, name, value):
@@ -10450,8 +10978,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"pseudowire-class" : ("pseudowire_class", L2Vpn.Database.PseudowireClasses.PseudowireClass)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("pseudowire-class", ("pseudowire_class", L2Vpn.Database.PseudowireClasses.PseudowireClass))])
+                self._leafs = OrderedDict()
 
                 self.pseudowire_class = YList(self)
                 self._segment_path = lambda: "pseudowire-classes"
@@ -10465,7 +10995,7 @@ class L2Vpn(Entity):
                 """
                 Pseudowire class
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Name of the pseudowire class
                 	**type**\: str
@@ -10511,14 +11041,17 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "pseudowire-classes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"l2tpv3-encapsulation" : ("l2tpv3_encapsulation", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation), "backup-disable-delay" : ("backup_disable_delay", L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay), "mpls-encapsulation" : ("mpls_encapsulation", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.mac_withdraw = YLeaf(YType.empty, "mac-withdraw")
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("l2tpv3-encapsulation", ("l2tpv3_encapsulation", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation)), ("backup-disable-delay", ("backup_disable_delay", L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay)), ("mpls-encapsulation", ("mpls_encapsulation", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('mac_withdraw', YLeaf(YType.empty, 'mac-withdraw')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.name = None
+                    self.mac_withdraw = None
+                    self.enable = None
 
                     self.l2tpv3_encapsulation = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation()
                     self.l2tpv3_encapsulation.parent = self
@@ -10534,7 +11067,7 @@ class L2Vpn(Entity):
                     self.mpls_encapsulation.parent = self
                     self._children_name_map["mpls_encapsulation"] = "mpls-encapsulation"
                     self._children_yang_names.add("mpls-encapsulation")
-                    self._segment_path = lambda: "pseudowire-class" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "pseudowire-class" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -10615,20 +11148,23 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "pseudowire-class"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sequencing" : ("sequencing", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing), "type-of-service" : ("type_of_service", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService), "signaling-protocol" : ("signaling_protocol", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol), "path-mtu" : ("path_mtu", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu)}
-                        self._child_list_classes = {}
-
-                        self.df_bit_set = YLeaf(YType.empty, "df-bit-set")
-
-                        self.cookie_size = YLeaf(YType.enumeration, "cookie-size")
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.transport_mode = YLeaf(YType.enumeration, "transport-mode")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.time_to_live = YLeaf(YType.uint32, "time-to-live")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sequencing", ("sequencing", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing)), ("type-of-service", ("type_of_service", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService)), ("signaling-protocol", ("signaling_protocol", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol)), ("path-mtu", ("path_mtu", L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('df_bit_set', YLeaf(YType.empty, 'df-bit-set')),
+                            ('cookie_size', YLeaf(YType.enumeration, 'cookie-size')),
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('time_to_live', YLeaf(YType.uint32, 'time-to-live')),
+                        ])
+                        self.df_bit_set = None
+                        self.cookie_size = None
+                        self.source_address = None
+                        self.transport_mode = None
+                        self.enable = None
+                        self.time_to_live = None
 
                         self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing()
                         self.sequencing.parent = self
@@ -10689,12 +11225,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "l2tpv3-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sequencing = YLeaf(YType.enumeration, "sequencing")
-
-                            self.resync_threshold = YLeaf(YType.uint32, "resync-threshold")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sequencing', YLeaf(YType.enumeration, 'sequencing')),
+                                ('resync_threshold', YLeaf(YType.uint32, 'resync-threshold')),
+                            ])
+                            self.sequencing = None
+                            self.resync_threshold = None
                             self._segment_path = lambda: "sequencing"
 
                         def __setattr__(self, name, value):
@@ -10731,12 +11270,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "l2tpv3-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.type_of_service_value = YLeaf(YType.uint32, "type-of-service-value")
-
-                            self.type_of_service_mode = YLeaf(YType.enumeration, "type-of-service-mode")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type_of_service_value', YLeaf(YType.uint32, 'type-of-service-value')),
+                                ('type_of_service_mode', YLeaf(YType.enumeration, 'type-of-service-mode')),
+                            ])
+                            self.type_of_service_value = None
+                            self.type_of_service_mode = None
                             self._segment_path = lambda: "type-of-service"
 
                         def __setattr__(self, name, value):
@@ -10775,12 +11317,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "l2tpv3-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.protocol = YLeaf(YType.enumeration, "protocol")
-
-                            self.l2tpv3_class_name = YLeaf(YType.str, "l2tpv3-class-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('protocol', YLeaf(YType.enumeration, 'protocol')),
+                                ('l2tpv3_class_name', YLeaf(YType.str, 'l2tpv3-class-name')),
+                            ])
+                            self.protocol = None
+                            self.l2tpv3_class_name = None
                             self._segment_path = lambda: "signaling-protocol"
 
                         def __setattr__(self, name, value):
@@ -10817,12 +11362,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "l2tpv3-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
-
-                            self.max_path_mtu = YLeaf(YType.uint32, "max-path-mtu")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('max_path_mtu', YLeaf(YType.uint32, 'max-path-mtu')),
+                            ])
+                            self.enable = None
+                            self.max_path_mtu = None
                             self._segment_path = lambda: "path-mtu"
 
                         def __setattr__(self, name, value):
@@ -10859,12 +11407,15 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "pseudowire-class"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.disable_backup = YLeaf(YType.uint32, "disable-backup")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('disable_backup', YLeaf(YType.uint32, 'disable-backup')),
+                        ])
+                        self.type = None
+                        self.disable_backup = None
                         self._segment_path = lambda: "backup-disable-delay"
 
                     def __setattr__(self, name, value):
@@ -10957,24 +11508,27 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "pseudowire-class"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sequencing" : ("sequencing", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing), "mpls-redundancy" : ("mpls_redundancy", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy), "preferred-path" : ("preferred_path", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath), "load-balance-group" : ("load_balance_group", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup)}
-                        self._child_list_classes = {}
-
-                        self.pw_switching_tlv = YLeaf(YType.enumeration, "pw-switching-tlv")
-
-                        self.static_tag_rewrite = YLeaf(YType.uint32, "static-tag-rewrite")
-
-                        self.signaling_protocol = YLeaf(YType.enumeration, "signaling-protocol")
-
-                        self.vccv_type = YLeaf(YType.enumeration, "vccv-type")
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.transport_mode = YLeaf(YType.enumeration, "transport-mode")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.control_word = YLeaf(YType.enumeration, "control-word")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sequencing", ("sequencing", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing)), ("mpls-redundancy", ("mpls_redundancy", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy)), ("preferred-path", ("preferred_path", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath)), ("load-balance-group", ("load_balance_group", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pw_switching_tlv', YLeaf(YType.enumeration, 'pw-switching-tlv')),
+                            ('static_tag_rewrite', YLeaf(YType.uint32, 'static-tag-rewrite')),
+                            ('signaling_protocol', YLeaf(YType.enumeration, 'signaling-protocol')),
+                            ('vccv_type', YLeaf(YType.enumeration, 'vccv-type')),
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('control_word', YLeaf(YType.enumeration, 'control-word')),
+                        ])
+                        self.pw_switching_tlv = None
+                        self.static_tag_rewrite = None
+                        self.signaling_protocol = None
+                        self.vccv_type = None
+                        self.source_address = None
+                        self.transport_mode = None
+                        self.enable = None
+                        self.control_word = None
 
                         self.sequencing = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing()
                         self.sequencing.parent = self
@@ -11035,12 +11589,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "mpls-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sequencing = YLeaf(YType.enumeration, "sequencing")
-
-                            self.resync_threshold = YLeaf(YType.uint32, "resync-threshold")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sequencing', YLeaf(YType.enumeration, 'sequencing')),
+                                ('resync_threshold', YLeaf(YType.uint32, 'resync-threshold')),
+                            ])
+                            self.sequencing = None
+                            self.resync_threshold = None
                             self._segment_path = lambda: "sequencing"
 
                         def __setattr__(self, name, value):
@@ -11079,12 +11636,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "mpls-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.redundancy_one_way = YLeaf(YType.empty, "redundancy-one-way")
-
-                            self.redundancy_initial_delay = YLeaf(YType.uint32, "redundancy-initial-delay")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('redundancy_one_way', YLeaf(YType.empty, 'redundancy-one-way')),
+                                ('redundancy_initial_delay', YLeaf(YType.uint32, 'redundancy-initial-delay')),
+                            ])
+                            self.redundancy_one_way = None
+                            self.redundancy_initial_delay = None
                             self._segment_path = lambda: "mpls-redundancy"
 
                         def __setattr__(self, name, value):
@@ -11133,16 +11693,19 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "mpls-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.interface_tunnel_number = YLeaf(YType.uint32, "interface-tunnel-number")
-
-                            self.fallback_disable = YLeaf(YType.empty, "fallback-disable")
-
-                            self.srte_policy = YLeaf(YType.str, "srte-policy")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('interface_tunnel_number', YLeaf(YType.uint32, 'interface-tunnel-number')),
+                                ('fallback_disable', YLeaf(YType.empty, 'fallback-disable')),
+                                ('srte_policy', YLeaf(YType.str, 'srte-policy')),
+                            ])
+                            self.type = None
+                            self.interface_tunnel_number = None
+                            self.fallback_disable = None
+                            self.srte_policy = None
                             self._segment_path = lambda: "preferred-path"
 
                         def __setattr__(self, name, value):
@@ -11182,12 +11745,15 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "mpls-encapsulation"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"flow-label-load-balance" : ("flow_label_load_balance", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance)}
-                            self._child_list_classes = {}
-
-                            self.flow_label_load_balance_code = YLeaf(YType.enumeration, "flow-label-load-balance-code")
-
-                            self.pw_label_load_balance = YLeaf(YType.enumeration, "pw-label-load-balance")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flow_label_load_balance_code', YLeaf(YType.enumeration, 'flow-label-load-balance-code')),
+                                ('pw_label_load_balance', YLeaf(YType.enumeration, 'pw-label-load-balance')),
+                            ])
+                            self.flow_label_load_balance_code = None
+                            self.pw_label_load_balance = None
 
                             self.flow_label_load_balance = L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance()
                             self.flow_label_load_balance.parent = self
@@ -11227,12 +11793,15 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "load-balance-group"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.flow_label = YLeaf(YType.enumeration, "flow-label")
-
-                                self.static = YLeaf(YType.empty, "static")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
+                                    ('static', YLeaf(YType.empty, 'static')),
+                                ])
+                                self.flow_label = None
+                                self.static = None
                                 self._segment_path = lambda: "flow-label-load-balance"
 
                             def __setattr__(self, name, value):
@@ -11267,8 +11836,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"vlan-unaware-flexible-xconnect-services" : ("vlan_unaware_flexible_xconnect_services", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices), "vlan-aware-flexible-xconnect-services" : ("vlan_aware_flexible_xconnect_services", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("vlan-unaware-flexible-xconnect-services", ("vlan_unaware_flexible_xconnect_services", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices)), ("vlan-aware-flexible-xconnect-services", ("vlan_aware_flexible_xconnect_services", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.vlan_unaware_flexible_xconnect_services = L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices()
                 self.vlan_unaware_flexible_xconnect_services.parent = self
@@ -11307,8 +11878,10 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "flexible-xconnect-service-table"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vlan-unaware-flexible-xconnect-service" : ("vlan_unaware_flexible_xconnect_service", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vlan-unaware-flexible-xconnect-service", ("vlan_unaware_flexible_xconnect_service", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService))])
+                    self._leafs = OrderedDict()
 
                     self.vlan_unaware_flexible_xconnect_service = YList(self)
                     self._segment_path = lambda: "vlan-unaware-flexible-xconnect-services"
@@ -11322,7 +11895,7 @@ class L2Vpn(Entity):
                     """
                     Flexible XConnect Service
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Name of the Flexible XConnect Service
                     	**type**\: str
@@ -11353,10 +11926,13 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "vlan-unaware-flexible-xconnect-services"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"vlan-unaware-fxc-attachment-circuits" : ("vlan_unaware_fxc_attachment_circuits", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits), "vlan-unaware-fxc-pseudowire-evpns" : ("vlan_unaware_fxc_pseudowire_evpns", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("vlan-unaware-fxc-attachment-circuits", ("vlan_unaware_fxc_attachment_circuits", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits)), ("vlan-unaware-fxc-pseudowire-evpns", ("vlan_unaware_fxc_pseudowire_evpns", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
                         self.vlan_unaware_fxc_attachment_circuits = L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits()
                         self.vlan_unaware_fxc_attachment_circuits.parent = self
@@ -11367,7 +11943,7 @@ class L2Vpn(Entity):
                         self.vlan_unaware_fxc_pseudowire_evpns.parent = self
                         self._children_name_map["vlan_unaware_fxc_pseudowire_evpns"] = "vlan-unaware-fxc-pseudowire-evpns"
                         self._children_yang_names.add("vlan-unaware-fxc-pseudowire-evpns")
-                        self._segment_path = lambda: "vlan-unaware-flexible-xconnect-service" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "vlan-unaware-flexible-xconnect-service" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -11397,8 +11973,10 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "vlan-unaware-flexible-xconnect-service"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"vlan-unaware-fxc-attachment-circuit" : ("vlan_unaware_fxc_attachment_circuit", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("vlan-unaware-fxc-attachment-circuit", ("vlan_unaware_fxc_attachment_circuit", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit))])
+                            self._leafs = OrderedDict()
 
                             self.vlan_unaware_fxc_attachment_circuit = YList(self)
                             self._segment_path = lambda: "vlan-unaware-fxc-attachment-circuits"
@@ -11411,7 +11989,7 @@ class L2Vpn(Entity):
                             """
                             Attachment circuit interface
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	Name of the attachment circuit interface
                             	**type**\: str
@@ -11432,11 +12010,14 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "vlan-unaware-fxc-attachment-circuits"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "vlan-unaware-fxc-attachment-circuit" + "[name='" + self.name.get() + "']"
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
+                                self._segment_path = lambda: "vlan-unaware-fxc-attachment-circuit" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, ['name'], name, value)
@@ -11465,8 +12046,10 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "vlan-unaware-flexible-xconnect-service"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"vlan-unaware-fxc-pseudowire-evpn" : ("vlan_unaware_fxc_pseudowire_evpn", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("vlan-unaware-fxc-pseudowire-evpn", ("vlan_unaware_fxc_pseudowire_evpn", L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn))])
+                            self._leafs = OrderedDict()
 
                             self.vlan_unaware_fxc_pseudowire_evpn = YList(self)
                             self._segment_path = lambda: "vlan-unaware-fxc-pseudowire-evpns"
@@ -11479,14 +12062,14 @@ class L2Vpn(Entity):
                             """
                             EVPN FXC Service Configuration
                             
-                            .. attribute:: eviid  <key>
+                            .. attribute:: eviid  (key)
                             
                             	Ethernet VPN ID
                             	**type**\: int
                             
                             	**range:** 1..65534
                             
-                            .. attribute:: acid  <key>
+                            .. attribute:: acid  (key)
                             
                             	AC ID
                             	**type**\: int
@@ -11507,13 +12090,16 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "vlan-unaware-fxc-pseudowire-evpns"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.eviid = YLeaf(YType.uint32, "eviid")
-
-                                self.acid = YLeaf(YType.uint32, "acid")
-                                self._segment_path = lambda: "vlan-unaware-fxc-pseudowire-evpn" + "[eviid='" + self.eviid.get() + "']" + "[acid='" + self.acid.get() + "']"
+                                self.ylist_key_names = ['eviid','acid']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                    ('acid', YLeaf(YType.uint32, 'acid')),
+                                ])
+                                self.eviid = None
+                                self.acid = None
+                                self._segment_path = lambda: "vlan-unaware-fxc-pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[acid='" + str(self.acid) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, ['eviid', 'acid'], name, value)
@@ -11542,8 +12128,10 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "flexible-xconnect-service-table"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vlan-aware-flexible-xconnect-service" : ("vlan_aware_flexible_xconnect_service", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("vlan-aware-flexible-xconnect-service", ("vlan_aware_flexible_xconnect_service", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService))])
+                    self._leafs = OrderedDict()
 
                     self.vlan_aware_flexible_xconnect_service = YList(self)
                     self._segment_path = lambda: "vlan-aware-flexible-xconnect-services"
@@ -11557,7 +12145,7 @@ class L2Vpn(Entity):
                     """
                     Flexible XConnect Service
                     
-                    .. attribute:: eviid  <key>
+                    .. attribute:: eviid  (key)
                     
                     	Ethernet VPN ID
                     	**type**\: int
@@ -11583,16 +12171,19 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "vlan-aware-flexible-xconnect-services"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"vlan-aware-fxc-attachment-circuits" : ("vlan_aware_fxc_attachment_circuits", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits)}
-                        self._child_list_classes = {}
-
-                        self.eviid = YLeaf(YType.uint32, "eviid")
+                        self.ylist_key_names = ['eviid']
+                        self._child_container_classes = OrderedDict([("vlan-aware-fxc-attachment-circuits", ("vlan_aware_fxc_attachment_circuits", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('eviid', YLeaf(YType.uint32, 'eviid')),
+                        ])
+                        self.eviid = None
 
                         self.vlan_aware_fxc_attachment_circuits = L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits()
                         self.vlan_aware_fxc_attachment_circuits.parent = self
                         self._children_name_map["vlan_aware_fxc_attachment_circuits"] = "vlan-aware-fxc-attachment-circuits"
                         self._children_yang_names.add("vlan-aware-fxc-attachment-circuits")
-                        self._segment_path = lambda: "vlan-aware-flexible-xconnect-service" + "[eviid='" + self.eviid.get() + "']"
+                        self._segment_path = lambda: "vlan-aware-flexible-xconnect-service" + "[eviid='" + str(self.eviid) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-aware-flexible-xconnect-services/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -11622,8 +12213,10 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "vlan-aware-flexible-xconnect-service"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"vlan-aware-fxc-attachment-circuit" : ("vlan_aware_fxc_attachment_circuit", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("vlan-aware-fxc-attachment-circuit", ("vlan_aware_fxc_attachment_circuit", L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit))])
+                            self._leafs = OrderedDict()
 
                             self.vlan_aware_fxc_attachment_circuit = YList(self)
                             self._segment_path = lambda: "vlan-aware-fxc-attachment-circuits"
@@ -11636,7 +12229,7 @@ class L2Vpn(Entity):
                             """
                             Attachment circuit interface
                             
-                            .. attribute:: name  <key>
+                            .. attribute:: name  (key)
                             
                             	Name of the attachment circuit interface
                             	**type**\: str
@@ -11657,11 +12250,14 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "vlan-aware-fxc-attachment-circuits"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "vlan-aware-fxc-attachment-circuit" + "[name='" + self.name.get() + "']"
+                                self.ylist_key_names = ['name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('name', YLeaf(YType.str, 'name')),
+                                ])
+                                self.name = None
+                                self._segment_path = lambda: "vlan-aware-fxc-attachment-circuit" + "[name='" + str(self.name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, ['name'], name, value)
@@ -11695,10 +12291,13 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "database"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"iccp-redundancy-groups" : ("iccp_redundancy_groups", L2Vpn.Database.Redundancy.IccpRedundancyGroups)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("iccp-redundancy-groups", ("iccp_redundancy_groups", L2Vpn.Database.Redundancy.IccpRedundancyGroups))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.iccp_redundancy_groups = L2Vpn.Database.Redundancy.IccpRedundancyGroups()
                 self.iccp_redundancy_groups.parent = self
@@ -11735,8 +12334,10 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "redundancy"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"iccp-redundancy-group" : ("iccp_redundancy_group", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("iccp-redundancy-group", ("iccp_redundancy_group", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup))])
+                    self._leafs = OrderedDict()
 
                     self.iccp_redundancy_group = YList(self)
                     self._segment_path = lambda: "iccp-redundancy-groups"
@@ -11750,7 +12351,7 @@ class L2Vpn(Entity):
                     """
                     ICCP Redundancy group
                     
-                    .. attribute:: group_id  <key>
+                    .. attribute:: group_id  (key)
                     
                     	Group ID
                     	**type**\: int
@@ -11783,18 +12384,21 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "iccp-redundancy-groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"iccp-interfaces" : ("iccp_interfaces", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces)}
-                        self._child_list_classes = {}
-
-                        self.group_id = YLeaf(YType.uint32, "group-id")
-
-                        self.multi_homing_node_id = YLeaf(YType.uint32, "multi-homing-node-id")
+                        self.ylist_key_names = ['group_id']
+                        self._child_container_classes = OrderedDict([("iccp-interfaces", ("iccp_interfaces", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('group_id', YLeaf(YType.uint32, 'group-id')),
+                            ('multi_homing_node_id', YLeaf(YType.uint32, 'multi-homing-node-id')),
+                        ])
+                        self.group_id = None
+                        self.multi_homing_node_id = None
 
                         self.iccp_interfaces = L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces()
                         self.iccp_interfaces.parent = self
                         self._children_name_map["iccp_interfaces"] = "iccp-interfaces"
                         self._children_yang_names.add("iccp-interfaces")
-                        self._segment_path = lambda: "iccp-redundancy-group" + "[group-id='" + self.group_id.get() + "']"
+                        self._segment_path = lambda: "iccp-redundancy-group" + "[group-id='" + str(self.group_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/iccp-redundancy-groups/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -11824,8 +12428,10 @@ class L2Vpn(Entity):
                             self.yang_parent_name = "iccp-redundancy-group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"iccp-interface" : ("iccp_interface", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("iccp-interface", ("iccp_interface", L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface))])
+                            self._leafs = OrderedDict()
 
                             self.iccp_interface = YList(self)
                             self._segment_path = lambda: "iccp-interfaces"
@@ -11838,7 +12444,7 @@ class L2Vpn(Entity):
                             """
                             Interface name
                             
-                            .. attribute:: interface_name  <key>
+                            .. attribute:: interface_name  (key)
                             
                             	Interface name
                             	**type**\: str
@@ -11883,19 +12489,22 @@ class L2Vpn(Entity):
                                 self.yang_parent_name = "iccp-interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.secondary_vlan_range = YLeaf(YType.str, "secondary-vlan-range")
-
-                                self.recovery_delay = YLeaf(YType.uint32, "recovery-delay")
-
-                                self.primary_vlan_range = YLeaf(YType.str, "primary-vlan-range")
-
-                                self.mac_flush_tcn = YLeaf(YType.empty, "mac-flush-tcn")
-                                self._segment_path = lambda: "iccp-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                self.ylist_key_names = ['interface_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('secondary_vlan_range', YLeaf(YType.str, 'secondary-vlan-range')),
+                                    ('recovery_delay', YLeaf(YType.uint32, 'recovery-delay')),
+                                    ('primary_vlan_range', YLeaf(YType.str, 'primary-vlan-range')),
+                                    ('mac_flush_tcn', YLeaf(YType.empty, 'mac-flush-tcn')),
+                                ])
+                                self.interface_name = None
+                                self.secondary_vlan_range = None
+                                self.recovery_delay = None
+                                self.primary_vlan_range = None
+                                self.mac_flush_tcn = None
+                                self._segment_path = lambda: "iccp-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, ['interface_name', 'secondary_vlan_range', 'recovery_delay', 'primary_vlan_range', 'mac_flush_tcn'], name, value)
@@ -11926,10 +12535,13 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.backbone_source_mac = YLeaf(YType.str, "backbone-source-mac")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('backbone_source_mac', YLeaf(YType.str, 'backbone-source-mac')),
+            ])
+            self.backbone_source_mac = None
             self._segment_path = lambda: "pbb"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
 
@@ -11960,8 +12572,10 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"bgp-signaling" : ("bgp_signaling", L2Vpn.AutoDiscovery.BgpSignaling)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("bgp-signaling", ("bgp_signaling", L2Vpn.AutoDiscovery.BgpSignaling))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.bgp_signaling = L2Vpn.AutoDiscovery.BgpSignaling()
             self.bgp_signaling.parent = self
@@ -11994,10 +12608,13 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "auto-discovery"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mtu_mismatch_ignore = YLeaf(YType.empty, "mtu-mismatch-ignore")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('mtu_mismatch_ignore', YLeaf(YType.empty, 'mtu-mismatch-ignore')),
+                ])
+                self.mtu_mismatch_ignore = None
                 self._segment_path = lambda: "bgp-signaling"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/auto-discovery/%s" % self._segment_path()
 
@@ -12028,8 +12645,10 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"logging" : ("logging", L2Vpn.Utility.Logging)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("logging", ("logging", L2Vpn.Utility.Logging))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.logging = L2Vpn.Utility.Logging()
             self.logging.parent = self
@@ -12082,18 +12701,21 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "utility"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.bridge_domain_state_change = YLeaf(YType.empty, "bridge-domain-state-change")
-
-                self.pseudowire_state_change = YLeaf(YType.empty, "pseudowire-state-change")
-
-                self.vfi = YLeaf(YType.empty, "vfi")
-
-                self.nsr_state_change = YLeaf(YType.empty, "nsr-state-change")
-
-                self.pwhe_replication_state_change = YLeaf(YType.empty, "pwhe-replication-state-change")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('bridge_domain_state_change', YLeaf(YType.empty, 'bridge-domain-state-change')),
+                    ('pseudowire_state_change', YLeaf(YType.empty, 'pseudowire-state-change')),
+                    ('vfi', YLeaf(YType.empty, 'vfi')),
+                    ('nsr_state_change', YLeaf(YType.empty, 'nsr-state-change')),
+                    ('pwhe_replication_state_change', YLeaf(YType.empty, 'pwhe-replication-state-change')),
+                ])
+                self.bridge_domain_state_change = None
+                self.pseudowire_state_change = None
+                self.vfi = None
+                self.nsr_state_change = None
+                self.pwhe_replication_state_change = None
                 self._segment_path = lambda: "logging"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/utility/%s" % self._segment_path()
 
@@ -12124,8 +12746,10 @@ class L2Vpn(Entity):
             self.yang_parent_name = "l2vpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"mib" : ("mib", L2Vpn.Snmp.Mib)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("mib", ("mib", L2Vpn.Snmp.Mib))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.mib = L2Vpn.Snmp.Mib()
             self.mib.parent = self
@@ -12163,8 +12787,10 @@ class L2Vpn(Entity):
                 self.yang_parent_name = "snmp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"mib-interface" : ("mib_interface", L2Vpn.Snmp.Mib.MibInterface), "mib-pseudowire" : ("mib_pseudowire", L2Vpn.Snmp.Mib.MibPseudowire)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("mib-interface", ("mib_interface", L2Vpn.Snmp.Mib.MibInterface)), ("mib-pseudowire", ("mib_pseudowire", L2Vpn.Snmp.Mib.MibPseudowire))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.mib_interface = L2Vpn.Snmp.Mib.MibInterface()
                 self.mib_interface.parent = self
@@ -12202,8 +12828,10 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "mib"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"format" : ("format", L2Vpn.Snmp.Mib.MibInterface.Format)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("format", ("format", L2Vpn.Snmp.Mib.MibInterface.Format))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.format = L2Vpn.Snmp.Mib.MibInterface.Format()
                     self.format.parent = self
@@ -12236,10 +12864,13 @@ class L2Vpn(Entity):
                         self.yang_parent_name = "mib-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.external_interface_format = YLeaf(YType.empty, "external-interface-format")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('external_interface_format', YLeaf(YType.empty, 'external-interface-format')),
+                        ])
+                        self.external_interface_format = None
                         self._segment_path = lambda: "format"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/mib-interface/%s" % self._segment_path()
 
@@ -12270,10 +12901,13 @@ class L2Vpn(Entity):
                     self.yang_parent_name = "mib"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.statistics = YLeaf(YType.empty, "statistics")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('statistics', YLeaf(YType.empty, 'statistics')),
+                    ])
+                    self.statistics = None
                     self._segment_path = lambda: "mib-pseudowire"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/%s" % self._segment_path()
 
@@ -12288,10 +12922,10 @@ class GenericInterfaceLists(Entity):
     """
     generic interface lists
     
-    .. attribute:: generic_interface
+    .. attribute:: generic_interface_list
     
-    	Bridge group
-    	**type**\: list of  		 :py:class:`GenericInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface>`
+    	Generic interface list
+    	**type**\: list of  		 :py:class:`GenericInterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterfaceList>`
     
     
 
@@ -12308,21 +12942,23 @@ class GenericInterfaceLists(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2vpn-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"generic-interface" : ("generic_interface", GenericInterfaceLists.GenericInterface)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("generic-interface-list", ("generic_interface_list", GenericInterfaceLists.GenericInterfaceList))])
+        self._leafs = OrderedDict()
 
-        self.generic_interface = YList(self)
+        self.generic_interface_list = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists"
 
     def __setattr__(self, name, value):
         self._perform_setattr(GenericInterfaceLists, [], name, value)
 
 
-    class GenericInterface(Entity):
+    class GenericInterfaceList(Entity):
         """
-        Bridge group
+        Generic interface list
         
-        .. attribute:: generic_interface_list_name  <key>
+        .. attribute:: generic_interface_list_name  (key)
         
         	Name of the interface list
         	**type**\: str
@@ -12332,7 +12968,7 @@ class GenericInterfaceLists(Entity):
         .. attribute:: interfaces
         
         	Interface table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces>`
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterfaceList.Interfaces>`
         
         .. attribute:: enable
         
@@ -12347,28 +12983,31 @@ class GenericInterfaceLists(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(GenericInterfaceLists.GenericInterface, self).__init__()
+            super(GenericInterfaceLists.GenericInterfaceList, self).__init__()
 
-            self.yang_name = "generic-interface"
+            self.yang_name = "generic-interface-list"
             self.yang_parent_name = "generic-interface-lists"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", GenericInterfaceLists.GenericInterface.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = ['generic_interface_list_name']
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", GenericInterfaceLists.GenericInterfaceList.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('generic_interface_list_name', YLeaf(YType.str, 'generic-interface-list-name')),
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.generic_interface_list_name = None
+            self.enable = None
 
-            self.generic_interface_list_name = YLeaf(YType.str, "generic-interface-list-name")
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.interfaces = GenericInterfaceLists.GenericInterface.Interfaces()
+            self.interfaces = GenericInterfaceLists.GenericInterfaceList.Interfaces()
             self.interfaces.parent = self
             self._children_name_map["interfaces"] = "interfaces"
             self._children_yang_names.add("interfaces")
-            self._segment_path = lambda: "generic-interface" + "[generic-interface-list-name='" + self.generic_interface_list_name.get() + "']"
+            self._segment_path = lambda: "generic-interface-list" + "[generic-interface-list-name='" + str(self.generic_interface_list_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GenericInterfaceLists.GenericInterface, ['generic_interface_list_name', 'enable'], name, value)
+            self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, ['generic_interface_list_name', 'enable'], name, value)
 
 
         class Interfaces(Entity):
@@ -12378,7 +13017,7 @@ class GenericInterfaceLists(Entity):
             .. attribute:: interface
             
             	Interface
-            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces.Interface>`
+            	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface>`
             
             
 
@@ -12388,27 +13027,29 @@ class GenericInterfaceLists(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(GenericInterfaceLists.GenericInterface.Interfaces, self).__init__()
+                super(GenericInterfaceLists.GenericInterfaceList.Interfaces, self).__init__()
 
                 self.yang_name = "interfaces"
-                self.yang_parent_name = "generic-interface"
+                self.yang_parent_name = "generic-interface-list"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", GenericInterfaceLists.GenericInterface.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(GenericInterfaceLists.GenericInterface.Interfaces, [], name, value)
+                self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces, [], name, value)
 
 
             class Interface(Entity):
                 """
                 Interface
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Name of the interface
                 	**type**\: str
@@ -12428,22 +13069,25 @@ class GenericInterfaceLists(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(GenericInterfaceLists.GenericInterface.Interfaces.Interface, self).__init__()
+                    super(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.interface_name = None
+                    self.enable = None
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(GenericInterfaceLists.GenericInterface.Interfaces.Interface, ['interface_name', 'enable'], name, value)
+                    self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GenericInterfaceLists()
@@ -12478,10 +13122,13 @@ class Evpn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-l2vpn-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"evpn-tables" : ("evpn_tables", Evpn.EvpnTables)}
-        self._child_list_classes = {}
-
-        self.enable = YLeaf(YType.empty, "enable")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("evpn-tables", ("evpn_tables", Evpn.EvpnTables))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable', YLeaf(YType.empty, 'enable')),
+        ])
+        self.enable = None
 
         self.evpn_tables = Evpn.EvpnTables()
         self.evpn_tables.parent = self
@@ -12587,14 +13234,17 @@ class Evpn(Entity):
             self.yang_parent_name = "evpn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"evpn-timers" : ("evpn_timers", Evpn.EvpnTables.EvpnTimers), "evpnmac" : ("evpnmac", Evpn.EvpnTables.Evpnmac), "evpnevis" : ("evpnevis", Evpn.EvpnTables.Evpnevis), "evpn-virtual-access-vfis" : ("evpn_virtual_access_vfis", Evpn.EvpnTables.EvpnVirtualAccessVfis), "evpn-load-balancing" : ("evpn_load_balancing", Evpn.EvpnTables.EvpnLoadBalancing), "evpn-bgp-auto-discovery" : ("evpn_bgp_auto_discovery", Evpn.EvpnTables.EvpnBgpAutoDiscovery), "evpn-instances" : ("evpn_instances", Evpn.EvpnTables.EvpnInstances), "evpn-logging" : ("evpn_logging", Evpn.EvpnTables.EvpnLogging), "evpn-interfaces" : ("evpn_interfaces", Evpn.EvpnTables.EvpnInterfaces), "evpn-virtual-access-pws" : ("evpn_virtual_access_pws", Evpn.EvpnTables.EvpnVirtualAccessPws), "evpn-ethernet-segment" : ("evpn_ethernet_segment", Evpn.EvpnTables.EvpnEthernetSegment)}
-            self._child_list_classes = {}
-
-            self.evi_cost_out = YLeaf(YType.empty, "evi-cost-out")
-
-            self.evpn_source_interface = YLeaf(YType.str, "evpn-source-interface")
-
-            self.evpn_cost_in_startup = YLeaf(YType.uint32, "evpn-cost-in-startup")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("evpn-timers", ("evpn_timers", Evpn.EvpnTables.EvpnTimers)), ("evpnmac", ("evpnmac", Evpn.EvpnTables.Evpnmac)), ("evpnevis", ("evpnevis", Evpn.EvpnTables.Evpnevis)), ("evpn-virtual-access-vfis", ("evpn_virtual_access_vfis", Evpn.EvpnTables.EvpnVirtualAccessVfis)), ("evpn-load-balancing", ("evpn_load_balancing", Evpn.EvpnTables.EvpnLoadBalancing)), ("evpn-bgp-auto-discovery", ("evpn_bgp_auto_discovery", Evpn.EvpnTables.EvpnBgpAutoDiscovery)), ("evpn-instances", ("evpn_instances", Evpn.EvpnTables.EvpnInstances)), ("evpn-logging", ("evpn_logging", Evpn.EvpnTables.EvpnLogging)), ("evpn-interfaces", ("evpn_interfaces", Evpn.EvpnTables.EvpnInterfaces)), ("evpn-virtual-access-pws", ("evpn_virtual_access_pws", Evpn.EvpnTables.EvpnVirtualAccessPws)), ("evpn-ethernet-segment", ("evpn_ethernet_segment", Evpn.EvpnTables.EvpnEthernetSegment))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('evi_cost_out', YLeaf(YType.empty, 'evi-cost-out')),
+                ('evpn_source_interface', YLeaf(YType.str, 'evpn-source-interface')),
+                ('evpn_cost_in_startup', YLeaf(YType.uint32, 'evpn-cost-in-startup')),
+            ])
+            self.evi_cost_out = None
+            self.evpn_source_interface = None
+            self.evpn_cost_in_startup = None
 
             self.evpn_timers = Evpn.EvpnTables.EvpnTimers()
             self.evpn_timers.parent = self
@@ -12661,6 +13311,15 @@ class Evpn(Entity):
             """
             Enter EVPN timers configuration submode
             
+            .. attribute:: evpn_carving
+            
+            	Global Carving timer
+            	**type**\: int
+            
+            	**range:** 0..10
+            
+            	**default value**\: 0
+            
             .. attribute:: evpn_recovery
             
             	Global Recovery timer
@@ -12698,19 +13357,24 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.evpn_recovery = YLeaf(YType.uint32, "evpn-recovery")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.evpn_peering = YLeaf(YType.uint32, "evpn-peering")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('evpn_carving', YLeaf(YType.uint32, 'evpn-carving')),
+                    ('evpn_recovery', YLeaf(YType.uint32, 'evpn-recovery')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('evpn_peering', YLeaf(YType.uint32, 'evpn-peering')),
+                ])
+                self.evpn_carving = None
+                self.evpn_recovery = None
+                self.enable = None
+                self.evpn_peering = None
                 self._segment_path = lambda: "evpn-timers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_recovery', 'enable', 'evpn_peering'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
 
 
         class Evpnmac(Entity):
@@ -12741,10 +13405,13 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"evpnmac-secure" : ("evpnmac_secure", Evpn.EvpnTables.Evpnmac.EvpnmacSecure)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("evpnmac-secure", ("evpnmac_secure", Evpn.EvpnTables.Evpnmac.EvpnmacSecure))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.evpnmac_secure = Evpn.EvpnTables.Evpnmac.EvpnmacSecure()
                 self.evpnmac_secure.parent = self
@@ -12808,18 +13475,21 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpnmac"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.evpnmac_secure_freeze_time = YLeaf(YType.uint32, "evpnmac-secure-freeze-time")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.evpnmac_secure_retry_count = YLeaf(YType.uint32, "evpnmac-secure-retry-count")
-
-                    self.evpnmac_secure_move_count = YLeaf(YType.uint32, "evpnmac-secure-move-count")
-
-                    self.evpnmac_secure_move_interval = YLeaf(YType.uint32, "evpnmac-secure-move-interval")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('evpnmac_secure_freeze_time', YLeaf(YType.uint32, 'evpnmac-secure-freeze-time')),
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('evpnmac_secure_retry_count', YLeaf(YType.uint32, 'evpnmac-secure-retry-count')),
+                        ('evpnmac_secure_move_count', YLeaf(YType.uint32, 'evpnmac-secure-move-count')),
+                        ('evpnmac_secure_move_interval', YLeaf(YType.uint32, 'evpnmac-secure-move-interval')),
+                    ])
+                    self.evpnmac_secure_freeze_time = None
+                    self.enable = None
+                    self.evpnmac_secure_retry_count = None
+                    self.evpnmac_secure_move_count = None
+                    self.evpnmac_secure_move_interval = None
                     self._segment_path = lambda: "evpnmac-secure"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnmac/%s" % self._segment_path()
 
@@ -12850,8 +13520,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evpnevi" : ("evpnevi", Evpn.EvpnTables.Evpnevis.Evpnevi)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evpnevi", ("evpnevi", Evpn.EvpnTables.Evpnevis.Evpnevi))])
+                self._leafs = OrderedDict()
 
                 self.evpnevi = YList(self)
                 self._segment_path = lambda: "evpnevis"
@@ -12865,7 +13537,7 @@ class Evpn(Entity):
                 """
                 Enter EVPN Instance configuration submode
                 
-                .. attribute:: eviid  <key>
+                .. attribute:: eviid  (key)
                 
                 	EVI ID
                 	**type**\: int
@@ -12904,6 +13576,11 @@ class Evpn(Entity):
                 
                 	**length:** 1..64
                 
+                .. attribute:: evi_ecmp_disable
+                
+                	Disable ECMP on the EVI
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: evi_unknown_unicast_flooding_disable
                 
                 	Disable Unknown Unicast Flooding on this EVI
@@ -12928,20 +13605,25 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpnevis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"evi-load-balancing" : ("evi_load_balancing", Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing), "evpnev-ibgp-auto-discovery" : ("evpnev_ibgp_auto_discovery", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery), "evi-advertise-mac" : ("evi_advertise_mac", Evpn.EvpnTables.Evpnevis.Evpnevi.EviAdvertiseMac)}
-                    self._child_list_classes = {}
-
-                    self.eviid = YLeaf(YType.uint32, "eviid")
-
-                    self.evi_reorig_disable = YLeaf(YType.empty, "evi-reorig-disable")
-
-                    self.evi_advertise_mac_deprecated = YLeaf(YType.empty, "evi-advertise-mac-deprecated")
-
-                    self.evpnevi_description = YLeaf(YType.str, "evpnevi-description")
-
-                    self.evi_unknown_unicast_flooding_disable = YLeaf(YType.empty, "evi-unknown-unicast-flooding-disable")
-
-                    self.evpn_evi_cw_disable = YLeaf(YType.empty, "evpn-evi-cw-disable")
+                    self.ylist_key_names = ['eviid']
+                    self._child_container_classes = OrderedDict([("evi-load-balancing", ("evi_load_balancing", Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing)), ("evpnev-ibgp-auto-discovery", ("evpnev_ibgp_auto_discovery", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery)), ("evi-advertise-mac", ("evi_advertise_mac", Evpn.EvpnTables.Evpnevis.Evpnevi.EviAdvertiseMac))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                        ('evi_reorig_disable', YLeaf(YType.empty, 'evi-reorig-disable')),
+                        ('evi_advertise_mac_deprecated', YLeaf(YType.empty, 'evi-advertise-mac-deprecated')),
+                        ('evpnevi_description', YLeaf(YType.str, 'evpnevi-description')),
+                        ('evi_ecmp_disable', YLeaf(YType.empty, 'evi-ecmp-disable')),
+                        ('evi_unknown_unicast_flooding_disable', YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable')),
+                        ('evpn_evi_cw_disable', YLeaf(YType.empty, 'evpn-evi-cw-disable')),
+                    ])
+                    self.eviid = None
+                    self.evi_reorig_disable = None
+                    self.evi_advertise_mac_deprecated = None
+                    self.evpnevi_description = None
+                    self.evi_ecmp_disable = None
+                    self.evi_unknown_unicast_flooding_disable = None
+                    self.evpn_evi_cw_disable = None
 
                     self.evi_load_balancing = Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing()
                     self.evi_load_balancing.parent = self
@@ -12957,11 +13639,11 @@ class Evpn(Entity):
                     self.evi_advertise_mac.parent = self
                     self._children_name_map["evi_advertise_mac"] = "evi-advertise-mac"
                     self._children_yang_names.add("evi-advertise-mac")
-                    self._segment_path = lambda: "evpnevi" + "[eviid='" + self.eviid.get() + "']"
+                    self._segment_path = lambda: "evpnevi" + "[eviid='" + str(self.eviid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnevis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi, ['eviid', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpnevi_description', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi, ['eviid', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpnevi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EviLoadBalancing(Entity):
@@ -12973,9 +13655,9 @@ class Evpn(Entity):
                     	Enable Loadbalancing
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
-                    .. attribute:: evi_flow_label
+                    .. attribute:: evi_static_flow_label
                     
-                    	Enable Flow Label based load balancing
+                    	Enable Static Flow Label based load balancing
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
@@ -12992,16 +13674,19 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpnevi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.evi_flow_label = YLeaf(YType.empty, "evi-flow-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evi_static_flow_label', YLeaf(YType.empty, 'evi-static-flow-label')),
+                        ])
+                        self.enable = None
+                        self.evi_static_flow_label = None
                         self._segment_path = lambda: "evi-load-balancing"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing, ['enable', 'evi_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
                 class EvpnevIbgpAutoDiscovery(Entity):
@@ -13042,12 +13727,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpnevi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"evpn-route-distinguisher" : ("evpn_route_distinguisher", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteDistinguisher), "evpn-route-targets" : ("evpn_route_targets", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets)}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.table_policy = YLeaf(YType.str, "table-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteDistinguisher)), ("evpn-route-targets", ("evpn_route_targets", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('table_policy', YLeaf(YType.str, 'table-policy')),
+                        ])
+                        self.enable = None
+                        self.table_policy = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -13115,18 +13803,21 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpnev-ibgp-auto-discovery"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.as_ = YLeaf(YType.uint32, "as")
-
-                            self.as_index = YLeaf(YType.uint32, "as-index")
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('as_', YLeaf(YType.uint32, 'as')),
+                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                            ])
+                            self.type = None
+                            self.as_ = None
+                            self.as_index = None
+                            self.address = None
+                            self.addr_index = None
                             self._segment_path = lambda: "evpn-route-distinguisher"
 
                         def __setattr__(self, name, value):
@@ -13166,8 +13857,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpnev-ibgp-auto-discovery"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"evpn-route-target-as" : ("evpn_route_target_as", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs), "evpn-route-target-none" : ("evpn_route_target_none", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone), "evpn-route-target-ipv4-address" : ("evpn_route_target_ipv4_address", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("evpn-route-target-as", ("evpn_route_target_as", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs)), ("evpn-route-target-none", ("evpn_route_target_none", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone)), ("evpn-route-target-ipv4-address", ("evpn_route_target_ipv4_address", Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address))])
+                            self._leafs = OrderedDict()
 
                             self.evpn_route_target_as = YList(self)
                             self.evpn_route_target_none = YList(self)
@@ -13182,31 +13875,31 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: as_  <key>
+                            .. attribute:: as_  (key)
                             
                             	Two byte or 4 byte AS number
                             	**type**\: int
                             
                             	**range:** 1..4294967295
                             
-                            .. attribute:: as_index  <key>
+                            .. attribute:: as_index  (key)
                             
                             	AS\:nn (hex or decimal format)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -13225,19 +13918,22 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-as" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[as='" + self.as_.get() + "']" + "[as-index='" + self.as_index.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','as_','as_index','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.as_ = None
+                                self.as_index = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-as" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
@@ -13247,17 +13943,17 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -13276,15 +13972,18 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-none" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-none" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
@@ -13294,31 +13993,31 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: address  <key>
+                            .. attribute:: address  (key)
                             
                             	IPV4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: addr_index  <key>
+                            .. attribute:: addr_index  (key)
                             
                             	Addr index
                             	**type**\: int
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -13337,19 +14036,22 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[address='" + self.address.get() + "']" + "[addr-index='" + self.addr_index.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','address','addr_index','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.address = None
+                                self.addr_index = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevIbgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
@@ -13384,12 +14086,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpnevi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.evi_advertise_mac_bvi = YLeaf(YType.empty, "evi-advertise-mac-bvi")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evi_advertise_mac_bvi', YLeaf(YType.empty, 'evi-advertise-mac-bvi')),
+                        ])
+                        self.enable = None
+                        self.evi_advertise_mac_bvi = None
                         self._segment_path = lambda: "evi-advertise-mac"
 
                     def __setattr__(self, name, value):
@@ -13419,8 +14124,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evpn-virtual-access-vfi" : ("evpn_virtual_access_vfi", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evpn-virtual-access-vfi", ("evpn_virtual_access_vfi", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi))])
+                self._leafs = OrderedDict()
 
                 self.evpn_virtual_access_vfi = YList(self)
                 self._segment_path = lambda: "evpn-virtual-access-vfis"
@@ -13434,7 +14141,7 @@ class Evpn(Entity):
                 """
                 Virtual Access VFI
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Name of the Virtual Access VFI
                 	**type**\: str
@@ -13465,10 +14172,13 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-virtual-access-vfis"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"evpn-virtual-access-vfi-timers" : ("evpn_virtual_access_vfi_timers", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers), "evpn-virtual-ethernet-segment" : ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("evpn-virtual-access-vfi-timers", ("evpn_virtual_access_vfi_timers", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers)), ("evpn-virtual-ethernet-segment", ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.evpn_virtual_access_vfi_timers = Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers()
                     self.evpn_virtual_access_vfi_timers.parent = self
@@ -13479,7 +14189,7 @@ class Evpn(Entity):
                     self.evpn_virtual_ethernet_segment.parent = self
                     self._children_name_map["evpn_virtual_ethernet_segment"] = "evpn-virtual-ethernet-segment"
                     self._children_yang_names.add("evpn-virtual-ethernet-segment")
-                    self._segment_path = lambda: "evpn-virtual-access-vfi" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "evpn-virtual-access-vfi" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -13509,6 +14219,15 @@ class Evpn(Entity):
                     
                     	**default value**\: 3
                     
+                    .. attribute:: evpn_virtual_access_vfi_carving
+                    
+                    	Virtual Forwarding Interface\-specific Carving timer
+                    	**type**\: int
+                    
+                    	**range:** 0..10
+                    
+                    	**default value**\: 0
+                    
                     .. attribute:: enable
                     
                     	Enable Virtual Forwarding Interface timers
@@ -13528,18 +14247,23 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-virtual-access-vfi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evpn_virtual_access_vfi_recovery = YLeaf(YType.uint32, "evpn-virtual-access-vfi-recovery")
-
-                        self.evpn_virtual_access_vfi_peering = YLeaf(YType.uint32, "evpn-virtual-access-vfi-peering")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evpn_virtual_access_vfi_recovery', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-recovery')),
+                            ('evpn_virtual_access_vfi_peering', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-peering')),
+                            ('evpn_virtual_access_vfi_carving', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-carving')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.evpn_virtual_access_vfi_recovery = None
+                        self.evpn_virtual_access_vfi_peering = None
+                        self.evpn_virtual_access_vfi_carving = None
+                        self.enable = None
                         self._segment_path = lambda: "evpn-virtual-access-vfi-timers"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'enable'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'evpn_virtual_access_vfi_carving', 'enable'], name, value)
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -13584,12 +14308,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-virtual-access-vfi"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"identifier" : ("identifier", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier), "manual-service-carving" : ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving)}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.es_import_route_target = YLeaf(YType.str, "es-import-route-target")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                        ])
+                        self.enable = None
+                        self.es_import_route_target = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -13685,21 +14412,24 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bytes01 = YLeaf(YType.str, "bytes01")
-
-                            self.bytes23 = YLeaf(YType.str, "bytes23")
-
-                            self.bytes45 = YLeaf(YType.str, "bytes45")
-
-                            self.bytes67 = YLeaf(YType.str, "bytes67")
-
-                            self.bytes89 = YLeaf(YType.str, "bytes89")
-
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self._leafs = OrderedDict([
+                                ('bytes01', YLeaf(YType.str, 'bytes01')),
+                                ('bytes23', YLeaf(YType.str, 'bytes23')),
+                                ('bytes45', YLeaf(YType.str, 'bytes45')),
+                                ('bytes67', YLeaf(YType.str, 'bytes67')),
+                                ('bytes89', YLeaf(YType.str, 'bytes89')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                            ])
+                            self.bytes01 = None
+                            self.bytes23 = None
+                            self.bytes45 = None
+                            self.bytes67 = None
+                            self.bytes89 = None
+                            self.type = None
                             self._segment_path = lambda: "identifier"
 
                         def __setattr__(self, name, value):
@@ -13735,10 +14465,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"service-list" : ("service_list", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.service_list = Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList()
                             self.service_list.parent = self
@@ -13782,12 +14515,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "manual-service-carving"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.primary = YLeaf(YType.str, "primary")
-
-                                self.secondary = YLeaf(YType.str, "secondary")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('primary', YLeaf(YType.str, 'primary')),
+                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                ])
+                                self.primary = None
+                                self.secondary = None
                                 self._segment_path = lambda: "service-list"
 
                             def __setattr__(self, name, value):
@@ -13798,9 +14534,9 @@ class Evpn(Entity):
             """
             Enter EVPN Loadbalancing configuration submode
             
-            .. attribute:: evpn_flow_label
+            .. attribute:: evpn_static_flow_label
             
-            	Enable Flow Label based load balancing
+            	Enable Static Flow Label based load balancing
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enable
@@ -13822,17 +14558,20 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.evpn_flow_label = YLeaf(YType.empty, "evpn-flow-label")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('evpn_static_flow_label', YLeaf(YType.empty, 'evpn-static-flow-label')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.evpn_static_flow_label = None
+                self.enable = None
                 self._segment_path = lambda: "evpn-load-balancing"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_flow_label', 'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_static_flow_label', 'enable'], name, value)
 
 
         class EvpnBgpAutoDiscovery(Entity):
@@ -13863,10 +14602,13 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"evpn-route-distinguisher" : ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher()
                 self.evpn_route_distinguisher.parent = self
@@ -13930,18 +14672,21 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-bgp-auto-discovery"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.as_ = YLeaf(YType.uint32, "as")
-
-                    self.as_index = YLeaf(YType.uint32, "as-index")
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.addr_index = YLeaf(YType.uint32, "addr-index")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('as_', YLeaf(YType.uint32, 'as')),
+                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                    ])
+                    self.type = None
+                    self.as_ = None
+                    self.as_index = None
+                    self.address = None
+                    self.addr_index = None
                     self._segment_path = lambda: "evpn-route-distinguisher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-bgp-auto-discovery/%s" % self._segment_path()
 
@@ -13972,8 +14717,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evpn-instance" : ("evpn_instance", Evpn.EvpnTables.EvpnInstances.EvpnInstance)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evpn-instance", ("evpn_instance", Evpn.EvpnTables.EvpnInstances.EvpnInstance))])
+                self._leafs = OrderedDict()
 
                 self.evpn_instance = YList(self)
                 self._segment_path = lambda: "evpn-instances"
@@ -13987,19 +14734,19 @@ class Evpn(Entity):
                 """
                 Enter EVPN Instance configuration submode
                 
-                .. attribute:: eviid  <key>
+                .. attribute:: eviid  (key)
                 
                 	EVPN Instance ID
                 	**type**\: int
                 
                 	**range:** 1..65534
                 
-                .. attribute:: encapsulation  <key>
+                .. attribute:: encapsulation  (key)
                 
                 	EVPN Instance Encapsulation
                 	**type**\:  :py:class:`EvpnEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EvpnEncapsulation>`
                 
-                .. attribute:: side  <key>
+                .. attribute:: side  (key)
                 
                 	EVPN Instance Side
                 	**type**\:  :py:class:`EvpnSide <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EvpnSide>`
@@ -14036,6 +14783,11 @@ class Evpn(Entity):
                 
                 	**length:** 1..64
                 
+                .. attribute:: evi_ecmp_disable
+                
+                	Disable ECMP on the EVI
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: evi_unknown_unicast_flooding_disable
                 
                 	Disable Unknown Unicast Flooding on this EVI
@@ -14060,24 +14812,29 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-instances"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"evpn-instance-bgp-auto-discovery" : ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery), "evpn-instance-advertise-mac" : ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac), "evpn-instance-load-balancing" : ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing)}
-                    self._child_list_classes = {}
-
-                    self.eviid = YLeaf(YType.uint32, "eviid")
-
-                    self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                    self.side = YLeaf(YType.enumeration, "side")
-
-                    self.evi_reorig_disable = YLeaf(YType.empty, "evi-reorig-disable")
-
-                    self.evi_advertise_mac_deprecated = YLeaf(YType.empty, "evi-advertise-mac-deprecated")
-
-                    self.evpnevi_description = YLeaf(YType.str, "evpnevi-description")
-
-                    self.evi_unknown_unicast_flooding_disable = YLeaf(YType.empty, "evi-unknown-unicast-flooding-disable")
-
-                    self.evpn_evi_cw_disable = YLeaf(YType.empty, "evpn-evi-cw-disable")
+                    self.ylist_key_names = ['eviid','encapsulation','side']
+                    self._child_container_classes = OrderedDict([("evpn-instance-bgp-auto-discovery", ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery)), ("evpn-instance-advertise-mac", ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac)), ("evpn-instance-load-balancing", ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                        ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                        ('side', YLeaf(YType.enumeration, 'side')),
+                        ('evi_reorig_disable', YLeaf(YType.empty, 'evi-reorig-disable')),
+                        ('evi_advertise_mac_deprecated', YLeaf(YType.empty, 'evi-advertise-mac-deprecated')),
+                        ('evpnevi_description', YLeaf(YType.str, 'evpnevi-description')),
+                        ('evi_ecmp_disable', YLeaf(YType.empty, 'evi-ecmp-disable')),
+                        ('evi_unknown_unicast_flooding_disable', YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable')),
+                        ('evpn_evi_cw_disable', YLeaf(YType.empty, 'evpn-evi-cw-disable')),
+                    ])
+                    self.eviid = None
+                    self.encapsulation = None
+                    self.side = None
+                    self.evi_reorig_disable = None
+                    self.evi_advertise_mac_deprecated = None
+                    self.evpnevi_description = None
+                    self.evi_ecmp_disable = None
+                    self.evi_unknown_unicast_flooding_disable = None
+                    self.evpn_evi_cw_disable = None
 
                     self.evpn_instance_bgp_auto_discovery = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery()
                     self.evpn_instance_bgp_auto_discovery.parent = self
@@ -14093,11 +14850,11 @@ class Evpn(Entity):
                     self.evpn_instance_load_balancing.parent = self
                     self._children_name_map["evpn_instance_load_balancing"] = "evpn-instance-load-balancing"
                     self._children_yang_names.add("evpn-instance-load-balancing")
-                    self._segment_path = lambda: "evpn-instance" + "[eviid='" + self.eviid.get() + "']" + "[encapsulation='" + self.encapsulation.get() + "']" + "[side='" + self.side.get() + "']"
+                    self._segment_path = lambda: "evpn-instance" + "[eviid='" + str(self.eviid) + "']" + "[encapsulation='" + str(self.encapsulation) + "']" + "[side='" + str(self.side) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, ['eviid', 'encapsulation', 'side', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpnevi_description', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, ['eviid', 'encapsulation', 'side', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpnevi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EvpnInstanceBgpAutoDiscovery(Entity):
@@ -14138,12 +14895,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"evpn-route-distinguisher" : ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher), "evpn-route-targets" : ("evpn_route_targets", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets)}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.table_policy = YLeaf(YType.str, "table-policy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher)), ("evpn-route-targets", ("evpn_route_targets", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('table_policy', YLeaf(YType.str, 'table-policy')),
+                        ])
+                        self.enable = None
+                        self.table_policy = None
 
                         self.evpn_route_distinguisher = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher()
                         self.evpn_route_distinguisher.parent = self
@@ -14211,18 +14971,21 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-instance-bgp-auto-discovery"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.as_ = YLeaf(YType.uint32, "as")
-
-                            self.as_index = YLeaf(YType.uint32, "as-index")
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.addr_index = YLeaf(YType.uint32, "addr-index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('as_', YLeaf(YType.uint32, 'as')),
+                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                            ])
+                            self.type = None
+                            self.as_ = None
+                            self.as_index = None
+                            self.address = None
+                            self.addr_index = None
                             self._segment_path = lambda: "evpn-route-distinguisher"
 
                         def __setattr__(self, name, value):
@@ -14262,8 +15025,10 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-instance-bgp-auto-discovery"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"evpn-route-target-as" : ("evpn_route_target_as", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs), "evpn-route-target-none" : ("evpn_route_target_none", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone), "evpn-route-target-ipv4-address" : ("evpn_route_target_ipv4_address", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("evpn-route-target-as", ("evpn_route_target_as", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs)), ("evpn-route-target-none", ("evpn_route_target_none", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone)), ("evpn-route-target-ipv4-address", ("evpn_route_target_ipv4_address", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address))])
+                            self._leafs = OrderedDict()
 
                             self.evpn_route_target_as = YList(self)
                             self.evpn_route_target_none = YList(self)
@@ -14278,31 +15043,31 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: as_  <key>
+                            .. attribute:: as_  (key)
                             
                             	Two byte or 4 byte AS number
                             	**type**\: int
                             
                             	**range:** 1..4294967295
                             
-                            .. attribute:: as_index  <key>
+                            .. attribute:: as_index  (key)
                             
                             	AS\:nn (hex or decimal format)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -14321,19 +15086,22 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.as_ = YLeaf(YType.uint32, "as")
-
-                                self.as_index = YLeaf(YType.uint32, "as-index")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-as" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[as='" + self.as_.get() + "']" + "[as-index='" + self.as_index.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','as_','as_index','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('as_', YLeaf(YType.uint32, 'as')),
+                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.as_ = None
+                                self.as_index = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-as" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
@@ -14343,17 +15111,17 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -14372,15 +15140,18 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-none" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-none" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
@@ -14390,31 +15161,31 @@ class Evpn(Entity):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: format  <key>
+                            .. attribute:: format  (key)
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
                             
-                            .. attribute:: role  <key>
+                            .. attribute:: role  (key)
                             
                             	Role of the router target type
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
                             
-                            .. attribute:: address  <key>
+                            .. attribute:: address  (key)
                             
                             	IPV4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: addr_index  <key>
+                            .. attribute:: addr_index  (key)
                             
                             	Addr index
                             	**type**\: int
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: stitching  <key>
+                            .. attribute:: stitching  (key)
                             
                             	whether RT is Stitching RT
                             	**type**\:  :py:class:`BgpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTarget>`
@@ -14433,19 +15204,22 @@ class Evpn(Entity):
                                 self.yang_parent_name = "evpn-route-targets"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.format = YLeaf(YType.enumeration, "format")
-
-                                self.role = YLeaf(YType.enumeration, "role")
-
-                                self.address = YLeaf(YType.str, "address")
-
-                                self.addr_index = YLeaf(YType.uint32, "addr-index")
-
-                                self.stitching = YLeaf(YType.enumeration, "stitching")
-                                self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + self.format.get() + "']" + "[role='" + self.role.get() + "']" + "[address='" + self.address.get() + "']" + "[addr-index='" + self.addr_index.get() + "']" + "[stitching='" + self.stitching.get() + "']"
+                                self.ylist_key_names = ['format','role','address','addr_index','stitching']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                ])
+                                self.format = None
+                                self.role = None
+                                self.address = None
+                                self.addr_index = None
+                                self.stitching = None
+                                self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']" + "[stitching='" + str(self.stitching) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
@@ -14480,12 +15254,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.evi_advertise_mac_bvi = YLeaf(YType.empty, "evi-advertise-mac-bvi")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evi_advertise_mac_bvi', YLeaf(YType.empty, 'evi-advertise-mac-bvi')),
+                        ])
+                        self.enable = None
+                        self.evi_advertise_mac_bvi = None
                         self._segment_path = lambda: "evpn-instance-advertise-mac"
 
                     def __setattr__(self, name, value):
@@ -14501,9 +15278,9 @@ class Evpn(Entity):
                     	Enable Loadbalancing
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
-                    .. attribute:: evi_flow_label
+                    .. attribute:: evi_static_flow_label
                     
-                    	Enable Flow Label based load balancing
+                    	Enable Static Flow Label based load balancing
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
                     
@@ -14520,16 +15297,19 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-instance"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.evi_flow_label = YLeaf(YType.empty, "evi-flow-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evi_static_flow_label', YLeaf(YType.empty, 'evi-static-flow-label')),
+                        ])
+                        self.enable = None
+                        self.evi_static_flow_label = None
                         self._segment_path = lambda: "evpn-instance-load-balancing"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
         class EvpnLogging(Entity):
@@ -14560,12 +15340,15 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.evpn_df_election = YLeaf(YType.empty, "evpn-df-election")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('evpn_df_election', YLeaf(YType.empty, 'evpn-df-election')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.evpn_df_election = None
+                self.enable = None
                 self._segment_path = lambda: "evpn-logging"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
 
@@ -14596,8 +15379,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evpn-interface" : ("evpn_interface", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evpn-interface", ("evpn_interface", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface))])
+                self._leafs = OrderedDict()
 
                 self.evpn_interface = YList(self)
                 self._segment_path = lambda: "evpn-interfaces"
@@ -14611,7 +15396,7 @@ class Evpn(Entity):
                 """
                 Attachment circuit interface
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Name of the attachment circuit interface
                 	**type**\: str
@@ -14630,8 +15415,8 @@ class Evpn(Entity):
                 
                 .. attribute:: mac_flush
                 
-                	Enable MVRP MAC Flush mode
-                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                	Enable MAC Flushing
+                	**type**\:  :py:class:`MacFlushMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacFlushMode>`
                 
                 
 
@@ -14647,12 +15432,15 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"evpnac-timers" : ("evpnac_timers", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers), "ethernet-segment" : ("ethernet_segment", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment)}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.mac_flush = YLeaf(YType.empty, "mac-flush")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([("evpnac-timers", ("evpnac_timers", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers)), ("ethernet-segment", ("ethernet_segment", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('mac_flush', YLeaf(YType.enumeration, 'mac-flush')),
+                    ])
+                    self.interface_name = None
+                    self.mac_flush = None
 
                     self.evpnac_timers = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers()
                     self.evpnac_timers.parent = self
@@ -14663,7 +15451,7 @@ class Evpn(Entity):
                     self.ethernet_segment.parent = self
                     self._children_name_map["ethernet_segment"] = "ethernet-segment"
                     self._children_yang_names.add("ethernet-segment")
-                    self._segment_path = lambda: "evpn-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "evpn-interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -14683,6 +15471,15 @@ class Evpn(Entity):
                     	**range:** 0..300
                     
                     	**default value**\: 3
+                    
+                    .. attribute:: evpnac_carving
+                    
+                    	Interface\-specific Carving timer
+                    	**type**\: int
+                    
+                    	**range:** 0..10
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: enable
                     
@@ -14712,18 +15509,23 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evpnac_peering = YLeaf(YType.uint32, "evpnac-peering")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.evpnac_recovery = YLeaf(YType.uint32, "evpnac-recovery")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evpnac_peering', YLeaf(YType.uint32, 'evpnac-peering')),
+                            ('evpnac_carving', YLeaf(YType.uint32, 'evpnac-carving')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evpnac_recovery', YLeaf(YType.uint32, 'evpnac-recovery')),
+                        ])
+                        self.evpnac_peering = None
+                        self.evpnac_carving = None
+                        self.enable = None
+                        self.evpnac_recovery = None
                         self._segment_path = lambda: "evpnac-timers"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'enable', 'evpnac_recovery'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'evpnac_carving', 'enable', 'evpnac_recovery'], name, value)
 
 
                 class EthernetSegment(Entity):
@@ -14785,18 +15587,21 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"identifier" : ("identifier", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier), "manual-service-carving" : ("manual_service_carving", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving)}
-                        self._child_list_classes = {}
-
-                        self.force_single_homed = YLeaf(YType.empty, "force-single-homed")
-
-                        self.load_balancing_single_active = YLeaf(YType.empty, "load-balancing-single-active")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.backbone_source_mac = YLeaf(YType.str, "backbone-source-mac")
-
-                        self.es_import_route_target = YLeaf(YType.str, "es-import-route-target")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('force_single_homed', YLeaf(YType.empty, 'force-single-homed')),
+                            ('load_balancing_single_active', YLeaf(YType.empty, 'load-balancing-single-active')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('backbone_source_mac', YLeaf(YType.str, 'backbone-source-mac')),
+                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                        ])
+                        self.force_single_homed = None
+                        self.load_balancing_single_active = None
+                        self.enable = None
+                        self.backbone_source_mac = None
+                        self.es_import_route_target = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -14892,21 +15697,24 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bytes01 = YLeaf(YType.str, "bytes01")
-
-                            self.bytes23 = YLeaf(YType.str, "bytes23")
-
-                            self.bytes45 = YLeaf(YType.str, "bytes45")
-
-                            self.bytes67 = YLeaf(YType.str, "bytes67")
-
-                            self.bytes89 = YLeaf(YType.str, "bytes89")
-
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self._leafs = OrderedDict([
+                                ('bytes01', YLeaf(YType.str, 'bytes01')),
+                                ('bytes23', YLeaf(YType.str, 'bytes23')),
+                                ('bytes45', YLeaf(YType.str, 'bytes45')),
+                                ('bytes67', YLeaf(YType.str, 'bytes67')),
+                                ('bytes89', YLeaf(YType.str, 'bytes89')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                            ])
+                            self.bytes01 = None
+                            self.bytes23 = None
+                            self.bytes45 = None
+                            self.bytes67 = None
+                            self.bytes89 = None
+                            self.type = None
                             self._segment_path = lambda: "identifier"
 
                         def __setattr__(self, name, value):
@@ -14942,10 +15750,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"service-list" : ("service_list", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.service_list = Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList()
                             self.service_list.parent = self
@@ -14989,12 +15800,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "manual-service-carving"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.primary = YLeaf(YType.str, "primary")
-
-                                self.secondary = YLeaf(YType.str, "secondary")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('primary', YLeaf(YType.str, 'primary')),
+                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                ])
+                                self.primary = None
+                                self.secondary = None
                                 self._segment_path = lambda: "service-list"
 
                             def __setattr__(self, name, value):
@@ -15024,8 +15838,10 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"evpn-virtual-access-pw" : ("evpn_virtual_access_pw", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("evpn-virtual-access-pw", ("evpn_virtual_access_pw", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw))])
+                self._leafs = OrderedDict()
 
                 self.evpn_virtual_access_pw = YList(self)
                 self._segment_path = lambda: "evpn-virtual-access-pws"
@@ -15039,14 +15855,14 @@ class Evpn(Entity):
                 """
                 Virtual Access Pseudowire
                 
-                .. attribute:: neighbor  <key>
+                .. attribute:: neighbor  (key)
                 
                 	Neighbor IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: pseudowire_id  <key>
+                .. attribute:: pseudowire_id  (key)
                 
                 	Pseudowire ID
                 	**type**\: int
@@ -15077,12 +15893,15 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-virtual-access-pws"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"evpn-virtual-access-pw-timers" : ("evpn_virtual_access_pw_timers", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers), "evpn-virtual-ethernet-segment" : ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment)}
-                    self._child_list_classes = {}
-
-                    self.neighbor = YLeaf(YType.str, "neighbor")
-
-                    self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+                    self.ylist_key_names = ['neighbor','pseudowire_id']
+                    self._child_container_classes = OrderedDict([("evpn-virtual-access-pw-timers", ("evpn_virtual_access_pw_timers", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers)), ("evpn-virtual-ethernet-segment", ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('neighbor', YLeaf(YType.str, 'neighbor')),
+                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                    ])
+                    self.neighbor = None
+                    self.pseudowire_id = None
 
                     self.evpn_virtual_access_pw_timers = Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers()
                     self.evpn_virtual_access_pw_timers.parent = self
@@ -15093,7 +15912,7 @@ class Evpn(Entity):
                     self.evpn_virtual_ethernet_segment.parent = self
                     self._children_name_map["evpn_virtual_ethernet_segment"] = "evpn-virtual-ethernet-segment"
                     self._children_yang_names.add("evpn-virtual-ethernet-segment")
-                    self._segment_path = lambda: "evpn-virtual-access-pw" + "[neighbor='" + self.neighbor.get() + "']" + "[pseudowire-id='" + self.pseudowire_id.get() + "']"
+                    self._segment_path = lambda: "evpn-virtual-access-pw" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -15128,6 +15947,15 @@ class Evpn(Entity):
                     	Enable Virtual Access Pseudowire\-specific timers
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: evpn_virtual_access_pw_carving
+                    
+                    	Virtual Access Pseudowire\-specific Carving timer
+                    	**type**\: int
+                    
+                    	**range:** 0..10
+                    
+                    	**default value**\: 0
+                    
                     
 
                     """
@@ -15142,18 +15970,23 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-virtual-access-pw"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.evpn_virtual_access_pw_recovery = YLeaf(YType.uint32, "evpn-virtual-access-pw-recovery")
-
-                        self.evpn_virtual_access_pw_peering = YLeaf(YType.uint32, "evpn-virtual-access-pw-peering")
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('evpn_virtual_access_pw_recovery', YLeaf(YType.uint32, 'evpn-virtual-access-pw-recovery')),
+                            ('evpn_virtual_access_pw_peering', YLeaf(YType.uint32, 'evpn-virtual-access-pw-peering')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evpn_virtual_access_pw_carving', YLeaf(YType.uint32, 'evpn-virtual-access-pw-carving')),
+                        ])
+                        self.evpn_virtual_access_pw_recovery = None
+                        self.evpn_virtual_access_pw_peering = None
+                        self.enable = None
+                        self.evpn_virtual_access_pw_carving = None
                         self._segment_path = lambda: "evpn-virtual-access-pw-timers"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable', 'evpn_virtual_access_pw_carving'], name, value)
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -15198,12 +16031,15 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-virtual-access-pw"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"identifier" : ("identifier", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier), "manual-service-carving" : ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving)}
-                        self._child_list_classes = {}
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.es_import_route_target = YLeaf(YType.str, "es-import-route-target")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                        ])
+                        self.enable = None
+                        self.es_import_route_target = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -15299,21 +16135,24 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
                             self.is_presence_container = True
-
-                            self.bytes01 = YLeaf(YType.str, "bytes01")
-
-                            self.bytes23 = YLeaf(YType.str, "bytes23")
-
-                            self.bytes45 = YLeaf(YType.str, "bytes45")
-
-                            self.bytes67 = YLeaf(YType.str, "bytes67")
-
-                            self.bytes89 = YLeaf(YType.str, "bytes89")
-
-                            self.type = YLeaf(YType.enumeration, "type")
+                            self._leafs = OrderedDict([
+                                ('bytes01', YLeaf(YType.str, 'bytes01')),
+                                ('bytes23', YLeaf(YType.str, 'bytes23')),
+                                ('bytes45', YLeaf(YType.str, 'bytes45')),
+                                ('bytes67', YLeaf(YType.str, 'bytes67')),
+                                ('bytes89', YLeaf(YType.str, 'bytes89')),
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                            ])
+                            self.bytes01 = None
+                            self.bytes23 = None
+                            self.bytes45 = None
+                            self.bytes67 = None
+                            self.bytes89 = None
+                            self.type = None
                             self._segment_path = lambda: "identifier"
 
                         def __setattr__(self, name, value):
@@ -15349,10 +16188,13 @@ class Evpn(Entity):
                             self.yang_parent_name = "evpn-virtual-ethernet-segment"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"service-list" : ("service_list", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList)}
-                            self._child_list_classes = {}
-
-                            self.enable = YLeaf(YType.empty, "enable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', YLeaf(YType.empty, 'enable')),
+                            ])
+                            self.enable = None
 
                             self.service_list = Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList()
                             self.service_list.parent = self
@@ -15396,12 +16238,15 @@ class Evpn(Entity):
                                 self.yang_parent_name = "manual-service-carving"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.primary = YLeaf(YType.str, "primary")
-
-                                self.secondary = YLeaf(YType.str, "secondary")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('primary', YLeaf(YType.str, 'primary')),
+                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                ])
+                                self.primary = None
+                                self.secondary = None
                                 self._segment_path = lambda: "service-list"
 
                             def __setattr__(self, name, value):
@@ -15436,10 +16281,13 @@ class Evpn(Entity):
                 self.yang_parent_name = "evpn-tables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"evpn-esi-types" : ("evpn_esi_types", Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes)}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("evpn-esi-types", ("evpn_esi_types", Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
 
                 self.evpn_esi_types = Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes()
                 self.evpn_esi_types.parent = self
@@ -15475,8 +16323,10 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-ethernet-segment"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"evpn-esi-type" : ("evpn_esi_type", Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("evpn-esi-type", ("evpn_esi_type", Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType))])
+                    self._leafs = OrderedDict()
 
                     self.evpn_esi_type = YList(self)
                     self._segment_path = lambda: "evpn-esi-types"
@@ -15490,7 +16340,7 @@ class Evpn(Entity):
                     """
                     ESI type
                     
-                    .. attribute:: esi_type  <key>
+                    .. attribute:: esi_type  (key)
                     
                     	ESI type
                     	**type**\: int
@@ -15516,13 +16366,16 @@ class Evpn(Entity):
                         self.yang_parent_name = "evpn-esi-types"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.esi_type = YLeaf(YType.uint32, "esi-type")
-
-                        self.disable_auto_generation = YLeaf(YType.empty, "disable-auto-generation")
-                        self._segment_path = lambda: "evpn-esi-type" + "[esi-type='" + self.esi_type.get() + "']"
+                        self.ylist_key_names = ['esi_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('esi_type', YLeaf(YType.uint32, 'esi-type')),
+                            ('disable_auto_generation', YLeaf(YType.empty, 'disable-auto-generation')),
+                        ])
+                        self.esi_type = None
+                        self.disable_auto_generation = None
+                        self._segment_path = lambda: "evpn-esi-type" + "[esi-type='" + str(self.esi_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-ethernet-segment/evpn-esi-types/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LldpL3AddrProtocol(Enum):
     """
-    LldpL3AddrProtocol
+    LldpL3AddrProtocol (Enum Class)
 
     Lldp l3 addr protocol
 
@@ -43,11 +45,6 @@ class LldpSnoopData(Entity):
     """
     Information related to LLDP Snoop
     
-    .. attribute:: lldp_neighbor_brief
-    
-    	NCS1K LLDP Neighbor brief info
-    	**type**\:  :py:class:`LldpNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief>`
-    
     .. attribute:: ethernet_controller_names
     
     	Ethernet controller snoop data
@@ -68,170 +65,16 @@ class LldpSnoopData(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"lldp-neighbor-brief" : ("lldp_neighbor_brief", LldpSnoopData.LldpNeighborBrief), "ethernet-controller-names" : ("ethernet_controller_names", LldpSnoopData.EthernetControllerNames)}
-        self._child_list_classes = {}
-
-        self.lldp_neighbor_brief = LldpSnoopData.LldpNeighborBrief()
-        self.lldp_neighbor_brief.parent = self
-        self._children_name_map["lldp_neighbor_brief"] = "lldp-neighbor-brief"
-        self._children_yang_names.add("lldp-neighbor-brief")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ethernet-controller-names", ("ethernet_controller_names", LldpSnoopData.EthernetControllerNames))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ethernet_controller_names = LldpSnoopData.EthernetControllerNames()
         self.ethernet_controller_names.parent = self
         self._children_name_map["ethernet_controller_names"] = "ethernet-controller-names"
         self._children_yang_names.add("ethernet-controller-names")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data"
-
-
-    class LldpNeighborBrief(Entity):
-        """
-        NCS1K LLDP Neighbor brief info
-        
-        .. attribute:: neighbours
-        
-        	List of LLDP neighbors
-        	**type**\:  :py:class:`Neighbours <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief.Neighbours>`
-        
-        .. attribute:: number_of_entries
-        
-        	Number of active neighbors entries
-        	**type**\: int
-        
-        	**range:** 0..65535
-        
-        
-
-        """
-
-        _prefix = 'ncs1k-mxp-lldp-oper'
-        _revision = '2016-10-13'
-
-        def __init__(self):
-            super(LldpSnoopData.LldpNeighborBrief, self).__init__()
-
-            self.yang_name = "lldp-neighbor-brief"
-            self.yang_parent_name = "lldp-snoop-data"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"neighbours" : ("neighbours", LldpSnoopData.LldpNeighborBrief.Neighbours)}
-            self._child_list_classes = {}
-
-            self.number_of_entries = YLeaf(YType.uint16, "number-of-entries")
-
-            self.neighbours = LldpSnoopData.LldpNeighborBrief.Neighbours()
-            self.neighbours.parent = self
-            self._children_name_map["neighbours"] = "neighbours"
-            self._children_yang_names.add("neighbours")
-            self._segment_path = lambda: "lldp-neighbor-brief"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(LldpSnoopData.LldpNeighborBrief, ['number_of_entries'], name, value)
-
-
-        class Neighbours(Entity):
-            """
-            List of LLDP neighbors
-            
-            .. attribute:: lldp_neighbor_brief_entry
-            
-            	lldp neighbor brief entry
-            	**type**\: list of  		 :py:class:`LldpNeighborBriefEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry>`
-            
-            
-
-            """
-
-            _prefix = 'ncs1k-mxp-lldp-oper'
-            _revision = '2016-10-13'
-
-            def __init__(self):
-                super(LldpSnoopData.LldpNeighborBrief.Neighbours, self).__init__()
-
-                self.yang_name = "neighbours"
-                self.yang_parent_name = "lldp-neighbor-brief"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"lldp-neighbor-brief-entry" : ("lldp_neighbor_brief_entry", LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry)}
-
-                self.lldp_neighbor_brief_entry = YList(self)
-                self._segment_path = lambda: "neighbours"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/lldp-neighbor-brief/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(LldpSnoopData.LldpNeighborBrief.Neighbours, [], name, value)
-
-
-            class LldpNeighborBriefEntry(Entity):
-                """
-                lldp neighbor brief entry
-                
-                .. attribute:: chassis_id
-                
-                	Chassis id
-                	**type**\: str
-                
-                .. attribute:: port_id_detail
-                
-                	Outgoing port identifier
-                	**type**\: str
-                
-                .. attribute:: system_name
-                
-                	System Name
-                	**type**\: str
-                
-                .. attribute:: enabled_capabilities
-                
-                	Enabled Capabilities
-                	**type**\: str
-                
-                .. attribute:: recv_intf
-                
-                	Receive Interface
-                	**type**\: str
-                
-                .. attribute:: hold_time
-                
-                	Remaining hold time
-                	**type**\: int
-                
-                	**range:** 0..65535
-                
-                
-
-                """
-
-                _prefix = 'ncs1k-mxp-lldp-oper'
-                _revision = '2016-10-13'
-
-                def __init__(self):
-                    super(LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry, self).__init__()
-
-                    self.yang_name = "lldp-neighbor-brief-entry"
-                    self.yang_parent_name = "neighbours"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.chassis_id = YLeaf(YType.str, "chassis-id")
-
-                    self.port_id_detail = YLeaf(YType.str, "port-id-detail")
-
-                    self.system_name = YLeaf(YType.str, "system-name")
-
-                    self.enabled_capabilities = YLeaf(YType.str, "enabled-capabilities")
-
-                    self.recv_intf = YLeaf(YType.str, "recv-intf")
-
-                    self.hold_time = YLeaf(YType.uint16, "hold-time")
-                    self._segment_path = lambda: "lldp-neighbor-brief-entry"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/lldp-neighbor-brief/neighbours/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry, ['chassis_id', 'port_id_detail', 'system_name', 'enabled_capabilities', 'recv_intf', 'hold_time'], name, value)
 
 
     class EthernetControllerNames(Entity):
@@ -257,8 +100,10 @@ class LldpSnoopData(Entity):
             self.yang_parent_name = "lldp-snoop-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ethernet-controller-name" : ("ethernet_controller_name", LldpSnoopData.EthernetControllerNames.EthernetControllerName)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ethernet-controller-name", ("ethernet_controller_name", LldpSnoopData.EthernetControllerNames.EthernetControllerName))])
+            self._leafs = OrderedDict()
 
             self.ethernet_controller_name = YList(self)
             self._segment_path = lambda: "ethernet-controller-names"
@@ -272,7 +117,7 @@ class LldpSnoopData(Entity):
             """
             port Name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
@@ -364,40 +209,43 @@ class LldpSnoopData(Entity):
                 self.yang_parent_name = "ethernet-controller-names"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"network-addresses" : ("network_addresses", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.source_mac = YLeaf(YType.str, "source-mac")
-
-                self.chassis_id = YLeaf(YType.str, "chassis-id")
-
-                self.port_id_detail = YLeaf(YType.str, "port-id-detail")
-
-                self.hold_time = YLeaf(YType.uint16, "hold-time")
-
-                self.port_description = YLeaf(YType.str, "port-description")
-
-                self.system_name = YLeaf(YType.str, "system-name")
-
-                self.system_description = YLeaf(YType.str, "system-description")
-
-                self.system_capabilities = YLeaf(YType.str, "system-capabilities")
-
-                self.enabled_capabilities = YLeaf(YType.str, "enabled-capabilities")
-
-                self.lldp_neighbor = YLeaf(YType.str, "lldp-neighbor")
-
-                self.drop_enabled = YLeaf(YType.boolean, "drop-enabled")
-
-                self.rx_lldp_pkts = YLeaf(YType.uint64, "rx-lldp-pkts")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("network-addresses", ("network_addresses", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('source_mac', YLeaf(YType.str, 'source-mac')),
+                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
+                    ('port_id_detail', YLeaf(YType.str, 'port-id-detail')),
+                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
+                    ('port_description', YLeaf(YType.str, 'port-description')),
+                    ('system_name', YLeaf(YType.str, 'system-name')),
+                    ('system_description', YLeaf(YType.str, 'system-description')),
+                    ('system_capabilities', YLeaf(YType.str, 'system-capabilities')),
+                    ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
+                    ('lldp_neighbor', YLeaf(YType.str, 'lldp-neighbor')),
+                    ('drop_enabled', YLeaf(YType.boolean, 'drop-enabled')),
+                    ('rx_lldp_pkts', YLeaf(YType.uint64, 'rx-lldp-pkts')),
+                ])
+                self.name = None
+                self.source_mac = None
+                self.chassis_id = None
+                self.port_id_detail = None
+                self.hold_time = None
+                self.port_description = None
+                self.system_name = None
+                self.system_description = None
+                self.system_capabilities = None
+                self.enabled_capabilities = None
+                self.lldp_neighbor = None
+                self.drop_enabled = None
+                self.rx_lldp_pkts = None
 
                 self.network_addresses = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses()
                 self.network_addresses.parent = self
                 self._children_name_map["network_addresses"] = "network-addresses"
                 self._children_yang_names.add("network-addresses")
-                self._segment_path = lambda: "ethernet-controller-name" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "ethernet-controller-name" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/ethernet-controller-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -427,8 +275,10 @@ class LldpSnoopData(Entity):
                     self.yang_parent_name = "ethernet-controller-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"lldp-addr-entry" : ("lldp_addr_entry", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("lldp-addr-entry", ("lldp_addr_entry", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry))])
+                    self._leafs = OrderedDict()
 
                     self.lldp_addr_entry = YList(self)
                     self._segment_path = lambda: "network-addresses"
@@ -474,12 +324,15 @@ class LldpSnoopData(Entity):
                         self.yang_parent_name = "network-addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"address" : ("address", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address)}
-                        self._child_list_classes = {}
-
-                        self.ma_subtype = YLeaf(YType.uint8, "ma-subtype")
-
-                        self.if_num = YLeaf(YType.uint32, "if-num")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("address", ("address", LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
+                            ('if_num', YLeaf(YType.uint32, 'if-num')),
+                        ])
+                        self.ma_subtype = None
+                        self.if_num = None
 
                         self.address = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address()
                         self.address.parent = self
@@ -528,14 +381,17 @@ class LldpSnoopData(Entity):
                             self.yang_parent_name = "lldp-addr-entry"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address_type = YLeaf(YType.enumeration, "address-type")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.address_type = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "address"
 
                         def __setattr__(self, name, value):

@@ -9,6 +9,8 @@ is published as subclause 12.1 of IEEE Std 802.1AB\-2005;
 see the standard itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -17,7 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LldpChassisIdSubtype(Enum):
     """
-    LldpChassisIdSubtype
+    LldpChassisIdSubtype (Enum Class)
 
     This TC describes the source of a chassis identifier.
 
@@ -112,7 +114,7 @@ class LldpChassisIdSubtype(Enum):
 
 class LldpManAddrIfSubtype(Enum):
     """
-    LldpManAddrIfSubtype
+    LldpManAddrIfSubtype (Enum Class)
 
     This TC describes the basis of a particular type of
 
@@ -147,7 +149,7 @@ class LldpManAddrIfSubtype(Enum):
 
 class LldpPortIdSubtype(Enum):
     """
-    LldpPortIdSubtype
+    LldpPortIdSubtype (Enum Class)
 
     This TC describes the source of a particular type of port
 
@@ -312,8 +314,10 @@ class LLDPMIB(Entity):
         self.yang_parent_name = "LLDP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"lldpConfiguration" : ("lldpconfiguration", LLDPMIB.Lldpconfiguration), "lldpStatistics" : ("lldpstatistics", LLDPMIB.Lldpstatistics), "lldpLocalSystemData" : ("lldplocalsystemdata", LLDPMIB.Lldplocalsystemdata), "lldpPortConfigTable" : ("lldpportconfigtable", LLDPMIB.Lldpportconfigtable), "lldpStatsTxPortTable" : ("lldpstatstxporttable", LLDPMIB.Lldpstatstxporttable), "lldpStatsRxPortTable" : ("lldpstatsrxporttable", LLDPMIB.Lldpstatsrxporttable), "lldpLocPortTable" : ("lldplocporttable", LLDPMIB.Lldplocporttable), "lldpLocManAddrTable" : ("lldplocmanaddrtable", LLDPMIB.Lldplocmanaddrtable), "lldpRemTable" : ("lldpremtable", LLDPMIB.Lldpremtable), "lldpRemManAddrTable" : ("lldpremmanaddrtable", LLDPMIB.Lldpremmanaddrtable), "lldpRemUnknownTLVTable" : ("lldpremunknowntlvtable", LLDPMIB.Lldpremunknowntlvtable), "lldpRemOrgDefInfoTable" : ("lldpremorgdefinfotable", LLDPMIB.Lldpremorgdefinfotable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("lldpConfiguration", ("lldpconfiguration", LLDPMIB.Lldpconfiguration)), ("lldpStatistics", ("lldpstatistics", LLDPMIB.Lldpstatistics)), ("lldpLocalSystemData", ("lldplocalsystemdata", LLDPMIB.Lldplocalsystemdata)), ("lldpPortConfigTable", ("lldpportconfigtable", LLDPMIB.Lldpportconfigtable)), ("lldpStatsTxPortTable", ("lldpstatstxporttable", LLDPMIB.Lldpstatstxporttable)), ("lldpStatsRxPortTable", ("lldpstatsrxporttable", LLDPMIB.Lldpstatsrxporttable)), ("lldpLocPortTable", ("lldplocporttable", LLDPMIB.Lldplocporttable)), ("lldpLocManAddrTable", ("lldplocmanaddrtable", LLDPMIB.Lldplocmanaddrtable)), ("lldpRemTable", ("lldpremtable", LLDPMIB.Lldpremtable)), ("lldpRemManAddrTable", ("lldpremmanaddrtable", LLDPMIB.Lldpremmanaddrtable)), ("lldpRemUnknownTLVTable", ("lldpremunknowntlvtable", LLDPMIB.Lldpremunknowntlvtable)), ("lldpRemOrgDefInfoTable", ("lldpremorgdefinfotable", LLDPMIB.Lldpremorgdefinfotable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.lldpconfiguration = LLDPMIB.Lldpconfiguration()
         self.lldpconfiguration.parent = self
@@ -438,18 +442,21 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.lldpmessagetxinterval = YLeaf(YType.int32, "lldpMessageTxInterval")
-
-            self.lldpmessagetxholdmultiplier = YLeaf(YType.int32, "lldpMessageTxHoldMultiplier")
-
-            self.lldpreinitdelay = YLeaf(YType.int32, "lldpReinitDelay")
-
-            self.lldptxdelay = YLeaf(YType.int32, "lldpTxDelay")
-
-            self.lldpnotificationinterval = YLeaf(YType.int32, "lldpNotificationInterval")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('lldpmessagetxinterval', YLeaf(YType.int32, 'lldpMessageTxInterval')),
+                ('lldpmessagetxholdmultiplier', YLeaf(YType.int32, 'lldpMessageTxHoldMultiplier')),
+                ('lldpreinitdelay', YLeaf(YType.int32, 'lldpReinitDelay')),
+                ('lldptxdelay', YLeaf(YType.int32, 'lldpTxDelay')),
+                ('lldpnotificationinterval', YLeaf(YType.int32, 'lldpNotificationInterval')),
+            ])
+            self.lldpmessagetxinterval = None
+            self.lldpmessagetxholdmultiplier = None
+            self.lldpreinitdelay = None
+            self.lldptxdelay = None
+            self.lldpnotificationinterval = None
             self._segment_path = lambda: "lldpConfiguration"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
 
@@ -516,18 +523,21 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.lldpstatsremtableslastchangetime = YLeaf(YType.uint32, "lldpStatsRemTablesLastChangeTime")
-
-            self.lldpstatsremtablesinserts = YLeaf(YType.uint32, "lldpStatsRemTablesInserts")
-
-            self.lldpstatsremtablesdeletes = YLeaf(YType.uint32, "lldpStatsRemTablesDeletes")
-
-            self.lldpstatsremtablesdrops = YLeaf(YType.uint32, "lldpStatsRemTablesDrops")
-
-            self.lldpstatsremtablesageouts = YLeaf(YType.uint32, "lldpStatsRemTablesAgeouts")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('lldpstatsremtableslastchangetime', YLeaf(YType.uint32, 'lldpStatsRemTablesLastChangeTime')),
+                ('lldpstatsremtablesinserts', YLeaf(YType.uint32, 'lldpStatsRemTablesInserts')),
+                ('lldpstatsremtablesdeletes', YLeaf(YType.uint32, 'lldpStatsRemTablesDeletes')),
+                ('lldpstatsremtablesdrops', YLeaf(YType.uint32, 'lldpStatsRemTablesDrops')),
+                ('lldpstatsremtablesageouts', YLeaf(YType.uint32, 'lldpStatsRemTablesAgeouts')),
+            ])
+            self.lldpstatsremtableslastchangetime = None
+            self.lldpstatsremtablesinserts = None
+            self.lldpstatsremtablesdeletes = None
+            self.lldpstatsremtablesdrops = None
+            self.lldpstatsremtablesageouts = None
             self._segment_path = lambda: "lldpStatistics"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
 
@@ -589,20 +599,23 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.lldplocchassisidsubtype = YLeaf(YType.enumeration, "lldpLocChassisIdSubtype")
-
-            self.lldplocchassisid = YLeaf(YType.str, "lldpLocChassisId")
-
-            self.lldplocsysname = YLeaf(YType.str, "lldpLocSysName")
-
-            self.lldplocsysdesc = YLeaf(YType.str, "lldpLocSysDesc")
-
-            self.lldplocsyscapsupported = YLeaf(YType.bits, "lldpLocSysCapSupported")
-
-            self.lldplocsyscapenabled = YLeaf(YType.bits, "lldpLocSysCapEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('lldplocchassisidsubtype', YLeaf(YType.enumeration, 'lldpLocChassisIdSubtype')),
+                ('lldplocchassisid', YLeaf(YType.str, 'lldpLocChassisId')),
+                ('lldplocsysname', YLeaf(YType.str, 'lldpLocSysName')),
+                ('lldplocsysdesc', YLeaf(YType.str, 'lldpLocSysDesc')),
+                ('lldplocsyscapsupported', YLeaf(YType.bits, 'lldpLocSysCapSupported')),
+                ('lldplocsyscapenabled', YLeaf(YType.bits, 'lldpLocSysCapEnabled')),
+            ])
+            self.lldplocchassisidsubtype = None
+            self.lldplocchassisid = None
+            self.lldplocsysname = None
+            self.lldplocsysdesc = None
+            self.lldplocsyscapsupported = Bits()
+            self.lldplocsyscapenabled = Bits()
             self._segment_path = lambda: "lldpLocalSystemData"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
 
@@ -634,8 +647,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpPortConfigEntry" : ("lldpportconfigentry", LLDPMIB.Lldpportconfigtable.Lldpportconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpPortConfigEntry", ("lldpportconfigentry", LLDPMIB.Lldpportconfigtable.Lldpportconfigentry))])
+            self._leafs = OrderedDict()
 
             self.lldpportconfigentry = YList(self)
             self._segment_path = lambda: "lldpPortConfigTable"
@@ -652,7 +667,7 @@ class LLDPMIB(Entity):
             the reception of LLDP frames on those ports whose rows are
             created in this table.
             
-            .. attribute:: lldpportconfigportnum  <key>
+            .. attribute:: lldpportconfigportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The value of this object is used as a port index to the lldpPortConfigTable
             	**type**\: int
@@ -688,17 +703,20 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpPortConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpportconfigportnum = YLeaf(YType.int32, "lldpPortConfigPortNum")
-
-                self.lldpportconfigadminstatus = YLeaf(YType.enumeration, "lldpPortConfigAdminStatus")
-
-                self.lldpportconfignotificationenable = YLeaf(YType.boolean, "lldpPortConfigNotificationEnable")
-
-                self.lldpportconfigtlvstxenable = YLeaf(YType.bits, "lldpPortConfigTLVsTxEnable")
-                self._segment_path = lambda: "lldpPortConfigEntry" + "[lldpPortConfigPortNum='" + self.lldpportconfigportnum.get() + "']"
+                self.ylist_key_names = ['lldpportconfigportnum']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpportconfigportnum', YLeaf(YType.int32, 'lldpPortConfigPortNum')),
+                    ('lldpportconfigadminstatus', YLeaf(YType.enumeration, 'lldpPortConfigAdminStatus')),
+                    ('lldpportconfignotificationenable', YLeaf(YType.boolean, 'lldpPortConfigNotificationEnable')),
+                    ('lldpportconfigtlvstxenable', YLeaf(YType.bits, 'lldpPortConfigTLVsTxEnable')),
+                ])
+                self.lldpportconfigportnum = None
+                self.lldpportconfigadminstatus = None
+                self.lldpportconfignotificationenable = None
+                self.lldpportconfigtlvstxenable = Bits()
+                self._segment_path = lambda: "lldpPortConfigEntry" + "[lldpPortConfigPortNum='" + str(self.lldpportconfigportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpPortConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -706,7 +724,7 @@ class LLDPMIB(Entity):
 
             class Lldpportconfigadminstatus(Enum):
                 """
-                Lldpportconfigadminstatus
+                Lldpportconfigadminstatus (Enum Class)
 
                 The administratively desired status of the local LLDP agent.
 
@@ -788,8 +806,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpStatsTxPortEntry" : ("lldpstatstxportentry", LLDPMIB.Lldpstatstxporttable.Lldpstatstxportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpStatsTxPortEntry", ("lldpstatstxportentry", LLDPMIB.Lldpstatstxporttable.Lldpstatstxportentry))])
+            self._leafs = OrderedDict()
 
             self.lldpstatstxportentry = YList(self)
             self._segment_path = lambda: "lldpStatsTxPortTable"
@@ -815,7 +835,7 @@ class LLDPMIB(Entity):
             port on the local LLDP agent become frozen whenever the
             adminStatus is disabled for the same port.
             
-            .. attribute:: lldpstatstxportnum  <key>
+            .. attribute:: lldpstatstxportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The value of this object is used as a port index to the lldpStatsTable
             	**type**\: int
@@ -843,13 +863,16 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpStatsTxPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpstatstxportnum = YLeaf(YType.int32, "lldpStatsTxPortNum")
-
-                self.lldpstatstxportframestotal = YLeaf(YType.uint32, "lldpStatsTxPortFramesTotal")
-                self._segment_path = lambda: "lldpStatsTxPortEntry" + "[lldpStatsTxPortNum='" + self.lldpstatstxportnum.get() + "']"
+                self.ylist_key_names = ['lldpstatstxportnum']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpstatstxportnum', YLeaf(YType.int32, 'lldpStatsTxPortNum')),
+                    ('lldpstatstxportframestotal', YLeaf(YType.uint32, 'lldpStatsTxPortFramesTotal')),
+                ])
+                self.lldpstatstxportnum = None
+                self.lldpstatstxportframestotal = None
+                self._segment_path = lambda: "lldpStatsTxPortEntry" + "[lldpStatsTxPortNum='" + str(self.lldpstatstxportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpStatsTxPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -881,8 +904,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpStatsRxPortEntry" : ("lldpstatsrxportentry", LLDPMIB.Lldpstatsrxporttable.Lldpstatsrxportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpStatsRxPortEntry", ("lldpstatsrxportentry", LLDPMIB.Lldpstatsrxporttable.Lldpstatsrxportentry))])
+            self._leafs = OrderedDict()
 
             self.lldpstatsrxportentry = YList(self)
             self._segment_path = lambda: "lldpStatsRxPortTable"
@@ -908,7 +933,7 @@ class LLDPMIB(Entity):
             port on the local LLDP agent become frozen whenever the
             adminStatus is disabled for the same port.
             
-            .. attribute:: lldpstatsrxportnum  <key>
+            .. attribute:: lldpstatsrxportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The value of this object is used as a port index to the lldpStatsTable
             	**type**\: int
@@ -971,23 +996,26 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpStatsRxPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpstatsrxportnum = YLeaf(YType.int32, "lldpStatsRxPortNum")
-
-                self.lldpstatsrxportframesdiscardedtotal = YLeaf(YType.uint32, "lldpStatsRxPortFramesDiscardedTotal")
-
-                self.lldpstatsrxportframeserrors = YLeaf(YType.uint32, "lldpStatsRxPortFramesErrors")
-
-                self.lldpstatsrxportframestotal = YLeaf(YType.uint32, "lldpStatsRxPortFramesTotal")
-
-                self.lldpstatsrxporttlvsdiscardedtotal = YLeaf(YType.uint32, "lldpStatsRxPortTLVsDiscardedTotal")
-
-                self.lldpstatsrxporttlvsunrecognizedtotal = YLeaf(YType.uint32, "lldpStatsRxPortTLVsUnrecognizedTotal")
-
-                self.lldpstatsrxportageoutstotal = YLeaf(YType.uint32, "lldpStatsRxPortAgeoutsTotal")
-                self._segment_path = lambda: "lldpStatsRxPortEntry" + "[lldpStatsRxPortNum='" + self.lldpstatsrxportnum.get() + "']"
+                self.ylist_key_names = ['lldpstatsrxportnum']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpstatsrxportnum', YLeaf(YType.int32, 'lldpStatsRxPortNum')),
+                    ('lldpstatsrxportframesdiscardedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortFramesDiscardedTotal')),
+                    ('lldpstatsrxportframeserrors', YLeaf(YType.uint32, 'lldpStatsRxPortFramesErrors')),
+                    ('lldpstatsrxportframestotal', YLeaf(YType.uint32, 'lldpStatsRxPortFramesTotal')),
+                    ('lldpstatsrxporttlvsdiscardedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortTLVsDiscardedTotal')),
+                    ('lldpstatsrxporttlvsunrecognizedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortTLVsUnrecognizedTotal')),
+                    ('lldpstatsrxportageoutstotal', YLeaf(YType.uint32, 'lldpStatsRxPortAgeoutsTotal')),
+                ])
+                self.lldpstatsrxportnum = None
+                self.lldpstatsrxportframesdiscardedtotal = None
+                self.lldpstatsrxportframeserrors = None
+                self.lldpstatsrxportframestotal = None
+                self.lldpstatsrxporttlvsdiscardedtotal = None
+                self.lldpstatsrxporttlvsunrecognizedtotal = None
+                self.lldpstatsrxportageoutstotal = None
+                self._segment_path = lambda: "lldpStatsRxPortEntry" + "[lldpStatsRxPortNum='" + str(self.lldpstatsrxportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpStatsRxPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1018,8 +1046,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpLocPortEntry" : ("lldplocportentry", LLDPMIB.Lldplocporttable.Lldplocportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpLocPortEntry", ("lldplocportentry", LLDPMIB.Lldplocporttable.Lldplocportentry))])
+            self._leafs = OrderedDict()
 
             self.lldplocportentry = YList(self)
             self._segment_path = lambda: "lldpLocPortTable"
@@ -1036,7 +1066,7 @@ class LLDPMIB(Entity):
             Entries may be created and deleted in this table by the
             agent.
             
-            .. attribute:: lldplocportnum  <key>
+            .. attribute:: lldplocportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The value of this object is used as a port index to the lldpLocPortTable
             	**type**\: int
@@ -1076,17 +1106,20 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpLocPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldplocportnum = YLeaf(YType.int32, "lldpLocPortNum")
-
-                self.lldplocportidsubtype = YLeaf(YType.enumeration, "lldpLocPortIdSubtype")
-
-                self.lldplocportid = YLeaf(YType.str, "lldpLocPortId")
-
-                self.lldplocportdesc = YLeaf(YType.str, "lldpLocPortDesc")
-                self._segment_path = lambda: "lldpLocPortEntry" + "[lldpLocPortNum='" + self.lldplocportnum.get() + "']"
+                self.ylist_key_names = ['lldplocportnum']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldplocportnum', YLeaf(YType.int32, 'lldpLocPortNum')),
+                    ('lldplocportidsubtype', YLeaf(YType.enumeration, 'lldpLocPortIdSubtype')),
+                    ('lldplocportid', YLeaf(YType.str, 'lldpLocPortId')),
+                    ('lldplocportdesc', YLeaf(YType.str, 'lldpLocPortDesc')),
+                ])
+                self.lldplocportnum = None
+                self.lldplocportidsubtype = None
+                self.lldplocportid = None
+                self.lldplocportdesc = None
+                self._segment_path = lambda: "lldpLocPortEntry" + "[lldpLocPortNum='" + str(self.lldplocportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpLocPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1117,8 +1150,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpLocManAddrEntry" : ("lldplocmanaddrentry", LLDPMIB.Lldplocmanaddrtable.Lldplocmanaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpLocManAddrEntry", ("lldplocmanaddrentry", LLDPMIB.Lldplocmanaddrtable.Lldplocmanaddrentry))])
+            self._leafs = OrderedDict()
 
             self.lldplocmanaddrentry = YList(self)
             self._segment_path = lambda: "lldpLocManAddrTable"
@@ -1140,12 +1175,12 @@ class LLDPMIB(Entity):
             Entries may be created and deleted in this table by the
             agent.
             
-            .. attribute:: lldplocmanaddrsubtype  <key>
+            .. attribute:: lldplocmanaddrsubtype  (key)
             
             	The type of management address identifier encoding used in the associated 'lldpLocManagmentAddr' object
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: lldplocmanaddr  <key>
+            .. attribute:: lldplocmanaddr  (key)
             
             	The string value used to identify the management address component associated with the local system.  The purpose of this address is to contact the management entity
             	**type**\: str
@@ -1199,23 +1234,26 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpLocManAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldplocmanaddrsubtype = YLeaf(YType.enumeration, "lldpLocManAddrSubtype")
-
-                self.lldplocmanaddr = YLeaf(YType.str, "lldpLocManAddr")
-
-                self.lldplocmanaddrlen = YLeaf(YType.int32, "lldpLocManAddrLen")
-
-                self.lldplocmanaddrifsubtype = YLeaf(YType.enumeration, "lldpLocManAddrIfSubtype")
-
-                self.lldplocmanaddrifid = YLeaf(YType.int32, "lldpLocManAddrIfId")
-
-                self.lldplocmanaddroid = YLeaf(YType.str, "lldpLocManAddrOID")
-
-                self.lldpconfigmanaddrportstxenable = YLeaf(YType.str, "lldpConfigManAddrPortsTxEnable")
-                self._segment_path = lambda: "lldpLocManAddrEntry" + "[lldpLocManAddrSubtype='" + self.lldplocmanaddrsubtype.get() + "']" + "[lldpLocManAddr='" + self.lldplocmanaddr.get() + "']"
+                self.ylist_key_names = ['lldplocmanaddrsubtype','lldplocmanaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldplocmanaddrsubtype', YLeaf(YType.enumeration, 'lldpLocManAddrSubtype')),
+                    ('lldplocmanaddr', YLeaf(YType.str, 'lldpLocManAddr')),
+                    ('lldplocmanaddrlen', YLeaf(YType.int32, 'lldpLocManAddrLen')),
+                    ('lldplocmanaddrifsubtype', YLeaf(YType.enumeration, 'lldpLocManAddrIfSubtype')),
+                    ('lldplocmanaddrifid', YLeaf(YType.int32, 'lldpLocManAddrIfId')),
+                    ('lldplocmanaddroid', YLeaf(YType.str, 'lldpLocManAddrOID')),
+                    ('lldpconfigmanaddrportstxenable', YLeaf(YType.str, 'lldpConfigManAddrPortsTxEnable')),
+                ])
+                self.lldplocmanaddrsubtype = None
+                self.lldplocmanaddr = None
+                self.lldplocmanaddrlen = None
+                self.lldplocmanaddrifsubtype = None
+                self.lldplocmanaddrifid = None
+                self.lldplocmanaddroid = None
+                self.lldpconfigmanaddrportstxenable = None
+                self._segment_path = lambda: "lldpLocManAddrEntry" + "[lldpLocManAddrSubtype='" + str(self.lldplocmanaddrsubtype) + "']" + "[lldpLocManAddr='" + str(self.lldplocmanaddr) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpLocManAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1293,8 +1331,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpRemEntry" : ("lldprementry", LLDPMIB.Lldpremtable.Lldprementry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpRemEntry", ("lldprementry", LLDPMIB.Lldpremtable.Lldprementry))])
+            self._leafs = OrderedDict()
 
             self.lldprementry = YList(self)
             self._segment_path = lambda: "lldpRemTable"
@@ -1310,21 +1350,21 @@ class LLDPMIB(Entity):
             Entries may be created and deleted in this table by the agent,
             if a physical topology discovery process is active.
             
-            .. attribute:: lldpremtimemark  <key>
+            .. attribute:: lldpremtimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention in IETF RFC 2021 and  http\://www.ietf.org/IESG/Implementations/RFC2021\-Implementation.txt to see how TimeFilter works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: lldpremlocalportnum  <key>
+            .. attribute:: lldpremlocalportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The lldpRemLocalPortNum identifies the port on which the remote system information is received.  The value of this object is used as a port index to the lldpRemTable
             	**type**\: int
             
             	**range:** 1..4096
             
-            .. attribute:: lldpremindex  <key>
+            .. attribute:: lldpremindex  (key)
             
             	This object represents an arbitrary local integer value used by this agent to identify a particular connection instance, unique only for the indicated remote system.  An agent is encouraged to assign monotonically increasing index values to new entries, starting with one, after each reboot.  It is considered unlikely that the lldpRemIndex will wrap between reboots
             	**type**\: int
@@ -1400,33 +1440,36 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpRemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpremtimemark = YLeaf(YType.uint32, "lldpRemTimeMark")
-
-                self.lldpremlocalportnum = YLeaf(YType.int32, "lldpRemLocalPortNum")
-
-                self.lldpremindex = YLeaf(YType.int32, "lldpRemIndex")
-
-                self.lldpremchassisidsubtype = YLeaf(YType.enumeration, "lldpRemChassisIdSubtype")
-
-                self.lldpremchassisid = YLeaf(YType.str, "lldpRemChassisId")
-
-                self.lldpremportidsubtype = YLeaf(YType.enumeration, "lldpRemPortIdSubtype")
-
-                self.lldpremportid = YLeaf(YType.str, "lldpRemPortId")
-
-                self.lldpremportdesc = YLeaf(YType.str, "lldpRemPortDesc")
-
-                self.lldpremsysname = YLeaf(YType.str, "lldpRemSysName")
-
-                self.lldpremsysdesc = YLeaf(YType.str, "lldpRemSysDesc")
-
-                self.lldpremsyscapsupported = YLeaf(YType.bits, "lldpRemSysCapSupported")
-
-                self.lldpremsyscapenabled = YLeaf(YType.bits, "lldpRemSysCapEnabled")
-                self._segment_path = lambda: "lldpRemEntry" + "[lldpRemTimeMark='" + self.lldpremtimemark.get() + "']" + "[lldpRemLocalPortNum='" + self.lldpremlocalportnum.get() + "']" + "[lldpRemIndex='" + self.lldpremindex.get() + "']"
+                self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpremtimemark', YLeaf(YType.uint32, 'lldpRemTimeMark')),
+                    ('lldpremlocalportnum', YLeaf(YType.int32, 'lldpRemLocalPortNum')),
+                    ('lldpremindex', YLeaf(YType.int32, 'lldpRemIndex')),
+                    ('lldpremchassisidsubtype', YLeaf(YType.enumeration, 'lldpRemChassisIdSubtype')),
+                    ('lldpremchassisid', YLeaf(YType.str, 'lldpRemChassisId')),
+                    ('lldpremportidsubtype', YLeaf(YType.enumeration, 'lldpRemPortIdSubtype')),
+                    ('lldpremportid', YLeaf(YType.str, 'lldpRemPortId')),
+                    ('lldpremportdesc', YLeaf(YType.str, 'lldpRemPortDesc')),
+                    ('lldpremsysname', YLeaf(YType.str, 'lldpRemSysName')),
+                    ('lldpremsysdesc', YLeaf(YType.str, 'lldpRemSysDesc')),
+                    ('lldpremsyscapsupported', YLeaf(YType.bits, 'lldpRemSysCapSupported')),
+                    ('lldpremsyscapenabled', YLeaf(YType.bits, 'lldpRemSysCapEnabled')),
+                ])
+                self.lldpremtimemark = None
+                self.lldpremlocalportnum = None
+                self.lldpremindex = None
+                self.lldpremchassisidsubtype = None
+                self.lldpremchassisid = None
+                self.lldpremportidsubtype = None
+                self.lldpremportid = None
+                self.lldpremportdesc = None
+                self.lldpremsysname = None
+                self.lldpremsysdesc = None
+                self.lldpremsyscapsupported = Bits()
+                self.lldpremsyscapenabled = Bits()
+                self._segment_path = lambda: "lldpRemEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1458,8 +1501,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpRemManAddrEntry" : ("lldpremmanaddrentry", LLDPMIB.Lldpremmanaddrtable.Lldpremmanaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpRemManAddrEntry", ("lldpremmanaddrentry", LLDPMIB.Lldpremmanaddrtable.Lldpremmanaddrentry))])
+            self._leafs = OrderedDict()
 
             self.lldpremmanaddrentry = YList(self)
             self._segment_path = lambda: "lldpRemManAddrTable"
@@ -1483,7 +1528,7 @@ class LLDPMIB(Entity):
             Entries may be created and deleted in this table by the
             agent.
             
-            .. attribute:: lldpremtimemark  <key>
+            .. attribute:: lldpremtimemark  (key)
             
             	
             	**type**\: int
@@ -1492,7 +1537,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremlocalportnum  <key>
+            .. attribute:: lldpremlocalportnum  (key)
             
             	
             	**type**\: int
@@ -1501,7 +1546,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremindex  <key>
+            .. attribute:: lldpremindex  (key)
             
             	
             	**type**\: int
@@ -1510,12 +1555,12 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremmanaddrsubtype  <key>
+            .. attribute:: lldpremmanaddrsubtype  (key)
             
             	The type of management address identifier encoding used in the associated 'lldpRemManagmentAddr' object
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: lldpremmanaddr  <key>
+            .. attribute:: lldpremmanaddr  (key)
             
             	The string value used to identify the management address component associated with the remote system.  The purpose of this address is to contact the management entity
             	**type**\: str
@@ -1555,25 +1600,28 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpRemManAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpremtimemark = YLeaf(YType.str, "lldpRemTimeMark")
-
-                self.lldpremlocalportnum = YLeaf(YType.str, "lldpRemLocalPortNum")
-
-                self.lldpremindex = YLeaf(YType.str, "lldpRemIndex")
-
-                self.lldpremmanaddrsubtype = YLeaf(YType.enumeration, "lldpRemManAddrSubtype")
-
-                self.lldpremmanaddr = YLeaf(YType.str, "lldpRemManAddr")
-
-                self.lldpremmanaddrifsubtype = YLeaf(YType.enumeration, "lldpRemManAddrIfSubtype")
-
-                self.lldpremmanaddrifid = YLeaf(YType.int32, "lldpRemManAddrIfId")
-
-                self.lldpremmanaddroid = YLeaf(YType.str, "lldpRemManAddrOID")
-                self._segment_path = lambda: "lldpRemManAddrEntry" + "[lldpRemTimeMark='" + self.lldpremtimemark.get() + "']" + "[lldpRemLocalPortNum='" + self.lldpremlocalportnum.get() + "']" + "[lldpRemIndex='" + self.lldpremindex.get() + "']" + "[lldpRemManAddrSubtype='" + self.lldpremmanaddrsubtype.get() + "']" + "[lldpRemManAddr='" + self.lldpremmanaddr.get() + "']"
+                self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremmanaddrsubtype','lldpremmanaddr']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
+                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
+                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
+                    ('lldpremmanaddrsubtype', YLeaf(YType.enumeration, 'lldpRemManAddrSubtype')),
+                    ('lldpremmanaddr', YLeaf(YType.str, 'lldpRemManAddr')),
+                    ('lldpremmanaddrifsubtype', YLeaf(YType.enumeration, 'lldpRemManAddrIfSubtype')),
+                    ('lldpremmanaddrifid', YLeaf(YType.int32, 'lldpRemManAddrIfId')),
+                    ('lldpremmanaddroid', YLeaf(YType.str, 'lldpRemManAddrOID')),
+                ])
+                self.lldpremtimemark = None
+                self.lldpremlocalportnum = None
+                self.lldpremindex = None
+                self.lldpremmanaddrsubtype = None
+                self.lldpremmanaddr = None
+                self.lldpremmanaddrifsubtype = None
+                self.lldpremmanaddrifid = None
+                self.lldpremmanaddroid = None
+                self._segment_path = lambda: "lldpRemManAddrEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemManAddrSubtype='" + str(self.lldpremmanaddrsubtype) + "']" + "[lldpRemManAddr='" + str(self.lldpremmanaddr) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemManAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1615,8 +1663,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpRemUnknownTLVEntry" : ("lldpremunknowntlventry", LLDPMIB.Lldpremunknowntlvtable.Lldpremunknowntlventry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpRemUnknownTLVEntry", ("lldpremunknowntlventry", LLDPMIB.Lldpremunknowntlvtable.Lldpremunknowntlventry))])
+            self._leafs = OrderedDict()
 
             self.lldpremunknowntlventry = YList(self)
             self._segment_path = lambda: "lldpRemUnknownTLVTable"
@@ -1633,7 +1683,7 @@ class LLDPMIB(Entity):
             deleted in this table by the agent, if a physical topology
             discovery process is active.
             
-            .. attribute:: lldpremtimemark  <key>
+            .. attribute:: lldpremtimemark  (key)
             
             	
             	**type**\: int
@@ -1642,7 +1692,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremlocalportnum  <key>
+            .. attribute:: lldpremlocalportnum  (key)
             
             	
             	**type**\: int
@@ -1651,7 +1701,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremindex  <key>
+            .. attribute:: lldpremindex  (key)
             
             	
             	**type**\: int
@@ -1660,7 +1710,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremunknowntlvtype  <key>
+            .. attribute:: lldpremunknowntlvtype  (key)
             
             	This object represents the value extracted from the type field of the TLV
             	**type**\: int
@@ -1688,19 +1738,22 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpRemUnknownTLVTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpremtimemark = YLeaf(YType.str, "lldpRemTimeMark")
-
-                self.lldpremlocalportnum = YLeaf(YType.str, "lldpRemLocalPortNum")
-
-                self.lldpremindex = YLeaf(YType.str, "lldpRemIndex")
-
-                self.lldpremunknowntlvtype = YLeaf(YType.int32, "lldpRemUnknownTLVType")
-
-                self.lldpremunknowntlvinfo = YLeaf(YType.str, "lldpRemUnknownTLVInfo")
-                self._segment_path = lambda: "lldpRemUnknownTLVEntry" + "[lldpRemTimeMark='" + self.lldpremtimemark.get() + "']" + "[lldpRemLocalPortNum='" + self.lldpremlocalportnum.get() + "']" + "[lldpRemIndex='" + self.lldpremindex.get() + "']" + "[lldpRemUnknownTLVType='" + self.lldpremunknowntlvtype.get() + "']"
+                self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremunknowntlvtype']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
+                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
+                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
+                    ('lldpremunknowntlvtype', YLeaf(YType.int32, 'lldpRemUnknownTLVType')),
+                    ('lldpremunknowntlvinfo', YLeaf(YType.str, 'lldpRemUnknownTLVInfo')),
+                ])
+                self.lldpremtimemark = None
+                self.lldpremlocalportnum = None
+                self.lldpremindex = None
+                self.lldpremunknowntlvtype = None
+                self.lldpremunknowntlvinfo = None
+                self._segment_path = lambda: "lldpRemUnknownTLVEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemUnknownTLVType='" + str(self.lldpremunknowntlvtype) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemUnknownTLVTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1741,8 +1794,10 @@ class LLDPMIB(Entity):
             self.yang_parent_name = "LLDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"lldpRemOrgDefInfoEntry" : ("lldpremorgdefinfoentry", LLDPMIB.Lldpremorgdefinfotable.Lldpremorgdefinfoentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("lldpRemOrgDefInfoEntry", ("lldpremorgdefinfoentry", LLDPMIB.Lldpremorgdefinfotable.Lldpremorgdefinfoentry))])
+            self._leafs = OrderedDict()
 
             self.lldpremorgdefinfoentry = YList(self)
             self._segment_path = lambda: "lldpRemOrgDefInfoTable"
@@ -1770,7 +1825,7 @@ class LLDPMIB(Entity):
             Entries may be created and deleted in this table by the
             agent.
             
-            .. attribute:: lldpremtimemark  <key>
+            .. attribute:: lldpremtimemark  (key)
             
             	
             	**type**\: int
@@ -1779,7 +1834,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremlocalportnum  <key>
+            .. attribute:: lldpremlocalportnum  (key)
             
             	
             	**type**\: int
@@ -1788,7 +1843,7 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremindex  <key>
+            .. attribute:: lldpremindex  (key)
             
             	
             	**type**\: int
@@ -1797,21 +1852,21 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.Lldpremtable.Lldprementry>`
             
-            .. attribute:: lldpremorgdefinfooui  <key>
+            .. attribute:: lldpremorgdefinfooui  (key)
             
             	The Organizationally Unique Identifier (OUI), as defined in IEEE std 802\-2001, is a 24 bit (three octets) globally unique assigned number referenced by various standards, of the information received from the remote system
             	**type**\: str
             
             	**length:** 3
             
-            .. attribute:: lldpremorgdefinfosubtype  <key>
+            .. attribute:: lldpremorgdefinfosubtype  (key)
             
             	The integer value used to identify the subtype of the organizationally defined information received from the remote system.  The subtype value is required to identify different instances of organizationally defined information that could not be retrieved without a unique identifier that indicates the particular type of information contained in the information string
             	**type**\: int
             
             	**range:** 1..255
             
-            .. attribute:: lldpremorgdefinfoindex  <key>
+            .. attribute:: lldpremorgdefinfoindex  (key)
             
             	This object represents an arbitrary local integer value used by this agent to identify a particular unrecognized organizationally defined information instance, unique only for the lldpRemOrgDefInfoOUI and lldpRemOrgDefInfoSubtype from the same remote system.  An agent is encouraged to assign monotonically increasing index values to new entries, starting with one, after each reboot.  It is considered unlikely that the lldpRemOrgDefInfoIndex will wrap between reboots
             	**type**\: int
@@ -1839,23 +1894,26 @@ class LLDPMIB(Entity):
                 self.yang_parent_name = "lldpRemOrgDefInfoTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.lldpremtimemark = YLeaf(YType.str, "lldpRemTimeMark")
-
-                self.lldpremlocalportnum = YLeaf(YType.str, "lldpRemLocalPortNum")
-
-                self.lldpremindex = YLeaf(YType.str, "lldpRemIndex")
-
-                self.lldpremorgdefinfooui = YLeaf(YType.str, "lldpRemOrgDefInfoOUI")
-
-                self.lldpremorgdefinfosubtype = YLeaf(YType.int32, "lldpRemOrgDefInfoSubtype")
-
-                self.lldpremorgdefinfoindex = YLeaf(YType.int32, "lldpRemOrgDefInfoIndex")
-
-                self.lldpremorgdefinfo = YLeaf(YType.str, "lldpRemOrgDefInfo")
-                self._segment_path = lambda: "lldpRemOrgDefInfoEntry" + "[lldpRemTimeMark='" + self.lldpremtimemark.get() + "']" + "[lldpRemLocalPortNum='" + self.lldpremlocalportnum.get() + "']" + "[lldpRemIndex='" + self.lldpremindex.get() + "']" + "[lldpRemOrgDefInfoOUI='" + self.lldpremorgdefinfooui.get() + "']" + "[lldpRemOrgDefInfoSubtype='" + self.lldpremorgdefinfosubtype.get() + "']" + "[lldpRemOrgDefInfoIndex='" + self.lldpremorgdefinfoindex.get() + "']"
+                self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremorgdefinfooui','lldpremorgdefinfosubtype','lldpremorgdefinfoindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
+                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
+                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
+                    ('lldpremorgdefinfooui', YLeaf(YType.str, 'lldpRemOrgDefInfoOUI')),
+                    ('lldpremorgdefinfosubtype', YLeaf(YType.int32, 'lldpRemOrgDefInfoSubtype')),
+                    ('lldpremorgdefinfoindex', YLeaf(YType.int32, 'lldpRemOrgDefInfoIndex')),
+                    ('lldpremorgdefinfo', YLeaf(YType.str, 'lldpRemOrgDefInfo')),
+                ])
+                self.lldpremtimemark = None
+                self.lldpremlocalportnum = None
+                self.lldpremindex = None
+                self.lldpremorgdefinfooui = None
+                self.lldpremorgdefinfosubtype = None
+                self.lldpremorgdefinfoindex = None
+                self.lldpremorgdefinfo = None
+                self._segment_path = lambda: "lldpRemOrgDefInfoEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemOrgDefInfoOUI='" + str(self.lldpremorgdefinfooui) + "']" + "[lldpRemOrgDefInfoSubtype='" + str(self.lldpremorgdefinfosubtype) + "']" + "[lldpRemOrgDefInfoIndex='" + str(self.lldpremorgdefinfoindex) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemOrgDefInfoTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

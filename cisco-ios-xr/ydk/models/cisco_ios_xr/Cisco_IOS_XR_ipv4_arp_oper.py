@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ArpGmpBagEncap(Enum):
     """
-    ArpGmpBagEncap
+    ArpGmpBagEncap (Enum Class)
 
     ARP encapsulation
 
@@ -71,7 +73,7 @@ class ArpGmpBagEncap(Enum):
 
 class ArpGmpBagEntry(Enum):
     """
-    ArpGmpBagEntry
+    ArpGmpBagEntry (Enum Class)
 
     ARP Entry type
 
@@ -98,7 +100,7 @@ class ArpGmpBagEntry(Enum):
 
 class ArpResolutionHistoryStatus(Enum):
     """
-    ArpResolutionHistoryStatus
+    ArpResolutionHistoryStatus (Enum Class)
 
     Arp resolution history status
 
@@ -259,7 +261,7 @@ class ArpResolutionHistoryStatus(Enum):
 
 class IpArpBagEncap(Enum):
     """
-    IpArpBagEncap
+    IpArpBagEncap (Enum Class)
 
     ARP encapsulation
 
@@ -310,7 +312,7 @@ class IpArpBagEncap(Enum):
 
 class IpArpBagFlags(Enum):
     """
-    IpArpBagFlags
+    IpArpBagFlags (Enum Class)
 
     ARP flags
 
@@ -343,7 +345,7 @@ class IpArpBagFlags(Enum):
 
 class IpArpBagMedia(Enum):
     """
-    IpArpBagMedia
+    IpArpBagMedia (Enum Class)
 
     ARP media type
 
@@ -370,7 +372,7 @@ class IpArpBagMedia(Enum):
 
 class IpArpBagState(Enum):
     """
-    IpArpBagState
+    IpArpBagState (Enum Class)
 
     ARP state
 
@@ -509,8 +511,10 @@ class ArpGmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrf-infos" : ("vrf_infos", ArpGmp.VrfInfos), "vrfs" : ("vrfs", ArpGmp.Vrfs)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrf-infos", ("vrf_infos", ArpGmp.VrfInfos)), ("vrfs", ("vrfs", ArpGmp.Vrfs))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.vrf_infos = ArpGmp.VrfInfos()
         self.vrf_infos.parent = self
@@ -547,8 +551,10 @@ class ArpGmp(Entity):
             self.yang_parent_name = "arp-gmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf-info" : ("vrf_info", ArpGmp.VrfInfos.VrfInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf-info", ("vrf_info", ArpGmp.VrfInfos.VrfInfo))])
+            self._leafs = OrderedDict()
 
             self.vrf_info = YList(self)
             self._segment_path = lambda: "vrf-infos"
@@ -562,7 +568,7 @@ class ArpGmp(Entity):
             """
             VRF related ARP\-GMP operational data
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name for the default VRF use 'default'
             	**type**\: str
@@ -616,21 +622,24 @@ class ArpGmp(Entity):
                 self.yang_parent_name = "vrf-infos"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
-
-                self.vrf_id_number = YLeaf(YType.uint32, "vrf-id-number")
-
-                self.table_id = YLeaf(YType.uint32, "table-id")
-
-                self.rsi_handle = YLeaf(YType.uint32, "rsi-handle")
-
-                self.rsi_handle_high = YLeaf(YType.uint32, "rsi-handle-high")
-                self._segment_path = lambda: "vrf-info" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
+                    ('vrf_id_number', YLeaf(YType.uint32, 'vrf-id-number')),
+                    ('table_id', YLeaf(YType.uint32, 'table-id')),
+                    ('rsi_handle', YLeaf(YType.uint32, 'rsi-handle')),
+                    ('rsi_handle_high', YLeaf(YType.uint32, 'rsi-handle-high')),
+                ])
+                self.vrf_name = None
+                self.vrf_name_xr = None
+                self.vrf_id_number = None
+                self.table_id = None
+                self.rsi_handle = None
+                self.rsi_handle_high = None
+                self._segment_path = lambda: "vrf-info" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrf-infos/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -660,8 +669,10 @@ class ArpGmp(Entity):
             self.yang_parent_name = "arp-gmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", ArpGmp.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", ArpGmp.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -675,7 +686,7 @@ class ArpGmp(Entity):
             """
             Per VRF ARP\-GMP operational data
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name for the default VRF use 'default'
             	**type**\: str
@@ -711,10 +722,13 @@ class ArpGmp(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"configured-ip-addresses" : ("configured_ip_addresses", ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses), "routes" : ("routes", ArpGmp.Vrfs.Vrf.Routes), "interface-configured-ips" : ("interface_configured_ips", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("configured-ip-addresses", ("configured_ip_addresses", ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses)), ("routes", ("routes", ArpGmp.Vrfs.Vrf.Routes)), ("interface-configured-ips", ("interface_configured_ips", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
 
                 self.configured_ip_addresses = ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses()
                 self.configured_ip_addresses.parent = self
@@ -730,7 +744,7 @@ class ArpGmp(Entity):
                 self.interface_configured_ips.parent = self
                 self._children_name_map["interface_configured_ips"] = "interface-configured-ips"
                 self._children_yang_names.add("interface-configured-ips")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -761,8 +775,10 @@ class ArpGmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"configured-ip-address" : ("configured_ip_address", ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("configured-ip-address", ("configured_ip_address", ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress))])
+                    self._leafs = OrderedDict()
 
                     self.configured_ip_address = YList(self)
                     self._segment_path = lambda: "configured-ip-addresses"
@@ -775,7 +791,7 @@ class ArpGmp(Entity):
                     """
                     ARP\-GMP configured IP address information
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	Configured ARP\-GMP IP
                     	**type**\: str
@@ -820,19 +836,22 @@ class ArpGmp(Entity):
                         self.yang_parent_name = "configured-ip-addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.hardware_address = YLeaf(YType.str, "hardware-address")
-
-                        self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-
-                        self.entry_type = YLeaf(YType.enumeration, "entry-type")
-                        self._segment_path = lambda: "configured-ip-address" + "[address='" + self.address.get() + "']"
+                        self.ylist_key_names = ['address']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('hardware_address', YLeaf(YType.str, 'hardware-address')),
+                            ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                            ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
+                        ])
+                        self.address = None
+                        self.ip_address = None
+                        self.hardware_address = None
+                        self.encapsulation_type = None
+                        self.entry_type = None
+                        self._segment_path = lambda: "configured-ip-address" + "[address='" + str(self.address) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', 'ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
@@ -861,8 +880,10 @@ class ArpGmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"route" : ("route", ArpGmp.Vrfs.Vrf.Routes.Route)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("route", ("route", ArpGmp.Vrfs.Vrf.Routes.Route))])
+                    self._leafs = OrderedDict()
 
                     self.route = YList(self)
                     self._segment_path = lambda: "routes"
@@ -931,20 +952,23 @@ class ArpGmp(Entity):
                         self.yang_parent_name = "routes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.prefix_length_xr = YLeaf(YType.uint8, "prefix-length-xr")
-
-                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                        self.interface_name = YLeafList(YType.str, "interface-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('prefix_length_xr', YLeaf(YType.uint8, 'prefix-length-xr')),
+                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                            ('interface_name', YLeafList(YType.str, 'interface-name')),
+                        ])
+                        self.address = None
+                        self.prefix_length = None
+                        self.ip_address = None
+                        self.prefix_length_xr = None
+                        self.interface_name_xr = None
+                        self.interface_name = []
                         self._segment_path = lambda: "route"
 
                     def __setattr__(self, name, value):
@@ -975,8 +999,10 @@ class ArpGmp(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-configured-ip" : ("interface_configured_ip", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-configured-ip", ("interface_configured_ip", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp))])
+                    self._leafs = OrderedDict()
 
                     self.interface_configured_ip = YList(self)
                     self._segment_path = lambda: "interface-configured-ips"
@@ -1037,16 +1063,19 @@ class ArpGmp(Entity):
                         self.yang_parent_name = "interface-configured-ips"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"associated-configuration-entry" : ("associated_configuration_entry", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                        self.reference_count = YLeaf(YType.uint32, "reference-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("associated-configuration-entry", ("associated_configuration_entry", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                            ('reference_count', YLeaf(YType.uint32, 'reference-count')),
+                        ])
+                        self.interface_name = None
+                        self.address = None
+                        self.interface_name_xr = None
+                        self.reference_count = None
 
                         self.associated_configuration_entry = ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry()
                         self.associated_configuration_entry.parent = self
@@ -1100,16 +1129,19 @@ class ArpGmp(Entity):
                             self.yang_parent_name = "interface-configured-ip"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
-
-                            self.hardware_address = YLeaf(YType.str, "hardware-address")
-
-                            self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-
-                            self.entry_type = YLeaf(YType.enumeration, "entry-type")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                ('hardware_address', YLeaf(YType.str, 'hardware-address')),
+                                ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                                ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
+                            ])
+                            self.ip_address = None
+                            self.hardware_address = None
+                            self.encapsulation_type = None
+                            self.entry_type = None
                             self._segment_path = lambda: "associated-configuration-entry"
 
                         def __setattr__(self, name, value):
@@ -1143,8 +1175,10 @@ class Arp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Arp.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Arp.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Arp.Nodes()
         self.nodes.parent = self
@@ -1176,8 +1210,10 @@ class Arp(Entity):
             self.yang_parent_name = "arp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Arp.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Arp.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -1191,7 +1227,7 @@ class Arp(Entity):
             """
             Per\-node ARP operational data
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -1242,10 +1278,13 @@ class Arp(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"resolution-history-dynamic" : ("resolution_history_dynamic", Arp.Nodes.Node.ResolutionHistoryDynamic), "traffic-vrfs" : ("traffic_vrfs", Arp.Nodes.Node.TrafficVrfs), "traffic-node" : ("traffic_node", Arp.Nodes.Node.TrafficNode), "resolution-history-client" : ("resolution_history_client", Arp.Nodes.Node.ResolutionHistoryClient), "entries" : ("entries", Arp.Nodes.Node.Entries), "traffic-interfaces" : ("traffic_interfaces", Arp.Nodes.Node.TrafficInterfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("resolution-history-dynamic", ("resolution_history_dynamic", Arp.Nodes.Node.ResolutionHistoryDynamic)), ("traffic-vrfs", ("traffic_vrfs", Arp.Nodes.Node.TrafficVrfs)), ("traffic-node", ("traffic_node", Arp.Nodes.Node.TrafficNode)), ("resolution-history-client", ("resolution_history_client", Arp.Nodes.Node.ResolutionHistoryClient)), ("entries", ("entries", Arp.Nodes.Node.Entries)), ("traffic-interfaces", ("traffic_interfaces", Arp.Nodes.Node.TrafficInterfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.resolution_history_dynamic = Arp.Nodes.Node.ResolutionHistoryDynamic()
                 self.resolution_history_dynamic.parent = self
@@ -1276,7 +1315,7 @@ class Arp(Entity):
                 self.traffic_interfaces.parent = self
                 self._children_name_map["traffic_interfaces"] = "traffic-interfaces"
                 self._children_yang_names.add("traffic-interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1307,8 +1346,10 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"arp-entry" : ("arp_entry", Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("arp-entry", ("arp_entry", Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry))])
+                    self._leafs = OrderedDict()
 
                     self.arp_entry = YList(self)
                     self._segment_path = lambda: "resolution-history-dynamic"
@@ -1391,24 +1432,27 @@ class Arp(Entity):
                         self.yang_parent_name = "resolution-history-dynamic"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nsec_timestamp = YLeaf(YType.uint64, "nsec-timestamp")
-
-                        self.idb_interface_name = YLeaf(YType.str, "idb-interface-name")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                        self.status = YLeaf(YType.enumeration, "status")
-
-                        self.client_id = YLeaf(YType.int32, "client-id")
-
-                        self.entry_state = YLeaf(YType.int32, "entry-state")
-
-                        self.resolution_request_count = YLeaf(YType.uint32, "resolution-request-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('nsec_timestamp', YLeaf(YType.uint64, 'nsec-timestamp')),
+                            ('idb_interface_name', YLeaf(YType.str, 'idb-interface-name')),
+                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                            ('status', YLeaf(YType.enumeration, 'status')),
+                            ('client_id', YLeaf(YType.int32, 'client-id')),
+                            ('entry_state', YLeaf(YType.int32, 'entry-state')),
+                            ('resolution_request_count', YLeaf(YType.uint32, 'resolution-request-count')),
+                        ])
+                        self.nsec_timestamp = None
+                        self.idb_interface_name = None
+                        self.ipv4_address = None
+                        self.mac_address = None
+                        self.status = None
+                        self.client_id = None
+                        self.entry_state = None
+                        self.resolution_request_count = None
                         self._segment_path = lambda: "arp-entry"
 
                     def __setattr__(self, name, value):
@@ -1438,8 +1482,10 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"traffic-vrf" : ("traffic_vrf", Arp.Nodes.Node.TrafficVrfs.TrafficVrf)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("traffic-vrf", ("traffic_vrf", Arp.Nodes.Node.TrafficVrfs.TrafficVrf))])
+                    self._leafs = OrderedDict()
 
                     self.traffic_vrf = YList(self)
                     self._segment_path = lambda: "traffic-vrfs"
@@ -1452,7 +1498,7 @@ class Arp(Entity):
                     """
                     Per VRF traffic data
                     
-                    .. attribute:: vrf_name  <key>
+                    .. attribute:: vrf_name  (key)
                     
                     	VRF name
                     	**type**\: str
@@ -1674,69 +1720,72 @@ class Arp(Entity):
                         self.yang_parent_name = "traffic-vrfs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.requests_received = YLeaf(YType.uint32, "requests-received")
-
-                        self.replies_received = YLeaf(YType.uint32, "replies-received")
-
-                        self.requests_sent = YLeaf(YType.uint32, "requests-sent")
-
-                        self.replies_sent = YLeaf(YType.uint32, "replies-sent")
-
-                        self.proxy_replies_sent = YLeaf(YType.uint32, "proxy-replies-sent")
-
-                        self.subscr_requests_received = YLeaf(YType.uint32, "subscr-requests-received")
-
-                        self.subscr_replies_sent = YLeaf(YType.uint32, "subscr-replies-sent")
-
-                        self.subscr_replies_gratg_sent = YLeaf(YType.uint32, "subscr-replies-gratg-sent")
-
-                        self.local_proxy_replies_sent = YLeaf(YType.uint32, "local-proxy-replies-sent")
-
-                        self.gratuitous_replies_sent = YLeaf(YType.uint32, "gratuitous-replies-sent")
-
-                        self.resolution_requests_received = YLeaf(YType.uint32, "resolution-requests-received")
-
-                        self.resolution_replies_received = YLeaf(YType.uint32, "resolution-replies-received")
-
-                        self.resolution_requests_dropped = YLeaf(YType.uint32, "resolution-requests-dropped")
-
-                        self.out_of_memory_errors = YLeaf(YType.uint32, "out-of-memory-errors")
-
-                        self.no_buffer_errors = YLeaf(YType.uint32, "no-buffer-errors")
-
-                        self.total_entries = YLeaf(YType.uint32, "total-entries")
-
-                        self.dynamic_entries = YLeaf(YType.uint32, "dynamic-entries")
-
-                        self.static_entries = YLeaf(YType.uint32, "static-entries")
-
-                        self.alias_entries = YLeaf(YType.uint32, "alias-entries")
-
-                        self.interface_entries = YLeaf(YType.uint32, "interface-entries")
-
-                        self.standby_entries = YLeaf(YType.uint32, "standby-entries")
-
-                        self.dhcp_entries = YLeaf(YType.uint32, "dhcp-entries")
-
-                        self.vxlan_entries = YLeaf(YType.uint32, "vxlan-entries")
-
-                        self.ip_packets_dropped_node = YLeaf(YType.uint32, "ip-packets-dropped-node")
-
-                        self.arp_packet_node_out_of_subnet = YLeaf(YType.uint32, "arp-packet-node-out-of-subnet")
-
-                        self.ip_packets_dropped_interface = YLeaf(YType.uint32, "ip-packets-dropped-interface")
-
-                        self.arp_packet_interface_out_of_subnet = YLeaf(YType.uint32, "arp-packet-interface-out-of-subnet")
-
-                        self.arp_packet_unsolicited_packet = YLeaf(YType.uint32, "arp-packet-unsolicited-packet")
-
-                        self.idb_structures = YLeaf(YType.uint32, "idb-structures")
-                        self._segment_path = lambda: "traffic-vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                        self.ylist_key_names = ['vrf_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('requests_received', YLeaf(YType.uint32, 'requests-received')),
+                            ('replies_received', YLeaf(YType.uint32, 'replies-received')),
+                            ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
+                            ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
+                            ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
+                            ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
+                            ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
+                            ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
+                            ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
+                            ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
+                            ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
+                            ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
+                            ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
+                            ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
+                            ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
+                            ('total_entries', YLeaf(YType.uint32, 'total-entries')),
+                            ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
+                            ('static_entries', YLeaf(YType.uint32, 'static-entries')),
+                            ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
+                            ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
+                            ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
+                            ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
+                            ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
+                            ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
+                            ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
+                            ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
+                            ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
+                            ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
+                            ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                        ])
+                        self.vrf_name = None
+                        self.requests_received = None
+                        self.replies_received = None
+                        self.requests_sent = None
+                        self.replies_sent = None
+                        self.proxy_replies_sent = None
+                        self.subscr_requests_received = None
+                        self.subscr_replies_sent = None
+                        self.subscr_replies_gratg_sent = None
+                        self.local_proxy_replies_sent = None
+                        self.gratuitous_replies_sent = None
+                        self.resolution_requests_received = None
+                        self.resolution_replies_received = None
+                        self.resolution_requests_dropped = None
+                        self.out_of_memory_errors = None
+                        self.no_buffer_errors = None
+                        self.total_entries = None
+                        self.dynamic_entries = None
+                        self.static_entries = None
+                        self.alias_entries = None
+                        self.interface_entries = None
+                        self.standby_entries = None
+                        self.dhcp_entries = None
+                        self.vxlan_entries = None
+                        self.ip_packets_dropped_node = None
+                        self.arp_packet_node_out_of_subnet = None
+                        self.ip_packets_dropped_interface = None
+                        self.arp_packet_interface_out_of_subnet = None
+                        self.arp_packet_unsolicited_packet = None
+                        self.idb_structures = None
+                        self._segment_path = lambda: "traffic-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
@@ -1963,66 +2012,69 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.requests_received = YLeaf(YType.uint32, "requests-received")
-
-                    self.replies_received = YLeaf(YType.uint32, "replies-received")
-
-                    self.requests_sent = YLeaf(YType.uint32, "requests-sent")
-
-                    self.replies_sent = YLeaf(YType.uint32, "replies-sent")
-
-                    self.proxy_replies_sent = YLeaf(YType.uint32, "proxy-replies-sent")
-
-                    self.subscr_requests_received = YLeaf(YType.uint32, "subscr-requests-received")
-
-                    self.subscr_replies_sent = YLeaf(YType.uint32, "subscr-replies-sent")
-
-                    self.subscr_replies_gratg_sent = YLeaf(YType.uint32, "subscr-replies-gratg-sent")
-
-                    self.local_proxy_replies_sent = YLeaf(YType.uint32, "local-proxy-replies-sent")
-
-                    self.gratuitous_replies_sent = YLeaf(YType.uint32, "gratuitous-replies-sent")
-
-                    self.resolution_requests_received = YLeaf(YType.uint32, "resolution-requests-received")
-
-                    self.resolution_replies_received = YLeaf(YType.uint32, "resolution-replies-received")
-
-                    self.resolution_requests_dropped = YLeaf(YType.uint32, "resolution-requests-dropped")
-
-                    self.out_of_memory_errors = YLeaf(YType.uint32, "out-of-memory-errors")
-
-                    self.no_buffer_errors = YLeaf(YType.uint32, "no-buffer-errors")
-
-                    self.total_entries = YLeaf(YType.uint32, "total-entries")
-
-                    self.dynamic_entries = YLeaf(YType.uint32, "dynamic-entries")
-
-                    self.static_entries = YLeaf(YType.uint32, "static-entries")
-
-                    self.alias_entries = YLeaf(YType.uint32, "alias-entries")
-
-                    self.interface_entries = YLeaf(YType.uint32, "interface-entries")
-
-                    self.standby_entries = YLeaf(YType.uint32, "standby-entries")
-
-                    self.dhcp_entries = YLeaf(YType.uint32, "dhcp-entries")
-
-                    self.vxlan_entries = YLeaf(YType.uint32, "vxlan-entries")
-
-                    self.ip_packets_dropped_node = YLeaf(YType.uint32, "ip-packets-dropped-node")
-
-                    self.arp_packet_node_out_of_subnet = YLeaf(YType.uint32, "arp-packet-node-out-of-subnet")
-
-                    self.ip_packets_dropped_interface = YLeaf(YType.uint32, "ip-packets-dropped-interface")
-
-                    self.arp_packet_interface_out_of_subnet = YLeaf(YType.uint32, "arp-packet-interface-out-of-subnet")
-
-                    self.arp_packet_unsolicited_packet = YLeaf(YType.uint32, "arp-packet-unsolicited-packet")
-
-                    self.idb_structures = YLeaf(YType.uint32, "idb-structures")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('requests_received', YLeaf(YType.uint32, 'requests-received')),
+                        ('replies_received', YLeaf(YType.uint32, 'replies-received')),
+                        ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
+                        ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
+                        ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
+                        ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
+                        ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
+                        ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
+                        ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
+                        ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
+                        ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
+                        ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
+                        ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
+                        ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
+                        ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
+                        ('total_entries', YLeaf(YType.uint32, 'total-entries')),
+                        ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
+                        ('static_entries', YLeaf(YType.uint32, 'static-entries')),
+                        ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
+                        ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
+                        ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
+                        ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
+                        ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
+                        ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
+                        ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
+                        ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
+                        ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
+                        ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
+                        ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                    ])
+                    self.requests_received = None
+                    self.replies_received = None
+                    self.requests_sent = None
+                    self.replies_sent = None
+                    self.proxy_replies_sent = None
+                    self.subscr_requests_received = None
+                    self.subscr_replies_sent = None
+                    self.subscr_replies_gratg_sent = None
+                    self.local_proxy_replies_sent = None
+                    self.gratuitous_replies_sent = None
+                    self.resolution_requests_received = None
+                    self.resolution_replies_received = None
+                    self.resolution_requests_dropped = None
+                    self.out_of_memory_errors = None
+                    self.no_buffer_errors = None
+                    self.total_entries = None
+                    self.dynamic_entries = None
+                    self.static_entries = None
+                    self.alias_entries = None
+                    self.interface_entries = None
+                    self.standby_entries = None
+                    self.dhcp_entries = None
+                    self.vxlan_entries = None
+                    self.ip_packets_dropped_node = None
+                    self.arp_packet_node_out_of_subnet = None
+                    self.ip_packets_dropped_interface = None
+                    self.arp_packet_interface_out_of_subnet = None
+                    self.arp_packet_unsolicited_packet = None
+                    self.idb_structures = None
                     self._segment_path = lambda: "traffic-node"
 
                 def __setattr__(self, name, value):
@@ -2053,8 +2105,10 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"arp-entry" : ("arp_entry", Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("arp-entry", ("arp_entry", Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry))])
+                    self._leafs = OrderedDict()
 
                     self.arp_entry = YList(self)
                     self._segment_path = lambda: "resolution-history-client"
@@ -2137,24 +2191,27 @@ class Arp(Entity):
                         self.yang_parent_name = "resolution-history-client"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nsec_timestamp = YLeaf(YType.uint64, "nsec-timestamp")
-
-                        self.idb_interface_name = YLeaf(YType.str, "idb-interface-name")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                        self.status = YLeaf(YType.enumeration, "status")
-
-                        self.client_id = YLeaf(YType.int32, "client-id")
-
-                        self.entry_state = YLeaf(YType.int32, "entry-state")
-
-                        self.resolution_request_count = YLeaf(YType.uint32, "resolution-request-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('nsec_timestamp', YLeaf(YType.uint64, 'nsec-timestamp')),
+                            ('idb_interface_name', YLeaf(YType.str, 'idb-interface-name')),
+                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                            ('status', YLeaf(YType.enumeration, 'status')),
+                            ('client_id', YLeaf(YType.int32, 'client-id')),
+                            ('entry_state', YLeaf(YType.int32, 'entry-state')),
+                            ('resolution_request_count', YLeaf(YType.uint32, 'resolution-request-count')),
+                        ])
+                        self.nsec_timestamp = None
+                        self.idb_interface_name = None
+                        self.ipv4_address = None
+                        self.mac_address = None
+                        self.status = None
+                        self.client_id = None
+                        self.entry_state = None
+                        self.resolution_request_count = None
                         self._segment_path = lambda: "arp-entry"
 
                     def __setattr__(self, name, value):
@@ -2184,8 +2241,10 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"entry" : ("entry", Arp.Nodes.Node.Entries.Entry)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("entry", ("entry", Arp.Nodes.Node.Entries.Entry))])
+                    self._leafs = OrderedDict()
 
                     self.entry = YList(self)
                     self._segment_path = lambda: "entries"
@@ -2198,14 +2257,14 @@ class Arp(Entity):
                     """
                     ARP entry
                     
-                    .. attribute:: address  <key>
+                    .. attribute:: address  (key)
                     
                     	IP Address of ARP entry
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -2267,27 +2326,30 @@ class Arp(Entity):
                         self.yang_parent_name = "entries"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address = YLeaf(YType.str, "address")
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.media_type = YLeaf(YType.enumeration, "media-type")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.flag = YLeaf(YType.enumeration, "flag")
-
-                        self.age = YLeaf(YType.uint64, "age")
-
-                        self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-
-                        self.hardware_length = YLeaf(YType.uint8, "hardware-length")
-
-                        self.hardware_address = YLeaf(YType.str, "hardware-address")
-                        self._segment_path = lambda: "entry" + "[address='" + self.address.get() + "']" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['address','interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('address', YLeaf(YType.str, 'address')),
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('media_type', YLeaf(YType.enumeration, 'media-type')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('flag', YLeaf(YType.enumeration, 'flag')),
+                            ('age', YLeaf(YType.uint64, 'age')),
+                            ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                            ('hardware_length', YLeaf(YType.uint8, 'hardware-length')),
+                            ('hardware_address', YLeaf(YType.str, 'hardware-address')),
+                        ])
+                        self.address = None
+                        self.interface_name = None
+                        self.media_type = None
+                        self.state = None
+                        self.flag = None
+                        self.age = None
+                        self.encapsulation_type = None
+                        self.hardware_length = None
+                        self.hardware_address = None
+                        self._segment_path = lambda: "entry" + "[address='" + str(self.address) + "']" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.Entries.Entry, ['address', 'interface_name', 'media_type', 'state', 'flag', 'age', 'encapsulation_type', 'hardware_length', 'hardware_address'], name, value)
@@ -2316,8 +2378,10 @@ class Arp(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"traffic-interface" : ("traffic_interface", Arp.Nodes.Node.TrafficInterfaces.TrafficInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("traffic-interface", ("traffic_interface", Arp.Nodes.Node.TrafficInterfaces.TrafficInterface))])
+                    self._leafs = OrderedDict()
 
                     self.traffic_interface = YList(self)
                     self._segment_path = lambda: "traffic-interfaces"
@@ -2330,7 +2394,7 @@ class Arp(Entity):
                     """
                     Per interface traffic data
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -2554,69 +2618,72 @@ class Arp(Entity):
                         self.yang_parent_name = "traffic-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.requests_received = YLeaf(YType.uint32, "requests-received")
-
-                        self.replies_received = YLeaf(YType.uint32, "replies-received")
-
-                        self.requests_sent = YLeaf(YType.uint32, "requests-sent")
-
-                        self.replies_sent = YLeaf(YType.uint32, "replies-sent")
-
-                        self.proxy_replies_sent = YLeaf(YType.uint32, "proxy-replies-sent")
-
-                        self.subscr_requests_received = YLeaf(YType.uint32, "subscr-requests-received")
-
-                        self.subscr_replies_sent = YLeaf(YType.uint32, "subscr-replies-sent")
-
-                        self.subscr_replies_gratg_sent = YLeaf(YType.uint32, "subscr-replies-gratg-sent")
-
-                        self.local_proxy_replies_sent = YLeaf(YType.uint32, "local-proxy-replies-sent")
-
-                        self.gratuitous_replies_sent = YLeaf(YType.uint32, "gratuitous-replies-sent")
-
-                        self.resolution_requests_received = YLeaf(YType.uint32, "resolution-requests-received")
-
-                        self.resolution_replies_received = YLeaf(YType.uint32, "resolution-replies-received")
-
-                        self.resolution_requests_dropped = YLeaf(YType.uint32, "resolution-requests-dropped")
-
-                        self.out_of_memory_errors = YLeaf(YType.uint32, "out-of-memory-errors")
-
-                        self.no_buffer_errors = YLeaf(YType.uint32, "no-buffer-errors")
-
-                        self.total_entries = YLeaf(YType.uint32, "total-entries")
-
-                        self.dynamic_entries = YLeaf(YType.uint32, "dynamic-entries")
-
-                        self.static_entries = YLeaf(YType.uint32, "static-entries")
-
-                        self.alias_entries = YLeaf(YType.uint32, "alias-entries")
-
-                        self.interface_entries = YLeaf(YType.uint32, "interface-entries")
-
-                        self.standby_entries = YLeaf(YType.uint32, "standby-entries")
-
-                        self.dhcp_entries = YLeaf(YType.uint32, "dhcp-entries")
-
-                        self.vxlan_entries = YLeaf(YType.uint32, "vxlan-entries")
-
-                        self.ip_packets_dropped_node = YLeaf(YType.uint32, "ip-packets-dropped-node")
-
-                        self.arp_packet_node_out_of_subnet = YLeaf(YType.uint32, "arp-packet-node-out-of-subnet")
-
-                        self.ip_packets_dropped_interface = YLeaf(YType.uint32, "ip-packets-dropped-interface")
-
-                        self.arp_packet_interface_out_of_subnet = YLeaf(YType.uint32, "arp-packet-interface-out-of-subnet")
-
-                        self.arp_packet_unsolicited_packet = YLeaf(YType.uint32, "arp-packet-unsolicited-packet")
-
-                        self.idb_structures = YLeaf(YType.uint32, "idb-structures")
-                        self._segment_path = lambda: "traffic-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('requests_received', YLeaf(YType.uint32, 'requests-received')),
+                            ('replies_received', YLeaf(YType.uint32, 'replies-received')),
+                            ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
+                            ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
+                            ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
+                            ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
+                            ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
+                            ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
+                            ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
+                            ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
+                            ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
+                            ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
+                            ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
+                            ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
+                            ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
+                            ('total_entries', YLeaf(YType.uint32, 'total-entries')),
+                            ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
+                            ('static_entries', YLeaf(YType.uint32, 'static-entries')),
+                            ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
+                            ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
+                            ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
+                            ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
+                            ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
+                            ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
+                            ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
+                            ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
+                            ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
+                            ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
+                            ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                        ])
+                        self.interface_name = None
+                        self.requests_received = None
+                        self.replies_received = None
+                        self.requests_sent = None
+                        self.replies_sent = None
+                        self.proxy_replies_sent = None
+                        self.subscr_requests_received = None
+                        self.subscr_replies_sent = None
+                        self.subscr_replies_gratg_sent = None
+                        self.local_proxy_replies_sent = None
+                        self.gratuitous_replies_sent = None
+                        self.resolution_requests_received = None
+                        self.resolution_replies_received = None
+                        self.resolution_requests_dropped = None
+                        self.out_of_memory_errors = None
+                        self.no_buffer_errors = None
+                        self.total_entries = None
+                        self.dynamic_entries = None
+                        self.static_entries = None
+                        self.alias_entries = None
+                        self.interface_entries = None
+                        self.standby_entries = None
+                        self.dhcp_entries = None
+                        self.vxlan_entries = None
+                        self.ip_packets_dropped_node = None
+                        self.arp_packet_node_out_of_subnet = None
+                        self.ip_packets_dropped_interface = None
+                        self.arp_packet_interface_out_of_subnet = None
+                        self.arp_packet_unsolicited_packet = None
+                        self.idb_structures = None
+                        self._segment_path = lambda: "traffic-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)

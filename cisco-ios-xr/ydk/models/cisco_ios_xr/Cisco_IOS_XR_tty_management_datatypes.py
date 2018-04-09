@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class TtyEscapeChar(Enum):
     """
-    TtyEscapeChar
+    TtyEscapeChar (Enum Class)
 
     Tty escape char
 
@@ -42,7 +44,7 @@ class TtyEscapeChar(Enum):
 
 class TtyPager(Enum):
     """
-    TtyPager
+    TtyPager (Enum Class)
 
     Tty pager
 
@@ -69,7 +71,7 @@ class TtyPager(Enum):
 
 class TtySessionTimeoutDirection(Enum):
     """
-    TtySessionTimeoutDirection
+    TtySessionTimeoutDirection (Enum Class)
 
     Tty session timeout direction
 
@@ -90,7 +92,7 @@ class TtySessionTimeoutDirection(Enum):
 
 class TtyTransportProtocol(Enum):
     """
-    TtyTransportProtocol
+    TtyTransportProtocol (Enum Class)
 
     Tty transport protocol
 
@@ -117,7 +119,7 @@ class TtyTransportProtocol(Enum):
 
 class TtyTransportProtocolSelect(Enum):
     """
-    TtyTransportProtocolSelect
+    TtyTransportProtocolSelect (Enum Class)
 
     Tty transport protocol select
 

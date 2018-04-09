@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Authen(Enum):
     """
-    Authen
+    Authen (Enum Class)
 
     SSH session authentication types
 
@@ -47,7 +49,7 @@ class Authen(Enum):
 
 class Cipher(Enum):
     """
-    Cipher
+    Cipher (Enum Class)
 
     SSH session in and out cipher standards
 
@@ -128,7 +130,7 @@ class Cipher(Enum):
 
 class Connection(Enum):
     """
-    Connection
+    Connection (Enum Class)
 
     SSH channel connection types
 
@@ -185,7 +187,7 @@ class Connection(Enum):
 
 class Hostkey(Enum):
     """
-    Hostkey
+    Hostkey (Enum Class)
 
     SSH session authentication types
 
@@ -206,7 +208,7 @@ class Hostkey(Enum):
 
 class KexName(Enum):
     """
-    KexName
+    KexName (Enum Class)
 
     Different key\-exchange(kex) algorithms
 
@@ -281,7 +283,7 @@ class KexName(Enum):
 
 class Mac(Enum):
     """
-    Mac
+    Mac (Enum Class)
 
     Different Message Authentication Code(MAC)
 
@@ -332,7 +334,7 @@ class Mac(Enum):
 
 class States(Enum):
     """
-    States
+    States (Enum Class)
 
     SSH session states
 
@@ -419,7 +421,7 @@ class States(Enum):
 
 class Version(Enum):
     """
-    Version
+    Version (Enum Class)
 
     SSH state versions
 
@@ -463,8 +465,10 @@ class Ssh1(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"kex" : ("kex", Ssh1.Kex)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("kex", ("kex", Ssh1.Kex))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.kex = Ssh1.Kex()
         self.kex.parent = self
@@ -496,8 +500,10 @@ class Ssh1(Entity):
             self.yang_parent_name = "ssh1"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"nodes" : ("nodes", Ssh1.Kex.Nodes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("nodes", ("nodes", Ssh1.Kex.Nodes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.nodes = Ssh1.Kex.Nodes()
             self.nodes.parent = self
@@ -530,8 +536,10 @@ class Ssh1(Entity):
                 self.yang_parent_name = "kex"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"node" : ("node", Ssh1.Kex.Nodes.Node)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("node", ("node", Ssh1.Kex.Nodes.Node))])
+                self._leafs = OrderedDict()
 
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
@@ -545,7 +553,7 @@ class Ssh1(Entity):
                 """
                 SSH session details for a particular node
                 
-                .. attribute:: node_name  <key>
+                .. attribute:: node_name  (key)
                 
                 	Node name
                 	**type**\: str
@@ -576,10 +584,13 @@ class Ssh1(Entity):
                     self.yang_parent_name = "nodes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh1.Kex.Nodes.Node.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh1.Kex.Nodes.Node.OutgoingConnections)}
-                    self._child_list_classes = {}
-
-                    self.node_name = YLeaf(YType.str, "node-name")
+                    self.ylist_key_names = ['node_name']
+                    self._child_container_classes = OrderedDict([("incoming-sessions", ("incoming_sessions", Ssh1.Kex.Nodes.Node.IncomingSessions)), ("outgoing-connections", ("outgoing_connections", Ssh1.Kex.Nodes.Node.OutgoingConnections))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('node_name', YLeaf(YType.str, 'node-name')),
+                    ])
+                    self.node_name = None
 
                     self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
                     self.incoming_sessions.parent = self
@@ -590,7 +601,7 @@ class Ssh1(Entity):
                     self.outgoing_connections.parent = self
                     self._children_name_map["outgoing_connections"] = "outgoing-connections"
                     self._children_yang_names.add("outgoing-connections")
-                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                    self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -620,8 +631,10 @@ class Ssh1(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("session-detail-info", ("session_detail_info", Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo))])
+                        self._leafs = OrderedDict()
 
                         self.session_detail_info = YList(self)
                         self._segment_path = lambda: "incoming-sessions"
@@ -685,22 +698,25 @@ class Ssh1(Entity):
                             self.yang_parent_name = "incoming-sessions"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.session_id = YLeaf(YType.uint32, "session-id")
-
-                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                            self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('session_id', YLeaf(YType.uint32, 'session-id')),
+                                ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
+                                ('public_key', YLeaf(YType.enumeration, 'public-key')),
+                                ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
+                                ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
+                                ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
+                                ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
+                            ])
+                            self.session_id = None
+                            self.key_exchange = None
+                            self.public_key = None
+                            self.in_cipher = None
+                            self.out_cipher = None
+                            self.in_mac = None
+                            self.out_mac = None
                             self._segment_path = lambda: "session-detail-info"
 
                         def __setattr__(self, name, value):
@@ -730,8 +746,10 @@ class Ssh1(Entity):
                         self.yang_parent_name = "node"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("session-detail-info", ("session_detail_info", Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo))])
+                        self._leafs = OrderedDict()
 
                         self.session_detail_info = YList(self)
                         self._segment_path = lambda: "outgoing-connections"
@@ -795,22 +813,25 @@ class Ssh1(Entity):
                             self.yang_parent_name = "outgoing-connections"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.session_id = YLeaf(YType.uint32, "session-id")
-
-                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                            self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('session_id', YLeaf(YType.uint32, 'session-id')),
+                                ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
+                                ('public_key', YLeaf(YType.enumeration, 'public-key')),
+                                ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
+                                ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
+                                ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
+                                ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
+                            ])
+                            self.session_id = None
+                            self.key_exchange = None
+                            self.public_key = None
+                            self.in_cipher = None
+                            self.out_cipher = None
+                            self.in_mac = None
+                            self.out_mac = None
                             self._segment_path = lambda: "session-detail-info"
 
                         def __setattr__(self, name, value):
@@ -844,8 +865,10 @@ class Ssh(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"session" : ("session", Ssh.Session)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("session", ("session", Ssh.Session))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.session = Ssh.Session()
         self.session.parent = self
@@ -887,8 +910,10 @@ class Ssh(Entity):
             self.yang_parent_name = "ssh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rekey" : ("rekey", Ssh.Session.Rekey), "brief" : ("brief", Ssh.Session.Brief), "detail" : ("detail", Ssh.Session.Detail)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("rekey", ("rekey", Ssh.Session.Rekey)), ("brief", ("brief", Ssh.Session.Brief)), ("detail", ("detail", Ssh.Session.Detail))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.rekey = Ssh.Session.Rekey()
             self.rekey.parent = self
@@ -936,8 +961,10 @@ class Ssh(Entity):
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Rekey.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh.Session.Rekey.OutgoingConnections)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("incoming-sessions", ("incoming_sessions", Ssh.Session.Rekey.IncomingSessions)), ("outgoing-connections", ("outgoing_connections", Ssh.Session.Rekey.OutgoingConnections))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.incoming_sessions = Ssh.Session.Rekey.IncomingSessions()
                 self.incoming_sessions.parent = self
@@ -975,8 +1002,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "rekey"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-rekey-info" : ("session_rekey_info", Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-rekey-info", ("session_rekey_info", Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_rekey_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
@@ -1028,16 +1057,19 @@ class Ssh(Entity):
                         self.yang_parent_name = "incoming-sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.session_rekey_count = YLeaf(YType.uint32, "session-rekey-count")
-
-                        self.time_to_rekey = YLeaf(YType.str, "time-to-rekey")
-
-                        self.volume_to_rekey = YLeaf(YType.str, "volume-to-rekey")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('session_rekey_count', YLeaf(YType.uint32, 'session-rekey-count')),
+                            ('time_to_rekey', YLeaf(YType.str, 'time-to-rekey')),
+                            ('volume_to_rekey', YLeaf(YType.str, 'volume-to-rekey')),
+                        ])
+                        self.session_id = None
+                        self.session_rekey_count = None
+                        self.time_to_rekey = None
+                        self.volume_to_rekey = None
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/%s" % self._segment_path()
 
@@ -1068,8 +1100,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "rekey"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-rekey-info" : ("session_rekey_info", Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-rekey-info", ("session_rekey_info", Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_rekey_info = YList(self)
                     self._segment_path = lambda: "outgoing-connections"
@@ -1121,16 +1155,19 @@ class Ssh(Entity):
                         self.yang_parent_name = "outgoing-connections"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.session_rekey_count = YLeaf(YType.uint32, "session-rekey-count")
-
-                        self.time_to_rekey = YLeaf(YType.str, "time-to-rekey")
-
-                        self.volume_to_rekey = YLeaf(YType.str, "volume-to-rekey")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('session_rekey_count', YLeaf(YType.uint32, 'session-rekey-count')),
+                            ('time_to_rekey', YLeaf(YType.str, 'time-to-rekey')),
+                            ('volume_to_rekey', YLeaf(YType.str, 'volume-to-rekey')),
+                        ])
+                        self.session_id = None
+                        self.session_rekey_count = None
+                        self.time_to_rekey = None
+                        self.volume_to_rekey = None
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/%s" % self._segment_path()
 
@@ -1166,8 +1203,10 @@ class Ssh(Entity):
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Brief.IncomingSessions), "outgoing-sessions" : ("outgoing_sessions", Ssh.Session.Brief.OutgoingSessions)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("incoming-sessions", ("incoming_sessions", Ssh.Session.Brief.IncomingSessions)), ("outgoing-sessions", ("outgoing_sessions", Ssh.Session.Brief.OutgoingSessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.incoming_sessions = Ssh.Session.Brief.IncomingSessions()
                 self.incoming_sessions.parent = self
@@ -1205,8 +1244,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "brief"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-brief-info", ("session_brief_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_brief_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
@@ -1297,30 +1338,33 @@ class Ssh(Entity):
                         self.yang_parent_name = "incoming-sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.channel_id = YLeaf(YType.uint32, "channel-id")
-
-                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
-
-                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.host_address = YLeaf(YType.str, "host-address")
-
-                        self.version = YLeaf(YType.enumeration, "version")
-
-                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('channel_id', YLeaf(YType.uint32, 'channel-id')),
+                            ('vty_assigned', YLeaf(YType.boolean, 'vty-assigned')),
+                            ('vty_line_number', YLeaf(YType.uint32, 'vty-line-number')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('user_id', YLeaf(YType.str, 'user-id')),
+                            ('host_address', YLeaf(YType.str, 'host-address')),
+                            ('version', YLeaf(YType.enumeration, 'version')),
+                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('connection_type', YLeaf(YType.enumeration, 'connection-type')),
+                        ])
+                        self.session_id = None
+                        self.channel_id = None
+                        self.vty_assigned = None
+                        self.vty_line_number = None
+                        self.node_name = None
+                        self.session_state = None
+                        self.user_id = None
+                        self.host_address = None
+                        self.version = None
+                        self.authentication_type = None
+                        self.connection_type = None
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self._segment_path()
 
@@ -1351,8 +1395,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "brief"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-brief-info", ("session_brief_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_brief_info = YList(self)
                     self._segment_path = lambda: "outgoing-sessions"
@@ -1443,30 +1489,33 @@ class Ssh(Entity):
                         self.yang_parent_name = "outgoing-sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.channel_id = YLeaf(YType.uint32, "channel-id")
-
-                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
-
-                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.host_address = YLeaf(YType.str, "host-address")
-
-                        self.version = YLeaf(YType.enumeration, "version")
-
-                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('channel_id', YLeaf(YType.uint32, 'channel-id')),
+                            ('vty_assigned', YLeaf(YType.boolean, 'vty-assigned')),
+                            ('vty_line_number', YLeaf(YType.uint32, 'vty-line-number')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
+                            ('user_id', YLeaf(YType.str, 'user-id')),
+                            ('host_address', YLeaf(YType.str, 'host-address')),
+                            ('version', YLeaf(YType.enumeration, 'version')),
+                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('connection_type', YLeaf(YType.enumeration, 'connection-type')),
+                        ])
+                        self.session_id = None
+                        self.channel_id = None
+                        self.vty_assigned = None
+                        self.vty_line_number = None
+                        self.node_name = None
+                        self.session_state = None
+                        self.user_id = None
+                        self.host_address = None
+                        self.version = None
+                        self.authentication_type = None
+                        self.connection_type = None
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self._segment_path()
 
@@ -1502,8 +1551,10 @@ class Ssh(Entity):
                 self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Detail.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh.Session.Detail.OutgoingConnections)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("incoming-sessions", ("incoming_sessions", Ssh.Session.Detail.IncomingSessions)), ("outgoing-connections", ("outgoing_connections", Ssh.Session.Detail.OutgoingConnections))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.incoming_sessions = Ssh.Session.Detail.IncomingSessions()
                 self.incoming_sessions.parent = self
@@ -1541,8 +1592,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.IncomingSessions.SessionDetailInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-detail-info", ("session_detail_info", Ssh.Session.Detail.IncomingSessions.SessionDetailInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
@@ -1607,22 +1660,25 @@ class Ssh(Entity):
                         self.yang_parent_name = "incoming-sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                        self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
+                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
+                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
+                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
+                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
+                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
+                        ])
+                        self.session_id = None
+                        self.key_exchange = None
+                        self.public_key = None
+                        self.in_cipher = None
+                        self.out_cipher = None
+                        self.in_mac = None
+                        self.out_mac = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self._segment_path()
 
@@ -1653,8 +1709,10 @@ class Ssh(Entity):
                     self.yang_parent_name = "detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("session-detail-info", ("session_detail_info", Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo))])
+                    self._leafs = OrderedDict()
 
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "outgoing-connections"
@@ -1719,22 +1777,25 @@ class Ssh(Entity):
                         self.yang_parent_name = "outgoing-connections"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                        self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('session_id', YLeaf(YType.uint32, 'session-id')),
+                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
+                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
+                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
+                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
+                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
+                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
+                        ])
+                        self.session_id = None
+                        self.key_exchange = None
+                        self.public_key = None
+                        self.in_cipher = None
+                        self.out_cipher = None
+                        self.in_mac = None
+                        self.out_mac = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self._segment_path()
 

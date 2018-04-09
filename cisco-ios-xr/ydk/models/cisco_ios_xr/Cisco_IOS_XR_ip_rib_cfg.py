@@ -15,6 +15,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,7 +45,7 @@ class Rib(Entity):
     """
 
     _prefix = 'ip-rib-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-07-31'
 
     def __init__(self):
         super(Rib, self).__init__()
@@ -53,10 +55,13 @@ class Rib(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-rib-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"af" : ("af", Rib.Af)}
-        self._child_list_classes = {}
-
-        self.max_recursion_depth = YLeaf(YType.uint32, "max-recursion-depth")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("af", ("af", Rib.Af))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('max_recursion_depth', YLeaf(YType.uint32, 'max-recursion-depth')),
+        ])
+        self.max_recursion_depth = None
 
         self.af = Rib.Af()
         self.af.parent = self
@@ -87,7 +92,7 @@ class Rib(Entity):
         """
 
         _prefix = 'ip-rib-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-07-31'
 
         def __init__(self):
             super(Rib.Af, self).__init__()
@@ -96,8 +101,10 @@ class Rib(Entity):
             self.yang_parent_name = "rib"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ipv4" : ("ipv4", Rib.Af.Ipv4), "ipv6" : ("ipv6", Rib.Af.Ipv6)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("ipv4", ("ipv4", Rib.Af.Ipv4)), ("ipv6", ("ipv6", Rib.Af.Ipv6))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.ipv4 = Rib.Af.Ipv4()
             self.ipv4.parent = self
@@ -131,7 +138,7 @@ class Rib(Entity):
             """
 
             _prefix = 'ip-rib-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-07-31'
 
             def __init__(self):
                 super(Rib.Af.Ipv4, self).__init__()
@@ -140,10 +147,13 @@ class Rib(Entity):
                 self.yang_parent_name = "af"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"redistribution-history" : ("redistribution_history", Rib.Af.Ipv4.RedistributionHistory)}
-                self._child_list_classes = {}
-
-                self.next_hop_dampening_disable = YLeaf(YType.empty, "next-hop-dampening-disable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv4.RedistributionHistory))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
+                ])
+                self.next_hop_dampening_disable = None
 
                 self.redistribution_history = Rib.Af.Ipv4.RedistributionHistory()
                 self.redistribution_history.parent = self
@@ -184,7 +194,7 @@ class Rib(Entity):
                 """
 
                 _prefix = 'ip-rib-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-07-31'
 
                 def __init__(self):
                     super(Rib.Af.Ipv4.RedistributionHistory, self).__init__()
@@ -193,12 +203,15 @@ class Rib(Entity):
                     self.yang_parent_name = "ipv4"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"keep" : ("keep", Rib.Af.Ipv4.RedistributionHistory.Keep)}
-                    self._child_list_classes = {}
-
-                    self.bcdl_client = YLeaf(YType.uint32, "bcdl-client")
-
-                    self.protocol_client = YLeaf(YType.uint32, "protocol-client")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv4.RedistributionHistory.Keep))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
+                        ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
+                    ])
+                    self.bcdl_client = None
+                    self.protocol_client = None
 
                     self.keep = Rib.Af.Ipv4.RedistributionHistory.Keep()
                     self.keep.parent = self
@@ -225,7 +238,7 @@ class Rib(Entity):
                     """
 
                     _prefix = 'ip-rib-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-07-31'
 
                     def __init__(self):
                         super(Rib.Af.Ipv4.RedistributionHistory.Keep, self).__init__()
@@ -234,10 +247,13 @@ class Rib(Entity):
                         self.yang_parent_name = "redistribution-history"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bcdl = YLeaf(YType.empty, "bcdl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('bcdl', YLeaf(YType.empty, 'bcdl')),
+                        ])
+                        self.bcdl = None
                         self._segment_path = lambda: "keep"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/redistribution-history/%s" % self._segment_path()
 
@@ -264,7 +280,7 @@ class Rib(Entity):
             """
 
             _prefix = 'ip-rib-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-07-31'
 
             def __init__(self):
                 super(Rib.Af.Ipv6, self).__init__()
@@ -273,10 +289,13 @@ class Rib(Entity):
                 self.yang_parent_name = "af"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"redistribution-history" : ("redistribution_history", Rib.Af.Ipv6.RedistributionHistory)}
-                self._child_list_classes = {}
-
-                self.next_hop_dampening_disable = YLeaf(YType.empty, "next-hop-dampening-disable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv6.RedistributionHistory))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
+                ])
+                self.next_hop_dampening_disable = None
 
                 self.redistribution_history = Rib.Af.Ipv6.RedistributionHistory()
                 self.redistribution_history.parent = self
@@ -317,7 +336,7 @@ class Rib(Entity):
                 """
 
                 _prefix = 'ip-rib-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-07-31'
 
                 def __init__(self):
                     super(Rib.Af.Ipv6.RedistributionHistory, self).__init__()
@@ -326,12 +345,15 @@ class Rib(Entity):
                     self.yang_parent_name = "ipv6"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"keep" : ("keep", Rib.Af.Ipv6.RedistributionHistory.Keep)}
-                    self._child_list_classes = {}
-
-                    self.bcdl_client = YLeaf(YType.uint32, "bcdl-client")
-
-                    self.protocol_client = YLeaf(YType.uint32, "protocol-client")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv6.RedistributionHistory.Keep))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
+                        ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
+                    ])
+                    self.bcdl_client = None
+                    self.protocol_client = None
 
                     self.keep = Rib.Af.Ipv6.RedistributionHistory.Keep()
                     self.keep.parent = self
@@ -358,7 +380,7 @@ class Rib(Entity):
                     """
 
                     _prefix = 'ip-rib-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-07-31'
 
                     def __init__(self):
                         super(Rib.Af.Ipv6.RedistributionHistory.Keep, self).__init__()
@@ -367,10 +389,13 @@ class Rib(Entity):
                         self.yang_parent_name = "redistribution-history"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bcdl = YLeaf(YType.empty, "bcdl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('bcdl', YLeaf(YType.empty, 'bcdl')),
+                        ])
+                        self.bcdl = None
                         self._segment_path = lambda: "keep"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/redistribution-history/%s" % self._segment_path()
 

@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class IpArmConflictPolicy(Enum):
     """
-    IpArmConflictPolicy
+    IpArmConflictPolicy (Enum Class)
 
     Ip arm conflict policy
 
@@ -82,8 +84,10 @@ class IpArm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-iarm-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv4" : ("ipv4", IpArm.Ipv4), "ipv6" : ("ipv6", IpArm.Ipv6)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ipv4", ("ipv4", IpArm.Ipv4)), ("ipv6", ("ipv6", IpArm.Ipv6))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ipv4 = IpArm.Ipv4()
         self.ipv4.parent = self
@@ -125,8 +129,10 @@ class IpArm(Entity):
             self.yang_parent_name = "ip-arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"conflict-policy-table" : ("conflict_policy_table", IpArm.Ipv4.ConflictPolicyTable), "multicast-host" : ("multicast_host", IpArm.Ipv4.MulticastHost)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv4.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv4.MulticastHost))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.conflict_policy_table = IpArm.Ipv4.ConflictPolicyTable()
             self.conflict_policy_table.parent = self
@@ -164,10 +170,13 @@ class IpArm(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.conflict_policy = YLeaf(YType.enumeration, "conflict-policy")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
+                ])
+                self.conflict_policy = None
                 self._segment_path = lambda: "conflict-policy-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/%s" % self._segment_path()
 
@@ -200,10 +209,13 @@ class IpArm(Entity):
                 self.yang_parent_name = "ipv4"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.multicast_host_interface = YLeaf(YType.str, "multicast-host-interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+                ])
+                self.multicast_host_interface = None
                 self._segment_path = lambda: "multicast-host"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/%s" % self._segment_path()
 
@@ -239,8 +251,10 @@ class IpArm(Entity):
             self.yang_parent_name = "ip-arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"conflict-policy-table" : ("conflict_policy_table", IpArm.Ipv6.ConflictPolicyTable), "multicast-host" : ("multicast_host", IpArm.Ipv6.MulticastHost)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("conflict-policy-table", ("conflict_policy_table", IpArm.Ipv6.ConflictPolicyTable)), ("multicast-host", ("multicast_host", IpArm.Ipv6.MulticastHost))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.conflict_policy_table = IpArm.Ipv6.ConflictPolicyTable()
             self.conflict_policy_table.parent = self
@@ -278,10 +292,13 @@ class IpArm(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.conflict_policy = YLeaf(YType.enumeration, "conflict-policy")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
+                ])
+                self.conflict_policy = None
                 self._segment_path = lambda: "conflict-policy-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/%s" % self._segment_path()
 
@@ -314,10 +331,13 @@ class IpArm(Entity):
                 self.yang_parent_name = "ipv6"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.multicast_host_interface = YLeaf(YType.str, "multicast-host-interface")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+                ])
+                self.multicast_host_interface = None
                 self._segment_path = lambda: "multicast-host"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/%s" % self._segment_path()
 

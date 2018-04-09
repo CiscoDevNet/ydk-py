@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,10 +49,13 @@ class Accounting(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-accounting-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"interfaces" : ("interfaces", Accounting.Interfaces)}
-        self._child_list_classes = {}
-
-        self.enable = YLeaf(YType.empty, "enable")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Accounting.Interfaces))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('enable', YLeaf(YType.empty, 'enable')),
+        ])
+        self.enable = None
 
         self.interfaces = Accounting.Interfaces()
         self.interfaces.parent = self
@@ -95,10 +100,13 @@ class Accounting(Entity):
             self.yang_parent_name = "accounting"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"mpls" : ("mpls", Accounting.Interfaces.Mpls), "segment-routing" : ("segment_routing", Accounting.Interfaces.SegmentRouting)}
-            self._child_list_classes = {}
-
-            self.enable = YLeaf(YType.empty, "enable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("mpls", ("mpls", Accounting.Interfaces.Mpls)), ("segment-routing", ("segment_routing", Accounting.Interfaces.SegmentRouting))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.enable = None
 
             self.mpls = Accounting.Interfaces.Mpls()
             self.mpls.parent = self
@@ -144,12 +152,15 @@ class Accounting(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.enable_v4rsvpte = YLeaf(YType.empty, "enable-v4rsvpte")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable_v4rsvpte', YLeaf(YType.empty, 'enable-v4rsvpte')),
+                ])
+                self.enable = None
+                self.enable_v4rsvpte = None
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/%s" % self._segment_path()
 
@@ -190,14 +201,17 @@ class Accounting(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.enable_mplsv4 = YLeaf(YType.empty, "enable-mplsv4")
-
-                self.enable_mplsv6 = YLeaf(YType.empty, "enable-mplsv6")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable_mplsv4', YLeaf(YType.empty, 'enable-mplsv4')),
+                    ('enable_mplsv6', YLeaf(YType.empty, 'enable-mplsv6')),
+                ])
+                self.enable = None
+                self.enable_mplsv4 = None
+                self.enable_mplsv6 = None
                 self._segment_path = lambda: "segment-routing"
                 self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/%s" % self._segment_path()
 

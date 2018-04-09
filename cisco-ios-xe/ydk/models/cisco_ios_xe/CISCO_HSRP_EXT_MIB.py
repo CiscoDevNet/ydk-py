@@ -31,6 +31,8 @@ identified by a ( ifIndex, cHsrpGrpNumber ) pair.
 BIA stands for Burned In Address.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -77,8 +79,10 @@ class CISCOHSRPEXTMIB(Entity):
         self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cHsrpExtIfTrackedTable" : ("chsrpextiftrackedtable", CISCOHSRPEXTMIB.Chsrpextiftrackedtable), "cHsrpExtSecAddrTable" : ("chsrpextsecaddrtable", CISCOHSRPEXTMIB.Chsrpextsecaddrtable), "cHsrpExtIfStandbyTable" : ("chsrpextifstandbytable", CISCOHSRPEXTMIB.Chsrpextifstandbytable), "cHsrpExtIfTable" : ("chsrpextiftable", CISCOHSRPEXTMIB.Chsrpextiftable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cHsrpExtIfTrackedTable", ("chsrpextiftrackedtable", CISCOHSRPEXTMIB.Chsrpextiftrackedtable)), ("cHsrpExtSecAddrTable", ("chsrpextsecaddrtable", CISCOHSRPEXTMIB.Chsrpextsecaddrtable)), ("cHsrpExtIfStandbyTable", ("chsrpextifstandbytable", CISCOHSRPEXTMIB.Chsrpextifstandbytable)), ("cHsrpExtIfTable", ("chsrpextiftable", CISCOHSRPEXTMIB.Chsrpextiftable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.chsrpextiftrackedtable = CISCOHSRPEXTMIB.Chsrpextiftrackedtable()
         self.chsrpextiftrackedtable.parent = self
@@ -126,8 +130,10 @@ class CISCOHSRPEXTMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cHsrpExtIfTrackedEntry" : ("chsrpextiftrackedentry", CISCOHSRPEXTMIB.Chsrpextiftrackedtable.Chsrpextiftrackedentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cHsrpExtIfTrackedEntry", ("chsrpextiftrackedentry", CISCOHSRPEXTMIB.Chsrpextiftrackedtable.Chsrpextiftrackedentry))])
+            self._leafs = OrderedDict()
 
             self.chsrpextiftrackedentry = YList(self)
             self._segment_path = lambda: "cHsrpExtIfTrackedTable"
@@ -175,7 +181,7 @@ class CISCOHSRPEXTMIB(Entity):
             configurable period (five minutes by default). This timeout
             period can be changed by setting cHsrpConfigTimeout.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -184,7 +190,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: chsrpgrpnumber  <key>
+            .. attribute:: chsrpgrpnumber  (key)
             
             	
             	**type**\: int
@@ -193,7 +199,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry>`
             
-            .. attribute:: chsrpextiftracked  <key>
+            .. attribute:: chsrpextiftracked  (key)
             
             	The ifIndex value of the tracked interface
             	**type**\: int
@@ -233,21 +239,24 @@ class CISCOHSRPEXTMIB(Entity):
                 self.yang_parent_name = "cHsrpExtIfTrackedTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
-
-                self.chsrpextiftracked = YLeaf(YType.int32, "cHsrpExtIfTracked")
-
-                self.chsrpextiftrackedpriority = YLeaf(YType.uint32, "cHsrpExtIfTrackedPriority")
-
-                self.chsrpextiftrackedrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfTrackedRowStatus")
-
-                self.chsrpextiftrackedipnone = YLeaf(YType.boolean, "cHsrpExtIfTrackedIpNone")
-                self._segment_path = lambda: "cHsrpExtIfTrackedEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtIfTracked='" + self.chsrpextiftracked.get() + "']"
+                self.ylist_key_names = ['ifindex','chsrpgrpnumber','chsrpextiftracked']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('chsrpgrpnumber', YLeaf(YType.str, 'cHsrpGrpNumber')),
+                    ('chsrpextiftracked', YLeaf(YType.int32, 'cHsrpExtIfTracked')),
+                    ('chsrpextiftrackedpriority', YLeaf(YType.uint32, 'cHsrpExtIfTrackedPriority')),
+                    ('chsrpextiftrackedrowstatus', YLeaf(YType.enumeration, 'cHsrpExtIfTrackedRowStatus')),
+                    ('chsrpextiftrackedipnone', YLeaf(YType.boolean, 'cHsrpExtIfTrackedIpNone')),
+                ])
+                self.ifindex = None
+                self.chsrpgrpnumber = None
+                self.chsrpextiftracked = None
+                self.chsrpextiftrackedpriority = None
+                self.chsrpextiftrackedrowstatus = None
+                self.chsrpextiftrackedipnone = None
+                self._segment_path = lambda: "cHsrpExtIfTrackedEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cHsrpGrpNumber='" + str(self.chsrpgrpnumber) + "']" + "[cHsrpExtIfTracked='" + str(self.chsrpextiftracked) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfTrackedTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -278,8 +287,10 @@ class CISCOHSRPEXTMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cHsrpExtSecAddrEntry" : ("chsrpextsecaddrentry", CISCOHSRPEXTMIB.Chsrpextsecaddrtable.Chsrpextsecaddrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cHsrpExtSecAddrEntry", ("chsrpextsecaddrentry", CISCOHSRPEXTMIB.Chsrpextsecaddrtable.Chsrpextsecaddrentry))])
+            self._leafs = OrderedDict()
 
             self.chsrpextsecaddrentry = YList(self)
             self._segment_path = lambda: "cHsrpExtSecAddrTable"
@@ -332,7 +343,7 @@ class CISCOHSRPEXTMIB(Entity):
             will delete all secondary addresses for the same
             {ifIndex, cHsrpGrpNumber} pair.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -341,7 +352,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: chsrpgrpnumber  <key>
+            .. attribute:: chsrpgrpnumber  (key)
             
             	
             	**type**\: int
@@ -350,7 +361,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry>`
             
-            .. attribute:: chsrpextsecaddraddress  <key>
+            .. attribute:: chsrpextsecaddraddress  (key)
             
             	A secondary IpAddress for the {ifIndex, cHsrpGrpNumber} pair. As explained in the DESCRIPTION for cHsrpExtSecAddrEntry, a primary address must exist before a secondary address for  the same {ifIndex, cHsrpGrpNumber} pair can be created
             	**type**\: str
@@ -376,17 +387,20 @@ class CISCOHSRPEXTMIB(Entity):
                 self.yang_parent_name = "cHsrpExtSecAddrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
-
-                self.chsrpextsecaddraddress = YLeaf(YType.str, "cHsrpExtSecAddrAddress")
-
-                self.chsrpextsecaddrrowstatus = YLeaf(YType.enumeration, "cHsrpExtSecAddrRowStatus")
-                self._segment_path = lambda: "cHsrpExtSecAddrEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtSecAddrAddress='" + self.chsrpextsecaddraddress.get() + "']"
+                self.ylist_key_names = ['ifindex','chsrpgrpnumber','chsrpextsecaddraddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('chsrpgrpnumber', YLeaf(YType.str, 'cHsrpGrpNumber')),
+                    ('chsrpextsecaddraddress', YLeaf(YType.str, 'cHsrpExtSecAddrAddress')),
+                    ('chsrpextsecaddrrowstatus', YLeaf(YType.enumeration, 'cHsrpExtSecAddrRowStatus')),
+                ])
+                self.ifindex = None
+                self.chsrpgrpnumber = None
+                self.chsrpextsecaddraddress = None
+                self.chsrpextsecaddrrowstatus = None
+                self._segment_path = lambda: "cHsrpExtSecAddrEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cHsrpGrpNumber='" + str(self.chsrpgrpnumber) + "']" + "[cHsrpExtSecAddrAddress='" + str(self.chsrpextsecaddraddress) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtSecAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -417,8 +431,10 @@ class CISCOHSRPEXTMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cHsrpExtIfStandbyEntry" : ("chsrpextifstandbyentry", CISCOHSRPEXTMIB.Chsrpextifstandbytable.Chsrpextifstandbyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cHsrpExtIfStandbyEntry", ("chsrpextifstandbyentry", CISCOHSRPEXTMIB.Chsrpextifstandbytable.Chsrpextifstandbyentry))])
+            self._leafs = OrderedDict()
 
             self.chsrpextifstandbyentry = YList(self)
             self._segment_path = lambda: "cHsrpExtIfStandbyTable"
@@ -439,7 +455,7 @@ class CISCOHSRPEXTMIB(Entity):
             HSRP group. Also, an HSRP group number and a
             cHsrpExtIfStandbyIndex should be chosen.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -448,7 +464,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: chsrpgrpnumber  <key>
+            .. attribute:: chsrpgrpnumber  (key)
             
             	
             	**type**\: int
@@ -457,7 +473,7 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.Chsrpgrptable.Chsrpgrpentry>`
             
-            .. attribute:: chsrpextifstandbyindex  <key>
+            .. attribute:: chsrpextifstandbyindex  (key)
             
             	This object defines the index of the standby table
             	**type**\: int
@@ -507,25 +523,28 @@ class CISCOHSRPEXTMIB(Entity):
                 self.yang_parent_name = "cHsrpExtIfStandbyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.chsrpgrpnumber = YLeaf(YType.str, "cHsrpGrpNumber")
-
-                self.chsrpextifstandbyindex = YLeaf(YType.uint32, "cHsrpExtIfStandbyIndex")
-
-                self.chsrpextifstandbydestaddrtype = YLeaf(YType.enumeration, "cHsrpExtIfStandbyDestAddrType")
-
-                self.chsrpextifstandbydestaddr = YLeaf(YType.str, "cHsrpExtIfStandbyDestAddr")
-
-                self.chsrpextifstandbysourceaddrtype = YLeaf(YType.enumeration, "cHsrpExtIfStandbySourceAddrType")
-
-                self.chsrpextifstandbysourceaddr = YLeaf(YType.str, "cHsrpExtIfStandbySourceAddr")
-
-                self.chsrpextifstandbyrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfStandbyRowStatus")
-                self._segment_path = lambda: "cHsrpExtIfStandbyEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cHsrpGrpNumber='" + self.chsrpgrpnumber.get() + "']" + "[cHsrpExtIfStandbyIndex='" + self.chsrpextifstandbyindex.get() + "']"
+                self.ylist_key_names = ['ifindex','chsrpgrpnumber','chsrpextifstandbyindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('chsrpgrpnumber', YLeaf(YType.str, 'cHsrpGrpNumber')),
+                    ('chsrpextifstandbyindex', YLeaf(YType.uint32, 'cHsrpExtIfStandbyIndex')),
+                    ('chsrpextifstandbydestaddrtype', YLeaf(YType.enumeration, 'cHsrpExtIfStandbyDestAddrType')),
+                    ('chsrpextifstandbydestaddr', YLeaf(YType.str, 'cHsrpExtIfStandbyDestAddr')),
+                    ('chsrpextifstandbysourceaddrtype', YLeaf(YType.enumeration, 'cHsrpExtIfStandbySourceAddrType')),
+                    ('chsrpextifstandbysourceaddr', YLeaf(YType.str, 'cHsrpExtIfStandbySourceAddr')),
+                    ('chsrpextifstandbyrowstatus', YLeaf(YType.enumeration, 'cHsrpExtIfStandbyRowStatus')),
+                ])
+                self.ifindex = None
+                self.chsrpgrpnumber = None
+                self.chsrpextifstandbyindex = None
+                self.chsrpextifstandbydestaddrtype = None
+                self.chsrpextifstandbydestaddr = None
+                self.chsrpextifstandbysourceaddrtype = None
+                self.chsrpextifstandbysourceaddr = None
+                self.chsrpextifstandbyrowstatus = None
+                self._segment_path = lambda: "cHsrpExtIfStandbyEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cHsrpGrpNumber='" + str(self.chsrpgrpnumber) + "']" + "[cHsrpExtIfStandbyIndex='" + str(self.chsrpextifstandbyindex) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfStandbyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -555,8 +574,10 @@ class CISCOHSRPEXTMIB(Entity):
             self.yang_parent_name = "CISCO-HSRP-EXT-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cHsrpExtIfEntry" : ("chsrpextifentry", CISCOHSRPEXTMIB.Chsrpextiftable.Chsrpextifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cHsrpExtIfEntry", ("chsrpextifentry", CISCOHSRPEXTMIB.Chsrpextiftable.Chsrpextifentry))])
+            self._leafs = OrderedDict()
 
             self.chsrpextifentry = YList(self)
             self._segment_path = lambda: "cHsrpExtIfTable"
@@ -595,7 +616,7 @@ class CISCOHSRPEXTMIB(Entity):
             configurable period (five minutes by default). This timeout
             period can be changed by setting cHsrpConfigTimeout.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -628,15 +649,18 @@ class CISCOHSRPEXTMIB(Entity):
                 self.yang_parent_name = "cHsrpExtIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.chsrpextifusebia = YLeaf(YType.boolean, "cHsrpExtIfUseBIA")
-
-                self.chsrpextifrowstatus = YLeaf(YType.enumeration, "cHsrpExtIfRowStatus")
-                self._segment_path = lambda: "cHsrpExtIfEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('chsrpextifusebia', YLeaf(YType.boolean, 'cHsrpExtIfUseBIA')),
+                    ('chsrpextifrowstatus', YLeaf(YType.enumeration, 'cHsrpExtIfRowStatus')),
+                ])
+                self.ifindex = None
+                self.chsrpextifusebia = None
+                self.chsrpextifrowstatus = None
+                self._segment_path = lambda: "cHsrpExtIfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB/cHsrpExtIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

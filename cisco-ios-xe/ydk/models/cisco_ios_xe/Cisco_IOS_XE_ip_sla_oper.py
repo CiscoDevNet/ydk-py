@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AccuracyType(Enum):
     """
-    AccuracyType
+    AccuracyType (Enum Class)
 
     IP SLA accuracy type
 
@@ -31,7 +33,7 @@ class AccuracyType(Enum):
 
 class RttType(Enum):
     """
-    RttType
+    RttType (Enum Class)
 
     IP SLA RTT type
 
@@ -52,7 +54,7 @@ class RttType(Enum):
 
 class SlaOperType(Enum):
     """
-    SlaOperType
+    SlaOperType (Enum Class)
 
     IP SLA operational type
 
@@ -113,7 +115,7 @@ class SlaOperType(Enum):
 
 class SlaReturnCode(Enum):
     """
-    SlaReturnCode
+    SlaReturnCode (Enum Class)
 
     IP SLA return code
 
@@ -158,7 +160,7 @@ class SlaReturnCode(Enum):
 
 class TtlType(Enum):
     """
-    TtlType
+    TtlType (Enum Class)
 
     IP SLA time\-to\-live type
 
@@ -188,7 +190,7 @@ class IpSlaStats(Entity):
     """
 
     _prefix = 'ip-sla-ios-xe-oper'
-    _revision = '2017-08-22'
+    _revision = '2017-09-25'
 
     def __init__(self):
         super(IpSlaStats, self).__init__()
@@ -198,8 +200,10 @@ class IpSlaStats(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-ip-sla-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"sla-oper-entry" : ("sla_oper_entry", IpSlaStats.SlaOperEntry)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("sla-oper-entry", ("sla_oper_entry", IpSlaStats.SlaOperEntry))])
+        self._leafs = OrderedDict()
 
         self.sla_oper_entry = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats"
@@ -212,7 +216,7 @@ class IpSlaStats(Entity):
         """
         The list of IP SLA operations with statistics info
         
-        .. attribute:: oper_id  <key>
+        .. attribute:: oper_id  (key)
         
         	Entry unique identifier
         	**type**\: int
@@ -270,7 +274,7 @@ class IpSlaStats(Entity):
         """
 
         _prefix = 'ip-sla-ios-xe-oper'
-        _revision = '2017-08-22'
+        _revision = '2017-09-25'
 
         def __init__(self):
             super(IpSlaStats.SlaOperEntry, self).__init__()
@@ -279,20 +283,23 @@ class IpSlaStats(Entity):
             self.yang_parent_name = "ip-sla-stats"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rtt-info" : ("rtt_info", IpSlaStats.SlaOperEntry.RttInfo), "measure-stats" : ("measure_stats", IpSlaStats.SlaOperEntry.MeasureStats), "stats" : ("stats", IpSlaStats.SlaOperEntry.Stats)}
-            self._child_list_classes = {}
-
-            self.oper_id = YLeaf(YType.uint32, "oper-id")
-
-            self.oper_type = YLeaf(YType.enumeration, "oper-type")
-
-            self.latest_return_code = YLeaf(YType.enumeration, "latest-return-code")
-
-            self.success_count = YLeaf(YType.uint32, "success-count")
-
-            self.failure_count = YLeaf(YType.uint32, "failure-count")
-
-            self.latest_oper_start_time = YLeaf(YType.str, "latest-oper-start-time")
+            self.ylist_key_names = ['oper_id']
+            self._child_container_classes = OrderedDict([("rtt-info", ("rtt_info", IpSlaStats.SlaOperEntry.RttInfo)), ("measure-stats", ("measure_stats", IpSlaStats.SlaOperEntry.MeasureStats)), ("stats", ("stats", IpSlaStats.SlaOperEntry.Stats))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('oper_id', YLeaf(YType.uint32, 'oper-id')),
+                ('oper_type', YLeaf(YType.enumeration, 'oper-type')),
+                ('latest_return_code', YLeaf(YType.enumeration, 'latest-return-code')),
+                ('success_count', YLeaf(YType.uint32, 'success-count')),
+                ('failure_count', YLeaf(YType.uint32, 'failure-count')),
+                ('latest_oper_start_time', YLeaf(YType.str, 'latest-oper-start-time')),
+            ])
+            self.oper_id = None
+            self.oper_type = None
+            self.latest_return_code = None
+            self.success_count = None
+            self.failure_count = None
+            self.latest_oper_start_time = None
 
             self.rtt_info = IpSlaStats.SlaOperEntry.RttInfo()
             self.rtt_info.parent = self
@@ -308,7 +315,7 @@ class IpSlaStats(Entity):
             self.stats.parent = self
             self._children_name_map["stats"] = "stats"
             self._children_yang_names.add("stats")
-            self._segment_path = lambda: "sla-oper-entry" + "[oper-id='" + self.oper_id.get() + "']"
+            self._segment_path = lambda: "sla-oper-entry" + "[oper-id='" + str(self.oper_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -334,7 +341,7 @@ class IpSlaStats(Entity):
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-08-22'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.RttInfo, self).__init__()
@@ -343,8 +350,10 @@ class IpSlaStats(Entity):
                 self.yang_parent_name = "sla-oper-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"latest-rtt" : ("latest_rtt", IpSlaStats.SlaOperEntry.RttInfo.LatestRtt), "time-to-live" : ("time_to_live", IpSlaStats.SlaOperEntry.RttInfo.TimeToLive)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("latest-rtt", ("latest_rtt", IpSlaStats.SlaOperEntry.RttInfo.LatestRtt)), ("time-to-live", ("time_to_live", IpSlaStats.SlaOperEntry.RttInfo.TimeToLive))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.latest_rtt = IpSlaStats.SlaOperEntry.RttInfo.LatestRtt()
                 self.latest_rtt.parent = self
@@ -384,7 +393,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.RttInfo.LatestRtt, self).__init__()
@@ -393,14 +402,17 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "rtt-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rtt = YLeaf(YType.uint64, "rtt")
-
-                    self.unknown = YLeaf(YType.empty, "unknown")
-
-                    self.could_not_find = YLeaf(YType.empty, "could-not-find")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rtt', YLeaf(YType.uint64, 'rtt')),
+                        ('unknown', YLeaf(YType.empty, 'unknown')),
+                        ('could_not_find', YLeaf(YType.empty, 'could-not-find')),
+                    ])
+                    self.rtt = None
+                    self.unknown = None
+                    self.could_not_find = None
                     self._segment_path = lambda: "latest-rtt"
 
                 def __setattr__(self, name, value):
@@ -428,7 +440,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.RttInfo.TimeToLive, self).__init__()
@@ -437,12 +449,15 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "rtt-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ttl = YLeaf(YType.uint64, "ttl")
-
-                    self.forever = YLeaf(YType.empty, "forever")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ttl', YLeaf(YType.uint64, 'ttl')),
+                        ('forever', YLeaf(YType.empty, 'forever')),
+                    ])
+                    self.ttl = None
+                    self.forever = None
                     self._segment_path = lambda: "time-to-live"
 
                 def __setattr__(self, name, value):
@@ -484,7 +499,7 @@ class IpSlaStats(Entity):
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-08-22'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.MeasureStats, self).__init__()
@@ -493,16 +508,19 @@ class IpSlaStats(Entity):
                 self.yang_parent_name = "sla-oper-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.intv_start_time = YLeaf(YType.str, "intv-start-time")
-
-                self.init_count = YLeaf(YType.uint32, "init-count")
-
-                self.complete_count = YLeaf(YType.uint32, "complete-count")
-
-                self.valid = YLeaf(YType.boolean, "valid")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('intv_start_time', YLeaf(YType.str, 'intv-start-time')),
+                    ('init_count', YLeaf(YType.uint32, 'init-count')),
+                    ('complete_count', YLeaf(YType.uint32, 'complete-count')),
+                    ('valid', YLeaf(YType.boolean, 'valid')),
+                ])
+                self.intv_start_time = None
+                self.init_count = None
+                self.complete_count = None
+                self.valid = None
                 self._segment_path = lambda: "measure-stats"
 
             def __setattr__(self, name, value):
@@ -553,7 +571,7 @@ class IpSlaStats(Entity):
             """
 
             _prefix = 'ip-sla-ios-xe-oper'
-            _revision = '2017-08-22'
+            _revision = '2017-09-25'
 
             def __init__(self):
                 super(IpSlaStats.SlaOperEntry.Stats, self).__init__()
@@ -562,8 +580,10 @@ class IpSlaStats(Entity):
                 self.yang_parent_name = "sla-oper-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"rtt" : ("rtt", IpSlaStats.SlaOperEntry.Stats.Rtt), "oneway-latency" : ("oneway_latency", IpSlaStats.SlaOperEntry.Stats.OnewayLatency), "jitter" : ("jitter", IpSlaStats.SlaOperEntry.Stats.Jitter), "over-threshold" : ("over_threshold", IpSlaStats.SlaOperEntry.Stats.OverThreshold), "packet-loss" : ("packet_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss), "icmp-packet-loss" : ("icmp_packet_loss", IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss), "voice-score" : ("voice_score", IpSlaStats.SlaOperEntry.Stats.VoiceScore)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("rtt", ("rtt", IpSlaStats.SlaOperEntry.Stats.Rtt)), ("oneway-latency", ("oneway_latency", IpSlaStats.SlaOperEntry.Stats.OnewayLatency)), ("jitter", ("jitter", IpSlaStats.SlaOperEntry.Stats.Jitter)), ("over-threshold", ("over_threshold", IpSlaStats.SlaOperEntry.Stats.OverThreshold)), ("packet-loss", ("packet_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss)), ("icmp-packet-loss", ("icmp_packet_loss", IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss)), ("voice-score", ("voice_score", IpSlaStats.SlaOperEntry.Stats.VoiceScore))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.rtt = IpSlaStats.SlaOperEntry.Stats.Rtt()
                 self.rtt.parent = self
@@ -623,7 +643,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.Rtt, self).__init__()
@@ -632,10 +652,13 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sla-time-values" : ("sla_time_values", IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues)}
-                    self._child_list_classes = {}
-
-                    self.rtt_count = YLeaf(YType.uint32, "rtt-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sla-time-values", ("sla_time_values", IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rtt_count', YLeaf(YType.uint32, 'rtt-count')),
+                    ])
+                    self.rtt_count = None
 
                     self.sla_time_values = IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues()
                     self.sla_time_values.parent = self
@@ -682,7 +705,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues, self).__init__()
@@ -691,16 +714,19 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "rtt"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('avg', YLeaf(YType.uint32, 'avg')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('accuracy', YLeaf(YType.enumeration, 'accuracy')),
+                        ])
+                        self.min = None
+                        self.avg = None
+                        self.max = None
+                        self.accuracy = None
                         self._segment_path = lambda: "sla-time-values"
 
                     def __setattr__(self, name, value):
@@ -733,7 +759,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency, self).__init__()
@@ -742,10 +768,13 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd), "ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds)}
-                    self._child_list_classes = {}
-
-                    self.sample_count = YLeaf(YType.uint32, "sample-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sd", ("sd", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd)), ("ds", ("ds", IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sample_count', YLeaf(YType.uint32, 'sample-count')),
+                    ])
+                    self.sample_count = None
 
                     self.sd = IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd()
                     self.sd.parent = self
@@ -797,7 +826,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, self).__init__()
@@ -806,16 +835,19 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "oneway-latency"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('avg', YLeaf(YType.uint32, 'avg')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('accuracy', YLeaf(YType.enumeration, 'accuracy')),
+                        ])
+                        self.min = None
+                        self.avg = None
+                        self.max = None
+                        self.accuracy = None
                         self._segment_path = lambda: "sd"
 
                     def __setattr__(self, name, value):
@@ -857,7 +889,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, self).__init__()
@@ -866,16 +898,19 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "oneway-latency"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('avg', YLeaf(YType.uint32, 'avg')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('accuracy', YLeaf(YType.enumeration, 'accuracy')),
+                        ])
+                        self.min = None
+                        self.avg = None
+                        self.max = None
+                        self.accuracy = None
                         self._segment_path = lambda: "ds"
 
                     def __setattr__(self, name, value):
@@ -915,7 +950,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.Jitter, self).__init__()
@@ -924,12 +959,15 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sd" : ("sd", IpSlaStats.SlaOperEntry.Stats.Jitter.Sd), "ds" : ("ds", IpSlaStats.SlaOperEntry.Stats.Jitter.Ds)}
-                    self._child_list_classes = {}
-
-                    self.sd_sample_count = YLeaf(YType.uint32, "sd-sample-count")
-
-                    self.ds_sample_count = YLeaf(YType.uint32, "ds-sample-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sd", ("sd", IpSlaStats.SlaOperEntry.Stats.Jitter.Sd)), ("ds", ("ds", IpSlaStats.SlaOperEntry.Stats.Jitter.Ds))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sd_sample_count', YLeaf(YType.uint32, 'sd-sample-count')),
+                        ('ds_sample_count', YLeaf(YType.uint32, 'ds-sample-count')),
+                    ])
+                    self.sd_sample_count = None
+                    self.ds_sample_count = None
 
                     self.sd = IpSlaStats.SlaOperEntry.Stats.Jitter.Sd()
                     self.sd.parent = self
@@ -981,7 +1019,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, self).__init__()
@@ -990,16 +1028,19 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "jitter"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('avg', YLeaf(YType.uint32, 'avg')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('accuracy', YLeaf(YType.enumeration, 'accuracy')),
+                        ])
+                        self.min = None
+                        self.avg = None
+                        self.max = None
+                        self.accuracy = None
                         self._segment_path = lambda: "sd"
 
                     def __setattr__(self, name, value):
@@ -1041,7 +1082,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, self).__init__()
@@ -1050,16 +1091,19 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "jitter"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.min = YLeaf(YType.uint32, "min")
-
-                        self.avg = YLeaf(YType.uint32, "avg")
-
-                        self.max = YLeaf(YType.uint32, "max")
-
-                        self.accuracy = YLeaf(YType.enumeration, "accuracy")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('min', YLeaf(YType.uint32, 'min')),
+                            ('avg', YLeaf(YType.uint32, 'avg')),
+                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('accuracy', YLeaf(YType.enumeration, 'accuracy')),
+                        ])
+                        self.min = None
+                        self.avg = None
+                        self.max = None
+                        self.accuracy = None
                         self._segment_path = lambda: "ds"
 
                     def __setattr__(self, name, value):
@@ -1089,7 +1133,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.OverThreshold, self).__init__()
@@ -1098,12 +1142,15 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rtt_count = YLeaf(YType.uint32, "rtt-count")
-
-                    self.percent = YLeaf(YType.uint8, "percent")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rtt_count', YLeaf(YType.uint32, 'rtt-count')),
+                        ('percent', YLeaf(YType.uint8, 'percent')),
+                    ])
+                    self.rtt_count = None
+                    self.percent = None
                     self._segment_path = lambda: "over-threshold"
 
                 def __setattr__(self, name, value):
@@ -1178,7 +1225,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.PacketLoss, self).__init__()
@@ -1187,22 +1234,25 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"sd-loss" : ("sd_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss), "ds-loss" : ("ds_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss)}
-                    self._child_list_classes = {}
-
-                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
-
-                    self.sd_count = YLeaf(YType.uint32, "sd-count")
-
-                    self.ds_count = YLeaf(YType.uint32, "ds-count")
-
-                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
-
-                    self.drops = YLeaf(YType.uint32, "drops")
-
-                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
-
-                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("sd-loss", ("sd_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss)), ("ds-loss", ("ds_loss", IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('unprocessed_packets', YLeaf(YType.uint32, 'unprocessed-packets')),
+                        ('sd_count', YLeaf(YType.uint32, 'sd-count')),
+                        ('ds_count', YLeaf(YType.uint32, 'ds-count')),
+                        ('out_of_sequence', YLeaf(YType.uint32, 'out-of-sequence')),
+                        ('drops', YLeaf(YType.uint32, 'drops')),
+                        ('late_arrivals', YLeaf(YType.uint32, 'late-arrivals')),
+                        ('skipped_packets', YLeaf(YType.uint32, 'skipped-packets')),
+                    ])
+                    self.unprocessed_packets = None
+                    self.sd_count = None
+                    self.ds_count = None
+                    self.out_of_sequence = None
+                    self.drops = None
+                    self.late_arrivals = None
+                    self.skipped_packets = None
 
                     self.sd_loss = IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss()
                     self.sd_loss.parent = self
@@ -1263,7 +1313,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, self).__init__()
@@ -1272,18 +1322,21 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "packet-loss"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-
-                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('loss_period_count', YLeaf(YType.uint32, 'loss-period-count')),
+                            ('loss_period_len_min', YLeaf(YType.uint32, 'loss-period-len-min')),
+                            ('loss_period_len_max', YLeaf(YType.uint32, 'loss-period-len-max')),
+                            ('inter_loss_period_len_min', YLeaf(YType.uint32, 'inter-loss-period-len-min')),
+                            ('inter_loss_period_len_max', YLeaf(YType.uint32, 'inter-loss-period-len-max')),
+                        ])
+                        self.loss_period_count = None
+                        self.loss_period_len_min = None
+                        self.loss_period_len_max = None
+                        self.inter_loss_period_len_min = None
+                        self.inter_loss_period_len_max = None
                         self._segment_path = lambda: "sd-loss"
 
                     def __setattr__(self, name, value):
@@ -1334,7 +1387,7 @@ class IpSlaStats(Entity):
                     """
 
                     _prefix = 'ip-sla-ios-xe-oper'
-                    _revision = '2017-08-22'
+                    _revision = '2017-09-25'
 
                     def __init__(self):
                         super(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, self).__init__()
@@ -1343,18 +1396,21 @@ class IpSlaStats(Entity):
                         self.yang_parent_name = "packet-loss"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                        self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-
-                        self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                        self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                        self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('loss_period_count', YLeaf(YType.uint32, 'loss-period-count')),
+                            ('loss_period_len_min', YLeaf(YType.uint32, 'loss-period-len-min')),
+                            ('loss_period_len_max', YLeaf(YType.uint32, 'loss-period-len-max')),
+                            ('inter_loss_period_len_min', YLeaf(YType.uint32, 'inter-loss-period-len-min')),
+                            ('inter_loss_period_len_max', YLeaf(YType.uint32, 'inter-loss-period-len-max')),
+                        ])
+                        self.loss_period_count = None
+                        self.loss_period_len_min = None
+                        self.loss_period_len_max = None
+                        self.inter_loss_period_len_min = None
+                        self.inter_loss_period_len_max = None
                         self._segment_path = lambda: "ds-loss"
 
                     def __setattr__(self, name, value):
@@ -1461,7 +1517,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, self).__init__()
@@ -1470,34 +1526,37 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.late_arrivals = YLeaf(YType.uint32, "late-arrivals")
-
-                    self.out_of_sequence = YLeaf(YType.uint32, "out-of-sequence")
-
-                    self.out_of_sequence_sd = YLeaf(YType.uint32, "out-of-sequence-sd")
-
-                    self.out_of_sequence_ds = YLeaf(YType.uint32, "out-of-sequence-ds")
-
-                    self.out_of_sequence_both = YLeaf(YType.uint32, "out-of-sequence-both")
-
-                    self.skipped_packets = YLeaf(YType.uint32, "skipped-packets")
-
-                    self.unprocessed_packets = YLeaf(YType.uint32, "unprocessed-packets")
-
-                    self.packet_loss = YLeaf(YType.uint32, "packet-loss")
-
-                    self.loss_period_count = YLeaf(YType.uint32, "loss-period-count")
-
-                    self.loss_period_len_min = YLeaf(YType.uint32, "loss-period-len-min")
-
-                    self.loss_period_len_max = YLeaf(YType.uint32, "loss-period-len-max")
-
-                    self.inter_loss_period_len_min = YLeaf(YType.uint32, "inter-loss-period-len-min")
-
-                    self.inter_loss_period_len_max = YLeaf(YType.uint32, "inter-loss-period-len-max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('late_arrivals', YLeaf(YType.uint32, 'late-arrivals')),
+                        ('out_of_sequence', YLeaf(YType.uint32, 'out-of-sequence')),
+                        ('out_of_sequence_sd', YLeaf(YType.uint32, 'out-of-sequence-sd')),
+                        ('out_of_sequence_ds', YLeaf(YType.uint32, 'out-of-sequence-ds')),
+                        ('out_of_sequence_both', YLeaf(YType.uint32, 'out-of-sequence-both')),
+                        ('skipped_packets', YLeaf(YType.uint32, 'skipped-packets')),
+                        ('unprocessed_packets', YLeaf(YType.uint32, 'unprocessed-packets')),
+                        ('packet_loss', YLeaf(YType.uint32, 'packet-loss')),
+                        ('loss_period_count', YLeaf(YType.uint32, 'loss-period-count')),
+                        ('loss_period_len_min', YLeaf(YType.uint32, 'loss-period-len-min')),
+                        ('loss_period_len_max', YLeaf(YType.uint32, 'loss-period-len-max')),
+                        ('inter_loss_period_len_min', YLeaf(YType.uint32, 'inter-loss-period-len-min')),
+                        ('inter_loss_period_len_max', YLeaf(YType.uint32, 'inter-loss-period-len-max')),
+                    ])
+                    self.late_arrivals = None
+                    self.out_of_sequence = None
+                    self.out_of_sequence_sd = None
+                    self.out_of_sequence_ds = None
+                    self.out_of_sequence_both = None
+                    self.skipped_packets = None
+                    self.unprocessed_packets = None
+                    self.packet_loss = None
+                    self.loss_period_count = None
+                    self.loss_period_len_min = None
+                    self.loss_period_len_max = None
+                    self.inter_loss_period_len_min = None
+                    self.inter_loss_period_len_max = None
                     self._segment_path = lambda: "icmp-packet-loss"
 
                 def __setattr__(self, name, value):
@@ -1527,7 +1586,7 @@ class IpSlaStats(Entity):
                 """
 
                 _prefix = 'ip-sla-ios-xe-oper'
-                _revision = '2017-08-22'
+                _revision = '2017-09-25'
 
                 def __init__(self):
                     super(IpSlaStats.SlaOperEntry.Stats.VoiceScore, self).__init__()
@@ -1536,12 +1595,15 @@ class IpSlaStats(Entity):
                     self.yang_parent_name = "stats"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.icpif = YLeaf(YType.uint32, "icpif")
-
-                    self.mos = YLeaf(YType.uint32, "mos")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('icpif', YLeaf(YType.uint32, 'icpif')),
+                        ('mos', YLeaf(YType.uint32, 'mos')),
+                    ])
+                    self.icpif = None
+                    self.mos = None
                     self._segment_path = lambda: "voice-score"
 
                 def __setattr__(self, name, value):

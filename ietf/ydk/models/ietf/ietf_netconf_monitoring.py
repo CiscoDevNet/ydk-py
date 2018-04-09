@@ -17,6 +17,8 @@ This version of this YANG module is part of RFC 6022; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -25,7 +27,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class NetconfDatastoreType(Enum):
     """
-    NetconfDatastoreType
+    NetconfDatastoreType (Enum Class)
 
     Enumeration of possible NETCONF datastore types.
 
@@ -75,6 +77,157 @@ class SchemaFormat(Identity):
         super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
 
 
+class GetSchema(Entity):
+    """
+    This operation is used to retrieve a schema from the
+    NETCONF server.
+    
+    Positive Response\:
+      The NETCONF server returns the requested schema.
+    
+    Negative Response\:
+      If requested schema does not exist, the <error\-tag> is
+      'invalid\-value'.
+    
+      If more than one schema matches the requested parameters, the
+      <error\-tag> is 'operation\-failed', and <error\-app\-tag> is
+      'data\-not\-unique'.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(GetSchema, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "get-schema"
+        self.yang_parent_name = "ietf-netconf-monitoring"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = GetSchema.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = GetSchema.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: identifier
+        
+        	Identifier for the schema list entry
+        	**type**\: str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: version
+        
+        	Version of the schema requested.  If this parameter is not present, and more than one version of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
+        	**type**\: str
+        
+        .. attribute:: format
+        
+        	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
+        	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
+        
+        
+
+        """
+
+        _prefix = 'ncm'
+        _revision = '2010-10-04'
+
+        def __init__(self):
+            super(GetSchema.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "get-schema"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('identifier', YLeaf(YType.str, 'identifier')),
+                ('version', YLeaf(YType.str, 'version')),
+                ('format', YLeaf(YType.identityref, 'format')),
+            ])
+            self.identifier = None
+            self.version = None
+            self.format = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetSchema.Input, ['identifier', 'version', 'format'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Contains the schema content
+        	**type**\: anyxml
+        
+        
+
+        """
+
+        _prefix = 'ncm'
+        _revision = '2010-10-04'
+
+        def __init__(self):
+            super(GetSchema.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "get-schema"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('data', YLeaf(YType.str, 'data')),
+            ])
+            self.data = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetSchema.Output, ['data'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = GetSchema()
+        return self._top_entity
+
 class NetconfState(Entity):
     """
     The netconf\-state container is the root of the monitoring
@@ -120,8 +273,10 @@ class NetconfState(Entity):
         self.yang_parent_name = "ietf-netconf-monitoring"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"capabilities" : ("capabilities", NetconfState.Capabilities), "datastores" : ("datastores", NetconfState.Datastores), "schemas" : ("schemas", NetconfState.Schemas), "sessions" : ("sessions", NetconfState.Sessions), "statistics" : ("statistics", NetconfState.Statistics)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("capabilities", ("capabilities", NetconfState.Capabilities)), ("datastores", ("datastores", NetconfState.Datastores)), ("schemas", ("schemas", NetconfState.Schemas)), ("sessions", ("sessions", NetconfState.Sessions)), ("statistics", ("statistics", NetconfState.Statistics))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.capabilities = NetconfState.Capabilities()
         self.capabilities.parent = self
@@ -174,10 +329,13 @@ class NetconfState(Entity):
             self.yang_parent_name = "netconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.capability = YLeafList(YType.str, "capability")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('capability', YLeafList(YType.str, 'capability')),
+            ])
+            self.capability = []
             self._segment_path = lambda: "capabilities"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
 
@@ -208,8 +366,10 @@ class NetconfState(Entity):
             self.yang_parent_name = "netconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"datastore" : ("datastore", NetconfState.Datastores.Datastore)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("datastore", ("datastore", NetconfState.Datastores.Datastore))])
+            self._leafs = OrderedDict()
 
             self.datastore = YList(self)
             self._segment_path = lambda: "datastores"
@@ -224,7 +384,7 @@ class NetconfState(Entity):
             List of NETCONF configuration datastores supported by
             the NETCONF server and related information.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Name of the datastore associated with this list entry
             	**type**\:  :py:class:`NetconfDatastoreType <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreType>`
@@ -250,15 +410,18 @@ class NetconfState(Entity):
                 self.yang_parent_name = "datastores"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"locks" : ("locks", NetconfState.Datastores.Datastore.Locks)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.enumeration, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("locks", ("locks", NetconfState.Datastores.Datastore.Locks))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.enumeration, 'name')),
+                ])
+                self.name = None
 
                 self.locks = None
                 self._children_name_map["locks"] = "locks"
                 self._children_yang_names.add("locks")
-                self._segment_path = lambda: "datastore" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/datastores/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -305,9 +468,11 @@ class NetconfState(Entity):
                     self.yang_parent_name = "datastore"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"global-lock" : ("global_lock", NetconfState.Datastores.Datastore.Locks.GlobalLock)}
-                    self._child_list_classes = {"partial-lock" : ("partial_lock", NetconfState.Datastores.Datastore.Locks.PartialLock)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("global-lock", ("global_lock", NetconfState.Datastores.Datastore.Locks.GlobalLock))])
+                    self._child_list_classes = OrderedDict([("partial-lock", ("partial_lock", NetconfState.Datastores.Datastore.Locks.PartialLock))])
                     self.is_presence_container = True
+                    self._leafs = OrderedDict()
 
                     self.global_lock = NetconfState.Datastores.Datastore.Locks.GlobalLock()
                     self.global_lock.parent = self
@@ -357,12 +522,15 @@ class NetconfState(Entity):
                         self.yang_parent_name = "locks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.locked_by_session = YLeaf(YType.uint32, "locked-by-session")
-
-                        self.locked_time = YLeaf(YType.str, "locked-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
+                            ('locked_time', YLeaf(YType.str, 'locked-time')),
+                        ])
+                        self.locked_by_session = None
+                        self.locked_time = None
                         self._segment_path = lambda: "global-lock"
 
                     def __setattr__(self, name, value):
@@ -373,7 +541,7 @@ class NetconfState(Entity):
                     """
                     List of partial locks.
                     
-                    .. attribute:: lock_id  <key>
+                    .. attribute:: lock_id  (key)
                     
                     	This is the lock id returned in the <partial\-lock> response
                     	**type**\: int
@@ -422,19 +590,22 @@ class NetconfState(Entity):
                         self.yang_parent_name = "locks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.lock_id = YLeaf(YType.uint32, "lock-id")
-
-                        self.locked_by_session = YLeaf(YType.uint32, "locked-by-session")
-
-                        self.locked_time = YLeaf(YType.str, "locked-time")
-
-                        self.select = YLeafList(YType.str, "select")
-
-                        self.locked_node = YLeafList(YType.str, "locked-node")
-                        self._segment_path = lambda: "partial-lock" + "[lock-id='" + self.lock_id.get() + "']"
+                        self.ylist_key_names = ['lock_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('lock_id', YLeaf(YType.uint32, 'lock-id')),
+                            ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
+                            ('locked_time', YLeaf(YType.str, 'locked-time')),
+                            ('select', YLeafList(YType.str, 'select')),
+                            ('locked_node', YLeafList(YType.str, 'locked-node')),
+                        ])
+                        self.lock_id = None
+                        self.locked_by_session = None
+                        self.locked_time = None
+                        self.select = []
+                        self.locked_node = []
+                        self._segment_path = lambda: "partial-lock" + "[lock-id='" + str(self.lock_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetconfState.Datastores.Datastore.Locks.PartialLock, ['lock_id', 'locked_by_session', 'locked_time', 'select', 'locked_node'], name, value)
@@ -464,8 +635,10 @@ class NetconfState(Entity):
             self.yang_parent_name = "netconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"schema" : ("schema", NetconfState.Schemas.Schema)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("schema", ("schema", NetconfState.Schemas.Schema))])
+            self._leafs = OrderedDict()
 
             self.schema = YList(self)
             self._segment_path = lambda: "schemas"
@@ -479,17 +652,17 @@ class NetconfState(Entity):
             """
             List of data model schemas supported by the server.
             
-            .. attribute:: identifier  <key>
+            .. attribute:: identifier  (key)
             
             	Identifier to uniquely reference the schema.  The identifier is used in the <get\-schema> operation and may be used for other purposes such as file retrieval.  For modeling languages that support or require a data model name (e.g., YANG module name) the identifier MUST match that name.  For YANG data models, the identifier is the name of the module or submodule.  In other cases, an identifier such as a filename MAY be used instead
             	**type**\: str
             
-            .. attribute:: version  <key>
+            .. attribute:: version  (key)
             
             	Version of the schema supported.  Multiple versions MAY be supported simultaneously by a NETCONF server.  Each version MUST be reported individually in the schema list, i.e., with same identifier, possibly different location, but different version.  For YANG data models, version is the value of the most recent YANG 'revision' statement in the module or submodule, or the empty string if no 'revision' statement is present
             	**type**\: str
             
-            .. attribute:: format  <key>
+            .. attribute:: format  (key)
             
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
             	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
@@ -524,19 +697,22 @@ class NetconfState(Entity):
                 self.yang_parent_name = "schemas"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.identifier = YLeaf(YType.str, "identifier")
-
-                self.version = YLeaf(YType.str, "version")
-
-                self.format = YLeaf(YType.identityref, "format")
-
-                self.namespace = YLeaf(YType.str, "namespace")
-
-                self.location = YLeafList(YType.str, "location")
-                self._segment_path = lambda: "schema" + "[identifier='" + self.identifier.get() + "']" + "[version='" + self.version.get() + "']" + "[format='" + self.format.get() + "']"
+                self.ylist_key_names = ['identifier','version','format']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('identifier', YLeaf(YType.str, 'identifier')),
+                    ('version', YLeaf(YType.str, 'version')),
+                    ('format', YLeaf(YType.identityref, 'format')),
+                    ('namespace', YLeaf(YType.str, 'namespace')),
+                    ('location', YLeafList(YType.str, 'location')),
+                ])
+                self.identifier = None
+                self.version = None
+                self.format = None
+                self.namespace = None
+                self.location = []
+                self._segment_path = lambda: "schema" + "[identifier='" + str(self.identifier) + "']" + "[version='" + str(self.version) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/schemas/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -544,7 +720,7 @@ class NetconfState(Entity):
 
             class Location(Enum):
                 """
-                Location
+                Location (Enum Class)
 
                 One or more locations from which the schema can be
 
@@ -593,8 +769,10 @@ class NetconfState(Entity):
             self.yang_parent_name = "netconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"session" : ("session", NetconfState.Sessions.Session)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("session", ("session", NetconfState.Sessions.Session))])
+            self._leafs = OrderedDict()
 
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
@@ -609,7 +787,7 @@ class NetconfState(Entity):
             All NETCONF sessions managed by the NETCONF server
             MUST be reported in this list.
             
-            .. attribute:: session_id  <key>
+            .. attribute:: session_id  (key)
             
             	Unique identifier for the session.  This value is the NETCONF session identifier, as defined in RFC 4741
             	**type**\: int
@@ -698,27 +876,30 @@ class NetconfState(Entity):
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.session_id = YLeaf(YType.uint32, "session-id")
-
-                self.transport = YLeaf(YType.identityref, "transport")
-
-                self.username = YLeaf(YType.str, "username")
-
-                self.source_host = YLeaf(YType.str, "source-host")
-
-                self.login_time = YLeaf(YType.str, "login-time")
-
-                self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
-
-                self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
-
-                self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
-
-                self.out_notifications = YLeaf(YType.uint32, "out-notifications")
-                self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                self.ylist_key_names = ['session_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('session_id', YLeaf(YType.uint32, 'session-id')),
+                    ('transport', YLeaf(YType.identityref, 'transport')),
+                    ('username', YLeaf(YType.str, 'username')),
+                    ('source_host', YLeaf(YType.str, 'source-host')),
+                    ('login_time', YLeaf(YType.str, 'login-time')),
+                    ('in_rpcs', YLeaf(YType.uint32, 'in-rpcs')),
+                    ('in_bad_rpcs', YLeaf(YType.uint32, 'in-bad-rpcs')),
+                    ('out_rpc_errors', YLeaf(YType.uint32, 'out-rpc-errors')),
+                    ('out_notifications', YLeaf(YType.uint32, 'out-notifications')),
+                ])
+                self.session_id = None
+                self.transport = None
+                self.username = None
+                self.source_host = None
+                self.login_time = None
+                self.in_rpcs = None
+                self.in_bad_rpcs = None
+                self.out_rpc_errors = None
+                self.out_notifications = None
+                self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -799,24 +980,27 @@ class NetconfState(Entity):
             self.yang_parent_name = "netconf-state"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.netconf_start_time = YLeaf(YType.str, "netconf-start-time")
-
-            self.in_bad_hellos = YLeaf(YType.uint32, "in-bad-hellos")
-
-            self.in_sessions = YLeaf(YType.uint32, "in-sessions")
-
-            self.dropped_sessions = YLeaf(YType.uint32, "dropped-sessions")
-
-            self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
-
-            self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
-
-            self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
-
-            self.out_notifications = YLeaf(YType.uint32, "out-notifications")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('netconf_start_time', YLeaf(YType.str, 'netconf-start-time')),
+                ('in_bad_hellos', YLeaf(YType.uint32, 'in-bad-hellos')),
+                ('in_sessions', YLeaf(YType.uint32, 'in-sessions')),
+                ('dropped_sessions', YLeaf(YType.uint32, 'dropped-sessions')),
+                ('in_rpcs', YLeaf(YType.uint32, 'in-rpcs')),
+                ('in_bad_rpcs', YLeaf(YType.uint32, 'in-bad-rpcs')),
+                ('out_rpc_errors', YLeaf(YType.uint32, 'out-rpc-errors')),
+                ('out_notifications', YLeaf(YType.uint32, 'out-notifications')),
+            ])
+            self.netconf_start_time = None
+            self.in_bad_hellos = None
+            self.in_sessions = None
+            self.dropped_sessions = None
+            self.in_rpcs = None
+            self.in_bad_rpcs = None
+            self.out_rpc_errors = None
+            self.out_notifications = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
 
@@ -825,149 +1009,6 @@ class NetconfState(Entity):
 
     def clone_ptr(self):
         self._top_entity = NetconfState()
-        return self._top_entity
-
-class GetSchema(Entity):
-    """
-    This operation is used to retrieve a schema from the
-    NETCONF server.
-    
-    Positive Response\:
-      The NETCONF server returns the requested schema.
-    
-    Negative Response\:
-      If requested schema does not exist, the <error\-tag> is
-      'invalid\-value'.
-    
-      If more than one schema matches the requested parameters, the
-      <error\-tag> is 'operation\-failed', and <error\-app\-tag> is
-      'data\-not\-unique'.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(GetSchema, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "get-schema"
-        self.yang_parent_name = "ietf-netconf-monitoring"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = GetSchema.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = GetSchema.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: identifier
-        
-        	Identifier for the schema list entry
-        	**type**\: str
-        
-        	**mandatory**\: True
-        
-        .. attribute:: version
-        
-        	Version of the schema requested.  If this parameter is not present, and more than one version of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\: str
-        
-        .. attribute:: format
-        
-        	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
-        
-        
-
-        """
-
-        _prefix = 'ncm'
-        _revision = '2010-10-04'
-
-        def __init__(self):
-            super(GetSchema.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "get-schema"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.identifier = YLeaf(YType.str, "identifier")
-
-            self.version = YLeaf(YType.str, "version")
-
-            self.format = YLeaf(YType.identityref, "format")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(GetSchema.Input, ['identifier', 'version', 'format'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Contains the schema content
-        	**type**\: anyxml
-        
-        
-
-        """
-
-        _prefix = 'ncm'
-        _revision = '2010-10-04'
-
-        def __init__(self):
-            super(GetSchema.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "get-schema"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(GetSchema.Output, ['data'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = GetSchema()
         return self._top_entity
 
 class NetconfSsh(Identity):

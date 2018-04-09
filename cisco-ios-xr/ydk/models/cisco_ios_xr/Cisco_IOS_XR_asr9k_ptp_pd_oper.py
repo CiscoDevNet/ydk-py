@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class PlatformPtp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-ptp-pd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"platform-ptp-servo" : ("platform_ptp_servo", PlatformPtp.PlatformPtpServo)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("platform-ptp-servo", ("platform_ptp_servo", PlatformPtp.PlatformPtpServo))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.platform_ptp_servo = PlatformPtp.PlatformPtpServo()
         self.platform_ptp_servo.parent = self
@@ -237,44 +241,47 @@ class PlatformPtp(Entity):
             self.yang_parent_name = "platform-ptp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"last-set-time" : ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime), "last-received-t1" : ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1), "last-received-t2" : ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2), "last-received-t3" : ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3), "last-received-t4" : ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4), "pre-received-t1" : ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1), "pre-received-t2" : ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2), "pre-received-t3" : ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3), "pre-received-t4" : ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4)}
-            self._child_list_classes = {}
-
-            self.lock_status = YLeaf(YType.uint16, "lock-status")
-
-            self.running = YLeaf(YType.boolean, "running")
-
-            self.device_status = YLeaf(YType.str, "device-status")
-
-            self.log_level = YLeaf(YType.uint16, "log-level")
-
-            self.phase_accuracy_last = YLeaf(YType.int64, "phase-accuracy-last")
-
-            self.num_sync_timestamp = YLeaf(YType.uint32, "num-sync-timestamp")
-
-            self.num_delay_timestamp = YLeaf(YType.uint32, "num-delay-timestamp")
-
-            self.num_set_time = YLeaf(YType.uint32, "num-set-time")
-
-            self.num_step_time = YLeaf(YType.uint32, "num-step-time")
-
-            self.num_adjust_freq = YLeaf(YType.uint32, "num-adjust-freq")
-
-            self.num_adjust_freq_time = YLeaf(YType.uint32, "num-adjust-freq-time")
-
-            self.last_adjust_freq = YLeaf(YType.int32, "last-adjust-freq")
-
-            self.last_step_time = YLeaf(YType.int32, "last-step-time")
-
-            self.num_discard_sync_timestamp = YLeaf(YType.uint32, "num-discard-sync-timestamp")
-
-            self.num_discard_delay_timestamp = YLeaf(YType.uint32, "num-discard-delay-timestamp")
-
-            self.flagof_last_set_time = YLeaf(YType.boolean, "flagof-last-set-time")
-
-            self.offset_from_master = YLeaf(YType.int64, "offset-from-master")
-
-            self.mean_path_delay = YLeaf(YType.int64, "mean-path-delay")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("last-set-time", ("last_set_time", PlatformPtp.PlatformPtpServo.LastSetTime)), ("last-received-t1", ("last_received_t1", PlatformPtp.PlatformPtpServo.LastReceivedT1)), ("last-received-t2", ("last_received_t2", PlatformPtp.PlatformPtpServo.LastReceivedT2)), ("last-received-t3", ("last_received_t3", PlatformPtp.PlatformPtpServo.LastReceivedT3)), ("last-received-t4", ("last_received_t4", PlatformPtp.PlatformPtpServo.LastReceivedT4)), ("pre-received-t1", ("pre_received_t1", PlatformPtp.PlatformPtpServo.PreReceivedT1)), ("pre-received-t2", ("pre_received_t2", PlatformPtp.PlatformPtpServo.PreReceivedT2)), ("pre-received-t3", ("pre_received_t3", PlatformPtp.PlatformPtpServo.PreReceivedT3)), ("pre-received-t4", ("pre_received_t4", PlatformPtp.PlatformPtpServo.PreReceivedT4))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('lock_status', YLeaf(YType.uint16, 'lock-status')),
+                ('running', YLeaf(YType.boolean, 'running')),
+                ('device_status', YLeaf(YType.str, 'device-status')),
+                ('log_level', YLeaf(YType.uint16, 'log-level')),
+                ('phase_accuracy_last', YLeaf(YType.int64, 'phase-accuracy-last')),
+                ('num_sync_timestamp', YLeaf(YType.uint32, 'num-sync-timestamp')),
+                ('num_delay_timestamp', YLeaf(YType.uint32, 'num-delay-timestamp')),
+                ('num_set_time', YLeaf(YType.uint32, 'num-set-time')),
+                ('num_step_time', YLeaf(YType.uint32, 'num-step-time')),
+                ('num_adjust_freq', YLeaf(YType.uint32, 'num-adjust-freq')),
+                ('num_adjust_freq_time', YLeaf(YType.uint32, 'num-adjust-freq-time')),
+                ('last_adjust_freq', YLeaf(YType.int32, 'last-adjust-freq')),
+                ('last_step_time', YLeaf(YType.int32, 'last-step-time')),
+                ('num_discard_sync_timestamp', YLeaf(YType.uint32, 'num-discard-sync-timestamp')),
+                ('num_discard_delay_timestamp', YLeaf(YType.uint32, 'num-discard-delay-timestamp')),
+                ('flagof_last_set_time', YLeaf(YType.boolean, 'flagof-last-set-time')),
+                ('offset_from_master', YLeaf(YType.int64, 'offset-from-master')),
+                ('mean_path_delay', YLeaf(YType.int64, 'mean-path-delay')),
+            ])
+            self.lock_status = None
+            self.running = None
+            self.device_status = None
+            self.log_level = None
+            self.phase_accuracy_last = None
+            self.num_sync_timestamp = None
+            self.num_delay_timestamp = None
+            self.num_set_time = None
+            self.num_step_time = None
+            self.num_adjust_freq = None
+            self.num_adjust_freq_time = None
+            self.last_adjust_freq = None
+            self.last_step_time = None
+            self.num_discard_sync_timestamp = None
+            self.num_discard_delay_timestamp = None
+            self.flagof_last_set_time = None
+            self.offset_from_master = None
+            self.mean_path_delay = None
 
             self.last_set_time = PlatformPtp.PlatformPtpServo.LastSetTime()
             self.last_set_time.parent = self
@@ -359,12 +366,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "last-set-time"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -404,12 +414,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "last-received-t1"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -449,12 +462,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "last-received-t2"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -494,12 +510,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "last-received-t3"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -539,12 +558,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "last-received-t4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -584,12 +606,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "pre-received-t1"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -629,12 +654,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "pre-received-t2"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -674,12 +702,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "pre-received-t3"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 
@@ -719,12 +750,15 @@ class PlatformPtp(Entity):
                 self.yang_parent_name = "platform-ptp-servo"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.second = YLeaf(YType.uint32, "second")
-
-                self.nano_second = YLeaf(YType.uint32, "nano-second")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('second', YLeaf(YType.uint32, 'second')),
+                    ('nano_second', YLeaf(YType.uint32, 'nano-second')),
+                ])
+                self.second = None
+                self.nano_second = None
                 self._segment_path = lambda: "pre-received-t4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp/platform-ptp-servo/%s" % self._segment_path()
 

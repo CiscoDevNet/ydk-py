@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class HistRecord(Enum):
     """
-    HistRecord
+    HistRecord (Enum Class)
 
     Possible types of history
 
@@ -111,8 +113,10 @@ class CfgHistGl(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-config-cfgmgr-exec-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"record-type" : ("record_type", CfgHistGl.RecordType)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("record-type", ("record_type", CfgHistGl.RecordType))])
+        self._leafs = OrderedDict()
 
         self.record_type = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl"
@@ -126,7 +130,7 @@ class CfgHistGl(Entity):
         History summary information for a specific type
         of history
         
-        .. attribute:: record_type  <key>
+        .. attribute:: record_type  (key)
         
         	Record type
         	**type**\: str
@@ -152,13 +156,16 @@ class CfgHistGl(Entity):
             self.yang_parent_name = "cfg-hist-gl"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"record" : ("record", CfgHistGl.RecordType.Record)}
-
-            self.record_type = YLeaf(YType.str, "record-type")
+            self.ylist_key_names = ['record_type']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("record", ("record", CfgHistGl.RecordType.Record))])
+            self._leafs = OrderedDict([
+                ('record_type', YLeaf(YType.str, 'record-type')),
+            ])
+            self.record_type = None
 
             self.record = YList(self)
-            self._segment_path = lambda: "record-type" + "[record-type='" + self.record_type.get() + "']"
+            self._segment_path = lambda: "record-type" + "[record-type='" + str(self.record_type) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -170,7 +177,7 @@ class CfgHistGl(Entity):
             History summary information for a specific type
             of history
             
-            .. attribute:: record  <key>
+            .. attribute:: record  (key)
             
             	Record
             	**type**\: int
@@ -208,20 +215,23 @@ class CfgHistGl(Entity):
                 self.yang_parent_name = "record-type"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"info" : ("info", CfgHistGl.RecordType.Record.Info)}
-                self._child_list_classes = {}
-
-                self.record = YLeaf(YType.int32, "record")
-
-                self.timestamp = YLeaf(YType.uint32, "timestamp")
-
-                self.record_type = YLeaf(YType.enumeration, "record-type")
+                self.ylist_key_names = ['record']
+                self._child_container_classes = OrderedDict([("info", ("info", CfgHistGl.RecordType.Record.Info))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('record', YLeaf(YType.int32, 'record')),
+                    ('timestamp', YLeaf(YType.uint32, 'timestamp')),
+                    ('record_type', YLeaf(YType.enumeration, 'record-type')),
+                ])
+                self.record = None
+                self.timestamp = None
+                self.record_type = None
 
                 self.info = CfgHistGl.RecordType.Record.Info()
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._children_yang_names.add("info")
-                self._segment_path = lambda: "record" + "[record='" + self.record.get() + "']"
+                self._segment_path = lambda: "record" + "[record='" + str(self.record) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CfgHistGl.RecordType.Record, ['record', 'timestamp', 'record_type'], name, value)
@@ -292,12 +302,15 @@ class CfgHistGl(Entity):
                     self.yang_parent_name = "record"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"alarm-info" : ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo), "cfscheck-info" : ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo), "commit-info" : ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo), "oir-info" : ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo), "shutdown-info" : ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo), "startup-info" : ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo), "backup-info" : ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo)}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.a = YLeaf(YType.uint32, "a")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("alarm-info", ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo)), ("cfscheck-info", ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo)), ("commit-info", ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo)), ("oir-info", ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo)), ("shutdown-info", ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo)), ("startup-info", ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo)), ("backup-info", ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('a', YLeaf(YType.uint32, 'a')),
+                    ])
+                    self.type = None
+                    self.a = None
 
                     self.alarm_info = CfgHistGl.RecordType.Record.Info.AlarmInfo()
                     self.alarm_info.parent = self
@@ -367,12 +380,15 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.state = YLeaf(YType.str, "state")
-
-                        self.where = YLeaf(YType.str, "where")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('state', YLeaf(YType.str, 'state')),
+                            ('where', YLeaf(YType.str, 'where')),
+                        ])
+                        self.state = None
+                        self.where = None
                         self._segment_path = lambda: "alarm-info"
 
                     def __setattr__(self, name, value):
@@ -407,12 +423,15 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.line = YLeaf(YType.str, "line")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('user_id', YLeaf(YType.str, 'user-id')),
+                            ('line', YLeaf(YType.str, 'line')),
+                        ])
+                        self.user_id = None
+                        self.line = None
                         self._segment_path = lambda: "cfscheck-info"
 
                     def __setattr__(self, name, value):
@@ -467,20 +486,23 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.commit_id = YLeaf(YType.str, "commit-id")
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.line = YLeaf(YType.str, "line")
-
-                        self.client_name = YLeaf(YType.str, "client-name")
-
-                        self.label = YLeaf(YType.str, "label")
-
-                        self.comment = YLeaf(YType.str, "comment")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('commit_id', YLeaf(YType.str, 'commit-id')),
+                            ('user_id', YLeaf(YType.str, 'user-id')),
+                            ('line', YLeaf(YType.str, 'line')),
+                            ('client_name', YLeaf(YType.str, 'client-name')),
+                            ('label', YLeaf(YType.str, 'label')),
+                            ('comment', YLeaf(YType.str, 'comment')),
+                        ])
+                        self.commit_id = None
+                        self.user_id = None
+                        self.line = None
+                        self.client_name = None
+                        self.label = None
+                        self.comment = None
                         self._segment_path = lambda: "commit-info"
 
                     def __setattr__(self, name, value):
@@ -520,14 +542,17 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.config_type = YLeaf(YType.str, "config-type")
-
-                        self.operation_ = YLeaf(YType.str, "operation")
-
-                        self.config_name = YLeaf(YType.str, "config-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('config_type', YLeaf(YType.str, 'config-type')),
+                            ('operation_', YLeaf(YType.str, 'operation')),
+                            ('config_name', YLeaf(YType.str, 'config-name')),
+                        ])
+                        self.config_type = None
+                        self.operation_ = None
+                        self.config_name = None
                         self._segment_path = lambda: "oir-info"
 
                     def __setattr__(self, name, value):
@@ -557,10 +582,13 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.comment = YLeaf(YType.str, "comment")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('comment', YLeaf(YType.str, 'comment')),
+                        ])
+                        self.comment = None
                         self._segment_path = lambda: "shutdown-info"
 
                     def __setattr__(self, name, value):
@@ -595,12 +623,15 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.how_booted = YLeaf(YType.str, "how-booted")
-
-                        self.boot_path = YLeaf(YType.str, "boot-path")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('how_booted', YLeaf(YType.str, 'how-booted')),
+                            ('boot_path', YLeaf(YType.str, 'boot-path')),
+                        ])
+                        self.how_booted = None
+                        self.boot_path = None
                         self._segment_path = lambda: "startup-info"
 
                     def __setattr__(self, name, value):
@@ -630,10 +661,13 @@ class CfgHistGl(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.comment = YLeaf(YType.str, "comment")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('comment', YLeaf(YType.str, 'comment')),
+                        ])
+                        self.comment = None
                         self._segment_path = lambda: "backup-info"
 
                     def __setattr__(self, name, value):

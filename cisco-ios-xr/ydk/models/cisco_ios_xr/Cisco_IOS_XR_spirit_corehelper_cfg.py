@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Exception(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-spirit-corehelper-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"file" : ("file", Exception.File)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("file", ("file", Exception.File))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.file = Exception.File()
         self.file.parent = self
@@ -85,14 +89,17 @@ class Exception(Entity):
             self.yang_parent_name = "exception"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.choice2 = YLeaf(YType.str, "choice2")
-
-            self.choice1 = YLeaf(YType.str, "choice1")
-
-            self.choice3 = YLeaf(YType.str, "choice3")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('choice2', YLeaf(YType.str, 'choice2')),
+                ('choice1', YLeaf(YType.str, 'choice1')),
+                ('choice3', YLeaf(YType.str, 'choice3')),
+            ])
+            self.choice2 = None
+            self.choice1 = None
+            self.choice3 = None
             self._segment_path = lambda: "file"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-corehelper-cfg:exception/%s" % self._segment_path()
 

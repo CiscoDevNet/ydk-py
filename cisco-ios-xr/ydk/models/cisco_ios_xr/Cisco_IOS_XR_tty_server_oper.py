@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LineState(Enum):
     """
-    LineState
+    LineState (Enum Class)
 
     Line state
 
@@ -46,7 +48,7 @@ class LineState(Enum):
 
 class SessionOperation(Enum):
     """
-    SessionOperation
+    SessionOperation (Enum Class)
 
     Session operation
 
@@ -118,8 +120,10 @@ class Tty(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tty-server-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"console-nodes" : ("console_nodes", Tty.ConsoleNodes), "vty-lines" : ("vty_lines", Tty.VtyLines), "auxiliary-nodes" : ("auxiliary_nodes", Tty.AuxiliaryNodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("console-nodes", ("console_nodes", Tty.ConsoleNodes)), ("vty-lines", ("vty_lines", Tty.VtyLines)), ("auxiliary-nodes", ("auxiliary_nodes", Tty.AuxiliaryNodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.console_nodes = Tty.ConsoleNodes()
         self.console_nodes.parent = self
@@ -161,8 +165,10 @@ class Tty(Entity):
             self.yang_parent_name = "tty"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"console-node" : ("console_node", Tty.ConsoleNodes.ConsoleNode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("console-node", ("console_node", Tty.ConsoleNodes.ConsoleNode))])
+            self._leafs = OrderedDict()
 
             self.console_node = YList(self)
             self._segment_path = lambda: "console-nodes"
@@ -176,7 +182,7 @@ class Tty(Entity):
             """
             Console line configuration on a node
             
-            .. attribute:: id  <key>
+            .. attribute:: id  (key)
             
             	Node ID
             	**type**\: str
@@ -202,16 +208,19 @@ class Tty(Entity):
                 self.yang_parent_name = "console-nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"console-line" : ("console_line", Tty.ConsoleNodes.ConsoleNode.ConsoleLine)}
-                self._child_list_classes = {}
-
-                self.id = YLeaf(YType.str, "id")
+                self.ylist_key_names = ['id']
+                self._child_container_classes = OrderedDict([("console-line", ("console_line", Tty.ConsoleNodes.ConsoleNode.ConsoleLine))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('id', YLeaf(YType.str, 'id')),
+                ])
+                self.id = None
 
                 self.console_line = Tty.ConsoleNodes.ConsoleNode.ConsoleLine()
                 self.console_line.parent = self
                 self._children_name_map["console_line"] = "console-line"
                 self._children_yang_names.add("console-line")
-                self._segment_path = lambda: "console-node" + "[id='" + self.id.get() + "']"
+                self._segment_path = lambda: "console-node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -251,8 +260,10 @@ class Tty(Entity):
                     self.yang_parent_name = "console-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"console-statistics" : ("console_statistics", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics), "state" : ("state", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State), "configuration" : ("configuration", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("console-statistics", ("console_statistics", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics)), ("state", ("state", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State)), ("configuration", ("configuration", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.console_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics()
                     self.console_statistics.parent = self
@@ -288,7 +299,7 @@ class Tty(Entity):
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_>`
+                    	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec>`
                     
                     .. attribute:: aaa
                     
@@ -309,8 +320,10 @@ class Tty(Entity):
                         self.yang_parent_name = "console-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rs232" : ("rs232", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232), "general-statistics" : ("general_statistics", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics), "exec" : ("exec_", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_), "aaa" : ("aaa", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rs232", ("rs232", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232)), ("general-statistics", ("general_statistics", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics)), ("exec", ("exec_", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec)), ("aaa", ("aaa", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rs232 = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232()
                         self.rs232.parent = self
@@ -322,7 +335,7 @@ class Tty(Entity):
                         self._children_name_map["general_statistics"] = "general-statistics"
                         self._children_yang_names.add("general-statistics")
 
-                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_()
+                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec()
                         self.exec_.parent = self
                         self._children_name_map["exec_"] = "exec"
                         self._children_yang_names.add("exec")
@@ -419,26 +432,29 @@ class Tty(Entity):
                             self.yang_parent_name = "console-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.data_bits = YLeaf(YType.uint32, "data-bits")
-
-                            self.exec_disabled = YLeaf(YType.boolean, "exec-disabled")
-
-                            self.hardware_flow_control_status = YLeaf(YType.uint32, "hardware-flow-control-status")
-
-                            self.parity_status = YLeaf(YType.uint32, "parity-status")
-
-                            self.baud_rate = YLeaf(YType.uint32, "baud-rate")
-
-                            self.stop_bits = YLeaf(YType.uint32, "stop-bits")
-
-                            self.overrun_error_count = YLeaf(YType.uint32, "overrun-error-count")
-
-                            self.framing_error_count = YLeaf(YType.uint32, "framing-error-count")
-
-                            self.parity_error_count = YLeaf(YType.uint32, "parity-error-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('data_bits', YLeaf(YType.uint32, 'data-bits')),
+                                ('exec_disabled', YLeaf(YType.boolean, 'exec-disabled')),
+                                ('hardware_flow_control_status', YLeaf(YType.uint32, 'hardware-flow-control-status')),
+                                ('parity_status', YLeaf(YType.uint32, 'parity-status')),
+                                ('baud_rate', YLeaf(YType.uint32, 'baud-rate')),
+                                ('stop_bits', YLeaf(YType.uint32, 'stop-bits')),
+                                ('overrun_error_count', YLeaf(YType.uint32, 'overrun-error-count')),
+                                ('framing_error_count', YLeaf(YType.uint32, 'framing-error-count')),
+                                ('parity_error_count', YLeaf(YType.uint32, 'parity-error-count')),
+                            ])
+                            self.data_bits = None
+                            self.exec_disabled = None
+                            self.hardware_flow_control_status = None
+                            self.parity_status = None
+                            self.baud_rate = None
+                            self.stop_bits = None
+                            self.overrun_error_count = None
+                            self.framing_error_count = None
+                            self.parity_error_count = None
                             self._segment_path = lambda: "rs232"
 
                         def __setattr__(self, name, value):
@@ -530,37 +546,40 @@ class Tty(Entity):
                             self.yang_parent_name = "console-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.terminal_length = YLeaf(YType.uint32, "terminal-length")
-
-                            self.terminal_width = YLeaf(YType.uint32, "terminal-width")
-
-                            self.async_interface = YLeaf(YType.boolean, "async-interface")
-
-                            self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
-
-                            self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
-
-                            self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
-
-                            self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
-
-                            self.private_flag = YLeaf(YType.boolean, "private-flag")
-
-                            self.terminal_type = YLeaf(YType.str, "terminal-type")
-
-                            self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
-
-                            self.idle_time = YLeaf(YType.uint32, "idle-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('terminal_length', YLeaf(YType.uint32, 'terminal-length')),
+                                ('terminal_width', YLeaf(YType.uint32, 'terminal-width')),
+                                ('async_interface', YLeaf(YType.boolean, 'async-interface')),
+                                ('flow_control_start_character', YLeaf(YType.int8, 'flow-control-start-character')),
+                                ('flow_control_stop_character', YLeaf(YType.int8, 'flow-control-stop-character')),
+                                ('domain_lookup_enabled', YLeaf(YType.boolean, 'domain-lookup-enabled')),
+                                ('motd_banner_enabled', YLeaf(YType.boolean, 'motd-banner-enabled')),
+                                ('private_flag', YLeaf(YType.boolean, 'private-flag')),
+                                ('terminal_type', YLeaf(YType.str, 'terminal-type')),
+                                ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),
+                                ('idle_time', YLeaf(YType.uint32, 'idle-time')),
+                            ])
+                            self.terminal_length = None
+                            self.terminal_width = None
+                            self.async_interface = None
+                            self.flow_control_start_character = None
+                            self.flow_control_stop_character = None
+                            self.domain_lookup_enabled = None
+                            self.motd_banner_enabled = None
+                            self.private_flag = None
+                            self.terminal_type = None
+                            self.absolute_timeout = None
+                            self.idle_time = None
                             self._segment_path = lambda: "general-statistics"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
-                    class Exec_(Entity):
+                    class Exec(Entity):
                         """
                         Exec related statistics
                         
@@ -577,20 +596,23 @@ class Tty(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_, self).__init__()
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, self).__init__()
 
                             self.yang_name = "exec"
                             self.yang_parent_name = "console-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('time_stamp_enabled', YLeaf(YType.boolean, 'time-stamp-enabled')),
+                            ])
+                            self.time_stamp_enabled = None
                             self._segment_path = lambda: "exec"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_, ['time_stamp_enabled'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
                     class Aaa(Entity):
@@ -616,10 +638,13 @@ class Tty(Entity):
                             self.yang_parent_name = "console-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.user_name = YLeaf(YType.str, "user-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('user_name', YLeaf(YType.str, 'user-name')),
+                            ])
+                            self.user_name = None
                             self._segment_path = lambda: "aaa"
 
                         def __setattr__(self, name, value):
@@ -654,8 +679,10 @@ class Tty(Entity):
                         self.yang_parent_name = "console-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"template" : ("template", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template), "general" : ("general", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("template", ("template", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template)), ("general", ("general", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.template = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template()
                         self.template.parent = self
@@ -693,10 +720,13 @@ class Tty(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
                             self._segment_path = lambda: "template"
 
                         def __setattr__(self, name, value):
@@ -731,12 +761,15 @@ class Tty(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.operation_ = YLeaf(YType.enumeration, "operation")
-
-                            self.general_state = YLeaf(YType.enumeration, "general-state")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('operation_', YLeaf(YType.enumeration, 'operation')),
+                                ('general_state', YLeaf(YType.enumeration, 'general-state')),
+                            ])
+                            self.operation_ = None
+                            self.general_state = None
                             self._segment_path = lambda: "general"
 
                         def __setattr__(self, name, value):
@@ -766,8 +799,10 @@ class Tty(Entity):
                         self.yang_parent_name = "console-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"connection-configuration" : ("connection_configuration", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("connection-configuration", ("connection_configuration", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.connection_configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration()
                         self.connection_configuration.parent = self
@@ -809,12 +844,15 @@ class Tty(Entity):
                             self.yang_parent_name = "configuration"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"transport-input" : ("transport_input", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput)}
-                            self._child_list_classes = {}
-
-                            self.acl_out = YLeaf(YType.str, "acl-out")
-
-                            self.acl_in = YLeaf(YType.str, "acl-in")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("transport-input", ("transport_input", Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('acl_out', YLeaf(YType.str, 'acl-out')),
+                                ('acl_in', YLeaf(YType.str, 'acl-in')),
+                            ])
+                            self.acl_out = None
+                            self.acl_in = None
 
                             self.transport_input = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
@@ -869,16 +907,19 @@ class Tty(Entity):
                                 self.yang_parent_name = "connection-configuration"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.select = YLeaf(YType.enumeration, "select")
-
-                                self.protocol1 = YLeaf(YType.enumeration, "protocol1")
-
-                                self.protocol2 = YLeaf(YType.enumeration, "protocol2")
-
-                                self.none = YLeaf(YType.int32, "none")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('select', YLeaf(YType.enumeration, 'select')),
+                                    ('protocol1', YLeaf(YType.enumeration, 'protocol1')),
+                                    ('protocol2', YLeaf(YType.enumeration, 'protocol2')),
+                                    ('none', YLeaf(YType.int32, 'none')),
+                                ])
+                                self.select = None
+                                self.protocol1 = None
+                                self.protocol2 = None
+                                self.none = None
                                 self._segment_path = lambda: "transport-input"
 
                             def __setattr__(self, name, value):
@@ -908,8 +949,10 @@ class Tty(Entity):
             self.yang_parent_name = "tty"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vty-line" : ("vty_line", Tty.VtyLines.VtyLine)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vty-line", ("vty_line", Tty.VtyLines.VtyLine))])
+            self._leafs = OrderedDict()
 
             self.vty_line = YList(self)
             self._segment_path = lambda: "vty-lines"
@@ -923,7 +966,7 @@ class Tty(Entity):
             """
             VTY Line
             
-            .. attribute:: line_number  <key>
+            .. attribute:: line_number  (key)
             
             	VTY Line number
             	**type**\: int
@@ -964,10 +1007,13 @@ class Tty(Entity):
                 self.yang_parent_name = "vty-lines"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"vty-statistics" : ("vty_statistics", Tty.VtyLines.VtyLine.VtyStatistics), "state" : ("state", Tty.VtyLines.VtyLine.State), "configuration" : ("configuration", Tty.VtyLines.VtyLine.Configuration), "Cisco-IOS-XR-tty-management-oper:sessions" : ("sessions", Tty.VtyLines.VtyLine.Sessions)}
-                self._child_list_classes = {}
-
-                self.line_number = YLeaf(YType.int32, "line-number")
+                self.ylist_key_names = ['line_number']
+                self._child_container_classes = OrderedDict([("vty-statistics", ("vty_statistics", Tty.VtyLines.VtyLine.VtyStatistics)), ("state", ("state", Tty.VtyLines.VtyLine.State)), ("configuration", ("configuration", Tty.VtyLines.VtyLine.Configuration)), ("Cisco-IOS-XR-tty-management-oper:sessions", ("sessions", Tty.VtyLines.VtyLine.Sessions))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('line_number', YLeaf(YType.int32, 'line-number')),
+                ])
+                self.line_number = None
 
                 self.vty_statistics = Tty.VtyLines.VtyLine.VtyStatistics()
                 self.vty_statistics.parent = self
@@ -986,9 +1032,9 @@ class Tty(Entity):
 
                 self.sessions = Tty.VtyLines.VtyLine.Sessions()
                 self.sessions.parent = self
-                self._children_name_map["sessions"] = "sessions"
-                self._children_yang_names.add("sessions")
-                self._segment_path = lambda: "vty-line" + "[line-number='" + self.line_number.get() + "']"
+                self._children_name_map["sessions"] = "Cisco-IOS-XR-tty-management-oper:sessions"
+                self._children_yang_names.add("Cisco-IOS-XR-tty-management-oper:sessions")
+                self._segment_path = lambda: "vty-line" + "[line-number='" + str(self.line_number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1012,7 +1058,7 @@ class Tty(Entity):
                 .. attribute:: exec_
                 
                 	Exec related statistics
-                	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec_>`
+                	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec>`
                 
                 .. attribute:: aaa
                 
@@ -1033,8 +1079,10 @@ class Tty(Entity):
                     self.yang_parent_name = "vty-line"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"connection" : ("connection", Tty.VtyLines.VtyLine.VtyStatistics.Connection), "general-statistics" : ("general_statistics", Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics), "exec" : ("exec_", Tty.VtyLines.VtyLine.VtyStatistics.Exec_), "aaa" : ("aaa", Tty.VtyLines.VtyLine.VtyStatistics.Aaa)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("connection", ("connection", Tty.VtyLines.VtyLine.VtyStatistics.Connection)), ("general-statistics", ("general_statistics", Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics)), ("exec", ("exec_", Tty.VtyLines.VtyLine.VtyStatistics.Exec)), ("aaa", ("aaa", Tty.VtyLines.VtyLine.VtyStatistics.Aaa))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
                     self.connection.parent = self
@@ -1046,7 +1094,7 @@ class Tty(Entity):
                     self._children_name_map["general_statistics"] = "general-statistics"
                     self._children_yang_names.add("general-statistics")
 
-                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec_()
+                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec()
                     self.exec_.parent = self
                     self._children_name_map["exec_"] = "exec"
                     self._children_yang_names.add("exec")
@@ -1097,14 +1145,17 @@ class Tty(Entity):
                         self.yang_parent_name = "vty-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.incoming_host_address = YLeaf(YType.str, "incoming-host-address")
-
-                        self.host_address_family = YLeaf(YType.uint32, "host-address-family")
-
-                        self.service = YLeaf(YType.uint32, "service")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('incoming_host_address', YLeaf(YType.str, 'incoming-host-address')),
+                            ('host_address_family', YLeaf(YType.uint32, 'host-address-family')),
+                            ('service', YLeaf(YType.uint32, 'service')),
+                        ])
+                        self.incoming_host_address = None
+                        self.host_address_family = None
+                        self.service = None
                         self._segment_path = lambda: "connection"
 
                     def __setattr__(self, name, value):
@@ -1196,37 +1247,40 @@ class Tty(Entity):
                         self.yang_parent_name = "vty-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.terminal_length = YLeaf(YType.uint32, "terminal-length")
-
-                        self.terminal_width = YLeaf(YType.uint32, "terminal-width")
-
-                        self.async_interface = YLeaf(YType.boolean, "async-interface")
-
-                        self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
-
-                        self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
-
-                        self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
-
-                        self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
-
-                        self.private_flag = YLeaf(YType.boolean, "private-flag")
-
-                        self.terminal_type = YLeaf(YType.str, "terminal-type")
-
-                        self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
-
-                        self.idle_time = YLeaf(YType.uint32, "idle-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('terminal_length', YLeaf(YType.uint32, 'terminal-length')),
+                            ('terminal_width', YLeaf(YType.uint32, 'terminal-width')),
+                            ('async_interface', YLeaf(YType.boolean, 'async-interface')),
+                            ('flow_control_start_character', YLeaf(YType.int8, 'flow-control-start-character')),
+                            ('flow_control_stop_character', YLeaf(YType.int8, 'flow-control-stop-character')),
+                            ('domain_lookup_enabled', YLeaf(YType.boolean, 'domain-lookup-enabled')),
+                            ('motd_banner_enabled', YLeaf(YType.boolean, 'motd-banner-enabled')),
+                            ('private_flag', YLeaf(YType.boolean, 'private-flag')),
+                            ('terminal_type', YLeaf(YType.str, 'terminal-type')),
+                            ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),
+                            ('idle_time', YLeaf(YType.uint32, 'idle-time')),
+                        ])
+                        self.terminal_length = None
+                        self.terminal_width = None
+                        self.async_interface = None
+                        self.flow_control_start_character = None
+                        self.flow_control_stop_character = None
+                        self.domain_lookup_enabled = None
+                        self.motd_banner_enabled = None
+                        self.private_flag = None
+                        self.terminal_type = None
+                        self.absolute_timeout = None
+                        self.idle_time = None
                         self._segment_path = lambda: "general-statistics"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
-                class Exec_(Entity):
+                class Exec(Entity):
                     """
                     Exec related statistics
                     
@@ -1243,20 +1297,23 @@ class Tty(Entity):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        super(Tty.VtyLines.VtyLine.VtyStatistics.Exec_, self).__init__()
+                        super(Tty.VtyLines.VtyLine.VtyStatistics.Exec, self).__init__()
 
                         self.yang_name = "exec"
                         self.yang_parent_name = "vty-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('time_stamp_enabled', YLeaf(YType.boolean, 'time-stamp-enabled')),
+                        ])
+                        self.time_stamp_enabled = None
                         self._segment_path = lambda: "exec"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec_, ['time_stamp_enabled'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
                 class Aaa(Entity):
@@ -1282,10 +1339,13 @@ class Tty(Entity):
                         self.yang_parent_name = "vty-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.user_name = YLeaf(YType.str, "user-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('user_name', YLeaf(YType.str, 'user-name')),
+                        ])
+                        self.user_name = None
                         self._segment_path = lambda: "aaa"
 
                     def __setattr__(self, name, value):
@@ -1320,8 +1380,10 @@ class Tty(Entity):
                     self.yang_parent_name = "vty-line"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"template" : ("template", Tty.VtyLines.VtyLine.State.Template), "general" : ("general", Tty.VtyLines.VtyLine.State.General)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("template", ("template", Tty.VtyLines.VtyLine.State.Template)), ("general", ("general", Tty.VtyLines.VtyLine.State.General))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.template = Tty.VtyLines.VtyLine.State.Template()
                     self.template.parent = self
@@ -1359,10 +1421,13 @@ class Tty(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
                         self._segment_path = lambda: "template"
 
                     def __setattr__(self, name, value):
@@ -1397,12 +1462,15 @@ class Tty(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.operation_ = YLeaf(YType.enumeration, "operation")
-
-                        self.general_state = YLeaf(YType.enumeration, "general-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('operation_', YLeaf(YType.enumeration, 'operation')),
+                            ('general_state', YLeaf(YType.enumeration, 'general-state')),
+                        ])
+                        self.operation_ = None
+                        self.general_state = None
                         self._segment_path = lambda: "general"
 
                     def __setattr__(self, name, value):
@@ -1432,8 +1500,10 @@ class Tty(Entity):
                     self.yang_parent_name = "vty-line"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"connection-configuration" : ("connection_configuration", Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("connection-configuration", ("connection_configuration", Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.connection_configuration = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration()
                     self.connection_configuration.parent = self
@@ -1475,12 +1545,15 @@ class Tty(Entity):
                         self.yang_parent_name = "configuration"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"transport-input" : ("transport_input", Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput)}
-                        self._child_list_classes = {}
-
-                        self.acl_out = YLeaf(YType.str, "acl-out")
-
-                        self.acl_in = YLeaf(YType.str, "acl-in")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("transport-input", ("transport_input", Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('acl_out', YLeaf(YType.str, 'acl-out')),
+                            ('acl_in', YLeaf(YType.str, 'acl-in')),
+                        ])
+                        self.acl_out = None
+                        self.acl_in = None
 
                         self.transport_input = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput()
                         self.transport_input.parent = self
@@ -1535,16 +1608,19 @@ class Tty(Entity):
                             self.yang_parent_name = "connection-configuration"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.select = YLeaf(YType.enumeration, "select")
-
-                            self.protocol1 = YLeaf(YType.enumeration, "protocol1")
-
-                            self.protocol2 = YLeaf(YType.enumeration, "protocol2")
-
-                            self.none = YLeaf(YType.int32, "none")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('select', YLeaf(YType.enumeration, 'select')),
+                                ('protocol1', YLeaf(YType.enumeration, 'protocol1')),
+                                ('protocol2', YLeaf(YType.enumeration, 'protocol2')),
+                                ('none', YLeaf(YType.int32, 'none')),
+                            ])
+                            self.select = None
+                            self.protocol1 = None
+                            self.protocol2 = None
+                            self.none = None
                             self._segment_path = lambda: "transport-input"
 
                         def __setattr__(self, name, value):
@@ -1574,8 +1650,10 @@ class Tty(Entity):
                     self.yang_parent_name = "vty-line"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"outgoing-connection" : ("outgoing_connection", Tty.VtyLines.VtyLine.Sessions.OutgoingConnection)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("outgoing-connection", ("outgoing_connection", Tty.VtyLines.VtyLine.Sessions.OutgoingConnection))])
+                    self._leafs = OrderedDict()
 
                     self.outgoing_connection = YList(self)
                     self._segment_path = lambda: "Cisco-IOS-XR-tty-management-oper:sessions"
@@ -1638,18 +1716,21 @@ class Tty(Entity):
                         self.yang_parent_name = "sessions"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"host-address" : ("host_address", Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress)}
-                        self._child_list_classes = {}
-
-                        self.connection_id = YLeaf(YType.uint8, "connection-id")
-
-                        self.host_name = YLeaf(YType.str, "host-name")
-
-                        self.transport_protocol = YLeaf(YType.enumeration, "transport-protocol")
-
-                        self.is_last_active_session = YLeaf(YType.boolean, "is-last-active-session")
-
-                        self.idle_time = YLeaf(YType.uint32, "idle-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("host-address", ("host_address", Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('connection_id', YLeaf(YType.uint8, 'connection-id')),
+                            ('host_name', YLeaf(YType.str, 'host-name')),
+                            ('transport_protocol', YLeaf(YType.enumeration, 'transport-protocol')),
+                            ('is_last_active_session', YLeaf(YType.boolean, 'is-last-active-session')),
+                            ('idle_time', YLeaf(YType.uint32, 'idle-time')),
+                        ])
+                        self.connection_id = None
+                        self.host_name = None
+                        self.transport_protocol = None
+                        self.is_last_active_session = None
+                        self.idle_time = None
 
                         self.host_address = Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress()
                         self.host_address.parent = self
@@ -1698,14 +1779,17 @@ class Tty(Entity):
                             self.yang_parent_name = "outgoing-connection"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af_name = YLeaf(YType.identityref, "af-name")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', YLeaf(YType.identityref, 'af-name')),
+                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ])
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
                             self._segment_path = lambda: "host-address"
 
                         def __setattr__(self, name, value):
@@ -1735,8 +1819,10 @@ class Tty(Entity):
             self.yang_parent_name = "tty"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"auxiliary-node" : ("auxiliary_node", Tty.AuxiliaryNodes.AuxiliaryNode)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("auxiliary-node", ("auxiliary_node", Tty.AuxiliaryNodes.AuxiliaryNode))])
+            self._leafs = OrderedDict()
 
             self.auxiliary_node = YList(self)
             self._segment_path = lambda: "auxiliary-nodes"
@@ -1750,7 +1836,7 @@ class Tty(Entity):
             """
             Line configuration on a node
             
-            .. attribute:: id  <key>
+            .. attribute:: id  (key)
             
             	Node ID
             	**type**\: str
@@ -1776,16 +1862,19 @@ class Tty(Entity):
                 self.yang_parent_name = "auxiliary-nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"auxiliary-line" : ("auxiliary_line", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine)}
-                self._child_list_classes = {}
-
-                self.id = YLeaf(YType.str, "id")
+                self.ylist_key_names = ['id']
+                self._child_container_classes = OrderedDict([("auxiliary-line", ("auxiliary_line", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('id', YLeaf(YType.str, 'id')),
+                ])
+                self.id = None
 
                 self.auxiliary_line = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine()
                 self.auxiliary_line.parent = self
                 self._children_name_map["auxiliary_line"] = "auxiliary-line"
                 self._children_yang_names.add("auxiliary-line")
-                self._segment_path = lambda: "auxiliary-node" + "[id='" + self.id.get() + "']"
+                self._segment_path = lambda: "auxiliary-node" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1825,8 +1914,10 @@ class Tty(Entity):
                     self.yang_parent_name = "auxiliary-node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"auxiliary-statistics" : ("auxiliary_statistics", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics), "state" : ("state", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State), "configuration" : ("configuration", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("auxiliary-statistics", ("auxiliary_statistics", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics)), ("state", ("state", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State)), ("configuration", ("configuration", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.auxiliary_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics()
                     self.auxiliary_statistics.parent = self
@@ -1862,7 +1953,7 @@ class Tty(Entity):
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:  :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_>`
+                    	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec>`
                     
                     .. attribute:: aaa
                     
@@ -1883,8 +1974,10 @@ class Tty(Entity):
                         self.yang_parent_name = "auxiliary-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"rs232" : ("rs232", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232), "general-statistics" : ("general_statistics", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics), "exec" : ("exec_", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_), "aaa" : ("aaa", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("rs232", ("rs232", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232)), ("general-statistics", ("general_statistics", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics)), ("exec", ("exec_", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec)), ("aaa", ("aaa", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.rs232 = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232()
                         self.rs232.parent = self
@@ -1896,7 +1989,7 @@ class Tty(Entity):
                         self._children_name_map["general_statistics"] = "general-statistics"
                         self._children_yang_names.add("general-statistics")
 
-                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_()
+                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec()
                         self.exec_.parent = self
                         self._children_name_map["exec_"] = "exec"
                         self._children_yang_names.add("exec")
@@ -1993,26 +2086,29 @@ class Tty(Entity):
                             self.yang_parent_name = "auxiliary-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.data_bits = YLeaf(YType.uint32, "data-bits")
-
-                            self.exec_disabled = YLeaf(YType.boolean, "exec-disabled")
-
-                            self.hardware_flow_control_status = YLeaf(YType.uint32, "hardware-flow-control-status")
-
-                            self.parity_status = YLeaf(YType.uint32, "parity-status")
-
-                            self.baud_rate = YLeaf(YType.uint32, "baud-rate")
-
-                            self.stop_bits = YLeaf(YType.uint32, "stop-bits")
-
-                            self.overrun_error_count = YLeaf(YType.uint32, "overrun-error-count")
-
-                            self.framing_error_count = YLeaf(YType.uint32, "framing-error-count")
-
-                            self.parity_error_count = YLeaf(YType.uint32, "parity-error-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('data_bits', YLeaf(YType.uint32, 'data-bits')),
+                                ('exec_disabled', YLeaf(YType.boolean, 'exec-disabled')),
+                                ('hardware_flow_control_status', YLeaf(YType.uint32, 'hardware-flow-control-status')),
+                                ('parity_status', YLeaf(YType.uint32, 'parity-status')),
+                                ('baud_rate', YLeaf(YType.uint32, 'baud-rate')),
+                                ('stop_bits', YLeaf(YType.uint32, 'stop-bits')),
+                                ('overrun_error_count', YLeaf(YType.uint32, 'overrun-error-count')),
+                                ('framing_error_count', YLeaf(YType.uint32, 'framing-error-count')),
+                                ('parity_error_count', YLeaf(YType.uint32, 'parity-error-count')),
+                            ])
+                            self.data_bits = None
+                            self.exec_disabled = None
+                            self.hardware_flow_control_status = None
+                            self.parity_status = None
+                            self.baud_rate = None
+                            self.stop_bits = None
+                            self.overrun_error_count = None
+                            self.framing_error_count = None
+                            self.parity_error_count = None
                             self._segment_path = lambda: "rs232"
 
                         def __setattr__(self, name, value):
@@ -2104,37 +2200,40 @@ class Tty(Entity):
                             self.yang_parent_name = "auxiliary-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.terminal_length = YLeaf(YType.uint32, "terminal-length")
-
-                            self.terminal_width = YLeaf(YType.uint32, "terminal-width")
-
-                            self.async_interface = YLeaf(YType.boolean, "async-interface")
-
-                            self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
-
-                            self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
-
-                            self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
-
-                            self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
-
-                            self.private_flag = YLeaf(YType.boolean, "private-flag")
-
-                            self.terminal_type = YLeaf(YType.str, "terminal-type")
-
-                            self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
-
-                            self.idle_time = YLeaf(YType.uint32, "idle-time")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('terminal_length', YLeaf(YType.uint32, 'terminal-length')),
+                                ('terminal_width', YLeaf(YType.uint32, 'terminal-width')),
+                                ('async_interface', YLeaf(YType.boolean, 'async-interface')),
+                                ('flow_control_start_character', YLeaf(YType.int8, 'flow-control-start-character')),
+                                ('flow_control_stop_character', YLeaf(YType.int8, 'flow-control-stop-character')),
+                                ('domain_lookup_enabled', YLeaf(YType.boolean, 'domain-lookup-enabled')),
+                                ('motd_banner_enabled', YLeaf(YType.boolean, 'motd-banner-enabled')),
+                                ('private_flag', YLeaf(YType.boolean, 'private-flag')),
+                                ('terminal_type', YLeaf(YType.str, 'terminal-type')),
+                                ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),
+                                ('idle_time', YLeaf(YType.uint32, 'idle-time')),
+                            ])
+                            self.terminal_length = None
+                            self.terminal_width = None
+                            self.async_interface = None
+                            self.flow_control_start_character = None
+                            self.flow_control_stop_character = None
+                            self.domain_lookup_enabled = None
+                            self.motd_banner_enabled = None
+                            self.private_flag = None
+                            self.terminal_type = None
+                            self.absolute_timeout = None
+                            self.idle_time = None
                             self._segment_path = lambda: "general-statistics"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
 
 
-                    class Exec_(Entity):
+                    class Exec(Entity):
                         """
                         Exec related statistics
                         
@@ -2151,20 +2250,23 @@ class Tty(Entity):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_, self).__init__()
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, self).__init__()
 
                             self.yang_name = "exec"
                             self.yang_parent_name = "auxiliary-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('time_stamp_enabled', YLeaf(YType.boolean, 'time-stamp-enabled')),
+                            ])
+                            self.time_stamp_enabled = None
                             self._segment_path = lambda: "exec"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_, ['time_stamp_enabled'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, ['time_stamp_enabled'], name, value)
 
 
                     class Aaa(Entity):
@@ -2190,10 +2292,13 @@ class Tty(Entity):
                             self.yang_parent_name = "auxiliary-statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.user_name = YLeaf(YType.str, "user-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('user_name', YLeaf(YType.str, 'user-name')),
+                            ])
+                            self.user_name = None
                             self._segment_path = lambda: "aaa"
 
                         def __setattr__(self, name, value):
@@ -2228,8 +2333,10 @@ class Tty(Entity):
                         self.yang_parent_name = "auxiliary-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"template" : ("template", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template), "general" : ("general", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("template", ("template", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template)), ("general", ("general", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.template = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template()
                         self.template.parent = self
@@ -2267,10 +2374,13 @@ class Tty(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
                             self._segment_path = lambda: "template"
 
                         def __setattr__(self, name, value):
@@ -2305,12 +2415,15 @@ class Tty(Entity):
                             self.yang_parent_name = "state"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.operation_ = YLeaf(YType.enumeration, "operation")
-
-                            self.general_state = YLeaf(YType.enumeration, "general-state")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('operation_', YLeaf(YType.enumeration, 'operation')),
+                                ('general_state', YLeaf(YType.enumeration, 'general-state')),
+                            ])
+                            self.operation_ = None
+                            self.general_state = None
                             self._segment_path = lambda: "general"
 
                         def __setattr__(self, name, value):
@@ -2340,8 +2453,10 @@ class Tty(Entity):
                         self.yang_parent_name = "auxiliary-line"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"connection-configuration" : ("connection_configuration", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("connection-configuration", ("connection_configuration", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.connection_configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration()
                         self.connection_configuration.parent = self
@@ -2383,12 +2498,15 @@ class Tty(Entity):
                             self.yang_parent_name = "configuration"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"transport-input" : ("transport_input", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput)}
-                            self._child_list_classes = {}
-
-                            self.acl_out = YLeaf(YType.str, "acl-out")
-
-                            self.acl_in = YLeaf(YType.str, "acl-in")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("transport-input", ("transport_input", Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('acl_out', YLeaf(YType.str, 'acl-out')),
+                                ('acl_in', YLeaf(YType.str, 'acl-in')),
+                            ])
+                            self.acl_out = None
+                            self.acl_in = None
 
                             self.transport_input = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
@@ -2443,16 +2561,19 @@ class Tty(Entity):
                                 self.yang_parent_name = "connection-configuration"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.select = YLeaf(YType.enumeration, "select")
-
-                                self.protocol1 = YLeaf(YType.enumeration, "protocol1")
-
-                                self.protocol2 = YLeaf(YType.enumeration, "protocol2")
-
-                                self.none = YLeaf(YType.int32, "none")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('select', YLeaf(YType.enumeration, 'select')),
+                                    ('protocol1', YLeaf(YType.enumeration, 'protocol1')),
+                                    ('protocol2', YLeaf(YType.enumeration, 'protocol2')),
+                                    ('none', YLeaf(YType.int32, 'none')),
+                                ])
+                                self.select = None
+                                self.protocol1 = None
+                                self.protocol2 = None
+                                self.none = None
                                 self._segment_path = lambda: "transport-input"
 
                             def __setattr__(self, name, value):

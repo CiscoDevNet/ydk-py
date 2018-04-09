@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -61,10 +63,13 @@ class Ipv6Arm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-iarm-v6-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"addresses" : ("addresses", Ipv6Arm.Addresses), "summary" : ("summary", Ipv6Arm.Summary), "vrf-summaries" : ("vrf_summaries", Ipv6Arm.VrfSummaries)}
-        self._child_list_classes = {}
-
-        self.multicast_host_interface = YLeaf(YType.str, "multicast-host-interface")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("addresses", ("addresses", Ipv6Arm.Addresses)), ("summary", ("summary", Ipv6Arm.Summary)), ("vrf-summaries", ("vrf_summaries", Ipv6Arm.VrfSummaries))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+        ])
+        self.multicast_host_interface = None
 
         self.addresses = Ipv6Arm.Addresses()
         self.addresses.parent = self
@@ -109,8 +114,10 @@ class Ipv6Arm(Entity):
             self.yang_parent_name = "ipv6arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"vrfs" : ("vrfs", Ipv6Arm.Addresses.Vrfs)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Arm.Addresses.Vrfs))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.vrfs = Ipv6Arm.Addresses.Vrfs()
             self.vrfs.parent = self
@@ -143,8 +150,10 @@ class Ipv6Arm(Entity):
                 self.yang_parent_name = "addresses"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"vrf" : ("vrf", Ipv6Arm.Addresses.Vrfs.Vrf)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ipv6Arm.Addresses.Vrfs.Vrf))])
+                self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
@@ -158,7 +167,7 @@ class Ipv6Arm(Entity):
                 """
                 IPv6 ARM address database information in a VRF
                 
-                .. attribute:: vrf_name  <key>
+                .. attribute:: vrf_name  (key)
                 
                 	VRF name
                 	**type**\: str
@@ -187,10 +196,13 @@ class Ipv6Arm(Entity):
                     self.yang_parent_name = "vrfs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"networks" : ("networks", Ipv6Arm.Addresses.Vrfs.Vrf.Networks), "interfaces" : ("interfaces", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces)}
-                    self._child_list_classes = {}
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                    self.ylist_key_names = ['vrf_name']
+                    self._child_container_classes = OrderedDict([("networks", ("networks", Ipv6Arm.Addresses.Vrfs.Vrf.Networks)), ("interfaces", ("interfaces", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ])
+                    self.vrf_name = None
 
                     self.networks = Ipv6Arm.Addresses.Vrfs.Vrf.Networks()
                     self.networks.parent = self
@@ -201,7 +213,7 @@ class Ipv6Arm(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._children_yang_names.add("interfaces")
-                    self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v6-oper:ipv6arm/addresses/vrfs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -232,8 +244,10 @@ class Ipv6Arm(Entity):
                         self.yang_parent_name = "vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"network" : ("network", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("network", ("network", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network))])
+                        self._leafs = OrderedDict()
 
                         self.network = YList(self)
                         self._segment_path = lambda: "networks"
@@ -301,20 +315,23 @@ class Ipv6Arm(Entity):
                             self.yang_parent_name = "networks"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"address-xr" : ("address_xr", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr)}
-                            self._child_list_classes = {}
-
-                            self.address = YLeaf(YType.str, "address")
-
-                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                            self.handle = YLeaf(YType.str, "handle")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.referenced_interface = YLeaf(YType.str, "referenced-interface")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("address-xr", ("address_xr", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('address', YLeaf(YType.str, 'address')),
+                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                ('handle', YLeaf(YType.str, 'handle')),
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('referenced_interface', YLeaf(YType.str, 'referenced-interface')),
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.address = None
+                            self.prefix_length = None
+                            self.handle = None
+                            self.interface_name = None
+                            self.referenced_interface = None
+                            self.vrf_name = None
 
                             self.address_xr = Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr()
                             self.address_xr.parent = self
@@ -383,20 +400,23 @@ class Ipv6Arm(Entity):
                                 self.yang_parent_name = "network"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"address" : ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address)}
-                                self._child_list_classes = {}
-
-                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                self.route_tag = YLeaf(YType.uint32, "route-tag")
-
-                                self.is_primary = YLeaf(YType.boolean, "is-primary")
-
-                                self.is_tentative = YLeaf(YType.boolean, "is-tentative")
-
-                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
-
-                                self.producer = YLeaf(YType.str, "producer")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("address", ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                    ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                    ('is_primary', YLeaf(YType.boolean, 'is-primary')),
+                                    ('is_tentative', YLeaf(YType.boolean, 'is-tentative')),
+                                    ('is_prefix_sid', YLeaf(YType.boolean, 'is-prefix-sid')),
+                                    ('producer', YLeaf(YType.str, 'producer')),
+                                ])
+                                self.prefix_length = None
+                                self.route_tag = None
+                                self.is_primary = None
+                                self.is_tentative = None
+                                self.is_prefix_sid = None
+                                self.producer = None
 
                                 self.address = Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address()
                                 self.address.parent = self
@@ -447,14 +467,17 @@ class Ipv6Arm(Entity):
                                     self.yang_parent_name = "address-xr"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.afi = YLeaf(YType.int32, "afi")
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('afi', YLeaf(YType.int32, 'afi')),
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                    ])
+                                    self.afi = None
+                                    self.ipv4_address = None
+                                    self.ipv6_address = None
                                     self._segment_path = lambda: "address"
 
                                 def __setattr__(self, name, value):
@@ -485,8 +508,10 @@ class Ipv6Arm(Entity):
                         self.yang_parent_name = "vrf"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface))])
+                        self._leafs = OrderedDict()
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
@@ -499,7 +524,7 @@ class Ipv6Arm(Entity):
                         """
                         An IPv6 address in IPv6 ARM
                         
-                        .. attribute:: interface  <key>
+                        .. attribute:: interface  (key)
                         
                         	Interface
                         	**type**\: str
@@ -535,17 +560,20 @@ class Ipv6Arm(Entity):
                             self.yang_parent_name = "interfaces"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address)}
-
-                            self.interface = YLeaf(YType.str, "interface")
-
-                            self.referenced_interface = YLeaf(YType.str, "referenced-interface")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = ['interface']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("address", ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address))])
+                            self._leafs = OrderedDict([
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('referenced_interface', YLeaf(YType.str, 'referenced-interface')),
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.interface = None
+                            self.referenced_interface = None
+                            self.vrf_name = None
 
                             self.address = YList(self)
-                            self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
+                            self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
@@ -558,7 +586,7 @@ class Ipv6Arm(Entity):
                             .. attribute:: address
                             
                             	Address
-                            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v6_oper.Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address>`
+                            	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v6_oper.Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
                             
                             .. attribute:: prefix_length
                             
@@ -608,22 +636,25 @@ class Ipv6Arm(Entity):
                                 self.yang_parent_name = "interface"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"address" : ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("address", ("address", Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                    ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                    ('is_primary', YLeaf(YType.boolean, 'is-primary')),
+                                    ('is_tentative', YLeaf(YType.boolean, 'is-tentative')),
+                                    ('is_prefix_sid', YLeaf(YType.boolean, 'is-prefix-sid')),
+                                    ('producer', YLeaf(YType.str, 'producer')),
+                                ])
+                                self.prefix_length = None
+                                self.route_tag = None
+                                self.is_primary = None
+                                self.is_tentative = None
+                                self.is_prefix_sid = None
+                                self.producer = None
 
-                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                self.route_tag = YLeaf(YType.uint32, "route-tag")
-
-                                self.is_primary = YLeaf(YType.boolean, "is-primary")
-
-                                self.is_tentative = YLeaf(YType.boolean, "is-tentative")
-
-                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
-
-                                self.producer = YLeaf(YType.str, "producer")
-
-                                self.address = Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address()
+                                self.address = Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_()
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._children_yang_names.add("address")
@@ -633,7 +664,7 @@ class Ipv6Arm(Entity):
                                 self._perform_setattr(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
-                            class Address(Entity):
+                            class Address_(Entity):
                                 """
                                 Address
                                 
@@ -666,24 +697,27 @@ class Ipv6Arm(Entity):
                                 _revision = '2017-05-01'
 
                                 def __init__(self):
-                                    super(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, self).__init__()
+                                    super(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, self).__init__()
 
                                     self.yang_name = "address"
                                     self.yang_parent_name = "address"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.afi = YLeaf(YType.int32, "afi")
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('afi', YLeaf(YType.int32, 'afi')),
+                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                    ])
+                                    self.afi = None
+                                    self.ipv4_address = None
+                                    self.ipv6_address = None
                                     self._segment_path = lambda: "address"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
     class Summary(Entity):
@@ -739,18 +773,21 @@ class Ipv6Arm(Entity):
             self.yang_parent_name = "ipv6arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.producer_count = YLeaf(YType.int32, "producer-count")
-
-            self.address_conflict_count = YLeaf(YType.int32, "address-conflict-count")
-
-            self.unnumbered_conflict_count = YLeaf(YType.int32, "unnumbered-conflict-count")
-
-            self.db_master_version = YLeaf(YType.uint32, "db-master-version")
-
-            self.vrf_count = YLeaf(YType.int32, "vrf-count")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('producer_count', YLeaf(YType.int32, 'producer-count')),
+                ('address_conflict_count', YLeaf(YType.int32, 'address-conflict-count')),
+                ('unnumbered_conflict_count', YLeaf(YType.int32, 'unnumbered-conflict-count')),
+                ('db_master_version', YLeaf(YType.uint32, 'db-master-version')),
+                ('vrf_count', YLeaf(YType.int32, 'vrf-count')),
+            ])
+            self.producer_count = None
+            self.address_conflict_count = None
+            self.unnumbered_conflict_count = None
+            self.db_master_version = None
+            self.vrf_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v6-oper:ipv6arm/%s" % self._segment_path()
 
@@ -781,8 +818,10 @@ class Ipv6Arm(Entity):
             self.yang_parent_name = "ipv6arm"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf-summary" : ("vrf_summary", Ipv6Arm.VrfSummaries.VrfSummary)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf-summary", ("vrf_summary", Ipv6Arm.VrfSummaries.VrfSummary))])
+            self._leafs = OrderedDict()
 
             self.vrf_summary = YList(self)
             self._segment_path = lambda: "vrf-summaries"
@@ -796,7 +835,7 @@ class Ipv6Arm(Entity):
             """
             IPv6 ARM VRF summary information
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
@@ -827,15 +866,18 @@ class Ipv6Arm(Entity):
                 self.yang_parent_name = "vrf-summaries"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
-                self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
+                ])
+                self.vrf_name = None
+                self.vrf_id = None
+                self.vrf_name_xr = None
+                self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v6-oper:ipv6arm/vrf-summaries/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

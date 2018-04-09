@@ -4,6 +4,8 @@ This module contains a collection of YANG definitions for
 monitoring memory usage of processes in a Network Element.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -35,8 +37,10 @@ class MplsForwardingTable(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-mpls-fwd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"local-label-entry" : ("local_label_entry", MplsForwardingTable.LocalLabelEntry)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("local-label-entry", ("local_label_entry", MplsForwardingTable.LocalLabelEntry))])
+        self._leafs = OrderedDict()
 
         self.local_label_entry = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table"
@@ -49,7 +53,7 @@ class MplsForwardingTable(Entity):
         """
         The list of MPLS forwarding table entries.
         
-        .. attribute:: local_label  <key>
+        .. attribute:: local_label  (key)
         
         	Value of local\-label
         	**type**\: int
@@ -75,13 +79,16 @@ class MplsForwardingTable(Entity):
             self.yang_parent_name = "mpls-forwarding-table"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"forwarding-info" : ("forwarding_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo)}
-
-            self.local_label = YLeaf(YType.uint32, "local-label")
+            self.ylist_key_names = ['local_label']
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("forwarding-info", ("forwarding_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo))])
+            self._leafs = OrderedDict([
+                ('local_label', YLeaf(YType.uint32, 'local-label')),
+            ])
+            self.local_label = None
 
             self.forwarding_info = YList(self)
-            self._segment_path = lambda: "local-label-entry" + "[local-label='" + self.local_label.get() + "']"
+            self._segment_path = lambda: "local-label-entry" + "[local-label='" + str(self.local_label) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-mpls-fwd-oper:mpls-forwarding-table/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -92,7 +99,7 @@ class MplsForwardingTable(Entity):
             """
             
             
-            .. attribute:: outgoing_interface  <key>
+            .. attribute:: outgoing_interface  (key)
             
             	The name of the outgoing interface. Example possible values are 1.none, 2.drop, 3.<tunnel\-name>, 4.<interface\-name>, 5.aggregate/<vrf\-name> etc
             	**type**\: union of the below types:
@@ -157,29 +164,32 @@ class MplsForwardingTable(Entity):
                 self.yang_parent_name = "local-label-entry"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"connection-info" : ("connection_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo)}
-                self._child_list_classes = {}
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                self.outgoing_label = YLeaf(YType.str, "outgoing-label")
-
-                self.label_switched_bytes = YLeaf(YType.uint64, "label-switched-bytes")
-
-                self.next_hop = YLeaf(YType.str, "next-hop")
+                self.ylist_key_names = ['outgoing_interface']
+                self._child_container_classes = OrderedDict([("connection-info", ("connection_info", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
+                    ('outgoing_label', YLeaf(YType.str, 'outgoing-label')),
+                    ('label_switched_bytes', YLeaf(YType.uint64, 'label-switched-bytes')),
+                    ('next_hop', YLeaf(YType.str, 'next-hop')),
+                ])
+                self.outgoing_interface = None
+                self.outgoing_label = None
+                self.label_switched_bytes = None
+                self.next_hop = None
 
                 self.connection_info = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo()
                 self.connection_info.parent = self
                 self._children_name_map["connection_info"] = "connection-info"
                 self._children_yang_names.add("connection-info")
-                self._segment_path = lambda: "forwarding-info" + "[outgoing-interface='" + self.outgoing_interface.get() + "']"
+                self._segment_path = lambda: "forwarding-info" + "[outgoing-interface='" + str(self.outgoing_interface) + "']"
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, ['outgoing_interface', 'outgoing_label', 'label_switched_bytes', 'next_hop'], name, value)
 
             class NextHop(Enum):
                 """
-                NextHop
+                NextHop (Enum Class)
 
                 Next hop information.
 
@@ -198,7 +208,7 @@ class MplsForwardingTable(Entity):
 
             class OutgoingInterface(Enum):
                 """
-                OutgoingInterface
+                OutgoingInterface (Enum Class)
 
                 The name of the outgoing interface.
 
@@ -231,7 +241,7 @@ class MplsForwardingTable(Entity):
 
             class OutgoingLabel(Enum):
                 """
-                OutgoingLabel
+                OutgoingLabel (Enum Class)
 
                 Value of outgoing\-label if exists or
 
@@ -340,22 +350,25 @@ class MplsForwardingTable(Entity):
                     self.yang_parent_name = "forwarding-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"tunnel-tp" : ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp)}
-                    self._child_list_classes = {}
-
-                    self.type = YLeaf(YType.enumeration, "type")
-
-                    self.ip = YLeaf(YType.str, "ip")
-
-                    self.mask = YLeaf(YType.uint16, "mask")
-
-                    self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
-
-                    self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                    self.nh_id = YLeaf(YType.uint32, "nh-id")
-
-                    self.l2ckt_id = YLeaf(YType.uint32, "l2ckt-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("tunnel-tp", ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('type', YLeaf(YType.enumeration, 'type')),
+                        ('ip', YLeaf(YType.str, 'ip')),
+                        ('mask', YLeaf(YType.uint16, 'mask')),
+                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                        ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                        ('nh_id', YLeaf(YType.uint32, 'nh-id')),
+                        ('l2ckt_id', YLeaf(YType.uint32, 'l2ckt-id')),
+                    ])
+                    self.type = None
+                    self.ip = None
+                    self.mask = None
+                    self.tunnel_id = None
+                    self.vrf_id = None
+                    self.nh_id = None
+                    self.l2ckt_id = None
 
                     self.tunnel_tp = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp()
                     self.tunnel_tp.parent = self
@@ -368,7 +381,7 @@ class MplsForwardingTable(Entity):
 
                 class Type(Enum):
                     """
-                    Type
+                    Type (Enum Class)
 
                     The type of connection represented by this label
 
@@ -439,10 +452,13 @@ class MplsForwardingTable(Entity):
                         self.yang_parent_name = "connection-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"src-id" : ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId), "dst-id" : ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId)}
-                        self._child_list_classes = {}
-
-                        self.tunnel = YLeaf(YType.uint32, "tunnel")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("src-id", ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId)), ("dst-id", ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tunnel', YLeaf(YType.uint32, 'tunnel')),
+                        ])
+                        self.tunnel = None
 
                         self.src_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId()
                         self.src_id.parent = self
@@ -497,12 +513,15 @@ class MplsForwardingTable(Entity):
                             self.yang_parent_name = "tunnel-tp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.global_ = YLeaf(YType.uint32, "global")
-
-                            self.node = YLeaf(YType.str, "node")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('global_', YLeaf(YType.uint32, 'global')),
+                                ('node', YLeaf(YType.str, 'node')),
+                            ])
+                            self.global_ = None
+                            self.node = None
                             self._segment_path = lambda: "src-id"
 
                         def __setattr__(self, name, value):
@@ -547,12 +566,15 @@ class MplsForwardingTable(Entity):
                             self.yang_parent_name = "tunnel-tp"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.global_ = YLeaf(YType.uint32, "global")
-
-                            self.node = YLeaf(YType.str, "node")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('global_', YLeaf(YType.uint32, 'global')),
+                                ('node', YLeaf(YType.str, 'node')),
+                            ])
+                            self.global_ = None
+                            self.node = None
                             self._segment_path = lambda: "dst-id"
 
                         def __setattr__(self, name, value):

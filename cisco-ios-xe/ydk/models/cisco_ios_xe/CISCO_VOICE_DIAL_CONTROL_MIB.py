@@ -39,6 +39,8 @@ RPH    \- Resource Priority Header
 DSCP   \- Diffserv Code Points
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,7 +49,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CvAmrNbRtpEncap(Enum):
     """
-    CvAmrNbRtpEncap
+    CvAmrNbRtpEncap (Enum Class)
 
     Represents GSM AMR\-NB codec RTP encapsulation type.
 
@@ -60,7 +62,7 @@ class CvAmrNbRtpEncap(Enum):
 
 class CvCallConnectionType(Enum):
     """
-    CvCallConnectionType
+    CvCallConnectionType (Enum Class)
 
     Call connection represents the connection/association/session
 
@@ -115,7 +117,7 @@ class CvCallConnectionType(Enum):
 
 class CvCallVolumeStatsIntvlType(Enum):
     """
-    CvCallVolumeStatsIntvlType
+    CvCallVolumeStatsIntvlType (Enum Class)
 
     Represents the ids of the stats vlolume table
 
@@ -144,7 +146,7 @@ class CvCallVolumeStatsIntvlType(Enum):
 
 class CvCallVolumeWMIntvlType(Enum):
     """
-    CvCallVolumeWMIntvlType
+    CvCallVolumeWMIntvlType (Enum Class)
 
     Represents the Id of the watermark table.
 
@@ -179,7 +181,7 @@ class CvCallVolumeWMIntvlType(Enum):
 
 class CvIlbcFrameMode(Enum):
     """
-    CvIlbcFrameMode
+    CvIlbcFrameMode (Enum Class)
 
     This Texatual Convention represents the iLBC codec
 
@@ -208,7 +210,7 @@ class CvIlbcFrameMode(Enum):
 
 class CvSessionProtocol(Enum):
     """
-    CvSessionProtocol
+    CvSessionProtocol (Enum Class)
 
     Represents a Session Protocol used by Voice calls between a
 
@@ -391,8 +393,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
         self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cvGeneralConfiguration" : ("cvgeneralconfiguration", CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration), "cvGatewayCallActive" : ("cvgatewaycallactive", CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive), "cvCallVolume" : ("cvcallvolume", CISCOVOICEDIALCONTROLMIB.Cvcallvolume), "cvCallRateMonitor" : ("cvcallratemonitor", CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor), "cvCallVolumeStatsHistory" : ("cvcallvolumestatshistory", CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory), "cvPeerCfgTable" : ("cvpeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable), "cvVoicePeerCfgTable" : ("cvvoicepeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable), "cvVoIPPeerCfgTable" : ("cvvoippeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable), "cvPeerCommonCfgTable" : ("cvpeercommoncfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable), "cvCallActiveTable" : ("cvcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable), "cvVoIPCallActiveTable" : ("cvvoipcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable), "cvCallVolConnTable" : ("cvcallvolconntable", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable), "cvCallVolIfTable" : ("cvcallvoliftable", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable), "cvCallHistoryTable" : ("cvcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable), "cvVoIPCallHistoryTable" : ("cvvoipcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable), "cvCallRateStatsTable" : ("cvcallratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable), "cvCallLegRateStatsTable" : ("cvcalllegratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable), "cvActiveCallStatsTable" : ("cvactivecallstatstable", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable), "cvCallDurationStatsTable" : ("cvcalldurationstatstable", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable), "cvSipMsgRateStatsTable" : ("cvsipmsgratestatstable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable), "cvCallRateWMTable" : ("cvcallratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable), "cvCallLegRateWMTable" : ("cvcalllegratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable), "cvActiveCallWMTable" : ("cvactivecallwmtable", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable), "cvSipMsgRateWMTable" : ("cvsipmsgratewmtable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cvGeneralConfiguration", ("cvgeneralconfiguration", CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration)), ("cvGatewayCallActive", ("cvgatewaycallactive", CISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive)), ("cvCallVolume", ("cvcallvolume", CISCOVOICEDIALCONTROLMIB.Cvcallvolume)), ("cvCallRateMonitor", ("cvcallratemonitor", CISCOVOICEDIALCONTROLMIB.Cvcallratemonitor)), ("cvCallVolumeStatsHistory", ("cvcallvolumestatshistory", CISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory)), ("cvPeerCfgTable", ("cvpeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable)), ("cvVoicePeerCfgTable", ("cvvoicepeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable)), ("cvVoIPPeerCfgTable", ("cvvoippeercfgtable", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable)), ("cvPeerCommonCfgTable", ("cvpeercommoncfgtable", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable)), ("cvCallActiveTable", ("cvcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable)), ("cvVoIPCallActiveTable", ("cvvoipcallactivetable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable)), ("cvCallVolConnTable", ("cvcallvolconntable", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable)), ("cvCallVolIfTable", ("cvcallvoliftable", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable)), ("cvCallHistoryTable", ("cvcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable)), ("cvVoIPCallHistoryTable", ("cvvoipcallhistorytable", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable)), ("cvCallRateStatsTable", ("cvcallratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable)), ("cvCallLegRateStatsTable", ("cvcalllegratestatstable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable)), ("cvActiveCallStatsTable", ("cvactivecallstatstable", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable)), ("cvCallDurationStatsTable", ("cvcalldurationstatstable", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable)), ("cvSipMsgRateStatsTable", ("cvsipmsgratestatstable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable)), ("cvCallRateWMTable", ("cvcallratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable)), ("cvCallLegRateWMTable", ("cvcalllegratewmtable", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable)), ("cvActiveCallWMTable", ("cvactivecallwmtable", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable)), ("cvSipMsgRateWMTable", ("cvsipmsgratewmtable", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cvgeneralconfiguration = CISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration()
         self.cvgeneralconfiguration.parent = self
@@ -554,16 +558,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvgeneralpoorqovnotificationenable = YLeaf(YType.boolean, "cvGeneralPoorQoVNotificationEnable")
-
-            self.cvgeneralfallbacknotificationenable = YLeaf(YType.boolean, "cvGeneralFallbackNotificationEnable")
-
-            self.cvgeneraldscppolicynotificationenable = YLeaf(YType.boolean, "cvGeneralDSCPPolicyNotificationEnable")
-
-            self.cvgeneralmediapolicynotificationenable = YLeaf(YType.boolean, "cvGeneralMediaPolicyNotificationEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvgeneralpoorqovnotificationenable', YLeaf(YType.boolean, 'cvGeneralPoorQoVNotificationEnable')),
+                ('cvgeneralfallbacknotificationenable', YLeaf(YType.boolean, 'cvGeneralFallbackNotificationEnable')),
+                ('cvgeneraldscppolicynotificationenable', YLeaf(YType.boolean, 'cvGeneralDSCPPolicyNotificationEnable')),
+                ('cvgeneralmediapolicynotificationenable', YLeaf(YType.boolean, 'cvGeneralMediaPolicyNotificationEnable')),
+            ])
+            self.cvgeneralpoorqovnotificationenable = None
+            self.cvgeneralfallbacknotificationenable = None
+            self.cvgeneraldscppolicynotificationenable = None
+            self.cvgeneralmediapolicynotificationenable = None
             self._segment_path = lambda: "cvGeneralConfiguration"
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -626,18 +633,21 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvcallactiveds0s = YLeaf(YType.uint32, "cvCallActiveDS0s")
-
-            self.cvcallactiveds0shighthreshold = YLeaf(YType.uint32, "cvCallActiveDS0sHighThreshold")
-
-            self.cvcallactiveds0slowthreshold = YLeaf(YType.uint32, "cvCallActiveDS0sLowThreshold")
-
-            self.cvcallactiveds0shighnotifyenable = YLeaf(YType.boolean, "cvCallActiveDS0sHighNotifyEnable")
-
-            self.cvcallactiveds0slownotifyenable = YLeaf(YType.boolean, "cvCallActiveDS0sLowNotifyEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvcallactiveds0s', YLeaf(YType.uint32, 'cvCallActiveDS0s')),
+                ('cvcallactiveds0shighthreshold', YLeaf(YType.uint32, 'cvCallActiveDS0sHighThreshold')),
+                ('cvcallactiveds0slowthreshold', YLeaf(YType.uint32, 'cvCallActiveDS0sLowThreshold')),
+                ('cvcallactiveds0shighnotifyenable', YLeaf(YType.boolean, 'cvCallActiveDS0sHighNotifyEnable')),
+                ('cvcallactiveds0slownotifyenable', YLeaf(YType.boolean, 'cvCallActiveDS0sLowNotifyEnable')),
+            ])
+            self.cvcallactiveds0s = None
+            self.cvcallactiveds0shighthreshold = None
+            self.cvcallactiveds0slowthreshold = None
+            self.cvcallactiveds0shighnotifyenable = None
+            self.cvcallactiveds0slownotifyenable = None
             self._segment_path = lambda: "cvGatewayCallActive"
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -677,12 +687,15 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvcallvolconntotalactiveconnections = YLeaf(YType.uint32, "cvCallVolConnTotalActiveConnections")
-
-            self.cvcallvolconnmaxcallconnectionlicenese = YLeaf(YType.uint32, "cvCallVolConnMaxCallConnectionLicenese")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvcallvolconntotalactiveconnections', YLeaf(YType.uint32, 'cvCallVolConnTotalActiveConnections')),
+                ('cvcallvolconnmaxcallconnectionlicenese', YLeaf(YType.uint32, 'cvCallVolConnMaxCallConnectionLicenese')),
+            ])
+            self.cvcallvolconntotalactiveconnections = None
+            self.cvcallvolconnmaxcallconnectionlicenese = None
             self._segment_path = lambda: "cvCallVolume"
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -736,16 +749,19 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvcallratemonitorenable = YLeaf(YType.boolean, "cvCallRateMonitorEnable")
-
-            self.cvcallratemonitortime = YLeaf(YType.uint32, "cvCallRateMonitorTime")
-
-            self.cvcallrate = YLeaf(YType.uint32, "cvCallRate")
-
-            self.cvcallratehiwatermark = YLeaf(YType.uint32, "cvCallRateHiWaterMark")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvcallratemonitorenable', YLeaf(YType.boolean, 'cvCallRateMonitorEnable')),
+                ('cvcallratemonitortime', YLeaf(YType.uint32, 'cvCallRateMonitorTime')),
+                ('cvcallrate', YLeaf(YType.uint32, 'cvCallRate')),
+                ('cvcallratehiwatermark', YLeaf(YType.uint32, 'cvCallRateHiWaterMark')),
+            ])
+            self.cvcallratemonitorenable = None
+            self.cvcallratemonitortime = None
+            self.cvcallrate = None
+            self.cvcallratehiwatermark = None
             self._segment_path = lambda: "cvCallRateMonitor"
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -787,12 +803,15 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cvcalldurationstatsthreshold = YLeaf(YType.uint32, "cvCallDurationStatsThreshold")
-
-            self.cvcallvolumewmtablesize = YLeaf(YType.uint32, "cvCallVolumeWMTableSize")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cvcalldurationstatsthreshold', YLeaf(YType.uint32, 'cvCallDurationStatsThreshold')),
+                ('cvcallvolumewmtablesize', YLeaf(YType.uint32, 'cvCallVolumeWMTableSize')),
+            ])
+            self.cvcalldurationstatsthreshold = None
+            self.cvcallvolumewmtablesize = None
             self._segment_path = lambda: "cvCallVolumeStatsHistory"
             self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self._segment_path()
 
@@ -826,8 +845,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvPeerCfgEntry" : ("cvpeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvPeerCfgEntry", ("cvpeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercfgtable.Cvpeercfgentry))])
+            self._leafs = OrderedDict()
 
             self.cvpeercfgentry = YList(self)
             self._segment_path = lambda: "cvPeerCfgTable"
@@ -880,7 +901,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             voiceEncap/voiceOverIp specific peer entry and the peer
             entry of IETF Dial Control MIB are deleted.
             
-            .. attribute:: cvpeercfgindex  <key>
+            .. attribute:: cvpeercfgindex  (key)
             
             	An arbitrary index that uniquely identifies a generic voice peer
             	**type**\: int
@@ -937,23 +958,26 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvpeercfgindex = YLeaf(YType.int32, "cvPeerCfgIndex")
-
-                self.cvpeercfgifindex = YLeaf(YType.int32, "cvPeerCfgIfIndex")
-
-                self.cvpeercfgtype = YLeaf(YType.enumeration, "cvPeerCfgType")
-
-                self.cvpeercfgrowstatus = YLeaf(YType.enumeration, "cvPeerCfgRowStatus")
-
-                self.cvpeercfgpeertype = YLeaf(YType.enumeration, "cvPeerCfgPeerType")
-
-                self.cvcallvolpeerincomingcalls = YLeaf(YType.uint32, "cvCallVolPeerIncomingCalls")
-
-                self.cvcallvolpeeroutgoingcalls = YLeaf(YType.uint32, "cvCallVolPeerOutgoingCalls")
-                self._segment_path = lambda: "cvPeerCfgEntry" + "[cvPeerCfgIndex='" + self.cvpeercfgindex.get() + "']"
+                self.ylist_key_names = ['cvpeercfgindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvpeercfgindex', YLeaf(YType.int32, 'cvPeerCfgIndex')),
+                    ('cvpeercfgifindex', YLeaf(YType.int32, 'cvPeerCfgIfIndex')),
+                    ('cvpeercfgtype', YLeaf(YType.enumeration, 'cvPeerCfgType')),
+                    ('cvpeercfgrowstatus', YLeaf(YType.enumeration, 'cvPeerCfgRowStatus')),
+                    ('cvpeercfgpeertype', YLeaf(YType.enumeration, 'cvPeerCfgPeerType')),
+                    ('cvcallvolpeerincomingcalls', YLeaf(YType.uint32, 'cvCallVolPeerIncomingCalls')),
+                    ('cvcallvolpeeroutgoingcalls', YLeaf(YType.uint32, 'cvCallVolPeerOutgoingCalls')),
+                ])
+                self.cvpeercfgindex = None
+                self.cvpeercfgifindex = None
+                self.cvpeercfgtype = None
+                self.cvpeercfgrowstatus = None
+                self.cvpeercfgpeertype = None
+                self.cvcallvolpeerincomingcalls = None
+                self.cvcallvolpeeroutgoingcalls = None
+                self._segment_path = lambda: "cvPeerCfgEntry" + "[cvPeerCfgIndex='" + str(self.cvpeercfgindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -961,7 +985,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvpeercfgpeertype(Enum):
                 """
-                Cvpeercfgpeertype
+                Cvpeercfgpeertype (Enum Class)
 
                 Specifies the type of a peer.
 
@@ -988,7 +1012,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvpeercfgtype(Enum):
                 """
-                Cvpeercfgtype
+                Cvpeercfgtype (Enum Class)
 
                 Specifies the type of voice related encapsulation.
 
@@ -1062,8 +1086,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvVoicePeerCfgEntry" : ("cvvoicepeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvVoicePeerCfgEntry", ("cvvoicepeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable.Cvvoicepeercfgentry))])
+            self._leafs = OrderedDict()
 
             self.cvvoicepeercfgentry = YList(self)
             self._segment_path = lambda: "cvVoicePeerCfgTable"
@@ -1082,7 +1108,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is deleted when its associated ifEntry is
             deleted.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1148,25 +1174,28 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvVoicePeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cvvoicepeercfgsessiontarget = YLeaf(YType.str, "cvVoicePeerCfgSessionTarget")
-
-                self.cvvoicepeercfgdialdigitsprefix = YLeaf(YType.str, "cvVoicePeerCfgDialDigitsPrefix")
-
-                self.cvvoicepeercfgdidcallenable = YLeaf(YType.boolean, "cvVoicePeerCfgDIDCallEnable")
-
-                self.cvvoicepeercfgcasgroup = YLeaf(YType.int32, "cvVoicePeerCfgCasGroup")
-
-                self.cvvoicepeercfgregistere164 = YLeaf(YType.boolean, "cvVoicePeerCfgRegisterE164")
-
-                self.cvvoicepeercfgforwarddigits = YLeaf(YType.int32, "cvVoicePeerCfgForwardDigits")
-
-                self.cvvoicepeercfgechocancellertest = YLeaf(YType.enumeration, "cvVoicePeerCfgEchoCancellerTest")
-                self._segment_path = lambda: "cvVoicePeerCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cvvoicepeercfgsessiontarget', YLeaf(YType.str, 'cvVoicePeerCfgSessionTarget')),
+                    ('cvvoicepeercfgdialdigitsprefix', YLeaf(YType.str, 'cvVoicePeerCfgDialDigitsPrefix')),
+                    ('cvvoicepeercfgdidcallenable', YLeaf(YType.boolean, 'cvVoicePeerCfgDIDCallEnable')),
+                    ('cvvoicepeercfgcasgroup', YLeaf(YType.int32, 'cvVoicePeerCfgCasGroup')),
+                    ('cvvoicepeercfgregistere164', YLeaf(YType.boolean, 'cvVoicePeerCfgRegisterE164')),
+                    ('cvvoicepeercfgforwarddigits', YLeaf(YType.int32, 'cvVoicePeerCfgForwardDigits')),
+                    ('cvvoicepeercfgechocancellertest', YLeaf(YType.enumeration, 'cvVoicePeerCfgEchoCancellerTest')),
+                ])
+                self.ifindex = None
+                self.cvvoicepeercfgsessiontarget = None
+                self.cvvoicepeercfgdialdigitsprefix = None
+                self.cvvoicepeercfgdidcallenable = None
+                self.cvvoicepeercfgcasgroup = None
+                self.cvvoicepeercfgregistere164 = None
+                self.cvvoicepeercfgforwarddigits = None
+                self.cvvoicepeercfgechocancellertest = None
+                self._segment_path = lambda: "cvVoicePeerCfgEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoicePeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1174,7 +1203,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvvoicepeercfgechocancellertest(Enum):
                 """
-                Cvvoicepeercfgechocancellertest
+                Cvvoicepeercfgechocancellertest (Enum Class)
 
                 This object specifies which, if any, test to run in the
 
@@ -1288,8 +1317,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvVoIPPeerCfgEntry" : ("cvvoippeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvVoIPPeerCfgEntry", ("cvvoippeercfgentry", CISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable.Cvvoippeercfgentry))])
+            self._leafs = OrderedDict()
 
             self.cvvoippeercfgentry = YList(self)
             self._segment_path = lambda: "cvVoIPPeerCfgTable"
@@ -1308,7 +1339,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is deleted when its associated ifEntry is
             deleted.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1503,71 +1534,74 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvVoIPPeerCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cvvoippeercfgsessionprotocol = YLeaf(YType.enumeration, "cvVoIPPeerCfgSessionProtocol")
-
-                self.cvvoippeercfgdesiredqos = YLeaf(YType.enumeration, "cvVoIPPeerCfgDesiredQoS")
-
-                self.cvvoippeercfgminacceptableqos = YLeaf(YType.enumeration, "cvVoIPPeerCfgMinAcceptableQoS")
-
-                self.cvvoippeercfgsessiontarget = YLeaf(YType.str, "cvVoIPPeerCfgSessionTarget")
-
-                self.cvvoippeercfgcoderrate = YLeaf(YType.enumeration, "cvVoIPPeerCfgCoderRate")
-
-                self.cvvoippeercfgfaxrate = YLeaf(YType.enumeration, "cvVoIPPeerCfgFaxRate")
-
-                self.cvvoippeercfgvadenable = YLeaf(YType.boolean, "cvVoIPPeerCfgVADEnable")
-
-                self.cvvoippeercfgexpectfactor = YLeaf(YType.int32, "cvVoIPPeerCfgExpectFactor")
-
-                self.cvvoippeercfgicpif = YLeaf(YType.int32, "cvVoIPPeerCfgIcpif")
-
-                self.cvvoippeercfgpoorqovnotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgPoorQoVNotificationEnable")
-
-                self.cvvoippeercfgudpchecksumenable = YLeaf(YType.boolean, "cvVoIPPeerCfgUDPChecksumEnable")
-
-                self.cvvoippeercfgipprecedence = YLeaf(YType.int32, "cvVoIPPeerCfgIPPrecedence")
-
-                self.cvvoippeercfgtechprefix = YLeaf(YType.str, "cvVoIPPeerCfgTechPrefix")
-
-                self.cvvoippeercfgdigitrelay = YLeaf(YType.bits, "cvVoIPPeerCfgDigitRelay")
-
-                self.cvvoippeercfgcoderbytes = YLeaf(YType.int32, "cvVoIPPeerCfgCoderBytes")
-
-                self.cvvoippeercfgfaxbytes = YLeaf(YType.int32, "cvVoIPPeerCfgFaxBytes")
-
-                self.cvvoippeercfginbandsignaling = YLeaf(YType.enumeration, "cvVoIPPeerCfgInBandSignaling")
-
-                self.cvvoippeercfgmediasetting = YLeaf(YType.enumeration, "cvVoIPPeerCfgMediaSetting")
-
-                self.cvvoippeercfgdesiredqosvideo = YLeaf(YType.enumeration, "cvVoIPPeerCfgDesiredQoSVideo")
-
-                self.cvvoippeercfgminacceptableqosvideo = YLeaf(YType.enumeration, "cvVoIPPeerCfgMinAcceptableQoSVideo")
-
-                self.cvvoippeercfgredirectip2ip = YLeaf(YType.boolean, "cvVoIPPeerCfgRedirectip2ip")
-
-                self.cvvoippeercfgoctetaligned = YLeaf(YType.boolean, "cvVoIPPeerCfgOctetAligned")
-
-                self.cvvoippeercfgbitrates = YLeaf(YType.bits, "cvVoIPPeerCfgBitRates")
-
-                self.cvvoippeercfgcrc = YLeaf(YType.boolean, "cvVoIPPeerCfgCRC")
-
-                self.cvvoippeercfgcodermode = YLeaf(YType.enumeration, "cvVoIPPeerCfgCoderMode")
-
-                self.cvvoippeercfgcodingmode = YLeaf(YType.enumeration, "cvVoIPPeerCfgCodingMode")
-
-                self.cvvoippeercfgbitrate = YLeaf(YType.uint32, "cvVoIPPeerCfgBitRate")
-
-                self.cvvoippeercfgframesize = YLeaf(YType.enumeration, "cvVoIPPeerCfgFrameSize")
-
-                self.cvvoippeercfgdscppolicynotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgDSCPPolicyNotificationEnable")
-
-                self.cvvoippeercfgmediapolicynotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgMediaPolicyNotificationEnable")
-                self._segment_path = lambda: "cvVoIPPeerCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cvvoippeercfgsessionprotocol', YLeaf(YType.enumeration, 'cvVoIPPeerCfgSessionProtocol')),
+                    ('cvvoippeercfgdesiredqos', YLeaf(YType.enumeration, 'cvVoIPPeerCfgDesiredQoS')),
+                    ('cvvoippeercfgminacceptableqos', YLeaf(YType.enumeration, 'cvVoIPPeerCfgMinAcceptableQoS')),
+                    ('cvvoippeercfgsessiontarget', YLeaf(YType.str, 'cvVoIPPeerCfgSessionTarget')),
+                    ('cvvoippeercfgcoderrate', YLeaf(YType.enumeration, 'cvVoIPPeerCfgCoderRate')),
+                    ('cvvoippeercfgfaxrate', YLeaf(YType.enumeration, 'cvVoIPPeerCfgFaxRate')),
+                    ('cvvoippeercfgvadenable', YLeaf(YType.boolean, 'cvVoIPPeerCfgVADEnable')),
+                    ('cvvoippeercfgexpectfactor', YLeaf(YType.int32, 'cvVoIPPeerCfgExpectFactor')),
+                    ('cvvoippeercfgicpif', YLeaf(YType.int32, 'cvVoIPPeerCfgIcpif')),
+                    ('cvvoippeercfgpoorqovnotificationenable', YLeaf(YType.boolean, 'cvVoIPPeerCfgPoorQoVNotificationEnable')),
+                    ('cvvoippeercfgudpchecksumenable', YLeaf(YType.boolean, 'cvVoIPPeerCfgUDPChecksumEnable')),
+                    ('cvvoippeercfgipprecedence', YLeaf(YType.int32, 'cvVoIPPeerCfgIPPrecedence')),
+                    ('cvvoippeercfgtechprefix', YLeaf(YType.str, 'cvVoIPPeerCfgTechPrefix')),
+                    ('cvvoippeercfgdigitrelay', YLeaf(YType.bits, 'cvVoIPPeerCfgDigitRelay')),
+                    ('cvvoippeercfgcoderbytes', YLeaf(YType.int32, 'cvVoIPPeerCfgCoderBytes')),
+                    ('cvvoippeercfgfaxbytes', YLeaf(YType.int32, 'cvVoIPPeerCfgFaxBytes')),
+                    ('cvvoippeercfginbandsignaling', YLeaf(YType.enumeration, 'cvVoIPPeerCfgInBandSignaling')),
+                    ('cvvoippeercfgmediasetting', YLeaf(YType.enumeration, 'cvVoIPPeerCfgMediaSetting')),
+                    ('cvvoippeercfgdesiredqosvideo', YLeaf(YType.enumeration, 'cvVoIPPeerCfgDesiredQoSVideo')),
+                    ('cvvoippeercfgminacceptableqosvideo', YLeaf(YType.enumeration, 'cvVoIPPeerCfgMinAcceptableQoSVideo')),
+                    ('cvvoippeercfgredirectip2ip', YLeaf(YType.boolean, 'cvVoIPPeerCfgRedirectip2ip')),
+                    ('cvvoippeercfgoctetaligned', YLeaf(YType.boolean, 'cvVoIPPeerCfgOctetAligned')),
+                    ('cvvoippeercfgbitrates', YLeaf(YType.bits, 'cvVoIPPeerCfgBitRates')),
+                    ('cvvoippeercfgcrc', YLeaf(YType.boolean, 'cvVoIPPeerCfgCRC')),
+                    ('cvvoippeercfgcodermode', YLeaf(YType.enumeration, 'cvVoIPPeerCfgCoderMode')),
+                    ('cvvoippeercfgcodingmode', YLeaf(YType.enumeration, 'cvVoIPPeerCfgCodingMode')),
+                    ('cvvoippeercfgbitrate', YLeaf(YType.uint32, 'cvVoIPPeerCfgBitRate')),
+                    ('cvvoippeercfgframesize', YLeaf(YType.enumeration, 'cvVoIPPeerCfgFrameSize')),
+                    ('cvvoippeercfgdscppolicynotificationenable', YLeaf(YType.boolean, 'cvVoIPPeerCfgDSCPPolicyNotificationEnable')),
+                    ('cvvoippeercfgmediapolicynotificationenable', YLeaf(YType.boolean, 'cvVoIPPeerCfgMediaPolicyNotificationEnable')),
+                ])
+                self.ifindex = None
+                self.cvvoippeercfgsessionprotocol = None
+                self.cvvoippeercfgdesiredqos = None
+                self.cvvoippeercfgminacceptableqos = None
+                self.cvvoippeercfgsessiontarget = None
+                self.cvvoippeercfgcoderrate = None
+                self.cvvoippeercfgfaxrate = None
+                self.cvvoippeercfgvadenable = None
+                self.cvvoippeercfgexpectfactor = None
+                self.cvvoippeercfgicpif = None
+                self.cvvoippeercfgpoorqovnotificationenable = None
+                self.cvvoippeercfgudpchecksumenable = None
+                self.cvvoippeercfgipprecedence = None
+                self.cvvoippeercfgtechprefix = None
+                self.cvvoippeercfgdigitrelay = Bits()
+                self.cvvoippeercfgcoderbytes = None
+                self.cvvoippeercfgfaxbytes = None
+                self.cvvoippeercfginbandsignaling = None
+                self.cvvoippeercfgmediasetting = None
+                self.cvvoippeercfgdesiredqosvideo = None
+                self.cvvoippeercfgminacceptableqosvideo = None
+                self.cvvoippeercfgredirectip2ip = None
+                self.cvvoippeercfgoctetaligned = None
+                self.cvvoippeercfgbitrates = Bits()
+                self.cvvoippeercfgcrc = None
+                self.cvvoippeercfgcodermode = None
+                self.cvvoippeercfgcodingmode = None
+                self.cvvoippeercfgbitrate = None
+                self.cvvoippeercfgframesize = None
+                self.cvvoippeercfgdscppolicynotificationenable = None
+                self.cvvoippeercfgmediapolicynotificationenable = None
+                self._segment_path = lambda: "cvVoIPPeerCfgEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPPeerCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1575,7 +1609,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvvoippeercfgcodingmode(Enum):
                 """
-                Cvvoippeercfgcodingmode
+                Cvvoippeercfgcodingmode (Enum Class)
 
                 This object specifies the coding mode to be used. The object is
 
@@ -1608,7 +1642,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvvoippeercfgframesize(Enum):
                 """
-                Cvvoippeercfgframesize
+                Cvvoippeercfgframesize (Enum Class)
 
                 This object specifies the frame size used. The object is
 
@@ -1649,7 +1683,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
 
             class Cvvoippeercfgmediasetting(Enum):
                 """
-                Cvvoippeercfgmediasetting
+                Cvvoippeercfgmediasetting (Enum Class)
 
                 This object specifies how the media is to be setup on
 
@@ -1705,8 +1739,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvPeerCommonCfgEntry" : ("cvpeercommoncfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvPeerCommonCfgEntry", ("cvpeercommoncfgentry", CISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable.Cvpeercommoncfgentry))])
+            self._leafs = OrderedDict()
 
             self.cvpeercommoncfgentry = YList(self)
             self._segment_path = lambda: "cvPeerCommonCfgTable"
@@ -1725,7 +1761,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is deleted when its associated ifEntry is
             deleted.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -1806,31 +1842,34 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvPeerCommonCfgTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cvpeercommoncfgincomingdnisdigits = YLeaf(YType.str, "cvPeerCommonCfgIncomingDnisDigits")
-
-                self.cvpeercommoncfgmaxconnections = YLeaf(YType.int32, "cvPeerCommonCfgMaxConnections")
-
-                self.cvpeercommoncfgapplicationname = YLeaf(YType.str, "cvPeerCommonCfgApplicationName")
-
-                self.cvpeercommoncfgpreference = YLeaf(YType.int32, "cvPeerCommonCfgPreference")
-
-                self.cvpeercommoncfghuntstop = YLeaf(YType.boolean, "cvPeerCommonCfgHuntStop")
-
-                self.cvpeercommoncfgdnismappingname = YLeaf(YType.str, "cvPeerCommonCfgDnisMappingName")
-
-                self.cvpeercommoncfgsourcecarrierid = YLeaf(YType.str, "cvPeerCommonCfgSourceCarrierId")
-
-                self.cvpeercommoncfgtargetcarrierid = YLeaf(YType.str, "cvPeerCommonCfgTargetCarrierId")
-
-                self.cvpeercommoncfgsourcetrunkgrplabel = YLeaf(YType.str, "cvPeerCommonCfgSourceTrunkGrpLabel")
-
-                self.cvpeercommoncfgtargettrunkgrplabel = YLeaf(YType.str, "cvPeerCommonCfgTargetTrunkGrpLabel")
-                self._segment_path = lambda: "cvPeerCommonCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cvpeercommoncfgincomingdnisdigits', YLeaf(YType.str, 'cvPeerCommonCfgIncomingDnisDigits')),
+                    ('cvpeercommoncfgmaxconnections', YLeaf(YType.int32, 'cvPeerCommonCfgMaxConnections')),
+                    ('cvpeercommoncfgapplicationname', YLeaf(YType.str, 'cvPeerCommonCfgApplicationName')),
+                    ('cvpeercommoncfgpreference', YLeaf(YType.int32, 'cvPeerCommonCfgPreference')),
+                    ('cvpeercommoncfghuntstop', YLeaf(YType.boolean, 'cvPeerCommonCfgHuntStop')),
+                    ('cvpeercommoncfgdnismappingname', YLeaf(YType.str, 'cvPeerCommonCfgDnisMappingName')),
+                    ('cvpeercommoncfgsourcecarrierid', YLeaf(YType.str, 'cvPeerCommonCfgSourceCarrierId')),
+                    ('cvpeercommoncfgtargetcarrierid', YLeaf(YType.str, 'cvPeerCommonCfgTargetCarrierId')),
+                    ('cvpeercommoncfgsourcetrunkgrplabel', YLeaf(YType.str, 'cvPeerCommonCfgSourceTrunkGrpLabel')),
+                    ('cvpeercommoncfgtargettrunkgrplabel', YLeaf(YType.str, 'cvPeerCommonCfgTargetTrunkGrpLabel')),
+                ])
+                self.ifindex = None
+                self.cvpeercommoncfgincomingdnisdigits = None
+                self.cvpeercommoncfgmaxconnections = None
+                self.cvpeercommoncfgapplicationname = None
+                self.cvpeercommoncfgpreference = None
+                self.cvpeercommoncfghuntstop = None
+                self.cvpeercommoncfgdnismappingname = None
+                self.cvpeercommoncfgsourcecarrierid = None
+                self.cvpeercommoncfgtargetcarrierid = None
+                self.cvpeercommoncfgsourcetrunkgrplabel = None
+                self.cvpeercommoncfgtargettrunkgrplabel = None
+                self._segment_path = lambda: "cvPeerCommonCfgEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCommonCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1863,8 +1902,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallActiveEntry" : ("cvcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallActiveEntry", ("cvcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvcallactivetable.Cvcallactiveentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallactiveentry = YList(self)
             self._segment_path = lambda: "cvCallActiveTable"
@@ -1888,7 +1929,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             The entry is deleted when its associated call active entry
             in the IETF Dial Control MIB is deleted.
             
-            .. attribute:: callactivesetuptime  <key>
+            .. attribute:: callactivesetuptime  (key)
             
             	
             	**type**\: int
@@ -1897,7 +1938,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
-            .. attribute:: callactiveindex  <key>
+            .. attribute:: callactiveindex  (key)
             
             	
             	**type**\: int
@@ -2062,49 +2103,52 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
-
-                self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
-
-                self.cvcallactiveconnectionid = YLeaf(YType.str, "cvCallActiveConnectionId")
-
-                self.cvcallactivetxduration = YLeaf(YType.uint32, "cvCallActiveTxDuration")
-
-                self.cvcallactivevoicetxduration = YLeaf(YType.uint32, "cvCallActiveVoiceTxDuration")
-
-                self.cvcallactivefaxtxduration = YLeaf(YType.uint32, "cvCallActiveFaxTxDuration")
-
-                self.cvcallactivecodertyperate = YLeaf(YType.enumeration, "cvCallActiveCoderTypeRate")
-
-                self.cvcallactivenoiselevel = YLeaf(YType.int32, "cvCallActiveNoiseLevel")
-
-                self.cvcallactiveacomlevel = YLeaf(YType.int32, "cvCallActiveACOMLevel")
-
-                self.cvcallactiveoutsignallevel = YLeaf(YType.int32, "cvCallActiveOutSignalLevel")
-
-                self.cvcallactiveinsignallevel = YLeaf(YType.int32, "cvCallActiveInSignalLevel")
-
-                self.cvcallactiveerllevel = YLeaf(YType.int32, "cvCallActiveERLLevel")
-
-                self.cvcallactivesessiontarget = YLeaf(YType.str, "cvCallActiveSessionTarget")
-
-                self.cvcallactiveimgpagecount = YLeaf(YType.uint32, "cvCallActiveImgPageCount")
-
-                self.cvcallactivecallingname = YLeaf(YType.str, "cvCallActiveCallingName")
-
-                self.cvcallactivecalleridblock = YLeaf(YType.boolean, "cvCallActiveCallerIDBlock")
-
-                self.cvcallactiveecanreflectorlocation = YLeaf(YType.int32, "cvCallActiveEcanReflectorLocation")
-
-                self.cvcallactiveaccountcode = YLeaf(YType.str, "cvCallActiveAccountCode")
-
-                self.cvcallactiveerllevelrev1 = YLeaf(YType.int32, "cvCallActiveERLLevelRev1")
-
-                self.cvcallactivecallid = YLeaf(YType.uint32, "cvCallActiveCallId")
-                self._segment_path = lambda: "cvCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
+                self.ylist_key_names = ['callactivesetuptime','callactiveindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
+                    ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
+                    ('cvcallactiveconnectionid', YLeaf(YType.str, 'cvCallActiveConnectionId')),
+                    ('cvcallactivetxduration', YLeaf(YType.uint32, 'cvCallActiveTxDuration')),
+                    ('cvcallactivevoicetxduration', YLeaf(YType.uint32, 'cvCallActiveVoiceTxDuration')),
+                    ('cvcallactivefaxtxduration', YLeaf(YType.uint32, 'cvCallActiveFaxTxDuration')),
+                    ('cvcallactivecodertyperate', YLeaf(YType.enumeration, 'cvCallActiveCoderTypeRate')),
+                    ('cvcallactivenoiselevel', YLeaf(YType.int32, 'cvCallActiveNoiseLevel')),
+                    ('cvcallactiveacomlevel', YLeaf(YType.int32, 'cvCallActiveACOMLevel')),
+                    ('cvcallactiveoutsignallevel', YLeaf(YType.int32, 'cvCallActiveOutSignalLevel')),
+                    ('cvcallactiveinsignallevel', YLeaf(YType.int32, 'cvCallActiveInSignalLevel')),
+                    ('cvcallactiveerllevel', YLeaf(YType.int32, 'cvCallActiveERLLevel')),
+                    ('cvcallactivesessiontarget', YLeaf(YType.str, 'cvCallActiveSessionTarget')),
+                    ('cvcallactiveimgpagecount', YLeaf(YType.uint32, 'cvCallActiveImgPageCount')),
+                    ('cvcallactivecallingname', YLeaf(YType.str, 'cvCallActiveCallingName')),
+                    ('cvcallactivecalleridblock', YLeaf(YType.boolean, 'cvCallActiveCallerIDBlock')),
+                    ('cvcallactiveecanreflectorlocation', YLeaf(YType.int32, 'cvCallActiveEcanReflectorLocation')),
+                    ('cvcallactiveaccountcode', YLeaf(YType.str, 'cvCallActiveAccountCode')),
+                    ('cvcallactiveerllevelrev1', YLeaf(YType.int32, 'cvCallActiveERLLevelRev1')),
+                    ('cvcallactivecallid', YLeaf(YType.uint32, 'cvCallActiveCallId')),
+                ])
+                self.callactivesetuptime = None
+                self.callactiveindex = None
+                self.cvcallactiveconnectionid = None
+                self.cvcallactivetxduration = None
+                self.cvcallactivevoicetxduration = None
+                self.cvcallactivefaxtxduration = None
+                self.cvcallactivecodertyperate = None
+                self.cvcallactivenoiselevel = None
+                self.cvcallactiveacomlevel = None
+                self.cvcallactiveoutsignallevel = None
+                self.cvcallactiveinsignallevel = None
+                self.cvcallactiveerllevel = None
+                self.cvcallactivesessiontarget = None
+                self.cvcallactiveimgpagecount = None
+                self.cvcallactivecallingname = None
+                self.cvcallactivecalleridblock = None
+                self.cvcallactiveecanreflectorlocation = None
+                self.cvcallactiveaccountcode = None
+                self.cvcallactiveerllevelrev1 = None
+                self.cvcallactivecallid = None
+                self._segment_path = lambda: "cvCallActiveEntry" + "[callActiveSetupTime='" + str(self.callactivesetuptime) + "']" + "[callActiveIndex='" + str(self.callactiveindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2137,8 +2181,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvVoIPCallActiveEntry" : ("cvvoipcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvVoIPCallActiveEntry", ("cvvoipcallactiveentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable.Cvvoipcallactiveentry))])
+            self._leafs = OrderedDict()
 
             self.cvvoipcallactiveentry = YList(self)
             self._segment_path = lambda: "cvVoIPCallActiveTable"
@@ -2162,7 +2208,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             The entry is deleted when its associated call active entry
             in the IETF Dial Control MIB is deleted.
             
-            .. attribute:: callactivesetuptime  <key>
+            .. attribute:: callactivesetuptime  (key)
             
             	
             	**type**\: int
@@ -2171,7 +2217,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
-            .. attribute:: callactiveindex  <key>
+            .. attribute:: callactiveindex  (key)
             
             	
             	**type**\: int
@@ -2524,105 +2570,108 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvVoIPCallActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
-
-                self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
-
-                self.cvvoipcallactiveconnectionid = YLeaf(YType.str, "cvVoIPCallActiveConnectionId")
-
-                self.cvvoipcallactiveremoteipaddress = YLeaf(YType.str, "cvVoIPCallActiveRemoteIPAddress")
-
-                self.cvvoipcallactiveremoteudpport = YLeaf(YType.int32, "cvVoIPCallActiveRemoteUDPPort")
-
-                self.cvvoipcallactiveroundtripdelay = YLeaf(YType.uint32, "cvVoIPCallActiveRoundTripDelay")
-
-                self.cvvoipcallactiveselectedqos = YLeaf(YType.enumeration, "cvVoIPCallActiveSelectedQoS")
-
-                self.cvvoipcallactivesessionprotocol = YLeaf(YType.enumeration, "cvVoIPCallActiveSessionProtocol")
-
-                self.cvvoipcallactivesessiontarget = YLeaf(YType.str, "cvVoIPCallActiveSessionTarget")
-
-                self.cvvoipcallactiveontimervplayout = YLeaf(YType.uint32, "cvVoIPCallActiveOnTimeRvPlayout")
-
-                self.cvvoipcallactivegapfillwithsilence = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithSilence")
-
-                self.cvvoipcallactivegapfillwithprediction = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithPrediction")
-
-                self.cvvoipcallactivegapfillwithinterpolation = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithInterpolation")
-
-                self.cvvoipcallactivegapfillwithredundancy = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithRedundancy")
-
-                self.cvvoipcallactivehiwaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallActiveHiWaterPlayoutDelay")
-
-                self.cvvoipcallactivelowaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallActiveLoWaterPlayoutDelay")
-
-                self.cvvoipcallactivereceivedelay = YLeaf(YType.uint32, "cvVoIPCallActiveReceiveDelay")
-
-                self.cvvoipcallactivevadenable = YLeaf(YType.boolean, "cvVoIPCallActiveVADEnable")
-
-                self.cvvoipcallactivecodertyperate = YLeaf(YType.enumeration, "cvVoIPCallActiveCoderTypeRate")
-
-                self.cvvoipcallactivelostpackets = YLeaf(YType.uint32, "cvVoIPCallActiveLostPackets")
-
-                self.cvvoipcallactiveearlypackets = YLeaf(YType.uint32, "cvVoIPCallActiveEarlyPackets")
-
-                self.cvvoipcallactivelatepackets = YLeaf(YType.uint32, "cvVoIPCallActiveLatePackets")
-
-                self.cvvoipcallactiveusername = YLeaf(YType.str, "cvVoIPCallActiveUsername")
-
-                self.cvvoipcallactiveprotocolcallid = YLeaf(YType.str, "cvVoIPCallActiveProtocolCallId")
-
-                self.cvvoipcallactiveremsigipaddrt = YLeaf(YType.enumeration, "cvVoIPCallActiveRemSigIPAddrT")
-
-                self.cvvoipcallactiveremsigipaddr = YLeaf(YType.str, "cvVoIPCallActiveRemSigIPAddr")
-
-                self.cvvoipcallactiveremsigport = YLeaf(YType.int32, "cvVoIPCallActiveRemSigPort")
-
-                self.cvvoipcallactiveremmediaipaddrt = YLeaf(YType.enumeration, "cvVoIPCallActiveRemMediaIPAddrT")
-
-                self.cvvoipcallactiveremmediaipaddr = YLeaf(YType.str, "cvVoIPCallActiveRemMediaIPAddr")
-
-                self.cvvoipcallactiveremmediaport = YLeaf(YType.int32, "cvVoIPCallActiveRemMediaPort")
-
-                self.cvvoipcallactivesrtpenable = YLeaf(YType.boolean, "cvVoIPCallActiveSRTPEnable")
-
-                self.cvvoipcallactiveoctetaligned = YLeaf(YType.boolean, "cvVoIPCallActiveOctetAligned")
-
-                self.cvvoipcallactivebitrates = YLeaf(YType.bits, "cvVoIPCallActiveBitRates")
-
-                self.cvvoipcallactivemodechgperiod = YLeaf(YType.int32, "cvVoIPCallActiveModeChgPeriod")
-
-                self.cvvoipcallactivemodechgneighbor = YLeaf(YType.boolean, "cvVoIPCallActiveModeChgNeighbor")
-
-                self.cvvoipcallactivemaxptime = YLeaf(YType.int32, "cvVoIPCallActiveMaxPtime")
-
-                self.cvvoipcallactivecrc = YLeaf(YType.boolean, "cvVoIPCallActiveCRC")
-
-                self.cvvoipcallactiverobustsorting = YLeaf(YType.boolean, "cvVoIPCallActiveRobustSorting")
-
-                self.cvvoipcallactiveencap = YLeaf(YType.enumeration, "cvVoIPCallActiveEncap")
-
-                self.cvvoipcallactiveinterleaving = YLeaf(YType.int32, "cvVoIPCallActiveInterleaving")
-
-                self.cvvoipcallactiveptime = YLeaf(YType.int32, "cvVoIPCallActivePtime")
-
-                self.cvvoipcallactivechannels = YLeaf(YType.int32, "cvVoIPCallActiveChannels")
-
-                self.cvvoipcallactivecodermode = YLeaf(YType.enumeration, "cvVoIPCallActiveCoderMode")
-
-                self.cvvoipcallactivecallid = YLeaf(YType.uint32, "cvVoIPCallActiveCallId")
-
-                self.cvvoipcallactivecallreferenceid = YLeaf(YType.uint32, "cvVoIPCallActiveCallReferenceId")
-
-                self.ccvoipcallactivepolicyname = YLeaf(YType.str, "ccVoIPCallActivePolicyName")
-
-                self.cvvoipcallactivereverseddirectionpeeraddress = YLeaf(YType.str, "cvVoIPCallActiveReversedDirectionPeerAddress")
-
-                self.cvvoipcallactivesessionid = YLeaf(YType.uint32, "cvVoIPCallActiveSessionId")
-                self._segment_path = lambda: "cvVoIPCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
+                self.ylist_key_names = ['callactivesetuptime','callactiveindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('callactivesetuptime', YLeaf(YType.str, 'callActiveSetupTime')),
+                    ('callactiveindex', YLeaf(YType.str, 'callActiveIndex')),
+                    ('cvvoipcallactiveconnectionid', YLeaf(YType.str, 'cvVoIPCallActiveConnectionId')),
+                    ('cvvoipcallactiveremoteipaddress', YLeaf(YType.str, 'cvVoIPCallActiveRemoteIPAddress')),
+                    ('cvvoipcallactiveremoteudpport', YLeaf(YType.int32, 'cvVoIPCallActiveRemoteUDPPort')),
+                    ('cvvoipcallactiveroundtripdelay', YLeaf(YType.uint32, 'cvVoIPCallActiveRoundTripDelay')),
+                    ('cvvoipcallactiveselectedqos', YLeaf(YType.enumeration, 'cvVoIPCallActiveSelectedQoS')),
+                    ('cvvoipcallactivesessionprotocol', YLeaf(YType.enumeration, 'cvVoIPCallActiveSessionProtocol')),
+                    ('cvvoipcallactivesessiontarget', YLeaf(YType.str, 'cvVoIPCallActiveSessionTarget')),
+                    ('cvvoipcallactiveontimervplayout', YLeaf(YType.uint32, 'cvVoIPCallActiveOnTimeRvPlayout')),
+                    ('cvvoipcallactivegapfillwithsilence', YLeaf(YType.uint32, 'cvVoIPCallActiveGapFillWithSilence')),
+                    ('cvvoipcallactivegapfillwithprediction', YLeaf(YType.uint32, 'cvVoIPCallActiveGapFillWithPrediction')),
+                    ('cvvoipcallactivegapfillwithinterpolation', YLeaf(YType.uint32, 'cvVoIPCallActiveGapFillWithInterpolation')),
+                    ('cvvoipcallactivegapfillwithredundancy', YLeaf(YType.uint32, 'cvVoIPCallActiveGapFillWithRedundancy')),
+                    ('cvvoipcallactivehiwaterplayoutdelay', YLeaf(YType.uint32, 'cvVoIPCallActiveHiWaterPlayoutDelay')),
+                    ('cvvoipcallactivelowaterplayoutdelay', YLeaf(YType.uint32, 'cvVoIPCallActiveLoWaterPlayoutDelay')),
+                    ('cvvoipcallactivereceivedelay', YLeaf(YType.uint32, 'cvVoIPCallActiveReceiveDelay')),
+                    ('cvvoipcallactivevadenable', YLeaf(YType.boolean, 'cvVoIPCallActiveVADEnable')),
+                    ('cvvoipcallactivecodertyperate', YLeaf(YType.enumeration, 'cvVoIPCallActiveCoderTypeRate')),
+                    ('cvvoipcallactivelostpackets', YLeaf(YType.uint32, 'cvVoIPCallActiveLostPackets')),
+                    ('cvvoipcallactiveearlypackets', YLeaf(YType.uint32, 'cvVoIPCallActiveEarlyPackets')),
+                    ('cvvoipcallactivelatepackets', YLeaf(YType.uint32, 'cvVoIPCallActiveLatePackets')),
+                    ('cvvoipcallactiveusername', YLeaf(YType.str, 'cvVoIPCallActiveUsername')),
+                    ('cvvoipcallactiveprotocolcallid', YLeaf(YType.str, 'cvVoIPCallActiveProtocolCallId')),
+                    ('cvvoipcallactiveremsigipaddrt', YLeaf(YType.enumeration, 'cvVoIPCallActiveRemSigIPAddrT')),
+                    ('cvvoipcallactiveremsigipaddr', YLeaf(YType.str, 'cvVoIPCallActiveRemSigIPAddr')),
+                    ('cvvoipcallactiveremsigport', YLeaf(YType.int32, 'cvVoIPCallActiveRemSigPort')),
+                    ('cvvoipcallactiveremmediaipaddrt', YLeaf(YType.enumeration, 'cvVoIPCallActiveRemMediaIPAddrT')),
+                    ('cvvoipcallactiveremmediaipaddr', YLeaf(YType.str, 'cvVoIPCallActiveRemMediaIPAddr')),
+                    ('cvvoipcallactiveremmediaport', YLeaf(YType.int32, 'cvVoIPCallActiveRemMediaPort')),
+                    ('cvvoipcallactivesrtpenable', YLeaf(YType.boolean, 'cvVoIPCallActiveSRTPEnable')),
+                    ('cvvoipcallactiveoctetaligned', YLeaf(YType.boolean, 'cvVoIPCallActiveOctetAligned')),
+                    ('cvvoipcallactivebitrates', YLeaf(YType.bits, 'cvVoIPCallActiveBitRates')),
+                    ('cvvoipcallactivemodechgperiod', YLeaf(YType.int32, 'cvVoIPCallActiveModeChgPeriod')),
+                    ('cvvoipcallactivemodechgneighbor', YLeaf(YType.boolean, 'cvVoIPCallActiveModeChgNeighbor')),
+                    ('cvvoipcallactivemaxptime', YLeaf(YType.int32, 'cvVoIPCallActiveMaxPtime')),
+                    ('cvvoipcallactivecrc', YLeaf(YType.boolean, 'cvVoIPCallActiveCRC')),
+                    ('cvvoipcallactiverobustsorting', YLeaf(YType.boolean, 'cvVoIPCallActiveRobustSorting')),
+                    ('cvvoipcallactiveencap', YLeaf(YType.enumeration, 'cvVoIPCallActiveEncap')),
+                    ('cvvoipcallactiveinterleaving', YLeaf(YType.int32, 'cvVoIPCallActiveInterleaving')),
+                    ('cvvoipcallactiveptime', YLeaf(YType.int32, 'cvVoIPCallActivePtime')),
+                    ('cvvoipcallactivechannels', YLeaf(YType.int32, 'cvVoIPCallActiveChannels')),
+                    ('cvvoipcallactivecodermode', YLeaf(YType.enumeration, 'cvVoIPCallActiveCoderMode')),
+                    ('cvvoipcallactivecallid', YLeaf(YType.uint32, 'cvVoIPCallActiveCallId')),
+                    ('cvvoipcallactivecallreferenceid', YLeaf(YType.uint32, 'cvVoIPCallActiveCallReferenceId')),
+                    ('ccvoipcallactivepolicyname', YLeaf(YType.str, 'ccVoIPCallActivePolicyName')),
+                    ('cvvoipcallactivereverseddirectionpeeraddress', YLeaf(YType.str, 'cvVoIPCallActiveReversedDirectionPeerAddress')),
+                    ('cvvoipcallactivesessionid', YLeaf(YType.uint32, 'cvVoIPCallActiveSessionId')),
+                ])
+                self.callactivesetuptime = None
+                self.callactiveindex = None
+                self.cvvoipcallactiveconnectionid = None
+                self.cvvoipcallactiveremoteipaddress = None
+                self.cvvoipcallactiveremoteudpport = None
+                self.cvvoipcallactiveroundtripdelay = None
+                self.cvvoipcallactiveselectedqos = None
+                self.cvvoipcallactivesessionprotocol = None
+                self.cvvoipcallactivesessiontarget = None
+                self.cvvoipcallactiveontimervplayout = None
+                self.cvvoipcallactivegapfillwithsilence = None
+                self.cvvoipcallactivegapfillwithprediction = None
+                self.cvvoipcallactivegapfillwithinterpolation = None
+                self.cvvoipcallactivegapfillwithredundancy = None
+                self.cvvoipcallactivehiwaterplayoutdelay = None
+                self.cvvoipcallactivelowaterplayoutdelay = None
+                self.cvvoipcallactivereceivedelay = None
+                self.cvvoipcallactivevadenable = None
+                self.cvvoipcallactivecodertyperate = None
+                self.cvvoipcallactivelostpackets = None
+                self.cvvoipcallactiveearlypackets = None
+                self.cvvoipcallactivelatepackets = None
+                self.cvvoipcallactiveusername = None
+                self.cvvoipcallactiveprotocolcallid = None
+                self.cvvoipcallactiveremsigipaddrt = None
+                self.cvvoipcallactiveremsigipaddr = None
+                self.cvvoipcallactiveremsigport = None
+                self.cvvoipcallactiveremmediaipaddrt = None
+                self.cvvoipcallactiveremmediaipaddr = None
+                self.cvvoipcallactiveremmediaport = None
+                self.cvvoipcallactivesrtpenable = None
+                self.cvvoipcallactiveoctetaligned = None
+                self.cvvoipcallactivebitrates = Bits()
+                self.cvvoipcallactivemodechgperiod = None
+                self.cvvoipcallactivemodechgneighbor = None
+                self.cvvoipcallactivemaxptime = None
+                self.cvvoipcallactivecrc = None
+                self.cvvoipcallactiverobustsorting = None
+                self.cvvoipcallactiveencap = None
+                self.cvvoipcallactiveinterleaving = None
+                self.cvvoipcallactiveptime = None
+                self.cvvoipcallactivechannels = None
+                self.cvvoipcallactivecodermode = None
+                self.cvvoipcallactivecallid = None
+                self.cvvoipcallactivecallreferenceid = None
+                self.ccvoipcallactivepolicyname = None
+                self.cvvoipcallactivereverseddirectionpeeraddress = None
+                self.cvvoipcallactivesessionid = None
+                self._segment_path = lambda: "cvVoIPCallActiveEntry" + "[callActiveSetupTime='" + str(self.callactivesetuptime) + "']" + "[callActiveIndex='" + str(self.callactiveindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2654,8 +2703,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallVolConnEntry" : ("cvcallvolconnentry", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallVolConnEntry", ("cvcallvolconnentry", CISCOVOICEDIALCONTROLMIB.Cvcallvolconntable.Cvcallvolconnentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallvolconnentry = YList(self)
             self._segment_path = lambda: "cvCallVolConnTable"
@@ -2671,7 +2722,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             number of active calls for a call connection type
             in the voice gateway.
             
-            .. attribute:: cvcallvolconnindex  <key>
+            .. attribute:: cvcallvolconnindex  (key)
             
             	This object represents index to the cvCallVolConnTable
             	**type**\:  :py:class:`CvCallConnectionType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallConnectionType>`
@@ -2697,13 +2748,16 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallVolConnTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcallvolconnindex = YLeaf(YType.enumeration, "cvCallVolConnIndex")
-
-                self.cvcallvolconnactiveconnection = YLeaf(YType.uint32, "cvCallVolConnActiveConnection")
-                self._segment_path = lambda: "cvCallVolConnEntry" + "[cvCallVolConnIndex='" + self.cvcallvolconnindex.get() + "']"
+                self.ylist_key_names = ['cvcallvolconnindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcallvolconnindex', YLeaf(YType.enumeration, 'cvCallVolConnIndex')),
+                    ('cvcallvolconnactiveconnection', YLeaf(YType.uint32, 'cvCallVolConnActiveConnection')),
+                ])
+                self.cvcallvolconnindex = None
+                self.cvcallvolconnactiveconnection = None
+                self._segment_path = lambda: "cvCallVolConnEntry" + "[cvCallVolConnIndex='" + str(self.cvcallvolconnindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolConnTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2739,8 +2793,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallVolIfEntry" : ("cvcallvolifentry", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallVolIfEntry", ("cvcallvolifentry", CISCOVOICEDIALCONTROLMIB.Cvcallvoliftable.Cvcallvolifentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallvolifentry = YList(self)
             self._segment_path = lambda: "cvCallVolIfTable"
@@ -2756,7 +2812,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             and corresponds to the information about an IP 
             interface in the voice gateway.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2793,15 +2849,18 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallVolIfTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cvcallvolmediaincomingcalls = YLeaf(YType.uint32, "cvCallVolMediaIncomingCalls")
-
-                self.cvcallvolmediaoutgoingcalls = YLeaf(YType.uint32, "cvCallVolMediaOutgoingCalls")
-                self._segment_path = lambda: "cvCallVolIfEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cvcallvolmediaincomingcalls', YLeaf(YType.uint32, 'cvCallVolMediaIncomingCalls')),
+                    ('cvcallvolmediaoutgoingcalls', YLeaf(YType.uint32, 'cvCallVolMediaOutgoingCalls')),
+                ])
+                self.ifindex = None
+                self.cvcallvolmediaincomingcalls = None
+                self.cvcallvolmediaoutgoingcalls = None
+                self._segment_path = lambda: "cvCallVolIfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2834,8 +2893,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallHistoryEntry" : ("cvcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallHistoryEntry", ("cvcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvcallhistorytable.Cvcallhistoryentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallhistoryentry = YList(self)
             self._segment_path = lambda: "cvCallHistoryTable"
@@ -2859,7 +2920,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             The entry is deleted when its associated call active entry
             in the IETF Dial Control MIB is deleted.
             
-            .. attribute:: ccallhistoryindex  <key>
+            .. attribute:: ccallhistoryindex  (key)
             
             	
             	**type**\: int
@@ -2979,37 +3040,40 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
-
-                self.cvcallhistoryconnectionid = YLeaf(YType.str, "cvCallHistoryConnectionId")
-
-                self.cvcallhistorytxduration = YLeaf(YType.uint32, "cvCallHistoryTxDuration")
-
-                self.cvcallhistoryvoicetxduration = YLeaf(YType.uint32, "cvCallHistoryVoiceTxDuration")
-
-                self.cvcallhistoryfaxtxduration = YLeaf(YType.uint32, "cvCallHistoryFaxTxDuration")
-
-                self.cvcallhistorycodertyperate = YLeaf(YType.enumeration, "cvCallHistoryCoderTypeRate")
-
-                self.cvcallhistorynoiselevel = YLeaf(YType.int32, "cvCallHistoryNoiseLevel")
-
-                self.cvcallhistoryacomlevel = YLeaf(YType.int32, "cvCallHistoryACOMLevel")
-
-                self.cvcallhistorysessiontarget = YLeaf(YType.str, "cvCallHistorySessionTarget")
-
-                self.cvcallhistoryimgpagecount = YLeaf(YType.uint32, "cvCallHistoryImgPageCount")
-
-                self.cvcallhistorycallingname = YLeaf(YType.str, "cvCallHistoryCallingName")
-
-                self.cvcallhistorycalleridblock = YLeaf(YType.boolean, "cvCallHistoryCallerIDBlock")
-
-                self.cvcallhistoryaccountcode = YLeaf(YType.str, "cvCallHistoryAccountCode")
-
-                self.cvcallhistorycallid = YLeaf(YType.uint32, "cvCallHistoryCallId")
-                self._segment_path = lambda: "cvCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']"
+                self.ylist_key_names = ['ccallhistoryindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
+                    ('cvcallhistoryconnectionid', YLeaf(YType.str, 'cvCallHistoryConnectionId')),
+                    ('cvcallhistorytxduration', YLeaf(YType.uint32, 'cvCallHistoryTxDuration')),
+                    ('cvcallhistoryvoicetxduration', YLeaf(YType.uint32, 'cvCallHistoryVoiceTxDuration')),
+                    ('cvcallhistoryfaxtxduration', YLeaf(YType.uint32, 'cvCallHistoryFaxTxDuration')),
+                    ('cvcallhistorycodertyperate', YLeaf(YType.enumeration, 'cvCallHistoryCoderTypeRate')),
+                    ('cvcallhistorynoiselevel', YLeaf(YType.int32, 'cvCallHistoryNoiseLevel')),
+                    ('cvcallhistoryacomlevel', YLeaf(YType.int32, 'cvCallHistoryACOMLevel')),
+                    ('cvcallhistorysessiontarget', YLeaf(YType.str, 'cvCallHistorySessionTarget')),
+                    ('cvcallhistoryimgpagecount', YLeaf(YType.uint32, 'cvCallHistoryImgPageCount')),
+                    ('cvcallhistorycallingname', YLeaf(YType.str, 'cvCallHistoryCallingName')),
+                    ('cvcallhistorycalleridblock', YLeaf(YType.boolean, 'cvCallHistoryCallerIDBlock')),
+                    ('cvcallhistoryaccountcode', YLeaf(YType.str, 'cvCallHistoryAccountCode')),
+                    ('cvcallhistorycallid', YLeaf(YType.uint32, 'cvCallHistoryCallId')),
+                ])
+                self.ccallhistoryindex = None
+                self.cvcallhistoryconnectionid = None
+                self.cvcallhistorytxduration = None
+                self.cvcallhistoryvoicetxduration = None
+                self.cvcallhistoryfaxtxduration = None
+                self.cvcallhistorycodertyperate = None
+                self.cvcallhistorynoiselevel = None
+                self.cvcallhistoryacomlevel = None
+                self.cvcallhistorysessiontarget = None
+                self.cvcallhistoryimgpagecount = None
+                self.cvcallhistorycallingname = None
+                self.cvcallhistorycalleridblock = None
+                self.cvcallhistoryaccountcode = None
+                self.cvcallhistorycallid = None
+                self._segment_path = lambda: "cvCallHistoryEntry" + "[cCallHistoryIndex='" + str(self.ccallhistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3042,8 +3106,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvVoIPCallHistoryEntry" : ("cvvoipcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvVoIPCallHistoryEntry", ("cvvoipcallhistoryentry", CISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable.Cvvoipcallhistoryentry))])
+            self._leafs = OrderedDict()
 
             self.cvvoipcallhistoryentry = YList(self)
             self._segment_path = lambda: "cvVoIPCallHistoryTable"
@@ -3067,7 +3133,7 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             The entry is deleted when its associated call history
             entry in the IETF Dial Control MIB is deleted.
             
-            .. attribute:: ccallhistoryindex  <key>
+            .. attribute:: ccallhistoryindex  (key)
             
             	
             	**type**\: int
@@ -3440,107 +3506,110 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvVoIPCallHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
-
-                self.cvvoipcallhistoryconnectionid = YLeaf(YType.str, "cvVoIPCallHistoryConnectionId")
-
-                self.cvvoipcallhistoryremoteipaddress = YLeaf(YType.str, "cvVoIPCallHistoryRemoteIPAddress")
-
-                self.cvvoipcallhistoryremoteudpport = YLeaf(YType.int32, "cvVoIPCallHistoryRemoteUDPPort")
-
-                self.cvvoipcallhistoryroundtripdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryRoundTripDelay")
-
-                self.cvvoipcallhistoryselectedqos = YLeaf(YType.enumeration, "cvVoIPCallHistorySelectedQoS")
-
-                self.cvvoipcallhistorysessionprotocol = YLeaf(YType.enumeration, "cvVoIPCallHistorySessionProtocol")
-
-                self.cvvoipcallhistorysessiontarget = YLeaf(YType.str, "cvVoIPCallHistorySessionTarget")
-
-                self.cvvoipcallhistoryontimervplayout = YLeaf(YType.uint32, "cvVoIPCallHistoryOnTimeRvPlayout")
-
-                self.cvvoipcallhistorygapfillwithsilence = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithSilence")
-
-                self.cvvoipcallhistorygapfillwithprediction = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithPrediction")
-
-                self.cvvoipcallhistorygapfillwithinterpolation = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithInterpolation")
-
-                self.cvvoipcallhistorygapfillwithredundancy = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithRedundancy")
-
-                self.cvvoipcallhistoryhiwaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryHiWaterPlayoutDelay")
-
-                self.cvvoipcallhistorylowaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryLoWaterPlayoutDelay")
-
-                self.cvvoipcallhistoryreceivedelay = YLeaf(YType.uint32, "cvVoIPCallHistoryReceiveDelay")
-
-                self.cvvoipcallhistoryvadenable = YLeaf(YType.boolean, "cvVoIPCallHistoryVADEnable")
-
-                self.cvvoipcallhistorycodertyperate = YLeaf(YType.enumeration, "cvVoIPCallHistoryCoderTypeRate")
-
-                self.cvvoipcallhistoryicpif = YLeaf(YType.int32, "cvVoIPCallHistoryIcpif")
-
-                self.cvvoipcallhistorylostpackets = YLeaf(YType.uint32, "cvVoIPCallHistoryLostPackets")
-
-                self.cvvoipcallhistoryearlypackets = YLeaf(YType.uint32, "cvVoIPCallHistoryEarlyPackets")
-
-                self.cvvoipcallhistorylatepackets = YLeaf(YType.uint32, "cvVoIPCallHistoryLatePackets")
-
-                self.cvvoipcallhistoryusername = YLeaf(YType.str, "cvVoIPCallHistoryUsername")
-
-                self.cvvoipcallhistoryprotocolcallid = YLeaf(YType.str, "cvVoIPCallHistoryProtocolCallId")
-
-                self.cvvoipcallhistoryremsigipaddrt = YLeaf(YType.enumeration, "cvVoIPCallHistoryRemSigIPAddrT")
-
-                self.cvvoipcallhistoryremsigipaddr = YLeaf(YType.str, "cvVoIPCallHistoryRemSigIPAddr")
-
-                self.cvvoipcallhistoryremsigport = YLeaf(YType.int32, "cvVoIPCallHistoryRemSigPort")
-
-                self.cvvoipcallhistoryremmediaipaddrt = YLeaf(YType.enumeration, "cvVoIPCallHistoryRemMediaIPAddrT")
-
-                self.cvvoipcallhistoryremmediaipaddr = YLeaf(YType.str, "cvVoIPCallHistoryRemMediaIPAddr")
-
-                self.cvvoipcallhistoryremmediaport = YLeaf(YType.int32, "cvVoIPCallHistoryRemMediaPort")
-
-                self.cvvoipcallhistorysrtpenable = YLeaf(YType.boolean, "cvVoIPCallHistorySRTPEnable")
-
-                self.cvvoipcallhistoryfallbackicpif = YLeaf(YType.int32, "cvVoIPCallHistoryFallbackIcpif")
-
-                self.cvvoipcallhistoryfallbackloss = YLeaf(YType.uint32, "cvVoIPCallHistoryFallbackLoss")
-
-                self.cvvoipcallhistoryfallbackdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryFallbackDelay")
-
-                self.cvvoipcallhistoryoctetaligned = YLeaf(YType.boolean, "cvVoIPCallHistoryOctetAligned")
-
-                self.cvvoipcallhistorybitrates = YLeaf(YType.bits, "cvVoIPCallHistoryBitRates")
-
-                self.cvvoipcallhistorymodechgperiod = YLeaf(YType.int32, "cvVoIPCallHistoryModeChgPeriod")
-
-                self.cvvoipcallhistorymodechgneighbor = YLeaf(YType.boolean, "cvVoIPCallHistoryModeChgNeighbor")
-
-                self.cvvoipcallhistorymaxptime = YLeaf(YType.int32, "cvVoIPCallHistoryMaxPtime")
-
-                self.cvvoipcallhistorycrc = YLeaf(YType.boolean, "cvVoIPCallHistoryCRC")
-
-                self.cvvoipcallhistoryrobustsorting = YLeaf(YType.boolean, "cvVoIPCallHistoryRobustSorting")
-
-                self.cvvoipcallhistoryencap = YLeaf(YType.enumeration, "cvVoIPCallHistoryEncap")
-
-                self.cvvoipcallhistoryinterleaving = YLeaf(YType.int32, "cvVoIPCallHistoryInterleaving")
-
-                self.cvvoipcallhistoryptime = YLeaf(YType.int32, "cvVoIPCallHistoryPtime")
-
-                self.cvvoipcallhistorychannels = YLeaf(YType.int32, "cvVoIPCallHistoryChannels")
-
-                self.cvvoipcallhistorycodermode = YLeaf(YType.enumeration, "cvVoIPCallHistoryCoderMode")
-
-                self.cvvoipcallhistorycallid = YLeaf(YType.uint32, "cvVoIPCallHistoryCallId")
-
-                self.cvvoipcallhistorycallreferenceid = YLeaf(YType.uint32, "cvVoIPCallHistoryCallReferenceId")
-
-                self.cvvoipcallhistorysessionid = YLeaf(YType.uint32, "cvVoIPCallHistorySessionId")
-                self._segment_path = lambda: "cvVoIPCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']"
+                self.ylist_key_names = ['ccallhistoryindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
+                    ('cvvoipcallhistoryconnectionid', YLeaf(YType.str, 'cvVoIPCallHistoryConnectionId')),
+                    ('cvvoipcallhistoryremoteipaddress', YLeaf(YType.str, 'cvVoIPCallHistoryRemoteIPAddress')),
+                    ('cvvoipcallhistoryremoteudpport', YLeaf(YType.int32, 'cvVoIPCallHistoryRemoteUDPPort')),
+                    ('cvvoipcallhistoryroundtripdelay', YLeaf(YType.uint32, 'cvVoIPCallHistoryRoundTripDelay')),
+                    ('cvvoipcallhistoryselectedqos', YLeaf(YType.enumeration, 'cvVoIPCallHistorySelectedQoS')),
+                    ('cvvoipcallhistorysessionprotocol', YLeaf(YType.enumeration, 'cvVoIPCallHistorySessionProtocol')),
+                    ('cvvoipcallhistorysessiontarget', YLeaf(YType.str, 'cvVoIPCallHistorySessionTarget')),
+                    ('cvvoipcallhistoryontimervplayout', YLeaf(YType.uint32, 'cvVoIPCallHistoryOnTimeRvPlayout')),
+                    ('cvvoipcallhistorygapfillwithsilence', YLeaf(YType.uint32, 'cvVoIPCallHistoryGapFillWithSilence')),
+                    ('cvvoipcallhistorygapfillwithprediction', YLeaf(YType.uint32, 'cvVoIPCallHistoryGapFillWithPrediction')),
+                    ('cvvoipcallhistorygapfillwithinterpolation', YLeaf(YType.uint32, 'cvVoIPCallHistoryGapFillWithInterpolation')),
+                    ('cvvoipcallhistorygapfillwithredundancy', YLeaf(YType.uint32, 'cvVoIPCallHistoryGapFillWithRedundancy')),
+                    ('cvvoipcallhistoryhiwaterplayoutdelay', YLeaf(YType.uint32, 'cvVoIPCallHistoryHiWaterPlayoutDelay')),
+                    ('cvvoipcallhistorylowaterplayoutdelay', YLeaf(YType.uint32, 'cvVoIPCallHistoryLoWaterPlayoutDelay')),
+                    ('cvvoipcallhistoryreceivedelay', YLeaf(YType.uint32, 'cvVoIPCallHistoryReceiveDelay')),
+                    ('cvvoipcallhistoryvadenable', YLeaf(YType.boolean, 'cvVoIPCallHistoryVADEnable')),
+                    ('cvvoipcallhistorycodertyperate', YLeaf(YType.enumeration, 'cvVoIPCallHistoryCoderTypeRate')),
+                    ('cvvoipcallhistoryicpif', YLeaf(YType.int32, 'cvVoIPCallHistoryIcpif')),
+                    ('cvvoipcallhistorylostpackets', YLeaf(YType.uint32, 'cvVoIPCallHistoryLostPackets')),
+                    ('cvvoipcallhistoryearlypackets', YLeaf(YType.uint32, 'cvVoIPCallHistoryEarlyPackets')),
+                    ('cvvoipcallhistorylatepackets', YLeaf(YType.uint32, 'cvVoIPCallHistoryLatePackets')),
+                    ('cvvoipcallhistoryusername', YLeaf(YType.str, 'cvVoIPCallHistoryUsername')),
+                    ('cvvoipcallhistoryprotocolcallid', YLeaf(YType.str, 'cvVoIPCallHistoryProtocolCallId')),
+                    ('cvvoipcallhistoryremsigipaddrt', YLeaf(YType.enumeration, 'cvVoIPCallHistoryRemSigIPAddrT')),
+                    ('cvvoipcallhistoryremsigipaddr', YLeaf(YType.str, 'cvVoIPCallHistoryRemSigIPAddr')),
+                    ('cvvoipcallhistoryremsigport', YLeaf(YType.int32, 'cvVoIPCallHistoryRemSigPort')),
+                    ('cvvoipcallhistoryremmediaipaddrt', YLeaf(YType.enumeration, 'cvVoIPCallHistoryRemMediaIPAddrT')),
+                    ('cvvoipcallhistoryremmediaipaddr', YLeaf(YType.str, 'cvVoIPCallHistoryRemMediaIPAddr')),
+                    ('cvvoipcallhistoryremmediaport', YLeaf(YType.int32, 'cvVoIPCallHistoryRemMediaPort')),
+                    ('cvvoipcallhistorysrtpenable', YLeaf(YType.boolean, 'cvVoIPCallHistorySRTPEnable')),
+                    ('cvvoipcallhistoryfallbackicpif', YLeaf(YType.int32, 'cvVoIPCallHistoryFallbackIcpif')),
+                    ('cvvoipcallhistoryfallbackloss', YLeaf(YType.uint32, 'cvVoIPCallHistoryFallbackLoss')),
+                    ('cvvoipcallhistoryfallbackdelay', YLeaf(YType.uint32, 'cvVoIPCallHistoryFallbackDelay')),
+                    ('cvvoipcallhistoryoctetaligned', YLeaf(YType.boolean, 'cvVoIPCallHistoryOctetAligned')),
+                    ('cvvoipcallhistorybitrates', YLeaf(YType.bits, 'cvVoIPCallHistoryBitRates')),
+                    ('cvvoipcallhistorymodechgperiod', YLeaf(YType.int32, 'cvVoIPCallHistoryModeChgPeriod')),
+                    ('cvvoipcallhistorymodechgneighbor', YLeaf(YType.boolean, 'cvVoIPCallHistoryModeChgNeighbor')),
+                    ('cvvoipcallhistorymaxptime', YLeaf(YType.int32, 'cvVoIPCallHistoryMaxPtime')),
+                    ('cvvoipcallhistorycrc', YLeaf(YType.boolean, 'cvVoIPCallHistoryCRC')),
+                    ('cvvoipcallhistoryrobustsorting', YLeaf(YType.boolean, 'cvVoIPCallHistoryRobustSorting')),
+                    ('cvvoipcallhistoryencap', YLeaf(YType.enumeration, 'cvVoIPCallHistoryEncap')),
+                    ('cvvoipcallhistoryinterleaving', YLeaf(YType.int32, 'cvVoIPCallHistoryInterleaving')),
+                    ('cvvoipcallhistoryptime', YLeaf(YType.int32, 'cvVoIPCallHistoryPtime')),
+                    ('cvvoipcallhistorychannels', YLeaf(YType.int32, 'cvVoIPCallHistoryChannels')),
+                    ('cvvoipcallhistorycodermode', YLeaf(YType.enumeration, 'cvVoIPCallHistoryCoderMode')),
+                    ('cvvoipcallhistorycallid', YLeaf(YType.uint32, 'cvVoIPCallHistoryCallId')),
+                    ('cvvoipcallhistorycallreferenceid', YLeaf(YType.uint32, 'cvVoIPCallHistoryCallReferenceId')),
+                    ('cvvoipcallhistorysessionid', YLeaf(YType.uint32, 'cvVoIPCallHistorySessionId')),
+                ])
+                self.ccallhistoryindex = None
+                self.cvvoipcallhistoryconnectionid = None
+                self.cvvoipcallhistoryremoteipaddress = None
+                self.cvvoipcallhistoryremoteudpport = None
+                self.cvvoipcallhistoryroundtripdelay = None
+                self.cvvoipcallhistoryselectedqos = None
+                self.cvvoipcallhistorysessionprotocol = None
+                self.cvvoipcallhistorysessiontarget = None
+                self.cvvoipcallhistoryontimervplayout = None
+                self.cvvoipcallhistorygapfillwithsilence = None
+                self.cvvoipcallhistorygapfillwithprediction = None
+                self.cvvoipcallhistorygapfillwithinterpolation = None
+                self.cvvoipcallhistorygapfillwithredundancy = None
+                self.cvvoipcallhistoryhiwaterplayoutdelay = None
+                self.cvvoipcallhistorylowaterplayoutdelay = None
+                self.cvvoipcallhistoryreceivedelay = None
+                self.cvvoipcallhistoryvadenable = None
+                self.cvvoipcallhistorycodertyperate = None
+                self.cvvoipcallhistoryicpif = None
+                self.cvvoipcallhistorylostpackets = None
+                self.cvvoipcallhistoryearlypackets = None
+                self.cvvoipcallhistorylatepackets = None
+                self.cvvoipcallhistoryusername = None
+                self.cvvoipcallhistoryprotocolcallid = None
+                self.cvvoipcallhistoryremsigipaddrt = None
+                self.cvvoipcallhistoryremsigipaddr = None
+                self.cvvoipcallhistoryremsigport = None
+                self.cvvoipcallhistoryremmediaipaddrt = None
+                self.cvvoipcallhistoryremmediaipaddr = None
+                self.cvvoipcallhistoryremmediaport = None
+                self.cvvoipcallhistorysrtpenable = None
+                self.cvvoipcallhistoryfallbackicpif = None
+                self.cvvoipcallhistoryfallbackloss = None
+                self.cvvoipcallhistoryfallbackdelay = None
+                self.cvvoipcallhistoryoctetaligned = None
+                self.cvvoipcallhistorybitrates = Bits()
+                self.cvvoipcallhistorymodechgperiod = None
+                self.cvvoipcallhistorymodechgneighbor = None
+                self.cvvoipcallhistorymaxptime = None
+                self.cvvoipcallhistorycrc = None
+                self.cvvoipcallhistoryrobustsorting = None
+                self.cvvoipcallhistoryencap = None
+                self.cvvoipcallhistoryinterleaving = None
+                self.cvvoipcallhistoryptime = None
+                self.cvvoipcallhistorychannels = None
+                self.cvvoipcallhistorycodermode = None
+                self.cvvoipcallhistorycallid = None
+                self.cvvoipcallhistorycallreferenceid = None
+                self.cvvoipcallhistorysessionid = None
+                self._segment_path = lambda: "cvVoIPCallHistoryEntry" + "[cCallHistoryIndex='" + str(self.ccallhistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3575,8 +3644,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallRateStatsEntry" : ("cvcallratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallRateStatsEntry", ("cvcallratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcallratestatstable.Cvcallratestatsentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallratestatsentry = YList(self)
             self._segment_path = lambda: "cvCallRateStatsTable"
@@ -3592,12 +3663,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is created at the system initialization and is
             updated at every epoch based on CvCallVolumeStatsIntvlType
             
-            .. attribute:: cvcallratestatsintvldurunits  <key>
+            .. attribute:: cvcallratestatsintvldurunits  (key)
             
             	The Object indexes in Call Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
             	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
-            .. attribute:: cvcallratestatsintvldur  <key>
+            .. attribute:: cvcallratestatsintvldur  (key)
             
             	This is an index that references to the different past periods in given in interval of call rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
             	**type**\: int
@@ -3636,17 +3707,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcallratestatsintvldurunits = YLeaf(YType.enumeration, "cvCallRateStatsIntvlDurUnits")
-
-                self.cvcallratestatsintvldur = YLeaf(YType.uint32, "cvCallRateStatsIntvlDur")
-
-                self.cvcallratestatsmaxval = YLeaf(YType.uint32, "cvCallRateStatsMaxVal")
-
-                self.cvcallratestatsavgval = YLeaf(YType.uint32, "cvCallRateStatsAvgVal")
-                self._segment_path = lambda: "cvCallRateStatsEntry" + "[cvCallRateStatsIntvlDurUnits='" + self.cvcallratestatsintvldurunits.get() + "']" + "[cvCallRateStatsIntvlDur='" + self.cvcallratestatsintvldur.get() + "']"
+                self.ylist_key_names = ['cvcallratestatsintvldurunits','cvcallratestatsintvldur']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcallratestatsintvldurunits', YLeaf(YType.enumeration, 'cvCallRateStatsIntvlDurUnits')),
+                    ('cvcallratestatsintvldur', YLeaf(YType.uint32, 'cvCallRateStatsIntvlDur')),
+                    ('cvcallratestatsmaxval', YLeaf(YType.uint32, 'cvCallRateStatsMaxVal')),
+                    ('cvcallratestatsavgval', YLeaf(YType.uint32, 'cvCallRateStatsAvgVal')),
+                ])
+                self.cvcallratestatsintvldurunits = None
+                self.cvcallratestatsintvldur = None
+                self.cvcallratestatsmaxval = None
+                self.cvcallratestatsavgval = None
+                self._segment_path = lambda: "cvCallRateStatsEntry" + "[cvCallRateStatsIntvlDurUnits='" + str(self.cvcallratestatsintvldurunits) + "']" + "[cvCallRateStatsIntvlDur='" + str(self.cvcallratestatsintvldur) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3680,8 +3754,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallLegRateStatsEntry" : ("cvcalllegratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallLegRateStatsEntry", ("cvcalllegratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable.Cvcalllegratestatsentry))])
+            self._leafs = OrderedDict()
 
             self.cvcalllegratestatsentry = YList(self)
             self._segment_path = lambda: "cvCallLegRateStatsTable"
@@ -3697,12 +3773,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is created at the system initialization and is
             updated at every epoch based on CvCallVolumeStatsIntvlType
             
-            .. attribute:: cvcalllegratestatsintvldurunits  <key>
+            .. attribute:: cvcalllegratestatsintvldurunits  (key)
             
             	The Object indexes in Call Leg Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
             	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
-            .. attribute:: cvcalllegratestatsintvldur  <key>
+            .. attribute:: cvcalllegratestatsintvldur  (key)
             
             	This is an index that references to the different past periods in given in interval of call rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
             	**type**\: int
@@ -3741,17 +3817,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallLegRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcalllegratestatsintvldurunits = YLeaf(YType.enumeration, "cvCallLegRateStatsIntvlDurUnits")
-
-                self.cvcalllegratestatsintvldur = YLeaf(YType.uint32, "cvCallLegRateStatsIntvlDur")
-
-                self.cvcalllegratestatsmaxval = YLeaf(YType.uint32, "cvCallLegRateStatsMaxVal")
-
-                self.cvcalllegratestatsavgval = YLeaf(YType.uint32, "cvCallLegRateStatsAvgVal")
-                self._segment_path = lambda: "cvCallLegRateStatsEntry" + "[cvCallLegRateStatsIntvlDurUnits='" + self.cvcalllegratestatsintvldurunits.get() + "']" + "[cvCallLegRateStatsIntvlDur='" + self.cvcalllegratestatsintvldur.get() + "']"
+                self.ylist_key_names = ['cvcalllegratestatsintvldurunits','cvcalllegratestatsintvldur']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcalllegratestatsintvldurunits', YLeaf(YType.enumeration, 'cvCallLegRateStatsIntvlDurUnits')),
+                    ('cvcalllegratestatsintvldur', YLeaf(YType.uint32, 'cvCallLegRateStatsIntvlDur')),
+                    ('cvcalllegratestatsmaxval', YLeaf(YType.uint32, 'cvCallLegRateStatsMaxVal')),
+                    ('cvcalllegratestatsavgval', YLeaf(YType.uint32, 'cvCallLegRateStatsAvgVal')),
+                ])
+                self.cvcalllegratestatsintvldurunits = None
+                self.cvcalllegratestatsintvldur = None
+                self.cvcalllegratestatsmaxval = None
+                self.cvcalllegratestatsavgval = None
+                self._segment_path = lambda: "cvCallLegRateStatsEntry" + "[cvCallLegRateStatsIntvlDurUnits='" + str(self.cvcalllegratestatsintvldurunits) + "']" + "[cvCallLegRateStatsIntvlDur='" + str(self.cvcalllegratestatsintvldur) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3786,8 +3865,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvActiveCallStatsEntry" : ("cvactivecallstatsentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvActiveCallStatsEntry", ("cvactivecallstatsentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable.Cvactivecallstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cvactivecallstatsentry = YList(self)
             self._segment_path = lambda: "cvActiveCallStatsTable"
@@ -3803,12 +3884,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is created at the system initialization and is
             updated at every epoch based on CvCallVolumeStatsIntvlType
             
-            .. attribute:: cvactivecallstatsintvldurunits  <key>
+            .. attribute:: cvactivecallstatsintvldurunits  (key)
             
             	The Object indexes in Active Call Rate Table (con\-current calls table) to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
             	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
-            .. attribute:: cvactivecallstatsintvldur  <key>
+            .. attribute:: cvactivecallstatsintvldur  (key)
             
             	This is an index that references to the different past periods in given in interval of active call table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
             	**type**\: int
@@ -3847,17 +3928,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvActiveCallStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvactivecallstatsintvldurunits = YLeaf(YType.enumeration, "cvActiveCallStatsIntvlDurUnits")
-
-                self.cvactivecallstatsintvldur = YLeaf(YType.uint32, "cvActiveCallStatsIntvlDur")
-
-                self.cvactivecallstatsmaxval = YLeaf(YType.uint32, "cvActiveCallStatsMaxVal")
-
-                self.cvactivecallstatsavgval = YLeaf(YType.uint32, "cvActiveCallStatsAvgVal")
-                self._segment_path = lambda: "cvActiveCallStatsEntry" + "[cvActiveCallStatsIntvlDurUnits='" + self.cvactivecallstatsintvldurunits.get() + "']" + "[cvActiveCallStatsIntvlDur='" + self.cvactivecallstatsintvldur.get() + "']"
+                self.ylist_key_names = ['cvactivecallstatsintvldurunits','cvactivecallstatsintvldur']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvactivecallstatsintvldurunits', YLeaf(YType.enumeration, 'cvActiveCallStatsIntvlDurUnits')),
+                    ('cvactivecallstatsintvldur', YLeaf(YType.uint32, 'cvActiveCallStatsIntvlDur')),
+                    ('cvactivecallstatsmaxval', YLeaf(YType.uint32, 'cvActiveCallStatsMaxVal')),
+                    ('cvactivecallstatsavgval', YLeaf(YType.uint32, 'cvActiveCallStatsAvgVal')),
+                ])
+                self.cvactivecallstatsintvldurunits = None
+                self.cvactivecallstatsintvldur = None
+                self.cvactivecallstatsmaxval = None
+                self.cvactivecallstatsavgval = None
+                self._segment_path = lambda: "cvActiveCallStatsEntry" + "[cvActiveCallStatsIntvlDurUnits='" + str(self.cvactivecallstatsintvldurunits) + "']" + "[cvActiveCallStatsIntvlDur='" + str(self.cvactivecallstatsintvldur) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3895,8 +3979,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallDurationStatsEntry" : ("cvcalldurationstatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallDurationStatsEntry", ("cvcalldurationstatsentry", CISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable.Cvcalldurationstatsentry))])
+            self._leafs = OrderedDict()
 
             self.cvcalldurationstatsentry = YList(self)
             self._segment_path = lambda: "cvCallDurationStatsTable"
@@ -3912,12 +3998,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is created at the system initialization and is
             updated at every epoch based on CvCallVolumeStatsIntvlType
             
-            .. attribute:: cvcalldurationstatsintvldurunits  <key>
+            .. attribute:: cvcalldurationstatsintvldurunits  (key)
             
             	The Object indexes in Call Duration Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
             	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
-            .. attribute:: cvcalldurationstatsintvldur  <key>
+            .. attribute:: cvcalldurationstatsintvldur  (key)
             
             	This is an index that references to the different past periods in given in interval of call Duration table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
             	**type**\: int
@@ -3956,17 +4042,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallDurationStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcalldurationstatsintvldurunits = YLeaf(YType.enumeration, "cvCallDurationStatsIntvlDurUnits")
-
-                self.cvcalldurationstatsintvldur = YLeaf(YType.uint32, "cvCallDurationStatsIntvlDur")
-
-                self.cvcalldurationstatsmaxval = YLeaf(YType.uint32, "cvCallDurationStatsMaxVal")
-
-                self.cvcalldurationstatsavgval = YLeaf(YType.uint32, "cvCallDurationStatsAvgVal")
-                self._segment_path = lambda: "cvCallDurationStatsEntry" + "[cvCallDurationStatsIntvlDurUnits='" + self.cvcalldurationstatsintvldurunits.get() + "']" + "[cvCallDurationStatsIntvlDur='" + self.cvcalldurationstatsintvldur.get() + "']"
+                self.ylist_key_names = ['cvcalldurationstatsintvldurunits','cvcalldurationstatsintvldur']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcalldurationstatsintvldurunits', YLeaf(YType.enumeration, 'cvCallDurationStatsIntvlDurUnits')),
+                    ('cvcalldurationstatsintvldur', YLeaf(YType.uint32, 'cvCallDurationStatsIntvlDur')),
+                    ('cvcalldurationstatsmaxval', YLeaf(YType.uint32, 'cvCallDurationStatsMaxVal')),
+                    ('cvcalldurationstatsavgval', YLeaf(YType.uint32, 'cvCallDurationStatsAvgVal')),
+                ])
+                self.cvcalldurationstatsintvldurunits = None
+                self.cvcalldurationstatsintvldur = None
+                self.cvcalldurationstatsmaxval = None
+                self.cvcalldurationstatsavgval = None
+                self._segment_path = lambda: "cvCallDurationStatsEntry" + "[cvCallDurationStatsIntvlDurUnits='" + str(self.cvcalldurationstatsintvldurunits) + "']" + "[cvCallDurationStatsIntvlDur='" + str(self.cvcalldurationstatsintvldur) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallDurationStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4001,8 +4090,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvSipMsgRateStatsEntry" : ("cvsipmsgratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvSipMsgRateStatsEntry", ("cvsipmsgratestatsentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable.Cvsipmsgratestatsentry))])
+            self._leafs = OrderedDict()
 
             self.cvsipmsgratestatsentry = YList(self)
             self._segment_path = lambda: "cvSipMsgRateStatsTable"
@@ -4018,12 +4109,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             This entry is created at the system initialization and is
             updated at every epoch based on CvCallVolumeStatsIntvlType
             
-            .. attribute:: cvsipmsgratestatsintvldurunits  <key>
+            .. attribute:: cvsipmsgratestatsintvldurunits  (key)
             
             	The Object indexes in SIP Message Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
             	**type**\:  :py:class:`CvCallVolumeStatsIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeStatsIntvlType>`
             
-            .. attribute:: cvsipmsgratestatsintvldur  <key>
+            .. attribute:: cvsipmsgratestatsintvldur  (key)
             
             	This is an index that references to the different past periods in given in interval of SIP message rate table. This range is 1\-60 for Seconds and Minutes table  wherein 1\-72 for hours table
             	**type**\: int
@@ -4062,17 +4153,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvSipMsgRateStatsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvsipmsgratestatsintvldurunits = YLeaf(YType.enumeration, "cvSipMsgRateStatsIntvlDurUnits")
-
-                self.cvsipmsgratestatsintvldur = YLeaf(YType.uint32, "cvSipMsgRateStatsIntvlDur")
-
-                self.cvsipmsgratestatsmaxval = YLeaf(YType.uint32, "cvSipMsgRateStatsMaxVal")
-
-                self.cvsipmsgratestatsavgval = YLeaf(YType.uint32, "cvSipMsgRateStatsAvgVal")
-                self._segment_path = lambda: "cvSipMsgRateStatsEntry" + "[cvSipMsgRateStatsIntvlDurUnits='" + self.cvsipmsgratestatsintvldurunits.get() + "']" + "[cvSipMsgRateStatsIntvlDur='" + self.cvsipmsgratestatsintvldur.get() + "']"
+                self.ylist_key_names = ['cvsipmsgratestatsintvldurunits','cvsipmsgratestatsintvldur']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvsipmsgratestatsintvldurunits', YLeaf(YType.enumeration, 'cvSipMsgRateStatsIntvlDurUnits')),
+                    ('cvsipmsgratestatsintvldur', YLeaf(YType.uint32, 'cvSipMsgRateStatsIntvlDur')),
+                    ('cvsipmsgratestatsmaxval', YLeaf(YType.uint32, 'cvSipMsgRateStatsMaxVal')),
+                    ('cvsipmsgratestatsavgval', YLeaf(YType.uint32, 'cvSipMsgRateStatsAvgVal')),
+                ])
+                self.cvsipmsgratestatsintvldurunits = None
+                self.cvsipmsgratestatsintvldur = None
+                self.cvsipmsgratestatsmaxval = None
+                self.cvsipmsgratestatsavgval = None
+                self._segment_path = lambda: "cvSipMsgRateStatsEntry" + "[cvSipMsgRateStatsIntvlDurUnits='" + str(self.cvsipmsgratestatsintvldurunits) + "']" + "[cvSipMsgRateStatsIntvlDur='" + str(self.cvsipmsgratestatsintvldur) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4107,8 +4201,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallRateWMEntry" : ("cvcallratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallRateWMEntry", ("cvcallratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcallratewmtable.Cvcallratewmentry))])
+            self._leafs = OrderedDict()
 
             self.cvcallratewmentry = YList(self)
             self._segment_path = lambda: "cvCallRateWMTable"
@@ -4128,12 +4224,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             These entries are reinitialised/added/deleted  if
             cvCallVolumeWMTableSize is changed
             
-            .. attribute:: cvcallratewmintvldurunits  <key>
+            .. attribute:: cvcallratewmintvldurunits  (key)
             
             	The Object indexes in call rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
             	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
-            .. attribute:: cvcallratewmindex  <key>
+            .. attribute:: cvcallratewmindex  (key)
             
             	This is an index that references to different peaks in past period in call rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
             	**type**\: int
@@ -4168,17 +4264,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcallratewmintvldurunits = YLeaf(YType.enumeration, "cvCallRateWMIntvlDurUnits")
-
-                self.cvcallratewmindex = YLeaf(YType.uint32, "cvCallRateWMIndex")
-
-                self.cvcallratewmvalue = YLeaf(YType.uint32, "cvCallRateWMValue")
-
-                self.cvcallratewmts = YLeaf(YType.str, "cvCallRateWMts")
-                self._segment_path = lambda: "cvCallRateWMEntry" + "[cvCallRateWMIntvlDurUnits='" + self.cvcallratewmintvldurunits.get() + "']" + "[cvCallRateWMIndex='" + self.cvcallratewmindex.get() + "']"
+                self.ylist_key_names = ['cvcallratewmintvldurunits','cvcallratewmindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcallratewmintvldurunits', YLeaf(YType.enumeration, 'cvCallRateWMIntvlDurUnits')),
+                    ('cvcallratewmindex', YLeaf(YType.uint32, 'cvCallRateWMIndex')),
+                    ('cvcallratewmvalue', YLeaf(YType.uint32, 'cvCallRateWMValue')),
+                    ('cvcallratewmts', YLeaf(YType.str, 'cvCallRateWMts')),
+                ])
+                self.cvcallratewmintvldurunits = None
+                self.cvcallratewmindex = None
+                self.cvcallratewmvalue = None
+                self.cvcallratewmts = None
+                self._segment_path = lambda: "cvCallRateWMEntry" + "[cvCallRateWMIntvlDurUnits='" + str(self.cvcallratewmintvldurunits) + "']" + "[cvCallRateWMIndex='" + str(self.cvcallratewmindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4213,8 +4312,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvCallLegRateWMEntry" : ("cvcalllegratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvCallLegRateWMEntry", ("cvcalllegratewmentry", CISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable.Cvcalllegratewmentry))])
+            self._leafs = OrderedDict()
 
             self.cvcalllegratewmentry = YList(self)
             self._segment_path = lambda: "cvCallLegRateWMTable"
@@ -4234,12 +4335,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             These entries are reinitialised/added/deleted  if
             cvCallVolumeWMTableSize is changed
             
-            .. attribute:: cvcalllegratewmintvldurunits  <key>
+            .. attribute:: cvcalllegratewmintvldurunits  (key)
             
             	The Object indexes in call leg rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
             	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
-            .. attribute:: cvcalllegratewmindex  <key>
+            .. attribute:: cvcalllegratewmindex  (key)
             
             	This is an index that references to different peaks in past period in call leg rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
             	**type**\: int
@@ -4274,17 +4375,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvCallLegRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvcalllegratewmintvldurunits = YLeaf(YType.enumeration, "cvCallLegRateWMIntvlDurUnits")
-
-                self.cvcalllegratewmindex = YLeaf(YType.uint32, "cvCallLegRateWMIndex")
-
-                self.cvcalllegratewmvalue = YLeaf(YType.uint32, "cvCallLegRateWMValue")
-
-                self.cvcalllegratewmts = YLeaf(YType.str, "cvCallLegRateWMts")
-                self._segment_path = lambda: "cvCallLegRateWMEntry" + "[cvCallLegRateWMIntvlDurUnits='" + self.cvcalllegratewmintvldurunits.get() + "']" + "[cvCallLegRateWMIndex='" + self.cvcalllegratewmindex.get() + "']"
+                self.ylist_key_names = ['cvcalllegratewmintvldurunits','cvcalllegratewmindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvcalllegratewmintvldurunits', YLeaf(YType.enumeration, 'cvCallLegRateWMIntvlDurUnits')),
+                    ('cvcalllegratewmindex', YLeaf(YType.uint32, 'cvCallLegRateWMIndex')),
+                    ('cvcalllegratewmvalue', YLeaf(YType.uint32, 'cvCallLegRateWMValue')),
+                    ('cvcalllegratewmts', YLeaf(YType.str, 'cvCallLegRateWMts')),
+                ])
+                self.cvcalllegratewmintvldurunits = None
+                self.cvcalllegratewmindex = None
+                self.cvcalllegratewmvalue = None
+                self.cvcalllegratewmts = None
+                self._segment_path = lambda: "cvCallLegRateWMEntry" + "[cvCallLegRateWMIntvlDurUnits='" + str(self.cvcalllegratewmintvldurunits) + "']" + "[cvCallLegRateWMIndex='" + str(self.cvcalllegratewmindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4319,8 +4423,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvActiveCallWMEntry" : ("cvactivecallwmentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvActiveCallWMEntry", ("cvactivecallwmentry", CISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable.Cvactivecallwmentry))])
+            self._leafs = OrderedDict()
 
             self.cvactivecallwmentry = YList(self)
             self._segment_path = lambda: "cvActiveCallWMTable"
@@ -4340,12 +4446,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             These entries are reinitialised/added/deleted  if
             cvCallVolumeWMTableSize is changed
             
-            .. attribute:: cvactivecallwmintvldurunits  <key>
+            .. attribute:: cvactivecallwmintvldurunits  (key)
             
             	The Object indexes in active call Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
             	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
-            .. attribute:: cvactivecallwmindex  <key>
+            .. attribute:: cvactivecallwmindex  (key)
             
             	This is an index that references to different peaks in past period in acive call watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
             	**type**\: int
@@ -4380,17 +4486,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvActiveCallWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvactivecallwmintvldurunits = YLeaf(YType.enumeration, "cvActiveCallWMIntvlDurUnits")
-
-                self.cvactivecallwmindex = YLeaf(YType.uint32, "cvActiveCallWMIndex")
-
-                self.cvactivecallwmvalue = YLeaf(YType.uint32, "cvActiveCallWMValue")
-
-                self.cvactivecallwmts = YLeaf(YType.str, "cvActiveCallWMts")
-                self._segment_path = lambda: "cvActiveCallWMEntry" + "[cvActiveCallWMIntvlDurUnits='" + self.cvactivecallwmintvldurunits.get() + "']" + "[cvActiveCallWMIndex='" + self.cvactivecallwmindex.get() + "']"
+                self.ylist_key_names = ['cvactivecallwmintvldurunits','cvactivecallwmindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvactivecallwmintvldurunits', YLeaf(YType.enumeration, 'cvActiveCallWMIntvlDurUnits')),
+                    ('cvactivecallwmindex', YLeaf(YType.uint32, 'cvActiveCallWMIndex')),
+                    ('cvactivecallwmvalue', YLeaf(YType.uint32, 'cvActiveCallWMValue')),
+                    ('cvactivecallwmts', YLeaf(YType.str, 'cvActiveCallWMts')),
+                ])
+                self.cvactivecallwmintvldurunits = None
+                self.cvactivecallwmindex = None
+                self.cvactivecallwmvalue = None
+                self.cvactivecallwmts = None
+                self._segment_path = lambda: "cvActiveCallWMEntry" + "[cvActiveCallWMIntvlDurUnits='" + str(self.cvactivecallwmintvldurunits) + "']" + "[cvActiveCallWMIndex='" + str(self.cvactivecallwmindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4425,8 +4534,10 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cvSipMsgRateWMEntry" : ("cvsipmsgratewmentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cvSipMsgRateWMEntry", ("cvsipmsgratewmentry", CISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable.Cvsipmsgratewmentry))])
+            self._leafs = OrderedDict()
 
             self.cvsipmsgratewmentry = YList(self)
             self._segment_path = lambda: "cvSipMsgRateWMTable"
@@ -4446,12 +4557,12 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
             These entries are reinitialised/added/deleted if
             cvCallVolumeWMTableSize is changed
             
-            .. attribute:: cvsipmsgratewmintvldurunits  <key>
+            .. attribute:: cvsipmsgratewmintvldurunits  (key)
             
             	The Object indexes in SIP Message rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
             	**type**\:  :py:class:`CvCallVolumeWMIntvlType <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvCallVolumeWMIntvlType>`
             
-            .. attribute:: cvsipmsgratewmindex  <key>
+            .. attribute:: cvsipmsgratewmindex  (key)
             
             	This is an index that references to different peaks in past period in sip message rate watermark table.  The number of watermarks entries stored for each table are  based on cvCallVolumeWMTableSize
             	**type**\: int
@@ -4486,17 +4597,20 @@ class CISCOVOICEDIALCONTROLMIB(Entity):
                 self.yang_parent_name = "cvSipMsgRateWMTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cvsipmsgratewmintvldurunits = YLeaf(YType.enumeration, "cvSipMsgRateWMIntvlDurUnits")
-
-                self.cvsipmsgratewmindex = YLeaf(YType.uint32, "cvSipMsgRateWMIndex")
-
-                self.cvsipmsgratewmvalue = YLeaf(YType.uint32, "cvSipMsgRateWMValue")
-
-                self.cvsipmsgratewmts = YLeaf(YType.str, "cvSipMsgRateWMts")
-                self._segment_path = lambda: "cvSipMsgRateWMEntry" + "[cvSipMsgRateWMIntvlDurUnits='" + self.cvsipmsgratewmintvldurunits.get() + "']" + "[cvSipMsgRateWMIndex='" + self.cvsipmsgratewmindex.get() + "']"
+                self.ylist_key_names = ['cvsipmsgratewmintvldurunits','cvsipmsgratewmindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cvsipmsgratewmintvldurunits', YLeaf(YType.enumeration, 'cvSipMsgRateWMIntvlDurUnits')),
+                    ('cvsipmsgratewmindex', YLeaf(YType.uint32, 'cvSipMsgRateWMIndex')),
+                    ('cvsipmsgratewmvalue', YLeaf(YType.uint32, 'cvSipMsgRateWMValue')),
+                    ('cvsipmsgratewmts', YLeaf(YType.str, 'cvSipMsgRateWMts')),
+                ])
+                self.cvsipmsgratewmintvldurunits = None
+                self.cvsipmsgratewmindex = None
+                self.cvsipmsgratewmvalue = None
+                self.cvsipmsgratewmts = None
+                self._segment_path = lambda: "cvSipMsgRateWMEntry" + "[cvSipMsgRateWMIntvlDurUnits='" + str(self.cvsipmsgratewmintvldurunits) + "']" + "[cvSipMsgRateWMIndex='" + str(self.cvsipmsgratewmindex) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateWMTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

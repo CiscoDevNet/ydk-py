@@ -33,6 +33,8 @@ SASE\: Stand Alone Synchronization Equipment
 SSM\: Synchronization Status Messaging
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -41,7 +43,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CiscoNetsyncClockMode(Enum):
     """
-    CiscoNetsyncClockMode
+    CiscoNetsyncClockMode (Enum Class)
 
     Clock operating mode\:
 
@@ -76,7 +78,7 @@ class CiscoNetsyncClockMode(Enum):
 
 class CiscoNetsyncEECOption(Enum):
     """
-    CiscoNetsyncEECOption
+    CiscoNetsyncEECOption (Enum Class)
 
     Network synchronization EEC (Ethernet Equipment Clock)
 
@@ -127,7 +129,7 @@ class CiscoNetsyncEECOption(Enum):
 
 class CiscoNetsyncESMCCap(Enum):
     """
-    CiscoNetsyncESMCCap
+    CiscoNetsyncESMCCap (Enum Class)
 
     Network synchronization clock source interface ESMC
 
@@ -174,7 +176,7 @@ class CiscoNetsyncESMCCap(Enum):
 
 class CiscoNetsyncIfType(Enum):
     """
-    CiscoNetsyncIfType
+    CiscoNetsyncIfType (Enum Class)
 
     Network synchronization clock source Interface type.
 
@@ -259,7 +261,7 @@ class CiscoNetsyncIfType(Enum):
 
 class CiscoNetsyncNetworkOption(Enum):
     """
-    CiscoNetsyncNetworkOption
+    CiscoNetsyncNetworkOption (Enum Class)
 
     Network synchronization networking options.
 
@@ -318,7 +320,7 @@ class CiscoNetsyncNetworkOption(Enum):
 
 class CiscoNetsyncQLMode(Enum):
     """
-    CiscoNetsyncQLMode
+    CiscoNetsyncQLMode (Enum Class)
 
     The clock mode of the network synchronization clock selection
 
@@ -373,7 +375,7 @@ class CiscoNetsyncQLMode(Enum):
 
 class CiscoNetsyncQualityLevel(Enum):
     """
-    CiscoNetsyncQualityLevel
+    CiscoNetsyncQualityLevel (Enum Class)
 
     Clock source QL (quality level) is defined in ITU\-T G.781
 
@@ -606,7 +608,7 @@ class CiscoNetsyncQualityLevel(Enum):
 
 class CiscoNetsyncSSMCap(Enum):
     """
-    CiscoNetsyncSSMCap
+    CiscoNetsyncSSMCap (Enum Class)
 
     Network synchronization clock source interface SSM
 
@@ -699,8 +701,10 @@ class CISCONETSYNCMIB(Entity):
         self.yang_parent_name = "CISCO-NETSYNC-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoNetsyncMIBNotifControl" : ("cisconetsyncmibnotifcontrol", CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol), "cnsClkSelGlobalTable" : ("cnsclkselglobaltable", CISCONETSYNCMIB.Cnsclkselglobaltable), "cnsSelectedInputSourceTable" : ("cnsselectedinputsourcetable", CISCONETSYNCMIB.Cnsselectedinputsourcetable), "cnsInputSourceTable" : ("cnsinputsourcetable", CISCONETSYNCMIB.Cnsinputsourcetable), "cnsExtOutputTable" : ("cnsextoutputtable", CISCONETSYNCMIB.Cnsextoutputtable), "cnsT4ClockSourceTable" : ("cnst4clocksourcetable", CISCONETSYNCMIB.Cnst4Clocksourcetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoNetsyncMIBNotifControl", ("cisconetsyncmibnotifcontrol", CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol)), ("cnsClkSelGlobalTable", ("cnsclkselglobaltable", CISCONETSYNCMIB.Cnsclkselglobaltable)), ("cnsSelectedInputSourceTable", ("cnsselectedinputsourcetable", CISCONETSYNCMIB.Cnsselectedinputsourcetable)), ("cnsInputSourceTable", ("cnsinputsourcetable", CISCONETSYNCMIB.Cnsinputsourcetable)), ("cnsExtOutputTable", ("cnsextoutputtable", CISCONETSYNCMIB.Cnsextoutputtable)), ("cnsT4ClockSourceTable", ("cnst4clocksourcetable", CISCONETSYNCMIB.Cnst4Clocksourcetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cisconetsyncmibnotifcontrol = CISCONETSYNCMIB.Cisconetsyncmibnotifcontrol()
         self.cisconetsyncmibnotifcontrol.parent = self
@@ -757,10 +761,13 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cnsmibenablestatusnotification = YLeaf(YType.boolean, "cnsMIBEnableStatusNotification")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cnsmibenablestatusnotification', YLeaf(YType.boolean, 'cnsMIBEnableStatusNotification')),
+            ])
+            self.cnsmibenablestatusnotification = None
             self._segment_path = lambda: "ciscoNetsyncMIBNotifControl"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
 
@@ -793,8 +800,10 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cnsClkSelGlobalEntry" : ("cnsclkselglobalentry", CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cnsClkSelGlobalEntry", ("cnsclkselglobalentry", CISCONETSYNCMIB.Cnsclkselglobaltable.Cnsclkselglobalentry))])
+            self._leafs = OrderedDict()
 
             self.cnsclkselglobalentry = YList(self)
             self._segment_path = lambda: "cnsClkSelGlobalTable"
@@ -811,7 +820,7 @@ class CISCONETSYNCMIB(Entity):
             is removed when G.781 clock selection is removed from the
             configuration.
             
-            .. attribute:: cnsclkselgloprocindex  <key>
+            .. attribute:: cnsclkselgloprocindex  (key)
             
             	An index that uniquely represents a clock selection process.  This index is assigned arbitrarily by the system and may not be persistent across reboots
             	**type**\: int
@@ -912,35 +921,38 @@ class CISCONETSYNCMIB(Entity):
                 self.yang_parent_name = "cnsClkSelGlobalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cnsclkselgloprocindex = YLeaf(YType.uint32, "cnsClkSelGloProcIndex")
-
-                self.cnsclkselglobprocessmode = YLeaf(YType.enumeration, "cnsClkSelGlobProcessMode")
-
-                self.cnsclkselglobclockmode = YLeaf(YType.enumeration, "cnsClkSelGlobClockMode")
-
-                self.cnsclkselglobnetsyncenable = YLeaf(YType.boolean, "cnsClkSelGlobNetsyncEnable")
-
-                self.cnsclkselglobrevertivemode = YLeaf(YType.boolean, "cnsClkSelGlobRevertiveMode")
-
-                self.cnsclkselglobesmcmode = YLeaf(YType.boolean, "cnsClkSelGlobESMCMode")
-
-                self.cnsclkselglobeecoption = YLeaf(YType.enumeration, "cnsClkSelGlobEECOption")
-
-                self.cnsclkselglobnetworkoption = YLeaf(YType.enumeration, "cnsClkSelGlobNetworkOption")
-
-                self.cnsclkselglobholdofftime = YLeaf(YType.uint32, "cnsClkSelGlobHoldoffTime")
-
-                self.cnsclkselglobwtrtime = YLeaf(YType.uint32, "cnsClkSelGlobWtrTime")
-
-                self.cnsclkselglobnofsources = YLeaf(YType.uint32, "cnsClkSelGlobNofSources")
-
-                self.cnsclkselgloblastholdoverseconds = YLeaf(YType.uint32, "cnsClkSelGlobLastHoldoverSeconds")
-
-                self.cnsclkselglobcurrholdoverseconds = YLeaf(YType.uint32, "cnsClkSelGlobCurrHoldoverSeconds")
-                self._segment_path = lambda: "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + self.cnsclkselgloprocindex.get() + "']"
+                self.ylist_key_names = ['cnsclkselgloprocindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cnsclkselgloprocindex', YLeaf(YType.uint32, 'cnsClkSelGloProcIndex')),
+                    ('cnsclkselglobprocessmode', YLeaf(YType.enumeration, 'cnsClkSelGlobProcessMode')),
+                    ('cnsclkselglobclockmode', YLeaf(YType.enumeration, 'cnsClkSelGlobClockMode')),
+                    ('cnsclkselglobnetsyncenable', YLeaf(YType.boolean, 'cnsClkSelGlobNetsyncEnable')),
+                    ('cnsclkselglobrevertivemode', YLeaf(YType.boolean, 'cnsClkSelGlobRevertiveMode')),
+                    ('cnsclkselglobesmcmode', YLeaf(YType.boolean, 'cnsClkSelGlobESMCMode')),
+                    ('cnsclkselglobeecoption', YLeaf(YType.enumeration, 'cnsClkSelGlobEECOption')),
+                    ('cnsclkselglobnetworkoption', YLeaf(YType.enumeration, 'cnsClkSelGlobNetworkOption')),
+                    ('cnsclkselglobholdofftime', YLeaf(YType.uint32, 'cnsClkSelGlobHoldoffTime')),
+                    ('cnsclkselglobwtrtime', YLeaf(YType.uint32, 'cnsClkSelGlobWtrTime')),
+                    ('cnsclkselglobnofsources', YLeaf(YType.uint32, 'cnsClkSelGlobNofSources')),
+                    ('cnsclkselgloblastholdoverseconds', YLeaf(YType.uint32, 'cnsClkSelGlobLastHoldoverSeconds')),
+                    ('cnsclkselglobcurrholdoverseconds', YLeaf(YType.uint32, 'cnsClkSelGlobCurrHoldoverSeconds')),
+                ])
+                self.cnsclkselgloprocindex = None
+                self.cnsclkselglobprocessmode = None
+                self.cnsclkselglobclockmode = None
+                self.cnsclkselglobnetsyncenable = None
+                self.cnsclkselglobrevertivemode = None
+                self.cnsclkselglobesmcmode = None
+                self.cnsclkselglobeecoption = None
+                self.cnsclkselglobnetworkoption = None
+                self.cnsclkselglobholdofftime = None
+                self.cnsclkselglobwtrtime = None
+                self.cnsclkselglobnofsources = None
+                self.cnsclkselgloblastholdoverseconds = None
+                self.cnsclkselglobcurrholdoverseconds = None
+                self._segment_path = lambda: "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + str(self.cnsclkselgloprocindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -972,8 +984,10 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cnsSelectedInputSourceEntry" : ("cnsselectedinputsourceentry", CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cnsSelectedInputSourceEntry", ("cnsselectedinputsourceentry", CISCONETSYNCMIB.Cnsselectedinputsourcetable.Cnsselectedinputsourceentry))])
+            self._leafs = OrderedDict()
 
             self.cnsselectedinputsourceentry = YList(self)
             self._segment_path = lambda: "cnsSelectedInputSourceTable"
@@ -990,7 +1004,7 @@ class CISCONETSYNCMIB(Entity):
             source.  The entry shall remain during the time
             the G.781 clock selection process remains enabled.
             
-            .. attribute:: cnsselinpsrcnetsyncindex  <key>
+            .. attribute:: cnsselinpsrcnetsyncindex  (key)
             
             	An index that uniquely represents an entry in this table. This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\: int
@@ -1052,25 +1066,28 @@ class CISCONETSYNCMIB(Entity):
                 self.yang_parent_name = "cnsSelectedInputSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cnsselinpsrcnetsyncindex = YLeaf(YType.uint32, "cnsSelInpSrcNetsyncIndex")
-
-                self.cnsselinpsrcname = YLeaf(YType.str, "cnsSelInpSrcName")
-
-                self.cnsselinpsrcintftype = YLeaf(YType.enumeration, "cnsSelInpSrcIntfType")
-
-                self.cnsselinpsrcqualitylevel = YLeaf(YType.enumeration, "cnsSelInpSrcQualityLevel")
-
-                self.cnsselinpsrcpriority = YLeaf(YType.uint32, "cnsSelInpSrcPriority")
-
-                self.cnsselinpsrctimestamp = YLeaf(YType.uint32, "cnsSelInpSrcTimestamp")
-
-                self.cnsselinpsrcfsw = YLeaf(YType.boolean, "cnsSelInpSrcFSW")
-
-                self.cnsselinpsrcmsw = YLeaf(YType.boolean, "cnsSelInpSrcMSW")
-                self._segment_path = lambda: "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + self.cnsselinpsrcnetsyncindex.get() + "']"
+                self.ylist_key_names = ['cnsselinpsrcnetsyncindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cnsselinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsSelInpSrcNetsyncIndex')),
+                    ('cnsselinpsrcname', YLeaf(YType.str, 'cnsSelInpSrcName')),
+                    ('cnsselinpsrcintftype', YLeaf(YType.enumeration, 'cnsSelInpSrcIntfType')),
+                    ('cnsselinpsrcqualitylevel', YLeaf(YType.enumeration, 'cnsSelInpSrcQualityLevel')),
+                    ('cnsselinpsrcpriority', YLeaf(YType.uint32, 'cnsSelInpSrcPriority')),
+                    ('cnsselinpsrctimestamp', YLeaf(YType.uint32, 'cnsSelInpSrcTimestamp')),
+                    ('cnsselinpsrcfsw', YLeaf(YType.boolean, 'cnsSelInpSrcFSW')),
+                    ('cnsselinpsrcmsw', YLeaf(YType.boolean, 'cnsSelInpSrcMSW')),
+                ])
+                self.cnsselinpsrcnetsyncindex = None
+                self.cnsselinpsrcname = None
+                self.cnsselinpsrcintftype = None
+                self.cnsselinpsrcqualitylevel = None
+                self.cnsselinpsrcpriority = None
+                self.cnsselinpsrctimestamp = None
+                self.cnsselinpsrcfsw = None
+                self.cnsselinpsrcmsw = None
+                self._segment_path = lambda: "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + str(self.cnsselinpsrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1102,8 +1119,10 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cnsInputSourceEntry" : ("cnsinputsourceentry", CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cnsInputSourceEntry", ("cnsinputsourceentry", CISCONETSYNCMIB.Cnsinputsourcetable.Cnsinputsourceentry))])
+            self._leafs = OrderedDict()
 
             self.cnsinputsourceentry = YList(self)
             self._segment_path = lambda: "cnsInputSourceTable"
@@ -1120,7 +1139,7 @@ class CISCONETSYNCMIB(Entity):
             in the table when a user removes a T0 clock source from
             the configuration.
             
-            .. attribute:: cnsinpsrcnetsyncindex  <key>
+            .. attribute:: cnsinpsrcnetsyncindex  (key)
             
             	An index that uniquely represents an entry in this table. This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\: int
@@ -1243,47 +1262,50 @@ class CISCONETSYNCMIB(Entity):
                 self.yang_parent_name = "cnsInputSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cnsinpsrcnetsyncindex = YLeaf(YType.uint32, "cnsInpSrcNetsyncIndex")
-
-                self.cnsinpsrcname = YLeaf(YType.str, "cnsInpSrcName")
-
-                self.cnsinpsrcintftype = YLeaf(YType.enumeration, "cnsInpSrcIntfType")
-
-                self.cnsinpsrcpriority = YLeaf(YType.uint32, "cnsInpSrcPriority")
-
-                self.cnsinpsrcesmccap = YLeaf(YType.enumeration, "cnsInpSrcESMCCap")
-
-                self.cnsinpsrcssmcap = YLeaf(YType.enumeration, "cnsInpSrcSSMCap")
-
-                self.cnsinpsrcqualityleveltxcfg = YLeaf(YType.enumeration, "cnsInpSrcQualityLevelTxCfg")
-
-                self.cnsinpsrcqualitylevelrxcfg = YLeaf(YType.enumeration, "cnsInpSrcQualityLevelRxCfg")
-
-                self.cnsinpsrcqualityleveltx = YLeaf(YType.enumeration, "cnsInpSrcQualityLevelTx")
-
-                self.cnsinpsrcqualitylevelrx = YLeaf(YType.enumeration, "cnsInpSrcQualityLevelRx")
-
-                self.cnsinpsrcqualitylevel = YLeaf(YType.enumeration, "cnsInpSrcQualityLevel")
-
-                self.cnsinpsrcholdofftime = YLeaf(YType.uint32, "cnsInpSrcHoldoffTime")
-
-                self.cnsinpsrcwtrtime = YLeaf(YType.uint32, "cnsInpSrcWtrTime")
-
-                self.cnsinpsrclockout = YLeaf(YType.boolean, "cnsInpSrcLockout")
-
-                self.cnsinpsrcsignalfailure = YLeaf(YType.boolean, "cnsInpSrcSignalFailure")
-
-                self.cnsinpsrcalarm = YLeaf(YType.boolean, "cnsInpSrcAlarm")
-
-                self.cnsinpsrcalarminfo = YLeaf(YType.bits, "cnsInpSrcAlarmInfo")
-
-                self.cnsinpsrcfsw = YLeaf(YType.boolean, "cnsInpSrcFSW")
-
-                self.cnsinpsrcmsw = YLeaf(YType.boolean, "cnsInpSrcMSW")
-                self._segment_path = lambda: "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + self.cnsinpsrcnetsyncindex.get() + "']"
+                self.ylist_key_names = ['cnsinpsrcnetsyncindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cnsinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsInpSrcNetsyncIndex')),
+                    ('cnsinpsrcname', YLeaf(YType.str, 'cnsInpSrcName')),
+                    ('cnsinpsrcintftype', YLeaf(YType.enumeration, 'cnsInpSrcIntfType')),
+                    ('cnsinpsrcpriority', YLeaf(YType.uint32, 'cnsInpSrcPriority')),
+                    ('cnsinpsrcesmccap', YLeaf(YType.enumeration, 'cnsInpSrcESMCCap')),
+                    ('cnsinpsrcssmcap', YLeaf(YType.enumeration, 'cnsInpSrcSSMCap')),
+                    ('cnsinpsrcqualityleveltxcfg', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTxCfg')),
+                    ('cnsinpsrcqualitylevelrxcfg', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRxCfg')),
+                    ('cnsinpsrcqualityleveltx', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTx')),
+                    ('cnsinpsrcqualitylevelrx', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRx')),
+                    ('cnsinpsrcqualitylevel', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevel')),
+                    ('cnsinpsrcholdofftime', YLeaf(YType.uint32, 'cnsInpSrcHoldoffTime')),
+                    ('cnsinpsrcwtrtime', YLeaf(YType.uint32, 'cnsInpSrcWtrTime')),
+                    ('cnsinpsrclockout', YLeaf(YType.boolean, 'cnsInpSrcLockout')),
+                    ('cnsinpsrcsignalfailure', YLeaf(YType.boolean, 'cnsInpSrcSignalFailure')),
+                    ('cnsinpsrcalarm', YLeaf(YType.boolean, 'cnsInpSrcAlarm')),
+                    ('cnsinpsrcalarminfo', YLeaf(YType.bits, 'cnsInpSrcAlarmInfo')),
+                    ('cnsinpsrcfsw', YLeaf(YType.boolean, 'cnsInpSrcFSW')),
+                    ('cnsinpsrcmsw', YLeaf(YType.boolean, 'cnsInpSrcMSW')),
+                ])
+                self.cnsinpsrcnetsyncindex = None
+                self.cnsinpsrcname = None
+                self.cnsinpsrcintftype = None
+                self.cnsinpsrcpriority = None
+                self.cnsinpsrcesmccap = None
+                self.cnsinpsrcssmcap = None
+                self.cnsinpsrcqualityleveltxcfg = None
+                self.cnsinpsrcqualitylevelrxcfg = None
+                self.cnsinpsrcqualityleveltx = None
+                self.cnsinpsrcqualitylevelrx = None
+                self.cnsinpsrcqualitylevel = None
+                self.cnsinpsrcholdofftime = None
+                self.cnsinpsrcwtrtime = None
+                self.cnsinpsrclockout = None
+                self.cnsinpsrcsignalfailure = None
+                self.cnsinpsrcalarm = None
+                self.cnsinpsrcalarminfo = Bits()
+                self.cnsinpsrcfsw = None
+                self.cnsinpsrcmsw = None
+                self._segment_path = lambda: "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + str(self.cnsinpsrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1320,8 +1342,10 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cnsExtOutputEntry" : ("cnsextoutputentry", CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cnsExtOutputEntry", ("cnsextoutputentry", CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry))])
+            self._leafs = OrderedDict()
 
             self.cnsextoutputentry = YList(self)
             self._segment_path = lambda: "cnsExtOutputTable"
@@ -1341,7 +1365,7 @@ class CISCONETSYNCMIB(Entity):
             An entry is removed from the table when a user removes
             a T4 external output from the configuration.
             
-            .. attribute:: cnsextoutlistindex  <key>
+            .. attribute:: cnsextoutlistindex  (key)
             
             	An index that uniquely represents an entry in this table.  This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\: int
@@ -1408,27 +1432,30 @@ class CISCONETSYNCMIB(Entity):
                 self.yang_parent_name = "cnsExtOutputTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cnsextoutlistindex = YLeaf(YType.uint32, "cnsExtOutListIndex")
-
-                self.cnsextoutselnetsyncindex = YLeaf(YType.uint32, "cnsExtOutSelNetsyncIndex")
-
-                self.cnsextoutname = YLeaf(YType.str, "cnsExtOutName")
-
-                self.cnsextoutintftype = YLeaf(YType.enumeration, "cnsExtOutIntfType")
-
-                self.cnsextoutqualitylevel = YLeaf(YType.enumeration, "cnsExtOutQualityLevel")
-
-                self.cnsextoutpriority = YLeaf(YType.uint32, "cnsExtOutPriority")
-
-                self.cnsextoutfsw = YLeaf(YType.boolean, "cnsExtOutFSW")
-
-                self.cnsextoutmsw = YLeaf(YType.boolean, "cnsExtOutMSW")
-
-                self.cnsextoutsquelch = YLeaf(YType.boolean, "cnsExtOutSquelch")
-                self._segment_path = lambda: "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']"
+                self.ylist_key_names = ['cnsextoutlistindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cnsextoutlistindex', YLeaf(YType.uint32, 'cnsExtOutListIndex')),
+                    ('cnsextoutselnetsyncindex', YLeaf(YType.uint32, 'cnsExtOutSelNetsyncIndex')),
+                    ('cnsextoutname', YLeaf(YType.str, 'cnsExtOutName')),
+                    ('cnsextoutintftype', YLeaf(YType.enumeration, 'cnsExtOutIntfType')),
+                    ('cnsextoutqualitylevel', YLeaf(YType.enumeration, 'cnsExtOutQualityLevel')),
+                    ('cnsextoutpriority', YLeaf(YType.uint32, 'cnsExtOutPriority')),
+                    ('cnsextoutfsw', YLeaf(YType.boolean, 'cnsExtOutFSW')),
+                    ('cnsextoutmsw', YLeaf(YType.boolean, 'cnsExtOutMSW')),
+                    ('cnsextoutsquelch', YLeaf(YType.boolean, 'cnsExtOutSquelch')),
+                ])
+                self.cnsextoutlistindex = None
+                self.cnsextoutselnetsyncindex = None
+                self.cnsextoutname = None
+                self.cnsextoutintftype = None
+                self.cnsextoutqualitylevel = None
+                self.cnsextoutpriority = None
+                self.cnsextoutfsw = None
+                self.cnsextoutmsw = None
+                self.cnsextoutsquelch = None
+                self._segment_path = lambda: "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + str(self.cnsextoutlistindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1463,8 +1490,10 @@ class CISCONETSYNCMIB(Entity):
             self.yang_parent_name = "CISCO-NETSYNC-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cnsT4ClockSourceEntry" : ("cnst4clocksourceentry", CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cnsT4ClockSourceEntry", ("cnst4clocksourceentry", CISCONETSYNCMIB.Cnst4Clocksourcetable.Cnst4Clocksourceentry))])
+            self._leafs = OrderedDict()
 
             self.cnst4clocksourceentry = YList(self)
             self._segment_path = lambda: "cnsT4ClockSourceTable"
@@ -1482,7 +1511,7 @@ class CISCONETSYNCMIB(Entity):
             output table. An entry is removed in the table when a user
             removes a T4 clock source from the configuration.
             
-            .. attribute:: cnsextoutlistindex  <key>
+            .. attribute:: cnsextoutlistindex  (key)
             
             	
             	**type**\: int
@@ -1491,7 +1520,7 @@ class CISCONETSYNCMIB(Entity):
             
             	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.Cnsextoutputtable.Cnsextoutputentry>`
             
-            .. attribute:: cnst4clksrcnetsyncindex  <key>
+            .. attribute:: cnst4clksrcnetsyncindex  (key)
             
             	An index that uniquely represents an entry in this table.  This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\: int
@@ -1614,49 +1643,52 @@ class CISCONETSYNCMIB(Entity):
                 self.yang_parent_name = "cnsT4ClockSourceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cnsextoutlistindex = YLeaf(YType.str, "cnsExtOutListIndex")
-
-                self.cnst4clksrcnetsyncindex = YLeaf(YType.uint32, "cnsT4ClkSrcNetsyncIndex")
-
-                self.cnst4clksrcname = YLeaf(YType.str, "cnsT4ClkSrcName")
-
-                self.cnst4clksrcintftype = YLeaf(YType.enumeration, "cnsT4ClkSrcIntfType")
-
-                self.cnst4clksrcpriority = YLeaf(YType.uint32, "cnsT4ClkSrcPriority")
-
-                self.cnst4clksrcesmccap = YLeaf(YType.enumeration, "cnsT4ClkSrcESMCCap")
-
-                self.cnst4clksrcssmcap = YLeaf(YType.enumeration, "cnsT4ClkSrcSSMCap")
-
-                self.cnst4clksrcqualityleveltxcfg = YLeaf(YType.enumeration, "cnsT4ClkSrcQualityLevelTxCfg")
-
-                self.cnst4clksrcqualitylevelrxcfg = YLeaf(YType.enumeration, "cnsT4ClkSrcQualityLevelRxCfg")
-
-                self.cnst4clksrcqualityleveltx = YLeaf(YType.enumeration, "cnsT4ClkSrcQualityLevelTx")
-
-                self.cnst4clksrcqualitylevelrx = YLeaf(YType.enumeration, "cnsT4ClkSrcQualityLevelRx")
-
-                self.cnst4clksrcqualitylevel = YLeaf(YType.enumeration, "cnsT4ClkSrcQualityLevel")
-
-                self.cnst4clksrcholdofftime = YLeaf(YType.uint32, "cnsT4ClkSrcHoldoffTime")
-
-                self.cnst4clksrcwtrtime = YLeaf(YType.uint32, "cnsT4ClkSrcWtrTime")
-
-                self.cnst4clksrclockout = YLeaf(YType.boolean, "cnsT4ClkSrcLockout")
-
-                self.cnst4clksrcsignalfailure = YLeaf(YType.boolean, "cnsT4ClkSrcSignalFailure")
-
-                self.cnst4clksrcalarm = YLeaf(YType.boolean, "cnsT4ClkSrcAlarm")
-
-                self.cnst4clksrcalarminfo = YLeaf(YType.bits, "cnsT4ClkSrcAlarmInfo")
-
-                self.cnst4clksrcfsw = YLeaf(YType.boolean, "cnsT4ClkSrcFSW")
-
-                self.cnst4clksrcmsw = YLeaf(YType.boolean, "cnsT4ClkSrcMSW")
-                self._segment_path = lambda: "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + self.cnsextoutlistindex.get() + "']" + "[cnsT4ClkSrcNetsyncIndex='" + self.cnst4clksrcnetsyncindex.get() + "']"
+                self.ylist_key_names = ['cnsextoutlistindex','cnst4clksrcnetsyncindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cnsextoutlistindex', YLeaf(YType.str, 'cnsExtOutListIndex')),
+                    ('cnst4clksrcnetsyncindex', YLeaf(YType.uint32, 'cnsT4ClkSrcNetsyncIndex')),
+                    ('cnst4clksrcname', YLeaf(YType.str, 'cnsT4ClkSrcName')),
+                    ('cnst4clksrcintftype', YLeaf(YType.enumeration, 'cnsT4ClkSrcIntfType')),
+                    ('cnst4clksrcpriority', YLeaf(YType.uint32, 'cnsT4ClkSrcPriority')),
+                    ('cnst4clksrcesmccap', YLeaf(YType.enumeration, 'cnsT4ClkSrcESMCCap')),
+                    ('cnst4clksrcssmcap', YLeaf(YType.enumeration, 'cnsT4ClkSrcSSMCap')),
+                    ('cnst4clksrcqualityleveltxcfg', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTxCfg')),
+                    ('cnst4clksrcqualitylevelrxcfg', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRxCfg')),
+                    ('cnst4clksrcqualityleveltx', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTx')),
+                    ('cnst4clksrcqualitylevelrx', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRx')),
+                    ('cnst4clksrcqualitylevel', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevel')),
+                    ('cnst4clksrcholdofftime', YLeaf(YType.uint32, 'cnsT4ClkSrcHoldoffTime')),
+                    ('cnst4clksrcwtrtime', YLeaf(YType.uint32, 'cnsT4ClkSrcWtrTime')),
+                    ('cnst4clksrclockout', YLeaf(YType.boolean, 'cnsT4ClkSrcLockout')),
+                    ('cnst4clksrcsignalfailure', YLeaf(YType.boolean, 'cnsT4ClkSrcSignalFailure')),
+                    ('cnst4clksrcalarm', YLeaf(YType.boolean, 'cnsT4ClkSrcAlarm')),
+                    ('cnst4clksrcalarminfo', YLeaf(YType.bits, 'cnsT4ClkSrcAlarmInfo')),
+                    ('cnst4clksrcfsw', YLeaf(YType.boolean, 'cnsT4ClkSrcFSW')),
+                    ('cnst4clksrcmsw', YLeaf(YType.boolean, 'cnsT4ClkSrcMSW')),
+                ])
+                self.cnsextoutlistindex = None
+                self.cnst4clksrcnetsyncindex = None
+                self.cnst4clksrcname = None
+                self.cnst4clksrcintftype = None
+                self.cnst4clksrcpriority = None
+                self.cnst4clksrcesmccap = None
+                self.cnst4clksrcssmcap = None
+                self.cnst4clksrcqualityleveltxcfg = None
+                self.cnst4clksrcqualitylevelrxcfg = None
+                self.cnst4clksrcqualityleveltx = None
+                self.cnst4clksrcqualitylevelrx = None
+                self.cnst4clksrcqualitylevel = None
+                self.cnst4clksrcholdofftime = None
+                self.cnst4clksrcwtrtime = None
+                self.cnst4clksrclockout = None
+                self.cnst4clksrcsignalfailure = None
+                self.cnst4clksrcalarm = None
+                self.cnst4clksrcalarminfo = Bits()
+                self.cnst4clksrcfsw = None
+                self.cnst4clksrcmsw = None
+                self._segment_path = lambda: "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + str(self.cnsextoutlistindex) + "']" + "[cnsT4ClkSrcNetsyncIndex='" + str(self.cnst4clksrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

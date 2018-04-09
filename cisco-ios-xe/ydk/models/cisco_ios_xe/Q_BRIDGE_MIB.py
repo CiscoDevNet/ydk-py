@@ -11,6 +11,8 @@ this MIB module is part of RFC 4363; See the RFC itself for
 full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -117,8 +119,10 @@ class QBRIDGEMIB(Entity):
         self.yang_parent_name = "Q-BRIDGE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dot1qBase" : ("dot1qbase", QBRIDGEMIB.Dot1Qbase), "dot1qVlan" : ("dot1qvlan", QBRIDGEMIB.Dot1Qvlan), "dot1qFdbTable" : ("dot1qfdbtable", QBRIDGEMIB.Dot1Qfdbtable), "dot1qTpFdbTable" : ("dot1qtpfdbtable", QBRIDGEMIB.Dot1Qtpfdbtable), "dot1qTpGroupTable" : ("dot1qtpgrouptable", QBRIDGEMIB.Dot1Qtpgrouptable), "dot1qForwardAllTable" : ("dot1qforwardalltable", QBRIDGEMIB.Dot1Qforwardalltable), "dot1qForwardUnregisteredTable" : ("dot1qforwardunregisteredtable", QBRIDGEMIB.Dot1Qforwardunregisteredtable), "dot1qStaticUnicastTable" : ("dot1qstaticunicasttable", QBRIDGEMIB.Dot1Qstaticunicasttable), "dot1qStaticMulticastTable" : ("dot1qstaticmulticasttable", QBRIDGEMIB.Dot1Qstaticmulticasttable), "dot1qVlanCurrentTable" : ("dot1qvlancurrenttable", QBRIDGEMIB.Dot1Qvlancurrenttable), "dot1qVlanStaticTable" : ("dot1qvlanstatictable", QBRIDGEMIB.Dot1Qvlanstatictable), "dot1qPortVlanStatisticsTable" : ("dot1qportvlanstatisticstable", QBRIDGEMIB.Dot1Qportvlanstatisticstable), "dot1qPortVlanHCStatisticsTable" : ("dot1qportvlanhcstatisticstable", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable), "dot1qLearningConstraintsTable" : ("dot1qlearningconstraintstable", QBRIDGEMIB.Dot1Qlearningconstraintstable), "dot1vProtocolGroupTable" : ("dot1vprotocolgrouptable", QBRIDGEMIB.Dot1Vprotocolgrouptable), "dot1vProtocolPortTable" : ("dot1vprotocolporttable", QBRIDGEMIB.Dot1Vprotocolporttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dot1qBase", ("dot1qbase", QBRIDGEMIB.Dot1Qbase)), ("dot1qVlan", ("dot1qvlan", QBRIDGEMIB.Dot1Qvlan)), ("dot1qFdbTable", ("dot1qfdbtable", QBRIDGEMIB.Dot1Qfdbtable)), ("dot1qTpFdbTable", ("dot1qtpfdbtable", QBRIDGEMIB.Dot1Qtpfdbtable)), ("dot1qTpGroupTable", ("dot1qtpgrouptable", QBRIDGEMIB.Dot1Qtpgrouptable)), ("dot1qForwardAllTable", ("dot1qforwardalltable", QBRIDGEMIB.Dot1Qforwardalltable)), ("dot1qForwardUnregisteredTable", ("dot1qforwardunregisteredtable", QBRIDGEMIB.Dot1Qforwardunregisteredtable)), ("dot1qStaticUnicastTable", ("dot1qstaticunicasttable", QBRIDGEMIB.Dot1Qstaticunicasttable)), ("dot1qStaticMulticastTable", ("dot1qstaticmulticasttable", QBRIDGEMIB.Dot1Qstaticmulticasttable)), ("dot1qVlanCurrentTable", ("dot1qvlancurrenttable", QBRIDGEMIB.Dot1Qvlancurrenttable)), ("dot1qVlanStaticTable", ("dot1qvlanstatictable", QBRIDGEMIB.Dot1Qvlanstatictable)), ("dot1qPortVlanStatisticsTable", ("dot1qportvlanstatisticstable", QBRIDGEMIB.Dot1Qportvlanstatisticstable)), ("dot1qPortVlanHCStatisticsTable", ("dot1qportvlanhcstatisticstable", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable)), ("dot1qLearningConstraintsTable", ("dot1qlearningconstraintstable", QBRIDGEMIB.Dot1Qlearningconstraintstable)), ("dot1vProtocolGroupTable", ("dot1vprotocolgrouptable", QBRIDGEMIB.Dot1Vprotocolgrouptable)), ("dot1vProtocolPortTable", ("dot1vprotocolporttable", QBRIDGEMIB.Dot1Vprotocolporttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dot1qbase = QBRIDGEMIB.Dot1Qbase()
         self.dot1qbase.parent = self
@@ -251,18 +255,21 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.dot1qvlanversionnumber = YLeaf(YType.enumeration, "dot1qVlanVersionNumber")
-
-            self.dot1qmaxvlanid = YLeaf(YType.int32, "dot1qMaxVlanId")
-
-            self.dot1qmaxsupportedvlans = YLeaf(YType.uint32, "dot1qMaxSupportedVlans")
-
-            self.dot1qnumvlans = YLeaf(YType.uint32, "dot1qNumVlans")
-
-            self.dot1qgvrpstatus = YLeaf(YType.enumeration, "dot1qGvrpStatus")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('dot1qvlanversionnumber', YLeaf(YType.enumeration, 'dot1qVlanVersionNumber')),
+                ('dot1qmaxvlanid', YLeaf(YType.int32, 'dot1qMaxVlanId')),
+                ('dot1qmaxsupportedvlans', YLeaf(YType.uint32, 'dot1qMaxSupportedVlans')),
+                ('dot1qnumvlans', YLeaf(YType.uint32, 'dot1qNumVlans')),
+                ('dot1qgvrpstatus', YLeaf(YType.enumeration, 'dot1qGvrpStatus')),
+            ])
+            self.dot1qvlanversionnumber = None
+            self.dot1qmaxvlanid = None
+            self.dot1qmaxsupportedvlans = None
+            self.dot1qnumvlans = None
+            self.dot1qgvrpstatus = None
             self._segment_path = lambda: "dot1qBase"
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
@@ -271,7 +278,7 @@ class QBRIDGEMIB(Entity):
 
         class Dot1Qvlanversionnumber(Enum):
             """
-            Dot1Qvlanversionnumber
+            Dot1Qvlanversionnumber (Enum Class)
 
             The version number of IEEE 802.1Q that this device
 
@@ -329,16 +336,19 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.dot1qvlannumdeletes = YLeaf(YType.uint32, "dot1qVlanNumDeletes")
-
-            self.dot1qnextfreelocalvlanindex = YLeaf(YType.int32, "dot1qNextFreeLocalVlanIndex")
-
-            self.dot1qconstraintsetdefault = YLeaf(YType.int32, "dot1qConstraintSetDefault")
-
-            self.dot1qconstrainttypedefault = YLeaf(YType.enumeration, "dot1qConstraintTypeDefault")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('dot1qvlannumdeletes', YLeaf(YType.uint32, 'dot1qVlanNumDeletes')),
+                ('dot1qnextfreelocalvlanindex', YLeaf(YType.int32, 'dot1qNextFreeLocalVlanIndex')),
+                ('dot1qconstraintsetdefault', YLeaf(YType.int32, 'dot1qConstraintSetDefault')),
+                ('dot1qconstrainttypedefault', YLeaf(YType.enumeration, 'dot1qConstraintTypeDefault')),
+            ])
+            self.dot1qvlannumdeletes = None
+            self.dot1qnextfreelocalvlanindex = None
+            self.dot1qconstraintsetdefault = None
+            self.dot1qconstrainttypedefault = None
             self._segment_path = lambda: "dot1qVlan"
             self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/%s" % self._segment_path()
 
@@ -347,7 +357,7 @@ class QBRIDGEMIB(Entity):
 
         class Dot1Qconstrainttypedefault(Enum):
             """
-            Dot1Qconstrainttypedefault
+            Dot1Qconstrainttypedefault (Enum Class)
 
             The type of constraint set to which a VLAN belongs, if
 
@@ -400,8 +410,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qFdbEntry" : ("dot1qfdbentry", QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qFdbEntry", ("dot1qfdbentry", QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qfdbentry = YList(self)
             self._segment_path = lambda: "dot1qFdbTable"
@@ -415,7 +427,7 @@ class QBRIDGEMIB(Entity):
             """
             Information about a specific Filtering Database.
             
-            .. attribute:: dot1qfdbid  <key>
+            .. attribute:: dot1qfdbid  (key)
             
             	The identity of this Filtering Database
             	**type**\: int
@@ -443,13 +455,16 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qFdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qfdbid = YLeaf(YType.uint32, "dot1qFdbId")
-
-                self.dot1qfdbdynamiccount = YLeaf(YType.uint32, "dot1qFdbDynamicCount")
-                self._segment_path = lambda: "dot1qFdbEntry" + "[dot1qFdbId='" + self.dot1qfdbid.get() + "']"
+                self.ylist_key_names = ['dot1qfdbid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qfdbid', YLeaf(YType.uint32, 'dot1qFdbId')),
+                    ('dot1qfdbdynamiccount', YLeaf(YType.uint32, 'dot1qFdbDynamicCount')),
+                ])
+                self.dot1qfdbid = None
+                self.dot1qfdbdynamiccount = None
+                self._segment_path = lambda: "dot1qFdbEntry" + "[dot1qFdbId='" + str(self.dot1qfdbid) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qFdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -483,8 +498,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qTpFdbEntry" : ("dot1qtpfdbentry", QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qTpFdbEntry", ("dot1qtpfdbentry", QBRIDGEMIB.Dot1Qtpfdbtable.Dot1Qtpfdbentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qtpfdbentry = YList(self)
             self._segment_path = lambda: "dot1qTpFdbTable"
@@ -500,7 +517,7 @@ class QBRIDGEMIB(Entity):
             which the device has some forwarding and/or filtering
             information.
             
-            .. attribute:: dot1qfdbid  <key>
+            .. attribute:: dot1qfdbid  (key)
             
             	
             	**type**\: int
@@ -509,7 +526,7 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
             
-            .. attribute:: dot1qtpfdbaddress  <key>
+            .. attribute:: dot1qtpfdbaddress  (key)
             
             	A unicast MAC address for which the device has forwarding and/or filtering information
             	**type**\: str
@@ -542,17 +559,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qTpFdbTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qfdbid = YLeaf(YType.str, "dot1qFdbId")
-
-                self.dot1qtpfdbaddress = YLeaf(YType.str, "dot1qTpFdbAddress")
-
-                self.dot1qtpfdbport = YLeaf(YType.int32, "dot1qTpFdbPort")
-
-                self.dot1qtpfdbstatus = YLeaf(YType.enumeration, "dot1qTpFdbStatus")
-                self._segment_path = lambda: "dot1qTpFdbEntry" + "[dot1qFdbId='" + self.dot1qfdbid.get() + "']" + "[dot1qTpFdbAddress='" + self.dot1qtpfdbaddress.get() + "']"
+                self.ylist_key_names = ['dot1qfdbid','dot1qtpfdbaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qfdbid', YLeaf(YType.str, 'dot1qFdbId')),
+                    ('dot1qtpfdbaddress', YLeaf(YType.str, 'dot1qTpFdbAddress')),
+                    ('dot1qtpfdbport', YLeaf(YType.int32, 'dot1qTpFdbPort')),
+                    ('dot1qtpfdbstatus', YLeaf(YType.enumeration, 'dot1qTpFdbStatus')),
+                ])
+                self.dot1qfdbid = None
+                self.dot1qtpfdbaddress = None
+                self.dot1qtpfdbport = None
+                self.dot1qtpfdbstatus = None
+                self._segment_path = lambda: "dot1qTpFdbEntry" + "[dot1qFdbId='" + str(self.dot1qfdbid) + "']" + "[dot1qTpFdbAddress='" + str(self.dot1qtpfdbaddress) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpFdbTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -560,7 +580,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Qtpfdbstatus(Enum):
                 """
-                Dot1Qtpfdbstatus
+                Dot1Qtpfdbstatus (Enum Class)
 
                 The status of this entry.  The meanings of the values
 
@@ -658,8 +678,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qTpGroupEntry" : ("dot1qtpgroupentry", QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qTpGroupEntry", ("dot1qtpgroupentry", QBRIDGEMIB.Dot1Qtpgrouptable.Dot1Qtpgroupentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qtpgroupentry = YList(self)
             self._segment_path = lambda: "dot1qTpGroupTable"
@@ -678,7 +700,7 @@ class QBRIDGEMIB(Entity):
             forwarded.  The subset of these ports learned dynamically
             is also provided.
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -687,7 +709,7 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
             
-            .. attribute:: dot1qtpgroupaddress  <key>
+            .. attribute:: dot1qtpgroupaddress  (key)
             
             	The destination Group MAC address in a frame to which this entry's filtering information applies
             	**type**\: str
@@ -718,17 +740,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qTpGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qtpgroupaddress = YLeaf(YType.str, "dot1qTpGroupAddress")
-
-                self.dot1qtpgroupegressports = YLeaf(YType.str, "dot1qTpGroupEgressPorts")
-
-                self.dot1qtpgrouplearnt = YLeaf(YType.str, "dot1qTpGroupLearnt")
-                self._segment_path = lambda: "dot1qTpGroupEntry" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']" + "[dot1qTpGroupAddress='" + self.dot1qtpgroupaddress.get() + "']"
+                self.ylist_key_names = ['dot1qvlanindex','dot1qtpgroupaddress']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qtpgroupaddress', YLeaf(YType.str, 'dot1qTpGroupAddress')),
+                    ('dot1qtpgroupegressports', YLeaf(YType.str, 'dot1qTpGroupEgressPorts')),
+                    ('dot1qtpgrouplearnt', YLeaf(YType.str, 'dot1qTpGroupLearnt')),
+                ])
+                self.dot1qvlanindex = None
+                self.dot1qtpgroupaddress = None
+                self.dot1qtpgroupegressports = None
+                self.dot1qtpgrouplearnt = None
+                self._segment_path = lambda: "dot1qTpGroupEntry" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']" + "[dot1qTpGroupAddress='" + str(self.dot1qtpgroupaddress) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -764,8 +789,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qForwardAllEntry" : ("dot1qforwardallentry", QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qForwardAllEntry", ("dot1qforwardallentry", QBRIDGEMIB.Dot1Qforwardalltable.Dot1Qforwardallentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qforwardallentry = YList(self)
             self._segment_path = lambda: "dot1qForwardAllTable"
@@ -782,7 +809,7 @@ class QBRIDGEMIB(Entity):
             configured statically by management or dynamically by
             GMRP.
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -820,17 +847,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qForwardAllTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qforwardallports = YLeaf(YType.str, "dot1qForwardAllPorts")
-
-                self.dot1qforwardallstaticports = YLeaf(YType.str, "dot1qForwardAllStaticPorts")
-
-                self.dot1qforwardallforbiddenports = YLeaf(YType.str, "dot1qForwardAllForbiddenPorts")
-                self._segment_path = lambda: "dot1qForwardAllEntry" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qforwardallports', YLeaf(YType.str, 'dot1qForwardAllPorts')),
+                    ('dot1qforwardallstaticports', YLeaf(YType.str, 'dot1qForwardAllStaticPorts')),
+                    ('dot1qforwardallforbiddenports', YLeaf(YType.str, 'dot1qForwardAllForbiddenPorts')),
+                ])
+                self.dot1qvlanindex = None
+                self.dot1qforwardallports = None
+                self.dot1qforwardallstaticports = None
+                self.dot1qforwardallforbiddenports = None
+                self._segment_path = lambda: "dot1qForwardAllEntry" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardAllTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -866,8 +896,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qForwardUnregisteredEntry" : ("dot1qforwardunregisteredentry", QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qForwardUnregisteredEntry", ("dot1qforwardunregisteredentry", QBRIDGEMIB.Dot1Qforwardunregisteredtable.Dot1Qforwardunregisteredentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qforwardunregisteredentry = YList(self)
             self._segment_path = lambda: "dot1qForwardUnregisteredTable"
@@ -885,7 +917,7 @@ class QBRIDGEMIB(Entity):
             This is configured statically by management or
             dynamically by GMRP.
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -923,17 +955,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qForwardUnregisteredTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qforwardunregisteredports = YLeaf(YType.str, "dot1qForwardUnregisteredPorts")
-
-                self.dot1qforwardunregisteredstaticports = YLeaf(YType.str, "dot1qForwardUnregisteredStaticPorts")
-
-                self.dot1qforwardunregisteredforbiddenports = YLeaf(YType.str, "dot1qForwardUnregisteredForbiddenPorts")
-                self._segment_path = lambda: "dot1qForwardUnregisteredEntry" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qforwardunregisteredports', YLeaf(YType.str, 'dot1qForwardUnregisteredPorts')),
+                    ('dot1qforwardunregisteredstaticports', YLeaf(YType.str, 'dot1qForwardUnregisteredStaticPorts')),
+                    ('dot1qforwardunregisteredforbiddenports', YLeaf(YType.str, 'dot1qForwardUnregisteredForbiddenPorts')),
+                ])
+                self.dot1qvlanindex = None
+                self.dot1qforwardunregisteredports = None
+                self.dot1qforwardunregisteredstaticports = None
+                self.dot1qforwardunregisteredforbiddenports = None
+                self._segment_path = lambda: "dot1qForwardUnregisteredEntry" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardUnregisteredTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -975,8 +1010,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qStaticUnicastEntry" : ("dot1qstaticunicastentry", QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qStaticUnicastEntry", ("dot1qstaticunicastentry", QBRIDGEMIB.Dot1Qstaticunicasttable.Dot1Qstaticunicastentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qstaticunicastentry = YList(self)
             self._segment_path = lambda: "dot1qStaticUnicastTable"
@@ -994,7 +1031,7 @@ class QBRIDGEMIB(Entity):
             containing a specific unicast destination address are
             allowed to be forwarded.
             
-            .. attribute:: dot1qfdbid  <key>
+            .. attribute:: dot1qfdbid  (key)
             
             	
             	**type**\: int
@@ -1003,14 +1040,14 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qfdbtable.Dot1Qfdbentry>`
             
-            .. attribute:: dot1qstaticunicastaddress  <key>
+            .. attribute:: dot1qstaticunicastaddress  (key)
             
             	The destination MAC address in a frame to which this entry's filtering information applies.  This object must take the value of a unicast address
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
-            .. attribute:: dot1qstaticunicastreceiveport  <key>
+            .. attribute:: dot1qstaticunicastreceiveport  (key)
             
             	Either the value '0' or the port number of the port from which a frame must be received in order for this entry's filtering information to apply.  A value of zero indicates that this entry applies on all ports of the device for which there is no other applicable entry
             	**type**\: int
@@ -1041,19 +1078,22 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qStaticUnicastTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qfdbid = YLeaf(YType.str, "dot1qFdbId")
-
-                self.dot1qstaticunicastaddress = YLeaf(YType.str, "dot1qStaticUnicastAddress")
-
-                self.dot1qstaticunicastreceiveport = YLeaf(YType.int32, "dot1qStaticUnicastReceivePort")
-
-                self.dot1qstaticunicastallowedtogoto = YLeaf(YType.str, "dot1qStaticUnicastAllowedToGoTo")
-
-                self.dot1qstaticunicaststatus = YLeaf(YType.enumeration, "dot1qStaticUnicastStatus")
-                self._segment_path = lambda: "dot1qStaticUnicastEntry" + "[dot1qFdbId='" + self.dot1qfdbid.get() + "']" + "[dot1qStaticUnicastAddress='" + self.dot1qstaticunicastaddress.get() + "']" + "[dot1qStaticUnicastReceivePort='" + self.dot1qstaticunicastreceiveport.get() + "']"
+                self.ylist_key_names = ['dot1qfdbid','dot1qstaticunicastaddress','dot1qstaticunicastreceiveport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qfdbid', YLeaf(YType.str, 'dot1qFdbId')),
+                    ('dot1qstaticunicastaddress', YLeaf(YType.str, 'dot1qStaticUnicastAddress')),
+                    ('dot1qstaticunicastreceiveport', YLeaf(YType.int32, 'dot1qStaticUnicastReceivePort')),
+                    ('dot1qstaticunicastallowedtogoto', YLeaf(YType.str, 'dot1qStaticUnicastAllowedToGoTo')),
+                    ('dot1qstaticunicaststatus', YLeaf(YType.enumeration, 'dot1qStaticUnicastStatus')),
+                ])
+                self.dot1qfdbid = None
+                self.dot1qstaticunicastaddress = None
+                self.dot1qstaticunicastreceiveport = None
+                self.dot1qstaticunicastallowedtogoto = None
+                self.dot1qstaticunicaststatus = None
+                self._segment_path = lambda: "dot1qStaticUnicastEntry" + "[dot1qFdbId='" + str(self.dot1qfdbid) + "']" + "[dot1qStaticUnicastAddress='" + str(self.dot1qstaticunicastaddress) + "']" + "[dot1qStaticUnicastReceivePort='" + str(self.dot1qstaticunicastreceiveport) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticUnicastTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1061,7 +1101,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Qstaticunicaststatus(Enum):
                 """
-                Dot1Qstaticunicaststatus
+                Dot1Qstaticunicaststatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1153,8 +1193,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qStaticMulticastEntry" : ("dot1qstaticmulticastentry", QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qStaticMulticastEntry", ("dot1qstaticmulticastentry", QBRIDGEMIB.Dot1Qstaticmulticasttable.Dot1Qstaticmulticastentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qstaticmulticastentry = YList(self)
             self._segment_path = lambda: "dot1qStaticMulticastTable"
@@ -1173,7 +1215,7 @@ class QBRIDGEMIB(Entity):
             for this VLAN and containing this Multicast or Broadcast
             destination address are allowed to be forwarded.
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -1182,14 +1224,14 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry>`
             
-            .. attribute:: dot1qstaticmulticastaddress  <key>
+            .. attribute:: dot1qstaticmulticastaddress  (key)
             
             	The destination MAC address in a frame to which this entry's filtering information applies.  This object must take the value of a Multicast or Broadcast address
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
-            .. attribute:: dot1qstaticmulticastreceiveport  <key>
+            .. attribute:: dot1qstaticmulticastreceiveport  (key)
             
             	Either the value '0' or the port number of the port from which a frame must be received in order for this entry's filtering information to apply.  A value of zero indicates that this entry applies on all ports of the device for which there is no other applicable entry
             	**type**\: int
@@ -1225,21 +1267,24 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qStaticMulticastTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qstaticmulticastaddress = YLeaf(YType.str, "dot1qStaticMulticastAddress")
-
-                self.dot1qstaticmulticastreceiveport = YLeaf(YType.int32, "dot1qStaticMulticastReceivePort")
-
-                self.dot1qstaticmulticaststaticegressports = YLeaf(YType.str, "dot1qStaticMulticastStaticEgressPorts")
-
-                self.dot1qstaticmulticastforbiddenegressports = YLeaf(YType.str, "dot1qStaticMulticastForbiddenEgressPorts")
-
-                self.dot1qstaticmulticaststatus = YLeaf(YType.enumeration, "dot1qStaticMulticastStatus")
-                self._segment_path = lambda: "dot1qStaticMulticastEntry" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']" + "[dot1qStaticMulticastAddress='" + self.dot1qstaticmulticastaddress.get() + "']" + "[dot1qStaticMulticastReceivePort='" + self.dot1qstaticmulticastreceiveport.get() + "']"
+                self.ylist_key_names = ['dot1qvlanindex','dot1qstaticmulticastaddress','dot1qstaticmulticastreceiveport']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qstaticmulticastaddress', YLeaf(YType.str, 'dot1qStaticMulticastAddress')),
+                    ('dot1qstaticmulticastreceiveport', YLeaf(YType.int32, 'dot1qStaticMulticastReceivePort')),
+                    ('dot1qstaticmulticaststaticegressports', YLeaf(YType.str, 'dot1qStaticMulticastStaticEgressPorts')),
+                    ('dot1qstaticmulticastforbiddenegressports', YLeaf(YType.str, 'dot1qStaticMulticastForbiddenEgressPorts')),
+                    ('dot1qstaticmulticaststatus', YLeaf(YType.enumeration, 'dot1qStaticMulticastStatus')),
+                ])
+                self.dot1qvlanindex = None
+                self.dot1qstaticmulticastaddress = None
+                self.dot1qstaticmulticastreceiveport = None
+                self.dot1qstaticmulticaststaticegressports = None
+                self.dot1qstaticmulticastforbiddenegressports = None
+                self.dot1qstaticmulticaststatus = None
+                self._segment_path = lambda: "dot1qStaticMulticastEntry" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']" + "[dot1qStaticMulticastAddress='" + str(self.dot1qstaticmulticastaddress) + "']" + "[dot1qStaticMulticastReceivePort='" + str(self.dot1qstaticmulticastreceiveport) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticMulticastTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1247,7 +1292,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Qstaticmulticaststatus(Enum):
                 """
-                Dot1Qstaticmulticaststatus
+                Dot1Qstaticmulticaststatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1331,8 +1376,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qVlanCurrentEntry" : ("dot1qvlancurrententry", QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qVlanCurrentEntry", ("dot1qvlancurrententry", QBRIDGEMIB.Dot1Qvlancurrenttable.Dot1Qvlancurrententry))])
+            self._leafs = OrderedDict()
 
             self.dot1qvlancurrententry = YList(self)
             self._segment_path = lambda: "dot1qVlanCurrentTable"
@@ -1349,14 +1396,14 @@ class QBRIDGEMIB(Entity):
             (local or network) management, or dynamically created
             as a result of GVRP requests received.
             
-            .. attribute:: dot1qvlantimemark  <key>
+            .. attribute:: dot1qvlantimemark  (key)
             
             	A TimeFilter for this entry.  See the TimeFilter textual convention to see how this works
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	The VLAN\-ID or other identifier referring to this VLAN
             	**type**\: int
@@ -1406,23 +1453,26 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qVlanCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlantimemark = YLeaf(YType.uint32, "dot1qVlanTimeMark")
-
-                self.dot1qvlanindex = YLeaf(YType.uint32, "dot1qVlanIndex")
-
-                self.dot1qvlanfdbid = YLeaf(YType.uint32, "dot1qVlanFdbId")
-
-                self.dot1qvlancurrentegressports = YLeaf(YType.str, "dot1qVlanCurrentEgressPorts")
-
-                self.dot1qvlancurrentuntaggedports = YLeaf(YType.str, "dot1qVlanCurrentUntaggedPorts")
-
-                self.dot1qvlanstatus = YLeaf(YType.enumeration, "dot1qVlanStatus")
-
-                self.dot1qvlancreationtime = YLeaf(YType.uint32, "dot1qVlanCreationTime")
-                self._segment_path = lambda: "dot1qVlanCurrentEntry" + "[dot1qVlanTimeMark='" + self.dot1qvlantimemark.get() + "']" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1qvlantimemark','dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlantimemark', YLeaf(YType.uint32, 'dot1qVlanTimeMark')),
+                    ('dot1qvlanindex', YLeaf(YType.uint32, 'dot1qVlanIndex')),
+                    ('dot1qvlanfdbid', YLeaf(YType.uint32, 'dot1qVlanFdbId')),
+                    ('dot1qvlancurrentegressports', YLeaf(YType.str, 'dot1qVlanCurrentEgressPorts')),
+                    ('dot1qvlancurrentuntaggedports', YLeaf(YType.str, 'dot1qVlanCurrentUntaggedPorts')),
+                    ('dot1qvlanstatus', YLeaf(YType.enumeration, 'dot1qVlanStatus')),
+                    ('dot1qvlancreationtime', YLeaf(YType.uint32, 'dot1qVlanCreationTime')),
+                ])
+                self.dot1qvlantimemark = None
+                self.dot1qvlanindex = None
+                self.dot1qvlanfdbid = None
+                self.dot1qvlancurrentegressports = None
+                self.dot1qvlancurrentuntaggedports = None
+                self.dot1qvlanstatus = None
+                self.dot1qvlancreationtime = None
+                self._segment_path = lambda: "dot1qVlanCurrentEntry" + "[dot1qVlanTimeMark='" + str(self.dot1qvlantimemark) + "']" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1430,7 +1480,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Qvlanstatus(Enum):
                 """
-                Dot1Qvlanstatus
+                Dot1Qvlanstatus (Enum Class)
 
                 This object indicates the status of this entry.
 
@@ -1502,8 +1552,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qVlanStaticEntry" : ("dot1qvlanstaticentry", QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qVlanStaticEntry", ("dot1qvlanstaticentry", QBRIDGEMIB.Dot1Qvlanstatictable.Dot1Qvlanstaticentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qvlanstaticentry = YList(self)
             self._segment_path = lambda: "dot1qVlanStaticTable"
@@ -1518,7 +1570,7 @@ class QBRIDGEMIB(Entity):
             Static information for a VLAN configured into the
             device by (local or network) management.
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -1568,21 +1620,24 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qVlanStaticTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qvlanstaticname = YLeaf(YType.str, "dot1qVlanStaticName")
-
-                self.dot1qvlanstaticegressports = YLeaf(YType.str, "dot1qVlanStaticEgressPorts")
-
-                self.dot1qvlanforbiddenegressports = YLeaf(YType.str, "dot1qVlanForbiddenEgressPorts")
-
-                self.dot1qvlanstaticuntaggedports = YLeaf(YType.str, "dot1qVlanStaticUntaggedPorts")
-
-                self.dot1qvlanstaticrowstatus = YLeaf(YType.enumeration, "dot1qVlanStaticRowStatus")
-                self._segment_path = lambda: "dot1qVlanStaticEntry" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qvlanstaticname', YLeaf(YType.str, 'dot1qVlanStaticName')),
+                    ('dot1qvlanstaticegressports', YLeaf(YType.str, 'dot1qVlanStaticEgressPorts')),
+                    ('dot1qvlanforbiddenegressports', YLeaf(YType.str, 'dot1qVlanForbiddenEgressPorts')),
+                    ('dot1qvlanstaticuntaggedports', YLeaf(YType.str, 'dot1qVlanStaticUntaggedPorts')),
+                    ('dot1qvlanstaticrowstatus', YLeaf(YType.enumeration, 'dot1qVlanStaticRowStatus')),
+                ])
+                self.dot1qvlanindex = None
+                self.dot1qvlanstaticname = None
+                self.dot1qvlanstaticegressports = None
+                self.dot1qvlanforbiddenegressports = None
+                self.dot1qvlanstaticuntaggedports = None
+                self.dot1qvlanstaticrowstatus = None
+                self._segment_path = lambda: "dot1qVlanStaticEntry" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanStaticTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1627,8 +1682,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qPortVlanStatisticsEntry" : ("dot1qportvlanstatisticsentry", QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qPortVlanStatisticsEntry", ("dot1qportvlanstatisticsentry", QBRIDGEMIB.Dot1Qportvlanstatisticstable.Dot1Qportvlanstatisticsentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qportvlanstatisticsentry = YList(self)
             self._segment_path = lambda: "dot1qPortVlanStatisticsTable"
@@ -1642,7 +1699,7 @@ class QBRIDGEMIB(Entity):
             """
             Traffic statistics for a VLAN on an interface.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -1651,7 +1708,7 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -1716,25 +1773,28 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qPortVlanStatisticsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qtpvlanportinframes = YLeaf(YType.uint32, "dot1qTpVlanPortInFrames")
-
-                self.dot1qtpvlanportoutframes = YLeaf(YType.uint32, "dot1qTpVlanPortOutFrames")
-
-                self.dot1qtpvlanportindiscards = YLeaf(YType.uint32, "dot1qTpVlanPortInDiscards")
-
-                self.dot1qtpvlanportinoverflowframes = YLeaf(YType.uint32, "dot1qTpVlanPortInOverflowFrames")
-
-                self.dot1qtpvlanportoutoverflowframes = YLeaf(YType.uint32, "dot1qTpVlanPortOutOverflowFrames")
-
-                self.dot1qtpvlanportinoverflowdiscards = YLeaf(YType.uint32, "dot1qTpVlanPortInOverflowDiscards")
-                self._segment_path = lambda: "dot1qPortVlanStatisticsEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qtpvlanportinframes', YLeaf(YType.uint32, 'dot1qTpVlanPortInFrames')),
+                    ('dot1qtpvlanportoutframes', YLeaf(YType.uint32, 'dot1qTpVlanPortOutFrames')),
+                    ('dot1qtpvlanportindiscards', YLeaf(YType.uint32, 'dot1qTpVlanPortInDiscards')),
+                    ('dot1qtpvlanportinoverflowframes', YLeaf(YType.uint32, 'dot1qTpVlanPortInOverflowFrames')),
+                    ('dot1qtpvlanportoutoverflowframes', YLeaf(YType.uint32, 'dot1qTpVlanPortOutOverflowFrames')),
+                    ('dot1qtpvlanportinoverflowdiscards', YLeaf(YType.uint32, 'dot1qTpVlanPortInOverflowDiscards')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1qvlanindex = None
+                self.dot1qtpvlanportinframes = None
+                self.dot1qtpvlanportoutframes = None
+                self.dot1qtpvlanportindiscards = None
+                self.dot1qtpvlanportinoverflowframes = None
+                self.dot1qtpvlanportoutoverflowframes = None
+                self.dot1qtpvlanportinoverflowdiscards = None
+                self._segment_path = lambda: "dot1qPortVlanStatisticsEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanStatisticsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1765,8 +1825,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qPortVlanHCStatisticsEntry" : ("dot1qportvlanhcstatisticsentry", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qPortVlanHCStatisticsEntry", ("dot1qportvlanhcstatisticsentry", QBRIDGEMIB.Dot1Qportvlanhcstatisticstable.Dot1Qportvlanhcstatisticsentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qportvlanhcstatisticsentry = YList(self)
             self._segment_path = lambda: "dot1qPortVlanHCStatisticsTable"
@@ -1781,7 +1843,7 @@ class QBRIDGEMIB(Entity):
             Traffic statistics for a VLAN on a high\-capacity
             interface.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -1790,7 +1852,7 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1qvlanindex  <key>
+            .. attribute:: dot1qvlanindex  (key)
             
             	
             	**type**\: int
@@ -1834,19 +1896,22 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qPortVlanHCStatisticsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1qvlanindex = YLeaf(YType.str, "dot1qVlanIndex")
-
-                self.dot1qtpvlanporthcinframes = YLeaf(YType.uint64, "dot1qTpVlanPortHCInFrames")
-
-                self.dot1qtpvlanporthcoutframes = YLeaf(YType.uint64, "dot1qTpVlanPortHCOutFrames")
-
-                self.dot1qtpvlanporthcindiscards = YLeaf(YType.uint64, "dot1qTpVlanPortHCInDiscards")
-                self._segment_path = lambda: "dot1qPortVlanHCStatisticsEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1qVlanIndex='" + self.dot1qvlanindex.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1qvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1qvlanindex', YLeaf(YType.str, 'dot1qVlanIndex')),
+                    ('dot1qtpvlanporthcinframes', YLeaf(YType.uint64, 'dot1qTpVlanPortHCInFrames')),
+                    ('dot1qtpvlanporthcoutframes', YLeaf(YType.uint64, 'dot1qTpVlanPortHCOutFrames')),
+                    ('dot1qtpvlanporthcindiscards', YLeaf(YType.uint64, 'dot1qTpVlanPortHCInDiscards')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1qvlanindex = None
+                self.dot1qtpvlanporthcinframes = None
+                self.dot1qtpvlanporthcoutframes = None
+                self.dot1qtpvlanporthcindiscards = None
+                self._segment_path = lambda: "dot1qPortVlanHCStatisticsEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1qVlanIndex='" + str(self.dot1qvlanindex) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanHCStatisticsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1877,8 +1942,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1qLearningConstraintsEntry" : ("dot1qlearningconstraintsentry", QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1qLearningConstraintsEntry", ("dot1qlearningconstraintsentry", QBRIDGEMIB.Dot1Qlearningconstraintstable.Dot1Qlearningconstraintsentry))])
+            self._leafs = OrderedDict()
 
             self.dot1qlearningconstraintsentry = YList(self)
             self._segment_path = lambda: "dot1qLearningConstraintsTable"
@@ -1892,14 +1959,14 @@ class QBRIDGEMIB(Entity):
             """
             A learning constraint defined for a VLAN.
             
-            .. attribute:: dot1qconstraintvlan  <key>
+            .. attribute:: dot1qconstraintvlan  (key)
             
             	The index of the row in dot1qVlanCurrentTable for the VLAN constrained by this entry
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: dot1qconstraintset  <key>
+            .. attribute:: dot1qconstraintset  (key)
             
             	The identity of the constraint set to which dot1qConstraintVlan belongs.  These values may be chosen by the management station
             	**type**\: int
@@ -1930,17 +1997,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1qLearningConstraintsTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1qconstraintvlan = YLeaf(YType.uint32, "dot1qConstraintVlan")
-
-                self.dot1qconstraintset = YLeaf(YType.int32, "dot1qConstraintSet")
-
-                self.dot1qconstrainttype = YLeaf(YType.enumeration, "dot1qConstraintType")
-
-                self.dot1qconstraintstatus = YLeaf(YType.enumeration, "dot1qConstraintStatus")
-                self._segment_path = lambda: "dot1qLearningConstraintsEntry" + "[dot1qConstraintVlan='" + self.dot1qconstraintvlan.get() + "']" + "[dot1qConstraintSet='" + self.dot1qconstraintset.get() + "']"
+                self.ylist_key_names = ['dot1qconstraintvlan','dot1qconstraintset']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1qconstraintvlan', YLeaf(YType.uint32, 'dot1qConstraintVlan')),
+                    ('dot1qconstraintset', YLeaf(YType.int32, 'dot1qConstraintSet')),
+                    ('dot1qconstrainttype', YLeaf(YType.enumeration, 'dot1qConstraintType')),
+                    ('dot1qconstraintstatus', YLeaf(YType.enumeration, 'dot1qConstraintStatus')),
+                ])
+                self.dot1qconstraintvlan = None
+                self.dot1qconstraintset = None
+                self.dot1qconstrainttype = None
+                self.dot1qconstraintstatus = None
+                self._segment_path = lambda: "dot1qLearningConstraintsEntry" + "[dot1qConstraintVlan='" + str(self.dot1qconstraintvlan) + "']" + "[dot1qConstraintSet='" + str(self.dot1qconstraintset) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qLearningConstraintsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1948,7 +2018,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Qconstrainttype(Enum):
                 """
-                Dot1Qconstrainttype
+                Dot1Qconstrainttype (Enum Class)
 
                 The type of constraint this entry defines.
 
@@ -2003,8 +2073,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1vProtocolGroupEntry" : ("dot1vprotocolgroupentry", QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1vProtocolGroupEntry", ("dot1vprotocolgroupentry", QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry))])
+            self._leafs = OrderedDict()
 
             self.dot1vprotocolgroupentry = YList(self)
             self._segment_path = lambda: "dot1vProtocolGroupTable"
@@ -2019,12 +2091,12 @@ class QBRIDGEMIB(Entity):
             A mapping from a Protocol Template to a Protocol
             Group Identifier.
             
-            .. attribute:: dot1vprotocoltemplateframetype  <key>
+            .. attribute:: dot1vprotocoltemplateframetype  (key)
             
             	The data\-link encapsulation format or the 'detagged\_frame\_type' in a Protocol Template
             	**type**\:  :py:class:`Dot1Vprotocoltemplateframetype <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1Vprotocolgrouptable.Dot1Vprotocolgroupentry.Dot1Vprotocoltemplateframetype>`
             
-            .. attribute:: dot1vprotocoltemplateprotocolvalue  <key>
+            .. attribute:: dot1vprotocoltemplateprotocolvalue  (key)
             
             	The identification of the protocol above the data\-link layer in a Protocol Template.  Depending on the frame type, the octet string will have one of the following values\:  For 'ethernet', 'rfc1042' and 'snap8021H',     this is the 16\-bit (2\-octet) IEEE 802.3 Type Field. For 'snapOther',     this is the 40\-bit (5\-octet) PID. For 'llcOther',     this is the 2\-octet IEEE 802.2 Link Service Access     Point (LSAP) pair\: first octet for Destination Service     Access Point (DSAP) and second octet for Source Service     Access Point (SSAP)
             	**type**\: str
@@ -2057,17 +2129,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1vProtocolGroupTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1vprotocoltemplateframetype = YLeaf(YType.enumeration, "dot1vProtocolTemplateFrameType")
-
-                self.dot1vprotocoltemplateprotocolvalue = YLeaf(YType.str, "dot1vProtocolTemplateProtocolValue")
-
-                self.dot1vprotocolgroupid = YLeaf(YType.int32, "dot1vProtocolGroupId")
-
-                self.dot1vprotocolgrouprowstatus = YLeaf(YType.enumeration, "dot1vProtocolGroupRowStatus")
-                self._segment_path = lambda: "dot1vProtocolGroupEntry" + "[dot1vProtocolTemplateFrameType='" + self.dot1vprotocoltemplateframetype.get() + "']" + "[dot1vProtocolTemplateProtocolValue='" + self.dot1vprotocoltemplateprotocolvalue.get() + "']"
+                self.ylist_key_names = ['dot1vprotocoltemplateframetype','dot1vprotocoltemplateprotocolvalue']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1vprotocoltemplateframetype', YLeaf(YType.enumeration, 'dot1vProtocolTemplateFrameType')),
+                    ('dot1vprotocoltemplateprotocolvalue', YLeaf(YType.str, 'dot1vProtocolTemplateProtocolValue')),
+                    ('dot1vprotocolgroupid', YLeaf(YType.int32, 'dot1vProtocolGroupId')),
+                    ('dot1vprotocolgrouprowstatus', YLeaf(YType.enumeration, 'dot1vProtocolGroupRowStatus')),
+                ])
+                self.dot1vprotocoltemplateframetype = None
+                self.dot1vprotocoltemplateprotocolvalue = None
+                self.dot1vprotocolgroupid = None
+                self.dot1vprotocolgrouprowstatus = None
+                self._segment_path = lambda: "dot1vProtocolGroupEntry" + "[dot1vProtocolTemplateFrameType='" + str(self.dot1vprotocoltemplateframetype) + "']" + "[dot1vProtocolTemplateProtocolValue='" + str(self.dot1vprotocoltemplateprotocolvalue) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2075,7 +2150,7 @@ class QBRIDGEMIB(Entity):
 
             class Dot1Vprotocoltemplateframetype(Enum):
                 """
-                Dot1Vprotocoltemplateframetype
+                Dot1Vprotocoltemplateframetype (Enum Class)
 
                 The data\-link encapsulation format or the
 
@@ -2129,8 +2204,10 @@ class QBRIDGEMIB(Entity):
             self.yang_parent_name = "Q-BRIDGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dot1vProtocolPortEntry" : ("dot1vprotocolportentry", QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dot1vProtocolPortEntry", ("dot1vprotocolportentry", QBRIDGEMIB.Dot1Vprotocolporttable.Dot1Vprotocolportentry))])
+            self._leafs = OrderedDict()
 
             self.dot1vprotocolportentry = YList(self)
             self._segment_path = lambda: "dot1vProtocolPortTable"
@@ -2144,7 +2221,7 @@ class QBRIDGEMIB(Entity):
             """
             A VID set for a port.
             
-            .. attribute:: dot1dbaseport  <key>
+            .. attribute:: dot1dbaseport  (key)
             
             	
             	**type**\: int
@@ -2153,7 +2230,7 @@ class QBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1Dbaseporttable.Dot1Dbaseportentry>`
             
-            .. attribute:: dot1vprotocolportgroupid  <key>
+            .. attribute:: dot1vprotocolportgroupid  (key)
             
             	Designates a group of protocols in the Protocol Group Database
             	**type**\: int
@@ -2186,17 +2263,20 @@ class QBRIDGEMIB(Entity):
                 self.yang_parent_name = "dot1vProtocolPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dot1dbaseport = YLeaf(YType.str, "dot1dBasePort")
-
-                self.dot1vprotocolportgroupid = YLeaf(YType.int32, "dot1vProtocolPortGroupId")
-
-                self.dot1vprotocolportgroupvid = YLeaf(YType.int32, "dot1vProtocolPortGroupVid")
-
-                self.dot1vprotocolportrowstatus = YLeaf(YType.enumeration, "dot1vProtocolPortRowStatus")
-                self._segment_path = lambda: "dot1vProtocolPortEntry" + "[dot1dBasePort='" + self.dot1dbaseport.get() + "']" + "[dot1vProtocolPortGroupId='" + self.dot1vprotocolportgroupid.get() + "']"
+                self.ylist_key_names = ['dot1dbaseport','dot1vprotocolportgroupid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dot1dbaseport', YLeaf(YType.str, 'dot1dBasePort')),
+                    ('dot1vprotocolportgroupid', YLeaf(YType.int32, 'dot1vProtocolPortGroupId')),
+                    ('dot1vprotocolportgroupvid', YLeaf(YType.int32, 'dot1vProtocolPortGroupVid')),
+                    ('dot1vprotocolportrowstatus', YLeaf(YType.enumeration, 'dot1vProtocolPortRowStatus')),
+                ])
+                self.dot1dbaseport = None
+                self.dot1vprotocolportgroupid = None
+                self.dot1vprotocolportgroupvid = None
+                self.dot1vprotocolportrowstatus = None
+                self._segment_path = lambda: "dot1vProtocolPortEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']" + "[dot1vProtocolPortGroupId='" + str(self.dot1vprotocolportgroupid) + "']"
                 self._absolute_path = lambda: "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

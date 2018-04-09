@@ -21,6 +21,11 @@ module Cisco-IOS-XE-environment-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-11-27 {
+    description
+      "Sensor thresholds. RPMs as units. Changed enumeration names to be lowercase and hyphenated";
+    reference "2.0.0";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -29,26 +34,32 @@ module Cisco-IOS-XE-environment-oper {
 
   typedef sensor-units-type {
     type enumeration {
-      enum "Watts" {
+      enum "watts" {
         value 0;
       }
-      enum "Celsius" {
+      enum "celsius" {
         value 1;
       }
-      enum "milliVolts" {
+      enum "millivolts" {
         value 2;
       }
-      enum "Amperes" {
+      enum "amperes" {
         value 3;
       }
-      enum "Volts-DC" {
+      enum "volts-dc" {
         value 4;
       }
-      enum "Volts-AC" {
+      enum "volts-ac" {
         value 5;
       }
-      enum "milliAmperes" {
+      enum "milliamperes" {
         value 6;
+      }
+      enum "unknown" {
+        value 7;
+      }
+      enum "revolutions-per-minute" {
+        value 8;
       }
     }
     description
@@ -90,6 +101,28 @@ module Cisco-IOS-XE-environment-oper {
       type environment-ios-xe-oper:sensor-units-type;
       description
         "Units corresponding to the current-reading value";
+    }
+    leaf low-critical-threshold {
+      type int32;
+      description
+        "Alarm threshold under which a critical
+         alarm will be signaled";
+    }
+    leaf low-normal-threshold {
+      type int32;
+      description
+        "No alarm above this threshold";
+    }
+    leaf high-normal-threshold {
+      type int32;
+      description
+        "No alarm below this threshold";
+    }
+    leaf high-critical-threshold {
+      type int32;
+      description
+        "Alarm threshold over which a critical 
+         alarm will be signaled";
     }
   }
 

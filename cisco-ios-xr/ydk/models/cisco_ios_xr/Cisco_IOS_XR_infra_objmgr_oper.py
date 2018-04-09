@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EndPort(Enum):
     """
-    EndPort
+    EndPort (Enum Class)
 
     End port
 
@@ -232,7 +234,7 @@ class EndPort(Enum):
 
 class Port(Enum):
     """
-    Port
+    Port (Enum Class)
 
     Port
 
@@ -445,7 +447,7 @@ class Port(Enum):
 
 class PortOperator(Enum):
     """
-    PortOperator
+    PortOperator (Enum Class)
 
     Port operator
 
@@ -486,7 +488,7 @@ class PortOperator(Enum):
 
 class StartPort(Enum):
     """
-    StartPort
+    StartPort (Enum Class)
 
     Start port
 
@@ -727,8 +729,10 @@ class ObjectGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-objmgr-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"port" : ("port", ObjectGroup.Port), "network" : ("network", ObjectGroup.Network)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("port", ("port", ObjectGroup.Port)), ("network", ("network", ObjectGroup.Network))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.port = ObjectGroup.Port()
         self.port.parent = self
@@ -765,8 +769,10 @@ class ObjectGroup(Entity):
             self.yang_parent_name = "object-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"objects" : ("objects", ObjectGroup.Port.Objects)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("objects", ("objects", ObjectGroup.Port.Objects))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.objects = ObjectGroup.Port.Objects()
             self.objects.parent = self
@@ -799,8 +805,10 @@ class ObjectGroup(Entity):
                 self.yang_parent_name = "port"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"object" : ("object", ObjectGroup.Port.Objects.Object)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("object", ("object", ObjectGroup.Port.Objects.Object))])
+                self._leafs = OrderedDict()
 
                 self.object = YList(self)
                 self._segment_path = lambda: "objects"
@@ -814,7 +822,7 @@ class ObjectGroup(Entity):
                 """
                 Port object group
                 
-                .. attribute:: object_name  <key>
+                .. attribute:: object_name  (key)
                 
                 	Port object group name
                 	**type**\: str
@@ -855,10 +863,13 @@ class ObjectGroup(Entity):
                     self.yang_parent_name = "objects"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Port.Objects.Object.NestedGroups), "operators" : ("operators", ObjectGroup.Port.Objects.Object.Operators), "port-ranges" : ("port_ranges", ObjectGroup.Port.Objects.Object.PortRanges), "parent-groups" : ("parent_groups", ObjectGroup.Port.Objects.Object.ParentGroups)}
-                    self._child_list_classes = {}
-
-                    self.object_name = YLeaf(YType.str, "object-name")
+                    self.ylist_key_names = ['object_name']
+                    self._child_container_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Port.Objects.Object.NestedGroups)), ("operators", ("operators", ObjectGroup.Port.Objects.Object.Operators)), ("port-ranges", ("port_ranges", ObjectGroup.Port.Objects.Object.PortRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Port.Objects.Object.ParentGroups))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object_name', YLeaf(YType.str, 'object-name')),
+                    ])
+                    self.object_name = None
 
                     self.nested_groups = ObjectGroup.Port.Objects.Object.NestedGroups()
                     self.nested_groups.parent = self
@@ -879,7 +890,7 @@ class ObjectGroup(Entity):
                     self.parent_groups.parent = self
                     self._children_name_map["parent_groups"] = "parent-groups"
                     self._children_yang_names.add("parent-groups")
-                    self._segment_path = lambda: "object" + "[object-name='" + self.object_name.get() + "']"
+                    self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/port/objects/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -909,8 +920,10 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("nested-group", ("nested_group", ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup))])
+                        self._leafs = OrderedDict()
 
                         self.nested_group = YList(self)
                         self._segment_path = lambda: "nested-groups"
@@ -923,7 +936,7 @@ class ObjectGroup(Entity):
                         """
                         nested object group
                         
-                        .. attribute:: nested_group_name  <key>
+                        .. attribute:: nested_group_name  (key)
                         
                         	Nested object group
                         	**type**\: str
@@ -949,13 +962,16 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "nested-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-
-                            self.nested_group_name_xr = YLeaf(YType.str, "nested-group-name-xr")
-                            self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+                            self.ylist_key_names = ['nested_group_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                            ])
+                            self.nested_group_name = None
+                            self.nested_group_name_xr = None
+                            self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -984,8 +1000,10 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"operator" : ("operator", ObjectGroup.Port.Objects.Object.Operators.Operator)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("operator", ("operator", ObjectGroup.Port.Objects.Object.Operators.Operator))])
+                        self._leafs = OrderedDict()
 
                         self.operator = YList(self)
                         self._segment_path = lambda: "operators"
@@ -1042,16 +1060,19 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "operators"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.operator_type = YLeaf(YType.enumeration, "operator-type")
-
-                            self.port = YLeaf(YType.str, "port")
-
-                            self.operator_type_xr = YLeaf(YType.uint32, "operator-type-xr")
-
-                            self.port_xr = YLeaf(YType.uint32, "port-xr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('operator_type', YLeaf(YType.enumeration, 'operator-type')),
+                                ('port', YLeaf(YType.str, 'port')),
+                                ('operator_type_xr', YLeaf(YType.uint32, 'operator-type-xr')),
+                                ('port_xr', YLeaf(YType.uint32, 'port-xr')),
+                            ])
+                            self.operator_type = None
+                            self.port = None
+                            self.operator_type_xr = None
+                            self.port_xr = None
                             self._segment_path = lambda: "operator"
 
                         def __setattr__(self, name, value):
@@ -1081,8 +1102,10 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"port-range" : ("port_range", ObjectGroup.Port.Objects.Object.PortRanges.PortRange)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("port-range", ("port_range", ObjectGroup.Port.Objects.Object.PortRanges.PortRange))])
+                        self._leafs = OrderedDict()
 
                         self.port_range = YList(self)
                         self._segment_path = lambda: "port-ranges"
@@ -1145,16 +1168,19 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "port-ranges"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.start_port = YLeaf(YType.str, "start-port")
-
-                            self.end_port = YLeaf(YType.str, "end-port")
-
-                            self.start_port_xr = YLeaf(YType.uint32, "start-port-xr")
-
-                            self.end_port_xr = YLeaf(YType.uint32, "end-port-xr")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('start_port', YLeaf(YType.str, 'start-port')),
+                                ('end_port', YLeaf(YType.str, 'end-port')),
+                                ('start_port_xr', YLeaf(YType.uint32, 'start-port-xr')),
+                                ('end_port_xr', YLeaf(YType.uint32, 'end-port-xr')),
+                            ])
+                            self.start_port = None
+                            self.end_port = None
+                            self.start_port_xr = None
+                            self.end_port_xr = None
                             self._segment_path = lambda: "port-range"
 
                         def __setattr__(self, name, value):
@@ -1184,8 +1210,10 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "object"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"parent-group" : ("parent_group", ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("parent-group", ("parent_group", ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup))])
+                        self._leafs = OrderedDict()
 
                         self.parent_group = YList(self)
                         self._segment_path = lambda: "parent-groups"
@@ -1198,7 +1226,7 @@ class ObjectGroup(Entity):
                         """
                         Parent object group
                         
-                        .. attribute:: parent_group_name  <key>
+                        .. attribute:: parent_group_name  (key)
                         
                         	Nested object group
                         	**type**\: str
@@ -1224,13 +1252,16 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "parent-groups"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.parent_group_name = YLeaf(YType.str, "parent-group-name")
-
-                            self.parent_name = YLeaf(YType.str, "parent-name")
-                            self._segment_path = lambda: "parent-group" + "[parent-group-name='" + self.parent_group_name.get() + "']"
+                            self.ylist_key_names = ['parent_group_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
+                                ('parent_name', YLeaf(YType.str, 'parent-name')),
+                            ])
+                            self.parent_group_name = None
+                            self.parent_name = None
+                            self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -1264,8 +1295,10 @@ class ObjectGroup(Entity):
             self.yang_parent_name = "object-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ipv6" : ("ipv6", ObjectGroup.Network.Ipv6), "ipv4" : ("ipv4", ObjectGroup.Network.Ipv4)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("ipv6", ("ipv6", ObjectGroup.Network.Ipv6)), ("ipv4", ("ipv4", ObjectGroup.Network.Ipv4))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.ipv6 = ObjectGroup.Network.Ipv6()
             self.ipv6.parent = self
@@ -1303,8 +1336,10 @@ class ObjectGroup(Entity):
                 self.yang_parent_name = "network"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"objects" : ("objects", ObjectGroup.Network.Ipv6.Objects)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("objects", ("objects", ObjectGroup.Network.Ipv6.Objects))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.objects = ObjectGroup.Network.Ipv6.Objects()
                 self.objects.parent = self
@@ -1337,8 +1372,10 @@ class ObjectGroup(Entity):
                     self.yang_parent_name = "ipv6"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"object" : ("object", ObjectGroup.Network.Ipv6.Objects.Object)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("object", ("object", ObjectGroup.Network.Ipv6.Objects.Object))])
+                    self._leafs = OrderedDict()
 
                     self.object = YList(self)
                     self._segment_path = lambda: "objects"
@@ -1352,7 +1389,7 @@ class ObjectGroup(Entity):
                     """
                     IPv6 object group
                     
-                    .. attribute:: object_name  <key>
+                    .. attribute:: object_name  (key)
                     
                     	IPv6 object group name \- maximum 64 characters
                     	**type**\: str
@@ -1398,10 +1435,13 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "objects"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups), "addresses" : ("addresses", ObjectGroup.Network.Ipv6.Objects.Object.Addresses), "address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges), "parent-groups" : ("parent_groups", ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups), "hosts" : ("hosts", ObjectGroup.Network.Ipv6.Objects.Object.Hosts)}
-                        self._child_list_classes = {}
-
-                        self.object_name = YLeaf(YType.str, "object-name")
+                        self.ylist_key_names = ['object_name']
+                        self._child_container_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups)), ("addresses", ("addresses", ObjectGroup.Network.Ipv6.Objects.Object.Addresses)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups)), ("hosts", ("hosts", ObjectGroup.Network.Ipv6.Objects.Object.Hosts))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object_name', YLeaf(YType.str, 'object-name')),
+                        ])
+                        self.object_name = None
 
                         self.nested_groups = ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups()
                         self.nested_groups.parent = self
@@ -1427,7 +1467,7 @@ class ObjectGroup(Entity):
                         self.hosts.parent = self
                         self._children_name_map["hosts"] = "hosts"
                         self._children_yang_names.add("hosts")
-                        self._segment_path = lambda: "object" + "[object-name='" + self.object_name.get() + "']"
+                        self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv6/objects/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1457,8 +1497,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("nested-group", ("nested_group", ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup))])
+                            self._leafs = OrderedDict()
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
@@ -1471,7 +1513,7 @@ class ObjectGroup(Entity):
                             """
                             nested object group
                             
-                            .. attribute:: nested_group_name  <key>
+                            .. attribute:: nested_group_name  (key)
                             
                             	Enter the name of a nested object group
                             	**type**\: str
@@ -1497,13 +1539,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "nested-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-
-                                self.nested_group_name_xr = YLeaf(YType.str, "nested-group-name-xr")
-                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+                                self.ylist_key_names = ['nested_group_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                    ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                                ])
+                                self.nested_group_name = None
+                                self.nested_group_name_xr = None
+                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -1532,8 +1577,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("address", ("address", ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address))])
+                            self._leafs = OrderedDict()
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
@@ -1588,16 +1635,19 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                self.prefix_xr = YLeaf(YType.str, "prefix-xr")
-
-                                self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix_xr', YLeaf(YType.str, 'prefix-xr')),
+                                    ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                                ])
+                                self.prefix = None
+                                self.prefix_length = None
+                                self.prefix_xr = None
+                                self.prefix_length_xr = None
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
@@ -1627,8 +1677,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("address-range", ("address_range", ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange))])
+                            self._leafs = OrderedDict()
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
@@ -1683,16 +1735,19 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "address-ranges"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.start_address = YLeaf(YType.str, "start-address")
-
-                                self.end_address = YLeaf(YType.str, "end-address")
-
-                                self.start_address_xr = YLeaf(YType.str, "start-address-xr")
-
-                                self.end_address_xr = YLeaf(YType.str, "end-address-xr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('start_address', YLeaf(YType.str, 'start-address')),
+                                    ('end_address', YLeaf(YType.str, 'end-address')),
+                                    ('start_address_xr', YLeaf(YType.str, 'start-address-xr')),
+                                    ('end_address_xr', YLeaf(YType.str, 'end-address-xr')),
+                                ])
+                                self.start_address = None
+                                self.end_address = None
+                                self.start_address_xr = None
+                                self.end_address_xr = None
                                 self._segment_path = lambda: "address-range"
 
                             def __setattr__(self, name, value):
@@ -1722,8 +1777,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"parent-group" : ("parent_group", ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("parent-group", ("parent_group", ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup))])
+                            self._leafs = OrderedDict()
 
                             self.parent_group = YList(self)
                             self._segment_path = lambda: "parent-groups"
@@ -1736,7 +1793,7 @@ class ObjectGroup(Entity):
                             """
                             Parent object group
                             
-                            .. attribute:: parent_group_name  <key>
+                            .. attribute:: parent_group_name  (key)
                             
                             	Nested object group
                             	**type**\: str
@@ -1762,13 +1819,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "parent-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.parent_group_name = YLeaf(YType.str, "parent-group-name")
-
-                                self.parent_name = YLeaf(YType.str, "parent-name")
-                                self._segment_path = lambda: "parent-group" + "[parent-group-name='" + self.parent_group_name.get() + "']"
+                                self.ylist_key_names = ['parent_group_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
+                                    ('parent_name', YLeaf(YType.str, 'parent-name')),
+                                ])
+                                self.parent_group_name = None
+                                self.parent_name = None
+                                self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -1797,8 +1857,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("host", ("host", ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host))])
+                            self._leafs = OrderedDict()
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
@@ -1811,7 +1873,7 @@ class ObjectGroup(Entity):
                             """
                             A single host address
                             
-                            .. attribute:: host_address  <key>
+                            .. attribute:: host_address  (key)
                             
                             	host ipv6 address
                             	**type**\: str
@@ -1839,13 +1901,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "hosts"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-
-                                self.host_address_xr = YLeaf(YType.str, "host-address-xr")
-                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
+                                self.ylist_key_names = ['host_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('host_address', YLeaf(YType.str, 'host-address')),
+                                    ('host_address_xr', YLeaf(YType.str, 'host-address-xr')),
+                                ])
+                                self.host_address = None
+                                self.host_address_xr = None
+                                self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
@@ -1874,8 +1939,10 @@ class ObjectGroup(Entity):
                 self.yang_parent_name = "network"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"objects" : ("objects", ObjectGroup.Network.Ipv4.Objects)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("objects", ("objects", ObjectGroup.Network.Ipv4.Objects))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.objects = ObjectGroup.Network.Ipv4.Objects()
                 self.objects.parent = self
@@ -1908,8 +1975,10 @@ class ObjectGroup(Entity):
                     self.yang_parent_name = "ipv4"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"object" : ("object", ObjectGroup.Network.Ipv4.Objects.Object)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("object", ("object", ObjectGroup.Network.Ipv4.Objects.Object))])
+                    self._leafs = OrderedDict()
 
                     self.object = YList(self)
                     self._segment_path = lambda: "objects"
@@ -1923,7 +1992,7 @@ class ObjectGroup(Entity):
                     """
                     IPv4 object group
                     
-                    .. attribute:: object_name  <key>
+                    .. attribute:: object_name  (key)
                     
                     	IPv4 object group name \- maximum 64 characters
                     	**type**\: str
@@ -1969,10 +2038,13 @@ class ObjectGroup(Entity):
                         self.yang_parent_name = "objects"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups), "addresses" : ("addresses", ObjectGroup.Network.Ipv4.Objects.Object.Addresses), "address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges), "parent-groups" : ("parent_groups", ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups), "hosts" : ("hosts", ObjectGroup.Network.Ipv4.Objects.Object.Hosts)}
-                        self._child_list_classes = {}
-
-                        self.object_name = YLeaf(YType.str, "object-name")
+                        self.ylist_key_names = ['object_name']
+                        self._child_container_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups)), ("addresses", ("addresses", ObjectGroup.Network.Ipv4.Objects.Object.Addresses)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups)), ("hosts", ("hosts", ObjectGroup.Network.Ipv4.Objects.Object.Hosts))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object_name', YLeaf(YType.str, 'object-name')),
+                        ])
+                        self.object_name = None
 
                         self.nested_groups = ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups()
                         self.nested_groups.parent = self
@@ -1998,7 +2070,7 @@ class ObjectGroup(Entity):
                         self.hosts.parent = self
                         self._children_name_map["hosts"] = "hosts"
                         self._children_yang_names.add("hosts")
-                        self._segment_path = lambda: "object" + "[object-name='" + self.object_name.get() + "']"
+                        self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv4/objects/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -2028,8 +2100,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("nested-group", ("nested_group", ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup))])
+                            self._leafs = OrderedDict()
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
@@ -2042,7 +2116,7 @@ class ObjectGroup(Entity):
                             """
                             Nested object group
                             
-                            .. attribute:: nested_group_name  <key>
+                            .. attribute:: nested_group_name  (key)
                             
                             	Nested object group
                             	**type**\: str
@@ -2068,13 +2142,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "nested-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-
-                                self.nested_group_name_xr = YLeaf(YType.str, "nested-group-name-xr")
-                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+                                self.ylist_key_names = ['nested_group_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                    ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                                ])
+                                self.nested_group_name = None
+                                self.nested_group_name_xr = None
+                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -2103,8 +2180,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("address", ("address", ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address))])
+                            self._leafs = OrderedDict()
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
@@ -2159,16 +2238,19 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-
-                                self.prefix_xr = YLeaf(YType.str, "prefix-xr")
-
-                                self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('prefix', YLeaf(YType.str, 'prefix')),
+                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix_xr', YLeaf(YType.str, 'prefix-xr')),
+                                    ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                                ])
+                                self.prefix = None
+                                self.prefix_length = None
+                                self.prefix_xr = None
+                                self.prefix_length_xr = None
                                 self._segment_path = lambda: "address"
 
                             def __setattr__(self, name, value):
@@ -2198,8 +2280,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("address-range", ("address_range", ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange))])
+                            self._leafs = OrderedDict()
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
@@ -2254,16 +2338,19 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "address-ranges"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.start_address = YLeaf(YType.str, "start-address")
-
-                                self.end_address = YLeaf(YType.str, "end-address")
-
-                                self.start_address_xr = YLeaf(YType.str, "start-address-xr")
-
-                                self.end_address_xr = YLeaf(YType.str, "end-address-xr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('start_address', YLeaf(YType.str, 'start-address')),
+                                    ('end_address', YLeaf(YType.str, 'end-address')),
+                                    ('start_address_xr', YLeaf(YType.str, 'start-address-xr')),
+                                    ('end_address_xr', YLeaf(YType.str, 'end-address-xr')),
+                                ])
+                                self.start_address = None
+                                self.end_address = None
+                                self.start_address_xr = None
+                                self.end_address_xr = None
                                 self._segment_path = lambda: "address-range"
 
                             def __setattr__(self, name, value):
@@ -2293,8 +2380,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"parent-group" : ("parent_group", ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("parent-group", ("parent_group", ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup))])
+                            self._leafs = OrderedDict()
 
                             self.parent_group = YList(self)
                             self._segment_path = lambda: "parent-groups"
@@ -2307,7 +2396,7 @@ class ObjectGroup(Entity):
                             """
                             Parent object group
                             
-                            .. attribute:: parent_group_name  <key>
+                            .. attribute:: parent_group_name  (key)
                             
                             	Nested object group
                             	**type**\: str
@@ -2333,13 +2422,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "parent-groups"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.parent_group_name = YLeaf(YType.str, "parent-group-name")
-
-                                self.parent_name = YLeaf(YType.str, "parent-name")
-                                self._segment_path = lambda: "parent-group" + "[parent-group-name='" + self.parent_group_name.get() + "']"
+                                self.ylist_key_names = ['parent_group_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
+                                    ('parent_name', YLeaf(YType.str, 'parent-name')),
+                                ])
+                                self.parent_group_name = None
+                                self.parent_name = None
+                                self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -2368,8 +2460,10 @@ class ObjectGroup(Entity):
                             self.yang_parent_name = "object"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("host", ("host", ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host))])
+                            self._leafs = OrderedDict()
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
@@ -2382,7 +2476,7 @@ class ObjectGroup(Entity):
                             """
                             A single host address
                             
-                            .. attribute:: host_address  <key>
+                            .. attribute:: host_address  (key)
                             
                             	Host ipv4 address
                             	**type**\: str
@@ -2410,13 +2504,16 @@ class ObjectGroup(Entity):
                                 self.yang_parent_name = "hosts"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-
-                                self.host_address_xr = YLeaf(YType.str, "host-address-xr")
-                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
+                                self.ylist_key_names = ['host_address']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('host_address', YLeaf(YType.str, 'host-address')),
+                                    ('host_address_xr', YLeaf(YType.str, 'host-address-xr')),
+                                ])
+                                self.host_address = None
+                                self.host_address_xr = None
+                                self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)

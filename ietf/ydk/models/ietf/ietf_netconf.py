@@ -16,6 +16,8 @@ This version of this YANG module is part of RFC 6241; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -24,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EditOperationType(Enum):
     """
-    EditOperationType
+    EditOperationType (Enum Class)
 
     NETCONF 'operation' attribute values
 
@@ -123,7 +125,7 @@ class EditOperationType(Enum):
 
 class ErrorSeverityType(Enum):
     """
-    ErrorSeverityType
+    ErrorSeverityType (Enum Class)
 
     NETCONF Error Severity
 
@@ -144,7 +146,7 @@ class ErrorSeverityType(Enum):
 
 class ErrorTagType(Enum):
     """
-    ErrorTagType
+    ErrorTagType (Enum Class)
 
     NETCONF Error Tag
 
@@ -345,8 +347,10 @@ class GetConfig(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = GetConfig.Input()
         self.input.parent = self
@@ -393,12 +397,15 @@ class GetConfig(Entity):
             self.yang_parent_name = "get-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"source" : ("source", GetConfig.Input.Source)}
-            self._child_list_classes = {}
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("source", ("source", GetConfig.Input.Source))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+            ])
+            self.filter = None
+            self.with_defaults = None
 
             self.source = GetConfig.Input.Source()
             self.source.parent = self
@@ -444,14 +451,17 @@ class GetConfig(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:get-config/input/%s" % self._segment_path()
 
@@ -482,10 +492,13 @@ class GetConfig(Entity):
             self.yang_parent_name = "get-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('data', YLeaf(YType.str, 'data')),
+            ])
+            self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
 
@@ -521,8 +534,10 @@ class EditConfig(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = EditConfig.Input()
         self.input.parent = self
@@ -585,18 +600,21 @@ class EditConfig(Entity):
             self.yang_parent_name = "edit-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", EditConfig.Input.Target)}
-            self._child_list_classes = {}
-
-            self.default_operation = YLeaf(YType.enumeration, "default-operation")
-
-            self.test_option = YLeaf(YType.enumeration, "test-option")
-
-            self.error_option = YLeaf(YType.enumeration, "error-option")
-
-            self.config = YLeaf(YType.str, "config")
-
-            self.url = YLeaf(YType.str, "url")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", EditConfig.Input.Target))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('default_operation', YLeaf(YType.enumeration, 'default-operation')),
+                ('test_option', YLeaf(YType.enumeration, 'test-option')),
+                ('error_option', YLeaf(YType.enumeration, 'error-option')),
+                ('config', YLeaf(YType.str, 'config')),
+                ('url', YLeaf(YType.str, 'url')),
+            ])
+            self.default_operation = None
+            self.test_option = None
+            self.error_option = None
+            self.config = None
+            self.url = None
 
             self.target = EditConfig.Input.Target()
             self.target.parent = self
@@ -610,7 +628,7 @@ class EditConfig(Entity):
 
         class DefaultOperation(Enum):
             """
-            DefaultOperation
+            DefaultOperation (Enum Class)
 
             The default operation to use.
 
@@ -637,7 +655,7 @@ class EditConfig(Entity):
 
         class ErrorOption(Enum):
             """
-            ErrorOption
+            ErrorOption (Enum Class)
 
             The error option to use.
 
@@ -668,7 +686,7 @@ class EditConfig(Entity):
 
         class TestOption(Enum):
             """
-            TestOption
+            TestOption (Enum Class)
 
             The test option to use.
 
@@ -724,12 +742,15 @@ class EditConfig(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                ])
+                self.candidate = None
+                self.running = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:edit-config/input/%s" % self._segment_path()
 
@@ -765,8 +786,10 @@ class CopyConfig(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = CopyConfig.Input()
         self.input.parent = self
@@ -808,10 +831,13 @@ class CopyConfig(Entity):
             self.yang_parent_name = "copy-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", CopyConfig.Input.Target), "source" : ("source", CopyConfig.Input.Source)}
-            self._child_list_classes = {}
-
-            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", CopyConfig.Input.Target)), ("source", ("source", CopyConfig.Input.Source))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+            ])
+            self.with_defaults = None
 
             self.target = CopyConfig.Input.Target()
             self.target.parent = self
@@ -867,16 +893,19 @@ class CopyConfig(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('url', YLeaf(YType.str, 'url')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
+                self.url = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
 
@@ -927,18 +956,21 @@ class CopyConfig(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-
-                self.config = YLeaf(YType.str, "config")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('url', YLeaf(YType.str, 'url')),
+                    ('config', YLeaf(YType.str, 'config')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
+                self.url = None
+                self.config = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
 
@@ -973,8 +1005,10 @@ class DeleteConfig(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = DeleteConfig.Input()
         self.input.parent = self
@@ -1006,8 +1040,10 @@ class DeleteConfig(Entity):
             self.yang_parent_name = "delete-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", DeleteConfig.Input.Target)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", DeleteConfig.Input.Target))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.target = DeleteConfig.Input.Target()
             self.target.parent = self
@@ -1045,12 +1081,15 @@ class DeleteConfig(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('url', YLeaf(YType.str, 'url')),
+                ])
+                self.startup = None
+                self.url = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:delete-config/input/%s" % self._segment_path()
 
@@ -1086,8 +1125,10 @@ class Lock(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Lock.Input()
         self.input.parent = self
@@ -1119,8 +1160,10 @@ class Lock(Entity):
             self.yang_parent_name = "lock"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", Lock.Input.Target)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", Lock.Input.Target))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.target = Lock.Input.Target()
             self.target.parent = self
@@ -1163,14 +1206,17 @@ class Lock(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:lock/input/%s" % self._segment_path()
 
@@ -1206,8 +1252,10 @@ class Unlock(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Unlock.Input()
         self.input.parent = self
@@ -1239,8 +1287,10 @@ class Unlock(Entity):
             self.yang_parent_name = "unlock"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", Unlock.Input.Target)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", Unlock.Input.Target))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.target = Unlock.Input.Target()
             self.target.parent = self
@@ -1283,14 +1333,17 @@ class Unlock(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:unlock/input/%s" % self._segment_path()
 
@@ -1330,8 +1383,10 @@ class Get(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Get.Input()
         self.input.parent = self
@@ -1373,12 +1428,15 @@ class Get(Entity):
             self.yang_parent_name = "get"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('filter', YLeaf(YType.str, 'filter')),
+                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+            ])
+            self.filter = None
+            self.with_defaults = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
 
@@ -1409,10 +1467,13 @@ class Get(Entity):
             self.yang_parent_name = "get"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('data', YLeaf(YType.str, 'data')),
+            ])
+            self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
 
@@ -1442,8 +1503,10 @@ class CloseSession(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "ietf-netconf:close-session"
 
     def clone_ptr(self):
@@ -1474,8 +1537,10 @@ class KillSession(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = KillSession.Input()
         self.input.parent = self
@@ -1511,10 +1576,13 @@ class KillSession(Entity):
             self.yang_parent_name = "kill-session"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.session_id = YLeaf(YType.uint32, "session-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('session_id', YLeaf(YType.uint32, 'session-id')),
+            ])
+            self.session_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:kill-session/%s" % self._segment_path()
 
@@ -1550,8 +1618,10 @@ class Commit(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Commit.Input()
         self.input.parent = self
@@ -1604,16 +1674,19 @@ class Commit(Entity):
             self.yang_parent_name = "commit"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.confirmed = YLeaf(YType.empty, "confirmed")
-
-            self.confirm_timeout = YLeaf(YType.uint32, "confirm-timeout")
-
-            self.persist = YLeaf(YType.str, "persist")
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('confirmed', YLeaf(YType.empty, 'confirmed')),
+                ('confirm_timeout', YLeaf(YType.uint32, 'confirm-timeout')),
+                ('persist', YLeaf(YType.str, 'persist')),
+                ('persist_id', YLeaf(YType.str, 'persist-id')),
+            ])
+            self.confirmed = None
+            self.confirm_timeout = None
+            self.persist = None
+            self.persist_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:commit/%s" % self._segment_path()
 
@@ -1644,8 +1717,10 @@ class DiscardChanges(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "ietf-netconf:discard-changes"
 
     def clone_ptr(self):
@@ -1679,8 +1754,10 @@ class CancelCommit(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = CancelCommit.Input()
         self.input.parent = self
@@ -1712,10 +1789,13 @@ class CancelCommit(Entity):
             self.yang_parent_name = "cancel-commit"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('persist_id', YLeaf(YType.str, 'persist-id')),
+            ])
+            self.persist_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:cancel-commit/%s" % self._segment_path()
 
@@ -1750,8 +1830,10 @@ class Validate(Entity):
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Validate.Input()
         self.input.parent = self
@@ -1783,8 +1865,10 @@ class Validate(Entity):
             self.yang_parent_name = "validate"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"source" : ("source", Validate.Input.Source)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("source", ("source", Validate.Input.Source))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.source = Validate.Input.Source()
             self.source.parent = self
@@ -1837,18 +1921,21 @@ class Validate(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-
-                self.config = YLeaf(YType.str, "config")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('url', YLeaf(YType.str, 'url')),
+                    ('config', YLeaf(YType.str, 'config')),
+                ])
+                self.candidate = None
+                self.running = None
+                self.startup = None
+                self.url = None
+                self.config = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:validate/input/%s" % self._segment_path()
 

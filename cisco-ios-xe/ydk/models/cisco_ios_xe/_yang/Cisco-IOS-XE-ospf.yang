@@ -41,6 +41,25 @@ module Cisco-IOS-XE-ospf {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-16 {
+    description
+      "fix area 0 range <ipv4> <ipv4-mask> issue";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Add 40 and 100GE interface";
+  }
+
+  revision 2017-10-20 {
+    description
+      "To allow support of ip osfp authentication-key <string> under interface";
+  }
 
   revision 2017-08-18 {
     description
@@ -2853,7 +2872,19 @@ module Cisco-IOS-XE-ospf {
     uses config-interface-ip-ospf-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-ospf-grouping;
   }
 
@@ -2892,7 +2923,19 @@ module Cisco-IOS-XE-ospf {
     uses config-interface-ipv6-ospf-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ipv6-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-ospf-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
     uses config-interface-ipv6-ospf-grouping;
   }
 

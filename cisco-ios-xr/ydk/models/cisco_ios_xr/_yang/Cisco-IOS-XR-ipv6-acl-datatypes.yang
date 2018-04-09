@@ -1,908 +1,1062 @@
 module Cisco-IOS-XR-ipv6-acl-datatypes {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-acl-datatypes";
+  prefix ipv6-acl-datatypes;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
 
-  namespace "http://cisco.com/ns"+
-    "/yang/Cisco-IOS-XR-ipv6-acl-datatypes";
-
-
-  prefix "ipv6-acl-datatypes";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of generally useful
      derived YANG data types.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ipv6-prefix-match-exact-length {
     type enumeration {
-      enum match-exact-length {
+      enum "match-exact-length" {
         value 1;
-        description "Prefix Length Exact match";
+        description
+          "Prefix Length Exact match";
       }
     }
-    description "Ipv6 prefix match exact length";
+    description
+      "Ipv6 prefix match exact length";
   }
+
   typedef Ipv6-acl-grant-enum {
     type enumeration {
-      enum deny {
+      enum "deny" {
         value 0;
-        description "Deny";
+        description
+          "Deny";
       }
-      enum permit {
+      enum "permit" {
         value 1;
-        description "Permit";
+        description
+          "Permit";
       }
     }
-    description "Ipv6 acl grant enum";
+    description
+      "Ipv6 acl grant enum";
   }
+
   typedef Ipv6-acl-logging-enum {
     type enumeration {
-      enum log {
+      enum "log" {
         value 1;
-        description "Log matches against this entry";
+        description
+          "Log matches against this entry";
       }
-      enum log-input {
+      enum "log-input" {
         value 2;
         description
           "Log matches against this entry, including input
-          interface";
+           interface";
       }
     }
-    description "Ipv6 acl logging enum";
+    description
+      "Ipv6 acl logging enum";
   }
+
   typedef Ipv6-acl-log-threshold-range {
     type uint32 {
       range "1..2147483647";
     }
-    description "Ipv6 acl log threshold range";
+    description
+      "Ipv6 acl log threshold range";
   }
+
   typedef Ipv6-acl-protocol-number {
     type union {
       type enumeration {
-        enum ip {
+        enum "ip" {
           value 0;
-          description "Any IP protocol";
+          description
+            "Any IP protocol";
         }
-        enum icmp {
+        enum "icmp" {
           value 1;
-          description "Internet Control Message Protocol";
+          description
+            "Internet Control Message Protocol";
         }
-        enum igmp {
+        enum "igmp" {
           value 2;
-          description "Internet Gateway Message Protocol";
+          description
+            "Internet Gateway Message Protocol";
         }
-        enum ip-in-ip {
+        enum "ip-in-ip" {
           value 4;
-          description "IP in IP tunneling";
+          description
+            "IP in IP tunneling";
         }
-        enum tcp {
+        enum "tcp" {
           value 6;
-          description "Transport Control Protocol";
+          description
+            "Transport Control Protocol";
         }
-        enum igrp {
+        enum "igrp" {
           value 9;
-          description "Cisco's IGRP Routing Protocol";
+          description
+            "Cisco's IGRP Routing Protocol";
         }
-        enum udp {
+        enum "udp" {
           value 17;
-          description "User Datagram Protocol";
+          description
+            "User Datagram Protocol";
         }
-        enum gre {
+        enum "gre" {
           value 47;
-          description "Cisco's GRE tunneling";
+          description
+            "Cisco's GRE tunneling";
         }
-        enum esp {
+        enum "esp" {
           value 50;
-          description "Encapsulation Security Protocol";
+          description
+            "Encapsulation Security Protocol";
         }
-        enum ahp {
+        enum "ahp" {
           value 51;
-          description "Authentication Header Protocol";
+          description
+            "Authentication Header Protocol";
         }
-        enum icmpv6 {
+        enum "icmpv6" {
           value 58;
-          description "Internet Control Message Protocol";
+          description
+            "Internet Control Message Protocol";
         }
-        enum eigrp {
+        enum "eigrp" {
           value 88;
-          description "Cisco's EIGRP Routing Protocol";
+          description
+            "Cisco's EIGRP Routing Protocol";
         }
-        enum ospf {
+        enum "ospf" {
           value 89;
-          description "OSPF Routing Protocol";
+          description
+            "OSPF Routing Protocol";
         }
-        enum nos {
+        enum "nos" {
           value 94;
-          description "KA9Q NOS Compatible IP over IP tunneling";
+          description
+            "KA9Q NOS Compatible IP over IP tunneling";
         }
-        enum pim {
+        enum "pim" {
           value 103;
-          description "Protocol Independent Multicast";
+          description
+            "Protocol Independent Multicast";
         }
-        enum pcp {
+        enum "pcp" {
           value 108;
-          description "Payload Compression Protocol";
+          description
+            "Payload Compression Protocol";
         }
-        enum sctp {
+        enum "sctp" {
           value 132;
-          description "Stream Control Transmission Protocol";
+          description
+            "Stream Control Transmission Protocol";
         }
       }
       type uint32 {
         range "0..255";
       }
     }
-    description "Ipv6 acl protocol number";
+    description
+      "Ipv6 acl protocol number";
   }
+
   typedef Ipv6-acl-icmp-code-range {
     type uint32 {
       range "0..255";
     }
-    description "Ipv6 acl icmp code range";
+    description
+      "Ipv6 acl icmp code range";
   }
+
   typedef Ipv6-acl-icmp-type-code-enum {
     type enumeration {
-      enum no-route-to-destination {
+      enum "no-route-to-destination" {
         value 65536;
-        description "No route to destination";
+        description
+          "No route to destination";
       }
-      enum administratively-prohibited {
+      enum "administratively-prohibited" {
         value 65537;
-        description "Administratively prohibited";
+        description
+          "Administratively prohibited";
       }
-      enum beyond-scope-of-source-address {
+      enum "beyond-scope-of-source-address" {
         value 65538;
-        description "Unreachable beyond scope of address";
+        description
+          "Unreachable beyond scope of address";
       }
-      enum host-unreachable {
+      enum "host-unreachable" {
         value 65539;
-        description "Host unreachable";
+        description
+          "Host unreachable";
       }
-      enum port-unreachable {
+      enum "port-unreachable" {
         value 65540;
-        description "Port unreachable";
+        description
+          "Port unreachable";
       }
-      enum unreachable {
+      enum "unreachable" {
         value 131071;
-        description "All unreachables";
+        description
+          "All unreachables";
       }
-      enum packet-too-big {
+      enum "packet-too-big" {
         value 131072;
-        description "packet too big";
+        description
+          "packet too big";
       }
-      enum ttl-exceeded {
+      enum "ttl-exceeded" {
         value 196608;
-        description "TTL exceeded";
+        description
+          "TTL exceeded";
       }
-      enum reassembly-timeout {
+      enum "reassembly-timeout" {
         value 196609;
-        description "Reassembly timeout";
+        description
+          "Reassembly timeout";
       }
-      enum time-exceeded {
+      enum "time-exceeded" {
         value 262143;
-        description "All time exceeds";
+        description
+          "All time exceeds";
       }
-      enum erronenous-header-field {
+      enum "erronenous-header-field" {
         value 262144;
-        description "Erroneous header field";
+        description
+          "Erroneous header field";
       }
-      enum option-missing {
+      enum "option-missing" {
         value 262145;
-        description "Parameter required but not present";
+        description
+          "Parameter required but not present";
       }
-      enum no-room-for-option {
+      enum "no-room-for-option" {
         value 262146;
-        description "Parameter required but no room";
+        description
+          "Parameter required but no room";
       }
-      enum parameter-problem {
+      enum "parameter-problem" {
         value 327679;
-        description "All parameter problems";
+        description
+          "All parameter problems";
       }
-      enum echo {
+      enum "echo" {
         value 8388608;
-        description "Echo ping";
+        description
+          "Echo ping";
       }
-      enum echo-reply {
+      enum "echo-reply" {
         value 8454144;
-        description "Echo reply";
+        description
+          "Echo reply";
       }
-      enum group-membership-query {
+      enum "group-membership-query" {
         value 8585215;
-        description "Multicast listener query";
+        description
+          "Multicast listener query";
       }
-      enum group-membership-report {
+      enum "group-membership-report" {
         value 8650751;
-        description "Multicast listener report";
+        description
+          "Multicast listener report";
       }
-      enum group-membership-reduction {
+      enum "group-membership-reduction" {
         value 8716287;
-        description "Multicast listener done";
+        description
+          "Multicast listener done";
       }
-      enum router-solicitation {
+      enum "router-solicitation" {
         value 8716288;
-        description "Router discovery solicitations";
+        description
+          "Router discovery solicitations";
       }
-      enum router-advertisement {
+      enum "router-advertisement" {
         value 8781824;
-        description "Router discovery advertisements";
+        description
+          "Router discovery advertisements";
       }
-      enum neighbor-solicitation {
+      enum "neighbor-solicitation" {
         value 8847360;
-        description "Neighbor discovery neighbor solicitations";
+        description
+          "Neighbor discovery neighbor solicitations";
       }
-      enum neighbor-advertisement {
+      enum "neighbor-advertisement" {
         value 8912896;
-        description "Neighbor discovery neighbor advertisements";
+        description
+          "Neighbor discovery neighbor advertisements";
       }
-      enum redirect {
+      enum "redirect" {
         value 8978432;
-        description "All redirects";
+        description
+          "All redirects";
       }
-      enum rr-command {
+      enum "rr-command" {
         value 9043968;
-        description "Router renumbering command";
+        description
+          "Router renumbering command";
       }
-      enum rr-result {
+      enum "rr-result" {
         value 9043969;
-        description "Router renumbering result";
+        description
+          "Router renumbering result";
       }
-      enum rr-seqnum-reset {
+      enum "rr-seqnum-reset" {
         value 9044223;
-        description "Router renumbering seqnum";
+        description
+          "Router renumbering seqnum";
       }
-      enum router-renumbering {
+      enum "router-renumbering" {
         value 9109503;
-        description "Router renumbering";
+        description
+          "Router renumbering";
       }
-      enum query-subject-is-ipv6-address {
+      enum "query-subject-is-ipv6-address" {
         value 9109504;
-        description "Query subject is ipv6 address";
+        description
+          "Query subject is ipv6 address";
       }
-      enum query-subject-is-domain-name {
+      enum "query-subject-is-domain-name" {
         value 9109505;
-        description "Query subject is domain name";
+        description
+          "Query subject is domain name";
       }
-      enum query-subject-is-ipv4-address {
+      enum "query-subject-is-ipv4-address" {
         value 9109506;
-        description "Query subject is ipv4 address";
+        description
+          "Query subject is ipv4 address";
       }
-      enum who-are-you-request {
+      enum "who-are-you-request" {
         value 9175039;
-        description "Who are you request";
+        description
+          "Who are you request";
       }
-      enum node-information-successful-reply {
+      enum "node-information-successful-reply" {
         value 9175040;
-        description "Node information successful reply";
+        description
+          "Node information successful reply";
       }
-      enum node-information-request-is-refused {
+      enum "node-information-request-is-refused" {
         value 9175041;
-        description "Node information reply rejected";
+        description
+          "Node information reply rejected";
       }
-      enum unknown-query-type {
+      enum "unknown-query-type" {
         value 9175042;
-        description "Unknown query type";
+        description
+          "Unknown query type";
       }
-      enum who-are-you-reply {
+      enum "who-are-you-reply" {
         value 9240575;
-        description "Who are you reply";
+        description
+          "Who are you reply";
       }
     }
-    description "Ipv6 acl icmp type code enum";
+    description
+      "Ipv6 acl icmp type code enum";
   }
+
   typedef Ipv6-acl-sequence-number-range {
     type uint32 {
       range "1..2147483643";
     }
-    description "Ipv6 acl sequence number range";
+    description
+      "Ipv6 acl sequence number range";
   }
+
   typedef Ipv6-acl-precedence-number {
     type union {
       type enumeration {
-        enum critical {
+        enum "critical" {
           value 5;
-          description "Match packets with critical precedence";
+          description
+            "Match packets with critical precedence";
         }
-        enum flash {
+        enum "flash" {
           value 3;
-          description "Match packets with flash precedence";
+          description
+            "Match packets with flash precedence";
         }
-        enum flash-override {
+        enum "flash-override" {
           value 4;
           description
             "Match packets with flash override precedence";
         }
-        enum immediate {
+        enum "immediate" {
           value 2;
-          description "Match packets with immediate precedence";
+          description
+            "Match packets with immediate precedence";
         }
-        enum internet {
+        enum "internet" {
           value 6;
           description
             "Match packets with internetwork control
-            precedence";
+             precedence";
         }
-        enum network {
+        enum "network" {
           value 7;
           description
             "Match packets with network control precedence";
         }
-        enum priority {
+        enum "priority" {
           value 1;
-          description "Match packets with priority precedence";
+          description
+            "Match packets with priority precedence";
         }
-        enum routine {
+        enum "routine" {
           value 0;
-          description "Match packets with routine precedence";
+          description
+            "Match packets with routine precedence";
         }
       }
       type uint32 {
         range "0..7";
       }
     }
-    description "Ipv6 acl precedence number";
+    description
+      "Ipv6 acl precedence number";
   }
+
   typedef Ipv6-acl-qos-group-number {
     type uint32 {
       range "0..512";
     }
-    description "Ipv6 acl qos group number";
+    description
+      "Ipv6 acl qos group number";
   }
+
   typedef Ipv6-acl-type-enum {
     type enumeration {
-      enum acl {
+      enum "acl" {
         value 1;
-        description "ACL";
+        description
+          "ACL";
       }
-      enum prefix-list {
+      enum "prefix-list" {
         value 2;
-        description "Prefix List";
+        description
+          "Prefix List";
       }
     }
-    description "Ipv6 acl type enum";
+    description
+      "Ipv6 acl type enum";
   }
+
   typedef Ipv6-prefix-match-min-length {
     type enumeration {
-      enum match-min-length {
+      enum "match-min-length" {
         value 2;
         description
           "Enable matching of Prefix Lengths greater than
-          MinPrefixLength";
+           MinPrefixLength";
       }
     }
-    description "Ipv6 prefix match min length";
+    description
+      "Ipv6 prefix match min length";
   }
+
   typedef Ipv6-acl-dscp-number {
     type union {
       type enumeration {
-        enum default {
+        enum "default" {
           value 0;
-          description "Default DSCP";
+          description
+            "Default DSCP";
         }
-        enum af11 {
+        enum "af11" {
           value 10;
-          description "Match packets with AF11 DSCP";
+          description
+            "Match packets with AF11 DSCP";
         }
-        enum af12 {
+        enum "af12" {
           value 12;
-          description "Match packets with AF12 DSCP";
+          description
+            "Match packets with AF12 DSCP";
         }
-        enum af13 {
+        enum "af13" {
           value 14;
-          description "Match packets with AF13 DSCP";
+          description
+            "Match packets with AF13 DSCP";
         }
-        enum af21 {
+        enum "af21" {
           value 18;
-          description "Match packets with AF21 DSCP";
+          description
+            "Match packets with AF21 DSCP";
         }
-        enum af22 {
+        enum "af22" {
           value 20;
-          description "Match packets with AF22 DSCP";
+          description
+            "Match packets with AF22 DSCP";
         }
-        enum af23 {
+        enum "af23" {
           value 22;
-          description "Match packets with AF23 DSCP";
+          description
+            "Match packets with AF23 DSCP";
         }
-        enum af31 {
+        enum "af31" {
           value 26;
-          description "Match packets with AF31 DSCP";
+          description
+            "Match packets with AF31 DSCP";
         }
-        enum af32 {
+        enum "af32" {
           value 28;
-          description "Match packets with AF32 DSCP";
+          description
+            "Match packets with AF32 DSCP";
         }
-        enum af33 {
+        enum "af33" {
           value 30;
-          description "Match packets with AF33 DSCP";
+          description
+            "Match packets with AF33 DSCP";
         }
-        enum af41 {
+        enum "af41" {
           value 34;
-          description "Match packets with AF41 DSCP";
+          description
+            "Match packets with AF41 DSCP";
         }
-        enum af42 {
+        enum "af42" {
           value 36;
-          description "Match packets with AF42 DSCP";
+          description
+            "Match packets with AF42 DSCP";
         }
-        enum af43 {
+        enum "af43" {
           value 38;
-          description "Match packets with AF43 DSCP";
+          description
+            "Match packets with AF43 DSCP";
         }
-        enum cs1 {
+        enum "cs1" {
           value 8;
-          description "Match packets with CS1 (precedence 1) DSCP";
+          description
+            "Match packets with CS1 (precedence 1) DSCP";
         }
-        enum cs2 {
+        enum "cs2" {
           value 16;
-          description "Match packets with CS2 (precedence 2) DSCP";
+          description
+            "Match packets with CS2 (precedence 2) DSCP";
         }
-        enum cs3 {
+        enum "cs3" {
           value 24;
-          description "Match packets with CS3 (precedence 3) DSCP";
+          description
+            "Match packets with CS3 (precedence 3) DSCP";
         }
-        enum cs4 {
+        enum "cs4" {
           value 32;
-          description "Match packets with CS4 (precedence 4) DSCP";
+          description
+            "Match packets with CS4 (precedence 4) DSCP";
         }
-        enum cs5 {
+        enum "cs5" {
           value 40;
-          description "Match packets with CS5 (precedence 5) DSCP";
+          description
+            "Match packets with CS5 (precedence 5) DSCP";
         }
-        enum cs6 {
+        enum "cs6" {
           value 48;
-          description "Match packets with CS6 (precedence 6) DSCP";
+          description
+            "Match packets with CS6 (precedence 6) DSCP";
         }
-        enum cs7 {
+        enum "cs7" {
           value 56;
-          description "Match packets with CS7 (precedence 7) DSCP";
+          description
+            "Match packets with CS7 (precedence 7) DSCP";
         }
-        enum ef {
+        enum "ef" {
           value 46;
-          description "Match packets with EF DSCP";
+          description
+            "Match packets with EF DSCP";
         }
       }
       type uint32 {
         range "0..64";
       }
     }
-    description "Ipv6 acl dscp number";
+    description
+      "Ipv6 acl dscp number";
   }
+
   typedef Ipv6-acl-max-configurable-sequence-numbers {
     type uint32 {
       range "50000..350000";
     }
-    description "Ipv6 acl max configurable sequence numbers";
+    description
+      "Ipv6 acl max configurable sequence numbers";
   }
+
   typedef Ipv6-acl-log-rate-range {
     type uint32 {
       range "1..1000";
     }
-    description "Ipv6 acl log rate range";
+    description
+      "Ipv6 acl log rate range";
   }
+
   typedef Ipv6-acl-tcp-bits-number {
     type union {
       type enumeration {
-        enum established {
+        enum "established" {
           value 20;
-          description "Match established connections (0x14)";
+          description
+            "Match established connections (0x14)";
         }
-        enum ack {
+        enum "ack" {
           value 16;
-          description "Match on the ACK bit (0x10)";
+          description
+            "Match on the ACK bit (0x10)";
         }
-        enum rst {
+        enum "rst" {
           value 4;
-          description "Match on the RST bit (0x04)";
+          description
+            "Match on the RST bit (0x04)";
         }
-        enum fin {
+        enum "fin" {
           value 1;
-          description "Match on the FIN bit (0x01)";
+          description
+            "Match on the FIN bit (0x01)";
         }
-        enum psh {
+        enum "psh" {
           value 8;
-          description "Match on the PSH bit (0x08)";
+          description
+            "Match on the PSH bit (0x08)";
         }
-        enum syn {
+        enum "syn" {
           value 2;
-          description "Match on the SYN bit (0x02)";
+          description
+            "Match on the SYN bit (0x02)";
         }
-        enum urg {
+        enum "urg" {
           value 32;
-          description "Match on the URG bit (0x20)";
+          description
+            "Match on the URG bit (0x20)";
         }
       }
       type uint32 {
         range "0..63";
       }
     }
-    description "Ipv6 acl tcp bits number";
+    description
+      "Ipv6 acl tcp bits number";
   }
+
   typedef Ipv6-acl-prefix-list-name {
     type xr:Cisco-ios-xr-string {
       length "1..65";
     }
-    description "Ipv6 acl prefix list name";
+    description
+      "Ipv6 acl prefix list name";
   }
+
   typedef Ipv6-acl-icmp-type-range {
     type uint32 {
       range "0..255";
     }
-    description "Ipv6 acl icmp type range";
+    description
+      "Ipv6 acl icmp type range";
   }
+
   typedef Ipv6-prefix-match-max-length {
     type enumeration {
-      enum match-max-length {
+      enum "match-max-length" {
         value 3;
         description
           "Enable matching of Prefix Lengths lesser than
-          MaxPrefixLength";
+           MaxPrefixLength";
       }
     }
-    description "Ipv6 prefix match max length";
+    description
+      "Ipv6 prefix match max length";
   }
+
   typedef Ipv6-acl-plen-range {
     type uint32 {
       range "0..65535";
     }
-    description "Ipv6 acl plen range";
+    description
+      "Ipv6 acl plen range";
   }
+
   typedef Ipv6-acl-ttl-range {
     type uint32 {
       range "0..255";
     }
-    description "Ipv6 acl ttl range";
+    description
+      "Ipv6 acl ttl range";
   }
+
   typedef Ipv6-acl-port-number {
     type union {
       type enumeration {
-        enum echo {
+        enum "echo" {
           value 7;
-          description "Match on the 'echo' port number";
+          description
+            "Match on the 'echo' port number";
         }
-        enum discard {
+        enum "discard" {
           value 9;
-          description "Match on the 'discard' port number";
+          description
+            "Match on the 'discard' port number";
         }
-        enum daytime {
+        enum "daytime" {
           value 13;
           description
             "Match on the 'daytime' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum char-gen {
+        enum "char-gen" {
           value 19;
           description
             "Match on the 'chargen' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum ftp-data {
+        enum "ftp-data" {
           value 20;
           description
             "Match on the FTP data connections port number
-            (TCP/SCTP only)";
+             (TCP/SCTP only)";
         }
-        enum ftp {
+        enum "ftp" {
           value 21;
           description
             "Match on the 'ftp' port number (TCP/SCTP only)";
         }
-        enum telnet {
+        enum "telnet" {
           value 23;
           description
             "Match on the 'telnet' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum smtp {
+        enum "smtp" {
           value 25;
           description
             "Match on the 'smtp' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum time {
+        enum "time" {
           value 37;
-          description "Match on the 'time' port number";
+          description
+            "Match on the 'time' port number";
         }
-        enum name-server {
+        enum "name-server" {
           value 42;
           description
             "Match on the IEN116 name service port number
-            (UDP only)";
+             (UDP only)";
         }
-        enum who-is {
+        enum "who-is" {
           value 43;
           description
             "Match on the 'nicname' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum tacacs {
+        enum "tacacs" {
           value 49;
-          description "Match on the 'tacacs' port number";
+          description
+            "Match on the 'tacacs' port number";
         }
-        enum dns {
+        enum "dns" {
           value 53;
-          description "Match on the 'dns' port number";
+          description
+            "Match on the 'dns' port number";
         }
-        enum boot-ps {
+        enum "boot-ps" {
           value 67;
           description
             "Match on the Bootstrap Protocol server port
-            number (UDP only)";
+             number (UDP only)";
         }
-        enum boot-pc {
+        enum "boot-pc" {
           value 68;
           description
             "Match on the Bootstrap Protocol client port
-            number (UDP only)";
+             number (UDP only)";
         }
-        enum tftp {
+        enum "tftp" {
           value 69;
-          description "Match on the 'tftp' port number (UDP only)";
+          description
+            "Match on the 'tftp' port number (UDP only)";
         }
-        enum gopher {
+        enum "gopher" {
           value 70;
           description
             "Match on the 'gopher' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum finger {
+        enum "finger" {
           value 79;
           description
             "Match on the 'finger' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum www {
+        enum "www" {
           value 80;
           description
             "Match on the 'http' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum host-name {
+        enum "host-name" {
           value 101;
           description
             "Match on the NIC hostname server port number
-            (TCP/SCTP only)";
+             (TCP/SCTP only)";
         }
-        enum pop2 {
+        enum "pop2" {
           value 109;
           description
             "Match on the 'pop2' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum pop3 {
+        enum "pop3" {
           value 110;
           description
             "Match on the 'pop3' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum sun-rpc {
+        enum "sun-rpc" {
           value 111;
-          description "Match on the Sun RPC port number";
+          description
+            "Match on the Sun RPC port number";
         }
-        enum ident {
+        enum "ident" {
           value 113;
           description
             "Match on the 'ident' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum nntp {
+        enum "nntp" {
           value 119;
           description
             "Match on the 'nntp' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum ntp {
+        enum "ntp" {
           value 123;
-          description "Match on the 'ntp' port number (UDP only)";
+          description
+            "Match on the 'ntp' port number (UDP only)";
         }
-        enum net-bios-ns {
+        enum "net-bios-ns" {
           value 137;
           description
             "Match on the NetBIOS name service port number
-            (UDP only)";
+             (UDP only)";
         }
-        enum net-bios-dgs {
+        enum "net-bios-dgs" {
           value 138;
           description
             "Match on the NetBIOS datagram service port
-            number (UDP only)";
+             number (UDP only)";
         }
-        enum net-bios-ss {
+        enum "net-bios-ss" {
           value 139;
           description
             "Match on the NetBIOS session service port
-            number (UDP only)";
+             number (UDP only)";
         }
-        enum snmp {
+        enum "snmp" {
           value 161;
-          description "Match on the 'snmp' port number (UDP only)";
+          description
+            "Match on the 'snmp' port number (UDP only)";
         }
-        enum snmp-trap {
+        enum "snmp-trap" {
           value 162;
           description
             "Match on the SNMP traps port number (UDP only)";
         }
-        enum xdmcp {
+        enum "xdmcp" {
           value 177;
-          description "Match on the 'xdmcp' port number (UDP only)";
+          description
+            "Match on the 'xdmcp' port number (UDP only)";
         }
-        enum bgp {
+        enum "bgp" {
           value 179;
           description
             "Match on the 'bgp' port number (TCP/SCTP only)";
         }
-        enum irc {
+        enum "irc" {
           value 194;
           description
             "Match on the 'irc' port number (TCP/SCTP only)";
         }
-        enum dnsix {
+        enum "dnsix" {
           value 195;
           description
             "Match on the DNSIX security protocol auditing
-            port number (UDP only)";
+             port number (UDP only)";
         }
-        enum mobile-ip {
+        enum "mobile-ip" {
           value 434;
           description
             "Match on the mobile IP registration port
-            number (UDP only)";
+             number (UDP only)";
         }
-        enum pim-auto-rp {
+        enum "pim-auto-rp" {
           value 496;
-          description "Match on the PIM Auto-RP port number";
+          description
+            "Match on the PIM Auto-RP port number";
         }
-        enum isakmp {
+        enum "isakmp" {
           value 500;
           description
             "Match on the 'isakmp' port number (UDP only)";
         }
-        enum exec-or-biff {
+        enum "exec-or-biff" {
           value 512;
           description
             "Match on the port used by TCP/SCTP for 'exec'
-            and by UDP for 'biff'";
+             and by UDP for 'biff'";
         }
-        enum login-or-who {
+        enum "login-or-who" {
           value 513;
           description
             "Match on the port used by TCP/SCTP for 'login'
-            and by UDP for 'rwho'";
+             and by UDP for 'rwho'";
         }
-        enum cmd-or-syslog {
+        enum "cmd-or-syslog" {
           value 514;
           description
             "Match on the port used by TCP/SCTP for 'rcmd'
-            and by UDP for 'syslog'";
+             and by UDP for 'syslog'";
         }
-        enum lpd {
+        enum "lpd" {
           value 515;
           description
             "Match on the 'lpd' port number (TCP/SCTP only)";
         }
-        enum talk {
+        enum "talk" {
           value 517;
-          description "Match on the 'talk' port number";
+          description
+            "Match on the 'talk' port number";
         }
-        enum rip {
+        enum "rip" {
           value 520;
-          description "Match on the 'rip' port number (UDP only)";
+          description
+            "Match on the 'rip' port number (UDP only)";
         }
-        enum uucp {
+        enum "uucp" {
           value 540;
           description
             "Match on the 'uucp' port number (TCP/SCTP
-            only)";
+             only)";
         }
-        enum klogin {
+        enum "klogin" {
           value 543;
           description
             "Match on the Kerberos login port number
-            (TCP/SCTP only)";
+             (TCP/SCTP only)";
         }
-        enum kshell {
+        enum "kshell" {
           value 544;
           description
             "Match on the Kerberos shell port number
-            (TCP/SCTP only)";
+             (TCP/SCTP only)";
         }
-        enum ldp {
+        enum "ldp" {
           value 646;
-          description "Match on the LDP port";
+          description
+            "Match on the LDP port";
         }
       }
       type uint32 {
         range "0..65535";
       }
     }
-    description "Ipv6 acl port number";
+    description
+      "Ipv6 acl port number";
   }
+
   typedef Ipv6-acl-status-enum {
     type enumeration {
-      enum disabled {
+      enum "disabled" {
         value 0;
-        description "Disabled";
+        description
+          "Disabled";
       }
-      enum enabled {
+      enum "enabled" {
         value 1;
-        description "Enabled";
+        description
+          "Enabled";
       }
     }
-    description "Ipv6 acl status enum";
+    description
+      "Ipv6 acl status enum";
   }
+
   typedef Ipv6-acl-max-configurable-acl {
     type uint32 {
       range "1000..16000";
     }
-    description "Ipv6 acl max configurable acl";
+    description
+      "Ipv6 acl max configurable acl";
   }
+
   typedef Ipv6-acl-operator-enum {
     type enumeration {
-      enum equal {
+      enum "equal" {
         value 1;
-        description "Match only packets on a given port number";
+        description
+          "Match only packets on a given port number";
       }
-      enum greater-than {
+      enum "greater-than" {
         value 2;
-        description "Match only packet with a greater port number";
+        description
+          "Match only packet with a greater port number";
       }
-      enum less-than {
+      enum "less-than" {
         value 3;
-        description "Match only packet with a lower port number";
+        description
+          "Match only packet with a lower port number";
       }
-      enum not-equal {
+      enum "not-equal" {
         value 4;
-        description "Match only packets not on a given port number";
+        description
+          "Match only packets not on a given port number";
       }
-      enum range {
+      enum "range" {
         value 5;
         description
           "Match only packets in the range of port numbers";
       }
     }
-    description "Ipv6 acl operator enum";
+    description
+      "Ipv6 acl operator enum";
   }
+
   typedef Ipv6-acl-tcp-match-operator-enum {
     type enumeration {
-      enum match-all {
+      enum "match-all" {
         value 1;
-        description "Match only packet with all the given TCP bits";
+        description
+          "Match only packet with all the given TCP bits";
       }
-      enum match-any {
+      enum "match-any" {
         value 3;
         description
           "Match only packet with any of the given TCP
-          bits";
+           bits";
       }
     }
-    description "Ipv6 acl tcp match operator enum";
+    description
+      "Ipv6 acl tcp match operator enum";
   }
 }

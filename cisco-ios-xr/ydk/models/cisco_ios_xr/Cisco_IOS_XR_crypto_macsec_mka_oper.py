@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Macsec(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-crypto-macsec-mka-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mka" : ("mka", Macsec.Mka)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("mka", ("mka", Macsec.Mka))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.mka = Macsec.Mka()
         self.mka.parent = self
@@ -75,8 +79,10 @@ class Macsec(Entity):
             self.yang_parent_name = "macsec"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", Macsec.Mka.Interfaces)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Macsec.Mka.Interfaces))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.interfaces = Macsec.Mka.Interfaces()
             self.interfaces.parent = self
@@ -109,8 +115,10 @@ class Macsec(Entity):
                 self.yang_parent_name = "mka"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Macsec.Mka.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Macsec.Mka.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -124,7 +132,7 @@ class Macsec(Entity):
                 """
                 MKA Data for the Interface
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -150,16 +158,19 @@ class Macsec(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"session" : ("session", Macsec.Mka.Interfaces.Interface.Session)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("session", ("session", Macsec.Mka.Interfaces.Interface.Session))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.session = Macsec.Mka.Interfaces.Interface.Session()
                     self.session.parent = self
                     self._children_name_map["session"] = "session"
                     self._children_yang_names.add("session")
-                    self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -199,8 +210,10 @@ class Macsec(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"session-summary" : ("session_summary", Macsec.Mka.Interfaces.Interface.Session.SessionSummary), "vp" : ("vp", Macsec.Mka.Interfaces.Interface.Session.Vp)}
-                        self._child_list_classes = {"ca" : ("ca", Macsec.Mka.Interfaces.Interface.Session.Ca)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("session-summary", ("session_summary", Macsec.Mka.Interfaces.Interface.Session.SessionSummary)), ("vp", ("vp", Macsec.Mka.Interfaces.Interface.Session.Vp))])
+                        self._child_list_classes = OrderedDict([("ca", ("ca", Macsec.Mka.Interfaces.Interface.Session.Ca))])
+                        self._leafs = OrderedDict()
 
                         self.session_summary = Macsec.Mka.Interfaces.Interface.Session.SessionSummary()
                         self.session_summary.parent = self
@@ -327,36 +340,39 @@ class Macsec(Entity):
                             self.yang_parent_name = "session"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"outer-tag" : ("outer_tag", Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag), "inner-tag" : ("inner_tag", Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.inherited_policy = YLeaf(YType.boolean, "inherited-policy")
-
-                            self.policy = YLeaf(YType.str, "policy")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.my_mac = YLeaf(YType.str, "my-mac")
-
-                            self.delay_protection = YLeaf(YType.boolean, "delay-protection")
-
-                            self.replay_protect = YLeaf(YType.boolean, "replay-protect")
-
-                            self.window_size = YLeaf(YType.uint32, "window-size")
-
-                            self.include_icv_indicator = YLeaf(YType.boolean, "include-icv-indicator")
-
-                            self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
-
-                            self.algo_agility = YLeaf(YType.uint32, "algo-agility")
-
-                            self.capability = YLeaf(YType.uint32, "capability")
-
-                            self.cipher_str = YLeaf(YType.str, "cipher-str")
-
-                            self.mac_sec_desired = YLeaf(YType.boolean, "mac-sec-desired")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("outer-tag", ("outer_tag", Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag)), ("inner-tag", ("inner_tag", Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('inherited_policy', YLeaf(YType.boolean, 'inherited-policy')),
+                                ('policy', YLeaf(YType.str, 'policy')),
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('my_mac', YLeaf(YType.str, 'my-mac')),
+                                ('delay_protection', YLeaf(YType.boolean, 'delay-protection')),
+                                ('replay_protect', YLeaf(YType.boolean, 'replay-protect')),
+                                ('window_size', YLeaf(YType.uint32, 'window-size')),
+                                ('include_icv_indicator', YLeaf(YType.boolean, 'include-icv-indicator')),
+                                ('confidentiality_offset', YLeaf(YType.uint32, 'confidentiality-offset')),
+                                ('algo_agility', YLeaf(YType.uint32, 'algo-agility')),
+                                ('capability', YLeaf(YType.uint32, 'capability')),
+                                ('cipher_str', YLeaf(YType.str, 'cipher-str')),
+                                ('mac_sec_desired', YLeaf(YType.boolean, 'mac-sec-desired')),
+                            ])
+                            self.interface_name = None
+                            self.inherited_policy = None
+                            self.policy = None
+                            self.priority = None
+                            self.my_mac = None
+                            self.delay_protection = None
+                            self.replay_protect = None
+                            self.window_size = None
+                            self.include_icv_indicator = None
+                            self.confidentiality_offset = None
+                            self.algo_agility = None
+                            self.capability = None
+                            self.cipher_str = None
+                            self.mac_sec_desired = None
 
                             self.outer_tag = Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag()
                             self.outer_tag.parent = self
@@ -377,30 +393,30 @@ class Macsec(Entity):
                             """
                             VLAN Outer TAG
                             
-                            .. attribute:: etype
+                            .. attribute:: ether_type
                             
-                            	etype
+                            	EtherType
                             	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: priority
                             
-                            	priority
+                            	Priority
                             	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: cfi
                             
-                            	cfi
+                            	Cannonical Format Identifier
                             	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: vlan_id
                             
-                            	vlan id
+                            	Vlan Id
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -419,50 +435,53 @@ class Macsec(Entity):
                                 self.yang_parent_name = "session-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.etype = YLeaf(YType.uint16, "etype")
-
-                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                self.cfi = YLeaf(YType.uint8, "cfi")
-
-                                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', YLeaf(YType.uint16, 'ether-type')),
+                                    ('priority', YLeaf(YType.uint8, 'priority')),
+                                    ('cfi', YLeaf(YType.uint8, 'cfi')),
+                                    ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                ])
+                                self.ether_type = None
+                                self.priority = None
+                                self.cfi = None
+                                self.vlan_id = None
                                 self._segment_path = lambda: "outer-tag"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, ['etype', 'priority', 'cfi', 'vlan_id'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
 
                         class InnerTag(Entity):
                             """
                             VLAN Inner TAG
                             
-                            .. attribute:: etype
+                            .. attribute:: ether_type
                             
-                            	etype
+                            	EtherType
                             	**type**\: int
                             
                             	**range:** 0..65535
                             
                             .. attribute:: priority
                             
-                            	priority
+                            	Priority
                             	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: cfi
                             
-                            	cfi
+                            	Cannonical Format Identifier
                             	**type**\: int
                             
                             	**range:** 0..255
                             
                             .. attribute:: vlan_id
                             
-                            	vlan id
+                            	Vlan Id
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -481,20 +500,23 @@ class Macsec(Entity):
                                 self.yang_parent_name = "session-summary"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.etype = YLeaf(YType.uint16, "etype")
-
-                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                self.cfi = YLeaf(YType.uint8, "cfi")
-
-                                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', YLeaf(YType.uint16, 'ether-type')),
+                                    ('priority', YLeaf(YType.uint8, 'priority')),
+                                    ('cfi', YLeaf(YType.uint8, 'cfi')),
+                                    ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                ])
+                                self.ether_type = None
+                                self.priority = None
+                                self.cfi = None
+                                self.vlan_id = None
                                 self._segment_path = lambda: "inner-tag"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, ['etype', 'priority', 'cfi', 'vlan_id'], name, value)
+                                self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, ['ether_type', 'priority', 'cfi', 'vlan_id'], name, value)
 
 
                     class Vp(Entity):
@@ -623,42 +645,45 @@ class Macsec(Entity):
                             self.yang_parent_name = "session"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"fallback-keepalive" : ("fallback_keepalive", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive)}
-
-                            self.my_sci = YLeaf(YType.str, "my-sci")
-
-                            self.virtual_port_id = YLeaf(YType.uint32, "virtual-port-id")
-
-                            self.latest_rx = YLeaf(YType.boolean, "latest-rx")
-
-                            self.latest_tx = YLeaf(YType.boolean, "latest-tx")
-
-                            self.latest_an = YLeaf(YType.uint32, "latest-an")
-
-                            self.latest_ki = YLeaf(YType.str, "latest-ki")
-
-                            self.latest_kn = YLeaf(YType.uint32, "latest-kn")
-
-                            self.old_rx = YLeaf(YType.boolean, "old-rx")
-
-                            self.old_tx = YLeaf(YType.boolean, "old-tx")
-
-                            self.old_an = YLeaf(YType.uint32, "old-an")
-
-                            self.old_ki = YLeaf(YType.str, "old-ki")
-
-                            self.old_kn = YLeaf(YType.uint32, "old-kn")
-
-                            self.wait_time = YLeaf(YType.uint32, "wait-time")
-
-                            self.retire_time = YLeaf(YType.uint32, "retire-time")
-
-                            self.cipher_suite = YLeaf(YType.uint32, "cipher-suite")
-
-                            self.ssci = YLeaf(YType.uint32, "ssci")
-
-                            self.time_to_sak_rekey = YLeaf(YType.str, "time-to-sak-rekey")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("fallback-keepalive", ("fallback_keepalive", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive))])
+                            self._leafs = OrderedDict([
+                                ('my_sci', YLeaf(YType.str, 'my-sci')),
+                                ('virtual_port_id', YLeaf(YType.uint32, 'virtual-port-id')),
+                                ('latest_rx', YLeaf(YType.boolean, 'latest-rx')),
+                                ('latest_tx', YLeaf(YType.boolean, 'latest-tx')),
+                                ('latest_an', YLeaf(YType.uint32, 'latest-an')),
+                                ('latest_ki', YLeaf(YType.str, 'latest-ki')),
+                                ('latest_kn', YLeaf(YType.uint32, 'latest-kn')),
+                                ('old_rx', YLeaf(YType.boolean, 'old-rx')),
+                                ('old_tx', YLeaf(YType.boolean, 'old-tx')),
+                                ('old_an', YLeaf(YType.uint32, 'old-an')),
+                                ('old_ki', YLeaf(YType.str, 'old-ki')),
+                                ('old_kn', YLeaf(YType.uint32, 'old-kn')),
+                                ('wait_time', YLeaf(YType.uint32, 'wait-time')),
+                                ('retire_time', YLeaf(YType.uint32, 'retire-time')),
+                                ('cipher_suite', YLeaf(YType.uint32, 'cipher-suite')),
+                                ('ssci', YLeaf(YType.uint32, 'ssci')),
+                                ('time_to_sak_rekey', YLeaf(YType.str, 'time-to-sak-rekey')),
+                            ])
+                            self.my_sci = None
+                            self.virtual_port_id = None
+                            self.latest_rx = None
+                            self.latest_tx = None
+                            self.latest_an = None
+                            self.latest_ki = None
+                            self.latest_kn = None
+                            self.old_rx = None
+                            self.old_tx = None
+                            self.old_an = None
+                            self.old_ki = None
+                            self.old_kn = None
+                            self.wait_time = None
+                            self.retire_time = None
+                            self.cipher_suite = None
+                            self.ssci = None
+                            self.time_to_sak_rekey = None
 
                             self.fallback_keepalive = YList(self)
                             self._segment_path = lambda: "vp"
@@ -711,14 +736,17 @@ class Macsec(Entity):
                                 self.yang_parent_name = "vp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"peers-status" : ("peers_status", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus)}
-                                self._child_list_classes = {}
-
-                                self.ckn = YLeaf(YType.str, "ckn")
-
-                                self.mi = YLeaf(YType.str, "mi")
-
-                                self.mn = YLeaf(YType.uint32, "mn")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("peers-status", ("peers_status", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ckn', YLeaf(YType.str, 'ckn')),
+                                    ('mi', YLeaf(YType.str, 'mi')),
+                                    ('mn', YLeaf(YType.uint32, 'mn')),
+                                ])
+                                self.ckn = None
+                                self.mi = None
+                                self.mn = None
 
                                 self.peers_status = Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus()
                                 self.peers_status.parent = self
@@ -767,12 +795,15 @@ class Macsec(Entity):
                                     self.yang_parent_name = "fallback-keepalive"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"peer" : ("peer", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer)}
-
-                                    self.tx_mkpdu_timestamp = YLeaf(YType.str, "tx-mkpdu-timestamp")
-
-                                    self.peer_count = YLeaf(YType.uint32, "peer-count")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("peer", ("peer", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer))])
+                                    self._leafs = OrderedDict([
+                                        ('tx_mkpdu_timestamp', YLeaf(YType.str, 'tx-mkpdu-timestamp')),
+                                        ('peer_count', YLeaf(YType.uint32, 'peer-count')),
+                                    ])
+                                    self.tx_mkpdu_timestamp = None
+                                    self.peer_count = None
 
                                     self.peer = YList(self)
                                     self._segment_path = lambda: "peers-status"
@@ -811,10 +842,13 @@ class Macsec(Entity):
                                         self.yang_parent_name = "peers-status"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"peer-data" : ("peer_data", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData)}
-                                        self._child_list_classes = {}
-
-                                        self.sci = YLeaf(YType.str, "sci")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("peer-data", ("peer_data", Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('sci', YLeaf(YType.str, 'sci')),
+                                        ])
+                                        self.sci = None
 
                                         self.peer_data = Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData()
                                         self.peer_data.parent = self
@@ -865,14 +899,17 @@ class Macsec(Entity):
                                             self.yang_parent_name = "peer"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mi = YLeaf(YType.str, "mi")
-
-                                            self.icv_status = YLeaf(YType.str, "icv-status")
-
-                                            self.icv_check_timestamp = YLeaf(YType.str, "icv-check-timestamp")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mi', YLeaf(YType.str, 'mi')),
+                                                ('icv_status', YLeaf(YType.str, 'icv-status')),
+                                                ('icv_check_timestamp', YLeaf(YType.str, 'icv-check-timestamp')),
+                                            ])
+                                            self.mi = None
+                                            self.icv_status = None
+                                            self.icv_check_timestamp = None
                                             self._segment_path = lambda: "peer-data"
 
                                         def __setattr__(self, name, value):
@@ -990,34 +1027,37 @@ class Macsec(Entity):
                             self.yang_parent_name = "session"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"peers-status" : ("peers_status", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus)}
-                            self._child_list_classes = {"live-peer" : ("live_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer), "potential-peer" : ("potential_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer), "dormant-peer" : ("dormant_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer)}
-
-                            self.is_key_server = YLeaf(YType.boolean, "is-key-server")
-
-                            self.status = YLeaf(YType.uint32, "status")
-
-                            self.num_live_peers = YLeaf(YType.uint32, "num-live-peers")
-
-                            self.first_ca = YLeaf(YType.boolean, "first-ca")
-
-                            self.peer_sci = YLeaf(YType.str, "peer-sci")
-
-                            self.num_live_peers_responded = YLeaf(YType.uint32, "num-live-peers-responded")
-
-                            self.ckn = YLeaf(YType.str, "ckn")
-
-                            self.my_mi = YLeaf(YType.str, "my-mi")
-
-                            self.my_mn = YLeaf(YType.uint32, "my-mn")
-
-                            self.authenticator = YLeaf(YType.boolean, "authenticator")
-
-                            self.status_description = YLeaf(YType.str, "status-description")
-
-                            self.authentication_mode = YLeaf(YType.str, "authentication-mode")
-
-                            self.key_chain = YLeaf(YType.str, "key-chain")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("peers-status", ("peers_status", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus))])
+                            self._child_list_classes = OrderedDict([("live-peer", ("live_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer)), ("potential-peer", ("potential_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer)), ("dormant-peer", ("dormant_peer", Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer))])
+                            self._leafs = OrderedDict([
+                                ('is_key_server', YLeaf(YType.boolean, 'is-key-server')),
+                                ('status', YLeaf(YType.uint32, 'status')),
+                                ('num_live_peers', YLeaf(YType.uint32, 'num-live-peers')),
+                                ('first_ca', YLeaf(YType.boolean, 'first-ca')),
+                                ('peer_sci', YLeaf(YType.str, 'peer-sci')),
+                                ('num_live_peers_responded', YLeaf(YType.uint32, 'num-live-peers-responded')),
+                                ('ckn', YLeaf(YType.str, 'ckn')),
+                                ('my_mi', YLeaf(YType.str, 'my-mi')),
+                                ('my_mn', YLeaf(YType.uint32, 'my-mn')),
+                                ('authenticator', YLeaf(YType.boolean, 'authenticator')),
+                                ('status_description', YLeaf(YType.str, 'status-description')),
+                                ('authentication_mode', YLeaf(YType.str, 'authentication-mode')),
+                                ('key_chain', YLeaf(YType.str, 'key-chain')),
+                            ])
+                            self.is_key_server = None
+                            self.status = None
+                            self.num_live_peers = None
+                            self.first_ca = None
+                            self.peer_sci = None
+                            self.num_live_peers_responded = None
+                            self.ckn = None
+                            self.my_mi = None
+                            self.my_mn = None
+                            self.authenticator = None
+                            self.status_description = None
+                            self.authentication_mode = None
+                            self.key_chain = None
 
                             self.peers_status = Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus()
                             self.peers_status.parent = self
@@ -1070,12 +1110,15 @@ class Macsec(Entity):
                                 self.yang_parent_name = "ca"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"peer" : ("peer", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer)}
-
-                                self.tx_mkpdu_timestamp = YLeaf(YType.str, "tx-mkpdu-timestamp")
-
-                                self.peer_count = YLeaf(YType.uint32, "peer-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("peer", ("peer", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer))])
+                                self._leafs = OrderedDict([
+                                    ('tx_mkpdu_timestamp', YLeaf(YType.str, 'tx-mkpdu-timestamp')),
+                                    ('peer_count', YLeaf(YType.uint32, 'peer-count')),
+                                ])
+                                self.tx_mkpdu_timestamp = None
+                                self.peer_count = None
 
                                 self.peer = YList(self)
                                 self._segment_path = lambda: "peers-status"
@@ -1114,10 +1157,13 @@ class Macsec(Entity):
                                     self.yang_parent_name = "peers-status"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"peer-data" : ("peer_data", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData)}
-                                    self._child_list_classes = {}
-
-                                    self.sci = YLeaf(YType.str, "sci")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("peer-data", ("peer_data", Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('sci', YLeaf(YType.str, 'sci')),
+                                    ])
+                                    self.sci = None
 
                                     self.peer_data = Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData()
                                     self.peer_data.parent = self
@@ -1168,14 +1214,17 @@ class Macsec(Entity):
                                         self.yang_parent_name = "peer"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mi = YLeaf(YType.str, "mi")
-
-                                        self.icv_status = YLeaf(YType.str, "icv-status")
-
-                                        self.icv_check_timestamp = YLeaf(YType.str, "icv-check-timestamp")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mi', YLeaf(YType.str, 'mi')),
+                                            ('icv_status', YLeaf(YType.str, 'icv-status')),
+                                            ('icv_check_timestamp', YLeaf(YType.str, 'icv-check-timestamp')),
+                                        ])
+                                        self.mi = None
+                                        self.icv_status = None
+                                        self.icv_check_timestamp = None
                                         self._segment_path = lambda: "peer-data"
 
                                     def __setattr__(self, name, value):
@@ -1231,18 +1280,21 @@ class Macsec(Entity):
                                 self.yang_parent_name = "ca"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mi = YLeaf(YType.str, "mi")
-
-                                self.sci = YLeaf(YType.str, "sci")
-
-                                self.mn = YLeaf(YType.uint32, "mn")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.ssci = YLeaf(YType.uint32, "ssci")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mi', YLeaf(YType.str, 'mi')),
+                                    ('sci', YLeaf(YType.str, 'sci')),
+                                    ('mn', YLeaf(YType.uint32, 'mn')),
+                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('ssci', YLeaf(YType.uint32, 'ssci')),
+                                ])
+                                self.mi = None
+                                self.sci = None
+                                self.mn = None
+                                self.priority = None
+                                self.ssci = None
                                 self._segment_path = lambda: "live-peer"
 
                             def __setattr__(self, name, value):
@@ -1298,18 +1350,21 @@ class Macsec(Entity):
                                 self.yang_parent_name = "ca"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mi = YLeaf(YType.str, "mi")
-
-                                self.sci = YLeaf(YType.str, "sci")
-
-                                self.mn = YLeaf(YType.uint32, "mn")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.ssci = YLeaf(YType.uint32, "ssci")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mi', YLeaf(YType.str, 'mi')),
+                                    ('sci', YLeaf(YType.str, 'sci')),
+                                    ('mn', YLeaf(YType.uint32, 'mn')),
+                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('ssci', YLeaf(YType.uint32, 'ssci')),
+                                ])
+                                self.mi = None
+                                self.sci = None
+                                self.mn = None
+                                self.priority = None
+                                self.ssci = None
                                 self._segment_path = lambda: "potential-peer"
 
                             def __setattr__(self, name, value):
@@ -1365,18 +1420,21 @@ class Macsec(Entity):
                                 self.yang_parent_name = "ca"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.mi = YLeaf(YType.str, "mi")
-
-                                self.sci = YLeaf(YType.str, "sci")
-
-                                self.mn = YLeaf(YType.uint32, "mn")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.ssci = YLeaf(YType.uint32, "ssci")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mi', YLeaf(YType.str, 'mi')),
+                                    ('sci', YLeaf(YType.str, 'sci')),
+                                    ('mn', YLeaf(YType.uint32, 'mn')),
+                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('ssci', YLeaf(YType.uint32, 'ssci')),
+                                ])
+                                self.mi = None
+                                self.sci = None
+                                self.mn = None
+                                self.priority = None
+                                self.ssci = None
                                 self._segment_path = lambda: "dormant-peer"
 
                             def __setattr__(self, name, value):

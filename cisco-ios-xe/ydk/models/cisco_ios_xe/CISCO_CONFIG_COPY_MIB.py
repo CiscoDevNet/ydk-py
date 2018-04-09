@@ -9,6 +9,8 @@ vice\-versa, and copying a configuration
 IOS file system.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -17,7 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ConfigCopyFailCause(Enum):
     """
-    ConfigCopyFailCause
+    ConfigCopyFailCause (Enum Class)
 
     The reason a config\-copy request failed.
 
@@ -98,7 +100,7 @@ class ConfigCopyFailCause(Enum):
 
 class ConfigCopyProtocol(Enum):
     """
-    ConfigCopyProtocol
+    ConfigCopyProtocol (Enum Class)
 
     The protocol file transfer protocol that should be
 
@@ -147,7 +149,7 @@ class ConfigCopyProtocol(Enum):
 
 class ConfigCopyState(Enum):
     """
-    ConfigCopyState
+    ConfigCopyState (Enum Class)
 
     The state of a TFTP config\-copy operation.
 
@@ -196,7 +198,7 @@ class ConfigCopyState(Enum):
 
 class ConfigFileType(Enum):
     """
-    ConfigFileType
+    ConfigFileType (Enum Class)
 
     The various types of files on which a config\-copy
 
@@ -299,8 +301,10 @@ class CISCOCONFIGCOPYMIB(Entity):
         self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ccCopyTable" : ("cccopytable", CISCOCONFIGCOPYMIB.Cccopytable), "ccCopyErrorTable" : ("cccopyerrortable", CISCOCONFIGCOPYMIB.Cccopyerrortable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ccCopyTable", ("cccopytable", CISCOCONFIGCOPYMIB.Cccopytable)), ("ccCopyErrorTable", ("cccopyerrortable", CISCOCONFIGCOPYMIB.Cccopyerrortable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cccopytable = CISCOCONFIGCOPYMIB.Cccopytable()
         self.cccopytable.parent = self
@@ -337,8 +341,10 @@ class CISCOCONFIGCOPYMIB(Entity):
             self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ccCopyEntry" : ("cccopyentry", CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ccCopyEntry", ("cccopyentry", CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry))])
+            self._leafs = OrderedDict()
 
             self.cccopyentry = YList(self)
             self._segment_path = lambda: "ccCopyTable"
@@ -402,7 +408,7 @@ class CISCOCONFIGCOPYMIB(Entity):
             table, entries will be aged out, but an entry will 
             ever be deleted within 5 minutes of completing.
             
-            .. attribute:: cccopyindex  <key>
+            .. attribute:: cccopyindex  (key)
             
             	Object which specifies a unique entry in the ccCopyTable.  A management station wishing to initiate a config\-copy operation should use a random value for this object when creating or modifying an instance of a ccCopyEntry. The RowStatus semantics of the ccCopyEntryRowStatus object will prevent access conflicts
             	**type**\: int
@@ -512,41 +518,44 @@ class CISCOCONFIGCOPYMIB(Entity):
                 self.yang_parent_name = "ccCopyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cccopyindex = YLeaf(YType.uint32, "ccCopyIndex")
-
-                self.cccopyprotocol = YLeaf(YType.enumeration, "ccCopyProtocol")
-
-                self.cccopysourcefiletype = YLeaf(YType.enumeration, "ccCopySourceFileType")
-
-                self.cccopydestfiletype = YLeaf(YType.enumeration, "ccCopyDestFileType")
-
-                self.cccopyserveraddress = YLeaf(YType.str, "ccCopyServerAddress")
-
-                self.cccopyfilename = YLeaf(YType.str, "ccCopyFileName")
-
-                self.cccopyusername = YLeaf(YType.str, "ccCopyUserName")
-
-                self.cccopyuserpassword = YLeaf(YType.str, "ccCopyUserPassword")
-
-                self.cccopynotificationoncompletion = YLeaf(YType.boolean, "ccCopyNotificationOnCompletion")
-
-                self.cccopystate = YLeaf(YType.enumeration, "ccCopyState")
-
-                self.cccopytimestarted = YLeaf(YType.uint32, "ccCopyTimeStarted")
-
-                self.cccopytimecompleted = YLeaf(YType.uint32, "ccCopyTimeCompleted")
-
-                self.cccopyfailcause = YLeaf(YType.enumeration, "ccCopyFailCause")
-
-                self.cccopyentryrowstatus = YLeaf(YType.enumeration, "ccCopyEntryRowStatus")
-
-                self.cccopyserveraddresstype = YLeaf(YType.enumeration, "ccCopyServerAddressType")
-
-                self.cccopyserveraddressrev1 = YLeaf(YType.str, "ccCopyServerAddressRev1")
-                self._segment_path = lambda: "ccCopyEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']"
+                self.ylist_key_names = ['cccopyindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cccopyindex', YLeaf(YType.uint32, 'ccCopyIndex')),
+                    ('cccopyprotocol', YLeaf(YType.enumeration, 'ccCopyProtocol')),
+                    ('cccopysourcefiletype', YLeaf(YType.enumeration, 'ccCopySourceFileType')),
+                    ('cccopydestfiletype', YLeaf(YType.enumeration, 'ccCopyDestFileType')),
+                    ('cccopyserveraddress', YLeaf(YType.str, 'ccCopyServerAddress')),
+                    ('cccopyfilename', YLeaf(YType.str, 'ccCopyFileName')),
+                    ('cccopyusername', YLeaf(YType.str, 'ccCopyUserName')),
+                    ('cccopyuserpassword', YLeaf(YType.str, 'ccCopyUserPassword')),
+                    ('cccopynotificationoncompletion', YLeaf(YType.boolean, 'ccCopyNotificationOnCompletion')),
+                    ('cccopystate', YLeaf(YType.enumeration, 'ccCopyState')),
+                    ('cccopytimestarted', YLeaf(YType.uint32, 'ccCopyTimeStarted')),
+                    ('cccopytimecompleted', YLeaf(YType.uint32, 'ccCopyTimeCompleted')),
+                    ('cccopyfailcause', YLeaf(YType.enumeration, 'ccCopyFailCause')),
+                    ('cccopyentryrowstatus', YLeaf(YType.enumeration, 'ccCopyEntryRowStatus')),
+                    ('cccopyserveraddresstype', YLeaf(YType.enumeration, 'ccCopyServerAddressType')),
+                    ('cccopyserveraddressrev1', YLeaf(YType.str, 'ccCopyServerAddressRev1')),
+                ])
+                self.cccopyindex = None
+                self.cccopyprotocol = None
+                self.cccopysourcefiletype = None
+                self.cccopydestfiletype = None
+                self.cccopyserveraddress = None
+                self.cccopyfilename = None
+                self.cccopyusername = None
+                self.cccopyuserpassword = None
+                self.cccopynotificationoncompletion = None
+                self.cccopystate = None
+                self.cccopytimestarted = None
+                self.cccopytimecompleted = None
+                self.cccopyfailcause = None
+                self.cccopyentryrowstatus = None
+                self.cccopyserveraddresstype = None
+                self.cccopyserveraddressrev1 = None
+                self._segment_path = lambda: "ccCopyEntry" + "[ccCopyIndex='" + str(self.cccopyindex) + "']"
                 self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -613,8 +622,10 @@ class CISCOCONFIGCOPYMIB(Entity):
             self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ccCopyErrorEntry" : ("cccopyerrorentry", CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ccCopyErrorEntry", ("cccopyerrorentry", CISCOCONFIGCOPYMIB.Cccopyerrortable.Cccopyerrorentry))])
+            self._leafs = OrderedDict()
 
             self.cccopyerrorentry = YList(self)
             self._segment_path = lambda: "ccCopyErrorTable"
@@ -630,7 +641,7 @@ class CISCOCONFIGCOPYMIB(Entity):
             outcome at one destination of a failed config
             copy operation.
             
-            .. attribute:: cccopyindex  <key>
+            .. attribute:: cccopyindex  (key)
             
             	
             	**type**\: int
@@ -639,7 +650,7 @@ class CISCOCONFIGCOPYMIB(Entity):
             
             	**refers to**\:  :py:class:`cccopyindex <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.CISCOCONFIGCOPYMIB.Cccopytable.Cccopyentry>`
             
-            .. attribute:: cccopyerrorindex  <key>
+            .. attribute:: cccopyerrorindex  (key)
             
             	A monotonically increasing integer for the sole purpose of indexing entries in this table. When a config copy operation has multiple  destinations, then this index value is used to  distinguish between those multiple destinations
             	**type**\: int
@@ -684,21 +695,24 @@ class CISCOCONFIGCOPYMIB(Entity):
                 self.yang_parent_name = "ccCopyErrorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cccopyindex = YLeaf(YType.str, "ccCopyIndex")
-
-                self.cccopyerrorindex = YLeaf(YType.uint32, "ccCopyErrorIndex")
-
-                self.cccopyerrordeviceipaddresstype = YLeaf(YType.enumeration, "ccCopyErrorDeviceIpAddressType")
-
-                self.cccopyerrordeviceipaddress = YLeaf(YType.str, "ccCopyErrorDeviceIpAddress")
-
-                self.cccopyerrordevicewwn = YLeaf(YType.str, "ccCopyErrorDeviceWWN")
-
-                self.cccopyerrordescription = YLeaf(YType.str, "ccCopyErrorDescription")
-                self._segment_path = lambda: "ccCopyErrorEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']" + "[ccCopyErrorIndex='" + self.cccopyerrorindex.get() + "']"
+                self.ylist_key_names = ['cccopyindex','cccopyerrorindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cccopyindex', YLeaf(YType.str, 'ccCopyIndex')),
+                    ('cccopyerrorindex', YLeaf(YType.uint32, 'ccCopyErrorIndex')),
+                    ('cccopyerrordeviceipaddresstype', YLeaf(YType.enumeration, 'ccCopyErrorDeviceIpAddressType')),
+                    ('cccopyerrordeviceipaddress', YLeaf(YType.str, 'ccCopyErrorDeviceIpAddress')),
+                    ('cccopyerrordevicewwn', YLeaf(YType.str, 'ccCopyErrorDeviceWWN')),
+                    ('cccopyerrordescription', YLeaf(YType.str, 'ccCopyErrorDescription')),
+                ])
+                self.cccopyindex = None
+                self.cccopyerrorindex = None
+                self.cccopyerrordeviceipaddresstype = None
+                self.cccopyerrordeviceipaddress = None
+                self.cccopyerrordevicewwn = None
+                self.cccopyerrordescription = None
+                self._segment_path = lambda: "ccCopyErrorEntry" + "[ccCopyIndex='" + str(self.cccopyindex) + "']" + "[ccCopyErrorIndex='" + str(self.cccopyerrorindex) + "']"
                 self._absolute_path = lambda: "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

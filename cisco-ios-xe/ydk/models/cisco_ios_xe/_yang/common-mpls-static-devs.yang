@@ -142,5 +142,11 @@ module common-mpls-static-devs {
       deviate not-supported;
       description  "Not supported in IOS-XE 3.17 release.";
   }
+
+  deviation /ms:mpls-static/ms:mpls-static-state {
+      deviate not-supported;
+      description  "Not supported in Polaris 16.8.1 release.";
+  }
+
 }
 

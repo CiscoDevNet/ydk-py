@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class ShowUsers(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tty-management-cmd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"sessions" : ("sessions", ShowUsers.Sessions)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("sessions", ("sessions", ShowUsers.Sessions))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.sessions = ShowUsers.Sessions()
         self.sessions.parent = self
@@ -75,8 +79,10 @@ class ShowUsers(Entity):
             self.yang_parent_name = "show-users"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"session" : ("session", ShowUsers.Sessions.Session)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("session", ("session", ShowUsers.Sessions.Session))])
+            self._leafs = OrderedDict()
 
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
@@ -90,7 +96,7 @@ class ShowUsers(Entity):
             """
             Show users statistics
             
-            .. attribute:: session_id  <key>
+            .. attribute:: session_id  (key)
             
             	Session Id
             	**type**\: int
@@ -141,23 +147,26 @@ class ShowUsers(Entity):
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.session_id = YLeaf(YType.int32, "session-id")
-
-                self.line = YLeaf(YType.str, "line")
-
-                self.user = YLeaf(YType.str, "user")
-
-                self.service = YLeaf(YType.str, "service")
-
-                self.conns = YLeaf(YType.str, "conns")
-
-                self.idle_string = YLeaf(YType.str, "idle-string")
-
-                self.location = YLeaf(YType.str, "location")
-                self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
+                self.ylist_key_names = ['session_id']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('session_id', YLeaf(YType.int32, 'session-id')),
+                    ('line', YLeaf(YType.str, 'line')),
+                    ('user', YLeaf(YType.str, 'user')),
+                    ('service', YLeaf(YType.str, 'service')),
+                    ('conns', YLeaf(YType.str, 'conns')),
+                    ('idle_string', YLeaf(YType.str, 'idle-string')),
+                    ('location', YLeaf(YType.str, 'location')),
+                ])
+                self.session_id = None
+                self.line = None
+                self.user = None
+                self.service = None
+                self.conns = None
+                self.idle_string = None
+                self.location = None
+                self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-management-cmd-oper:show-users/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -2,6 +2,8 @@
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,8 +49,10 @@ class RFC1315MIB(Entity):
         self.yang_parent_name = "RFC1315-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"frame-relay-globals" : ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals), "frDlcmiTable" : ("frdlcmitable", RFC1315MIB.Frdlcmitable), "frCircuitTable" : ("frcircuittable", RFC1315MIB.Frcircuittable), "frErrTable" : ("frerrtable", RFC1315MIB.Frerrtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("frame-relay-globals", ("frame_relay_globals", RFC1315MIB.FrameRelayGlobals)), ("frDlcmiTable", ("frdlcmitable", RFC1315MIB.Frdlcmitable)), ("frCircuitTable", ("frcircuittable", RFC1315MIB.Frcircuittable)), ("frErrTable", ("frerrtable", RFC1315MIB.Frerrtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.frame_relay_globals = RFC1315MIB.FrameRelayGlobals()
         self.frame_relay_globals.parent = self
@@ -94,10 +98,13 @@ class RFC1315MIB(Entity):
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.frtrapstate = YLeaf(YType.enumeration, "frTrapState")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('frtrapstate', YLeaf(YType.enumeration, 'frTrapState')),
+            ])
+            self.frtrapstate = None
             self._segment_path = lambda: "frame-relay-globals"
             self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/%s" % self._segment_path()
 
@@ -106,7 +113,7 @@ class RFC1315MIB(Entity):
 
         class Frtrapstate(Enum):
             """
-            Frtrapstate
+            Frtrapstate (Enum Class)
 
             This variable  indicates  whether  the  system
 
@@ -148,8 +155,10 @@ class RFC1315MIB(Entity):
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"frDlcmiEntry" : ("frdlcmientry", RFC1315MIB.Frdlcmitable.Frdlcmientry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("frDlcmiEntry", ("frdlcmientry", RFC1315MIB.Frdlcmitable.Frdlcmientry))])
+            self._leafs = OrderedDict()
 
             self.frdlcmientry = YList(self)
             self._segment_path = lambda: "frDlcmiTable"
@@ -164,7 +173,7 @@ class RFC1315MIB(Entity):
             The Parameters for a particular Data Link Con\-
             nection Management Interface.
             
-            .. attribute:: frdlcmiifindex  <key>
+            .. attribute:: frdlcmiifindex  (key)
             
             	The ifIndex value of the  corresponding  ifEn\- try
             	**type**\: int
@@ -239,29 +248,32 @@ class RFC1315MIB(Entity):
                 self.yang_parent_name = "frDlcmiTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.frdlcmiifindex = YLeaf(YType.int32, "frDlcmiIfIndex")
-
-                self.frdlcmistate = YLeaf(YType.enumeration, "frDlcmiState")
-
-                self.frdlcmiaddress = YLeaf(YType.enumeration, "frDlcmiAddress")
-
-                self.frdlcmiaddresslen = YLeaf(YType.enumeration, "frDlcmiAddressLen")
-
-                self.frdlcmipollinginterval = YLeaf(YType.int32, "frDlcmiPollingInterval")
-
-                self.frdlcmifullenquiryinterval = YLeaf(YType.int32, "frDlcmiFullEnquiryInterval")
-
-                self.frdlcmierrorthreshold = YLeaf(YType.int32, "frDlcmiErrorThreshold")
-
-                self.frdlcmimonitoredevents = YLeaf(YType.int32, "frDlcmiMonitoredEvents")
-
-                self.frdlcmimaxsupportedvcs = YLeaf(YType.int32, "frDlcmiMaxSupportedVCs")
-
-                self.frdlcmimulticast = YLeaf(YType.enumeration, "frDlcmiMulticast")
-                self._segment_path = lambda: "frDlcmiEntry" + "[frDlcmiIfIndex='" + self.frdlcmiifindex.get() + "']"
+                self.ylist_key_names = ['frdlcmiifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('frdlcmiifindex', YLeaf(YType.int32, 'frDlcmiIfIndex')),
+                    ('frdlcmistate', YLeaf(YType.enumeration, 'frDlcmiState')),
+                    ('frdlcmiaddress', YLeaf(YType.enumeration, 'frDlcmiAddress')),
+                    ('frdlcmiaddresslen', YLeaf(YType.enumeration, 'frDlcmiAddressLen')),
+                    ('frdlcmipollinginterval', YLeaf(YType.int32, 'frDlcmiPollingInterval')),
+                    ('frdlcmifullenquiryinterval', YLeaf(YType.int32, 'frDlcmiFullEnquiryInterval')),
+                    ('frdlcmierrorthreshold', YLeaf(YType.int32, 'frDlcmiErrorThreshold')),
+                    ('frdlcmimonitoredevents', YLeaf(YType.int32, 'frDlcmiMonitoredEvents')),
+                    ('frdlcmimaxsupportedvcs', YLeaf(YType.int32, 'frDlcmiMaxSupportedVCs')),
+                    ('frdlcmimulticast', YLeaf(YType.enumeration, 'frDlcmiMulticast')),
+                ])
+                self.frdlcmiifindex = None
+                self.frdlcmistate = None
+                self.frdlcmiaddress = None
+                self.frdlcmiaddresslen = None
+                self.frdlcmipollinginterval = None
+                self.frdlcmifullenquiryinterval = None
+                self.frdlcmierrorthreshold = None
+                self.frdlcmimonitoredevents = None
+                self.frdlcmimaxsupportedvcs = None
+                self.frdlcmimulticast = None
+                self._segment_path = lambda: "frDlcmiEntry" + "[frDlcmiIfIndex='" + str(self.frdlcmiifindex) + "']"
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frDlcmiTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -269,7 +281,7 @@ class RFC1315MIB(Entity):
 
             class Frdlcmiaddress(Enum):
                 """
-                Frdlcmiaddress
+                Frdlcmiaddress (Enum Class)
 
                 This variable states which address  format  is
 
@@ -296,7 +308,7 @@ class RFC1315MIB(Entity):
 
             class Frdlcmiaddresslen(Enum):
                 """
-                Frdlcmiaddresslen
+                Frdlcmiaddresslen (Enum Class)
 
                 This variable states which address  length  in
 
@@ -323,7 +335,7 @@ class RFC1315MIB(Entity):
 
             class Frdlcmimulticast(Enum):
                 """
-                Frdlcmimulticast
+                Frdlcmimulticast (Enum Class)
 
                 This indicates whether the Frame Relay  inter\-
 
@@ -342,7 +354,7 @@ class RFC1315MIB(Entity):
 
             class Frdlcmistate(Enum):
                 """
-                Frdlcmistate
+                Frdlcmistate (Enum Class)
 
                 This variable states which Data  Link  Connec\-
 
@@ -396,8 +408,10 @@ class RFC1315MIB(Entity):
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"frCircuitEntry" : ("frcircuitentry", RFC1315MIB.Frcircuittable.Frcircuitentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("frCircuitEntry", ("frcircuitentry", RFC1315MIB.Frcircuittable.Frcircuitentry))])
+            self._leafs = OrderedDict()
 
             self.frcircuitentry = YList(self)
             self._segment_path = lambda: "frCircuitTable"
@@ -412,14 +426,14 @@ class RFC1315MIB(Entity):
             The information regarding a single  Data  Link
             Connection Identifier.
             
-            .. attribute:: frcircuitifindex  <key>
+            .. attribute:: frcircuitifindex  (key)
             
             	The ifIndex Value of the ifEntry this  virtual circuit is layered onto
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: frcircuitdlci  <key>
+            .. attribute:: frcircuitdlci  (key)
             
             	The Data Link Connection Identifier  for  this virtual circuit
             	**type**\: int
@@ -521,37 +535,40 @@ class RFC1315MIB(Entity):
                 self.yang_parent_name = "frCircuitTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.frcircuitifindex = YLeaf(YType.int32, "frCircuitIfIndex")
-
-                self.frcircuitdlci = YLeaf(YType.int32, "frCircuitDlci")
-
-                self.frcircuitstate = YLeaf(YType.enumeration, "frCircuitState")
-
-                self.frcircuitreceivedfecns = YLeaf(YType.uint32, "frCircuitReceivedFECNs")
-
-                self.frcircuitreceivedbecns = YLeaf(YType.uint32, "frCircuitReceivedBECNs")
-
-                self.frcircuitsentframes = YLeaf(YType.uint32, "frCircuitSentFrames")
-
-                self.frcircuitsentoctets = YLeaf(YType.uint32, "frCircuitSentOctets")
-
-                self.frcircuitreceivedframes = YLeaf(YType.uint32, "frCircuitReceivedFrames")
-
-                self.frcircuitreceivedoctets = YLeaf(YType.uint32, "frCircuitReceivedOctets")
-
-                self.frcircuitcreationtime = YLeaf(YType.uint32, "frCircuitCreationTime")
-
-                self.frcircuitlasttimechange = YLeaf(YType.uint32, "frCircuitLastTimeChange")
-
-                self.frcircuitcommittedburst = YLeaf(YType.int32, "frCircuitCommittedBurst")
-
-                self.frcircuitexcessburst = YLeaf(YType.int32, "frCircuitExcessBurst")
-
-                self.frcircuitthroughput = YLeaf(YType.int32, "frCircuitThroughput")
-                self._segment_path = lambda: "frCircuitEntry" + "[frCircuitIfIndex='" + self.frcircuitifindex.get() + "']" + "[frCircuitDlci='" + self.frcircuitdlci.get() + "']"
+                self.ylist_key_names = ['frcircuitifindex','frcircuitdlci']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('frcircuitifindex', YLeaf(YType.int32, 'frCircuitIfIndex')),
+                    ('frcircuitdlci', YLeaf(YType.int32, 'frCircuitDlci')),
+                    ('frcircuitstate', YLeaf(YType.enumeration, 'frCircuitState')),
+                    ('frcircuitreceivedfecns', YLeaf(YType.uint32, 'frCircuitReceivedFECNs')),
+                    ('frcircuitreceivedbecns', YLeaf(YType.uint32, 'frCircuitReceivedBECNs')),
+                    ('frcircuitsentframes', YLeaf(YType.uint32, 'frCircuitSentFrames')),
+                    ('frcircuitsentoctets', YLeaf(YType.uint32, 'frCircuitSentOctets')),
+                    ('frcircuitreceivedframes', YLeaf(YType.uint32, 'frCircuitReceivedFrames')),
+                    ('frcircuitreceivedoctets', YLeaf(YType.uint32, 'frCircuitReceivedOctets')),
+                    ('frcircuitcreationtime', YLeaf(YType.uint32, 'frCircuitCreationTime')),
+                    ('frcircuitlasttimechange', YLeaf(YType.uint32, 'frCircuitLastTimeChange')),
+                    ('frcircuitcommittedburst', YLeaf(YType.int32, 'frCircuitCommittedBurst')),
+                    ('frcircuitexcessburst', YLeaf(YType.int32, 'frCircuitExcessBurst')),
+                    ('frcircuitthroughput', YLeaf(YType.int32, 'frCircuitThroughput')),
+                ])
+                self.frcircuitifindex = None
+                self.frcircuitdlci = None
+                self.frcircuitstate = None
+                self.frcircuitreceivedfecns = None
+                self.frcircuitreceivedbecns = None
+                self.frcircuitsentframes = None
+                self.frcircuitsentoctets = None
+                self.frcircuitreceivedframes = None
+                self.frcircuitreceivedoctets = None
+                self.frcircuitcreationtime = None
+                self.frcircuitlasttimechange = None
+                self.frcircuitcommittedburst = None
+                self.frcircuitexcessburst = None
+                self.frcircuitthroughput = None
+                self._segment_path = lambda: "frCircuitEntry" + "[frCircuitIfIndex='" + str(self.frcircuitifindex) + "']" + "[frCircuitDlci='" + str(self.frcircuitdlci) + "']"
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frCircuitTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -559,7 +576,7 @@ class RFC1315MIB(Entity):
 
             class Frcircuitstate(Enum):
                 """
-                Frcircuitstate
+                Frcircuitstate (Enum Class)
 
                 Indicates whether the particular virtual  cir\-
 
@@ -624,8 +641,10 @@ class RFC1315MIB(Entity):
             self.yang_parent_name = "RFC1315-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"frErrEntry" : ("frerrentry", RFC1315MIB.Frerrtable.Frerrentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("frErrEntry", ("frerrentry", RFC1315MIB.Frerrtable.Frerrentry))])
+            self._leafs = OrderedDict()
 
             self.frerrentry = YList(self)
             self._segment_path = lambda: "frErrTable"
@@ -640,7 +659,7 @@ class RFC1315MIB(Entity):
             The error information for a single frame relay
             interface.
             
-            .. attribute:: frerrifindex  <key>
+            .. attribute:: frerrifindex  (key)
             
             	The ifIndex Value of the  corresponding  ifEn\- try
             	**type**\: int
@@ -677,17 +696,20 @@ class RFC1315MIB(Entity):
                 self.yang_parent_name = "frErrTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.frerrifindex = YLeaf(YType.int32, "frErrIfIndex")
-
-                self.frerrtype = YLeaf(YType.enumeration, "frErrType")
-
-                self.frerrdata = YLeaf(YType.str, "frErrData")
-
-                self.frerrtime = YLeaf(YType.uint32, "frErrTime")
-                self._segment_path = lambda: "frErrEntry" + "[frErrIfIndex='" + self.frerrifindex.get() + "']"
+                self.ylist_key_names = ['frerrifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('frerrifindex', YLeaf(YType.int32, 'frErrIfIndex')),
+                    ('frerrtype', YLeaf(YType.enumeration, 'frErrType')),
+                    ('frerrdata', YLeaf(YType.str, 'frErrData')),
+                    ('frerrtime', YLeaf(YType.uint32, 'frErrTime')),
+                ])
+                self.frerrifindex = None
+                self.frerrtype = None
+                self.frerrdata = None
+                self.frerrtime = None
+                self._segment_path = lambda: "frErrEntry" + "[frErrIfIndex='" + str(self.frerrifindex) + "']"
                 self._absolute_path = lambda: "RFC1315-MIB:RFC1315-MIB/frErrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -695,7 +717,7 @@ class RFC1315MIB(Entity):
 
             class Frerrtype(Enum):
                 """
-                Frerrtype
+                Frerrtype (Enum Class)
 
                 The type of error that was last seen  on  this
 

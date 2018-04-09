@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -46,6 +48,11 @@ class Aaa(Entity):
     
     	Container for individual local user information
     	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
+    
+    .. attribute:: password_policies
+    
+    	Container for individual password policy Information
+    	**type**\:  :py:class:`PasswordPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies>`
     
     .. attribute:: usergroups
     
@@ -92,8 +99,10 @@ class Aaa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-aaa-locald-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"all-tasks" : ("all_tasks", Aaa.AllTasks), "currentuser-detail" : ("currentuser_detail", Aaa.CurrentuserDetail), "task-map" : ("task_map", Aaa.TaskMap), "taskgroups" : ("taskgroups", Aaa.Taskgroups), "users" : ("users", Aaa.Users), "usergroups" : ("usergroups", Aaa.Usergroups), "authen-method" : ("authen_method", Aaa.AuthenMethod), "current-usergroup" : ("current_usergroup", Aaa.CurrentUsergroup), "Cisco-IOS-XR-aaa-diameter-oper:diameter" : ("diameter", Aaa.Diameter), "Cisco-IOS-XR-aaa-protocol-radius-oper:radius" : ("radius", Aaa.Radius), "Cisco-IOS-XR-aaa-tacacs-oper:tacacs" : ("tacacs", Aaa.Tacacs)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.all_tasks = Aaa.AllTasks()
         self.all_tasks.parent = self
@@ -120,6 +129,11 @@ class Aaa(Entity):
         self._children_name_map["users"] = "users"
         self._children_yang_names.add("users")
 
+        self.password_policies = Aaa.PasswordPolicies()
+        self.password_policies.parent = self
+        self._children_name_map["password_policies"] = "password-policies"
+        self._children_yang_names.add("password-policies")
+
         self.usergroups = Aaa.Usergroups()
         self.usergroups.parent = self
         self._children_name_map["usergroups"] = "usergroups"
@@ -137,18 +151,18 @@ class Aaa(Entity):
 
         self.diameter = Aaa.Diameter()
         self.diameter.parent = self
-        self._children_name_map["diameter"] = "diameter"
-        self._children_yang_names.add("diameter")
+        self._children_name_map["diameter"] = "Cisco-IOS-XR-aaa-diameter-oper:diameter"
+        self._children_yang_names.add("Cisco-IOS-XR-aaa-diameter-oper:diameter")
 
         self.radius = Aaa.Radius()
         self.radius.parent = self
-        self._children_name_map["radius"] = "radius"
-        self._children_yang_names.add("radius")
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+        self._children_yang_names.add("Cisco-IOS-XR-aaa-protocol-radius-oper:radius")
 
         self.tacacs = Aaa.Tacacs()
         self.tacacs.parent = self
-        self._children_name_map["tacacs"] = "tacacs"
-        self._children_yang_names.add("tacacs")
+        self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+        self._children_yang_names.add("Cisco-IOS-XR-aaa-tacacs-oper:tacacs")
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa"
 
 
@@ -175,10 +189,13 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.task_id = YLeafList(YType.str, "task-id")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('task_id', YLeafList(YType.str, 'task-id')),
+            ])
+            self.task_id = []
             self._segment_path = lambda: "all-tasks"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
 
@@ -226,16 +243,19 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.authenmethod = YLeaf(YType.int32, "authenmethod")
-
-            self.usergroup = YLeafList(YType.str, "usergroup")
-
-            self.taskmap = YLeafList(YType.str, "taskmap")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
+                ('usergroup', YLeafList(YType.str, 'usergroup')),
+                ('taskmap', YLeafList(YType.str, 'taskmap')),
+            ])
+            self.name = None
+            self.authenmethod = None
+            self.usergroup = []
+            self.taskmap = []
             self._segment_path = lambda: "currentuser-detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
 
@@ -283,16 +303,19 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.authenmethod = YLeaf(YType.int32, "authenmethod")
-
-            self.usergroup = YLeafList(YType.str, "usergroup")
-
-            self.taskmap = YLeafList(YType.str, "taskmap")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
+                ('usergroup', YLeafList(YType.str, 'usergroup')),
+                ('taskmap', YLeafList(YType.str, 'taskmap')),
+            ])
+            self.name = None
+            self.authenmethod = None
+            self.usergroup = []
+            self.taskmap = []
             self._segment_path = lambda: "task-map"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
 
@@ -323,8 +346,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"taskgroup" : ("taskgroup", Aaa.Taskgroups.Taskgroup)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Taskgroups.Taskgroup))])
+            self._leafs = OrderedDict()
 
             self.taskgroup = YList(self)
             self._segment_path = lambda: "taskgroups"
@@ -338,7 +363,7 @@ class Aaa(Entity):
             """
             Specific Taskgroup Information
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Taskgroup name
             	**type**\: str
@@ -372,12 +397,15 @@ class Aaa(Entity):
                 self.yang_parent_name = "taskgroups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"included-task-ids" : ("included_task_ids", Aaa.Taskgroups.Taskgroup.IncludedTaskIds), "task-map" : ("task_map", Aaa.Taskgroups.Taskgroup.TaskMap)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.name_xr = YLeaf(YType.str, "name-xr")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Taskgroups.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Taskgroups.Taskgroup.TaskMap))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('name_xr', YLeaf(YType.str, 'name-xr')),
+                ])
+                self.name = None
+                self.name_xr = None
 
                 self.included_task_ids = Aaa.Taskgroups.Taskgroup.IncludedTaskIds()
                 self.included_task_ids.parent = self
@@ -388,7 +416,7 @@ class Aaa(Entity):
                 self.task_map.parent = self
                 self._children_name_map["task_map"] = "task-map"
                 self._children_yang_names.add("task-map")
-                self._segment_path = lambda: "taskgroup" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "taskgroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/taskgroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -418,8 +446,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "taskgroup"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tasks" : ("tasks", Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks))])
+                    self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
                     self._segment_path = lambda: "included-task-ids"
@@ -471,18 +501,21 @@ class Aaa(Entity):
                         self.yang_parent_name = "included-task-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.task_id = YLeaf(YType.str, "task-id")
-
-                        self.read = YLeaf(YType.boolean, "read")
-
-                        self.write = YLeaf(YType.boolean, "write")
-
-                        self.execute = YLeaf(YType.boolean, "execute")
-
-                        self.debug = YLeaf(YType.boolean, "debug")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('task_id', YLeaf(YType.str, 'task-id')),
+                            ('read', YLeaf(YType.boolean, 'read')),
+                            ('write', YLeaf(YType.boolean, 'write')),
+                            ('execute', YLeaf(YType.boolean, 'execute')),
+                            ('debug', YLeaf(YType.boolean, 'debug')),
+                        ])
+                        self.task_id = None
+                        self.read = None
+                        self.write = None
+                        self.execute = None
+                        self.debug = None
                         self._segment_path = lambda: "tasks"
 
                     def __setattr__(self, name, value):
@@ -512,8 +545,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "taskgroup"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tasks" : ("tasks", Aaa.Taskgroups.Taskgroup.TaskMap.Tasks)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Taskgroups.Taskgroup.TaskMap.Tasks))])
+                    self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
                     self._segment_path = lambda: "task-map"
@@ -565,18 +600,21 @@ class Aaa(Entity):
                         self.yang_parent_name = "task-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.task_id = YLeaf(YType.str, "task-id")
-
-                        self.read = YLeaf(YType.boolean, "read")
-
-                        self.write = YLeaf(YType.boolean, "write")
-
-                        self.execute = YLeaf(YType.boolean, "execute")
-
-                        self.debug = YLeaf(YType.boolean, "debug")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('task_id', YLeaf(YType.str, 'task-id')),
+                            ('read', YLeaf(YType.boolean, 'read')),
+                            ('write', YLeaf(YType.boolean, 'write')),
+                            ('execute', YLeaf(YType.boolean, 'execute')),
+                            ('debug', YLeaf(YType.boolean, 'debug')),
+                        ])
+                        self.task_id = None
+                        self.read = None
+                        self.write = None
+                        self.execute = None
+                        self.debug = None
                         self._segment_path = lambda: "tasks"
 
                     def __setattr__(self, name, value):
@@ -606,8 +644,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"user" : ("user", Aaa.Users.User)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("user", ("user", Aaa.Users.User))])
+            self._leafs = OrderedDict()
 
             self.user = YList(self)
             self._segment_path = lambda: "users"
@@ -621,7 +661,7 @@ class Aaa(Entity):
             """
             Specific local user information
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Username
             	**type**\: str
@@ -665,24 +705,27 @@ class Aaa(Entity):
                 self.yang_parent_name = "users"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"task-map" : ("task_map", Aaa.Users.User.TaskMap)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.name_xr = YLeaf(YType.str, "name-xr")
-
-                self.admin_user = YLeaf(YType.boolean, "admin-user")
-
-                self.first_user = YLeaf(YType.boolean, "first-user")
-
-                self.usergroup = YLeafList(YType.str, "usergroup")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("task-map", ("task_map", Aaa.Users.User.TaskMap))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('name_xr', YLeaf(YType.str, 'name-xr')),
+                    ('admin_user', YLeaf(YType.boolean, 'admin-user')),
+                    ('first_user', YLeaf(YType.boolean, 'first-user')),
+                    ('usergroup', YLeafList(YType.str, 'usergroup')),
+                ])
+                self.name = None
+                self.name_xr = None
+                self.admin_user = None
+                self.first_user = None
+                self.usergroup = []
 
                 self.task_map = Aaa.Users.User.TaskMap()
                 self.task_map.parent = self
                 self._children_name_map["task_map"] = "task-map"
                 self._children_yang_names.add("task-map")
-                self._segment_path = lambda: "user" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "user" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/users/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -712,8 +755,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "user"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tasks" : ("tasks", Aaa.Users.User.TaskMap.Tasks)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Users.User.TaskMap.Tasks))])
+                    self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
                     self._segment_path = lambda: "task-map"
@@ -765,22 +810,400 @@ class Aaa(Entity):
                         self.yang_parent_name = "task-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.task_id = YLeaf(YType.str, "task-id")
-
-                        self.read = YLeaf(YType.boolean, "read")
-
-                        self.write = YLeaf(YType.boolean, "write")
-
-                        self.execute = YLeaf(YType.boolean, "execute")
-
-                        self.debug = YLeaf(YType.boolean, "debug")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('task_id', YLeaf(YType.str, 'task-id')),
+                            ('read', YLeaf(YType.boolean, 'read')),
+                            ('write', YLeaf(YType.boolean, 'write')),
+                            ('execute', YLeaf(YType.boolean, 'execute')),
+                            ('debug', YLeaf(YType.boolean, 'debug')),
+                        ])
+                        self.task_id = None
+                        self.read = None
+                        self.write = None
+                        self.execute = None
+                        self.debug = None
                         self._segment_path = lambda: "tasks"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Users.User.TaskMap.Tasks, ['task_id', 'read', 'write', 'execute', 'debug'], name, value)
+
+
+    class PasswordPolicies(Entity):
+        """
+        Container for individual password policy
+        Information
+        
+        .. attribute:: password_policy
+        
+        	Password policy details
+        	**type**\: list of  		 :py:class:`PasswordPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-locald-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.PasswordPolicies, self).__init__()
+
+            self.yang_name = "password-policies"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("password-policy", ("password_policy", Aaa.PasswordPolicies.PasswordPolicy))])
+            self._leafs = OrderedDict()
+
+            self.password_policy = YList(self)
+            self._segment_path = lambda: "password-policies"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.PasswordPolicies, [], name, value)
+
+
+        class PasswordPolicy(Entity):
+            """
+            Password policy details
+            
+            .. attribute:: name  (key)
+            
+            	Password policy name
+            	**type**\: str
+            
+            .. attribute:: life_time
+            
+            	Lifetime of the policy
+            	**type**\:  :py:class:`LifeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy.LifeTime>`
+            
+            .. attribute:: lock_out_time
+            
+            	Lockout time of the policy
+            	**type**\:  :py:class:`LockOutTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy.LockOutTime>`
+            
+            .. attribute:: name_xr
+            
+            	Password Policy Name
+            	**type**\: str
+            
+            .. attribute:: min_len
+            
+            	Min Length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: max_len
+            
+            	Max Length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: spl_char
+            
+            	Special Character length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: upper_case
+            
+            	UpperCase Character length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: lower_case
+            
+            	LowerCase Character length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: numeric
+            
+            	Numeric Character length
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: min_char_change
+            
+            	Number of different characters
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: num_of_users
+            
+            	Number of users with this policy
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: max_fail_attempts
+            
+            	Maximum Failure Attempts allowed
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: usr_count
+            
+            	Count of users
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: err_count
+            
+            	Error Count
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: lock_out_count
+            
+            	Lock Out Count
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'aaa-locald-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.PasswordPolicies.PasswordPolicy, self).__init__()
+
+                self.yang_name = "password-policy"
+                self.yang_parent_name = "password-policies"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("life-time", ("life_time", Aaa.PasswordPolicies.PasswordPolicy.LifeTime)), ("lock-out-time", ("lock_out_time", Aaa.PasswordPolicies.PasswordPolicy.LockOutTime))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('name_xr', YLeaf(YType.str, 'name-xr')),
+                    ('min_len', YLeaf(YType.uint8, 'min-len')),
+                    ('max_len', YLeaf(YType.uint8, 'max-len')),
+                    ('spl_char', YLeaf(YType.uint8, 'spl-char')),
+                    ('upper_case', YLeaf(YType.uint8, 'upper-case')),
+                    ('lower_case', YLeaf(YType.uint8, 'lower-case')),
+                    ('numeric', YLeaf(YType.uint8, 'numeric')),
+                    ('min_char_change', YLeaf(YType.uint8, 'min-char-change')),
+                    ('num_of_users', YLeaf(YType.uint8, 'num-of-users')),
+                    ('max_fail_attempts', YLeaf(YType.uint32, 'max-fail-attempts')),
+                    ('usr_count', YLeaf(YType.uint8, 'usr-count')),
+                    ('err_count', YLeaf(YType.uint8, 'err-count')),
+                    ('lock_out_count', YLeaf(YType.uint8, 'lock-out-count')),
+                ])
+                self.name = None
+                self.name_xr = None
+                self.min_len = None
+                self.max_len = None
+                self.spl_char = None
+                self.upper_case = None
+                self.lower_case = None
+                self.numeric = None
+                self.min_char_change = None
+                self.num_of_users = None
+                self.max_fail_attempts = None
+                self.usr_count = None
+                self.err_count = None
+                self.lock_out_count = None
+
+                self.life_time = Aaa.PasswordPolicies.PasswordPolicy.LifeTime()
+                self.life_time.parent = self
+                self._children_name_map["life_time"] = "life-time"
+                self._children_yang_names.add("life-time")
+
+                self.lock_out_time = Aaa.PasswordPolicies.PasswordPolicy.LockOutTime()
+                self.lock_out_time.parent = self
+                self._children_name_map["lock_out_time"] = "lock-out-time"
+                self._children_yang_names.add("lock-out-time")
+                self._segment_path = lambda: "password-policy" + "[name='" + str(self.name) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/password-policies/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy, ['name', 'name_xr', 'min_len', 'max_len', 'spl_char', 'upper_case', 'lower_case', 'numeric', 'min_char_change', 'num_of_users', 'max_fail_attempts', 'usr_count', 'err_count', 'lock_out_count'], name, value)
+
+
+            class LifeTime(Entity):
+                """
+                Lifetime of the policy
+                
+                .. attribute:: years
+                
+                	years
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: months
+                
+                	months
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: days
+                
+                	days
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: hours
+                
+                	hours
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: mins
+                
+                	mins
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: secs
+                
+                	secs
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'aaa-locald-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, self).__init__()
+
+                    self.yang_name = "life-time"
+                    self.yang_parent_name = "password-policy"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('years', YLeaf(YType.uint8, 'years')),
+                        ('months', YLeaf(YType.uint8, 'months')),
+                        ('days', YLeaf(YType.uint8, 'days')),
+                        ('hours', YLeaf(YType.uint8, 'hours')),
+                        ('mins', YLeaf(YType.uint8, 'mins')),
+                        ('secs', YLeaf(YType.uint8, 'secs')),
+                    ])
+                    self.years = None
+                    self.months = None
+                    self.days = None
+                    self.hours = None
+                    self.mins = None
+                    self.secs = None
+                    self._segment_path = lambda: "life-time"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, ['years', 'months', 'days', 'hours', 'mins', 'secs'], name, value)
+
+
+            class LockOutTime(Entity):
+                """
+                Lockout time of the policy
+                
+                .. attribute:: years
+                
+                	years
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: months
+                
+                	months
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: days
+                
+                	days
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: hours
+                
+                	hours
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: mins
+                
+                	mins
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: secs
+                
+                	secs
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'aaa-locald-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, self).__init__()
+
+                    self.yang_name = "lock-out-time"
+                    self.yang_parent_name = "password-policy"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('years', YLeaf(YType.uint8, 'years')),
+                        ('months', YLeaf(YType.uint8, 'months')),
+                        ('days', YLeaf(YType.uint8, 'days')),
+                        ('hours', YLeaf(YType.uint8, 'hours')),
+                        ('mins', YLeaf(YType.uint8, 'mins')),
+                        ('secs', YLeaf(YType.uint8, 'secs')),
+                    ])
+                    self.years = None
+                    self.months = None
+                    self.days = None
+                    self.hours = None
+                    self.mins = None
+                    self.secs = None
+                    self._segment_path = lambda: "lock-out-time"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, ['years', 'months', 'days', 'hours', 'mins', 'secs'], name, value)
 
 
     class Usergroups(Entity):
@@ -806,8 +1229,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"usergroup" : ("usergroup", Aaa.Usergroups.Usergroup)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("usergroup", ("usergroup", Aaa.Usergroups.Usergroup))])
+            self._leafs = OrderedDict()
 
             self.usergroup = YList(self)
             self._segment_path = lambda: "usergroups"
@@ -821,7 +1246,7 @@ class Aaa(Entity):
             """
             Specific Usergroup Information
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Usergroup name
             	**type**\: str
@@ -855,12 +1280,15 @@ class Aaa(Entity):
                 self.yang_parent_name = "usergroups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"task-map" : ("task_map", Aaa.Usergroups.Usergroup.TaskMap)}
-                self._child_list_classes = {"taskgroup" : ("taskgroup", Aaa.Usergroups.Usergroup.Taskgroup)}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.name_xr = YLeaf(YType.str, "name-xr")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("task-map", ("task_map", Aaa.Usergroups.Usergroup.TaskMap))])
+                self._child_list_classes = OrderedDict([("taskgroup", ("taskgroup", Aaa.Usergroups.Usergroup.Taskgroup))])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('name_xr', YLeaf(YType.str, 'name-xr')),
+                ])
+                self.name = None
+                self.name_xr = None
 
                 self.task_map = Aaa.Usergroups.Usergroup.TaskMap()
                 self.task_map.parent = self
@@ -868,7 +1296,7 @@ class Aaa(Entity):
                 self._children_yang_names.add("task-map")
 
                 self.taskgroup = YList(self)
-                self._segment_path = lambda: "usergroup" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "usergroup" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/usergroups/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -898,8 +1326,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "usergroup"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tasks" : ("tasks", Aaa.Usergroups.Usergroup.TaskMap.Tasks)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.TaskMap.Tasks))])
+                    self._leafs = OrderedDict()
 
                     self.tasks = YList(self)
                     self._segment_path = lambda: "task-map"
@@ -951,18 +1381,21 @@ class Aaa(Entity):
                         self.yang_parent_name = "task-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.task_id = YLeaf(YType.str, "task-id")
-
-                        self.read = YLeaf(YType.boolean, "read")
-
-                        self.write = YLeaf(YType.boolean, "write")
-
-                        self.execute = YLeaf(YType.boolean, "execute")
-
-                        self.debug = YLeaf(YType.boolean, "debug")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('task_id', YLeaf(YType.str, 'task-id')),
+                            ('read', YLeaf(YType.boolean, 'read')),
+                            ('write', YLeaf(YType.boolean, 'write')),
+                            ('execute', YLeaf(YType.boolean, 'execute')),
+                            ('debug', YLeaf(YType.boolean, 'debug')),
+                        ])
+                        self.task_id = None
+                        self.read = None
+                        self.write = None
+                        self.execute = None
+                        self.debug = None
                         self._segment_path = lambda: "tasks"
 
                     def __setattr__(self, name, value):
@@ -1002,10 +1435,13 @@ class Aaa(Entity):
                     self.yang_parent_name = "usergroup"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"included-task-ids" : ("included_task_ids", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds), "task-map" : ("task_map", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap)}
-                    self._child_list_classes = {}
-
-                    self.name_xr = YLeaf(YType.str, "name-xr")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("included-task-ids", ("included_task_ids", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds)), ("task-map", ("task_map", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name_xr', YLeaf(YType.str, 'name-xr')),
+                    ])
+                    self.name_xr = None
 
                     self.included_task_ids = Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds()
                     self.included_task_ids.parent = self
@@ -1045,8 +1481,10 @@ class Aaa(Entity):
                         self.yang_parent_name = "taskgroup"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"tasks" : ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks))])
+                        self._leafs = OrderedDict()
 
                         self.tasks = YList(self)
                         self._segment_path = lambda: "included-task-ids"
@@ -1098,18 +1536,21 @@ class Aaa(Entity):
                             self.yang_parent_name = "included-task-ids"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.task_id = YLeaf(YType.str, "task-id")
-
-                            self.read = YLeaf(YType.boolean, "read")
-
-                            self.write = YLeaf(YType.boolean, "write")
-
-                            self.execute = YLeaf(YType.boolean, "execute")
-
-                            self.debug = YLeaf(YType.boolean, "debug")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('task_id', YLeaf(YType.str, 'task-id')),
+                                ('read', YLeaf(YType.boolean, 'read')),
+                                ('write', YLeaf(YType.boolean, 'write')),
+                                ('execute', YLeaf(YType.boolean, 'execute')),
+                                ('debug', YLeaf(YType.boolean, 'debug')),
+                            ])
+                            self.task_id = None
+                            self.read = None
+                            self.write = None
+                            self.execute = None
+                            self.debug = None
                             self._segment_path = lambda: "tasks"
 
                         def __setattr__(self, name, value):
@@ -1139,8 +1580,10 @@ class Aaa(Entity):
                         self.yang_parent_name = "taskgroup"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"tasks" : ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("tasks", ("tasks", Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks))])
+                        self._leafs = OrderedDict()
 
                         self.tasks = YList(self)
                         self._segment_path = lambda: "task-map"
@@ -1192,18 +1635,21 @@ class Aaa(Entity):
                             self.yang_parent_name = "task-map"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.task_id = YLeaf(YType.str, "task-id")
-
-                            self.read = YLeaf(YType.boolean, "read")
-
-                            self.write = YLeaf(YType.boolean, "write")
-
-                            self.execute = YLeaf(YType.boolean, "execute")
-
-                            self.debug = YLeaf(YType.boolean, "debug")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('task_id', YLeaf(YType.str, 'task-id')),
+                                ('read', YLeaf(YType.boolean, 'read')),
+                                ('write', YLeaf(YType.boolean, 'write')),
+                                ('execute', YLeaf(YType.boolean, 'execute')),
+                                ('debug', YLeaf(YType.boolean, 'debug')),
+                            ])
+                            self.task_id = None
+                            self.read = None
+                            self.write = None
+                            self.execute = None
+                            self.debug = None
                             self._segment_path = lambda: "tasks"
 
                         def __setattr__(self, name, value):
@@ -1250,16 +1696,19 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.authenmethod = YLeaf(YType.int32, "authenmethod")
-
-            self.usergroup = YLeafList(YType.str, "usergroup")
-
-            self.taskmap = YLeafList(YType.str, "taskmap")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
+                ('usergroup', YLeafList(YType.str, 'usergroup')),
+                ('taskmap', YLeafList(YType.str, 'taskmap')),
+            ])
+            self.name = None
+            self.authenmethod = None
+            self.usergroup = []
+            self.taskmap = []
             self._segment_path = lambda: "authen-method"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
 
@@ -1307,16 +1756,19 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
-
-            self.authenmethod = YLeaf(YType.int32, "authenmethod")
-
-            self.usergroup = YLeafList(YType.str, "usergroup")
-
-            self.taskmap = YLeafList(YType.str, "taskmap")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+                ('authenmethod', YLeaf(YType.int32, 'authenmethod')),
+                ('usergroup', YLeafList(YType.str, 'usergroup')),
+                ('taskmap', YLeafList(YType.str, 'taskmap')),
+            ])
+            self.name = None
+            self.authenmethod = None
+            self.usergroup = []
+            self.taskmap = []
             self._segment_path = lambda: "current-usergroup"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
 
@@ -1392,8 +1844,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"gy" : ("gy", Aaa.Diameter.Gy), "gx-statistics" : ("gx_statistics", Aaa.Diameter.GxStatistics), "gx" : ("gx", Aaa.Diameter.Gx), "peers" : ("peers", Aaa.Diameter.Peers), "nas" : ("nas", Aaa.Diameter.Nas), "nas-summary" : ("nas_summary", Aaa.Diameter.NasSummary), "gy-session-ids" : ("gy_session_ids", Aaa.Diameter.GySessionIds), "gy-statistics" : ("gy_statistics", Aaa.Diameter.GyStatistics), "gx-session-ids" : ("gx_session_ids", Aaa.Diameter.GxSessionIds), "nas-session" : ("nas_session", Aaa.Diameter.NasSession)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("gy", ("gy", Aaa.Diameter.Gy)), ("gx-statistics", ("gx_statistics", Aaa.Diameter.GxStatistics)), ("gx", ("gx", Aaa.Diameter.Gx)), ("peers", ("peers", Aaa.Diameter.Peers)), ("nas", ("nas", Aaa.Diameter.Nas)), ("nas-summary", ("nas_summary", Aaa.Diameter.NasSummary)), ("gy-session-ids", ("gy_session_ids", Aaa.Diameter.GySessionIds)), ("gy-statistics", ("gy_statistics", Aaa.Diameter.GyStatistics)), ("gx-session-ids", ("gx_session_ids", Aaa.Diameter.GxSessionIds)), ("nas-session", ("nas_session", Aaa.Diameter.NasSession))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.gy = Aaa.Diameter.Gy()
             self.gy.parent = self
@@ -1487,14 +1941,17 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_enabled = YLeaf(YType.boolean, "is-enabled")
-
-                self.tx_timer = YLeaf(YType.uint32, "tx-timer")
-
-                self.retransmits = YLeaf(YType.uint32, "retransmits")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_enabled', YLeaf(YType.boolean, 'is-enabled')),
+                    ('tx_timer', YLeaf(YType.uint32, 'tx-timer')),
+                    ('retransmits', YLeaf(YType.uint32, 'retransmits')),
+                ])
+                self.is_enabled = None
+                self.tx_timer = None
+                self.retransmits = None
                 self._segment_path = lambda: "gy"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/%s" % self._segment_path()
 
@@ -1744,72 +2201,75 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccr_init_messages = YLeaf(YType.uint32, "ccr-init-messages")
-
-                self.ccr_init_failed_messages = YLeaf(YType.uint32, "ccr-init-failed-messages")
-
-                self.ccr_init_timed_out_messages = YLeaf(YType.uint32, "ccr-init-timed-out-messages")
-
-                self.ccr_init_retry_messages = YLeaf(YType.uint32, "ccr-init-retry-messages")
-
-                self.ccr_update_messages = YLeaf(YType.uint32, "ccr-update-messages")
-
-                self.ccr_update_failed_messages = YLeaf(YType.uint32, "ccr-update-failed-messages")
-
-                self.ccr_update_timed_out_messages = YLeaf(YType.uint32, "ccr-update-timed-out-messages")
-
-                self.ccr_update_retry_messages = YLeaf(YType.uint32, "ccr-update-retry-messages")
-
-                self.ccr_final_messages = YLeaf(YType.uint32, "ccr-final-messages")
-
-                self.ccr_final_failed_messages = YLeaf(YType.uint32, "ccr-final-failed-messages")
-
-                self.ccr_final_timed_out_messages = YLeaf(YType.uint32, "ccr-final-timed-out-messages")
-
-                self.ccr_final_retry_messages = YLeaf(YType.uint32, "ccr-final-retry-messages")
-
-                self.cca_init_messages = YLeaf(YType.uint32, "cca-init-messages")
-
-                self.cca_init_error_messages = YLeaf(YType.uint32, "cca-init-error-messages")
-
-                self.cca_update_messages = YLeaf(YType.uint32, "cca-update-messages")
-
-                self.cca_update_error_messages = YLeaf(YType.uint32, "cca-update-error-messages")
-
-                self.cca_final_messages = YLeaf(YType.uint32, "cca-final-messages")
-
-                self.cca_final_error_messages = YLeaf(YType.uint32, "cca-final-error-messages")
-
-                self.rar_received_messages = YLeaf(YType.uint32, "rar-received-messages")
-
-                self.rar_received_error_messages = YLeaf(YType.uint32, "rar-received-error-messages")
-
-                self.raa_sent_messages = YLeaf(YType.uint32, "raa-sent-messages")
-
-                self.raa_sent_error_messages = YLeaf(YType.uint32, "raa-sent-error-messages")
-
-                self.asr_received_messages = YLeaf(YType.uint32, "asr-received-messages")
-
-                self.asr_received_error_messages = YLeaf(YType.uint32, "asr-received-error-messages")
-
-                self.asa_sent_messsages = YLeaf(YType.uint32, "asa-sent-messsages")
-
-                self.asa_sent_error_messages = YLeaf(YType.uint32, "asa-sent-error-messages")
-
-                self.session_termination_messages = YLeaf(YType.uint32, "session-termination-messages")
-
-                self.unknown_request_messages = YLeaf(YType.uint32, "unknown-request-messages")
-
-                self.restore_sessions = YLeaf(YType.uint32, "restore-sessions")
-
-                self.open_sessions = YLeaf(YType.uint32, "open-sessions")
-
-                self.close_sessions = YLeaf(YType.uint32, "close-sessions")
-
-                self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ccr_init_messages', YLeaf(YType.uint32, 'ccr-init-messages')),
+                    ('ccr_init_failed_messages', YLeaf(YType.uint32, 'ccr-init-failed-messages')),
+                    ('ccr_init_timed_out_messages', YLeaf(YType.uint32, 'ccr-init-timed-out-messages')),
+                    ('ccr_init_retry_messages', YLeaf(YType.uint32, 'ccr-init-retry-messages')),
+                    ('ccr_update_messages', YLeaf(YType.uint32, 'ccr-update-messages')),
+                    ('ccr_update_failed_messages', YLeaf(YType.uint32, 'ccr-update-failed-messages')),
+                    ('ccr_update_timed_out_messages', YLeaf(YType.uint32, 'ccr-update-timed-out-messages')),
+                    ('ccr_update_retry_messages', YLeaf(YType.uint32, 'ccr-update-retry-messages')),
+                    ('ccr_final_messages', YLeaf(YType.uint32, 'ccr-final-messages')),
+                    ('ccr_final_failed_messages', YLeaf(YType.uint32, 'ccr-final-failed-messages')),
+                    ('ccr_final_timed_out_messages', YLeaf(YType.uint32, 'ccr-final-timed-out-messages')),
+                    ('ccr_final_retry_messages', YLeaf(YType.uint32, 'ccr-final-retry-messages')),
+                    ('cca_init_messages', YLeaf(YType.uint32, 'cca-init-messages')),
+                    ('cca_init_error_messages', YLeaf(YType.uint32, 'cca-init-error-messages')),
+                    ('cca_update_messages', YLeaf(YType.uint32, 'cca-update-messages')),
+                    ('cca_update_error_messages', YLeaf(YType.uint32, 'cca-update-error-messages')),
+                    ('cca_final_messages', YLeaf(YType.uint32, 'cca-final-messages')),
+                    ('cca_final_error_messages', YLeaf(YType.uint32, 'cca-final-error-messages')),
+                    ('rar_received_messages', YLeaf(YType.uint32, 'rar-received-messages')),
+                    ('rar_received_error_messages', YLeaf(YType.uint32, 'rar-received-error-messages')),
+                    ('raa_sent_messages', YLeaf(YType.uint32, 'raa-sent-messages')),
+                    ('raa_sent_error_messages', YLeaf(YType.uint32, 'raa-sent-error-messages')),
+                    ('asr_received_messages', YLeaf(YType.uint32, 'asr-received-messages')),
+                    ('asr_received_error_messages', YLeaf(YType.uint32, 'asr-received-error-messages')),
+                    ('asa_sent_messsages', YLeaf(YType.uint32, 'asa-sent-messsages')),
+                    ('asa_sent_error_messages', YLeaf(YType.uint32, 'asa-sent-error-messages')),
+                    ('session_termination_messages', YLeaf(YType.uint32, 'session-termination-messages')),
+                    ('unknown_request_messages', YLeaf(YType.uint32, 'unknown-request-messages')),
+                    ('restore_sessions', YLeaf(YType.uint32, 'restore-sessions')),
+                    ('open_sessions', YLeaf(YType.uint32, 'open-sessions')),
+                    ('close_sessions', YLeaf(YType.uint32, 'close-sessions')),
+                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                ])
+                self.ccr_init_messages = None
+                self.ccr_init_failed_messages = None
+                self.ccr_init_timed_out_messages = None
+                self.ccr_init_retry_messages = None
+                self.ccr_update_messages = None
+                self.ccr_update_failed_messages = None
+                self.ccr_update_timed_out_messages = None
+                self.ccr_update_retry_messages = None
+                self.ccr_final_messages = None
+                self.ccr_final_failed_messages = None
+                self.ccr_final_timed_out_messages = None
+                self.ccr_final_retry_messages = None
+                self.cca_init_messages = None
+                self.cca_init_error_messages = None
+                self.cca_update_messages = None
+                self.cca_update_error_messages = None
+                self.cca_final_messages = None
+                self.cca_final_error_messages = None
+                self.rar_received_messages = None
+                self.rar_received_error_messages = None
+                self.raa_sent_messages = None
+                self.raa_sent_error_messages = None
+                self.asr_received_messages = None
+                self.asr_received_error_messages = None
+                self.asa_sent_messsages = None
+                self.asa_sent_error_messages = None
+                self.session_termination_messages = None
+                self.unknown_request_messages = None
+                self.restore_sessions = None
+                self.open_sessions = None
+                self.close_sessions = None
+                self.active_sessions = None
                 self._segment_path = lambda: "gx-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/%s" % self._segment_path()
 
@@ -1856,14 +2316,17 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.is_enabled = YLeaf(YType.boolean, "is-enabled")
-
-                self.tx_timer = YLeaf(YType.uint32, "tx-timer")
-
-                self.retransmits = YLeaf(YType.uint32, "retransmits")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('is_enabled', YLeaf(YType.boolean, 'is-enabled')),
+                    ('tx_timer', YLeaf(YType.uint32, 'tx-timer')),
+                    ('retransmits', YLeaf(YType.uint32, 'retransmits')),
+                ])
+                self.is_enabled = None
+                self.tx_timer = None
+                self.retransmits = None
                 self._segment_path = lambda: "gx"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/%s" % self._segment_path()
 
@@ -1955,26 +2418,29 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"peer" : ("peer", Aaa.Diameter.Peers.Peer)}
-
-                self.origin_host = YLeaf(YType.str, "origin-host")
-
-                self.origin_realm = YLeaf(YType.str, "origin-realm")
-
-                self.source_interface = YLeaf(YType.str, "source-interface")
-
-                self.tls_trustpoint = YLeaf(YType.str, "tls-trustpoint")
-
-                self.conn_retry_timer = YLeaf(YType.uint32, "conn-retry-timer")
-
-                self.watchdog_timer = YLeaf(YType.uint32, "watchdog-timer")
-
-                self.transaction_timer = YLeaf(YType.uint32, "transaction-timer")
-
-                self.trans_total = YLeaf(YType.uint32, "trans-total")
-
-                self.trans_max = YLeaf(YType.uint32, "trans-max")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("peer", ("peer", Aaa.Diameter.Peers.Peer))])
+                self._leafs = OrderedDict([
+                    ('origin_host', YLeaf(YType.str, 'origin-host')),
+                    ('origin_realm', YLeaf(YType.str, 'origin-realm')),
+                    ('source_interface', YLeaf(YType.str, 'source-interface')),
+                    ('tls_trustpoint', YLeaf(YType.str, 'tls-trustpoint')),
+                    ('conn_retry_timer', YLeaf(YType.uint32, 'conn-retry-timer')),
+                    ('watchdog_timer', YLeaf(YType.uint32, 'watchdog-timer')),
+                    ('transaction_timer', YLeaf(YType.uint32, 'transaction-timer')),
+                    ('trans_total', YLeaf(YType.uint32, 'trans-total')),
+                    ('trans_max', YLeaf(YType.uint32, 'trans-max')),
+                ])
+                self.origin_host = None
+                self.origin_realm = None
+                self.source_interface = None
+                self.tls_trustpoint = None
+                self.conn_retry_timer = None
+                self.watchdog_timer = None
+                self.transaction_timer = None
+                self.trans_total = None
+                self.trans_max = None
 
                 self.peer = YList(self)
                 self._segment_path = lambda: "peers"
@@ -2420,132 +2886,135 @@ class Aaa(Entity):
                     self.yang_parent_name = "peers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.peer_name = YLeaf(YType.str, "peer-name")
-
-                    self.peer_index = YLeaf(YType.uint32, "peer-index")
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.port = YLeaf(YType.uint32, "port")
-
-                    self.port_connect = YLeaf(YType.uint32, "port-connect")
-
-                    self.protocol_type = YLeaf(YType.enumeration, "protocol-type")
-
-                    self.security_type = YLeaf(YType.enumeration, "security-type")
-
-                    self.conn_retry_timer = YLeaf(YType.uint32, "conn-retry-timer")
-
-                    self.watchdog_timer = YLeaf(YType.uint32, "watchdog-timer")
-
-                    self.transaction_timer = YLeaf(YType.uint32, "transaction-timer")
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.source_interface = YLeaf(YType.str, "source-interface")
-
-                    self.destination_host = YLeaf(YType.str, "destination-host")
-
-                    self.destination_realm = YLeaf(YType.str, "destination-realm")
-
-                    self.peer_type = YLeaf(YType.enumeration, "peer-type")
-
-                    self.firmware_revision = YLeaf(YType.uint32, "firmware-revision")
-
-                    self.state_duration = YLeaf(YType.uint32, "state-duration")
-
-                    self.last_disconnect_cause = YLeaf(YType.enumeration, "last-disconnect-cause")
-
-                    self.who_init_disconnect = YLeaf(YType.enumeration, "who-init-disconnect")
-
-                    self.in_as_rs = YLeaf(YType.uint32, "in-as-rs")
-
-                    self.out_as_rs = YLeaf(YType.uint32, "out-as-rs")
-
-                    self.in_as_as = YLeaf(YType.uint32, "in-as-as")
-
-                    self.out_as_as = YLeaf(YType.uint32, "out-as-as")
-
-                    self.in_ac_rs = YLeaf(YType.uint32, "in-ac-rs")
-
-                    self.out_ac_rs = YLeaf(YType.uint32, "out-ac-rs")
-
-                    self.in_ac_as = YLeaf(YType.uint32, "in-ac-as")
-
-                    self.out_ac_as = YLeaf(YType.uint32, "out-ac-as")
-
-                    self.in_ce_rs = YLeaf(YType.uint32, "in-ce-rs")
-
-                    self.out_ce_rs = YLeaf(YType.uint32, "out-ce-rs")
-
-                    self.in_ce_as = YLeaf(YType.uint32, "in-ce-as")
-
-                    self.out_ce_as = YLeaf(YType.uint32, "out-ce-as")
-
-                    self.in_dw_rs = YLeaf(YType.uint32, "in-dw-rs")
-
-                    self.out_dw_rs = YLeaf(YType.uint32, "out-dw-rs")
-
-                    self.in_dw_as = YLeaf(YType.uint32, "in-dw-as")
-
-                    self.out_dw_as = YLeaf(YType.uint32, "out-dw-as")
-
-                    self.in_dp_rs = YLeaf(YType.uint32, "in-dp-rs")
-
-                    self.out_dp_rs = YLeaf(YType.uint32, "out-dp-rs")
-
-                    self.in_dp_as = YLeaf(YType.uint32, "in-dp-as")
-
-                    self.out_dp_as = YLeaf(YType.uint32, "out-dp-as")
-
-                    self.in_ra_rs = YLeaf(YType.uint32, "in-ra-rs")
-
-                    self.out_ra_rs = YLeaf(YType.uint32, "out-ra-rs")
-
-                    self.in_ra_as = YLeaf(YType.uint32, "in-ra-as")
-
-                    self.out_ra_as = YLeaf(YType.uint32, "out-ra-as")
-
-                    self.in_st_rs = YLeaf(YType.uint32, "in-st-rs")
-
-                    self.out_st_rs = YLeaf(YType.uint32, "out-st-rs")
-
-                    self.in_st_as = YLeaf(YType.uint32, "in-st-as")
-
-                    self.out_st_as = YLeaf(YType.uint32, "out-st-as")
-
-                    self.in_cc_rs = YLeaf(YType.uint32, "in-cc-rs")
-
-                    self.out_cc_rs = YLeaf(YType.uint32, "out-cc-rs")
-
-                    self.in_cc_as = YLeaf(YType.uint32, "in-cc-as")
-
-                    self.out_cc_as = YLeaf(YType.uint32, "out-cc-as")
-
-                    self.out_aa_rs = YLeaf(YType.uint32, "out-aa-rs")
-
-                    self.in_aa_as = YLeaf(YType.uint32, "in-aa-as")
-
-                    self.malformed_requests = YLeaf(YType.uint32, "malformed-requests")
-
-                    self.received_proto_errors = YLeaf(YType.uint32, "received-proto-errors")
-
-                    self.sent_proto_errors = YLeaf(YType.uint32, "sent-proto-errors")
-
-                    self.received_transient_fails = YLeaf(YType.uint32, "received-transient-fails")
-
-                    self.sent_transient_fails = YLeaf(YType.uint32, "sent-transient-fails")
-
-                    self.received_permanent_fails = YLeaf(YType.uint32, "received-permanent-fails")
-
-                    self.sent_permanent_fails = YLeaf(YType.uint32, "sent-permanent-fails")
-
-                    self.transport_down = YLeaf(YType.uint32, "transport-down")
-
-                    self.state = YLeaf(YType.enumeration, "state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('peer_name', YLeaf(YType.str, 'peer-name')),
+                        ('peer_index', YLeaf(YType.uint32, 'peer-index')),
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('port', YLeaf(YType.uint32, 'port')),
+                        ('port_connect', YLeaf(YType.uint32, 'port-connect')),
+                        ('protocol_type', YLeaf(YType.enumeration, 'protocol-type')),
+                        ('security_type', YLeaf(YType.enumeration, 'security-type')),
+                        ('conn_retry_timer', YLeaf(YType.uint32, 'conn-retry-timer')),
+                        ('watchdog_timer', YLeaf(YType.uint32, 'watchdog-timer')),
+                        ('transaction_timer', YLeaf(YType.uint32, 'transaction-timer')),
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                        ('destination_host', YLeaf(YType.str, 'destination-host')),
+                        ('destination_realm', YLeaf(YType.str, 'destination-realm')),
+                        ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
+                        ('firmware_revision', YLeaf(YType.uint32, 'firmware-revision')),
+                        ('state_duration', YLeaf(YType.uint32, 'state-duration')),
+                        ('last_disconnect_cause', YLeaf(YType.enumeration, 'last-disconnect-cause')),
+                        ('who_init_disconnect', YLeaf(YType.enumeration, 'who-init-disconnect')),
+                        ('in_as_rs', YLeaf(YType.uint32, 'in-as-rs')),
+                        ('out_as_rs', YLeaf(YType.uint32, 'out-as-rs')),
+                        ('in_as_as', YLeaf(YType.uint32, 'in-as-as')),
+                        ('out_as_as', YLeaf(YType.uint32, 'out-as-as')),
+                        ('in_ac_rs', YLeaf(YType.uint32, 'in-ac-rs')),
+                        ('out_ac_rs', YLeaf(YType.uint32, 'out-ac-rs')),
+                        ('in_ac_as', YLeaf(YType.uint32, 'in-ac-as')),
+                        ('out_ac_as', YLeaf(YType.uint32, 'out-ac-as')),
+                        ('in_ce_rs', YLeaf(YType.uint32, 'in-ce-rs')),
+                        ('out_ce_rs', YLeaf(YType.uint32, 'out-ce-rs')),
+                        ('in_ce_as', YLeaf(YType.uint32, 'in-ce-as')),
+                        ('out_ce_as', YLeaf(YType.uint32, 'out-ce-as')),
+                        ('in_dw_rs', YLeaf(YType.uint32, 'in-dw-rs')),
+                        ('out_dw_rs', YLeaf(YType.uint32, 'out-dw-rs')),
+                        ('in_dw_as', YLeaf(YType.uint32, 'in-dw-as')),
+                        ('out_dw_as', YLeaf(YType.uint32, 'out-dw-as')),
+                        ('in_dp_rs', YLeaf(YType.uint32, 'in-dp-rs')),
+                        ('out_dp_rs', YLeaf(YType.uint32, 'out-dp-rs')),
+                        ('in_dp_as', YLeaf(YType.uint32, 'in-dp-as')),
+                        ('out_dp_as', YLeaf(YType.uint32, 'out-dp-as')),
+                        ('in_ra_rs', YLeaf(YType.uint32, 'in-ra-rs')),
+                        ('out_ra_rs', YLeaf(YType.uint32, 'out-ra-rs')),
+                        ('in_ra_as', YLeaf(YType.uint32, 'in-ra-as')),
+                        ('out_ra_as', YLeaf(YType.uint32, 'out-ra-as')),
+                        ('in_st_rs', YLeaf(YType.uint32, 'in-st-rs')),
+                        ('out_st_rs', YLeaf(YType.uint32, 'out-st-rs')),
+                        ('in_st_as', YLeaf(YType.uint32, 'in-st-as')),
+                        ('out_st_as', YLeaf(YType.uint32, 'out-st-as')),
+                        ('in_cc_rs', YLeaf(YType.uint32, 'in-cc-rs')),
+                        ('out_cc_rs', YLeaf(YType.uint32, 'out-cc-rs')),
+                        ('in_cc_as', YLeaf(YType.uint32, 'in-cc-as')),
+                        ('out_cc_as', YLeaf(YType.uint32, 'out-cc-as')),
+                        ('out_aa_rs', YLeaf(YType.uint32, 'out-aa-rs')),
+                        ('in_aa_as', YLeaf(YType.uint32, 'in-aa-as')),
+                        ('malformed_requests', YLeaf(YType.uint32, 'malformed-requests')),
+                        ('received_proto_errors', YLeaf(YType.uint32, 'received-proto-errors')),
+                        ('sent_proto_errors', YLeaf(YType.uint32, 'sent-proto-errors')),
+                        ('received_transient_fails', YLeaf(YType.uint32, 'received-transient-fails')),
+                        ('sent_transient_fails', YLeaf(YType.uint32, 'sent-transient-fails')),
+                        ('received_permanent_fails', YLeaf(YType.uint32, 'received-permanent-fails')),
+                        ('sent_permanent_fails', YLeaf(YType.uint32, 'sent-permanent-fails')),
+                        ('transport_down', YLeaf(YType.uint32, 'transport-down')),
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                    ])
+                    self.peer_name = None
+                    self.peer_index = None
+                    self.address = None
+                    self.port = None
+                    self.port_connect = None
+                    self.protocol_type = None
+                    self.security_type = None
+                    self.conn_retry_timer = None
+                    self.watchdog_timer = None
+                    self.transaction_timer = None
+                    self.vrf_name = None
+                    self.source_interface = None
+                    self.destination_host = None
+                    self.destination_realm = None
+                    self.peer_type = None
+                    self.firmware_revision = None
+                    self.state_duration = None
+                    self.last_disconnect_cause = None
+                    self.who_init_disconnect = None
+                    self.in_as_rs = None
+                    self.out_as_rs = None
+                    self.in_as_as = None
+                    self.out_as_as = None
+                    self.in_ac_rs = None
+                    self.out_ac_rs = None
+                    self.in_ac_as = None
+                    self.out_ac_as = None
+                    self.in_ce_rs = None
+                    self.out_ce_rs = None
+                    self.in_ce_as = None
+                    self.out_ce_as = None
+                    self.in_dw_rs = None
+                    self.out_dw_rs = None
+                    self.in_dw_as = None
+                    self.out_dw_as = None
+                    self.in_dp_rs = None
+                    self.out_dp_rs = None
+                    self.in_dp_as = None
+                    self.out_dp_as = None
+                    self.in_ra_rs = None
+                    self.out_ra_rs = None
+                    self.in_ra_as = None
+                    self.out_ra_as = None
+                    self.in_st_rs = None
+                    self.out_st_rs = None
+                    self.in_st_as = None
+                    self.out_st_as = None
+                    self.in_cc_rs = None
+                    self.out_cc_rs = None
+                    self.in_cc_as = None
+                    self.out_cc_as = None
+                    self.out_aa_rs = None
+                    self.in_aa_as = None
+                    self.malformed_requests = None
+                    self.received_proto_errors = None
+                    self.sent_proto_errors = None
+                    self.received_transient_fails = None
+                    self.sent_transient_fails = None
+                    self.received_permanent_fails = None
+                    self.sent_permanent_fails = None
+                    self.transport_down = None
+                    self.state = None
                     self._segment_path = lambda: "peer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/peers/%s" % self._segment_path()
 
@@ -2581,10 +3050,13 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"list-of-nas" : ("list_of_nas", Aaa.Diameter.Nas.ListOfNas)}
-
-                self.aaanas_id = YLeaf(YType.str, "aaanas-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.Nas.ListOfNas))])
+                self._leafs = OrderedDict([
+                    ('aaanas_id', YLeaf(YType.str, 'aaanas-id')),
+                ])
+                self.aaanas_id = None
 
                 self.list_of_nas = YList(self)
                 self._segment_path = lambda: "nas"
@@ -2681,30 +3153,33 @@ class Aaa(Entity):
                     self.yang_parent_name = "nas"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.aaa_session_id = YLeaf(YType.str, "aaa-session-id")
-
-                    self.diameter_session_id = YLeaf(YType.str, "diameter-session-id")
-
-                    self.authentication_status = YLeaf(YType.uint32, "authentication-status")
-
-                    self.authorization_status = YLeaf(YType.uint32, "authorization-status")
-
-                    self.accounting_status = YLeaf(YType.uint32, "accounting-status")
-
-                    self.accounting_status_stop = YLeaf(YType.uint32, "accounting-status-stop")
-
-                    self.disconnect_status = YLeaf(YType.uint32, "disconnect-status")
-
-                    self.accounting_intrim_in_packets = YLeaf(YType.uint32, "accounting-intrim-in-packets")
-
-                    self.accounting_intrim_out_packets = YLeaf(YType.uint32, "accounting-intrim-out-packets")
-
-                    self.method_list = YLeaf(YType.str, "method-list")
-
-                    self.server_used_list = YLeaf(YType.str, "server-used-list")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('aaa_session_id', YLeaf(YType.str, 'aaa-session-id')),
+                        ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
+                        ('authentication_status', YLeaf(YType.uint32, 'authentication-status')),
+                        ('authorization_status', YLeaf(YType.uint32, 'authorization-status')),
+                        ('accounting_status', YLeaf(YType.uint32, 'accounting-status')),
+                        ('accounting_status_stop', YLeaf(YType.uint32, 'accounting-status-stop')),
+                        ('disconnect_status', YLeaf(YType.uint32, 'disconnect-status')),
+                        ('accounting_intrim_in_packets', YLeaf(YType.uint32, 'accounting-intrim-in-packets')),
+                        ('accounting_intrim_out_packets', YLeaf(YType.uint32, 'accounting-intrim-out-packets')),
+                        ('method_list', YLeaf(YType.str, 'method-list')),
+                        ('server_used_list', YLeaf(YType.str, 'server-used-list')),
+                    ])
+                    self.aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.authentication_status = None
+                    self.authorization_status = None
+                    self.accounting_status = None
+                    self.accounting_status_stop = None
+                    self.disconnect_status = None
+                    self.accounting_intrim_in_packets = None
+                    self.accounting_intrim_out_packets = None
+                    self.method_list = None
+                    self.server_used_list = None
                     self._segment_path = lambda: "list-of-nas"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/nas/%s" % self._segment_path()
 
@@ -3066,104 +3541,107 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.authen_response_in_packets = YLeaf(YType.uint32, "authen-response-in-packets")
-
-                self.authen_request_out_packets = YLeaf(YType.uint32, "authen-request-out-packets")
-
-                self.authen_request_in_packets = YLeaf(YType.uint32, "authen-request-in-packets")
-
-                self.authen_response_out_packets = YLeaf(YType.uint32, "authen-response-out-packets")
-
-                self.authen_success_packets = YLeaf(YType.uint32, "authen-success-packets")
-
-                self.authen_response_fail_packets = YLeaf(YType.uint32, "authen-response-fail-packets")
-
-                self.authorization_in_packets = YLeaf(YType.uint32, "authorization-in-packets")
-
-                self.authorization_out_packets = YLeaf(YType.uint32, "authorization-out-packets")
-
-                self.authorization_request_in_packets = YLeaf(YType.uint32, "authorization-request-in-packets")
-
-                self.authorization_response_out_packets = YLeaf(YType.uint32, "authorization-response-out-packets")
-
-                self.authorization_response_success_packets = YLeaf(YType.uint32, "authorization-response-success-packets")
-
-                self.authorization_response_fail_packets = YLeaf(YType.uint32, "authorization-response-fail-packets")
-
-                self.accounting_response_in_packets = YLeaf(YType.uint32, "accounting-response-in-packets")
-
-                self.accounting_request_out_packets = YLeaf(YType.uint32, "accounting-request-out-packets")
-
-                self.accounting_start_request_packets = YLeaf(YType.uint32, "accounting-start-request-packets")
-
-                self.accounting_start_response_packets = YLeaf(YType.uint32, "accounting-start-response-packets")
-
-                self.accounting_start_success_packets = YLeaf(YType.uint32, "accounting-start-success-packets")
-
-                self.accounting_start_failed_packets = YLeaf(YType.uint32, "accounting-start-failed-packets")
-
-                self.accounting_stop_response_in_packets = YLeaf(YType.uint32, "accounting-stop-response-in-packets")
-
-                self.accounting_stop_request_out_packets = YLeaf(YType.uint32, "accounting-stop-request-out-packets")
-
-                self.accounting_stop_request_in_packets = YLeaf(YType.uint32, "accounting-stop-request-in-packets")
-
-                self.accounting_stop_response_out_packets = YLeaf(YType.uint32, "accounting-stop-response-out-packets")
-
-                self.accounting_stop_success_response_packets = YLeaf(YType.uint32, "accounting-stop-success-response-packets")
-
-                self.accounting_stop_failed_packets = YLeaf(YType.uint32, "accounting-stop-failed-packets")
-
-                self.accounting_intrim_response_in_packets = YLeaf(YType.uint32, "accounting-intrim-response-in-packets")
-
-                self.accounting_interim_request_out_packets = YLeaf(YType.uint32, "accounting-interim-request-out-packets")
-
-                self.accounting_interim_request_in_packets = YLeaf(YType.uint32, "accounting-interim-request-in-packets")
-
-                self.accounting_interim_response_out_packets = YLeaf(YType.uint32, "accounting-interim-response-out-packets")
-
-                self.accounting_interim_success_packets = YLeaf(YType.uint32, "accounting-interim-success-packets")
-
-                self.accounting_interim_failed_packets = YLeaf(YType.uint32, "accounting-interim-failed-packets")
-
-                self.disconnect_response_in_packets = YLeaf(YType.uint32, "disconnect-response-in-packets")
-
-                self.disconnect_request_out_packets = YLeaf(YType.uint32, "disconnect-request-out-packets")
-
-                self.disconnect_request_in_packets = YLeaf(YType.uint32, "disconnect-request-in-packets")
-
-                self.disconnect_response_out_packets = YLeaf(YType.uint32, "disconnect-response-out-packets")
-
-                self.disconnect_success_response_packets = YLeaf(YType.uint32, "disconnect-success-response-packets")
-
-                self.disconnect_failed_response_packets = YLeaf(YType.uint32, "disconnect-failed-response-packets")
-
-                self.coa_request_in_packets = YLeaf(YType.uint32, "coa-request-in-packets")
-
-                self.coa_response_out_packets = YLeaf(YType.uint32, "coa-response-out-packets")
-
-                self.coa_request_packets = YLeaf(YType.uint32, "coa-request-packets")
-
-                self.coa_response_packets = YLeaf(YType.uint32, "coa-response-packets")
-
-                self.coa_success_packets = YLeaf(YType.uint32, "coa-success-packets")
-
-                self.coa_failed_packets = YLeaf(YType.uint32, "coa-failed-packets")
-
-                self.pod_in_packets = YLeaf(YType.uint32, "pod-in-packets")
-
-                self.pod_out_packets = YLeaf(YType.uint32, "pod-out-packets")
-
-                self.pod_request_in_packets = YLeaf(YType.uint32, "pod-request-in-packets")
-
-                self.pod_response_out_packets = YLeaf(YType.uint32, "pod-response-out-packets")
-
-                self.pod_success_packets = YLeaf(YType.uint32, "pod-success-packets")
-
-                self.pod_failed_packets = YLeaf(YType.uint32, "pod-failed-packets")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('authen_response_in_packets', YLeaf(YType.uint32, 'authen-response-in-packets')),
+                    ('authen_request_out_packets', YLeaf(YType.uint32, 'authen-request-out-packets')),
+                    ('authen_request_in_packets', YLeaf(YType.uint32, 'authen-request-in-packets')),
+                    ('authen_response_out_packets', YLeaf(YType.uint32, 'authen-response-out-packets')),
+                    ('authen_success_packets', YLeaf(YType.uint32, 'authen-success-packets')),
+                    ('authen_response_fail_packets', YLeaf(YType.uint32, 'authen-response-fail-packets')),
+                    ('authorization_in_packets', YLeaf(YType.uint32, 'authorization-in-packets')),
+                    ('authorization_out_packets', YLeaf(YType.uint32, 'authorization-out-packets')),
+                    ('authorization_request_in_packets', YLeaf(YType.uint32, 'authorization-request-in-packets')),
+                    ('authorization_response_out_packets', YLeaf(YType.uint32, 'authorization-response-out-packets')),
+                    ('authorization_response_success_packets', YLeaf(YType.uint32, 'authorization-response-success-packets')),
+                    ('authorization_response_fail_packets', YLeaf(YType.uint32, 'authorization-response-fail-packets')),
+                    ('accounting_response_in_packets', YLeaf(YType.uint32, 'accounting-response-in-packets')),
+                    ('accounting_request_out_packets', YLeaf(YType.uint32, 'accounting-request-out-packets')),
+                    ('accounting_start_request_packets', YLeaf(YType.uint32, 'accounting-start-request-packets')),
+                    ('accounting_start_response_packets', YLeaf(YType.uint32, 'accounting-start-response-packets')),
+                    ('accounting_start_success_packets', YLeaf(YType.uint32, 'accounting-start-success-packets')),
+                    ('accounting_start_failed_packets', YLeaf(YType.uint32, 'accounting-start-failed-packets')),
+                    ('accounting_stop_response_in_packets', YLeaf(YType.uint32, 'accounting-stop-response-in-packets')),
+                    ('accounting_stop_request_out_packets', YLeaf(YType.uint32, 'accounting-stop-request-out-packets')),
+                    ('accounting_stop_request_in_packets', YLeaf(YType.uint32, 'accounting-stop-request-in-packets')),
+                    ('accounting_stop_response_out_packets', YLeaf(YType.uint32, 'accounting-stop-response-out-packets')),
+                    ('accounting_stop_success_response_packets', YLeaf(YType.uint32, 'accounting-stop-success-response-packets')),
+                    ('accounting_stop_failed_packets', YLeaf(YType.uint32, 'accounting-stop-failed-packets')),
+                    ('accounting_intrim_response_in_packets', YLeaf(YType.uint32, 'accounting-intrim-response-in-packets')),
+                    ('accounting_interim_request_out_packets', YLeaf(YType.uint32, 'accounting-interim-request-out-packets')),
+                    ('accounting_interim_request_in_packets', YLeaf(YType.uint32, 'accounting-interim-request-in-packets')),
+                    ('accounting_interim_response_out_packets', YLeaf(YType.uint32, 'accounting-interim-response-out-packets')),
+                    ('accounting_interim_success_packets', YLeaf(YType.uint32, 'accounting-interim-success-packets')),
+                    ('accounting_interim_failed_packets', YLeaf(YType.uint32, 'accounting-interim-failed-packets')),
+                    ('disconnect_response_in_packets', YLeaf(YType.uint32, 'disconnect-response-in-packets')),
+                    ('disconnect_request_out_packets', YLeaf(YType.uint32, 'disconnect-request-out-packets')),
+                    ('disconnect_request_in_packets', YLeaf(YType.uint32, 'disconnect-request-in-packets')),
+                    ('disconnect_response_out_packets', YLeaf(YType.uint32, 'disconnect-response-out-packets')),
+                    ('disconnect_success_response_packets', YLeaf(YType.uint32, 'disconnect-success-response-packets')),
+                    ('disconnect_failed_response_packets', YLeaf(YType.uint32, 'disconnect-failed-response-packets')),
+                    ('coa_request_in_packets', YLeaf(YType.uint32, 'coa-request-in-packets')),
+                    ('coa_response_out_packets', YLeaf(YType.uint32, 'coa-response-out-packets')),
+                    ('coa_request_packets', YLeaf(YType.uint32, 'coa-request-packets')),
+                    ('coa_response_packets', YLeaf(YType.uint32, 'coa-response-packets')),
+                    ('coa_success_packets', YLeaf(YType.uint32, 'coa-success-packets')),
+                    ('coa_failed_packets', YLeaf(YType.uint32, 'coa-failed-packets')),
+                    ('pod_in_packets', YLeaf(YType.uint32, 'pod-in-packets')),
+                    ('pod_out_packets', YLeaf(YType.uint32, 'pod-out-packets')),
+                    ('pod_request_in_packets', YLeaf(YType.uint32, 'pod-request-in-packets')),
+                    ('pod_response_out_packets', YLeaf(YType.uint32, 'pod-response-out-packets')),
+                    ('pod_success_packets', YLeaf(YType.uint32, 'pod-success-packets')),
+                    ('pod_failed_packets', YLeaf(YType.uint32, 'pod-failed-packets')),
+                ])
+                self.authen_response_in_packets = None
+                self.authen_request_out_packets = None
+                self.authen_request_in_packets = None
+                self.authen_response_out_packets = None
+                self.authen_success_packets = None
+                self.authen_response_fail_packets = None
+                self.authorization_in_packets = None
+                self.authorization_out_packets = None
+                self.authorization_request_in_packets = None
+                self.authorization_response_out_packets = None
+                self.authorization_response_success_packets = None
+                self.authorization_response_fail_packets = None
+                self.accounting_response_in_packets = None
+                self.accounting_request_out_packets = None
+                self.accounting_start_request_packets = None
+                self.accounting_start_response_packets = None
+                self.accounting_start_success_packets = None
+                self.accounting_start_failed_packets = None
+                self.accounting_stop_response_in_packets = None
+                self.accounting_stop_request_out_packets = None
+                self.accounting_stop_request_in_packets = None
+                self.accounting_stop_response_out_packets = None
+                self.accounting_stop_success_response_packets = None
+                self.accounting_stop_failed_packets = None
+                self.accounting_intrim_response_in_packets = None
+                self.accounting_interim_request_out_packets = None
+                self.accounting_interim_request_in_packets = None
+                self.accounting_interim_response_out_packets = None
+                self.accounting_interim_success_packets = None
+                self.accounting_interim_failed_packets = None
+                self.disconnect_response_in_packets = None
+                self.disconnect_request_out_packets = None
+                self.disconnect_request_in_packets = None
+                self.disconnect_response_out_packets = None
+                self.disconnect_success_response_packets = None
+                self.disconnect_failed_response_packets = None
+                self.coa_request_in_packets = None
+                self.coa_response_out_packets = None
+                self.coa_request_packets = None
+                self.coa_response_packets = None
+                self.coa_success_packets = None
+                self.coa_failed_packets = None
+                self.pod_in_packets = None
+                self.pod_out_packets = None
+                self.pod_request_in_packets = None
+                self.pod_response_out_packets = None
+                self.pod_success_packets = None
+                self.pod_failed_packets = None
                 self._segment_path = lambda: "nas-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/%s" % self._segment_path()
 
@@ -3194,8 +3672,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"gy-session-id" : ("gy_session_id", Aaa.Diameter.GySessionIds.GySessionId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("gy-session-id", ("gy_session_id", Aaa.Diameter.GySessionIds.GySessionId))])
+                self._leafs = OrderedDict()
 
                 self.gy_session_id = YList(self)
                 self._segment_path = lambda: "gy-session-ids"
@@ -3209,7 +3689,7 @@ class Aaa(Entity):
                 """
                 Diameter Gy Session data
                 
-                .. attribute:: session_id  <key>
+                .. attribute:: session_id  (key)
                 
                 	Session Id
                 	**type**\: int
@@ -3273,25 +3753,28 @@ class Aaa(Entity):
                     self.yang_parent_name = "gy-session-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.session_id = YLeaf(YType.int32, "session-id")
-
-                    self.aaa_session_id = YLeaf(YType.uint32, "aaa-session-id")
-
-                    self.parent_aaa_session_id = YLeaf(YType.uint32, "parent-aaa-session-id")
-
-                    self.diameter_session_id = YLeaf(YType.str, "diameter-session-id")
-
-                    self.request_number = YLeaf(YType.uint32, "request-number")
-
-                    self.session_state = YLeaf(YType.str, "session-state")
-
-                    self.request_type = YLeaf(YType.str, "request-type")
-
-                    self.retry_count = YLeaf(YType.uint32, "retry-count")
-                    self._segment_path = lambda: "gy-session-id" + "[session-id='" + self.session_id.get() + "']"
+                    self.ylist_key_names = ['session_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('session_id', YLeaf(YType.int32, 'session-id')),
+                        ('aaa_session_id', YLeaf(YType.uint32, 'aaa-session-id')),
+                        ('parent_aaa_session_id', YLeaf(YType.uint32, 'parent-aaa-session-id')),
+                        ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
+                        ('request_number', YLeaf(YType.uint32, 'request-number')),
+                        ('session_state', YLeaf(YType.str, 'session-state')),
+                        ('request_type', YLeaf(YType.str, 'request-type')),
+                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
+                    ])
+                    self.session_id = None
+                    self.aaa_session_id = None
+                    self.parent_aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.request_number = None
+                    self.session_state = None
+                    self.request_type = None
+                    self.retry_count = None
+                    self._segment_path = lambda: "gy-session-id" + "[session-id='" + str(self.session_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/gy-session-ids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3533,70 +4016,73 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccr_init_messages = YLeaf(YType.uint32, "ccr-init-messages")
-
-                self.ccr_init_failed_messages = YLeaf(YType.uint32, "ccr-init-failed-messages")
-
-                self.ccr_init_timed_out_messages = YLeaf(YType.uint32, "ccr-init-timed-out-messages")
-
-                self.ccr_init_retry_messages = YLeaf(YType.uint32, "ccr-init-retry-messages")
-
-                self.ccr_update_messages = YLeaf(YType.uint32, "ccr-update-messages")
-
-                self.ccr_update_failed_messages = YLeaf(YType.uint32, "ccr-update-failed-messages")
-
-                self.ccr_update_timed_out_messages = YLeaf(YType.uint32, "ccr-update-timed-out-messages")
-
-                self.ccr_update_retry_messages = YLeaf(YType.uint32, "ccr-update-retry-messages")
-
-                self.ccr_final_messages = YLeaf(YType.uint32, "ccr-final-messages")
-
-                self.ccr_final_failed_messages = YLeaf(YType.uint32, "ccr-final-failed-messages")
-
-                self.ccr_final_timed_out_messages = YLeaf(YType.uint32, "ccr-final-timed-out-messages")
-
-                self.ccr_final_retry_messages = YLeaf(YType.uint32, "ccr-final-retry-messages")
-
-                self.cca_init_messages = YLeaf(YType.uint32, "cca-init-messages")
-
-                self.cca_init_error_messages = YLeaf(YType.uint32, "cca-init-error-messages")
-
-                self.cca_update_messages = YLeaf(YType.uint32, "cca-update-messages")
-
-                self.cca_update_error_messages = YLeaf(YType.uint32, "cca-update-error-messages")
-
-                self.cca_final_messages = YLeaf(YType.uint32, "cca-final-messages")
-
-                self.cca_final_error_messages = YLeaf(YType.uint32, "cca-final-error-messages")
-
-                self.rar_received_messages = YLeaf(YType.uint32, "rar-received-messages")
-
-                self.rar_received_error_messages = YLeaf(YType.uint32, "rar-received-error-messages")
-
-                self.raa_sent_messages = YLeaf(YType.uint32, "raa-sent-messages")
-
-                self.raa_sent_error_messages = YLeaf(YType.uint32, "raa-sent-error-messages")
-
-                self.asr_received_messages = YLeaf(YType.uint32, "asr-received-messages")
-
-                self.asr_received_error_messages = YLeaf(YType.uint32, "asr-received-error-messages")
-
-                self.asa_sent_messages = YLeaf(YType.uint32, "asa-sent-messages")
-
-                self.asa_sent_error_messages = YLeaf(YType.uint32, "asa-sent-error-messages")
-
-                self.unknown_request_messages = YLeaf(YType.uint32, "unknown-request-messages")
-
-                self.restore_sessions = YLeaf(YType.uint32, "restore-sessions")
-
-                self.open_sessions = YLeaf(YType.uint32, "open-sessions")
-
-                self.close_sessions = YLeaf(YType.uint32, "close-sessions")
-
-                self.active_sessions = YLeaf(YType.uint32, "active-sessions")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ccr_init_messages', YLeaf(YType.uint32, 'ccr-init-messages')),
+                    ('ccr_init_failed_messages', YLeaf(YType.uint32, 'ccr-init-failed-messages')),
+                    ('ccr_init_timed_out_messages', YLeaf(YType.uint32, 'ccr-init-timed-out-messages')),
+                    ('ccr_init_retry_messages', YLeaf(YType.uint32, 'ccr-init-retry-messages')),
+                    ('ccr_update_messages', YLeaf(YType.uint32, 'ccr-update-messages')),
+                    ('ccr_update_failed_messages', YLeaf(YType.uint32, 'ccr-update-failed-messages')),
+                    ('ccr_update_timed_out_messages', YLeaf(YType.uint32, 'ccr-update-timed-out-messages')),
+                    ('ccr_update_retry_messages', YLeaf(YType.uint32, 'ccr-update-retry-messages')),
+                    ('ccr_final_messages', YLeaf(YType.uint32, 'ccr-final-messages')),
+                    ('ccr_final_failed_messages', YLeaf(YType.uint32, 'ccr-final-failed-messages')),
+                    ('ccr_final_timed_out_messages', YLeaf(YType.uint32, 'ccr-final-timed-out-messages')),
+                    ('ccr_final_retry_messages', YLeaf(YType.uint32, 'ccr-final-retry-messages')),
+                    ('cca_init_messages', YLeaf(YType.uint32, 'cca-init-messages')),
+                    ('cca_init_error_messages', YLeaf(YType.uint32, 'cca-init-error-messages')),
+                    ('cca_update_messages', YLeaf(YType.uint32, 'cca-update-messages')),
+                    ('cca_update_error_messages', YLeaf(YType.uint32, 'cca-update-error-messages')),
+                    ('cca_final_messages', YLeaf(YType.uint32, 'cca-final-messages')),
+                    ('cca_final_error_messages', YLeaf(YType.uint32, 'cca-final-error-messages')),
+                    ('rar_received_messages', YLeaf(YType.uint32, 'rar-received-messages')),
+                    ('rar_received_error_messages', YLeaf(YType.uint32, 'rar-received-error-messages')),
+                    ('raa_sent_messages', YLeaf(YType.uint32, 'raa-sent-messages')),
+                    ('raa_sent_error_messages', YLeaf(YType.uint32, 'raa-sent-error-messages')),
+                    ('asr_received_messages', YLeaf(YType.uint32, 'asr-received-messages')),
+                    ('asr_received_error_messages', YLeaf(YType.uint32, 'asr-received-error-messages')),
+                    ('asa_sent_messages', YLeaf(YType.uint32, 'asa-sent-messages')),
+                    ('asa_sent_error_messages', YLeaf(YType.uint32, 'asa-sent-error-messages')),
+                    ('unknown_request_messages', YLeaf(YType.uint32, 'unknown-request-messages')),
+                    ('restore_sessions', YLeaf(YType.uint32, 'restore-sessions')),
+                    ('open_sessions', YLeaf(YType.uint32, 'open-sessions')),
+                    ('close_sessions', YLeaf(YType.uint32, 'close-sessions')),
+                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
+                ])
+                self.ccr_init_messages = None
+                self.ccr_init_failed_messages = None
+                self.ccr_init_timed_out_messages = None
+                self.ccr_init_retry_messages = None
+                self.ccr_update_messages = None
+                self.ccr_update_failed_messages = None
+                self.ccr_update_timed_out_messages = None
+                self.ccr_update_retry_messages = None
+                self.ccr_final_messages = None
+                self.ccr_final_failed_messages = None
+                self.ccr_final_timed_out_messages = None
+                self.ccr_final_retry_messages = None
+                self.cca_init_messages = None
+                self.cca_init_error_messages = None
+                self.cca_update_messages = None
+                self.cca_update_error_messages = None
+                self.cca_final_messages = None
+                self.cca_final_error_messages = None
+                self.rar_received_messages = None
+                self.rar_received_error_messages = None
+                self.raa_sent_messages = None
+                self.raa_sent_error_messages = None
+                self.asr_received_messages = None
+                self.asr_received_error_messages = None
+                self.asa_sent_messages = None
+                self.asa_sent_error_messages = None
+                self.unknown_request_messages = None
+                self.restore_sessions = None
+                self.open_sessions = None
+                self.close_sessions = None
+                self.active_sessions = None
                 self._segment_path = lambda: "gy-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/%s" % self._segment_path()
 
@@ -3627,8 +4113,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"gx-session-id" : ("gx_session_id", Aaa.Diameter.GxSessionIds.GxSessionId)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("gx-session-id", ("gx_session_id", Aaa.Diameter.GxSessionIds.GxSessionId))])
+                self._leafs = OrderedDict()
 
                 self.gx_session_id = YList(self)
                 self._segment_path = lambda: "gx-session-ids"
@@ -3642,7 +4130,7 @@ class Aaa(Entity):
                 """
                 Diameter Gx Session data
                 
-                .. attribute:: session_id  <key>
+                .. attribute:: session_id  (key)
                 
                 	Session Id
                 	**type**\: int
@@ -3699,23 +4187,26 @@ class Aaa(Entity):
                     self.yang_parent_name = "gx-session-ids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.session_id = YLeaf(YType.int32, "session-id")
-
-                    self.aaa_session_id = YLeaf(YType.uint32, "aaa-session-id")
-
-                    self.diameter_session_id = YLeaf(YType.str, "diameter-session-id")
-
-                    self.request_number = YLeaf(YType.uint32, "request-number")
-
-                    self.session_state = YLeaf(YType.str, "session-state")
-
-                    self.request_type = YLeaf(YType.str, "request-type")
-
-                    self.retry_count = YLeaf(YType.uint32, "retry-count")
-                    self._segment_path = lambda: "gx-session-id" + "[session-id='" + self.session_id.get() + "']"
+                    self.ylist_key_names = ['session_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('session_id', YLeaf(YType.int32, 'session-id')),
+                        ('aaa_session_id', YLeaf(YType.uint32, 'aaa-session-id')),
+                        ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
+                        ('request_number', YLeaf(YType.uint32, 'request-number')),
+                        ('session_state', YLeaf(YType.str, 'session-state')),
+                        ('request_type', YLeaf(YType.str, 'request-type')),
+                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
+                    ])
+                    self.session_id = None
+                    self.aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.request_number = None
+                    self.session_state = None
+                    self.request_type = None
+                    self.retry_count = None
+                    self._segment_path = lambda: "gx-session-id" + "[session-id='" + str(self.session_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/gx-session-ids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3750,10 +4241,13 @@ class Aaa(Entity):
                 self.yang_parent_name = "diameter"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"list-of-nas" : ("list_of_nas", Aaa.Diameter.NasSession.ListOfNas)}
-
-                self.aaanas_id = YLeaf(YType.str, "aaanas-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("list-of-nas", ("list_of_nas", Aaa.Diameter.NasSession.ListOfNas))])
+                self._leafs = OrderedDict([
+                    ('aaanas_id', YLeaf(YType.str, 'aaanas-id')),
+                ])
+                self.aaanas_id = None
 
                 self.list_of_nas = YList(self)
                 self._segment_path = lambda: "nas-session"
@@ -3850,30 +4344,33 @@ class Aaa(Entity):
                     self.yang_parent_name = "nas-session"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.aaa_session_id = YLeaf(YType.str, "aaa-session-id")
-
-                    self.diameter_session_id = YLeaf(YType.str, "diameter-session-id")
-
-                    self.authentication_status = YLeaf(YType.uint32, "authentication-status")
-
-                    self.authorization_status = YLeaf(YType.uint32, "authorization-status")
-
-                    self.accounting_status = YLeaf(YType.uint32, "accounting-status")
-
-                    self.accounting_status_stop = YLeaf(YType.uint32, "accounting-status-stop")
-
-                    self.disconnect_status = YLeaf(YType.uint32, "disconnect-status")
-
-                    self.accounting_intrim_in_packets = YLeaf(YType.uint32, "accounting-intrim-in-packets")
-
-                    self.accounting_intrim_out_packets = YLeaf(YType.uint32, "accounting-intrim-out-packets")
-
-                    self.method_list = YLeaf(YType.str, "method-list")
-
-                    self.server_used_list = YLeaf(YType.str, "server-used-list")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('aaa_session_id', YLeaf(YType.str, 'aaa-session-id')),
+                        ('diameter_session_id', YLeaf(YType.str, 'diameter-session-id')),
+                        ('authentication_status', YLeaf(YType.uint32, 'authentication-status')),
+                        ('authorization_status', YLeaf(YType.uint32, 'authorization-status')),
+                        ('accounting_status', YLeaf(YType.uint32, 'accounting-status')),
+                        ('accounting_status_stop', YLeaf(YType.uint32, 'accounting-status-stop')),
+                        ('disconnect_status', YLeaf(YType.uint32, 'disconnect-status')),
+                        ('accounting_intrim_in_packets', YLeaf(YType.uint32, 'accounting-intrim-in-packets')),
+                        ('accounting_intrim_out_packets', YLeaf(YType.uint32, 'accounting-intrim-out-packets')),
+                        ('method_list', YLeaf(YType.str, 'method-list')),
+                        ('server_used_list', YLeaf(YType.str, 'server-used-list')),
+                    ])
+                    self.aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.authentication_status = None
+                    self.authorization_status = None
+                    self.accounting_status = None
+                    self.accounting_status_stop = None
+                    self.disconnect_status = None
+                    self.accounting_intrim_in_packets = None
+                    self.accounting_intrim_out_packets = None
+                    self.method_list = None
+                    self.server_used_list = None
                     self._segment_path = lambda: "list-of-nas"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/nas-session/%s" % self._segment_path()
 
@@ -3898,7 +4395,7 @@ class Aaa(Entity):
         .. attribute:: global_
         
         	RADIUS Client Information
-        	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global_>`
+        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global>`
         
         
 
@@ -3914,8 +4411,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"servers" : ("servers", Aaa.Radius.Servers), "radius-source-interface" : ("radius_source_interface", Aaa.Radius.RadiusSourceInterface), "global" : ("global_", Aaa.Radius.Global_)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("servers", ("servers", Aaa.Radius.Servers)), ("radius-source-interface", ("radius_source_interface", Aaa.Radius.RadiusSourceInterface)), ("global", ("global_", Aaa.Radius.Global))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.servers = Aaa.Radius.Servers()
             self.servers.parent = self
@@ -3927,7 +4426,7 @@ class Aaa(Entity):
             self._children_name_map["radius_source_interface"] = "radius-source-interface"
             self._children_yang_names.add("radius-source-interface")
 
-            self.global_ = Aaa.Radius.Global_()
+            self.global_ = Aaa.Radius.Global()
             self.global_.parent = self
             self._children_name_map["global_"] = "global"
             self._children_yang_names.add("global")
@@ -3958,8 +4457,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "radius"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"server" : ("server", Aaa.Radius.Servers.Server)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("server", ("server", Aaa.Radius.Servers.Server))])
+                self._leafs = OrderedDict()
 
                 self.server = YList(self)
                 self._segment_path = lambda: "servers"
@@ -4607,184 +5108,187 @@ class Aaa(Entity):
                     self.yang_parent_name = "servers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                    self.auth_port_number = YLeaf(YType.uint32, "auth-port-number")
-
-                    self.acct_port_number = YLeaf(YType.uint32, "acct-port-number")
-
-                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                    self.priority = YLeaf(YType.uint32, "priority")
-
-                    self.timeout_xr = YLeaf(YType.uint32, "timeout-xr")
-
-                    self.retransmit = YLeaf(YType.uint32, "retransmit")
-
-                    self.dead_time = YLeaf(YType.uint32, "dead-time")
-
-                    self.dead_detect_time = YLeaf(YType.uint32, "dead-detect-time")
-
-                    self.dead_detect_tries = YLeaf(YType.uint32, "dead-detect-tries")
-
-                    self.authentication_port = YLeaf(YType.uint32, "authentication-port")
-
-                    self.accounting_port = YLeaf(YType.uint32, "accounting-port")
-
-                    self.state = YLeaf(YType.str, "state")
-
-                    self.current_state_duration = YLeaf(YType.uint32, "current-state-duration")
-
-                    self.previous_state_duration = YLeaf(YType.uint32, "previous-state-duration")
-
-                    self.packets_in = YLeaf(YType.uint32, "packets-in")
-
-                    self.packets_out = YLeaf(YType.uint32, "packets-out")
-
-                    self.timeouts = YLeaf(YType.uint32, "timeouts")
-
-                    self.aborts = YLeaf(YType.uint32, "aborts")
-
-                    self.replies_expected = YLeaf(YType.uint32, "replies-expected")
-
-                    self.redirected_requests = YLeaf(YType.uint32, "redirected-requests")
-
-                    self.authentication_rtt = YLeaf(YType.uint32, "authentication-rtt")
-
-                    self.access_requests = YLeaf(YType.uint32, "access-requests")
-
-                    self.access_request_retransmits = YLeaf(YType.uint32, "access-request-retransmits")
-
-                    self.access_accepts = YLeaf(YType.uint32, "access-accepts")
-
-                    self.access_rejects = YLeaf(YType.uint32, "access-rejects")
-
-                    self.access_challenges = YLeaf(YType.uint32, "access-challenges")
-
-                    self.bad_access_responses = YLeaf(YType.uint32, "bad-access-responses")
-
-                    self.bad_access_authenticators = YLeaf(YType.uint32, "bad-access-authenticators")
-
-                    self.pending_access_requests = YLeaf(YType.uint32, "pending-access-requests")
-
-                    self.access_timeouts = YLeaf(YType.uint32, "access-timeouts")
-
-                    self.unknown_access_types = YLeaf(YType.uint32, "unknown-access-types")
-
-                    self.dropped_access_responses = YLeaf(YType.uint32, "dropped-access-responses")
-
-                    self.throttled_access_reqs = YLeaf(YType.uint32, "throttled-access-reqs")
-
-                    self.throttled_timed_out_reqs = YLeaf(YType.uint32, "throttled-timed-out-reqs")
-
-                    self.throttled_dropped_reqs = YLeaf(YType.uint32, "throttled-dropped-reqs")
-
-                    self.max_throttled_access_reqs = YLeaf(YType.uint32, "max-throttled-access-reqs")
-
-                    self.currently_throttled_access_reqs = YLeaf(YType.uint32, "currently-throttled-access-reqs")
-
-                    self.authen_response_time = YLeaf(YType.uint32, "authen-response-time")
-
-                    self.authen_transaction_successess = YLeaf(YType.uint32, "authen-transaction-successess")
-
-                    self.authen_transaction_failure = YLeaf(YType.uint32, "authen-transaction-failure")
-
-                    self.authen_unexpected_responses = YLeaf(YType.uint32, "authen-unexpected-responses")
-
-                    self.authen_server_error_responses = YLeaf(YType.uint32, "authen-server-error-responses")
-
-                    self.authen_incorrect_responses = YLeaf(YType.uint32, "authen-incorrect-responses")
-
-                    self.author_requests = YLeaf(YType.uint32, "author-requests")
-
-                    self.author_request_timeouts = YLeaf(YType.uint32, "author-request-timeouts")
-
-                    self.author_response_time = YLeaf(YType.uint32, "author-response-time")
-
-                    self.author_transaction_successess = YLeaf(YType.uint32, "author-transaction-successess")
-
-                    self.author_transaction_failure = YLeaf(YType.uint32, "author-transaction-failure")
-
-                    self.author_unexpected_responses = YLeaf(YType.uint32, "author-unexpected-responses")
-
-                    self.author_server_error_responses = YLeaf(YType.uint32, "author-server-error-responses")
-
-                    self.author_incorrect_responses = YLeaf(YType.uint32, "author-incorrect-responses")
-
-                    self.accounting_rtt = YLeaf(YType.uint32, "accounting-rtt")
-
-                    self.accounting_requests = YLeaf(YType.uint32, "accounting-requests")
-
-                    self.accounting_retransmits = YLeaf(YType.uint32, "accounting-retransmits")
-
-                    self.accounting_responses = YLeaf(YType.uint32, "accounting-responses")
-
-                    self.bad_accounting_responses = YLeaf(YType.uint32, "bad-accounting-responses")
-
-                    self.bad_accounting_authenticators = YLeaf(YType.uint32, "bad-accounting-authenticators")
-
-                    self.pending_accounting_requets = YLeaf(YType.uint32, "pending-accounting-requets")
-
-                    self.accounting_timeouts = YLeaf(YType.uint32, "accounting-timeouts")
-
-                    self.unknown_accounting_types = YLeaf(YType.uint32, "unknown-accounting-types")
-
-                    self.dropped_accounting_responses = YLeaf(YType.uint32, "dropped-accounting-responses")
-
-                    self.is_a_private_server = YLeaf(YType.boolean, "is-a-private-server")
-
-                    self.total_test_auth_reqs = YLeaf(YType.uint32, "total-test-auth-reqs")
-
-                    self.total_test_auth_timeouts = YLeaf(YType.uint32, "total-test-auth-timeouts")
-
-                    self.total_test_auth_response = YLeaf(YType.uint32, "total-test-auth-response")
-
-                    self.total_test_auth_pending = YLeaf(YType.uint32, "total-test-auth-pending")
-
-                    self.total_test_acct_reqs = YLeaf(YType.uint32, "total-test-acct-reqs")
-
-                    self.total_test_acct_timeouts = YLeaf(YType.uint32, "total-test-acct-timeouts")
-
-                    self.total_test_acct_response = YLeaf(YType.uint32, "total-test-acct-response")
-
-                    self.total_test_acct_pending = YLeaf(YType.uint32, "total-test-acct-pending")
-
-                    self.throttled_acct_transactions = YLeaf(YType.uint32, "throttled-acct-transactions")
-
-                    self.throttled_acct_timed_out_stats = YLeaf(YType.uint32, "throttled-acct-timed-out-stats")
-
-                    self.throttled_acct_failures_stats = YLeaf(YType.uint32, "throttled-acct-failures-stats")
-
-                    self.max_acct_throttled = YLeaf(YType.uint32, "max-acct-throttled")
-
-                    self.throttleda_acct_transactions = YLeaf(YType.uint32, "throttleda-acct-transactions")
-
-                    self.acct_unexpected_responses = YLeaf(YType.uint32, "acct-unexpected-responses")
-
-                    self.acct_server_error_responses = YLeaf(YType.uint32, "acct-server-error-responses")
-
-                    self.acct_incorrect_responses = YLeaf(YType.uint32, "acct-incorrect-responses")
-
-                    self.acct_response_time = YLeaf(YType.uint32, "acct-response-time")
-
-                    self.acct_transaction_successess = YLeaf(YType.uint32, "acct-transaction-successess")
-
-                    self.acct_transaction_failure = YLeaf(YType.uint32, "acct-transaction-failure")
-
-                    self.total_deadtime = YLeaf(YType.uint32, "total-deadtime")
-
-                    self.last_deadtime = YLeaf(YType.uint32, "last-deadtime")
-
-                    self.is_quarantined = YLeaf(YType.boolean, "is-quarantined")
-
-                    self.group_name = YLeaf(YType.str, "group-name")
-
-                    self.ip_address_xr = YLeaf(YType.str, "ip-address-xr")
-
-                    self.family = YLeaf(YType.str, "family")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                        ('auth_port_number', YLeaf(YType.uint32, 'auth-port-number')),
+                        ('acct_port_number', YLeaf(YType.uint32, 'acct-port-number')),
+                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                        ('priority', YLeaf(YType.uint32, 'priority')),
+                        ('timeout_xr', YLeaf(YType.uint32, 'timeout-xr')),
+                        ('retransmit', YLeaf(YType.uint32, 'retransmit')),
+                        ('dead_time', YLeaf(YType.uint32, 'dead-time')),
+                        ('dead_detect_time', YLeaf(YType.uint32, 'dead-detect-time')),
+                        ('dead_detect_tries', YLeaf(YType.uint32, 'dead-detect-tries')),
+                        ('authentication_port', YLeaf(YType.uint32, 'authentication-port')),
+                        ('accounting_port', YLeaf(YType.uint32, 'accounting-port')),
+                        ('state', YLeaf(YType.str, 'state')),
+                        ('current_state_duration', YLeaf(YType.uint32, 'current-state-duration')),
+                        ('previous_state_duration', YLeaf(YType.uint32, 'previous-state-duration')),
+                        ('packets_in', YLeaf(YType.uint32, 'packets-in')),
+                        ('packets_out', YLeaf(YType.uint32, 'packets-out')),
+                        ('timeouts', YLeaf(YType.uint32, 'timeouts')),
+                        ('aborts', YLeaf(YType.uint32, 'aborts')),
+                        ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
+                        ('redirected_requests', YLeaf(YType.uint32, 'redirected-requests')),
+                        ('authentication_rtt', YLeaf(YType.uint32, 'authentication-rtt')),
+                        ('access_requests', YLeaf(YType.uint32, 'access-requests')),
+                        ('access_request_retransmits', YLeaf(YType.uint32, 'access-request-retransmits')),
+                        ('access_accepts', YLeaf(YType.uint32, 'access-accepts')),
+                        ('access_rejects', YLeaf(YType.uint32, 'access-rejects')),
+                        ('access_challenges', YLeaf(YType.uint32, 'access-challenges')),
+                        ('bad_access_responses', YLeaf(YType.uint32, 'bad-access-responses')),
+                        ('bad_access_authenticators', YLeaf(YType.uint32, 'bad-access-authenticators')),
+                        ('pending_access_requests', YLeaf(YType.uint32, 'pending-access-requests')),
+                        ('access_timeouts', YLeaf(YType.uint32, 'access-timeouts')),
+                        ('unknown_access_types', YLeaf(YType.uint32, 'unknown-access-types')),
+                        ('dropped_access_responses', YLeaf(YType.uint32, 'dropped-access-responses')),
+                        ('throttled_access_reqs', YLeaf(YType.uint32, 'throttled-access-reqs')),
+                        ('throttled_timed_out_reqs', YLeaf(YType.uint32, 'throttled-timed-out-reqs')),
+                        ('throttled_dropped_reqs', YLeaf(YType.uint32, 'throttled-dropped-reqs')),
+                        ('max_throttled_access_reqs', YLeaf(YType.uint32, 'max-throttled-access-reqs')),
+                        ('currently_throttled_access_reqs', YLeaf(YType.uint32, 'currently-throttled-access-reqs')),
+                        ('authen_response_time', YLeaf(YType.uint32, 'authen-response-time')),
+                        ('authen_transaction_successess', YLeaf(YType.uint32, 'authen-transaction-successess')),
+                        ('authen_transaction_failure', YLeaf(YType.uint32, 'authen-transaction-failure')),
+                        ('authen_unexpected_responses', YLeaf(YType.uint32, 'authen-unexpected-responses')),
+                        ('authen_server_error_responses', YLeaf(YType.uint32, 'authen-server-error-responses')),
+                        ('authen_incorrect_responses', YLeaf(YType.uint32, 'authen-incorrect-responses')),
+                        ('author_requests', YLeaf(YType.uint32, 'author-requests')),
+                        ('author_request_timeouts', YLeaf(YType.uint32, 'author-request-timeouts')),
+                        ('author_response_time', YLeaf(YType.uint32, 'author-response-time')),
+                        ('author_transaction_successess', YLeaf(YType.uint32, 'author-transaction-successess')),
+                        ('author_transaction_failure', YLeaf(YType.uint32, 'author-transaction-failure')),
+                        ('author_unexpected_responses', YLeaf(YType.uint32, 'author-unexpected-responses')),
+                        ('author_server_error_responses', YLeaf(YType.uint32, 'author-server-error-responses')),
+                        ('author_incorrect_responses', YLeaf(YType.uint32, 'author-incorrect-responses')),
+                        ('accounting_rtt', YLeaf(YType.uint32, 'accounting-rtt')),
+                        ('accounting_requests', YLeaf(YType.uint32, 'accounting-requests')),
+                        ('accounting_retransmits', YLeaf(YType.uint32, 'accounting-retransmits')),
+                        ('accounting_responses', YLeaf(YType.uint32, 'accounting-responses')),
+                        ('bad_accounting_responses', YLeaf(YType.uint32, 'bad-accounting-responses')),
+                        ('bad_accounting_authenticators', YLeaf(YType.uint32, 'bad-accounting-authenticators')),
+                        ('pending_accounting_requets', YLeaf(YType.uint32, 'pending-accounting-requets')),
+                        ('accounting_timeouts', YLeaf(YType.uint32, 'accounting-timeouts')),
+                        ('unknown_accounting_types', YLeaf(YType.uint32, 'unknown-accounting-types')),
+                        ('dropped_accounting_responses', YLeaf(YType.uint32, 'dropped-accounting-responses')),
+                        ('is_a_private_server', YLeaf(YType.boolean, 'is-a-private-server')),
+                        ('total_test_auth_reqs', YLeaf(YType.uint32, 'total-test-auth-reqs')),
+                        ('total_test_auth_timeouts', YLeaf(YType.uint32, 'total-test-auth-timeouts')),
+                        ('total_test_auth_response', YLeaf(YType.uint32, 'total-test-auth-response')),
+                        ('total_test_auth_pending', YLeaf(YType.uint32, 'total-test-auth-pending')),
+                        ('total_test_acct_reqs', YLeaf(YType.uint32, 'total-test-acct-reqs')),
+                        ('total_test_acct_timeouts', YLeaf(YType.uint32, 'total-test-acct-timeouts')),
+                        ('total_test_acct_response', YLeaf(YType.uint32, 'total-test-acct-response')),
+                        ('total_test_acct_pending', YLeaf(YType.uint32, 'total-test-acct-pending')),
+                        ('throttled_acct_transactions', YLeaf(YType.uint32, 'throttled-acct-transactions')),
+                        ('throttled_acct_timed_out_stats', YLeaf(YType.uint32, 'throttled-acct-timed-out-stats')),
+                        ('throttled_acct_failures_stats', YLeaf(YType.uint32, 'throttled-acct-failures-stats')),
+                        ('max_acct_throttled', YLeaf(YType.uint32, 'max-acct-throttled')),
+                        ('throttleda_acct_transactions', YLeaf(YType.uint32, 'throttleda-acct-transactions')),
+                        ('acct_unexpected_responses', YLeaf(YType.uint32, 'acct-unexpected-responses')),
+                        ('acct_server_error_responses', YLeaf(YType.uint32, 'acct-server-error-responses')),
+                        ('acct_incorrect_responses', YLeaf(YType.uint32, 'acct-incorrect-responses')),
+                        ('acct_response_time', YLeaf(YType.uint32, 'acct-response-time')),
+                        ('acct_transaction_successess', YLeaf(YType.uint32, 'acct-transaction-successess')),
+                        ('acct_transaction_failure', YLeaf(YType.uint32, 'acct-transaction-failure')),
+                        ('total_deadtime', YLeaf(YType.uint32, 'total-deadtime')),
+                        ('last_deadtime', YLeaf(YType.uint32, 'last-deadtime')),
+                        ('is_quarantined', YLeaf(YType.boolean, 'is-quarantined')),
+                        ('group_name', YLeaf(YType.str, 'group-name')),
+                        ('ip_address_xr', YLeaf(YType.str, 'ip-address-xr')),
+                        ('family', YLeaf(YType.str, 'family')),
+                    ])
+                    self.ip_address = None
+                    self.auth_port_number = None
+                    self.acct_port_number = None
+                    self.ipv4_address = None
+                    self.priority = None
+                    self.timeout_xr = None
+                    self.retransmit = None
+                    self.dead_time = None
+                    self.dead_detect_time = None
+                    self.dead_detect_tries = None
+                    self.authentication_port = None
+                    self.accounting_port = None
+                    self.state = None
+                    self.current_state_duration = None
+                    self.previous_state_duration = None
+                    self.packets_in = None
+                    self.packets_out = None
+                    self.timeouts = None
+                    self.aborts = None
+                    self.replies_expected = None
+                    self.redirected_requests = None
+                    self.authentication_rtt = None
+                    self.access_requests = None
+                    self.access_request_retransmits = None
+                    self.access_accepts = None
+                    self.access_rejects = None
+                    self.access_challenges = None
+                    self.bad_access_responses = None
+                    self.bad_access_authenticators = None
+                    self.pending_access_requests = None
+                    self.access_timeouts = None
+                    self.unknown_access_types = None
+                    self.dropped_access_responses = None
+                    self.throttled_access_reqs = None
+                    self.throttled_timed_out_reqs = None
+                    self.throttled_dropped_reqs = None
+                    self.max_throttled_access_reqs = None
+                    self.currently_throttled_access_reqs = None
+                    self.authen_response_time = None
+                    self.authen_transaction_successess = None
+                    self.authen_transaction_failure = None
+                    self.authen_unexpected_responses = None
+                    self.authen_server_error_responses = None
+                    self.authen_incorrect_responses = None
+                    self.author_requests = None
+                    self.author_request_timeouts = None
+                    self.author_response_time = None
+                    self.author_transaction_successess = None
+                    self.author_transaction_failure = None
+                    self.author_unexpected_responses = None
+                    self.author_server_error_responses = None
+                    self.author_incorrect_responses = None
+                    self.accounting_rtt = None
+                    self.accounting_requests = None
+                    self.accounting_retransmits = None
+                    self.accounting_responses = None
+                    self.bad_accounting_responses = None
+                    self.bad_accounting_authenticators = None
+                    self.pending_accounting_requets = None
+                    self.accounting_timeouts = None
+                    self.unknown_accounting_types = None
+                    self.dropped_accounting_responses = None
+                    self.is_a_private_server = None
+                    self.total_test_auth_reqs = None
+                    self.total_test_auth_timeouts = None
+                    self.total_test_auth_response = None
+                    self.total_test_auth_pending = None
+                    self.total_test_acct_reqs = None
+                    self.total_test_acct_timeouts = None
+                    self.total_test_acct_response = None
+                    self.total_test_acct_pending = None
+                    self.throttled_acct_transactions = None
+                    self.throttled_acct_timed_out_stats = None
+                    self.throttled_acct_failures_stats = None
+                    self.max_acct_throttled = None
+                    self.throttleda_acct_transactions = None
+                    self.acct_unexpected_responses = None
+                    self.acct_server_error_responses = None
+                    self.acct_incorrect_responses = None
+                    self.acct_response_time = None
+                    self.acct_transaction_successess = None
+                    self.acct_transaction_failure = None
+                    self.total_deadtime = None
+                    self.last_deadtime = None
+                    self.is_quarantined = None
+                    self.group_name = None
+                    self.ip_address_xr = None
+                    self.family = None
                     self._segment_path = lambda: "server"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/servers/%s" % self._segment_path()
 
@@ -4815,8 +5319,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "radius"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"list-of-source-interface" : ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("list-of-source-interface", ("list_of_source_interface", Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface))])
+                self._leafs = OrderedDict()
 
                 self.list_of_source_interface = YList(self)
                 self._segment_path = lambda: "radius-source-interface"
@@ -4840,14 +5346,10 @@ class Aaa(Entity):
                 	IP address buffer
                 	**type**\: str
                 
-                	**length:** 0..16
-                
                 .. attribute:: ipaddrv6
                 
                 	IP address buffer
                 	**type**\: str
-                
-                	**length:** 0..46
                 
                 .. attribute:: vrfid
                 
@@ -4870,16 +5372,19 @@ class Aaa(Entity):
                     self.yang_parent_name = "radius-source-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.ipaddrv4 = YLeaf(YType.str, "ipaddrv4")
-
-                    self.ipaddrv6 = YLeaf(YType.str, "ipaddrv6")
-
-                    self.vrfid = YLeaf(YType.uint32, "vrfid")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('ipaddrv4', YLeaf(YType.str, 'ipaddrv4')),
+                        ('ipaddrv6', YLeaf(YType.str, 'ipaddrv6')),
+                        ('vrfid', YLeaf(YType.uint32, 'vrfid')),
+                    ])
+                    self.interface_name = None
+                    self.ipaddrv4 = None
+                    self.ipaddrv6 = None
+                    self.vrfid = None
                     self._segment_path = lambda: "list-of-source-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/radius-source-interface/%s" % self._segment_path()
 
@@ -4887,7 +5392,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, ['interface_name', 'ipaddrv4', 'ipaddrv6', 'vrfid'], name, value)
 
 
-        class Global_(Entity):
+        class Global(Entity):
             """
             RADIUS Client Information
             
@@ -4923,27 +5428,30 @@ class Aaa(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Aaa.Radius.Global_, self).__init__()
+                super(Aaa.Radius.Global, self).__init__()
 
                 self.yang_name = "global"
                 self.yang_parent_name = "radius"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.unknown_authentication_response = YLeaf(YType.uint32, "unknown-authentication-response")
-
-                self.authentication_nas_id = YLeaf(YType.str, "authentication-nas-id")
-
-                self.unknown_accounting_response = YLeaf(YType.uint32, "unknown-accounting-response")
-
-                self.accounting_nas_id = YLeaf(YType.str, "accounting-nas-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('unknown_authentication_response', YLeaf(YType.uint32, 'unknown-authentication-response')),
+                    ('authentication_nas_id', YLeaf(YType.str, 'authentication-nas-id')),
+                    ('unknown_accounting_response', YLeaf(YType.uint32, 'unknown-accounting-response')),
+                    ('accounting_nas_id', YLeaf(YType.str, 'accounting-nas-id')),
+                ])
+                self.unknown_authentication_response = None
+                self.authentication_nas_id = None
+                self.unknown_accounting_response = None
+                self.accounting_nas_id = None
                 self._segment_path = lambda: "global"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Radius.Global_, ['unknown_authentication_response', 'authentication_nas_id', 'unknown_accounting_response', 'accounting_nas_id'], name, value)
+                self._perform_setattr(Aaa.Radius.Global, ['unknown_authentication_response', 'authentication_nas_id', 'unknown_accounting_response', 'accounting_nas_id'], name, value)
 
 
     class Tacacs(Entity):
@@ -4979,8 +5487,10 @@ class Aaa(Entity):
             self.yang_parent_name = "aaa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"requests" : ("requests", Aaa.Tacacs.Requests), "servers" : ("servers", Aaa.Tacacs.Servers), "server-groups" : ("server_groups", Aaa.Tacacs.ServerGroups)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.requests = Aaa.Tacacs.Requests()
             self.requests.parent = self
@@ -5023,8 +5533,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "tacacs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"request" : ("request", Aaa.Tacacs.Requests.Request)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
+                self._leafs = OrderedDict()
 
                 self.request = YList(self)
                 self._segment_path = lambda: "requests"
@@ -5057,8 +5569,10 @@ class Aaa(Entity):
                     self.yang_parent_name = "requests"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"tacacs-requestbag" : ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
+                    self._leafs = OrderedDict()
 
                     self.tacacs_requestbag = YList(self)
                     self._segment_path = lambda: "request"
@@ -5144,24 +5658,27 @@ class Aaa(Entity):
                         self.yang_parent_name = "request"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.time_remaining = YLeaf(YType.uint32, "time-remaining")
-
-                        self.bytes_out = YLeaf(YType.uint32, "bytes-out")
-
-                        self.out_pak_size = YLeaf(YType.uint32, "out-pak-size")
-
-                        self.bytes_in = YLeaf(YType.uint32, "bytes-in")
-
-                        self.in_pak_size = YLeaf(YType.uint32, "in-pak-size")
-
-                        self.pak_type = YLeaf(YType.str, "pak-type")
-
-                        self.session_id = YLeaf(YType.int32, "session-id")
-
-                        self.sock = YLeaf(YType.int32, "sock")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
+                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                            ('out_pak_size', YLeaf(YType.uint32, 'out-pak-size')),
+                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                            ('in_pak_size', YLeaf(YType.uint32, 'in-pak-size')),
+                            ('pak_type', YLeaf(YType.str, 'pak-type')),
+                            ('session_id', YLeaf(YType.int32, 'session-id')),
+                            ('sock', YLeaf(YType.int32, 'sock')),
+                        ])
+                        self.time_remaining = None
+                        self.bytes_out = None
+                        self.out_pak_size = None
+                        self.bytes_in = None
+                        self.in_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
                         self._segment_path = lambda: "tacacs-requestbag"
                         self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
 
@@ -5192,8 +5709,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "tacacs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"server" : ("server", Aaa.Tacacs.Servers.Server)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
+                self._leafs = OrderedDict()
 
                 self.server = YList(self)
                 self._segment_path = lambda: "servers"
@@ -5350,46 +5869,49 @@ class Aaa(Entity):
                     self.yang_parent_name = "servers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.addr = YLeaf(YType.str, "addr")
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
-
-                    self.port = YLeaf(YType.uint32, "port")
-
-                    self.bytes_in = YLeaf(YType.uint32, "bytes-in")
-
-                    self.bytes_out = YLeaf(YType.uint32, "bytes-out")
-
-                    self.closes = YLeaf(YType.uint32, "closes")
-
-                    self.opens = YLeaf(YType.uint32, "opens")
-
-                    self.errors = YLeaf(YType.uint32, "errors")
-
-                    self.aborts = YLeaf(YType.uint32, "aborts")
-
-                    self.paks_in = YLeaf(YType.uint32, "paks-in")
-
-                    self.paks_out = YLeaf(YType.uint32, "paks-out")
-
-                    self.replies_expected = YLeaf(YType.uint32, "replies-expected")
-
-                    self.up = YLeaf(YType.boolean, "up")
-
-                    self.conn_up = YLeaf(YType.boolean, "conn-up")
-
-                    self.single_connect = YLeaf(YType.boolean, "single-connect")
-
-                    self.is_private = YLeaf(YType.boolean, "is-private")
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.addr_buf = YLeaf(YType.str, "addr-buf")
-
-                    self.family = YLeaf(YType.str, "family")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('addr', YLeaf(YType.str, 'addr')),
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('port', YLeaf(YType.uint32, 'port')),
+                        ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                        ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                        ('closes', YLeaf(YType.uint32, 'closes')),
+                        ('opens', YLeaf(YType.uint32, 'opens')),
+                        ('errors', YLeaf(YType.uint32, 'errors')),
+                        ('aborts', YLeaf(YType.uint32, 'aborts')),
+                        ('paks_in', YLeaf(YType.uint32, 'paks-in')),
+                        ('paks_out', YLeaf(YType.uint32, 'paks-out')),
+                        ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
+                        ('up', YLeaf(YType.boolean, 'up')),
+                        ('conn_up', YLeaf(YType.boolean, 'conn-up')),
+                        ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+                        ('is_private', YLeaf(YType.boolean, 'is-private')),
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('addr_buf', YLeaf(YType.str, 'addr-buf')),
+                        ('family', YLeaf(YType.str, 'family')),
+                    ])
+                    self.addr = None
+                    self.timeout = None
+                    self.port = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.opens = None
+                    self.errors = None
+                    self.aborts = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.replies_expected = None
+                    self.up = None
+                    self.conn_up = None
+                    self.single_connect = None
+                    self.is_private = None
+                    self.vrf_name = None
+                    self.addr_buf = None
+                    self.family = None
                     self._segment_path = lambda: "server"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
 
@@ -5420,8 +5942,10 @@ class Aaa(Entity):
                 self.yang_parent_name = "tacacs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"server-group" : ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
+                self._leafs = OrderedDict()
 
                 self.server_group = YList(self)
                 self._segment_path = lambda: "server-groups"
@@ -5473,14 +5997,17 @@ class Aaa(Entity):
                     self.yang_parent_name = "server-groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"server" : ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server)}
-
-                    self.group_name = YLeaf(YType.str, "group-name")
-
-                    self.sg_map_num = YLeaf(YType.uint32, "sg-map-num")
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
+                    self._leafs = OrderedDict([
+                        ('group_name', YLeaf(YType.str, 'group-name')),
+                        ('sg_map_num', YLeaf(YType.uint32, 'sg-map-num')),
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ])
+                    self.group_name = None
+                    self.sg_map_num = None
+                    self.vrf_name = None
 
                     self.server = YList(self)
                     self._segment_path = lambda: "server-group"
@@ -5637,46 +6164,49 @@ class Aaa(Entity):
                         self.yang_parent_name = "server-group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.addr = YLeaf(YType.str, "addr")
-
-                        self.timeout = YLeaf(YType.uint32, "timeout")
-
-                        self.port = YLeaf(YType.uint32, "port")
-
-                        self.bytes_in = YLeaf(YType.uint32, "bytes-in")
-
-                        self.bytes_out = YLeaf(YType.uint32, "bytes-out")
-
-                        self.closes = YLeaf(YType.uint32, "closes")
-
-                        self.opens = YLeaf(YType.uint32, "opens")
-
-                        self.errors = YLeaf(YType.uint32, "errors")
-
-                        self.aborts = YLeaf(YType.uint32, "aborts")
-
-                        self.paks_in = YLeaf(YType.uint32, "paks-in")
-
-                        self.paks_out = YLeaf(YType.uint32, "paks-out")
-
-                        self.replies_expected = YLeaf(YType.uint32, "replies-expected")
-
-                        self.up = YLeaf(YType.boolean, "up")
-
-                        self.conn_up = YLeaf(YType.boolean, "conn-up")
-
-                        self.single_connect = YLeaf(YType.boolean, "single-connect")
-
-                        self.is_private = YLeaf(YType.boolean, "is-private")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.addr_buf = YLeaf(YType.str, "addr-buf")
-
-                        self.family = YLeaf(YType.str, "family")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('addr', YLeaf(YType.str, 'addr')),
+                            ('timeout', YLeaf(YType.uint32, 'timeout')),
+                            ('port', YLeaf(YType.uint32, 'port')),
+                            ('bytes_in', YLeaf(YType.uint32, 'bytes-in')),
+                            ('bytes_out', YLeaf(YType.uint32, 'bytes-out')),
+                            ('closes', YLeaf(YType.uint32, 'closes')),
+                            ('opens', YLeaf(YType.uint32, 'opens')),
+                            ('errors', YLeaf(YType.uint32, 'errors')),
+                            ('aborts', YLeaf(YType.uint32, 'aborts')),
+                            ('paks_in', YLeaf(YType.uint32, 'paks-in')),
+                            ('paks_out', YLeaf(YType.uint32, 'paks-out')),
+                            ('replies_expected', YLeaf(YType.uint32, 'replies-expected')),
+                            ('up', YLeaf(YType.boolean, 'up')),
+                            ('conn_up', YLeaf(YType.boolean, 'conn-up')),
+                            ('single_connect', YLeaf(YType.boolean, 'single-connect')),
+                            ('is_private', YLeaf(YType.boolean, 'is-private')),
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('addr_buf', YLeaf(YType.str, 'addr-buf')),
+                            ('family', YLeaf(YType.str, 'family')),
+                        ])
+                        self.addr = None
+                        self.timeout = None
+                        self.port = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.opens = None
+                        self.errors = None
+                        self.aborts = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.replies_expected = None
+                        self.up = None
+                        self.conn_up = None
+                        self.single_connect = None
+                        self.is_private = None
+                        self.vrf_name = None
+                        self.addr_buf = None
+                        self.family = None
                         self._segment_path = lambda: "server"
                         self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
 

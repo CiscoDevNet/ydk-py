@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Ipv4AclDscpNumber(Enum):
     """
-    Ipv4AclDscpNumber
+    Ipv4AclDscpNumber (Enum Class)
 
     Ipv4 acl dscp number
 
@@ -150,7 +152,7 @@ class Ipv4AclDscpNumber(Enum):
 
 class Ipv4AclFragFlags(Enum):
     """
-    Ipv4AclFragFlags
+    Ipv4AclFragFlags (Enum Class)
 
     Ipv4 acl frag flags
 
@@ -170,6 +172,18 @@ class Ipv4AclFragFlags(Enum):
 
     	Match last fragment flag
 
+    .. data:: dont_fragment_is_fragment = 3
+
+    	Match don't fragment and is fragment flag
+
+    .. data:: dont_fragment_first_fragment = 5
+
+    	Match don't fragment and first fragment flag
+
+    .. data:: dont_fragment_last_fragment = 9
+
+    	Match don't fragment and last fragment flag
+
     """
 
     dont_fragment = Enum.YLeaf(1, "dont-fragment")
@@ -180,10 +194,16 @@ class Ipv4AclFragFlags(Enum):
 
     last_fragment = Enum.YLeaf(8, "last-fragment")
 
+    dont_fragment_is_fragment = Enum.YLeaf(3, "dont-fragment-is-fragment")
+
+    dont_fragment_first_fragment = Enum.YLeaf(5, "dont-fragment-first-fragment")
+
+    dont_fragment_last_fragment = Enum.YLeaf(9, "dont-fragment-last-fragment")
+
 
 class Ipv4AclGrantEnum(Enum):
     """
-    Ipv4AclGrantEnum
+    Ipv4AclGrantEnum (Enum Class)
 
     Ipv4 acl grant enum
 
@@ -204,7 +224,7 @@ class Ipv4AclGrantEnum(Enum):
 
 class Ipv4AclIcmpTypeCodeEnum(Enum):
     """
-    Ipv4AclIcmpTypeCodeEnum
+    Ipv4AclIcmpTypeCodeEnum (Enum Class)
 
     Ipv4 acl icmp type code enum
 
@@ -477,7 +497,7 @@ class Ipv4AclIcmpTypeCodeEnum(Enum):
 
 class Ipv4AclIgmpNumber(Enum):
     """
-    Ipv4AclIgmpNumber
+    Ipv4AclIgmpNumber (Enum Class)
 
     Ipv4 acl igmp number
 
@@ -546,7 +566,7 @@ class Ipv4AclIgmpNumber(Enum):
 
 class Ipv4AclLoggingEnum(Enum):
     """
-    Ipv4AclLoggingEnum
+    Ipv4AclLoggingEnum (Enum Class)
 
     Ipv4 acl logging enum
 
@@ -569,7 +589,7 @@ class Ipv4AclLoggingEnum(Enum):
 
 class Ipv4AclOperatorEnum(Enum):
     """
-    Ipv4AclOperatorEnum
+    Ipv4AclOperatorEnum (Enum Class)
 
     Ipv4 acl operator enum
 
@@ -608,7 +628,7 @@ class Ipv4AclOperatorEnum(Enum):
 
 class Ipv4AclPortNumber(Enum):
     """
-    Ipv4AclPortNumber
+    Ipv4AclPortNumber (Enum Class)
 
     Ipv4 acl port number
 
@@ -961,7 +981,7 @@ class Ipv4AclPortNumber(Enum):
 
 class Ipv4AclPrecedenceNumber(Enum):
     """
-    Ipv4AclPrecedenceNumber
+    Ipv4AclPrecedenceNumber (Enum Class)
 
     Ipv4 acl precedence number
 
@@ -1020,7 +1040,7 @@ class Ipv4AclPrecedenceNumber(Enum):
 
 class Ipv4AclProtocolNumber(Enum):
     """
-    Ipv4AclProtocolNumber
+    Ipv4AclProtocolNumber (Enum Class)
 
     Ipv4 acl protocol number
 
@@ -1125,7 +1145,7 @@ class Ipv4AclProtocolNumber(Enum):
 
 class Ipv4AclStatusEnum(Enum):
     """
-    Ipv4AclStatusEnum
+    Ipv4AclStatusEnum (Enum Class)
 
     Ipv4 acl status enum
 
@@ -1146,7 +1166,7 @@ class Ipv4AclStatusEnum(Enum):
 
 class Ipv4AclTcpBitsNumber(Enum):
     """
-    Ipv4AclTcpBitsNumber
+    Ipv4AclTcpBitsNumber (Enum Class)
 
     Ipv4 acl tcp bits number
 
@@ -1197,7 +1217,7 @@ class Ipv4AclTcpBitsNumber(Enum):
 
 class Ipv4AclTcpMatchOperatorEnum(Enum):
     """
-    Ipv4AclTcpMatchOperatorEnum
+    Ipv4AclTcpMatchOperatorEnum (Enum Class)
 
     Ipv4 acl tcp match operator enum
 

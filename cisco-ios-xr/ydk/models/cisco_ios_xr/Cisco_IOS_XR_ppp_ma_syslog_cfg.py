@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Ppp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ppp-ma-syslog-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"syslog" : ("syslog", Ppp.Syslog)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("syslog", ("syslog", Ppp.Syslog))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.syslog = Ppp.Syslog()
         self.syslog.parent = self
@@ -75,10 +79,13 @@ class Ppp(Entity):
             self.yang_parent_name = "ppp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.enable_session_status = YLeaf(YType.empty, "enable-session-status")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('enable_session_status', YLeaf(YType.empty, 'enable-session-status')),
+            ])
+            self.enable_session_status = None
             self._segment_path = lambda: "syslog"
             self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp/%s" % self._segment_path()
 

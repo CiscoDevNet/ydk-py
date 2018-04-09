@@ -45,6 +45,10 @@ module Cisco-IOS-XE-bgp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-09 {
+    description
+      "fix aggregate-address cli generation issue";
+  }
   revision 2017-09-18 {
     description
       "BGP neighbor should match a v4/v6 address";
@@ -2342,6 +2346,7 @@ module Cisco-IOS-XE-bgp {
       container isis {
         description
           "ISO IS-IS";
+        presence "true";
         list isis-area {
           key "name";
           leaf name {
@@ -2349,6 +2354,7 @@ module Cisco-IOS-XE-bgp {
           }
           uses redistribute-isis-grouping;
         }
+        uses redistribute-isis-grouping;
         container default {
           uses redistribute-isis-grouping;
         }

@@ -13,6 +13,8 @@ PIM Dense Mode (PIM\-DM)
 Auto\-RP \- Cisco\-propriatary
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -21,7 +23,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MrouteProtocolType(Enum):
     """
-    MrouteProtocolType
+    MrouteProtocolType (Enum Class)
 
     The multicast routing protocol.  Inclusion of values for
 
@@ -82,7 +84,7 @@ class MrouteProtocolType(Enum):
 
 class Origin(Enum):
     """
-    Origin
+    Origin (Enum Class)
 
     This type  verify all uses of origin in model describes where a state was learned.
 
@@ -169,7 +171,7 @@ class Origin(Enum):
 
 class PimMode(Enum):
     """
-    PimMode
+    PimMode (Enum Class)
 
     PIM mode active on an interface.
 
@@ -208,7 +210,7 @@ class PimMode(Enum):
 
 class RouteProtocolType(Enum):
     """
-    RouteProtocolType
+    RouteProtocolType (Enum Class)
 
     A mechanism for learning routes.  Inclusion of values for
 

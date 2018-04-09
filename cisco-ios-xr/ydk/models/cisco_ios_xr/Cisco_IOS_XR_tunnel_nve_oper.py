@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,8 +49,10 @@ class Nve(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tunnel-nve-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vnis" : ("vnis", Nve.Vnis), "interfaces" : ("interfaces", Nve.Interfaces)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vnis", ("vnis", Nve.Vnis)), ("interfaces", ("interfaces", Nve.Interfaces))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.vnis = Nve.Vnis()
         self.vnis.parent = self
@@ -85,8 +89,10 @@ class Nve(Entity):
             self.yang_parent_name = "nve"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vni" : ("vni", Nve.Vnis.Vni)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vni", ("vni", Nve.Vnis.Vni))])
+            self._leafs = OrderedDict()
 
             self.vni = YList(self)
             self._segment_path = lambda: "vnis"
@@ -100,7 +106,7 @@ class Nve(Entity):
             """
             The attributes for a particular VNI
             
-            .. attribute:: vni  <key>
+            .. attribute:: vni  (key)
             
             	VNI ID
             	**type**\: str
@@ -255,51 +261,54 @@ class Nve(Entity):
                 self.yang_parent_name = "vnis"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.vni = YLeaf(YType.str, "vni")
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.vni_xr = YLeaf(YType.uint32, "vni-xr")
-
-                self.state = YLeaf(YType.int8, "state")
-
-                self.mcast_ipv4_address = YLeaf(YType.str, "mcast-ipv4-address")
-
-                self.flags = YLeaf(YType.uint32, "flags")
-
-                self.vni_min = YLeaf(YType.uint32, "vni-min")
-
-                self.vni_max = YLeaf(YType.uint32, "vni-max")
-
-                self.mcast_flags = YLeaf(YType.uint32, "mcast-flags")
-
-                self.udp_port = YLeaf(YType.uint32, "udp-port")
-
-                self.bvi_ifh = YLeaf(YType.uint32, "bvi-ifh")
-
-                self.bvi_state = YLeaf(YType.uint8, "bvi-state")
-
-                self.bvi_mac = YLeaf(YType.str, "bvi-mac")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.vrf_id = YLeaf(YType.uint32, "vrf-id")
-
-                self.ipv4_tbl_id = YLeaf(YType.uint32, "ipv4-tbl-id")
-
-                self.ipv6_tbl_id = YLeaf(YType.uint32, "ipv6-tbl-id")
-
-                self.vrf_vni = YLeaf(YType.uint32, "vrf-vni")
-
-                self.topo_valid = YLeaf(YType.boolean, "topo-valid")
-
-                self.topo_id = YLeaf(YType.uint32, "topo-id")
-
-                self.topo_name = YLeaf(YType.str, "topo-name")
-                self._segment_path = lambda: "vni" + "[vni='" + self.vni.get() + "']"
+                self.ylist_key_names = ['vni']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vni', YLeaf(YType.str, 'vni')),
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('vni_xr', YLeaf(YType.uint32, 'vni-xr')),
+                    ('state', YLeaf(YType.int8, 'state')),
+                    ('mcast_ipv4_address', YLeaf(YType.str, 'mcast-ipv4-address')),
+                    ('flags', YLeaf(YType.uint32, 'flags')),
+                    ('vni_min', YLeaf(YType.uint32, 'vni-min')),
+                    ('vni_max', YLeaf(YType.uint32, 'vni-max')),
+                    ('mcast_flags', YLeaf(YType.uint32, 'mcast-flags')),
+                    ('udp_port', YLeaf(YType.uint32, 'udp-port')),
+                    ('bvi_ifh', YLeaf(YType.uint32, 'bvi-ifh')),
+                    ('bvi_state', YLeaf(YType.uint8, 'bvi-state')),
+                    ('bvi_mac', YLeaf(YType.str, 'bvi-mac')),
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                    ('ipv4_tbl_id', YLeaf(YType.uint32, 'ipv4-tbl-id')),
+                    ('ipv6_tbl_id', YLeaf(YType.uint32, 'ipv6-tbl-id')),
+                    ('vrf_vni', YLeaf(YType.uint32, 'vrf-vni')),
+                    ('topo_valid', YLeaf(YType.boolean, 'topo-valid')),
+                    ('topo_id', YLeaf(YType.uint32, 'topo-id')),
+                    ('topo_name', YLeaf(YType.str, 'topo-name')),
+                ])
+                self.vni = None
+                self.interface_name = None
+                self.vni_xr = None
+                self.state = None
+                self.mcast_ipv4_address = None
+                self.flags = None
+                self.vni_min = None
+                self.vni_max = None
+                self.mcast_flags = None
+                self.udp_port = None
+                self.bvi_ifh = None
+                self.bvi_state = None
+                self.bvi_mac = None
+                self.vrf_name = None
+                self.vrf_id = None
+                self.ipv4_tbl_id = None
+                self.ipv6_tbl_id = None
+                self.vrf_vni = None
+                self.topo_valid = None
+                self.topo_id = None
+                self.topo_name = None
+                self._segment_path = lambda: "vni" + "[vni='" + str(self.vni) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-nve-oper:nve/vnis/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -329,8 +338,10 @@ class Nve(Entity):
             self.yang_parent_name = "nve"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Nve.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Nve.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -344,7 +355,7 @@ class Nve(Entity):
             """
             The attributes for a particular interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	Interface Name
             	**type**\: str
@@ -464,41 +475,44 @@ class Nve(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                self.state = YLeaf(YType.int8, "state")
-
-                self.admin_state = YLeaf(YType.int8, "admin-state")
-
-                self.flags = YLeaf(YType.uint32, "flags")
-
-                self.encap = YLeaf(YType.int8, "encap")
-
-                self.source_interface_name = YLeaf(YType.str, "source-interface-name")
-
-                self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
-
-                self.if_handle = YLeaf(YType.uint64, "if-handle")
-
-                self.source_state = YLeaf(YType.int8, "source-state")
-
-                self.udp_port = YLeaf(YType.uint32, "udp-port")
-
-                self.any_cast_source_interface_name = YLeaf(YType.str, "any-cast-source-interface-name")
-
-                self.any_cast_source_ipv4_address = YLeaf(YType.str, "any-cast-source-ipv4-address")
-
-                self.any_cast_source_state = YLeaf(YType.int8, "any-cast-source-state")
-
-                self.sync_mcast_ipv4_address = YLeaf(YType.str, "sync-mcast-ipv4-address")
-
-                self.sync_mcast_flags = YLeaf(YType.uint32, "sync-mcast-flags")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                    ('state', YLeaf(YType.int8, 'state')),
+                    ('admin_state', YLeaf(YType.int8, 'admin-state')),
+                    ('flags', YLeaf(YType.uint32, 'flags')),
+                    ('encap', YLeaf(YType.int8, 'encap')),
+                    ('source_interface_name', YLeaf(YType.str, 'source-interface-name')),
+                    ('source_ipv4_address', YLeaf(YType.str, 'source-ipv4-address')),
+                    ('if_handle', YLeaf(YType.uint64, 'if-handle')),
+                    ('source_state', YLeaf(YType.int8, 'source-state')),
+                    ('udp_port', YLeaf(YType.uint32, 'udp-port')),
+                    ('any_cast_source_interface_name', YLeaf(YType.str, 'any-cast-source-interface-name')),
+                    ('any_cast_source_ipv4_address', YLeaf(YType.str, 'any-cast-source-ipv4-address')),
+                    ('any_cast_source_state', YLeaf(YType.int8, 'any-cast-source-state')),
+                    ('sync_mcast_ipv4_address', YLeaf(YType.str, 'sync-mcast-ipv4-address')),
+                    ('sync_mcast_flags', YLeaf(YType.uint32, 'sync-mcast-flags')),
+                ])
+                self.interface_name = None
+                self.interface_name_xr = None
+                self.state = None
+                self.admin_state = None
+                self.flags = None
+                self.encap = None
+                self.source_interface_name = None
+                self.source_ipv4_address = None
+                self.if_handle = None
+                self.source_state = None
+                self.udp_port = None
+                self.any_cast_source_interface_name = None
+                self.any_cast_source_ipv4_address = None
+                self.any_cast_source_state = None
+                self.sync_mcast_ipv4_address = None
+                self.sync_mcast_flags = None
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-nve-oper:nve/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

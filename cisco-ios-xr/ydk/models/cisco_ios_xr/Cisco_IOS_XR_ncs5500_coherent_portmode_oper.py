@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class ControllerPortMode(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"optics-name" : ("optics_name", ControllerPortMode.OpticsName)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("optics-name", ("optics_name", ControllerPortMode.OpticsName))])
+        self._leafs = OrderedDict()
 
         self.optics_name = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode"
@@ -56,7 +60,7 @@ class ControllerPortMode(Entity):
         """
         Name of optics controller
         
-        .. attribute:: interface_name  <key>
+        .. attribute:: interface_name  (key)
         
         	Interface Name
         	**type**\: str
@@ -82,16 +86,19 @@ class ControllerPortMode(Entity):
             self.yang_parent_name = "controller-port-mode"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"port-mode-info" : ("port_mode_info", ControllerPortMode.OpticsName.PortModeInfo)}
-            self._child_list_classes = {}
-
-            self.interface_name = YLeaf(YType.str, "interface-name")
+            self.ylist_key_names = ['interface_name']
+            self._child_container_classes = OrderedDict([("port-mode-info", ("port_mode_info", ControllerPortMode.OpticsName.PortModeInfo))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('interface_name', YLeaf(YType.str, 'interface-name')),
+            ])
+            self.interface_name = None
 
             self.port_mode_info = ControllerPortMode.OpticsName.PortModeInfo()
             self.port_mode_info.parent = self
             self._children_name_map["port_mode_info"] = "port-mode-info"
             self._children_yang_names.add("port-mode-info")
-            self._segment_path = lambda: "optics-name" + "[interface-name='" + self.interface_name.get() + "']"
+            self._segment_path = lambda: "optics-name" + "[interface-name='" + str(self.interface_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -151,18 +158,21 @@ class ControllerPortMode(Entity):
                 self.yang_parent_name = "optics-name"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.intf_name = YLeaf(YType.str, "intf-name")
-
-                self.speed = YLeaf(YType.str, "speed")
-
-                self.fec = YLeaf(YType.str, "fec")
-
-                self.diff = YLeaf(YType.str, "diff")
-
-                self.modulation = YLeaf(YType.str, "modulation")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('intf_name', YLeaf(YType.str, 'intf-name')),
+                    ('speed', YLeaf(YType.str, 'speed')),
+                    ('fec', YLeaf(YType.str, 'fec')),
+                    ('diff', YLeaf(YType.str, 'diff')),
+                    ('modulation', YLeaf(YType.str, 'modulation')),
+                ])
+                self.intf_name = None
+                self.speed = None
+                self.fec = None
+                self.diff = None
+                self.modulation = None
                 self._segment_path = lambda: "port-mode-info"
 
             def __setattr__(self, name, value):

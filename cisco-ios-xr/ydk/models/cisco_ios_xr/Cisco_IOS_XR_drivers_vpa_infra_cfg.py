@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class HwModuleShutdownPowerMode(Enum):
     """
-    HwModuleShutdownPowerMode
+    HwModuleShutdownPowerMode (Enum Class)
 
     Hw module shutdown power mode
 
@@ -57,8 +59,10 @@ class HardwareModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-drivers-vpa-infra-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", HardwareModule.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", HardwareModule.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = HardwareModule.Nodes()
         self.nodes.parent = self
@@ -90,8 +94,10 @@ class HardwareModule(Entity):
             self.yang_parent_name = "hardware-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", HardwareModule.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", HardwareModule.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -105,7 +111,7 @@ class HardwareModule(Entity):
             """
             The identifier for a SPA node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	A SPA node
             	**type**\: str
@@ -131,13 +137,16 @@ class HardwareModule(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.shutdown = YLeaf(YType.enumeration, "shutdown")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('shutdown', YLeaf(YType.enumeration, 'shutdown')),
+                ])
+                self.node_name = None
+                self.shutdown = None
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-vpa-infra-cfg:hardware-module/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

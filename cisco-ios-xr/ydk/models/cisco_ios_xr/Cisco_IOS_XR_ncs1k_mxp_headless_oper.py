@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -20,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class MxpOtnPrbsStatus(Enum):
     """
-    MxpOtnPrbsStatus
+    MxpOtnPrbsStatus (Enum Class)
 
     Mxp otn prbs status
 
@@ -81,8 +83,10 @@ class HeadlessFuncData(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-headless-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"otn-port-names" : ("otn_port_names", HeadlessFuncData.OtnPortNames), "ethernet-port-names" : ("ethernet_port_names", HeadlessFuncData.EthernetPortNames)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("otn-port-names", ("otn_port_names", HeadlessFuncData.OtnPortNames)), ("ethernet-port-names", ("ethernet_port_names", HeadlessFuncData.EthernetPortNames))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.otn_port_names = HeadlessFuncData.OtnPortNames()
         self.otn_port_names.parent = self
@@ -120,8 +124,10 @@ class HeadlessFuncData(Entity):
             self.yang_parent_name = "headless-func-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"otn-port-name" : ("otn_port_name", HeadlessFuncData.OtnPortNames.OtnPortName)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("otn-port-name", ("otn_port_name", HeadlessFuncData.OtnPortNames.OtnPortName))])
+            self._leafs = OrderedDict()
 
             self.otn_port_name = YList(self)
             self._segment_path = lambda: "otn-port-names"
@@ -135,7 +141,7 @@ class HeadlessFuncData(Entity):
             """
             port Name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
@@ -185,16 +191,19 @@ class HeadlessFuncData(Entity):
                 self.yang_parent_name = "otn-port-names"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"otn-statistics" : ("otn_statistics", HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics), "prbs-statistics" : ("prbs_statistics", HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
-
-                self.headless_start_time = YLeaf(YType.str, "headless-start-time")
-
-                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("otn-statistics", ("otn_statistics", HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics)), ("prbs-statistics", ("prbs_statistics", HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('started_stateful', YLeaf(YType.boolean, 'started-stateful')),
+                    ('headless_start_time', YLeaf(YType.str, 'headless-start-time')),
+                    ('headless_end_time', YLeaf(YType.str, 'headless-end-time')),
+                ])
+                self.name = None
+                self.started_stateful = None
+                self.headless_start_time = None
+                self.headless_end_time = None
 
                 self.otn_statistics = HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics()
                 self.otn_statistics.parent = self
@@ -205,7 +214,7 @@ class HeadlessFuncData(Entity):
                 self.prbs_statistics.parent = self
                 self._children_name_map["prbs_statistics"] = "prbs-statistics"
                 self._children_yang_names.add("prbs-statistics")
-                self._segment_path = lambda: "otn-port-name" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "otn-port-name" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/otn-port-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -258,16 +267,19 @@ class HeadlessFuncData(Entity):
                     self.yang_parent_name = "otn-port-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.sm_bip = YLeaf(YType.uint64, "sm-bip")
-
-                    self.sm_bei = YLeaf(YType.uint64, "sm-bei")
-
-                    self.fec_ec = YLeaf(YType.uint64, "fec-ec")
-
-                    self.fec_uc = YLeaf(YType.uint64, "fec-uc")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('sm_bip', YLeaf(YType.uint64, 'sm-bip')),
+                        ('sm_bei', YLeaf(YType.uint64, 'sm-bei')),
+                        ('fec_ec', YLeaf(YType.uint64, 'fec-ec')),
+                        ('fec_uc', YLeaf(YType.uint64, 'fec-uc')),
+                    ])
+                    self.sm_bip = None
+                    self.sm_bei = None
+                    self.fec_ec = None
+                    self.fec_uc = None
                     self._segment_path = lambda: "otn-statistics"
 
                 def __setattr__(self, name, value):
@@ -304,12 +316,15 @@ class HeadlessFuncData(Entity):
                     self.yang_parent_name = "otn-port-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ebc = YLeaf(YType.uint64, "ebc")
-
-                    self.sync_status = YLeaf(YType.enumeration, "sync-status")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ebc', YLeaf(YType.uint64, 'ebc')),
+                        ('sync_status', YLeaf(YType.enumeration, 'sync-status')),
+                    ])
+                    self.ebc = None
+                    self.sync_status = None
                     self._segment_path = lambda: "prbs-statistics"
 
                 def __setattr__(self, name, value):
@@ -340,8 +355,10 @@ class HeadlessFuncData(Entity):
             self.yang_parent_name = "headless-func-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ethernet-port-name" : ("ethernet_port_name", HeadlessFuncData.EthernetPortNames.EthernetPortName)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ethernet-port-name", ("ethernet_port_name", HeadlessFuncData.EthernetPortNames.EthernetPortName))])
+            self._leafs = OrderedDict()
 
             self.ethernet_port_name = YList(self)
             self._segment_path = lambda: "ethernet-port-names"
@@ -355,7 +372,7 @@ class HeadlessFuncData(Entity):
             """
             Port Name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Port name
             	**type**\: str
@@ -400,22 +417,25 @@ class HeadlessFuncData(Entity):
                 self.yang_parent_name = "ethernet-port-names"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ether-statistics" : ("ether_statistics", HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
-
-                self.headless_start_time = YLeaf(YType.str, "headless-start-time")
-
-                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("ether-statistics", ("ether_statistics", HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('started_stateful', YLeaf(YType.boolean, 'started-stateful')),
+                    ('headless_start_time', YLeaf(YType.str, 'headless-start-time')),
+                    ('headless_end_time', YLeaf(YType.str, 'headless-end-time')),
+                ])
+                self.name = None
+                self.started_stateful = None
+                self.headless_start_time = None
+                self.headless_end_time = None
 
                 self.ether_statistics = HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics()
                 self.ether_statistics.parent = self
                 self._children_name_map["ether_statistics"] = "ether-statistics"
                 self._children_yang_names.add("ether-statistics")
-                self._segment_path = lambda: "ethernet-port-name" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "ethernet-port-name" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/ethernet-port-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -664,72 +684,75 @@ class HeadlessFuncData(Entity):
                     self.yang_parent_name = "ethernet-port-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rx_pkts_over_sized = YLeaf(YType.uint64, "rx-pkts-over-sized")
-
-                    self.rx_pkts_bad_fcs = YLeaf(YType.uint64, "rx-pkts-bad-fcs")
-
-                    self.rx_error_jabbers = YLeaf(YType.uint64, "rx-error-jabbers")
-
-                    self.rx_pkts_multicast = YLeaf(YType.uint64, "rx-pkts-multicast")
-
-                    self.rx_pkts_broadcast = YLeaf(YType.uint64, "rx-pkts-broadcast")
-
-                    self.rx_pkts_under_sized = YLeaf(YType.uint64, "rx-pkts-under-sized")
-
-                    self.rx_packets = YLeaf(YType.uint64, "rx-packets")
-
-                    self.rx_total_bytes = YLeaf(YType.uint64, "rx-total-bytes")
-
-                    self.rx_bytes_good = YLeaf(YType.uint64, "rx-bytes-good")
-
-                    self.rx_pkts_good = YLeaf(YType.uint64, "rx-pkts-good")
-
-                    self.tx_bytes_good = YLeaf(YType.uint64, "tx-bytes-good")
-
-                    self.tx_pkts_good = YLeaf(YType.uint64, "tx-pkts-good")
-
-                    self.rx_recv_fragments = YLeaf(YType.uint64, "rx-recv-fragments")
-
-                    self.rx_pkts64_bytes = YLeaf(YType.uint64, "rx-pkts64-bytes")
-
-                    self.rx_pkts65_to127_bytes = YLeaf(YType.uint64, "rx-pkts65-to127-bytes")
-
-                    self.rx_pkts128to255_bytes = YLeaf(YType.uint64, "rx-pkts128to255-bytes")
-
-                    self.rx_pkts256_to511_bytes = YLeaf(YType.uint64, "rx-pkts256-to511-bytes")
-
-                    self.rx_pkts512_to1023_bytes = YLeaf(YType.uint64, "rx-pkts512-to1023-bytes")
-
-                    self.rx_pkts1024_to1518_bytes = YLeaf(YType.uint64, "rx-pkts1024-to1518-bytes")
-
-                    self.rx_pkts_unicast = YLeaf(YType.uint64, "rx-pkts-unicast")
-
-                    self.tx_packets = YLeaf(YType.uint64, "tx-packets")
-
-                    self.tx_total_bytes = YLeaf(YType.uint64, "tx-total-bytes")
-
-                    self.tx_pkts_under_sized = YLeaf(YType.uint64, "tx-pkts-under-sized")
-
-                    self.tx_pkts_over_sized = YLeaf(YType.uint64, "tx-pkts-over-sized")
-
-                    self.tx_fragments = YLeaf(YType.uint64, "tx-fragments")
-
-                    self.tx_jabber = YLeaf(YType.uint64, "tx-jabber")
-
-                    self.tx_bad_fcs = YLeaf(YType.uint64, "tx-bad-fcs")
-
-                    self.rx_pkt_drop = YLeaf(YType.uint64, "rx-pkt-drop")
-
-                    self.rx_pause = YLeaf(YType.uint64, "rx-pause")
-
-                    self.tx_pause = YLeaf(YType.uint64, "tx-pause")
-
-                    self.rx_lldp_pkt = YLeaf(YType.uint64, "rx-lldp-pkt")
-
-                    self.rx8021q_pkt = YLeaf(YType.uint64, "rx8021q-pkt")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('rx_pkts_over_sized', YLeaf(YType.uint64, 'rx-pkts-over-sized')),
+                        ('rx_pkts_bad_fcs', YLeaf(YType.uint64, 'rx-pkts-bad-fcs')),
+                        ('rx_error_jabbers', YLeaf(YType.uint64, 'rx-error-jabbers')),
+                        ('rx_pkts_multicast', YLeaf(YType.uint64, 'rx-pkts-multicast')),
+                        ('rx_pkts_broadcast', YLeaf(YType.uint64, 'rx-pkts-broadcast')),
+                        ('rx_pkts_under_sized', YLeaf(YType.uint64, 'rx-pkts-under-sized')),
+                        ('rx_packets', YLeaf(YType.uint64, 'rx-packets')),
+                        ('rx_total_bytes', YLeaf(YType.uint64, 'rx-total-bytes')),
+                        ('rx_bytes_good', YLeaf(YType.uint64, 'rx-bytes-good')),
+                        ('rx_pkts_good', YLeaf(YType.uint64, 'rx-pkts-good')),
+                        ('tx_bytes_good', YLeaf(YType.uint64, 'tx-bytes-good')),
+                        ('tx_pkts_good', YLeaf(YType.uint64, 'tx-pkts-good')),
+                        ('rx_recv_fragments', YLeaf(YType.uint64, 'rx-recv-fragments')),
+                        ('rx_pkts64_bytes', YLeaf(YType.uint64, 'rx-pkts64-bytes')),
+                        ('rx_pkts65_to127_bytes', YLeaf(YType.uint64, 'rx-pkts65-to127-bytes')),
+                        ('rx_pkts128to255_bytes', YLeaf(YType.uint64, 'rx-pkts128to255-bytes')),
+                        ('rx_pkts256_to511_bytes', YLeaf(YType.uint64, 'rx-pkts256-to511-bytes')),
+                        ('rx_pkts512_to1023_bytes', YLeaf(YType.uint64, 'rx-pkts512-to1023-bytes')),
+                        ('rx_pkts1024_to1518_bytes', YLeaf(YType.uint64, 'rx-pkts1024-to1518-bytes')),
+                        ('rx_pkts_unicast', YLeaf(YType.uint64, 'rx-pkts-unicast')),
+                        ('tx_packets', YLeaf(YType.uint64, 'tx-packets')),
+                        ('tx_total_bytes', YLeaf(YType.uint64, 'tx-total-bytes')),
+                        ('tx_pkts_under_sized', YLeaf(YType.uint64, 'tx-pkts-under-sized')),
+                        ('tx_pkts_over_sized', YLeaf(YType.uint64, 'tx-pkts-over-sized')),
+                        ('tx_fragments', YLeaf(YType.uint64, 'tx-fragments')),
+                        ('tx_jabber', YLeaf(YType.uint64, 'tx-jabber')),
+                        ('tx_bad_fcs', YLeaf(YType.uint64, 'tx-bad-fcs')),
+                        ('rx_pkt_drop', YLeaf(YType.uint64, 'rx-pkt-drop')),
+                        ('rx_pause', YLeaf(YType.uint64, 'rx-pause')),
+                        ('tx_pause', YLeaf(YType.uint64, 'tx-pause')),
+                        ('rx_lldp_pkt', YLeaf(YType.uint64, 'rx-lldp-pkt')),
+                        ('rx8021q_pkt', YLeaf(YType.uint64, 'rx8021q-pkt')),
+                    ])
+                    self.rx_pkts_over_sized = None
+                    self.rx_pkts_bad_fcs = None
+                    self.rx_error_jabbers = None
+                    self.rx_pkts_multicast = None
+                    self.rx_pkts_broadcast = None
+                    self.rx_pkts_under_sized = None
+                    self.rx_packets = None
+                    self.rx_total_bytes = None
+                    self.rx_bytes_good = None
+                    self.rx_pkts_good = None
+                    self.tx_bytes_good = None
+                    self.tx_pkts_good = None
+                    self.rx_recv_fragments = None
+                    self.rx_pkts64_bytes = None
+                    self.rx_pkts65_to127_bytes = None
+                    self.rx_pkts128to255_bytes = None
+                    self.rx_pkts256_to511_bytes = None
+                    self.rx_pkts512_to1023_bytes = None
+                    self.rx_pkts1024_to1518_bytes = None
+                    self.rx_pkts_unicast = None
+                    self.tx_packets = None
+                    self.tx_total_bytes = None
+                    self.tx_pkts_under_sized = None
+                    self.tx_pkts_over_sized = None
+                    self.tx_fragments = None
+                    self.tx_jabber = None
+                    self.tx_bad_fcs = None
+                    self.rx_pkt_drop = None
+                    self.rx_pause = None
+                    self.tx_pause = None
+                    self.rx_lldp_pkt = None
+                    self.rx8021q_pkt = None
                     self._segment_path = lambda: "ether-statistics"
 
                 def __setattr__(self, name, value):

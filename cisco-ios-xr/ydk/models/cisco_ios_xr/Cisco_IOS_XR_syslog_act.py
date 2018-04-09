@@ -11,6 +11,8 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Logmsg(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-syslog-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = Logmsg.Input()
         self.input.parent = self
@@ -84,12 +88,15 @@ class Logmsg(Entity):
             self.yang_parent_name = "logmsg"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.severity = YLeaf(YType.enumeration, "severity")
-
-            self.message = YLeaf(YType.str, "message")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('severity', YLeaf(YType.enumeration, 'severity')),
+                ('message', YLeaf(YType.str, 'message')),
+            ])
+            self.severity = None
+            self.message = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-syslog-act:logmsg/%s" % self._segment_path()
 

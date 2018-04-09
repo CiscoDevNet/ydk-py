@@ -4,6 +4,8 @@ The MIB module to describe DS1, E1, DS2, and
 E2 interfaces objects.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -77,8 +79,10 @@ class DS1MIB(Entity):
         self.yang_parent_name = "DS1-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dsx1ConfigTable" : ("dsx1configtable", DS1MIB.Dsx1Configtable), "dsx1CurrentTable" : ("dsx1currenttable", DS1MIB.Dsx1Currenttable), "dsx1IntervalTable" : ("dsx1intervaltable", DS1MIB.Dsx1Intervaltable), "dsx1TotalTable" : ("dsx1totaltable", DS1MIB.Dsx1Totaltable), "dsx1FarEndCurrentTable" : ("dsx1farendcurrenttable", DS1MIB.Dsx1Farendcurrenttable), "dsx1FarEndIntervalTable" : ("dsx1farendintervaltable", DS1MIB.Dsx1Farendintervaltable), "dsx1FarEndTotalTable" : ("dsx1farendtotaltable", DS1MIB.Dsx1Farendtotaltable), "dsx1FracTable" : ("dsx1fractable", DS1MIB.Dsx1Fractable), "dsx1ChanMappingTable" : ("dsx1chanmappingtable", DS1MIB.Dsx1Chanmappingtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dsx1ConfigTable", ("dsx1configtable", DS1MIB.Dsx1Configtable)), ("dsx1CurrentTable", ("dsx1currenttable", DS1MIB.Dsx1Currenttable)), ("dsx1IntervalTable", ("dsx1intervaltable", DS1MIB.Dsx1Intervaltable)), ("dsx1TotalTable", ("dsx1totaltable", DS1MIB.Dsx1Totaltable)), ("dsx1FarEndCurrentTable", ("dsx1farendcurrenttable", DS1MIB.Dsx1Farendcurrenttable)), ("dsx1FarEndIntervalTable", ("dsx1farendintervaltable", DS1MIB.Dsx1Farendintervaltable)), ("dsx1FarEndTotalTable", ("dsx1farendtotaltable", DS1MIB.Dsx1Farendtotaltable)), ("dsx1FracTable", ("dsx1fractable", DS1MIB.Dsx1Fractable)), ("dsx1ChanMappingTable", ("dsx1chanmappingtable", DS1MIB.Dsx1Chanmappingtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dsx1configtable = DS1MIB.Dsx1Configtable()
         self.dsx1configtable.parent = self
@@ -150,8 +154,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1ConfigEntry" : ("dsx1configentry", DS1MIB.Dsx1Configtable.Dsx1Configentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1ConfigEntry", ("dsx1configentry", DS1MIB.Dsx1Configtable.Dsx1Configentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1configentry = YList(self)
             self._segment_path = lambda: "dsx1ConfigTable"
@@ -165,7 +171,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Configuration table.
             
-            .. attribute:: dsx1lineindex  <key>
+            .. attribute:: dsx1lineindex  (key)
             
             	This object should be made equal to ifIndex.  The next paragraph describes its previous usage. Making the object equal to ifIndex allows proper use of ifStackTable and ds0/ds0bundle mibs.  Previously, this object is the identifier of a DS1 Interface on a managed device.  If there is an ifEntry that is directly associated with this and only this DS1 interface, it should have the same value as ifIndex.  Otherwise, number the dsx1LineIndices with an unique identifier following the rules of choosing a number that is greater than ifNumber and numbering the inside interfaces (e.g., equipment side) with even numbers and outside interfaces (e.g, network side) with odd numbers
             	**type**\: int
@@ -307,49 +313,52 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1ConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1lineindex = YLeaf(YType.int32, "dsx1LineIndex")
-
-                self.dsx1ifindex = YLeaf(YType.int32, "dsx1IfIndex")
-
-                self.dsx1timeelapsed = YLeaf(YType.int32, "dsx1TimeElapsed")
-
-                self.dsx1validintervals = YLeaf(YType.int32, "dsx1ValidIntervals")
-
-                self.dsx1linetype = YLeaf(YType.enumeration, "dsx1LineType")
-
-                self.dsx1linecoding = YLeaf(YType.enumeration, "dsx1LineCoding")
-
-                self.dsx1sendcode = YLeaf(YType.enumeration, "dsx1SendCode")
-
-                self.dsx1circuitidentifier = YLeaf(YType.str, "dsx1CircuitIdentifier")
-
-                self.dsx1loopbackconfig = YLeaf(YType.enumeration, "dsx1LoopbackConfig")
-
-                self.dsx1linestatus = YLeaf(YType.int32, "dsx1LineStatus")
-
-                self.dsx1signalmode = YLeaf(YType.enumeration, "dsx1SignalMode")
-
-                self.dsx1transmitclocksource = YLeaf(YType.enumeration, "dsx1TransmitClockSource")
-
-                self.dsx1fdl = YLeaf(YType.int32, "dsx1Fdl")
-
-                self.dsx1invalidintervals = YLeaf(YType.int32, "dsx1InvalidIntervals")
-
-                self.dsx1linelength = YLeaf(YType.int32, "dsx1LineLength")
-
-                self.dsx1linestatuslastchange = YLeaf(YType.uint32, "dsx1LineStatusLastChange")
-
-                self.dsx1linestatuschangetrapenable = YLeaf(YType.enumeration, "dsx1LineStatusChangeTrapEnable")
-
-                self.dsx1loopbackstatus = YLeaf(YType.int32, "dsx1LoopbackStatus")
-
-                self.dsx1ds1channelnumber = YLeaf(YType.int32, "dsx1Ds1ChannelNumber")
-
-                self.dsx1channelization = YLeaf(YType.enumeration, "dsx1Channelization")
-                self._segment_path = lambda: "dsx1ConfigEntry" + "[dsx1LineIndex='" + self.dsx1lineindex.get() + "']"
+                self.ylist_key_names = ['dsx1lineindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1lineindex', YLeaf(YType.int32, 'dsx1LineIndex')),
+                    ('dsx1ifindex', YLeaf(YType.int32, 'dsx1IfIndex')),
+                    ('dsx1timeelapsed', YLeaf(YType.int32, 'dsx1TimeElapsed')),
+                    ('dsx1validintervals', YLeaf(YType.int32, 'dsx1ValidIntervals')),
+                    ('dsx1linetype', YLeaf(YType.enumeration, 'dsx1LineType')),
+                    ('dsx1linecoding', YLeaf(YType.enumeration, 'dsx1LineCoding')),
+                    ('dsx1sendcode', YLeaf(YType.enumeration, 'dsx1SendCode')),
+                    ('dsx1circuitidentifier', YLeaf(YType.str, 'dsx1CircuitIdentifier')),
+                    ('dsx1loopbackconfig', YLeaf(YType.enumeration, 'dsx1LoopbackConfig')),
+                    ('dsx1linestatus', YLeaf(YType.int32, 'dsx1LineStatus')),
+                    ('dsx1signalmode', YLeaf(YType.enumeration, 'dsx1SignalMode')),
+                    ('dsx1transmitclocksource', YLeaf(YType.enumeration, 'dsx1TransmitClockSource')),
+                    ('dsx1fdl', YLeaf(YType.int32, 'dsx1Fdl')),
+                    ('dsx1invalidintervals', YLeaf(YType.int32, 'dsx1InvalidIntervals')),
+                    ('dsx1linelength', YLeaf(YType.int32, 'dsx1LineLength')),
+                    ('dsx1linestatuslastchange', YLeaf(YType.uint32, 'dsx1LineStatusLastChange')),
+                    ('dsx1linestatuschangetrapenable', YLeaf(YType.enumeration, 'dsx1LineStatusChangeTrapEnable')),
+                    ('dsx1loopbackstatus', YLeaf(YType.int32, 'dsx1LoopbackStatus')),
+                    ('dsx1ds1channelnumber', YLeaf(YType.int32, 'dsx1Ds1ChannelNumber')),
+                    ('dsx1channelization', YLeaf(YType.enumeration, 'dsx1Channelization')),
+                ])
+                self.dsx1lineindex = None
+                self.dsx1ifindex = None
+                self.dsx1timeelapsed = None
+                self.dsx1validintervals = None
+                self.dsx1linetype = None
+                self.dsx1linecoding = None
+                self.dsx1sendcode = None
+                self.dsx1circuitidentifier = None
+                self.dsx1loopbackconfig = None
+                self.dsx1linestatus = None
+                self.dsx1signalmode = None
+                self.dsx1transmitclocksource = None
+                self.dsx1fdl = None
+                self.dsx1invalidintervals = None
+                self.dsx1linelength = None
+                self.dsx1linestatuslastchange = None
+                self.dsx1linestatuschangetrapenable = None
+                self.dsx1loopbackstatus = None
+                self.dsx1ds1channelnumber = None
+                self.dsx1channelization = None
+                self._segment_path = lambda: "dsx1ConfigEntry" + "[dsx1LineIndex='" + str(self.dsx1lineindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -357,7 +366,7 @@ class DS1MIB(Entity):
 
             class Dsx1Channelization(Enum):
                 """
-                Dsx1Channelization
+                Dsx1Channelization (Enum Class)
 
                 Indicates whether this ds1/e1 is channelized or
 
@@ -390,7 +399,7 @@ class DS1MIB(Entity):
 
             class Dsx1Linecoding(Enum):
                 """
-                Dsx1Linecoding
+                Dsx1Linecoding (Enum Class)
 
                 This variable describes the variety of Zero Code
 
@@ -477,7 +486,7 @@ class DS1MIB(Entity):
 
             class Dsx1Linestatuschangetrapenable(Enum):
                 """
-                Dsx1Linestatuschangetrapenable
+                Dsx1Linestatuschangetrapenable (Enum Class)
 
                 Indicates whether dsx1LineStatusChange traps
 
@@ -496,7 +505,7 @@ class DS1MIB(Entity):
 
             class Dsx1Linetype(Enum):
                 """
-                Dsx1Linetype
+                Dsx1Linetype (Enum Class)
 
                 This variable indicates  the  variety  of  DS1
 
@@ -605,7 +614,7 @@ class DS1MIB(Entity):
 
             class Dsx1Loopbackconfig(Enum):
                 """
-                Dsx1Loopbackconfig
+                Dsx1Loopbackconfig (Enum Class)
 
                 This variable represents the desired loopback
 
@@ -694,7 +703,7 @@ class DS1MIB(Entity):
 
             class Dsx1Sendcode(Enum):
                 """
-                Dsx1Sendcode
+                Dsx1Sendcode (Enum Class)
 
                 This variable indicates what type of code is
 
@@ -779,7 +788,7 @@ class DS1MIB(Entity):
 
             class Dsx1Signalmode(Enum):
                 """
-                Dsx1Signalmode
+                Dsx1Signalmode (Enum Class)
 
                 'none' indicates that no bits are reserved for
 
@@ -824,7 +833,7 @@ class DS1MIB(Entity):
 
             class Dsx1Transmitclocksource(Enum):
                 """
-                Dsx1Transmitclocksource
+                Dsx1Transmitclocksource (Enum Class)
 
                 The source of Transmit Clock.
 
@@ -885,8 +894,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1CurrentEntry" : ("dsx1currententry", DS1MIB.Dsx1Currenttable.Dsx1Currententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1CurrentEntry", ("dsx1currententry", DS1MIB.Dsx1Currenttable.Dsx1Currententry))])
+            self._leafs = OrderedDict()
 
             self.dsx1currententry = YList(self)
             self._segment_path = lambda: "dsx1CurrentTable"
@@ -900,7 +911,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Current table.
             
-            .. attribute:: dsx1currentindex  <key>
+            .. attribute:: dsx1currentindex  (key)
             
             	The index value which uniquely identifies  the DS1 interface to which this entry is applicable. The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
             	**type**\: int
@@ -991,31 +1002,34 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1CurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1currentindex = YLeaf(YType.int32, "dsx1CurrentIndex")
-
-                self.dsx1currentess = YLeaf(YType.uint32, "dsx1CurrentESs")
-
-                self.dsx1currentsess = YLeaf(YType.uint32, "dsx1CurrentSESs")
-
-                self.dsx1currentsefss = YLeaf(YType.uint32, "dsx1CurrentSEFSs")
-
-                self.dsx1currentuass = YLeaf(YType.uint32, "dsx1CurrentUASs")
-
-                self.dsx1currentcsss = YLeaf(YType.uint32, "dsx1CurrentCSSs")
-
-                self.dsx1currentpcvs = YLeaf(YType.uint32, "dsx1CurrentPCVs")
-
-                self.dsx1currentless = YLeaf(YType.uint32, "dsx1CurrentLESs")
-
-                self.dsx1currentbess = YLeaf(YType.uint32, "dsx1CurrentBESs")
-
-                self.dsx1currentdms = YLeaf(YType.uint32, "dsx1CurrentDMs")
-
-                self.dsx1currentlcvs = YLeaf(YType.uint32, "dsx1CurrentLCVs")
-                self._segment_path = lambda: "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + self.dsx1currentindex.get() + "']"
+                self.ylist_key_names = ['dsx1currentindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1currentindex', YLeaf(YType.int32, 'dsx1CurrentIndex')),
+                    ('dsx1currentess', YLeaf(YType.uint32, 'dsx1CurrentESs')),
+                    ('dsx1currentsess', YLeaf(YType.uint32, 'dsx1CurrentSESs')),
+                    ('dsx1currentsefss', YLeaf(YType.uint32, 'dsx1CurrentSEFSs')),
+                    ('dsx1currentuass', YLeaf(YType.uint32, 'dsx1CurrentUASs')),
+                    ('dsx1currentcsss', YLeaf(YType.uint32, 'dsx1CurrentCSSs')),
+                    ('dsx1currentpcvs', YLeaf(YType.uint32, 'dsx1CurrentPCVs')),
+                    ('dsx1currentless', YLeaf(YType.uint32, 'dsx1CurrentLESs')),
+                    ('dsx1currentbess', YLeaf(YType.uint32, 'dsx1CurrentBESs')),
+                    ('dsx1currentdms', YLeaf(YType.uint32, 'dsx1CurrentDMs')),
+                    ('dsx1currentlcvs', YLeaf(YType.uint32, 'dsx1CurrentLCVs')),
+                ])
+                self.dsx1currentindex = None
+                self.dsx1currentess = None
+                self.dsx1currentsess = None
+                self.dsx1currentsefss = None
+                self.dsx1currentuass = None
+                self.dsx1currentcsss = None
+                self.dsx1currentpcvs = None
+                self.dsx1currentless = None
+                self.dsx1currentbess = None
+                self.dsx1currentdms = None
+                self.dsx1currentlcvs = None
+                self._segment_path = lambda: "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + str(self.dsx1currentindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1CurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1052,8 +1066,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1IntervalEntry" : ("dsx1intervalentry", DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1IntervalEntry", ("dsx1intervalentry", DS1MIB.Dsx1Intervaltable.Dsx1Intervalentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1intervalentry = YList(self)
             self._segment_path = lambda: "dsx1IntervalTable"
@@ -1067,14 +1083,14 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Interval table.
             
-            .. attribute:: dsx1intervalindex  <key>
+            .. attribute:: dsx1intervalindex  (key)
             
             	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx1intervalnumber  <key>
+            .. attribute:: dsx1intervalnumber  (key)
             
             	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
             	**type**\: int
@@ -1170,35 +1186,38 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1IntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1intervalindex = YLeaf(YType.int32, "dsx1IntervalIndex")
-
-                self.dsx1intervalnumber = YLeaf(YType.int32, "dsx1IntervalNumber")
-
-                self.dsx1intervaless = YLeaf(YType.uint32, "dsx1IntervalESs")
-
-                self.dsx1intervalsess = YLeaf(YType.uint32, "dsx1IntervalSESs")
-
-                self.dsx1intervalsefss = YLeaf(YType.uint32, "dsx1IntervalSEFSs")
-
-                self.dsx1intervaluass = YLeaf(YType.uint32, "dsx1IntervalUASs")
-
-                self.dsx1intervalcsss = YLeaf(YType.uint32, "dsx1IntervalCSSs")
-
-                self.dsx1intervalpcvs = YLeaf(YType.uint32, "dsx1IntervalPCVs")
-
-                self.dsx1intervalless = YLeaf(YType.uint32, "dsx1IntervalLESs")
-
-                self.dsx1intervalbess = YLeaf(YType.uint32, "dsx1IntervalBESs")
-
-                self.dsx1intervaldms = YLeaf(YType.uint32, "dsx1IntervalDMs")
-
-                self.dsx1intervallcvs = YLeaf(YType.uint32, "dsx1IntervalLCVs")
-
-                self.dsx1intervalvaliddata = YLeaf(YType.boolean, "dsx1IntervalValidData")
-                self._segment_path = lambda: "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + self.dsx1intervalindex.get() + "']" + "[dsx1IntervalNumber='" + self.dsx1intervalnumber.get() + "']"
+                self.ylist_key_names = ['dsx1intervalindex','dsx1intervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1intervalindex', YLeaf(YType.int32, 'dsx1IntervalIndex')),
+                    ('dsx1intervalnumber', YLeaf(YType.int32, 'dsx1IntervalNumber')),
+                    ('dsx1intervaless', YLeaf(YType.uint32, 'dsx1IntervalESs')),
+                    ('dsx1intervalsess', YLeaf(YType.uint32, 'dsx1IntervalSESs')),
+                    ('dsx1intervalsefss', YLeaf(YType.uint32, 'dsx1IntervalSEFSs')),
+                    ('dsx1intervaluass', YLeaf(YType.uint32, 'dsx1IntervalUASs')),
+                    ('dsx1intervalcsss', YLeaf(YType.uint32, 'dsx1IntervalCSSs')),
+                    ('dsx1intervalpcvs', YLeaf(YType.uint32, 'dsx1IntervalPCVs')),
+                    ('dsx1intervalless', YLeaf(YType.uint32, 'dsx1IntervalLESs')),
+                    ('dsx1intervalbess', YLeaf(YType.uint32, 'dsx1IntervalBESs')),
+                    ('dsx1intervaldms', YLeaf(YType.uint32, 'dsx1IntervalDMs')),
+                    ('dsx1intervallcvs', YLeaf(YType.uint32, 'dsx1IntervalLCVs')),
+                    ('dsx1intervalvaliddata', YLeaf(YType.boolean, 'dsx1IntervalValidData')),
+                ])
+                self.dsx1intervalindex = None
+                self.dsx1intervalnumber = None
+                self.dsx1intervaless = None
+                self.dsx1intervalsess = None
+                self.dsx1intervalsefss = None
+                self.dsx1intervaluass = None
+                self.dsx1intervalcsss = None
+                self.dsx1intervalpcvs = None
+                self.dsx1intervalless = None
+                self.dsx1intervalbess = None
+                self.dsx1intervaldms = None
+                self.dsx1intervallcvs = None
+                self.dsx1intervalvaliddata = None
+                self._segment_path = lambda: "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + str(self.dsx1intervalindex) + "']" + "[dsx1IntervalNumber='" + str(self.dsx1intervalnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1IntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1230,8 +1249,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1TotalEntry" : ("dsx1totalentry", DS1MIB.Dsx1Totaltable.Dsx1Totalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1TotalEntry", ("dsx1totalentry", DS1MIB.Dsx1Totaltable.Dsx1Totalentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1totalentry = YList(self)
             self._segment_path = lambda: "dsx1TotalTable"
@@ -1245,7 +1266,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Total table.
             
-            .. attribute:: dsx1totalindex  <key>
+            .. attribute:: dsx1totalindex  (key)
             
             	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value as a dsx1LineIndex object instance
             	**type**\: int
@@ -1336,31 +1357,34 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1TotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1totalindex = YLeaf(YType.int32, "dsx1TotalIndex")
-
-                self.dsx1totaless = YLeaf(YType.uint32, "dsx1TotalESs")
-
-                self.dsx1totalsess = YLeaf(YType.uint32, "dsx1TotalSESs")
-
-                self.dsx1totalsefss = YLeaf(YType.uint32, "dsx1TotalSEFSs")
-
-                self.dsx1totaluass = YLeaf(YType.uint32, "dsx1TotalUASs")
-
-                self.dsx1totalcsss = YLeaf(YType.uint32, "dsx1TotalCSSs")
-
-                self.dsx1totalpcvs = YLeaf(YType.uint32, "dsx1TotalPCVs")
-
-                self.dsx1totalless = YLeaf(YType.uint32, "dsx1TotalLESs")
-
-                self.dsx1totalbess = YLeaf(YType.uint32, "dsx1TotalBESs")
-
-                self.dsx1totaldms = YLeaf(YType.uint32, "dsx1TotalDMs")
-
-                self.dsx1totallcvs = YLeaf(YType.uint32, "dsx1TotalLCVs")
-                self._segment_path = lambda: "dsx1TotalEntry" + "[dsx1TotalIndex='" + self.dsx1totalindex.get() + "']"
+                self.ylist_key_names = ['dsx1totalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1totalindex', YLeaf(YType.int32, 'dsx1TotalIndex')),
+                    ('dsx1totaless', YLeaf(YType.uint32, 'dsx1TotalESs')),
+                    ('dsx1totalsess', YLeaf(YType.uint32, 'dsx1TotalSESs')),
+                    ('dsx1totalsefss', YLeaf(YType.uint32, 'dsx1TotalSEFSs')),
+                    ('dsx1totaluass', YLeaf(YType.uint32, 'dsx1TotalUASs')),
+                    ('dsx1totalcsss', YLeaf(YType.uint32, 'dsx1TotalCSSs')),
+                    ('dsx1totalpcvs', YLeaf(YType.uint32, 'dsx1TotalPCVs')),
+                    ('dsx1totalless', YLeaf(YType.uint32, 'dsx1TotalLESs')),
+                    ('dsx1totalbess', YLeaf(YType.uint32, 'dsx1TotalBESs')),
+                    ('dsx1totaldms', YLeaf(YType.uint32, 'dsx1TotalDMs')),
+                    ('dsx1totallcvs', YLeaf(YType.uint32, 'dsx1TotalLCVs')),
+                ])
+                self.dsx1totalindex = None
+                self.dsx1totaless = None
+                self.dsx1totalsess = None
+                self.dsx1totalsefss = None
+                self.dsx1totaluass = None
+                self.dsx1totalcsss = None
+                self.dsx1totalpcvs = None
+                self.dsx1totalless = None
+                self.dsx1totalbess = None
+                self.dsx1totaldms = None
+                self.dsx1totallcvs = None
+                self._segment_path = lambda: "dsx1TotalEntry" + "[dsx1TotalIndex='" + str(self.dsx1totalindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1TotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1395,8 +1419,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1FarEndCurrentEntry" : ("dsx1farendcurrententry", DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1FarEndCurrentEntry", ("dsx1farendcurrententry", DS1MIB.Dsx1Farendcurrenttable.Dsx1Farendcurrententry))])
+            self._leafs = OrderedDict()
 
             self.dsx1farendcurrententry = YList(self)
             self._segment_path = lambda: "dsx1FarEndCurrentTable"
@@ -1410,7 +1436,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Far End Current table.
             
-            .. attribute:: dsx1farendcurrentindex  <key>
+            .. attribute:: dsx1farendcurrentindex  (key)
             
             	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is identical to the interface identified by the same value of dsx1LineIndex
             	**type**\: int
@@ -1515,35 +1541,38 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1FarEndCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1farendcurrentindex = YLeaf(YType.int32, "dsx1FarEndCurrentIndex")
-
-                self.dsx1farendtimeelapsed = YLeaf(YType.int32, "dsx1FarEndTimeElapsed")
-
-                self.dsx1farendvalidintervals = YLeaf(YType.int32, "dsx1FarEndValidIntervals")
-
-                self.dsx1farendcurrentess = YLeaf(YType.uint32, "dsx1FarEndCurrentESs")
-
-                self.dsx1farendcurrentsess = YLeaf(YType.uint32, "dsx1FarEndCurrentSESs")
-
-                self.dsx1farendcurrentsefss = YLeaf(YType.uint32, "dsx1FarEndCurrentSEFSs")
-
-                self.dsx1farendcurrentuass = YLeaf(YType.uint32, "dsx1FarEndCurrentUASs")
-
-                self.dsx1farendcurrentcsss = YLeaf(YType.uint32, "dsx1FarEndCurrentCSSs")
-
-                self.dsx1farendcurrentless = YLeaf(YType.uint32, "dsx1FarEndCurrentLESs")
-
-                self.dsx1farendcurrentpcvs = YLeaf(YType.uint32, "dsx1FarEndCurrentPCVs")
-
-                self.dsx1farendcurrentbess = YLeaf(YType.uint32, "dsx1FarEndCurrentBESs")
-
-                self.dsx1farendcurrentdms = YLeaf(YType.uint32, "dsx1FarEndCurrentDMs")
-
-                self.dsx1farendinvalidintervals = YLeaf(YType.int32, "dsx1FarEndInvalidIntervals")
-                self._segment_path = lambda: "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + self.dsx1farendcurrentindex.get() + "']"
+                self.ylist_key_names = ['dsx1farendcurrentindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1farendcurrentindex', YLeaf(YType.int32, 'dsx1FarEndCurrentIndex')),
+                    ('dsx1farendtimeelapsed', YLeaf(YType.int32, 'dsx1FarEndTimeElapsed')),
+                    ('dsx1farendvalidintervals', YLeaf(YType.int32, 'dsx1FarEndValidIntervals')),
+                    ('dsx1farendcurrentess', YLeaf(YType.uint32, 'dsx1FarEndCurrentESs')),
+                    ('dsx1farendcurrentsess', YLeaf(YType.uint32, 'dsx1FarEndCurrentSESs')),
+                    ('dsx1farendcurrentsefss', YLeaf(YType.uint32, 'dsx1FarEndCurrentSEFSs')),
+                    ('dsx1farendcurrentuass', YLeaf(YType.uint32, 'dsx1FarEndCurrentUASs')),
+                    ('dsx1farendcurrentcsss', YLeaf(YType.uint32, 'dsx1FarEndCurrentCSSs')),
+                    ('dsx1farendcurrentless', YLeaf(YType.uint32, 'dsx1FarEndCurrentLESs')),
+                    ('dsx1farendcurrentpcvs', YLeaf(YType.uint32, 'dsx1FarEndCurrentPCVs')),
+                    ('dsx1farendcurrentbess', YLeaf(YType.uint32, 'dsx1FarEndCurrentBESs')),
+                    ('dsx1farendcurrentdms', YLeaf(YType.uint32, 'dsx1FarEndCurrentDMs')),
+                    ('dsx1farendinvalidintervals', YLeaf(YType.int32, 'dsx1FarEndInvalidIntervals')),
+                ])
+                self.dsx1farendcurrentindex = None
+                self.dsx1farendtimeelapsed = None
+                self.dsx1farendvalidintervals = None
+                self.dsx1farendcurrentess = None
+                self.dsx1farendcurrentsess = None
+                self.dsx1farendcurrentsefss = None
+                self.dsx1farendcurrentuass = None
+                self.dsx1farendcurrentcsss = None
+                self.dsx1farendcurrentless = None
+                self.dsx1farendcurrentpcvs = None
+                self.dsx1farendcurrentbess = None
+                self.dsx1farendcurrentdms = None
+                self.dsx1farendinvalidintervals = None
+                self._segment_path = lambda: "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + str(self.dsx1farendcurrentindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1580,8 +1609,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1FarEndIntervalEntry" : ("dsx1farendintervalentry", DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1FarEndIntervalEntry", ("dsx1farendintervalentry", DS1MIB.Dsx1Farendintervaltable.Dsx1Farendintervalentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1farendintervalentry = YList(self)
             self._segment_path = lambda: "dsx1FarEndIntervalTable"
@@ -1595,14 +1626,14 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Far End Interval table.
             
-            .. attribute:: dsx1farendintervalindex  <key>
+            .. attribute:: dsx1farendintervalindex  (key)
             
             	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is identical to the interface identified by the same value of dsx1LineIndex
             	**type**\: int
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx1farendintervalnumber  <key>
+            .. attribute:: dsx1farendintervalnumber  (key)
             
             	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
             	**type**\: int
@@ -1691,33 +1722,36 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1FarEndIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1farendintervalindex = YLeaf(YType.int32, "dsx1FarEndIntervalIndex")
-
-                self.dsx1farendintervalnumber = YLeaf(YType.int32, "dsx1FarEndIntervalNumber")
-
-                self.dsx1farendintervaless = YLeaf(YType.uint32, "dsx1FarEndIntervalESs")
-
-                self.dsx1farendintervalsess = YLeaf(YType.uint32, "dsx1FarEndIntervalSESs")
-
-                self.dsx1farendintervalsefss = YLeaf(YType.uint32, "dsx1FarEndIntervalSEFSs")
-
-                self.dsx1farendintervaluass = YLeaf(YType.uint32, "dsx1FarEndIntervalUASs")
-
-                self.dsx1farendintervalcsss = YLeaf(YType.uint32, "dsx1FarEndIntervalCSSs")
-
-                self.dsx1farendintervalless = YLeaf(YType.uint32, "dsx1FarEndIntervalLESs")
-
-                self.dsx1farendintervalpcvs = YLeaf(YType.uint32, "dsx1FarEndIntervalPCVs")
-
-                self.dsx1farendintervalbess = YLeaf(YType.uint32, "dsx1FarEndIntervalBESs")
-
-                self.dsx1farendintervaldms = YLeaf(YType.uint32, "dsx1FarEndIntervalDMs")
-
-                self.dsx1farendintervalvaliddata = YLeaf(YType.boolean, "dsx1FarEndIntervalValidData")
-                self._segment_path = lambda: "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + self.dsx1farendintervalindex.get() + "']" + "[dsx1FarEndIntervalNumber='" + self.dsx1farendintervalnumber.get() + "']"
+                self.ylist_key_names = ['dsx1farendintervalindex','dsx1farendintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1farendintervalindex', YLeaf(YType.int32, 'dsx1FarEndIntervalIndex')),
+                    ('dsx1farendintervalnumber', YLeaf(YType.int32, 'dsx1FarEndIntervalNumber')),
+                    ('dsx1farendintervaless', YLeaf(YType.uint32, 'dsx1FarEndIntervalESs')),
+                    ('dsx1farendintervalsess', YLeaf(YType.uint32, 'dsx1FarEndIntervalSESs')),
+                    ('dsx1farendintervalsefss', YLeaf(YType.uint32, 'dsx1FarEndIntervalSEFSs')),
+                    ('dsx1farendintervaluass', YLeaf(YType.uint32, 'dsx1FarEndIntervalUASs')),
+                    ('dsx1farendintervalcsss', YLeaf(YType.uint32, 'dsx1FarEndIntervalCSSs')),
+                    ('dsx1farendintervalless', YLeaf(YType.uint32, 'dsx1FarEndIntervalLESs')),
+                    ('dsx1farendintervalpcvs', YLeaf(YType.uint32, 'dsx1FarEndIntervalPCVs')),
+                    ('dsx1farendintervalbess', YLeaf(YType.uint32, 'dsx1FarEndIntervalBESs')),
+                    ('dsx1farendintervaldms', YLeaf(YType.uint32, 'dsx1FarEndIntervalDMs')),
+                    ('dsx1farendintervalvaliddata', YLeaf(YType.boolean, 'dsx1FarEndIntervalValidData')),
+                ])
+                self.dsx1farendintervalindex = None
+                self.dsx1farendintervalnumber = None
+                self.dsx1farendintervaless = None
+                self.dsx1farendintervalsess = None
+                self.dsx1farendintervalsefss = None
+                self.dsx1farendintervaluass = None
+                self.dsx1farendintervalcsss = None
+                self.dsx1farendintervalless = None
+                self.dsx1farendintervalpcvs = None
+                self.dsx1farendintervalbess = None
+                self.dsx1farendintervaldms = None
+                self.dsx1farendintervalvaliddata = None
+                self._segment_path = lambda: "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + str(self.dsx1farendintervalindex) + "']" + "[dsx1FarEndIntervalNumber='" + str(self.dsx1farendintervalnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1749,8 +1783,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1FarEndTotalEntry" : ("dsx1farendtotalentry", DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1FarEndTotalEntry", ("dsx1farendtotalentry", DS1MIB.Dsx1Farendtotaltable.Dsx1Farendtotalentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1farendtotalentry = YList(self)
             self._segment_path = lambda: "dsx1FarEndTotalTable"
@@ -1764,7 +1800,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Far End Total table.
             
-            .. attribute:: dsx1farendtotalindex  <key>
+            .. attribute:: dsx1farendtotalindex  (key)
             
             	The index value which uniquely identifies the DS1 interface to which this entry is applicable.  The interface identified by a particular value of this index is identical to the interface identified by the same value of dsx1LineIndex
             	**type**\: int
@@ -1848,29 +1884,32 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1FarEndTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1farendtotalindex = YLeaf(YType.int32, "dsx1FarEndTotalIndex")
-
-                self.dsx1farendtotaless = YLeaf(YType.uint32, "dsx1FarEndTotalESs")
-
-                self.dsx1farendtotalsess = YLeaf(YType.uint32, "dsx1FarEndTotalSESs")
-
-                self.dsx1farendtotalsefss = YLeaf(YType.uint32, "dsx1FarEndTotalSEFSs")
-
-                self.dsx1farendtotaluass = YLeaf(YType.uint32, "dsx1FarEndTotalUASs")
-
-                self.dsx1farendtotalcsss = YLeaf(YType.uint32, "dsx1FarEndTotalCSSs")
-
-                self.dsx1farendtotalless = YLeaf(YType.uint32, "dsx1FarEndTotalLESs")
-
-                self.dsx1farendtotalpcvs = YLeaf(YType.uint32, "dsx1FarEndTotalPCVs")
-
-                self.dsx1farendtotalbess = YLeaf(YType.uint32, "dsx1FarEndTotalBESs")
-
-                self.dsx1farendtotaldms = YLeaf(YType.uint32, "dsx1FarEndTotalDMs")
-                self._segment_path = lambda: "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + self.dsx1farendtotalindex.get() + "']"
+                self.ylist_key_names = ['dsx1farendtotalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1farendtotalindex', YLeaf(YType.int32, 'dsx1FarEndTotalIndex')),
+                    ('dsx1farendtotaless', YLeaf(YType.uint32, 'dsx1FarEndTotalESs')),
+                    ('dsx1farendtotalsess', YLeaf(YType.uint32, 'dsx1FarEndTotalSESs')),
+                    ('dsx1farendtotalsefss', YLeaf(YType.uint32, 'dsx1FarEndTotalSEFSs')),
+                    ('dsx1farendtotaluass', YLeaf(YType.uint32, 'dsx1FarEndTotalUASs')),
+                    ('dsx1farendtotalcsss', YLeaf(YType.uint32, 'dsx1FarEndTotalCSSs')),
+                    ('dsx1farendtotalless', YLeaf(YType.uint32, 'dsx1FarEndTotalLESs')),
+                    ('dsx1farendtotalpcvs', YLeaf(YType.uint32, 'dsx1FarEndTotalPCVs')),
+                    ('dsx1farendtotalbess', YLeaf(YType.uint32, 'dsx1FarEndTotalBESs')),
+                    ('dsx1farendtotaldms', YLeaf(YType.uint32, 'dsx1FarEndTotalDMs')),
+                ])
+                self.dsx1farendtotalindex = None
+                self.dsx1farendtotaless = None
+                self.dsx1farendtotalsess = None
+                self.dsx1farendtotalsefss = None
+                self.dsx1farendtotaluass = None
+                self.dsx1farendtotalcsss = None
+                self.dsx1farendtotalless = None
+                self.dsx1farendtotalpcvs = None
+                self.dsx1farendtotalbess = None
+                self.dsx1farendtotaldms = None
+                self._segment_path = lambda: "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + str(self.dsx1farendtotalindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1956,8 +1995,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1FracEntry" : ("dsx1fracentry", DS1MIB.Dsx1Fractable.Dsx1Fracentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1FracEntry", ("dsx1fracentry", DS1MIB.Dsx1Fractable.Dsx1Fracentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1fracentry = YList(self)
             self._segment_path = lambda: "dsx1FracTable"
@@ -1971,7 +2012,7 @@ class DS1MIB(Entity):
             """
             An entry in the DS1 Fractional table.
             
-            .. attribute:: dsx1fracindex  <key>
+            .. attribute:: dsx1fracindex  (key)
             
             	The index value which uniquely identifies  the DS1  interface  to which this entry is applicable The interface identified by a  particular value  of  this  index is the same interface as identified by the same value  an  dsx1LineIndex object instance
             	**type**\: int
@@ -1980,7 +2021,7 @@ class DS1MIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: dsx1fracnumber  <key>
+            .. attribute:: dsx1fracnumber  (key)
             
             	The channel number for this entry
             	**type**\: int
@@ -2012,15 +2053,18 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1FracTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx1fracindex = YLeaf(YType.int32, "dsx1FracIndex")
-
-                self.dsx1fracnumber = YLeaf(YType.int32, "dsx1FracNumber")
-
-                self.dsx1fracifindex = YLeaf(YType.int32, "dsx1FracIfIndex")
-                self._segment_path = lambda: "dsx1FracEntry" + "[dsx1FracIndex='" + self.dsx1fracindex.get() + "']" + "[dsx1FracNumber='" + self.dsx1fracnumber.get() + "']"
+                self.ylist_key_names = ['dsx1fracindex','dsx1fracnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('dsx1fracindex', YLeaf(YType.int32, 'dsx1FracIndex')),
+                    ('dsx1fracnumber', YLeaf(YType.int32, 'dsx1FracNumber')),
+                    ('dsx1fracifindex', YLeaf(YType.int32, 'dsx1FracIfIndex')),
+                ])
+                self.dsx1fracindex = None
+                self.dsx1fracnumber = None
+                self.dsx1fracifindex = None
+                self._segment_path = lambda: "dsx1FracEntry" + "[dsx1FracIndex='" + str(self.dsx1fracindex) + "']" + "[dsx1FracNumber='" + str(self.dsx1fracnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FracTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2055,8 +2099,10 @@ class DS1MIB(Entity):
             self.yang_parent_name = "DS1-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx1ChanMappingEntry" : ("dsx1chanmappingentry", DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("dsx1ChanMappingEntry", ("dsx1chanmappingentry", DS1MIB.Dsx1Chanmappingtable.Dsx1Chanmappingentry))])
+            self._leafs = OrderedDict()
 
             self.dsx1chanmappingentry = YList(self)
             self._segment_path = lambda: "dsx1ChanMappingTable"
@@ -2087,7 +2133,7 @@ class DS1MIB(Entity):
             dsx1ConfigTable entries to check for the entry
             with the applicable DS1 channel number.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -2096,7 +2142,7 @@ class DS1MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.Iftable.Ifentry>`
             
-            .. attribute:: dsx1ds1channelnumber  <key>
+            .. attribute:: dsx1ds1channelnumber  (key)
             
             	
             	**type**\: int
@@ -2126,15 +2172,18 @@ class DS1MIB(Entity):
                 self.yang_parent_name = "dsx1ChanMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.dsx1ds1channelnumber = YLeaf(YType.str, "dsx1Ds1ChannelNumber")
-
-                self.dsx1chanmappedifindex = YLeaf(YType.int32, "dsx1ChanMappedIfIndex")
-                self._segment_path = lambda: "dsx1ChanMappingEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[dsx1Ds1ChannelNumber='" + self.dsx1ds1channelnumber.get() + "']"
+                self.ylist_key_names = ['ifindex','dsx1ds1channelnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('dsx1ds1channelnumber', YLeaf(YType.str, 'dsx1Ds1ChannelNumber')),
+                    ('dsx1chanmappedifindex', YLeaf(YType.int32, 'dsx1ChanMappedIfIndex')),
+                ])
+                self.ifindex = None
+                self.dsx1ds1channelnumber = None
+                self.dsx1chanmappedifindex = None
+                self._segment_path = lambda: "dsx1ChanMappingEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[dsx1Ds1ChannelNumber='" + str(self.dsx1ds1channelnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ChanMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

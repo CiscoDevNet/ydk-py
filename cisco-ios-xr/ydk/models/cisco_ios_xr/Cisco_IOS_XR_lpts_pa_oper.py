@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -47,8 +49,10 @@ class LptsPa(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-lpts-pa-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"entry-xr" : ("entry_xr", LptsPa.EntryXr), "entries" : ("entries", LptsPa.Entries)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("entry-xr", ("entry_xr", LptsPa.EntryXr)), ("entries", ("entries", LptsPa.Entries))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.entry_xr = LptsPa.EntryXr()
         self.entry_xr.parent = self
@@ -85,8 +89,10 @@ class LptsPa(Entity):
             self.yang_parent_name = "lpts-pa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"entry" : ("entry", LptsPa.EntryXr.Entry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("entry", ("entry", LptsPa.EntryXr.Entry))])
+            self._leafs = OrderedDict()
 
             self.entry = YList(self)
             self._segment_path = lambda: "entry-xr"
@@ -100,7 +106,7 @@ class LptsPa(Entity):
             """
             Data for single PA Binding
             
-            .. attribute:: entry  <key>
+            .. attribute:: entry  (key)
             
             	Single Binding entry
             	**type**\: str
@@ -278,52 +284,55 @@ class LptsPa(Entity):
                 self.yang_parent_name = "entry-xr"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ctime" : ("ctime", LptsPa.EntryXr.Entry.Ctime), "utime" : ("utime", LptsPa.EntryXr.Entry.Utime)}
-                self._child_list_classes = {}
-
-                self.entry = YLeaf(YType.str, "entry")
-
-                self.location = YLeaf(YType.uint32, "location")
-
-                self.client_id = YLeaf(YType.uint32, "client-id")
-
-                self.vid = YLeaf(YType.uint32, "vid")
-
-                self.cookie = YLeaf(YType.uint32, "cookie")
-
-                self.l3protocol = YLeaf(YType.uint32, "l3protocol")
-
-                self.l4protocol = YLeaf(YType.uint32, "l4protocol")
-
-                self.smask = YLeaf(YType.uint32, "smask")
-
-                self.ifs = YLeaf(YType.uint32, "ifs")
-
-                self.ptype = YLeaf(YType.uint32, "ptype")
-
-                self.local_ip = YLeaf(YType.str, "local-ip")
-
-                self.remote_ip = YLeaf(YType.str, "remote-ip")
-
-                self.local_len = YLeaf(YType.uint8, "local-len")
-
-                self.remote_len = YLeaf(YType.uint8, "remote-len")
-
-                self.local_port = YLeaf(YType.uint16, "local-port")
-
-                self.remote_port = YLeaf(YType.uint16, "remote-port")
-
-                self.packet_misc = YLeaf(YType.uint32, "packet-misc")
-
-                self.scope = YLeaf(YType.uint32, "scope")
-
-                self.client_flags = YLeaf(YType.uint32, "client-flags")
-
-                self.min_ttl = YLeaf(YType.uint8, "min-ttl")
-
-                self.lazy_bindq_delay = YLeaf(YType.uint32, "lazy-bindq-delay")
-
-                self.ptq_delay = YLeaf(YType.uint32, "ptq-delay")
+                self.ylist_key_names = ['entry']
+                self._child_container_classes = OrderedDict([("ctime", ("ctime", LptsPa.EntryXr.Entry.Ctime)), ("utime", ("utime", LptsPa.EntryXr.Entry.Utime))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entry', YLeaf(YType.str, 'entry')),
+                    ('location', YLeaf(YType.uint32, 'location')),
+                    ('client_id', YLeaf(YType.uint32, 'client-id')),
+                    ('vid', YLeaf(YType.uint32, 'vid')),
+                    ('cookie', YLeaf(YType.uint32, 'cookie')),
+                    ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
+                    ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
+                    ('smask', YLeaf(YType.uint32, 'smask')),
+                    ('ifs', YLeaf(YType.uint32, 'ifs')),
+                    ('ptype', YLeaf(YType.uint32, 'ptype')),
+                    ('local_ip', YLeaf(YType.str, 'local-ip')),
+                    ('remote_ip', YLeaf(YType.str, 'remote-ip')),
+                    ('local_len', YLeaf(YType.uint8, 'local-len')),
+                    ('remote_len', YLeaf(YType.uint8, 'remote-len')),
+                    ('local_port', YLeaf(YType.uint16, 'local-port')),
+                    ('remote_port', YLeaf(YType.uint16, 'remote-port')),
+                    ('packet_misc', YLeaf(YType.uint32, 'packet-misc')),
+                    ('scope', YLeaf(YType.uint32, 'scope')),
+                    ('client_flags', YLeaf(YType.uint32, 'client-flags')),
+                    ('min_ttl', YLeaf(YType.uint8, 'min-ttl')),
+                    ('lazy_bindq_delay', YLeaf(YType.uint32, 'lazy-bindq-delay')),
+                    ('ptq_delay', YLeaf(YType.uint32, 'ptq-delay')),
+                ])
+                self.entry = None
+                self.location = None
+                self.client_id = None
+                self.vid = None
+                self.cookie = None
+                self.l3protocol = None
+                self.l4protocol = None
+                self.smask = None
+                self.ifs = None
+                self.ptype = None
+                self.local_ip = None
+                self.remote_ip = None
+                self.local_len = None
+                self.remote_len = None
+                self.local_port = None
+                self.remote_port = None
+                self.packet_misc = None
+                self.scope = None
+                self.client_flags = None
+                self.min_ttl = None
+                self.lazy_bindq_delay = None
+                self.ptq_delay = None
 
                 self.ctime = LptsPa.EntryXr.Entry.Ctime()
                 self.ctime.parent = self
@@ -334,7 +343,7 @@ class LptsPa(Entity):
                 self.utime.parent = self
                 self._children_name_map["utime"] = "utime"
                 self._children_yang_names.add("utime")
-                self._segment_path = lambda: "entry" + "[entry='" + self.entry.get() + "']"
+                self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entry-xr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -373,12 +382,15 @@ class LptsPa(Entity):
                     self.yang_parent_name = "entry"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.tv_sec = YLeaf(YType.uint32, "tv-sec")
-
-                    self.tv_nsec = YLeaf(YType.uint32, "tv-nsec")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('tv_sec', YLeaf(YType.uint32, 'tv-sec')),
+                        ('tv_nsec', YLeaf(YType.uint32, 'tv-nsec')),
+                    ])
+                    self.tv_sec = None
+                    self.tv_nsec = None
                     self._segment_path = lambda: "ctime"
 
                 def __setattr__(self, name, value):
@@ -417,12 +429,15 @@ class LptsPa(Entity):
                     self.yang_parent_name = "entry"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.tv_sec = YLeaf(YType.uint32, "tv-sec")
-
-                    self.tv_nsec = YLeaf(YType.uint32, "tv-nsec")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('tv_sec', YLeaf(YType.uint32, 'tv-sec')),
+                        ('tv_nsec', YLeaf(YType.uint32, 'tv-nsec')),
+                    ])
+                    self.tv_sec = None
+                    self.tv_nsec = None
                     self._segment_path = lambda: "utime"
 
                 def __setattr__(self, name, value):
@@ -452,8 +467,10 @@ class LptsPa(Entity):
             self.yang_parent_name = "lpts-pa"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"entry" : ("entry", LptsPa.Entries.Entry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("entry", ("entry", LptsPa.Entries.Entry))])
+            self._leafs = OrderedDict()
 
             self.entry = YList(self)
             self._segment_path = lambda: "entries"
@@ -467,7 +484,7 @@ class LptsPa(Entity):
             """
             Data for single PA Client
             
-            .. attribute:: entry  <key>
+            .. attribute:: entry  (key)
             
             	Single Client entry
             	**type**\: str
@@ -523,21 +540,24 @@ class LptsPa(Entity):
                 self.yang_parent_name = "entries"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entry = YLeaf(YType.str, "entry")
-
-                self.flags = YLeaf(YType.uint32, "flags")
-
-                self.open_flags = YLeaf(YType.uint32, "open-flags")
-
-                self.location = YLeaf(YType.uint32, "location")
-
-                self.client_id = YLeaf(YType.uint32, "client-id")
-
-                self.times = YLeaf(YType.str, "times")
-                self._segment_path = lambda: "entry" + "[entry='" + self.entry.get() + "']"
+                self.ylist_key_names = ['entry']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entry', YLeaf(YType.str, 'entry')),
+                    ('flags', YLeaf(YType.uint32, 'flags')),
+                    ('open_flags', YLeaf(YType.uint32, 'open-flags')),
+                    ('location', YLeaf(YType.uint32, 'location')),
+                    ('client_id', YLeaf(YType.uint32, 'client-id')),
+                    ('times', YLeaf(YType.str, 'times')),
+                ])
+                self.entry = None
+                self.flags = None
+                self.open_flags = None
+                self.location = None
+                self.client_id = None
+                self.times = None
+                self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entries/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

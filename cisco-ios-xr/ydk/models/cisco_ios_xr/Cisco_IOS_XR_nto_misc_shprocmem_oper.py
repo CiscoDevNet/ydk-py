@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class ProcessesMemory(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-nto-misc-shprocmem-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", ProcessesMemory.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", ProcessesMemory.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = ProcessesMemory.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class ProcessesMemory(Entity):
             self.yang_parent_name = "processes-memory"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", ProcessesMemory.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", ProcessesMemory.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class ProcessesMemory(Entity):
             """
             Node ID
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -116,16 +122,19 @@ class ProcessesMemory(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"job-ids" : ("job_ids", ProcessesMemory.Nodes.Node.JobIds)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("job-ids", ("job_ids", ProcessesMemory.Nodes.Node.JobIds))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.job_ids = ProcessesMemory.Nodes.Node.JobIds()
                 self.job_ids.parent = self
                 self._children_name_map["job_ids"] = "job-ids"
                 self._children_yang_names.add("job-ids")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -155,8 +164,10 @@ class ProcessesMemory(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"job-id" : ("job_id", ProcessesMemory.Nodes.Node.JobIds.JobId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("job-id", ("job_id", ProcessesMemory.Nodes.Node.JobIds.JobId))])
+                    self._leafs = OrderedDict()
 
                     self.job_id = YList(self)
                     self._segment_path = lambda: "job-ids"
@@ -169,7 +180,7 @@ class ProcessesMemory(Entity):
                     """
                     Job Id
                     
-                    .. attribute:: job_id  <key>
+                    .. attribute:: job_id  (key)
                     
                     	Job Id
                     	**type**\: int
@@ -230,23 +241,26 @@ class ProcessesMemory(Entity):
                         self.yang_parent_name = "job-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.job_id = YLeaf(YType.int32, "job-id")
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.jid = YLeaf(YType.uint32, "jid")
-
-                        self.text_seg_size = YLeaf(YType.uint32, "text-seg-size")
-
-                        self.data_seg_size = YLeaf(YType.uint32, "data-seg-size")
-
-                        self.stack_seg_size = YLeaf(YType.uint32, "stack-seg-size")
-
-                        self.malloc_size = YLeaf(YType.uint32, "malloc-size")
-                        self._segment_path = lambda: "job-id" + "[job-id='" + self.job_id.get() + "']"
+                        self.ylist_key_names = ['job_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('job_id', YLeaf(YType.int32, 'job-id')),
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('jid', YLeaf(YType.uint32, 'jid')),
+                            ('text_seg_size', YLeaf(YType.uint32, 'text-seg-size')),
+                            ('data_seg_size', YLeaf(YType.uint32, 'data-seg-size')),
+                            ('stack_seg_size', YLeaf(YType.uint32, 'stack-seg-size')),
+                            ('malloc_size', YLeaf(YType.uint32, 'malloc-size')),
+                        ])
+                        self.job_id = None
+                        self.name = None
+                        self.jid = None
+                        self.text_seg_size = None
+                        self.data_seg_size = None
+                        self.stack_seg_size = None
+                        self.malloc_size = None
+                        self._segment_path = lambda: "job-id" + "[job-id='" + str(self.job_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ProcessesMemory.Nodes.Node.JobIds.JobId, ['job_id', 'name', 'jid', 'text_seg_size', 'data_seg_size', 'stack_seg_size', 'malloc_size'], name, value)

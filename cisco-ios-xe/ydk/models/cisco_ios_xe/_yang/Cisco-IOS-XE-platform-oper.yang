@@ -21,6 +21,11 @@ module Cisco-IOS-XE-platform-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-10-11 {
+    description
+      "Enum name fix";
+    reference "2.0.0";
+  }
   revision 2017-02-06 {
     description
       "Initial revision";
@@ -62,7 +67,7 @@ module Cisco-IOS-XE-platform-oper {
       enum "comp-optical-channel" {
         value 10;
       }
-      enum "CONTAINER" {
+      enum "comp-container" {
         value 11;
       }
     }
@@ -274,11 +279,6 @@ module Cisco-IOS-XE-platform-oper {
       description
         "Subcomponent name";
     }
-    leaf parent-platform-component-cname-key {
-      type string;
-      description
-        "Name of the parent component";
-    }
   }
 
   grouping platform-properties {
@@ -298,11 +298,6 @@ module Cisco-IOS-XE-platform-oper {
       type boolean;
       description
         "Indication of whether the property is user-configurable";
-    }
-    leaf parent-platform-component-cname-key {
-      type string;
-      description
-        "Name of the parent component";
     }
   }
 

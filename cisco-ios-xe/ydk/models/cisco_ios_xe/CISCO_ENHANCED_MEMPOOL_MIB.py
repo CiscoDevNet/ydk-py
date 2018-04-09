@@ -4,6 +4,8 @@ New MIB module for monitoring the memory pools
 of all physical entities on a managed system.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,7 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CempMemPoolTypes(Enum):
     """
-    CempMemPoolTypes
+    CempMemPoolTypes (Enum Class)
 
     Represents the different types of memory pools that
 
@@ -199,8 +201,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
         self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cempNotificationConfig" : ("cempnotificationconfig", CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig), "cempMemPoolTable" : ("cempmempooltable", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable), "cempMemBufferPoolTable" : ("cempmembufferpooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable), "cempMemBufferCachePoolTable" : ("cempmembuffercachepooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cempNotificationConfig", ("cempnotificationconfig", CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig)), ("cempMemPoolTable", ("cempmempooltable", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable)), ("cempMemBufferPoolTable", ("cempmembufferpooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable)), ("cempMemBufferCachePoolTable", ("cempmembuffercachepooltable", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cempnotificationconfig = CISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig()
         self.cempnotificationconfig.parent = self
@@ -247,10 +251,13 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cempmembuffernotifyenabled = YLeaf(YType.boolean, "cempMemBufferNotifyEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cempmembuffernotifyenabled', YLeaf(YType.boolean, 'cempMemBufferNotifyEnabled')),
+            ])
+            self.cempmembuffernotifyenabled = None
             self._segment_path = lambda: "cempNotificationConfig"
             self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/%s" % self._segment_path()
 
@@ -282,8 +289,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cempMemPoolEntry" : ("cempmempoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cempMemPoolEntry", ("cempmempoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmempooltable.Cempmempoolentry))])
+            self._leafs = OrderedDict()
 
             self.cempmempoolentry = YList(self)
             self._segment_path = lambda: "cempMemPoolTable"
@@ -297,7 +306,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             """
             An entry in the memory pool monitoring table.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -306,7 +315,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cempmempoolindex  <key>
+            .. attribute:: cempmempoolindex  (key)
             
             	Within each physical entity, the unique value greater than zero, used to represent each memory pool.   It is recommended that values are assigned contiguously starting from 1
             	**type**\: int
@@ -544,67 +553,70 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self.yang_parent_name = "cempMemPoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cempmempoolindex = YLeaf(YType.int32, "cempMemPoolIndex")
-
-                self.cempmempooltype = YLeaf(YType.enumeration, "cempMemPoolType")
-
-                self.cempmempoolname = YLeaf(YType.str, "cempMemPoolName")
-
-                self.cempmempoolplatformmemory = YLeaf(YType.str, "cempMemPoolPlatformMemory")
-
-                self.cempmempoolalternate = YLeaf(YType.int32, "cempMemPoolAlternate")
-
-                self.cempmempoolvalid = YLeaf(YType.boolean, "cempMemPoolValid")
-
-                self.cempmempoolused = YLeaf(YType.uint32, "cempMemPoolUsed")
-
-                self.cempmempoolfree = YLeaf(YType.uint32, "cempMemPoolFree")
-
-                self.cempmempoollargestfree = YLeaf(YType.uint32, "cempMemPoolLargestFree")
-
-                self.cempmempoollowestfree = YLeaf(YType.uint32, "cempMemPoolLowestFree")
-
-                self.cempmempoolusedlowwatermark = YLeaf(YType.uint32, "cempMemPoolUsedLowWaterMark")
-
-                self.cempmempoolallochit = YLeaf(YType.uint32, "cempMemPoolAllocHit")
-
-                self.cempmempoolallocmiss = YLeaf(YType.uint32, "cempMemPoolAllocMiss")
-
-                self.cempmempoolfreehit = YLeaf(YType.uint32, "cempMemPoolFreeHit")
-
-                self.cempmempoolfreemiss = YLeaf(YType.uint32, "cempMemPoolFreeMiss")
-
-                self.cempmempoolshared = YLeaf(YType.uint32, "cempMemPoolShared")
-
-                self.cempmempoolusedovrflw = YLeaf(YType.uint32, "cempMemPoolUsedOvrflw")
-
-                self.cempmempoolhcused = YLeaf(YType.uint64, "cempMemPoolHCUsed")
-
-                self.cempmempoolfreeovrflw = YLeaf(YType.uint32, "cempMemPoolFreeOvrflw")
-
-                self.cempmempoolhcfree = YLeaf(YType.uint64, "cempMemPoolHCFree")
-
-                self.cempmempoollargestfreeovrflw = YLeaf(YType.uint32, "cempMemPoolLargestFreeOvrflw")
-
-                self.cempmempoolhclargestfree = YLeaf(YType.uint64, "cempMemPoolHCLargestFree")
-
-                self.cempmempoollowestfreeovrflw = YLeaf(YType.uint32, "cempMemPoolLowestFreeOvrflw")
-
-                self.cempmempoolhclowestfree = YLeaf(YType.uint64, "cempMemPoolHCLowestFree")
-
-                self.cempmempoolusedlowwatermarkovrflw = YLeaf(YType.uint32, "cempMemPoolUsedLowWaterMarkOvrflw")
-
-                self.cempmempoolhcusedlowwatermark = YLeaf(YType.uint64, "cempMemPoolHCUsedLowWaterMark")
-
-                self.cempmempoolsharedovrflw = YLeaf(YType.uint32, "cempMemPoolSharedOvrflw")
-
-                self.cempmempoolhcshared = YLeaf(YType.uint64, "cempMemPoolHCShared")
-                self._segment_path = lambda: "cempMemPoolEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cempMemPoolIndex='" + self.cempmempoolindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cempmempoolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cempmempoolindex', YLeaf(YType.int32, 'cempMemPoolIndex')),
+                    ('cempmempooltype', YLeaf(YType.enumeration, 'cempMemPoolType')),
+                    ('cempmempoolname', YLeaf(YType.str, 'cempMemPoolName')),
+                    ('cempmempoolplatformmemory', YLeaf(YType.str, 'cempMemPoolPlatformMemory')),
+                    ('cempmempoolalternate', YLeaf(YType.int32, 'cempMemPoolAlternate')),
+                    ('cempmempoolvalid', YLeaf(YType.boolean, 'cempMemPoolValid')),
+                    ('cempmempoolused', YLeaf(YType.uint32, 'cempMemPoolUsed')),
+                    ('cempmempoolfree', YLeaf(YType.uint32, 'cempMemPoolFree')),
+                    ('cempmempoollargestfree', YLeaf(YType.uint32, 'cempMemPoolLargestFree')),
+                    ('cempmempoollowestfree', YLeaf(YType.uint32, 'cempMemPoolLowestFree')),
+                    ('cempmempoolusedlowwatermark', YLeaf(YType.uint32, 'cempMemPoolUsedLowWaterMark')),
+                    ('cempmempoolallochit', YLeaf(YType.uint32, 'cempMemPoolAllocHit')),
+                    ('cempmempoolallocmiss', YLeaf(YType.uint32, 'cempMemPoolAllocMiss')),
+                    ('cempmempoolfreehit', YLeaf(YType.uint32, 'cempMemPoolFreeHit')),
+                    ('cempmempoolfreemiss', YLeaf(YType.uint32, 'cempMemPoolFreeMiss')),
+                    ('cempmempoolshared', YLeaf(YType.uint32, 'cempMemPoolShared')),
+                    ('cempmempoolusedovrflw', YLeaf(YType.uint32, 'cempMemPoolUsedOvrflw')),
+                    ('cempmempoolhcused', YLeaf(YType.uint64, 'cempMemPoolHCUsed')),
+                    ('cempmempoolfreeovrflw', YLeaf(YType.uint32, 'cempMemPoolFreeOvrflw')),
+                    ('cempmempoolhcfree', YLeaf(YType.uint64, 'cempMemPoolHCFree')),
+                    ('cempmempoollargestfreeovrflw', YLeaf(YType.uint32, 'cempMemPoolLargestFreeOvrflw')),
+                    ('cempmempoolhclargestfree', YLeaf(YType.uint64, 'cempMemPoolHCLargestFree')),
+                    ('cempmempoollowestfreeovrflw', YLeaf(YType.uint32, 'cempMemPoolLowestFreeOvrflw')),
+                    ('cempmempoolhclowestfree', YLeaf(YType.uint64, 'cempMemPoolHCLowestFree')),
+                    ('cempmempoolusedlowwatermarkovrflw', YLeaf(YType.uint32, 'cempMemPoolUsedLowWaterMarkOvrflw')),
+                    ('cempmempoolhcusedlowwatermark', YLeaf(YType.uint64, 'cempMemPoolHCUsedLowWaterMark')),
+                    ('cempmempoolsharedovrflw', YLeaf(YType.uint32, 'cempMemPoolSharedOvrflw')),
+                    ('cempmempoolhcshared', YLeaf(YType.uint64, 'cempMemPoolHCShared')),
+                ])
+                self.entphysicalindex = None
+                self.cempmempoolindex = None
+                self.cempmempooltype = None
+                self.cempmempoolname = None
+                self.cempmempoolplatformmemory = None
+                self.cempmempoolalternate = None
+                self.cempmempoolvalid = None
+                self.cempmempoolused = None
+                self.cempmempoolfree = None
+                self.cempmempoollargestfree = None
+                self.cempmempoollowestfree = None
+                self.cempmempoolusedlowwatermark = None
+                self.cempmempoolallochit = None
+                self.cempmempoolallocmiss = None
+                self.cempmempoolfreehit = None
+                self.cempmempoolfreemiss = None
+                self.cempmempoolshared = None
+                self.cempmempoolusedovrflw = None
+                self.cempmempoolhcused = None
+                self.cempmempoolfreeovrflw = None
+                self.cempmempoolhcfree = None
+                self.cempmempoollargestfreeovrflw = None
+                self.cempmempoolhclargestfree = None
+                self.cempmempoollowestfreeovrflw = None
+                self.cempmempoolhclowestfree = None
+                self.cempmempoolusedlowwatermarkovrflw = None
+                self.cempmempoolhcusedlowwatermark = None
+                self.cempmempoolsharedovrflw = None
+                self.cempmempoolhcshared = None
+                self._segment_path = lambda: "cempMemPoolEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cempMemPoolIndex='" + str(self.cempmempoolindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemPoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -658,8 +670,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cempMemBufferPoolEntry" : ("cempmembufferpoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cempMemBufferPoolEntry", ("cempmembufferpoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable.Cempmembufferpoolentry))])
+            self._leafs = OrderedDict()
 
             self.cempmembufferpoolentry = YList(self)
             self._segment_path = lambda: "cempMemBufferPoolTable"
@@ -676,7 +690,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             entPhysicalIndex identifies the entity on which
             memory buffer pools are present.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -685,7 +699,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cempmembufferpoolindex  <key>
+            .. attribute:: cempmembufferpoolindex  (key)
             
             	Within a physical entity, a unique value used to represent each buffer pool
             	**type**\: int
@@ -851,55 +865,58 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self.yang_parent_name = "cempMemBufferPoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cempmembufferpoolindex = YLeaf(YType.uint32, "cempMemBufferPoolIndex")
-
-                self.cempmembuffermempoolindex = YLeaf(YType.int32, "cempMemBufferMemPoolIndex")
-
-                self.cempmembuffername = YLeaf(YType.str, "cempMemBufferName")
-
-                self.cempmembufferdynamic = YLeaf(YType.boolean, "cempMemBufferDynamic")
-
-                self.cempmembuffersize = YLeaf(YType.uint32, "cempMemBufferSize")
-
-                self.cempmembuffermin = YLeaf(YType.uint32, "cempMemBufferMin")
-
-                self.cempmembuffermax = YLeaf(YType.uint32, "cempMemBufferMax")
-
-                self.cempmembufferpermanent = YLeaf(YType.uint32, "cempMemBufferPermanent")
-
-                self.cempmembuffertransient = YLeaf(YType.uint32, "cempMemBufferTransient")
-
-                self.cempmembuffertotal = YLeaf(YType.uint32, "cempMemBufferTotal")
-
-                self.cempmembufferfree = YLeaf(YType.uint32, "cempMemBufferFree")
-
-                self.cempmembufferhit = YLeaf(YType.uint32, "cempMemBufferHit")
-
-                self.cempmembuffermiss = YLeaf(YType.uint32, "cempMemBufferMiss")
-
-                self.cempmembufferfreehit = YLeaf(YType.uint32, "cempMemBufferFreeHit")
-
-                self.cempmembufferfreemiss = YLeaf(YType.uint32, "cempMemBufferFreeMiss")
-
-                self.cempmembufferpermchange = YLeaf(YType.int32, "cempMemBufferPermChange")
-
-                self.cempmembufferpeak = YLeaf(YType.uint32, "cempMemBufferPeak")
-
-                self.cempmembufferpeaktime = YLeaf(YType.uint32, "cempMemBufferPeakTime")
-
-                self.cempmembuffertrim = YLeaf(YType.uint32, "cempMemBufferTrim")
-
-                self.cempmembuffergrow = YLeaf(YType.uint32, "cempMemBufferGrow")
-
-                self.cempmembufferfailures = YLeaf(YType.uint32, "cempMemBufferFailures")
-
-                self.cempmembuffernostorage = YLeaf(YType.uint32, "cempMemBufferNoStorage")
-                self._segment_path = lambda: "cempMemBufferPoolEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cempMemBufferPoolIndex='" + self.cempmembufferpoolindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cempmembufferpoolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cempmembufferpoolindex', YLeaf(YType.uint32, 'cempMemBufferPoolIndex')),
+                    ('cempmembuffermempoolindex', YLeaf(YType.int32, 'cempMemBufferMemPoolIndex')),
+                    ('cempmembuffername', YLeaf(YType.str, 'cempMemBufferName')),
+                    ('cempmembufferdynamic', YLeaf(YType.boolean, 'cempMemBufferDynamic')),
+                    ('cempmembuffersize', YLeaf(YType.uint32, 'cempMemBufferSize')),
+                    ('cempmembuffermin', YLeaf(YType.uint32, 'cempMemBufferMin')),
+                    ('cempmembuffermax', YLeaf(YType.uint32, 'cempMemBufferMax')),
+                    ('cempmembufferpermanent', YLeaf(YType.uint32, 'cempMemBufferPermanent')),
+                    ('cempmembuffertransient', YLeaf(YType.uint32, 'cempMemBufferTransient')),
+                    ('cempmembuffertotal', YLeaf(YType.uint32, 'cempMemBufferTotal')),
+                    ('cempmembufferfree', YLeaf(YType.uint32, 'cempMemBufferFree')),
+                    ('cempmembufferhit', YLeaf(YType.uint32, 'cempMemBufferHit')),
+                    ('cempmembuffermiss', YLeaf(YType.uint32, 'cempMemBufferMiss')),
+                    ('cempmembufferfreehit', YLeaf(YType.uint32, 'cempMemBufferFreeHit')),
+                    ('cempmembufferfreemiss', YLeaf(YType.uint32, 'cempMemBufferFreeMiss')),
+                    ('cempmembufferpermchange', YLeaf(YType.int32, 'cempMemBufferPermChange')),
+                    ('cempmembufferpeak', YLeaf(YType.uint32, 'cempMemBufferPeak')),
+                    ('cempmembufferpeaktime', YLeaf(YType.uint32, 'cempMemBufferPeakTime')),
+                    ('cempmembuffertrim', YLeaf(YType.uint32, 'cempMemBufferTrim')),
+                    ('cempmembuffergrow', YLeaf(YType.uint32, 'cempMemBufferGrow')),
+                    ('cempmembufferfailures', YLeaf(YType.uint32, 'cempMemBufferFailures')),
+                    ('cempmembuffernostorage', YLeaf(YType.uint32, 'cempMemBufferNoStorage')),
+                ])
+                self.entphysicalindex = None
+                self.cempmembufferpoolindex = None
+                self.cempmembuffermempoolindex = None
+                self.cempmembuffername = None
+                self.cempmembufferdynamic = None
+                self.cempmembuffersize = None
+                self.cempmembuffermin = None
+                self.cempmembuffermax = None
+                self.cempmembufferpermanent = None
+                self.cempmembuffertransient = None
+                self.cempmembuffertotal = None
+                self.cempmembufferfree = None
+                self.cempmembufferhit = None
+                self.cempmembuffermiss = None
+                self.cempmembufferfreehit = None
+                self.cempmembufferfreemiss = None
+                self.cempmembufferpermchange = None
+                self.cempmembufferpeak = None
+                self.cempmembufferpeaktime = None
+                self.cempmembuffertrim = None
+                self.cempmembuffergrow = None
+                self.cempmembufferfailures = None
+                self.cempmembuffernostorage = None
+                self._segment_path = lambda: "cempMemBufferPoolEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + str(self.cempmembufferpoolindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferPoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -940,8 +957,10 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             self.yang_parent_name = "CISCO-ENHANCED-MEMPOOL-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cempMemBufferCachePoolEntry" : ("cempmembuffercachepoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cempMemBufferCachePoolEntry", ("cempmembuffercachepoolentry", CISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable.Cempmembuffercachepoolentry))])
+            self._leafs = OrderedDict()
 
             self.cempmembuffercachepoolentry = YList(self)
             self._segment_path = lambda: "cempMemBufferCachePoolTable"
@@ -961,7 +980,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             entires in cempMemBufferPoolTable need not have an
             entry in cempMemBufferCachePoolTable.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -970,7 +989,7 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.Entphysicaltable.Entphysicalentry>`
             
-            .. attribute:: cempmembufferpoolindex  <key>
+            .. attribute:: cempmembufferpoolindex  (key)
             
             	
             	**type**\: int
@@ -1042,27 +1061,30 @@ class CISCOENHANCEDMEMPOOLMIB(Entity):
                 self.yang_parent_name = "cempMemBufferCachePoolTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.cempmembufferpoolindex = YLeaf(YType.str, "cempMemBufferPoolIndex")
-
-                self.cempmembuffercachesize = YLeaf(YType.uint32, "cempMemBufferCacheSize")
-
-                self.cempmembuffercachetotal = YLeaf(YType.uint32, "cempMemBufferCacheTotal")
-
-                self.cempmembuffercacheused = YLeaf(YType.uint32, "cempMemBufferCacheUsed")
-
-                self.cempmembuffercachehit = YLeaf(YType.uint32, "cempMemBufferCacheHit")
-
-                self.cempmembuffercachemiss = YLeaf(YType.uint32, "cempMemBufferCacheMiss")
-
-                self.cempmembuffercachethreshold = YLeaf(YType.uint32, "cempMemBufferCacheThreshold")
-
-                self.cempmembuffercachethresholdcount = YLeaf(YType.uint32, "cempMemBufferCacheThresholdCount")
-                self._segment_path = lambda: "cempMemBufferCachePoolEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cempMemBufferPoolIndex='" + self.cempmembufferpoolindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex','cempmembufferpoolindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('cempmembufferpoolindex', YLeaf(YType.str, 'cempMemBufferPoolIndex')),
+                    ('cempmembuffercachesize', YLeaf(YType.uint32, 'cempMemBufferCacheSize')),
+                    ('cempmembuffercachetotal', YLeaf(YType.uint32, 'cempMemBufferCacheTotal')),
+                    ('cempmembuffercacheused', YLeaf(YType.uint32, 'cempMemBufferCacheUsed')),
+                    ('cempmembuffercachehit', YLeaf(YType.uint32, 'cempMemBufferCacheHit')),
+                    ('cempmembuffercachemiss', YLeaf(YType.uint32, 'cempMemBufferCacheMiss')),
+                    ('cempmembuffercachethreshold', YLeaf(YType.uint32, 'cempMemBufferCacheThreshold')),
+                    ('cempmembuffercachethresholdcount', YLeaf(YType.uint32, 'cempMemBufferCacheThresholdCount')),
+                ])
+                self.entphysicalindex = None
+                self.cempmembufferpoolindex = None
+                self.cempmembuffercachesize = None
+                self.cempmembuffercachetotal = None
+                self.cempmembuffercacheused = None
+                self.cempmembuffercachehit = None
+                self.cempmembuffercachemiss = None
+                self.cempmembuffercachethreshold = None
+                self.cempmembuffercachethresholdcount = None
+                self._segment_path = lambda: "cempMemBufferCachePoolEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + str(self.cempmembufferpoolindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferCachePoolTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

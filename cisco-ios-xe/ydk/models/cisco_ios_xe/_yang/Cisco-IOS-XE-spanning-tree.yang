@@ -26,6 +26,21 @@ module Cisco-IOS-XE-spanning-tree {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+
   revision 2017-08-22 {
     description
       "Fixed link-type to just keep P2P and shared because the cli changes.";
@@ -66,7 +81,8 @@ module Cisco-IOS-XE-spanning-tree {
       leaf assurance {
          description
            "Enable STP Bridge Assurance feature";
-         type empty;
+         type boolean;
+         default true;
       }
     }
     // spanning-tree etherchannel
@@ -79,7 +95,8 @@ module Cisco-IOS-XE-spanning-tree {
         leaf misconfig {
           description
             "Enable guard to protect against etherchannel misconfiguration";
-          type empty;
+          type boolean;
+          default true;
         }
       }
     }
@@ -582,12 +599,24 @@ module Cisco-IOS-XE-spanning-tree {
   }
 
   /////////////////////////////////////////////////////////
-  // native / interface TwentyFiveGigabitEthernet * spanning-tree
+  // native / interface TwentyFiveGigE * spanning-tree
   /////////////////////////////////////////////////////////
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
     uses config-interface-spanning-tree;
   }
 
+  /////////////////////////////////////////////////////////
+  // native / interface TwoGigabitEthernet * spanning-tree
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-spanning-tree;
+  }
+  /////////////////////////////////////////////////////////
+  // native / interface HundredGigabitEthernet * spanning-tree
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-spanning-tree;
+  }
 
   /////////////////////////////////////////////////////////
   // native / interface Port-channel * spanning-tree

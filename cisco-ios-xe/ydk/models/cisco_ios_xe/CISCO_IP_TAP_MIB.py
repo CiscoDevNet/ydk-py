@@ -15,6 +15,8 @@ intercepts and type of the specific stream is set to
 ip in this entry.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -51,8 +53,10 @@ class CISCOIPTAPMIB(Entity):
         self.yang_parent_name = "CISCO-IP-TAP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"citapStreamEncodePacket" : ("citapstreamencodepacket", CISCOIPTAPMIB.Citapstreamencodepacket), "citapStreamTable" : ("citapstreamtable", CISCOIPTAPMIB.Citapstreamtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("citapStreamEncodePacket", ("citapstreamencodepacket", CISCOIPTAPMIB.Citapstreamencodepacket)), ("citapStreamTable", ("citapstreamtable", CISCOIPTAPMIB.Citapstreamtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.citapstreamencodepacket = CISCOIPTAPMIB.Citapstreamencodepacket()
         self.citapstreamencodepacket.parent = self
@@ -89,10 +93,13 @@ class CISCOIPTAPMIB(Entity):
             self.yang_parent_name = "CISCO-IP-TAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.citapstreamcapabilities = YLeaf(YType.bits, "citapStreamCapabilities")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('citapstreamcapabilities', YLeaf(YType.bits, 'citapStreamCapabilities')),
+            ])
+            self.citapstreamcapabilities = Bits()
             self._segment_path = lambda: "citapStreamEncodePacket"
             self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/%s" % self._segment_path()
 
@@ -153,8 +160,10 @@ class CISCOIPTAPMIB(Entity):
             self.yang_parent_name = "CISCO-IP-TAP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"citapStreamEntry" : ("citapstreamentry", CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("citapStreamEntry", ("citapstreamentry", CISCOIPTAPMIB.Citapstreamtable.Citapstreamentry))])
+            self._leafs = OrderedDict()
 
             self.citapstreamentry = YList(self)
             self._segment_path = lambda: "citapStreamTable"
@@ -171,7 +180,7 @@ class CISCOIPTAPMIB(Entity):
             streams may go to the same application interface, and many
             application interfaces are supported.
             
-            .. attribute:: ctap2mediationcontentid  <key>
+            .. attribute:: ctap2mediationcontentid  (key)
             
             	
             	**type**\: int
@@ -180,7 +189,7 @@ class CISCOIPTAPMIB(Entity):
             
             	**refers to**\:  :py:class:`ctap2mediationcontentid <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CISCOTAP2MIB.Ctap2Mediationtable.Ctap2Mediationentry>`
             
-            .. attribute:: ctap2streamindex  <key>
+            .. attribute:: ctap2streamindex  (key)
             
             	
             	**type**\: int
@@ -309,45 +318,48 @@ class CISCOIPTAPMIB(Entity):
                 self.yang_parent_name = "citapStreamTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ctap2mediationcontentid = YLeaf(YType.str, "cTap2MediationContentId")
-
-                self.ctap2streamindex = YLeaf(YType.str, "cTap2StreamIndex")
-
-                self.citapstreaminterface = YLeaf(YType.int32, "citapStreamInterface")
-
-                self.citapstreamaddrtype = YLeaf(YType.enumeration, "citapStreamAddrType")
-
-                self.citapstreamdestinationaddress = YLeaf(YType.str, "citapStreamDestinationAddress")
-
-                self.citapstreamdestinationlength = YLeaf(YType.uint32, "citapStreamDestinationLength")
-
-                self.citapstreamsourceaddress = YLeaf(YType.str, "citapStreamSourceAddress")
-
-                self.citapstreamsourcelength = YLeaf(YType.uint32, "citapStreamSourceLength")
-
-                self.citapstreamtosbyte = YLeaf(YType.int32, "citapStreamTosByte")
-
-                self.citapstreamtosbytemask = YLeaf(YType.int32, "citapStreamTosByteMask")
-
-                self.citapstreamflowid = YLeaf(YType.int32, "citapStreamFlowId")
-
-                self.citapstreamprotocol = YLeaf(YType.int32, "citapStreamProtocol")
-
-                self.citapstreamdestl4portmin = YLeaf(YType.uint16, "citapStreamDestL4PortMin")
-
-                self.citapstreamdestl4portmax = YLeaf(YType.uint16, "citapStreamDestL4PortMax")
-
-                self.citapstreamsourcel4portmin = YLeaf(YType.uint16, "citapStreamSourceL4PortMin")
-
-                self.citapstreamsourcel4portmax = YLeaf(YType.uint16, "citapStreamSourceL4PortMax")
-
-                self.citapstreamvrf = YLeaf(YType.str, "citapStreamVRF")
-
-                self.citapstreamstatus = YLeaf(YType.enumeration, "citapStreamStatus")
-                self._segment_path = lambda: "citapStreamEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2StreamIndex='" + self.ctap2streamindex.get() + "']"
+                self.ylist_key_names = ['ctap2mediationcontentid','ctap2streamindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
+                    ('ctap2streamindex', YLeaf(YType.str, 'cTap2StreamIndex')),
+                    ('citapstreaminterface', YLeaf(YType.int32, 'citapStreamInterface')),
+                    ('citapstreamaddrtype', YLeaf(YType.enumeration, 'citapStreamAddrType')),
+                    ('citapstreamdestinationaddress', YLeaf(YType.str, 'citapStreamDestinationAddress')),
+                    ('citapstreamdestinationlength', YLeaf(YType.uint32, 'citapStreamDestinationLength')),
+                    ('citapstreamsourceaddress', YLeaf(YType.str, 'citapStreamSourceAddress')),
+                    ('citapstreamsourcelength', YLeaf(YType.uint32, 'citapStreamSourceLength')),
+                    ('citapstreamtosbyte', YLeaf(YType.int32, 'citapStreamTosByte')),
+                    ('citapstreamtosbytemask', YLeaf(YType.int32, 'citapStreamTosByteMask')),
+                    ('citapstreamflowid', YLeaf(YType.int32, 'citapStreamFlowId')),
+                    ('citapstreamprotocol', YLeaf(YType.int32, 'citapStreamProtocol')),
+                    ('citapstreamdestl4portmin', YLeaf(YType.uint16, 'citapStreamDestL4PortMin')),
+                    ('citapstreamdestl4portmax', YLeaf(YType.uint16, 'citapStreamDestL4PortMax')),
+                    ('citapstreamsourcel4portmin', YLeaf(YType.uint16, 'citapStreamSourceL4PortMin')),
+                    ('citapstreamsourcel4portmax', YLeaf(YType.uint16, 'citapStreamSourceL4PortMax')),
+                    ('citapstreamvrf', YLeaf(YType.str, 'citapStreamVRF')),
+                    ('citapstreamstatus', YLeaf(YType.enumeration, 'citapStreamStatus')),
+                ])
+                self.ctap2mediationcontentid = None
+                self.ctap2streamindex = None
+                self.citapstreaminterface = None
+                self.citapstreamaddrtype = None
+                self.citapstreamdestinationaddress = None
+                self.citapstreamdestinationlength = None
+                self.citapstreamsourceaddress = None
+                self.citapstreamsourcelength = None
+                self.citapstreamtosbyte = None
+                self.citapstreamtosbytemask = None
+                self.citapstreamflowid = None
+                self.citapstreamprotocol = None
+                self.citapstreamdestl4portmin = None
+                self.citapstreamdestl4portmax = None
+                self.citapstreamsourcel4portmin = None
+                self.citapstreamsourcel4portmax = None
+                self.citapstreamvrf = None
+                self.citapstreamstatus = None
+                self._segment_path = lambda: "citapStreamEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2StreamIndex='" + str(self.ctap2streamindex) + "']"
                 self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/citapStreamTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -8,6 +8,8 @@ of this MIB module is part of RFC 3433; see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -16,7 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class EntitySensorDataScale(Enum):
     """
-    EntitySensorDataScale
+    EntitySensorDataScale (Enum Class)
 
     An object using this data type represents a data scaling
 
@@ -111,7 +113,7 @@ class EntitySensorDataScale(Enum):
 
 class EntitySensorDataType(Enum):
     """
-    EntitySensorDataType
+    EntitySensorDataType (Enum Class)
 
     An object using this data type represents the Entity Sensor
 
@@ -214,7 +216,7 @@ class EntitySensorDataType(Enum):
 
 class EntitySensorStatus(Enum):
     """
-    EntitySensorStatus
+    EntitySensorStatus (Enum Class)
 
     An object using this data type represents the operational
 
@@ -276,8 +278,10 @@ class ENTITYSENSORMIB(Entity):
         self.yang_parent_name = "ENTITY-SENSOR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"entPhySensorTable" : ("entphysensortable", ENTITYSENSORMIB.Entphysensortable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("entPhySensorTable", ("entphysensortable", ENTITYSENSORMIB.Entphysensortable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.entphysensortable = ENTITYSENSORMIB.Entphysensortable()
         self.entphysensortable.parent = self
@@ -310,8 +314,10 @@ class ENTITYSENSORMIB(Entity):
             self.yang_parent_name = "ENTITY-SENSOR-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"entPhySensorEntry" : ("entphysensorentry", ENTITYSENSORMIB.Entphysensortable.Entphysensorentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("entPhySensorEntry", ("entphysensorentry", ENTITYSENSORMIB.Entphysensortable.Entphysensorentry))])
+            self._leafs = OrderedDict()
 
             self.entphysensorentry = YList(self)
             self._segment_path = lambda: "entPhySensorTable"
@@ -334,7 +340,7 @@ class ENTITYSENSORMIB(Entity):
             as the associated entPhysicalEntry.  An entry SHOULD be
             destroyed if the associated entPhysicalEntry is destroyed.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -407,27 +413,30 @@ class ENTITYSENSORMIB(Entity):
                 self.yang_parent_name = "entPhySensorTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.entphysensortype = YLeaf(YType.enumeration, "entPhySensorType")
-
-                self.entphysensorscale = YLeaf(YType.enumeration, "entPhySensorScale")
-
-                self.entphysensorprecision = YLeaf(YType.int32, "entPhySensorPrecision")
-
-                self.entphysensorvalue = YLeaf(YType.int32, "entPhySensorValue")
-
-                self.entphysensoroperstatus = YLeaf(YType.enumeration, "entPhySensorOperStatus")
-
-                self.entphysensorunitsdisplay = YLeaf(YType.str, "entPhySensorUnitsDisplay")
-
-                self.entphysensorvaluetimestamp = YLeaf(YType.uint32, "entPhySensorValueTimeStamp")
-
-                self.entphysensorvalueupdaterate = YLeaf(YType.uint32, "entPhySensorValueUpdateRate")
-                self._segment_path = lambda: "entPhySensorEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('entphysensortype', YLeaf(YType.enumeration, 'entPhySensorType')),
+                    ('entphysensorscale', YLeaf(YType.enumeration, 'entPhySensorScale')),
+                    ('entphysensorprecision', YLeaf(YType.int32, 'entPhySensorPrecision')),
+                    ('entphysensorvalue', YLeaf(YType.int32, 'entPhySensorValue')),
+                    ('entphysensoroperstatus', YLeaf(YType.enumeration, 'entPhySensorOperStatus')),
+                    ('entphysensorunitsdisplay', YLeaf(YType.str, 'entPhySensorUnitsDisplay')),
+                    ('entphysensorvaluetimestamp', YLeaf(YType.uint32, 'entPhySensorValueTimeStamp')),
+                    ('entphysensorvalueupdaterate', YLeaf(YType.uint32, 'entPhySensorValueUpdateRate')),
+                ])
+                self.entphysicalindex = None
+                self.entphysensortype = None
+                self.entphysensorscale = None
+                self.entphysensorprecision = None
+                self.entphysensorvalue = None
+                self.entphysensoroperstatus = None
+                self.entphysensorunitsdisplay = None
+                self.entphysensorvaluetimestamp = None
+                self.entphysensorvalueupdaterate = None
+                self._segment_path = lambda: "entPhySensorEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/entPhySensorTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

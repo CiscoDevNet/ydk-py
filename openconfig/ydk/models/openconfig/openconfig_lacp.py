@@ -6,6 +6,8 @@ managing aggregate interfaces.   It works in conjunction with
 the OpenConfig interfaces and aggregate interfaces models.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class LacpActivityType(Enum):
     """
-    LacpActivityType
+    LacpActivityType (Enum Class)
 
     Describes the LACP membership type, active or passive, of the
 
@@ -41,7 +43,7 @@ class LacpActivityType(Enum):
 
 class LacpPeriodType(Enum):
     """
-    LacpPeriodType
+    LacpPeriodType (Enum Class)
 
     Defines the period options for the time between sending
 
@@ -64,7 +66,7 @@ class LacpPeriodType(Enum):
 
 class LacpSynchronizationType(Enum):
     """
-    LacpSynchronizationType
+    LacpSynchronizationType (Enum Class)
 
     Indicates LACP synchronization state of participant
 
@@ -89,7 +91,7 @@ class LacpSynchronizationType(Enum):
 
 class LacpTimeoutType(Enum):
     """
-    LacpTimeoutType
+    LacpTimeoutType (Enum Class)
 
     Type of timeout used, short or long, by LACP participants
 
@@ -152,8 +154,10 @@ class Lacp(Entity):
         self.yang_parent_name = "openconfig-lacp"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", Lacp.Config), "state" : ("state", Lacp.State), "interfaces" : ("interfaces", Lacp.Interfaces)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("config", ("config", Lacp.Config)), ("state", ("state", Lacp.State)), ("interfaces", ("interfaces", Lacp.Interfaces))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.config = Lacp.Config()
         self.config.parent = self
@@ -197,10 +201,13 @@ class Lacp(Entity):
             self.yang_parent_name = "lacp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.system_priority = YLeaf(YType.uint16, "system-priority")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+            ])
+            self.system_priority = None
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-lacp:lacp/%s" % self._segment_path()
 
@@ -233,10 +240,13 @@ class Lacp(Entity):
             self.yang_parent_name = "lacp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.system_priority = YLeaf(YType.uint16, "system-priority")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+            ])
+            self.system_priority = None
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-lacp:lacp/%s" % self._segment_path()
 
@@ -268,8 +278,10 @@ class Lacp(Entity):
             self.yang_parent_name = "lacp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Lacp.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Lacp.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -283,7 +295,7 @@ class Lacp(Entity):
             """
             List of aggregate interfaces managed by LACP
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Reference to the list key
             	**type**\: str
@@ -319,10 +331,13 @@ class Lacp(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Lacp.Interfaces.Interface.Config), "state" : ("state", Lacp.Interfaces.Interface.State), "members" : ("members", Lacp.Interfaces.Interface.Members)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("config", ("config", Lacp.Interfaces.Interface.Config)), ("state", ("state", Lacp.Interfaces.Interface.State)), ("members", ("members", Lacp.Interfaces.Interface.Members))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.config = Lacp.Interfaces.Interface.Config()
                 self.config.parent = self
@@ -338,7 +353,7 @@ class Lacp(Entity):
                 self.members.parent = self
                 self._children_name_map["members"] = "members"
                 self._children_yang_names.add("members")
-                self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-lacp:lacp/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -398,18 +413,21 @@ class Lacp(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.interval = YLeaf(YType.enumeration, "interval")
-
-                    self.lacp_mode = YLeaf(YType.enumeration, "lacp-mode")
-
-                    self.system_id_mac = YLeaf(YType.str, "system-id-mac")
-
-                    self.system_priority = YLeaf(YType.uint16, "system-priority")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', YLeaf(YType.enumeration, 'interval')),
+                        ('lacp_mode', YLeaf(YType.enumeration, 'lacp-mode')),
+                        ('system_id_mac', YLeaf(YType.str, 'system-id-mac')),
+                        ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                    ])
+                    self.name = None
+                    self.interval = None
+                    self.lacp_mode = None
+                    self.system_id_mac = None
+                    self.system_priority = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -470,18 +488,21 @@ class Lacp(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.interval = YLeaf(YType.enumeration, "interval")
-
-                    self.lacp_mode = YLeaf(YType.enumeration, "lacp-mode")
-
-                    self.system_id_mac = YLeaf(YType.str, "system-id-mac")
-
-                    self.system_priority = YLeaf(YType.uint16, "system-priority")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', YLeaf(YType.enumeration, 'interval')),
+                        ('lacp_mode', YLeaf(YType.enumeration, 'lacp-mode')),
+                        ('system_id_mac', YLeaf(YType.str, 'system-id-mac')),
+                        ('system_priority', YLeaf(YType.uint16, 'system-priority')),
+                    ])
+                    self.name = None
+                    self.interval = None
+                    self.lacp_mode = None
+                    self.system_id_mac = None
+                    self.system_priority = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -513,8 +534,10 @@ class Lacp(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"member" : ("member", Lacp.Interfaces.Interface.Members.Member)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("member", ("member", Lacp.Interfaces.Interface.Members.Member))])
+                    self._leafs = OrderedDict()
 
                     self.member = YList(self)
                     self._segment_path = lambda: "members"
@@ -530,7 +553,7 @@ class Lacp(Entity):
                     configurable here \-\- each interface indicates items
                     its participation in the LAG.
                     
-                    .. attribute:: interface  <key>
+                    .. attribute:: interface  (key)
                     
                     	Reference to aggregate member interface
                     	**type**\: str
@@ -556,16 +579,19 @@ class Lacp(Entity):
                         self.yang_parent_name = "members"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"state" : ("state", Lacp.Interfaces.Interface.Members.Member.State)}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
+                        self.ylist_key_names = ['interface']
+                        self._child_container_classes = OrderedDict([("state", ("state", Lacp.Interfaces.Interface.Members.Member.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface', YLeaf(YType.str, 'interface')),
+                        ])
+                        self.interface = None
 
                         self.state = Lacp.Interfaces.Interface.Members.Member.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "member" + "[interface='" + self.interface.get() + "']"
+                        self._segment_path = lambda: "member" + "[interface='" + str(self.interface) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lacp.Interfaces.Interface.Members.Member, ['interface'], name, value)
@@ -659,30 +685,33 @@ class Lacp(Entity):
                             self.yang_parent_name = "member"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"counters" : ("counters", Lacp.Interfaces.Interface.Members.Member.State.Counters)}
-                            self._child_list_classes = {}
-
-                            self.interface = YLeaf(YType.str, "interface")
-
-                            self.activity = YLeaf(YType.enumeration, "activity")
-
-                            self.timeout = YLeaf(YType.enumeration, "timeout")
-
-                            self.synchronization = YLeaf(YType.enumeration, "synchronization")
-
-                            self.aggregatable = YLeaf(YType.boolean, "aggregatable")
-
-                            self.collecting = YLeaf(YType.boolean, "collecting")
-
-                            self.distributing = YLeaf(YType.boolean, "distributing")
-
-                            self.system_id = YLeaf(YType.str, "system-id")
-
-                            self.oper_key = YLeaf(YType.uint16, "oper-key")
-
-                            self.partner_id = YLeaf(YType.str, "partner-id")
-
-                            self.partner_key = YLeaf(YType.uint16, "partner-key")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("counters", ("counters", Lacp.Interfaces.Interface.Members.Member.State.Counters))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('activity', YLeaf(YType.enumeration, 'activity')),
+                                ('timeout', YLeaf(YType.enumeration, 'timeout')),
+                                ('synchronization', YLeaf(YType.enumeration, 'synchronization')),
+                                ('aggregatable', YLeaf(YType.boolean, 'aggregatable')),
+                                ('collecting', YLeaf(YType.boolean, 'collecting')),
+                                ('distributing', YLeaf(YType.boolean, 'distributing')),
+                                ('system_id', YLeaf(YType.str, 'system-id')),
+                                ('oper_key', YLeaf(YType.uint16, 'oper-key')),
+                                ('partner_id', YLeaf(YType.str, 'partner-id')),
+                                ('partner_key', YLeaf(YType.uint16, 'partner-key')),
+                            ])
+                            self.interface = None
+                            self.activity = None
+                            self.timeout = None
+                            self.synchronization = None
+                            self.aggregatable = None
+                            self.collecting = None
+                            self.distributing = None
+                            self.system_id = None
+                            self.oper_key = None
+                            self.partner_id = None
+                            self.partner_key = None
 
                             self.counters = Lacp.Interfaces.Interface.Members.Member.State.Counters()
                             self.counters.parent = self
@@ -754,20 +783,23 @@ class Lacp(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lacp_in_pkts = YLeaf(YType.uint64, "lacp-in-pkts")
-
-                                self.lacp_out_pkts = YLeaf(YType.uint64, "lacp-out-pkts")
-
-                                self.lacp_rx_errors = YLeaf(YType.uint64, "lacp-rx-errors")
-
-                                self.lacp_tx_errors = YLeaf(YType.uint64, "lacp-tx-errors")
-
-                                self.lacp_unknown_errors = YLeaf(YType.uint64, "lacp-unknown-errors")
-
-                                self.lacp_errors = YLeaf(YType.uint64, "lacp-errors")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lacp_in_pkts', YLeaf(YType.uint64, 'lacp-in-pkts')),
+                                    ('lacp_out_pkts', YLeaf(YType.uint64, 'lacp-out-pkts')),
+                                    ('lacp_rx_errors', YLeaf(YType.uint64, 'lacp-rx-errors')),
+                                    ('lacp_tx_errors', YLeaf(YType.uint64, 'lacp-tx-errors')),
+                                    ('lacp_unknown_errors', YLeaf(YType.uint64, 'lacp-unknown-errors')),
+                                    ('lacp_errors', YLeaf(YType.uint64, 'lacp-errors')),
+                                ])
+                                self.lacp_in_pkts = None
+                                self.lacp_out_pkts = None
+                                self.lacp_rx_errors = None
+                                self.lacp_tx_errors = None
+                                self.lacp_unknown_errors = None
+                                self.lacp_errors = None
                                 self._segment_path = lambda: "counters"
 
                             def __setattr__(self, name, value):

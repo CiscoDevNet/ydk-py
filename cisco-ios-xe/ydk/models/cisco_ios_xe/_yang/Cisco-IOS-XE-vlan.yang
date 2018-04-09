@@ -27,6 +27,10 @@ module Cisco-IOS-XE-vlan {
     prefix ios-features;
   }
 
+  import Cisco-IOS-XE-types {
+    prefix ios-types;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -49,6 +53,11 @@ module Cisco-IOS-XE-vlan {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-10-02 {
+    description
+      "Add support for 'ipv6 nd suppress' and 'vlan group *'";
+  }
+
   revision 2017-05-31 {
     description
       "Add vtp-version and vlan name dependancy, and service-routing dependance support";
@@ -319,6 +328,20 @@ module Cisco-IOS-XE-vlan {
       }
       container ipv6 {
         description "Configure ipv6 dhcp guard";
+        container nd {
+          description 
+            "IPv6 nd configuration commands";
+          container suppress {
+            description
+              "Configure ND suppress on the vlan";
+            presence true;
+            leaf attach-policy {
+              description 
+                "Apply a policy for feature ND suppress";
+              type string;
+            }
+          }
+        }
         container dhcp {
           description "dhcp feature";
           container guard {
@@ -415,15 +438,45 @@ module Cisco-IOS-XE-vlan {
         }
       }
     }
-
+    list group {
+      description 
+        "Create a vlan group";
+      key "name";
+      leaf name {
+        description
+          "Group name starts with alphabet";
+        type string;
+      }
+      list vlan-list {
+        description
+          "List of vlans in this group";
+        key "vlan-id";
+        leaf vlan-id {
+          description
+            "a single VLAN id (allowed value range 1-4094) \
+             or Comma-separated VLAN id range. \
+             e.g. 99 or 1-30 or  1-20,30,40-50";
+          type union {
+            type uint16 {
+              range "1..4094";
+            }
+            type ios-types:range-string;
+          }
+        }   
+      }
+    }  
     list vlan-list {
       key "id";
       leaf id {
+        description
+          "a single VLAN id (allowed value range 1-4094) \
+           or Comma-separated VLAN id range. \
+           e.g. 99 or 1-30 or  1-20,30,40-50";
         type union {
           type uint16 {
             range "1..4094";
           }
-          type string;
+          type ios-types:range-string;
         }
       }
       leaf remote-span {

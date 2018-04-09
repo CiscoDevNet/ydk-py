@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -52,8 +54,10 @@ class Context(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-dumper-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"context-numbers" : ("context_numbers", Context.ContextNumbers), "context-locations" : ("context_locations", Context.ContextLocations), "all" : ("all", Context.All)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("context-numbers", ("context_numbers", Context.ContextNumbers)), ("context-locations", ("context_locations", Context.ContextLocations)), ("all", ("all", Context.All))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.context_numbers = Context.ContextNumbers()
         self.context_numbers.parent = self
@@ -95,8 +99,10 @@ class Context(Entity):
             self.yang_parent_name = "context"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"context-number" : ("context_number", Context.ContextNumbers.ContextNumber)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("context-number", ("context_number", Context.ContextNumbers.ContextNumber))])
+            self._leafs = OrderedDict()
 
             self.context_number = YList(self)
             self._segment_path = lambda: "context-numbers"
@@ -110,7 +116,7 @@ class Context(Entity):
             """
             Context number 
             
-            .. attribute:: context_num  <key>
+            .. attribute:: context_num  (key)
             
             	Context for which crash dump info required
             	**type**\: int
@@ -141,10 +147,13 @@ class Context(Entity):
                 self.yang_parent_name = "context-numbers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"locations" : ("locations", Context.ContextNumbers.ContextNumber.Locations), "all" : ("all", Context.ContextNumbers.ContextNumber.All)}
-                self._child_list_classes = {}
-
-                self.context_num = YLeaf(YType.int32, "context-num")
+                self.ylist_key_names = ['context_num']
+                self._child_container_classes = OrderedDict([("locations", ("locations", Context.ContextNumbers.ContextNumber.Locations)), ("all", ("all", Context.ContextNumbers.ContextNumber.All))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('context_num', YLeaf(YType.int32, 'context-num')),
+                ])
+                self.context_num = None
 
                 self.locations = Context.ContextNumbers.ContextNumber.Locations()
                 self.locations.parent = self
@@ -155,7 +164,7 @@ class Context(Entity):
                 self.all.parent = self
                 self._children_name_map["all"] = "all"
                 self._children_yang_names.add("all")
-                self._segment_path = lambda: "context-number" + "[context-num='" + self.context_num.get() + "']"
+                self._segment_path = lambda: "context-number" + "[context-num='" + str(self.context_num) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-oper:context/context-numbers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -185,8 +194,10 @@ class Context(Entity):
                     self.yang_parent_name = "context-number"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"location" : ("location", Context.ContextNumbers.ContextNumber.Locations.Location)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("location", ("location", Context.ContextNumbers.ContextNumber.Locations.Location))])
+                    self._leafs = OrderedDict()
 
                     self.location = YList(self)
                     self._segment_path = lambda: "locations"
@@ -199,7 +210,7 @@ class Context(Entity):
                     """
                     Operational Context for a particular location
                     
-                    .. attribute:: node_name  <key>
+                    .. attribute:: node_name  (key)
                     
                     	The node
                     	**type**\: str
@@ -225,16 +236,19 @@ class Context(Entity):
                         self.yang_parent_name = "locations"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"enter" : ("enter", Context.ContextNumbers.ContextNumber.Locations.Location.Enter)}
-                        self._child_list_classes = {}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self.ylist_key_names = ['node_name']
+                        self._child_container_classes = OrderedDict([("enter", ("enter", Context.ContextNumbers.ContextNumber.Locations.Location.Enter))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                        ])
+                        self.node_name = None
 
                         self.enter = Context.ContextNumbers.ContextNumber.Locations.Location.Enter()
                         self.enter.parent = self
                         self._children_name_map["enter"] = "enter"
                         self._children_yang_names.add("enter")
-                        self._segment_path = lambda: "location" + "[node-name='" + self.node_name.get() + "']"
+                        self._segment_path = lambda: "location" + "[node-name='" + str(self.node_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Context.ContextNumbers.ContextNumber.Locations.Location, ['node_name'], name, value)
@@ -263,8 +277,10 @@ class Context(Entity):
                             self.yang_parent_name = "location"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"crash-info" : ("crash_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("crash-info", ("crash_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo))])
+                            self._leafs = OrderedDict()
 
                             self.crash_info = YList(self)
                             self._segment_path = lambda: "enter"
@@ -306,10 +322,13 @@ class Context(Entity):
                                 self.yang_parent_name = "enter"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"context-info" : ("context_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo), "crash-package-information" : ("crash_package_information", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.CrashPackageInformation)}
-
-                                self.node = YLeaf(YType.str, "node")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("context-info", ("context_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo)), ("crash-package-information", ("crash_package_information", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.CrashPackageInformation))])
+                                self._leafs = OrderedDict([
+                                    ('node', YLeaf(YType.str, 'node')),
+                                ])
+                                self.node = None
 
                                 self.context_info = YList(self)
                                 self.crash_package_information = YList(self)
@@ -412,30 +431,33 @@ class Context(Entity):
                                     self.yang_parent_name = "crash-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"stack-trace" : ("stack_trace", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.StackTrace), "dll-info" : ("dll_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.DllInfo)}
-
-                                    self.process_name = YLeaf(YType.str, "process-name")
-
-                                    self.pid = YLeaf(YType.uint32, "pid")
-
-                                    self.tid = YLeaf(YType.uint32, "tid")
-
-                                    self.core_dump_time = YLeaf(YType.str, "core-dump-time")
-
-                                    self.sig_num = YLeaf(YType.uint32, "sig-num")
-
-                                    self.sin_err_str = YLeaf(YType.str, "sin-err-str")
-
-                                    self.sig_send_pid = YLeaf(YType.uint32, "sig-send-pid")
-
-                                    self.sig_code = YLeaf(YType.uint32, "sig-code")
-
-                                    self.sin_info = YLeaf(YType.str, "sin-info")
-
-                                    self.core_for_process = YLeaf(YType.str, "core-for-process")
-
-                                    self.registers_info = YLeaf(YType.str, "registers-info")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("stack-trace", ("stack_trace", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.StackTrace)), ("dll-info", ("dll_info", Context.ContextNumbers.ContextNumber.Locations.Location.Enter.CrashInfo.ContextInfo.DllInfo))])
+                                    self._leafs = OrderedDict([
+                                        ('process_name', YLeaf(YType.str, 'process-name')),
+                                        ('pid', YLeaf(YType.uint32, 'pid')),
+                                        ('tid', YLeaf(YType.uint32, 'tid')),
+                                        ('core_dump_time', YLeaf(YType.str, 'core-dump-time')),
+                                        ('sig_num', YLeaf(YType.uint32, 'sig-num')),
+                                        ('sin_err_str', YLeaf(YType.str, 'sin-err-str')),
+                                        ('sig_send_pid', YLeaf(YType.uint32, 'sig-send-pid')),
+                                        ('sig_code', YLeaf(YType.uint32, 'sig-code')),
+                                        ('sin_info', YLeaf(YType.str, 'sin-info')),
+                                        ('core_for_process', YLeaf(YType.str, 'core-for-process')),
+                                        ('registers_info', YLeaf(YType.str, 'registers-info')),
+                                    ])
+                                    self.process_name = None
+                                    self.pid = None
+                                    self.tid = None
+                                    self.core_dump_time = None
+                                    self.sig_num = None
+                                    self.sin_err_str = None
+                                    self.sig_send_pid = None
+                                    self.sig_code = None
+                                    self.sin_info = None
+                                    self.core_for_process = None
+                                    self.registers_info = None
 
                                     self.stack_trace = YList(self)
                                     self.dll_info = YList(self)
@@ -470,10 +492,13 @@ class Context(Entity):
                                         self.yang_parent_name = "context-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.stack_trace = YLeaf(YType.uint32, "stack-trace")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('stack_trace', YLeaf(YType.uint32, 'stack-trace')),
+                                        ])
+                                        self.stack_trace = None
                                         self._segment_path = lambda: "stack-trace"
 
                                     def __setattr__(self, name, value):
@@ -538,20 +563,23 @@ class Context(Entity):
                                         self.yang_parent_name = "context-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.path = YLeaf(YType.str, "path")
-
-                                        self.text_addr = YLeaf(YType.uint32, "text-addr")
-
-                                        self.text_size = YLeaf(YType.uint32, "text-size")
-
-                                        self.data_addr = YLeaf(YType.uint32, "data-addr")
-
-                                        self.data_size = YLeaf(YType.uint32, "data-size")
-
-                                        self.version = YLeaf(YType.uint32, "version")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('path', YLeaf(YType.str, 'path')),
+                                            ('text_addr', YLeaf(YType.uint32, 'text-addr')),
+                                            ('text_size', YLeaf(YType.uint32, 'text-size')),
+                                            ('data_addr', YLeaf(YType.uint32, 'data-addr')),
+                                            ('data_size', YLeaf(YType.uint32, 'data-size')),
+                                            ('version', YLeaf(YType.uint32, 'version')),
+                                        ])
+                                        self.path = None
+                                        self.text_addr = None
+                                        self.text_size = None
+                                        self.data_addr = None
+                                        self.data_size = None
+                                        self.version = None
                                         self._segment_path = lambda: "dll-info"
 
                                     def __setattr__(self, name, value):
@@ -586,12 +614,15 @@ class Context(Entity):
                                     self.yang_parent_name = "crash-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.source = YLeaf(YType.str, "source")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('source', YLeaf(YType.str, 'source')),
+                                    ])
+                                    self.name = None
+                                    self.source = None
                                     self._segment_path = lambda: "crash-package-information"
 
                                 def __setattr__(self, name, value):
@@ -621,8 +652,10 @@ class Context(Entity):
                     self.yang_parent_name = "context-number"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"crash-info" : ("crash_info", Context.ContextNumbers.ContextNumber.All.CrashInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("crash-info", ("crash_info", Context.ContextNumbers.ContextNumber.All.CrashInfo))])
+                    self._leafs = OrderedDict()
 
                     self.crash_info = YList(self)
                     self._segment_path = lambda: "all"
@@ -664,10 +697,13 @@ class Context(Entity):
                         self.yang_parent_name = "all"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"context-info" : ("context_info", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo), "crash-package-information" : ("crash_package_information", Context.ContextNumbers.ContextNumber.All.CrashInfo.CrashPackageInformation)}
-
-                        self.node = YLeaf(YType.str, "node")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("context-info", ("context_info", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo)), ("crash-package-information", ("crash_package_information", Context.ContextNumbers.ContextNumber.All.CrashInfo.CrashPackageInformation))])
+                        self._leafs = OrderedDict([
+                            ('node', YLeaf(YType.str, 'node')),
+                        ])
+                        self.node = None
 
                         self.context_info = YList(self)
                         self.crash_package_information = YList(self)
@@ -770,30 +806,33 @@ class Context(Entity):
                             self.yang_parent_name = "crash-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"stack-trace" : ("stack_trace", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.StackTrace), "dll-info" : ("dll_info", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.DllInfo)}
-
-                            self.process_name = YLeaf(YType.str, "process-name")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.tid = YLeaf(YType.uint32, "tid")
-
-                            self.core_dump_time = YLeaf(YType.str, "core-dump-time")
-
-                            self.sig_num = YLeaf(YType.uint32, "sig-num")
-
-                            self.sin_err_str = YLeaf(YType.str, "sin-err-str")
-
-                            self.sig_send_pid = YLeaf(YType.uint32, "sig-send-pid")
-
-                            self.sig_code = YLeaf(YType.uint32, "sig-code")
-
-                            self.sin_info = YLeaf(YType.str, "sin-info")
-
-                            self.core_for_process = YLeaf(YType.str, "core-for-process")
-
-                            self.registers_info = YLeaf(YType.str, "registers-info")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("stack-trace", ("stack_trace", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.StackTrace)), ("dll-info", ("dll_info", Context.ContextNumbers.ContextNumber.All.CrashInfo.ContextInfo.DllInfo))])
+                            self._leafs = OrderedDict([
+                                ('process_name', YLeaf(YType.str, 'process-name')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('tid', YLeaf(YType.uint32, 'tid')),
+                                ('core_dump_time', YLeaf(YType.str, 'core-dump-time')),
+                                ('sig_num', YLeaf(YType.uint32, 'sig-num')),
+                                ('sin_err_str', YLeaf(YType.str, 'sin-err-str')),
+                                ('sig_send_pid', YLeaf(YType.uint32, 'sig-send-pid')),
+                                ('sig_code', YLeaf(YType.uint32, 'sig-code')),
+                                ('sin_info', YLeaf(YType.str, 'sin-info')),
+                                ('core_for_process', YLeaf(YType.str, 'core-for-process')),
+                                ('registers_info', YLeaf(YType.str, 'registers-info')),
+                            ])
+                            self.process_name = None
+                            self.pid = None
+                            self.tid = None
+                            self.core_dump_time = None
+                            self.sig_num = None
+                            self.sin_err_str = None
+                            self.sig_send_pid = None
+                            self.sig_code = None
+                            self.sin_info = None
+                            self.core_for_process = None
+                            self.registers_info = None
 
                             self.stack_trace = YList(self)
                             self.dll_info = YList(self)
@@ -828,10 +867,13 @@ class Context(Entity):
                                 self.yang_parent_name = "context-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.stack_trace = YLeaf(YType.uint32, "stack-trace")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('stack_trace', YLeaf(YType.uint32, 'stack-trace')),
+                                ])
+                                self.stack_trace = None
                                 self._segment_path = lambda: "stack-trace"
 
                             def __setattr__(self, name, value):
@@ -896,20 +938,23 @@ class Context(Entity):
                                 self.yang_parent_name = "context-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.path = YLeaf(YType.str, "path")
-
-                                self.text_addr = YLeaf(YType.uint32, "text-addr")
-
-                                self.text_size = YLeaf(YType.uint32, "text-size")
-
-                                self.data_addr = YLeaf(YType.uint32, "data-addr")
-
-                                self.data_size = YLeaf(YType.uint32, "data-size")
-
-                                self.version = YLeaf(YType.uint32, "version")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('path', YLeaf(YType.str, 'path')),
+                                    ('text_addr', YLeaf(YType.uint32, 'text-addr')),
+                                    ('text_size', YLeaf(YType.uint32, 'text-size')),
+                                    ('data_addr', YLeaf(YType.uint32, 'data-addr')),
+                                    ('data_size', YLeaf(YType.uint32, 'data-size')),
+                                    ('version', YLeaf(YType.uint32, 'version')),
+                                ])
+                                self.path = None
+                                self.text_addr = None
+                                self.text_size = None
+                                self.data_addr = None
+                                self.data_size = None
+                                self.version = None
                                 self._segment_path = lambda: "dll-info"
 
                             def __setattr__(self, name, value):
@@ -944,12 +989,15 @@ class Context(Entity):
                             self.yang_parent_name = "crash-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.source = YLeaf(YType.str, "source")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('source', YLeaf(YType.str, 'source')),
+                            ])
+                            self.name = None
+                            self.source = None
                             self._segment_path = lambda: "crash-package-information"
 
                         def __setattr__(self, name, value):
@@ -979,8 +1027,10 @@ class Context(Entity):
             self.yang_parent_name = "context"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"context-location" : ("context_location", Context.ContextLocations.ContextLocation)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("context-location", ("context_location", Context.ContextLocations.ContextLocation))])
+            self._leafs = OrderedDict()
 
             self.context_location = YList(self)
             self._segment_path = lambda: "context-locations"
@@ -994,7 +1044,7 @@ class Context(Entity):
             """
             Operational Context for a particular location
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	The node
             	**type**\: str
@@ -1025,10 +1075,13 @@ class Context(Entity):
                 self.yang_parent_name = "context-locations"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"numbers" : ("numbers", Context.ContextLocations.ContextLocation.Numbers), "all" : ("all", Context.ContextLocations.ContextLocation.All)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("numbers", ("numbers", Context.ContextLocations.ContextLocation.Numbers)), ("all", ("all", Context.ContextLocations.ContextLocation.All))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.numbers = Context.ContextLocations.ContextLocation.Numbers()
                 self.numbers.parent = self
@@ -1039,7 +1092,7 @@ class Context(Entity):
                 self.all.parent = self
                 self._children_name_map["all"] = "all"
                 self._children_yang_names.add("all")
-                self._segment_path = lambda: "context-location" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "context-location" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-oper:context/context-locations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1069,8 +1122,10 @@ class Context(Entity):
                     self.yang_parent_name = "context-location"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"number" : ("number", Context.ContextLocations.ContextLocation.Numbers.Number)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("number", ("number", Context.ContextLocations.ContextLocation.Numbers.Number))])
+                    self._leafs = OrderedDict()
 
                     self.number = YList(self)
                     self._segment_path = lambda: "numbers"
@@ -1083,7 +1138,7 @@ class Context(Entity):
                     """
                     Context number
                     
-                    .. attribute:: context_num  <key>
+                    .. attribute:: context_num  (key)
                     
                     	Context for which crash dump info required
                     	**type**\: int
@@ -1109,16 +1164,19 @@ class Context(Entity):
                         self.yang_parent_name = "numbers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"enter" : ("enter", Context.ContextLocations.ContextLocation.Numbers.Number.Enter)}
-                        self._child_list_classes = {}
-
-                        self.context_num = YLeaf(YType.int32, "context-num")
+                        self.ylist_key_names = ['context_num']
+                        self._child_container_classes = OrderedDict([("enter", ("enter", Context.ContextLocations.ContextLocation.Numbers.Number.Enter))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('context_num', YLeaf(YType.int32, 'context-num')),
+                        ])
+                        self.context_num = None
 
                         self.enter = Context.ContextLocations.ContextLocation.Numbers.Number.Enter()
                         self.enter.parent = self
                         self._children_name_map["enter"] = "enter"
                         self._children_yang_names.add("enter")
-                        self._segment_path = lambda: "number" + "[context-num='" + self.context_num.get() + "']"
+                        self._segment_path = lambda: "number" + "[context-num='" + str(self.context_num) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Context.ContextLocations.ContextLocation.Numbers.Number, ['context_num'], name, value)
@@ -1147,8 +1205,10 @@ class Context(Entity):
                             self.yang_parent_name = "number"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"crash-info" : ("crash_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("crash-info", ("crash_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo))])
+                            self._leafs = OrderedDict()
 
                             self.crash_info = YList(self)
                             self._segment_path = lambda: "enter"
@@ -1190,10 +1250,13 @@ class Context(Entity):
                                 self.yang_parent_name = "enter"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"context-info" : ("context_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo), "crash-package-information" : ("crash_package_information", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.CrashPackageInformation)}
-
-                                self.node = YLeaf(YType.str, "node")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("context-info", ("context_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo)), ("crash-package-information", ("crash_package_information", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.CrashPackageInformation))])
+                                self._leafs = OrderedDict([
+                                    ('node', YLeaf(YType.str, 'node')),
+                                ])
+                                self.node = None
 
                                 self.context_info = YList(self)
                                 self.crash_package_information = YList(self)
@@ -1296,30 +1359,33 @@ class Context(Entity):
                                     self.yang_parent_name = "crash-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"stack-trace" : ("stack_trace", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.StackTrace), "dll-info" : ("dll_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.DllInfo)}
-
-                                    self.process_name = YLeaf(YType.str, "process-name")
-
-                                    self.pid = YLeaf(YType.uint32, "pid")
-
-                                    self.tid = YLeaf(YType.uint32, "tid")
-
-                                    self.core_dump_time = YLeaf(YType.str, "core-dump-time")
-
-                                    self.sig_num = YLeaf(YType.uint32, "sig-num")
-
-                                    self.sin_err_str = YLeaf(YType.str, "sin-err-str")
-
-                                    self.sig_send_pid = YLeaf(YType.uint32, "sig-send-pid")
-
-                                    self.sig_code = YLeaf(YType.uint32, "sig-code")
-
-                                    self.sin_info = YLeaf(YType.str, "sin-info")
-
-                                    self.core_for_process = YLeaf(YType.str, "core-for-process")
-
-                                    self.registers_info = YLeaf(YType.str, "registers-info")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("stack-trace", ("stack_trace", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.StackTrace)), ("dll-info", ("dll_info", Context.ContextLocations.ContextLocation.Numbers.Number.Enter.CrashInfo.ContextInfo.DllInfo))])
+                                    self._leafs = OrderedDict([
+                                        ('process_name', YLeaf(YType.str, 'process-name')),
+                                        ('pid', YLeaf(YType.uint32, 'pid')),
+                                        ('tid', YLeaf(YType.uint32, 'tid')),
+                                        ('core_dump_time', YLeaf(YType.str, 'core-dump-time')),
+                                        ('sig_num', YLeaf(YType.uint32, 'sig-num')),
+                                        ('sin_err_str', YLeaf(YType.str, 'sin-err-str')),
+                                        ('sig_send_pid', YLeaf(YType.uint32, 'sig-send-pid')),
+                                        ('sig_code', YLeaf(YType.uint32, 'sig-code')),
+                                        ('sin_info', YLeaf(YType.str, 'sin-info')),
+                                        ('core_for_process', YLeaf(YType.str, 'core-for-process')),
+                                        ('registers_info', YLeaf(YType.str, 'registers-info')),
+                                    ])
+                                    self.process_name = None
+                                    self.pid = None
+                                    self.tid = None
+                                    self.core_dump_time = None
+                                    self.sig_num = None
+                                    self.sin_err_str = None
+                                    self.sig_send_pid = None
+                                    self.sig_code = None
+                                    self.sin_info = None
+                                    self.core_for_process = None
+                                    self.registers_info = None
 
                                     self.stack_trace = YList(self)
                                     self.dll_info = YList(self)
@@ -1354,10 +1420,13 @@ class Context(Entity):
                                         self.yang_parent_name = "context-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.stack_trace = YLeaf(YType.uint32, "stack-trace")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('stack_trace', YLeaf(YType.uint32, 'stack-trace')),
+                                        ])
+                                        self.stack_trace = None
                                         self._segment_path = lambda: "stack-trace"
 
                                     def __setattr__(self, name, value):
@@ -1422,20 +1491,23 @@ class Context(Entity):
                                         self.yang_parent_name = "context-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.path = YLeaf(YType.str, "path")
-
-                                        self.text_addr = YLeaf(YType.uint32, "text-addr")
-
-                                        self.text_size = YLeaf(YType.uint32, "text-size")
-
-                                        self.data_addr = YLeaf(YType.uint32, "data-addr")
-
-                                        self.data_size = YLeaf(YType.uint32, "data-size")
-
-                                        self.version = YLeaf(YType.uint32, "version")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('path', YLeaf(YType.str, 'path')),
+                                            ('text_addr', YLeaf(YType.uint32, 'text-addr')),
+                                            ('text_size', YLeaf(YType.uint32, 'text-size')),
+                                            ('data_addr', YLeaf(YType.uint32, 'data-addr')),
+                                            ('data_size', YLeaf(YType.uint32, 'data-size')),
+                                            ('version', YLeaf(YType.uint32, 'version')),
+                                        ])
+                                        self.path = None
+                                        self.text_addr = None
+                                        self.text_size = None
+                                        self.data_addr = None
+                                        self.data_size = None
+                                        self.version = None
                                         self._segment_path = lambda: "dll-info"
 
                                     def __setattr__(self, name, value):
@@ -1470,12 +1542,15 @@ class Context(Entity):
                                     self.yang_parent_name = "crash-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.name = YLeaf(YType.str, "name")
-
-                                    self.source = YLeaf(YType.str, "source")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('name', YLeaf(YType.str, 'name')),
+                                        ('source', YLeaf(YType.str, 'source')),
+                                    ])
+                                    self.name = None
+                                    self.source = None
                                     self._segment_path = lambda: "crash-package-information"
 
                                 def __setattr__(self, name, value):
@@ -1505,8 +1580,10 @@ class Context(Entity):
                     self.yang_parent_name = "context-location"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"crash-info" : ("crash_info", Context.ContextLocations.ContextLocation.All.CrashInfo)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("crash-info", ("crash_info", Context.ContextLocations.ContextLocation.All.CrashInfo))])
+                    self._leafs = OrderedDict()
 
                     self.crash_info = YList(self)
                     self._segment_path = lambda: "all"
@@ -1548,10 +1625,13 @@ class Context(Entity):
                         self.yang_parent_name = "all"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"context-info" : ("context_info", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo), "crash-package-information" : ("crash_package_information", Context.ContextLocations.ContextLocation.All.CrashInfo.CrashPackageInformation)}
-
-                        self.node = YLeaf(YType.str, "node")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("context-info", ("context_info", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo)), ("crash-package-information", ("crash_package_information", Context.ContextLocations.ContextLocation.All.CrashInfo.CrashPackageInformation))])
+                        self._leafs = OrderedDict([
+                            ('node', YLeaf(YType.str, 'node')),
+                        ])
+                        self.node = None
 
                         self.context_info = YList(self)
                         self.crash_package_information = YList(self)
@@ -1654,30 +1734,33 @@ class Context(Entity):
                             self.yang_parent_name = "crash-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"stack-trace" : ("stack_trace", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.StackTrace), "dll-info" : ("dll_info", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.DllInfo)}
-
-                            self.process_name = YLeaf(YType.str, "process-name")
-
-                            self.pid = YLeaf(YType.uint32, "pid")
-
-                            self.tid = YLeaf(YType.uint32, "tid")
-
-                            self.core_dump_time = YLeaf(YType.str, "core-dump-time")
-
-                            self.sig_num = YLeaf(YType.uint32, "sig-num")
-
-                            self.sin_err_str = YLeaf(YType.str, "sin-err-str")
-
-                            self.sig_send_pid = YLeaf(YType.uint32, "sig-send-pid")
-
-                            self.sig_code = YLeaf(YType.uint32, "sig-code")
-
-                            self.sin_info = YLeaf(YType.str, "sin-info")
-
-                            self.core_for_process = YLeaf(YType.str, "core-for-process")
-
-                            self.registers_info = YLeaf(YType.str, "registers-info")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("stack-trace", ("stack_trace", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.StackTrace)), ("dll-info", ("dll_info", Context.ContextLocations.ContextLocation.All.CrashInfo.ContextInfo.DllInfo))])
+                            self._leafs = OrderedDict([
+                                ('process_name', YLeaf(YType.str, 'process-name')),
+                                ('pid', YLeaf(YType.uint32, 'pid')),
+                                ('tid', YLeaf(YType.uint32, 'tid')),
+                                ('core_dump_time', YLeaf(YType.str, 'core-dump-time')),
+                                ('sig_num', YLeaf(YType.uint32, 'sig-num')),
+                                ('sin_err_str', YLeaf(YType.str, 'sin-err-str')),
+                                ('sig_send_pid', YLeaf(YType.uint32, 'sig-send-pid')),
+                                ('sig_code', YLeaf(YType.uint32, 'sig-code')),
+                                ('sin_info', YLeaf(YType.str, 'sin-info')),
+                                ('core_for_process', YLeaf(YType.str, 'core-for-process')),
+                                ('registers_info', YLeaf(YType.str, 'registers-info')),
+                            ])
+                            self.process_name = None
+                            self.pid = None
+                            self.tid = None
+                            self.core_dump_time = None
+                            self.sig_num = None
+                            self.sin_err_str = None
+                            self.sig_send_pid = None
+                            self.sig_code = None
+                            self.sin_info = None
+                            self.core_for_process = None
+                            self.registers_info = None
 
                             self.stack_trace = YList(self)
                             self.dll_info = YList(self)
@@ -1712,10 +1795,13 @@ class Context(Entity):
                                 self.yang_parent_name = "context-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.stack_trace = YLeaf(YType.uint32, "stack-trace")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('stack_trace', YLeaf(YType.uint32, 'stack-trace')),
+                                ])
+                                self.stack_trace = None
                                 self._segment_path = lambda: "stack-trace"
 
                             def __setattr__(self, name, value):
@@ -1780,20 +1866,23 @@ class Context(Entity):
                                 self.yang_parent_name = "context-info"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.path = YLeaf(YType.str, "path")
-
-                                self.text_addr = YLeaf(YType.uint32, "text-addr")
-
-                                self.text_size = YLeaf(YType.uint32, "text-size")
-
-                                self.data_addr = YLeaf(YType.uint32, "data-addr")
-
-                                self.data_size = YLeaf(YType.uint32, "data-size")
-
-                                self.version = YLeaf(YType.uint32, "version")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('path', YLeaf(YType.str, 'path')),
+                                    ('text_addr', YLeaf(YType.uint32, 'text-addr')),
+                                    ('text_size', YLeaf(YType.uint32, 'text-size')),
+                                    ('data_addr', YLeaf(YType.uint32, 'data-addr')),
+                                    ('data_size', YLeaf(YType.uint32, 'data-size')),
+                                    ('version', YLeaf(YType.uint32, 'version')),
+                                ])
+                                self.path = None
+                                self.text_addr = None
+                                self.text_size = None
+                                self.data_addr = None
+                                self.data_size = None
+                                self.version = None
                                 self._segment_path = lambda: "dll-info"
 
                             def __setattr__(self, name, value):
@@ -1828,12 +1917,15 @@ class Context(Entity):
                             self.yang_parent_name = "crash-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.source = YLeaf(YType.str, "source")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                                ('source', YLeaf(YType.str, 'source')),
+                            ])
+                            self.name = None
+                            self.source = None
                             self._segment_path = lambda: "crash-package-information"
 
                         def __setattr__(self, name, value):
@@ -1863,8 +1955,10 @@ class Context(Entity):
             self.yang_parent_name = "context"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"crash-info" : ("crash_info", Context.All.CrashInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("crash-info", ("crash_info", Context.All.CrashInfo))])
+            self._leafs = OrderedDict()
 
             self.crash_info = YList(self)
             self._segment_path = lambda: "all"
@@ -1907,10 +2001,13 @@ class Context(Entity):
                 self.yang_parent_name = "all"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"context-info" : ("context_info", Context.All.CrashInfo.ContextInfo), "crash-package-information" : ("crash_package_information", Context.All.CrashInfo.CrashPackageInformation)}
-
-                self.node = YLeaf(YType.str, "node")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("context-info", ("context_info", Context.All.CrashInfo.ContextInfo)), ("crash-package-information", ("crash_package_information", Context.All.CrashInfo.CrashPackageInformation))])
+                self._leafs = OrderedDict([
+                    ('node', YLeaf(YType.str, 'node')),
+                ])
+                self.node = None
 
                 self.context_info = YList(self)
                 self.crash_package_information = YList(self)
@@ -2014,30 +2111,33 @@ class Context(Entity):
                     self.yang_parent_name = "crash-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"stack-trace" : ("stack_trace", Context.All.CrashInfo.ContextInfo.StackTrace), "dll-info" : ("dll_info", Context.All.CrashInfo.ContextInfo.DllInfo)}
-
-                    self.process_name = YLeaf(YType.str, "process-name")
-
-                    self.pid = YLeaf(YType.uint32, "pid")
-
-                    self.tid = YLeaf(YType.uint32, "tid")
-
-                    self.core_dump_time = YLeaf(YType.str, "core-dump-time")
-
-                    self.sig_num = YLeaf(YType.uint32, "sig-num")
-
-                    self.sin_err_str = YLeaf(YType.str, "sin-err-str")
-
-                    self.sig_send_pid = YLeaf(YType.uint32, "sig-send-pid")
-
-                    self.sig_code = YLeaf(YType.uint32, "sig-code")
-
-                    self.sin_info = YLeaf(YType.str, "sin-info")
-
-                    self.core_for_process = YLeaf(YType.str, "core-for-process")
-
-                    self.registers_info = YLeaf(YType.str, "registers-info")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("stack-trace", ("stack_trace", Context.All.CrashInfo.ContextInfo.StackTrace)), ("dll-info", ("dll_info", Context.All.CrashInfo.ContextInfo.DllInfo))])
+                    self._leafs = OrderedDict([
+                        ('process_name', YLeaf(YType.str, 'process-name')),
+                        ('pid', YLeaf(YType.uint32, 'pid')),
+                        ('tid', YLeaf(YType.uint32, 'tid')),
+                        ('core_dump_time', YLeaf(YType.str, 'core-dump-time')),
+                        ('sig_num', YLeaf(YType.uint32, 'sig-num')),
+                        ('sin_err_str', YLeaf(YType.str, 'sin-err-str')),
+                        ('sig_send_pid', YLeaf(YType.uint32, 'sig-send-pid')),
+                        ('sig_code', YLeaf(YType.uint32, 'sig-code')),
+                        ('sin_info', YLeaf(YType.str, 'sin-info')),
+                        ('core_for_process', YLeaf(YType.str, 'core-for-process')),
+                        ('registers_info', YLeaf(YType.str, 'registers-info')),
+                    ])
+                    self.process_name = None
+                    self.pid = None
+                    self.tid = None
+                    self.core_dump_time = None
+                    self.sig_num = None
+                    self.sin_err_str = None
+                    self.sig_send_pid = None
+                    self.sig_code = None
+                    self.sin_info = None
+                    self.core_for_process = None
+                    self.registers_info = None
 
                     self.stack_trace = YList(self)
                     self.dll_info = YList(self)
@@ -2073,10 +2173,13 @@ class Context(Entity):
                         self.yang_parent_name = "context-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.stack_trace = YLeaf(YType.uint32, "stack-trace")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('stack_trace', YLeaf(YType.uint32, 'stack-trace')),
+                        ])
+                        self.stack_trace = None
                         self._segment_path = lambda: "stack-trace"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-oper:context/all/crash-info/context-info/%s" % self._segment_path()
 
@@ -2142,20 +2245,23 @@ class Context(Entity):
                         self.yang_parent_name = "context-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.path = YLeaf(YType.str, "path")
-
-                        self.text_addr = YLeaf(YType.uint32, "text-addr")
-
-                        self.text_size = YLeaf(YType.uint32, "text-size")
-
-                        self.data_addr = YLeaf(YType.uint32, "data-addr")
-
-                        self.data_size = YLeaf(YType.uint32, "data-size")
-
-                        self.version = YLeaf(YType.uint32, "version")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('path', YLeaf(YType.str, 'path')),
+                            ('text_addr', YLeaf(YType.uint32, 'text-addr')),
+                            ('text_size', YLeaf(YType.uint32, 'text-size')),
+                            ('data_addr', YLeaf(YType.uint32, 'data-addr')),
+                            ('data_size', YLeaf(YType.uint32, 'data-size')),
+                            ('version', YLeaf(YType.uint32, 'version')),
+                        ])
+                        self.path = None
+                        self.text_addr = None
+                        self.text_size = None
+                        self.data_addr = None
+                        self.data_size = None
+                        self.version = None
                         self._segment_path = lambda: "dll-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-oper:context/all/crash-info/context-info/%s" % self._segment_path()
 
@@ -2191,12 +2297,15 @@ class Context(Entity):
                     self.yang_parent_name = "crash-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.source = YLeaf(YType.str, "source")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('source', YLeaf(YType.str, 'source')),
+                    ])
+                    self.name = None
+                    self.source = None
                     self._segment_path = lambda: "crash-package-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-dumper-oper:context/all/crash-info/%s" % self._segment_path()
 

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class FabricStats(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-fsi-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", FabricStats.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", FabricStats.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = FabricStats.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class FabricStats(Entity):
             self.yang_parent_name = "fabric-stats"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", FabricStats.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", FabricStats.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class FabricStats(Entity):
             """
             Information about a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -116,16 +122,19 @@ class FabricStats(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statses" : ("statses", FabricStats.Nodes.Node.Statses)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("statses", ("statses", FabricStats.Nodes.Node.Statses))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.statses = FabricStats.Nodes.Node.Statses()
                 self.statses.parent = self
                 self._children_name_map["statses"] = "statses"
                 self._children_yang_names.add("statses")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fsi-oper:fabric-stats/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -155,8 +164,10 @@ class FabricStats(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"stats" : ("stats", FabricStats.Nodes.Node.Statses.Stats)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("stats", ("stats", FabricStats.Nodes.Node.Statses.Stats))])
+                    self._leafs = OrderedDict()
 
                     self.stats = YList(self)
                     self._segment_path = lambda: "statses"
@@ -169,7 +180,7 @@ class FabricStats(Entity):
                     """
                     Stats information for a particular type
                     
-                    .. attribute:: type  <key>
+                    .. attribute:: type  (key)
                     
                     	Fabric asic type
                     	**type**\: str
@@ -207,17 +218,20 @@ class FabricStats(Entity):
                         self.yang_parent_name = "statses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"stats-table" : ("stats_table", FabricStats.Nodes.Node.Statses.Stats.StatsTable)}
-
-                        self.type = YLeaf(YType.str, "type")
-
-                        self.last_clear_time = YLeaf(YType.uint64, "last-clear-time")
-
-                        self.stat_table_name = YLeaf(YType.str, "stat-table-name")
+                        self.ylist_key_names = ['type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("stats-table", ("stats_table", FabricStats.Nodes.Node.Statses.Stats.StatsTable))])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.str, 'type')),
+                            ('last_clear_time', YLeaf(YType.uint64, 'last-clear-time')),
+                            ('stat_table_name', YLeaf(YType.str, 'stat-table-name')),
+                        ])
+                        self.type = None
+                        self.last_clear_time = None
+                        self.stat_table_name = None
 
                         self.stats_table = YList(self)
-                        self._segment_path = lambda: "stats" + "[type='" + self.type.get() + "']"
+                        self._segment_path = lambda: "stats" + "[type='" + str(self.type) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(FabricStats.Nodes.Node.Statses.Stats, ['type', 'last_clear_time', 'stat_table_name'], name, value)
@@ -246,8 +260,10 @@ class FabricStats(Entity):
                             self.yang_parent_name = "stats"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"fsi-stat" : ("fsi_stat", FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("fsi-stat", ("fsi_stat", FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat))])
+                            self._leafs = OrderedDict()
 
                             self.fsi_stat = YList(self)
                             self._segment_path = lambda: "stats-table"
@@ -286,12 +302,15 @@ class FabricStats(Entity):
                                 self.yang_parent_name = "stats-table"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.count = YLeaf(YType.uint64, "count")
-
-                                self.counter_name = YLeaf(YType.str, "counter-name")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('count', YLeaf(YType.uint64, 'count')),
+                                    ('counter_name', YLeaf(YType.str, 'counter-name')),
+                                ])
+                                self.count = None
+                                self.counter_name = None
                                 self._segment_path = lambda: "fsi-stat"
 
                             def __setattr__(self, name, value):

@@ -4,6 +4,8 @@ This module contains a collection of YANG groupings
 in filter configurations for policy model.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -12,7 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Direction(Enum):
     """
-    Direction
+    Direction (Enum Class)
 
     This typedef defines directional enums used in c3pl.
 
@@ -33,7 +35,7 @@ class Direction(Enum):
 
 class Metric(Enum):
     """
-    Metric
+    Metric (Enum Class)
 
     metric
 
@@ -74,7 +76,7 @@ class Metric(Enum):
 
 class RateUnit(Enum):
     """
-    RateUnit
+    RateUnit (Enum Class)
 
     Unit for traffic rate\:
 

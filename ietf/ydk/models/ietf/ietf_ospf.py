@@ -21,6 +21,8 @@ MTU (mtu) Maximum Transmission Unit
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -29,7 +31,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class IfStateType(Enum):
     """
-    IfStateType
+    IfStateType (Enum Class)
 
     OSPF interface state type.
 
@@ -80,7 +82,7 @@ class IfStateType(Enum):
 
 class NbrStateType(Enum):
     """
-    NbrStateType
+    NbrStateType (Enum Class)
 
     OSPF neighbor state type.
 
@@ -137,7 +139,7 @@ class NbrStateType(Enum):
 
 class NssaTranslatorStateType(Enum):
     """
-    NssaTranslatorStateType
+    NssaTranslatorStateType (Enum Class)
 
     OSPF NSSA translator state type.
 
@@ -164,7 +166,7 @@ class NssaTranslatorStateType(Enum):
 
 class PacketType(Enum):
     """
-    PacketType
+    PacketType (Enum Class)
 
     OSPF packet type.
 
@@ -203,7 +205,7 @@ class PacketType(Enum):
 
 class RestartExitReasonType(Enum):
     """
-    RestartExitReasonType
+    RestartExitReasonType (Enum Class)
 
     Describes the outcome of the last attempt at a
 
@@ -246,7 +248,7 @@ class RestartExitReasonType(Enum):
 
 class RestartHelperStatusType(Enum):
     """
-    RestartHelperStatusType
+    RestartHelperStatusType (Enum Class)
 
     Restart helper status type.
 
@@ -267,7 +269,7 @@ class RestartHelperStatusType(Enum):
 
 class RestartStatusType(Enum):
     """
-    RestartStatusType
+    RestartStatusType (Enum Class)
 
     OSPF graceful restart status type.
 

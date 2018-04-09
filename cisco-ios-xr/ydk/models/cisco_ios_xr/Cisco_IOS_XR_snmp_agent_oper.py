@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class DupReqDropStatus(Enum):
     """
-    DupReqDropStatus
+    DupReqDropStatus (Enum Class)
 
     Dup req drop status
 
@@ -40,7 +42,7 @@ class DupReqDropStatus(Enum):
 
 class SnmpCorrRuleState(Enum):
     """
-    SnmpCorrRuleState
+    SnmpCorrRuleState (Enum Class)
 
     Snmp corr rule state
 
@@ -67,7 +69,7 @@ class SnmpCorrRuleState(Enum):
 
 class SnmpCorrVbindMatch(Enum):
     """
-    SnmpCorrVbindMatch
+    SnmpCorrVbindMatch (Enum Class)
 
     Snmp corr vbind match
 
@@ -151,8 +153,10 @@ class Snmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-snmp-agent-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"trap-servers" : ("trap_servers", Snmp.TrapServers), "information" : ("information", Snmp.Information), "interfaces" : ("interfaces", Snmp.Interfaces), "correlator" : ("correlator", Snmp.Correlator), "interface-indexes" : ("interface_indexes", Snmp.InterfaceIndexes), "if-indexes" : ("if_indexes", Snmp.IfIndexes), "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib" : ("entity_mib", Snmp.EntityMib), "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib" : ("interface_mib", Snmp.InterfaceMib), "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib" : ("sensor_mib", Snmp.SensorMib)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("trap-servers", ("trap_servers", Snmp.TrapServers)), ("information", ("information", Snmp.Information)), ("interfaces", ("interfaces", Snmp.Interfaces)), ("correlator", ("correlator", Snmp.Correlator)), ("interface-indexes", ("interface_indexes", Snmp.InterfaceIndexes)), ("if-indexes", ("if_indexes", Snmp.IfIndexes)), ("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib", ("entity_mib", Snmp.EntityMib)), ("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib", ("interface_mib", Snmp.InterfaceMib)), ("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib", ("sensor_mib", Snmp.SensorMib))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.trap_servers = Snmp.TrapServers()
         self.trap_servers.parent = self
@@ -186,18 +190,18 @@ class Snmp(Entity):
 
         self.entity_mib = Snmp.EntityMib()
         self.entity_mib.parent = self
-        self._children_name_map["entity_mib"] = "entity-mib"
-        self._children_yang_names.add("entity-mib")
+        self._children_name_map["entity_mib"] = "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
+        self._children_yang_names.add("Cisco-IOS-XR-snmp-entitymib-oper:entity-mib")
 
         self.interface_mib = Snmp.InterfaceMib()
         self.interface_mib.parent = self
-        self._children_name_map["interface_mib"] = "interface-mib"
-        self._children_yang_names.add("interface-mib")
+        self._children_name_map["interface_mib"] = "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
+        self._children_yang_names.add("Cisco-IOS-XR-snmp-ifmib-oper:interface-mib")
 
         self.sensor_mib = Snmp.SensorMib()
         self.sensor_mib.parent = self
-        self._children_name_map["sensor_mib"] = "sensor-mib"
-        self._children_yang_names.add("sensor-mib")
+        self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
+        self._children_yang_names.add("Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib")
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp"
 
 
@@ -224,8 +228,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"trap-server" : ("trap_server", Snmp.TrapServers.TrapServer)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("trap-server", ("trap_server", Snmp.TrapServers.TrapServer))])
+            self._leafs = OrderedDict()
 
             self.trap_server = YList(self)
             self._segment_path = lambda: "trap-servers"
@@ -294,20 +300,23 @@ class Snmp(Entity):
                 self.yang_parent_name = "trap-servers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.trap_host = YLeaf(YType.str, "trap-host")
-
-                self.port = YLeaf(YType.uint16, "port")
-
-                self.number_of_pkts_in_trap_q = YLeaf(YType.uint32, "number-of-pkts-in-trap-q")
-
-                self.max_q_length_of_trap_q = YLeaf(YType.uint32, "max-q-length-of-trap-q")
-
-                self.number_of_pkts_sent = YLeaf(YType.uint32, "number-of-pkts-sent")
-
-                self.number_of_pkts_dropped = YLeaf(YType.uint32, "number-of-pkts-dropped")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('trap_host', YLeaf(YType.str, 'trap-host')),
+                    ('port', YLeaf(YType.uint16, 'port')),
+                    ('number_of_pkts_in_trap_q', YLeaf(YType.uint32, 'number-of-pkts-in-trap-q')),
+                    ('max_q_length_of_trap_q', YLeaf(YType.uint32, 'max-q-length-of-trap-q')),
+                    ('number_of_pkts_sent', YLeaf(YType.uint32, 'number-of-pkts-sent')),
+                    ('number_of_pkts_dropped', YLeaf(YType.uint32, 'number-of-pkts-dropped')),
+                ])
+                self.trap_host = None
+                self.port = None
+                self.number_of_pkts_in_trap_q = None
+                self.max_q_length_of_trap_q = None
+                self.number_of_pkts_sent = None
+                self.number_of_pkts_dropped = None
                 self._segment_path = lambda: "trap-server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/trap-servers/%s" % self._segment_path()
 
@@ -458,8 +467,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"hosts" : ("hosts", Snmp.Information.Hosts), "system-up-time" : ("system_up_time", Snmp.Information.SystemUpTime), "nms-addresses" : ("nms_addresses", Snmp.Information.NmsAddresses), "engine-id" : ("engine_id", Snmp.Information.EngineId), "rx-queue" : ("rx_queue", Snmp.Information.RxQueue), "system-name" : ("system_name", Snmp.Information.SystemName), "request-type-detail" : ("request_type_detail", Snmp.Information.RequestTypeDetail), "duplicate-drop" : ("duplicate_drop", Snmp.Information.DuplicateDrop), "bulk-stats-transfers" : ("bulk_stats_transfers", Snmp.Information.BulkStatsTransfers), "trap-infos" : ("trap_infos", Snmp.Information.TrapInfos), "poll-oids" : ("poll_oids", Snmp.Information.PollOids), "infom-details" : ("infom_details", Snmp.Information.InfomDetails), "statistics" : ("statistics", Snmp.Information.Statistics), "incoming-queue" : ("incoming_queue", Snmp.Information.IncomingQueue), "context-mapping" : ("context_mapping", Snmp.Information.ContextMapping), "trap-oids" : ("trap_oids", Snmp.Information.TrapOids), "nm-spackets" : ("nm_spackets", Snmp.Information.NmSpackets), "mibs" : ("mibs", Snmp.Information.Mibs), "serial-numbers" : ("serial_numbers", Snmp.Information.SerialNumbers), "drop-nms-addresses" : ("drop_nms_addresses", Snmp.Information.DropNmsAddresses), "views" : ("views", Snmp.Information.Views), "system-descr" : ("system_descr", Snmp.Information.SystemDescr), "tables" : ("tables", Snmp.Information.Tables), "system-oid" : ("system_oid", Snmp.Information.SystemOid), "trap-queue" : ("trap_queue", Snmp.Information.TrapQueue)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("hosts", ("hosts", Snmp.Information.Hosts)), ("system-up-time", ("system_up_time", Snmp.Information.SystemUpTime)), ("nms-addresses", ("nms_addresses", Snmp.Information.NmsAddresses)), ("engine-id", ("engine_id", Snmp.Information.EngineId)), ("rx-queue", ("rx_queue", Snmp.Information.RxQueue)), ("system-name", ("system_name", Snmp.Information.SystemName)), ("request-type-detail", ("request_type_detail", Snmp.Information.RequestTypeDetail)), ("duplicate-drop", ("duplicate_drop", Snmp.Information.DuplicateDrop)), ("bulk-stats-transfers", ("bulk_stats_transfers", Snmp.Information.BulkStatsTransfers)), ("trap-infos", ("trap_infos", Snmp.Information.TrapInfos)), ("poll-oids", ("poll_oids", Snmp.Information.PollOids)), ("infom-details", ("infom_details", Snmp.Information.InfomDetails)), ("statistics", ("statistics", Snmp.Information.Statistics)), ("incoming-queue", ("incoming_queue", Snmp.Information.IncomingQueue)), ("context-mapping", ("context_mapping", Snmp.Information.ContextMapping)), ("trap-oids", ("trap_oids", Snmp.Information.TrapOids)), ("nm-spackets", ("nm_spackets", Snmp.Information.NmSpackets)), ("mibs", ("mibs", Snmp.Information.Mibs)), ("serial-numbers", ("serial_numbers", Snmp.Information.SerialNumbers)), ("drop-nms-addresses", ("drop_nms_addresses", Snmp.Information.DropNmsAddresses)), ("views", ("views", Snmp.Information.Views)), ("system-descr", ("system_descr", Snmp.Information.SystemDescr)), ("tables", ("tables", Snmp.Information.Tables)), ("system-oid", ("system_oid", Snmp.Information.SystemOid)), ("trap-queue", ("trap_queue", Snmp.Information.TrapQueue))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.hosts = Snmp.Information.Hosts()
             self.hosts.parent = self
@@ -612,8 +623,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"host" : ("host", Snmp.Information.Hosts.Host)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("host", ("host", Snmp.Information.Hosts.Host))])
+                self._leafs = OrderedDict()
 
                 self.host = YList(self)
                 self._segment_path = lambda: "hosts"
@@ -627,7 +640,7 @@ class Snmp(Entity):
                 """
                 SNMP target host name
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Group name
                 	**type**\: str
@@ -653,13 +666,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "hosts"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"host-information" : ("host_information", Snmp.Information.Hosts.Host.HostInformation)}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("host-information", ("host_information", Snmp.Information.Hosts.Host.HostInformation))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.host_information = YList(self)
-                    self._segment_path = lambda: "host" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "host" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/hosts/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -671,7 +687,7 @@ class Snmp(Entity):
                     Host name ,udp\-port , user, security model
                     and level
                     
-                    .. attribute:: user  <key>
+                    .. attribute:: user  (key)
                     
                     	SNMP host user
                     	**type**\: str
@@ -722,23 +738,26 @@ class Snmp(Entity):
                         self.yang_parent_name = "host"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.user = YLeaf(YType.str, "user")
-
-                        self.snmp_target_address_t_host = YLeaf(YType.str, "snmp-target-address-t-host")
-
-                        self.snmp_target_address_port = YLeaf(YType.str, "snmp-target-address-port")
-
-                        self.snmp_target_addresstype = YLeaf(YType.str, "snmp-target-addresstype")
-
-                        self.snmp_target_params_security_model = YLeaf(YType.str, "snmp-target-params-security-model")
-
-                        self.snmp_target_params_security_name = YLeaf(YType.str, "snmp-target-params-security-name")
-
-                        self.snmp_target_params_security_level = YLeaf(YType.str, "snmp-target-params-security-level")
-                        self._segment_path = lambda: "host-information" + "[user='" + self.user.get() + "']"
+                        self.ylist_key_names = ['user']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('user', YLeaf(YType.str, 'user')),
+                            ('snmp_target_address_t_host', YLeaf(YType.str, 'snmp-target-address-t-host')),
+                            ('snmp_target_address_port', YLeaf(YType.str, 'snmp-target-address-port')),
+                            ('snmp_target_addresstype', YLeaf(YType.str, 'snmp-target-addresstype')),
+                            ('snmp_target_params_security_model', YLeaf(YType.str, 'snmp-target-params-security-model')),
+                            ('snmp_target_params_security_name', YLeaf(YType.str, 'snmp-target-params-security-name')),
+                            ('snmp_target_params_security_level', YLeaf(YType.str, 'snmp-target-params-security-level')),
+                        ])
+                        self.user = None
+                        self.snmp_target_address_t_host = None
+                        self.snmp_target_address_port = None
+                        self.snmp_target_addresstype = None
+                        self.snmp_target_params_security_model = None
+                        self.snmp_target_params_security_name = None
+                        self.snmp_target_params_security_level = None
+                        self._segment_path = lambda: "host-information" + "[user='" + str(self.user) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', 'snmp_target_address_t_host', 'snmp_target_address_port', 'snmp_target_addresstype', 'snmp_target_params_security_model', 'snmp_target_params_security_name', 'snmp_target_params_security_level'], name, value)
@@ -767,10 +786,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.system_up_time_edm = YLeaf(YType.str, "system-up-time-edm")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('system_up_time_edm', YLeaf(YType.str, 'system-up-time-edm')),
+                ])
+                self.system_up_time_edm = None
                 self._segment_path = lambda: "system-up-time"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -801,8 +823,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"nms-address" : ("nms_address", Snmp.Information.NmsAddresses.NmsAddress)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.NmsAddresses.NmsAddress))])
+                self._leafs = OrderedDict()
 
                 self.nms_address = YList(self)
                 self._segment_path = lambda: "nms-addresses"
@@ -816,7 +840,7 @@ class Snmp(Entity):
                 """
                 NMS address
                 
-                .. attribute:: nms_addr  <key>
+                .. attribute:: nms_addr  (key)
                 
                 	NMS address
                 	**type**\: str
@@ -877,23 +901,26 @@ class Snmp(Entity):
                     self.yang_parent_name = "nms-addresses"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.nms_addr = YLeaf(YType.str, "nms-addr")
-
-                    self.nms_address = YLeaf(YType.str, "nms-address")
-
-                    self.get_request_count = YLeaf(YType.uint32, "get-request-count")
-
-                    self.getnext_request_count = YLeaf(YType.uint32, "getnext-request-count")
-
-                    self.getbulk_request_count = YLeaf(YType.uint32, "getbulk-request-count")
-
-                    self.set_request_count = YLeaf(YType.uint32, "set-request-count")
-
-                    self.test_request_count = YLeaf(YType.uint32, "test-request-count")
-                    self._segment_path = lambda: "nms-address" + "[nms-addr='" + self.nms_addr.get() + "']"
+                    self.ylist_key_names = ['nms_addr']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('nms_addr', YLeaf(YType.str, 'nms-addr')),
+                        ('nms_address', YLeaf(YType.str, 'nms-address')),
+                        ('get_request_count', YLeaf(YType.uint32, 'get-request-count')),
+                        ('getnext_request_count', YLeaf(YType.uint32, 'getnext-request-count')),
+                        ('getbulk_request_count', YLeaf(YType.uint32, 'getbulk-request-count')),
+                        ('set_request_count', YLeaf(YType.uint32, 'set-request-count')),
+                        ('test_request_count', YLeaf(YType.uint32, 'test-request-count')),
+                    ])
+                    self.nms_addr = None
+                    self.nms_address = None
+                    self.get_request_count = None
+                    self.getnext_request_count = None
+                    self.getbulk_request_count = None
+                    self.set_request_count = None
+                    self.test_request_count = None
+                    self._segment_path = lambda: "nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nms-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -923,10 +950,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.engine_id = YLeaf(YType.str, "engine-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('engine_id', YLeaf(YType.str, 'engine-id')),
+                ])
+                self.engine_id = None
                 self._segment_path = lambda: "engine-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -1011,22 +1041,25 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"incoming-q" : ("incoming_q", Snmp.Information.RxQueue.IncomingQ), "pending-q" : ("pending_q", Snmp.Information.RxQueue.PendingQ)}
-
-                self.qlen = YLeaf(YType.uint32, "qlen")
-
-                self.in_min = YLeaf(YType.uint32, "in-min")
-
-                self.in_avg = YLeaf(YType.uint32, "in-avg")
-
-                self.in_max = YLeaf(YType.uint32, "in-max")
-
-                self.pend_min = YLeaf(YType.uint32, "pend-min")
-
-                self.pend_avg = YLeaf(YType.uint32, "pend-avg")
-
-                self.pend_max = YLeaf(YType.uint32, "pend-max")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("incoming-q", ("incoming_q", Snmp.Information.RxQueue.IncomingQ)), ("pending-q", ("pending_q", Snmp.Information.RxQueue.PendingQ))])
+                self._leafs = OrderedDict([
+                    ('qlen', YLeaf(YType.uint32, 'qlen')),
+                    ('in_min', YLeaf(YType.uint32, 'in-min')),
+                    ('in_avg', YLeaf(YType.uint32, 'in-avg')),
+                    ('in_max', YLeaf(YType.uint32, 'in-max')),
+                    ('pend_min', YLeaf(YType.uint32, 'pend-min')),
+                    ('pend_avg', YLeaf(YType.uint32, 'pend-avg')),
+                    ('pend_max', YLeaf(YType.uint32, 'pend-max')),
+                ])
+                self.qlen = None
+                self.in_min = None
+                self.in_avg = None
+                self.in_max = None
+                self.pend_min = None
+                self.pend_avg = None
+                self.pend_max = None
 
                 self.incoming_q = YList(self)
                 self.pending_q = YList(self)
@@ -1076,14 +1109,17 @@ class Snmp(Entity):
                     self.yang_parent_name = "rx-queue"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.min = YLeaf(YType.uint32, "min")
-
-                    self.avg = YLeaf(YType.uint32, "avg")
-
-                    self.max = YLeaf(YType.uint32, "max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('min', YLeaf(YType.uint32, 'min')),
+                        ('avg', YLeaf(YType.uint32, 'avg')),
+                        ('max', YLeaf(YType.uint32, 'max')),
+                    ])
+                    self.min = None
+                    self.avg = None
+                    self.max = None
                     self._segment_path = lambda: "incoming-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
 
@@ -1130,14 +1166,17 @@ class Snmp(Entity):
                     self.yang_parent_name = "rx-queue"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.min = YLeaf(YType.uint32, "min")
-
-                    self.avg = YLeaf(YType.uint32, "avg")
-
-                    self.max = YLeaf(YType.uint32, "max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('min', YLeaf(YType.uint32, 'min')),
+                        ('avg', YLeaf(YType.uint32, 'avg')),
+                        ('max', YLeaf(YType.uint32, 'max')),
+                    ])
+                    self.min = None
+                    self.avg = None
+                    self.max = None
                     self._segment_path = lambda: "pending-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
 
@@ -1168,10 +1207,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.system_name = YLeaf(YType.str, "system-name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('system_name', YLeaf(YType.str, 'system-name')),
+                ])
+                self.system_name = None
                 self._segment_path = lambda: "system-name"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -1202,8 +1244,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"nms-addresses" : ("nms_addresses", Snmp.Information.RequestTypeDetail.NmsAddresses)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("nms-addresses", ("nms_addresses", Snmp.Information.RequestTypeDetail.NmsAddresses))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.nms_addresses = Snmp.Information.RequestTypeDetail.NmsAddresses()
                 self.nms_addresses.parent = self
@@ -1236,8 +1280,10 @@ class Snmp(Entity):
                     self.yang_parent_name = "request-type-detail"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"nms-address" : ("nms_address", Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("nms-address", ("nms_address", Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress))])
+                    self._leafs = OrderedDict()
 
                     self.nms_address = YList(self)
                     self._segment_path = lambda: "nms-addresses"
@@ -1251,7 +1297,7 @@ class Snmp(Entity):
                     """
                     NMS address
                     
-                    .. attribute:: nms_addr  <key>
+                    .. attribute:: nms_addr  (key)
                     
                     	NMS address
                     	**type**\: str
@@ -1314,23 +1360,26 @@ class Snmp(Entity):
                         self.yang_parent_name = "nms-addresses"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nms_addr = YLeaf(YType.str, "nms-addr")
-
-                        self.total_count = YLeaf(YType.uint32, "total-count")
-
-                        self.agent_request_count = YLeaf(YType.uint32, "agent-request-count")
-
-                        self.interface_request_count = YLeaf(YType.uint32, "interface-request-count")
-
-                        self.entity_request_count = YLeaf(YType.uint32, "entity-request-count")
-
-                        self.route_request_count = YLeaf(YType.uint32, "route-request-count")
-
-                        self.infra_request_count = YLeaf(YType.uint32, "infra-request-count")
-                        self._segment_path = lambda: "nms-address" + "[nms-addr='" + self.nms_addr.get() + "']"
+                        self.ylist_key_names = ['nms_addr']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('nms_addr', YLeaf(YType.str, 'nms-addr')),
+                            ('total_count', YLeaf(YType.uint32, 'total-count')),
+                            ('agent_request_count', YLeaf(YType.uint32, 'agent-request-count')),
+                            ('interface_request_count', YLeaf(YType.uint32, 'interface-request-count')),
+                            ('entity_request_count', YLeaf(YType.uint32, 'entity-request-count')),
+                            ('route_request_count', YLeaf(YType.uint32, 'route-request-count')),
+                            ('infra_request_count', YLeaf(YType.uint32, 'infra-request-count')),
+                        ])
+                        self.nms_addr = None
+                        self.total_count = None
+                        self.agent_request_count = None
+                        self.interface_request_count = None
+                        self.entity_request_count = None
+                        self.route_request_count = None
+                        self.infra_request_count = None
+                        self._segment_path = lambda: "nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/request-type-detail/nms-addresses/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1424,30 +1473,33 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.duplicate_request_status = YLeaf(YType.enumeration, "duplicate-request-status")
-
-                self.last_status_change_time = YLeaf(YType.str, "last-status-change-time")
-
-                self.duplicate_drop_configured_timeout = YLeaf(YType.uint32, "duplicate-drop-configured-timeout")
-
-                self.duplicate_dropped_requests = YLeaf(YType.uint32, "duplicate-dropped-requests")
-
-                self.retry_processed_requests = YLeaf(YType.uint32, "retry-processed-requests")
-
-                self.first_enable_time = YLeaf(YType.str, "first-enable-time")
-
-                self.latest_duplicate_dropped_requests = YLeaf(YType.uint32, "latest-duplicate-dropped-requests")
-
-                self.latest_retry_processed_requests = YLeaf(YType.uint32, "latest-retry-processed-requests")
-
-                self.duplicate_request_latest_enable_time = YLeaf(YType.str, "duplicate-request-latest-enable-time")
-
-                self.duplicate_drop_enable_count = YLeaf(YType.uint32, "duplicate-drop-enable-count")
-
-                self.duplicate_drop_disable_count = YLeaf(YType.uint32, "duplicate-drop-disable-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('duplicate_request_status', YLeaf(YType.enumeration, 'duplicate-request-status')),
+                    ('last_status_change_time', YLeaf(YType.str, 'last-status-change-time')),
+                    ('duplicate_drop_configured_timeout', YLeaf(YType.uint32, 'duplicate-drop-configured-timeout')),
+                    ('duplicate_dropped_requests', YLeaf(YType.uint32, 'duplicate-dropped-requests')),
+                    ('retry_processed_requests', YLeaf(YType.uint32, 'retry-processed-requests')),
+                    ('first_enable_time', YLeaf(YType.str, 'first-enable-time')),
+                    ('latest_duplicate_dropped_requests', YLeaf(YType.uint32, 'latest-duplicate-dropped-requests')),
+                    ('latest_retry_processed_requests', YLeaf(YType.uint32, 'latest-retry-processed-requests')),
+                    ('duplicate_request_latest_enable_time', YLeaf(YType.str, 'duplicate-request-latest-enable-time')),
+                    ('duplicate_drop_enable_count', YLeaf(YType.uint32, 'duplicate-drop-enable-count')),
+                    ('duplicate_drop_disable_count', YLeaf(YType.uint32, 'duplicate-drop-disable-count')),
+                ])
+                self.duplicate_request_status = None
+                self.last_status_change_time = None
+                self.duplicate_drop_configured_timeout = None
+                self.duplicate_dropped_requests = None
+                self.retry_processed_requests = None
+                self.first_enable_time = None
+                self.latest_duplicate_dropped_requests = None
+                self.latest_retry_processed_requests = None
+                self.duplicate_request_latest_enable_time = None
+                self.duplicate_drop_enable_count = None
+                self.duplicate_drop_disable_count = None
                 self._segment_path = lambda: "duplicate-drop"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -1478,8 +1530,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"bulk-stats-transfer" : ("bulk_stats_transfer", Snmp.Information.BulkStatsTransfers.BulkStatsTransfer)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("bulk-stats-transfer", ("bulk_stats_transfer", Snmp.Information.BulkStatsTransfers.BulkStatsTransfer))])
+                self._leafs = OrderedDict()
 
                 self.bulk_stats_transfer = YList(self)
                 self._segment_path = lambda: "bulk-stats-transfers"
@@ -1493,7 +1547,7 @@ class Snmp(Entity):
                 """
                 SNMP bulkstats transfer name
                 
-                .. attribute:: transfer_name  <key>
+                .. attribute:: transfer_name  (key)
                 
                 	Transfer name
                 	**type**\: str
@@ -1550,23 +1604,26 @@ class Snmp(Entity):
                     self.yang_parent_name = "bulk-stats-transfers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.transfer_name = YLeaf(YType.str, "transfer-name")
-
-                    self.transfer_name_xr = YLeaf(YType.str, "transfer-name-xr")
-
-                    self.url_primary = YLeaf(YType.str, "url-primary")
-
-                    self.url_secondary = YLeaf(YType.str, "url-secondary")
-
-                    self.retained_file = YLeaf(YType.str, "retained-file")
-
-                    self.time_left = YLeaf(YType.uint32, "time-left")
-
-                    self.retry_left = YLeaf(YType.uint32, "retry-left")
-                    self._segment_path = lambda: "bulk-stats-transfer" + "[transfer-name='" + self.transfer_name.get() + "']"
+                    self.ylist_key_names = ['transfer_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('transfer_name', YLeaf(YType.str, 'transfer-name')),
+                        ('transfer_name_xr', YLeaf(YType.str, 'transfer-name-xr')),
+                        ('url_primary', YLeaf(YType.str, 'url-primary')),
+                        ('url_secondary', YLeaf(YType.str, 'url-secondary')),
+                        ('retained_file', YLeaf(YType.str, 'retained-file')),
+                        ('time_left', YLeaf(YType.uint32, 'time-left')),
+                        ('retry_left', YLeaf(YType.uint32, 'retry-left')),
+                    ])
+                    self.transfer_name = None
+                    self.transfer_name_xr = None
+                    self.url_primary = None
+                    self.url_secondary = None
+                    self.retained_file = None
+                    self.time_left = None
+                    self.retry_left = None
+                    self._segment_path = lambda: "bulk-stats-transfer" + "[transfer-name='" + str(self.transfer_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/bulk-stats-transfers/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1596,8 +1653,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"trap-info" : ("trap_info", Snmp.Information.TrapInfos.TrapInfo)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Information.TrapInfos.TrapInfo))])
+                self._leafs = OrderedDict()
 
                 self.trap_info = YList(self)
                 self._segment_path = lambda: "trap-infos"
@@ -1662,18 +1721,21 @@ class Snmp(Entity):
                     self.yang_parent_name = "trap-infos"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trap-oi-dinfo" : ("trap_oi_dinfo", Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo)}
-
-                    self.trap_host = YLeaf(YType.str, "trap-host")
-
-                    self.port = YLeaf(YType.uint16, "port")
-
-                    self.host = YLeaf(YType.str, "host")
-
-                    self.port_xr = YLeaf(YType.uint16, "port-xr")
-
-                    self.trap_oid_count = YLeaf(YType.uint32, "trap-oid-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo))])
+                    self._leafs = OrderedDict([
+                        ('trap_host', YLeaf(YType.str, 'trap-host')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('host', YLeaf(YType.str, 'host')),
+                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
+                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
+                    ])
+                    self.trap_host = None
+                    self.port = None
+                    self.host = None
+                    self.port_xr = None
+                    self.trap_oid_count = None
 
                     self.trap_oi_dinfo = YList(self)
                     self._segment_path = lambda: "trap-info"
@@ -1737,20 +1799,23 @@ class Snmp(Entity):
                         self.yang_parent_name = "trap-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trap_oid = YLeaf(YType.str, "trap-oid")
-
-                        self.count = YLeaf(YType.uint32, "count")
-
-                        self.drop_count = YLeaf(YType.uint32, "drop-count")
-
-                        self.retry_count = YLeaf(YType.uint32, "retry-count")
-
-                        self.lastsent_time = YLeaf(YType.str, "lastsent-time")
-
-                        self.lasrdrop_time = YLeaf(YType.str, "lasrdrop-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trap_oid', YLeaf(YType.str, 'trap-oid')),
+                            ('count', YLeaf(YType.uint32, 'count')),
+                            ('drop_count', YLeaf(YType.uint32, 'drop-count')),
+                            ('retry_count', YLeaf(YType.uint32, 'retry-count')),
+                            ('lastsent_time', YLeaf(YType.str, 'lastsent-time')),
+                            ('lasrdrop_time', YLeaf(YType.str, 'lasrdrop-time')),
+                        ])
+                        self.trap_oid = None
+                        self.count = None
+                        self.drop_count = None
+                        self.retry_count = None
+                        self.lastsent_time = None
+                        self.lasrdrop_time = None
                         self._segment_path = lambda: "trap-oi-dinfo"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-infos/trap-info/%s" % self._segment_path()
 
@@ -1781,8 +1846,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"poll-oid" : ("poll_oid", Snmp.Information.PollOids.PollOid)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("poll-oid", ("poll_oid", Snmp.Information.PollOids.PollOid))])
+                self._leafs = OrderedDict()
 
                 self.poll_oid = YList(self)
                 self._segment_path = lambda: "poll-oids"
@@ -1796,7 +1863,7 @@ class Snmp(Entity):
                 """
                 PDU drop info for OID
                 
-                .. attribute:: object_id  <key>
+                .. attribute:: object_id  (key)
                 
                 	Object ID
                 	**type**\: str
@@ -1836,17 +1903,20 @@ class Snmp(Entity):
                     self.yang_parent_name = "poll-oids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.object_id = YLeaf(YType.str, "object-id")
-
-                    self.nms_count = YLeaf(YType.uint32, "nms-count")
-
-                    self.nms = YLeafList(YType.str, "nms")
-
-                    self.request_count = YLeafList(YType.uint32, "request-count")
-                    self._segment_path = lambda: "poll-oid" + "[object-id='" + self.object_id.get() + "']"
+                    self.ylist_key_names = ['object_id']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('object_id', YLeaf(YType.str, 'object-id')),
+                        ('nms_count', YLeaf(YType.uint32, 'nms-count')),
+                        ('nms', YLeafList(YType.str, 'nms')),
+                        ('request_count', YLeafList(YType.uint32, 'request-count')),
+                    ])
+                    self.object_id = None
+                    self.nms_count = None
+                    self.nms = []
+                    self.request_count = []
+                    self._segment_path = lambda: "poll-oid" + "[object-id='" + str(self.object_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/poll-oids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1876,8 +1946,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"infom-detail" : ("infom_detail", Snmp.Information.InfomDetails.InfomDetail)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("infom-detail", ("infom_detail", Snmp.Information.InfomDetails.InfomDetail))])
+                self._leafs = OrderedDict()
 
                 self.infom_detail = YList(self)
                 self._segment_path = lambda: "infom-details"
@@ -1942,18 +2014,21 @@ class Snmp(Entity):
                     self.yang_parent_name = "infom-details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trap-oi-dinfo" : ("trap_oi_dinfo", Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo)}
-
-                    self.trap_host = YLeaf(YType.str, "trap-host")
-
-                    self.port = YLeaf(YType.uint16, "port")
-
-                    self.host = YLeaf(YType.str, "host")
-
-                    self.port_xr = YLeaf(YType.uint16, "port-xr")
-
-                    self.trap_oid_count = YLeaf(YType.uint32, "trap-oid-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo))])
+                    self._leafs = OrderedDict([
+                        ('trap_host', YLeaf(YType.str, 'trap-host')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('host', YLeaf(YType.str, 'host')),
+                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
+                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
+                    ])
+                    self.trap_host = None
+                    self.port = None
+                    self.host = None
+                    self.port_xr = None
+                    self.trap_oid_count = None
 
                     self.trap_oi_dinfo = YList(self)
                     self._segment_path = lambda: "infom-detail"
@@ -2017,20 +2092,23 @@ class Snmp(Entity):
                         self.yang_parent_name = "infom-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trap_oid = YLeaf(YType.str, "trap-oid")
-
-                        self.count = YLeaf(YType.uint32, "count")
-
-                        self.drop_count = YLeaf(YType.uint32, "drop-count")
-
-                        self.retry_count = YLeaf(YType.uint32, "retry-count")
-
-                        self.lastsent_time = YLeaf(YType.str, "lastsent-time")
-
-                        self.lasrdrop_time = YLeaf(YType.str, "lasrdrop-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trap_oid', YLeaf(YType.str, 'trap-oid')),
+                            ('count', YLeaf(YType.uint32, 'count')),
+                            ('drop_count', YLeaf(YType.uint32, 'drop-count')),
+                            ('retry_count', YLeaf(YType.uint32, 'retry-count')),
+                            ('lastsent_time', YLeaf(YType.str, 'lastsent-time')),
+                            ('lasrdrop_time', YLeaf(YType.str, 'lasrdrop-time')),
+                        ])
+                        self.trap_oid = None
+                        self.count = None
+                        self.drop_count = None
+                        self.retry_count = None
+                        self.lastsent_time = None
+                        self.lasrdrop_time = None
                         self._segment_path = lambda: "trap-oi-dinfo"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/infom-details/infom-detail/%s" % self._segment_path()
 
@@ -2266,68 +2344,71 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.packets_received = YLeaf(YType.uint32, "packets-received")
-
-                self.bad_versions_received = YLeaf(YType.uint32, "bad-versions-received")
-
-                self.bad_community_names_received = YLeaf(YType.uint32, "bad-community-names-received")
-
-                self.bad_community_uses_received = YLeaf(YType.uint32, "bad-community-uses-received")
-
-                self.asn_parse_errors_received = YLeaf(YType.uint32, "asn-parse-errors-received")
-
-                self.silent_drop_count = YLeaf(YType.uint32, "silent-drop-count")
-
-                self.proxy_drop_count = YLeaf(YType.uint32, "proxy-drop-count")
-
-                self.too_big_packet_received = YLeaf(YType.uint32, "too-big-packet-received")
-
-                self.max_packet_size = YLeaf(YType.uint32, "max-packet-size")
-
-                self.no_such_names_received = YLeaf(YType.uint32, "no-such-names-received")
-
-                self.bad_values_received = YLeaf(YType.uint32, "bad-values-received")
-
-                self.read_only_received = YLeaf(YType.uint32, "read-only-received")
-
-                self.total_general_errors = YLeaf(YType.uint32, "total-general-errors")
-
-                self.total_requested_variables = YLeaf(YType.uint32, "total-requested-variables")
-
-                self.total_set_variables_received = YLeaf(YType.uint32, "total-set-variables-received")
-
-                self.get_requests_received = YLeaf(YType.uint32, "get-requests-received")
-
-                self.get_next_requests_received = YLeaf(YType.uint32, "get-next-requests-received")
-
-                self.set_requests_received = YLeaf(YType.uint32, "set-requests-received")
-
-                self.get_responses_received = YLeaf(YType.uint32, "get-responses-received")
-
-                self.traps_received = YLeaf(YType.uint32, "traps-received")
-
-                self.total_packets_sent = YLeaf(YType.uint32, "total-packets-sent")
-
-                self.too_big_packets_sent = YLeaf(YType.uint32, "too-big-packets-sent")
-
-                self.no_such_names_sent = YLeaf(YType.uint32, "no-such-names-sent")
-
-                self.bad_values_sent = YLeaf(YType.uint32, "bad-values-sent")
-
-                self.general_errors_sent = YLeaf(YType.uint32, "general-errors-sent")
-
-                self.get_requests_sent = YLeaf(YType.uint32, "get-requests-sent")
-
-                self.get_next_request_sent = YLeaf(YType.uint32, "get-next-request-sent")
-
-                self.set_requests_sent = YLeaf(YType.uint32, "set-requests-sent")
-
-                self.get_responses_sent = YLeaf(YType.uint32, "get-responses-sent")
-
-                self.traps_sent = YLeaf(YType.uint32, "traps-sent")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('packets_received', YLeaf(YType.uint32, 'packets-received')),
+                    ('bad_versions_received', YLeaf(YType.uint32, 'bad-versions-received')),
+                    ('bad_community_names_received', YLeaf(YType.uint32, 'bad-community-names-received')),
+                    ('bad_community_uses_received', YLeaf(YType.uint32, 'bad-community-uses-received')),
+                    ('asn_parse_errors_received', YLeaf(YType.uint32, 'asn-parse-errors-received')),
+                    ('silent_drop_count', YLeaf(YType.uint32, 'silent-drop-count')),
+                    ('proxy_drop_count', YLeaf(YType.uint32, 'proxy-drop-count')),
+                    ('too_big_packet_received', YLeaf(YType.uint32, 'too-big-packet-received')),
+                    ('max_packet_size', YLeaf(YType.uint32, 'max-packet-size')),
+                    ('no_such_names_received', YLeaf(YType.uint32, 'no-such-names-received')),
+                    ('bad_values_received', YLeaf(YType.uint32, 'bad-values-received')),
+                    ('read_only_received', YLeaf(YType.uint32, 'read-only-received')),
+                    ('total_general_errors', YLeaf(YType.uint32, 'total-general-errors')),
+                    ('total_requested_variables', YLeaf(YType.uint32, 'total-requested-variables')),
+                    ('total_set_variables_received', YLeaf(YType.uint32, 'total-set-variables-received')),
+                    ('get_requests_received', YLeaf(YType.uint32, 'get-requests-received')),
+                    ('get_next_requests_received', YLeaf(YType.uint32, 'get-next-requests-received')),
+                    ('set_requests_received', YLeaf(YType.uint32, 'set-requests-received')),
+                    ('get_responses_received', YLeaf(YType.uint32, 'get-responses-received')),
+                    ('traps_received', YLeaf(YType.uint32, 'traps-received')),
+                    ('total_packets_sent', YLeaf(YType.uint32, 'total-packets-sent')),
+                    ('too_big_packets_sent', YLeaf(YType.uint32, 'too-big-packets-sent')),
+                    ('no_such_names_sent', YLeaf(YType.uint32, 'no-such-names-sent')),
+                    ('bad_values_sent', YLeaf(YType.uint32, 'bad-values-sent')),
+                    ('general_errors_sent', YLeaf(YType.uint32, 'general-errors-sent')),
+                    ('get_requests_sent', YLeaf(YType.uint32, 'get-requests-sent')),
+                    ('get_next_request_sent', YLeaf(YType.uint32, 'get-next-request-sent')),
+                    ('set_requests_sent', YLeaf(YType.uint32, 'set-requests-sent')),
+                    ('get_responses_sent', YLeaf(YType.uint32, 'get-responses-sent')),
+                    ('traps_sent', YLeaf(YType.uint32, 'traps-sent')),
+                ])
+                self.packets_received = None
+                self.bad_versions_received = None
+                self.bad_community_names_received = None
+                self.bad_community_uses_received = None
+                self.asn_parse_errors_received = None
+                self.silent_drop_count = None
+                self.proxy_drop_count = None
+                self.too_big_packet_received = None
+                self.max_packet_size = None
+                self.no_such_names_received = None
+                self.bad_values_received = None
+                self.read_only_received = None
+                self.total_general_errors = None
+                self.total_requested_variables = None
+                self.total_set_variables_received = None
+                self.get_requests_received = None
+                self.get_next_requests_received = None
+                self.set_requests_received = None
+                self.get_responses_received = None
+                self.traps_received = None
+                self.total_packets_sent = None
+                self.too_big_packets_sent = None
+                self.no_such_names_sent = None
+                self.bad_values_sent = None
+                self.general_errors_sent = None
+                self.get_requests_sent = None
+                self.get_next_request_sent = None
+                self.set_requests_sent = None
+                self.get_responses_sent = None
+                self.traps_sent = None
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -2365,10 +2446,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"inq-entry" : ("inq_entry", Snmp.Information.IncomingQueue.InqEntry)}
-
-                self.queue_count = YLeaf(YType.uint32, "queue-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("inq-entry", ("inq_entry", Snmp.Information.IncomingQueue.InqEntry))])
+                self._leafs = OrderedDict([
+                    ('queue_count', YLeaf(YType.uint32, 'queue-count')),
+                ])
+                self.queue_count = None
 
                 self.inq_entry = YList(self)
                 self._segment_path = lambda: "incoming-queue"
@@ -2427,18 +2511,21 @@ class Snmp(Entity):
                     self.yang_parent_name = "incoming-queue"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address_of_queue = YLeaf(YType.str, "address-of-queue")
-
-                    self.request_count = YLeaf(YType.uint32, "request-count")
-
-                    self.processed_request_count = YLeaf(YType.uint32, "processed-request-count")
-
-                    self.last_access_time = YLeaf(YType.str, "last-access-time")
-
-                    self.priority = YLeaf(YType.uint8, "priority")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address_of_queue', YLeaf(YType.str, 'address-of-queue')),
+                        ('request_count', YLeaf(YType.uint32, 'request-count')),
+                        ('processed_request_count', YLeaf(YType.uint32, 'processed-request-count')),
+                        ('last_access_time', YLeaf(YType.str, 'last-access-time')),
+                        ('priority', YLeaf(YType.uint8, 'priority')),
+                    ])
+                    self.address_of_queue = None
+                    self.request_count = None
+                    self.processed_request_count = None
+                    self.last_access_time = None
+                    self.priority = None
                     self._segment_path = lambda: "inq-entry"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/incoming-queue/%s" % self._segment_path()
 
@@ -2470,8 +2557,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"contex-mapping" : ("contex_mapping", Snmp.Information.ContextMapping.ContexMapping)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("contex-mapping", ("contex_mapping", Snmp.Information.ContextMapping.ContexMapping))])
+                self._leafs = OrderedDict()
 
                 self.contex_mapping = YList(self)
                 self._segment_path = lambda: "context-mapping"
@@ -2524,18 +2613,21 @@ class Snmp(Entity):
                     self.yang_parent_name = "context-mapping"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.context = YLeaf(YType.str, "context")
-
-                    self.feature_name = YLeaf(YType.str, "feature-name")
-
-                    self.instance = YLeaf(YType.str, "instance")
-
-                    self.topology = YLeaf(YType.str, "topology")
-
-                    self.feature = YLeaf(YType.str, "feature")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('context', YLeaf(YType.str, 'context')),
+                        ('feature_name', YLeaf(YType.str, 'feature-name')),
+                        ('instance', YLeaf(YType.str, 'instance')),
+                        ('topology', YLeaf(YType.str, 'topology')),
+                        ('feature', YLeaf(YType.str, 'feature')),
+                    ])
+                    self.context = None
+                    self.feature_name = None
+                    self.instance = None
+                    self.topology = None
+                    self.feature = None
                     self._segment_path = lambda: "contex-mapping"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/context-mapping/%s" % self._segment_path()
 
@@ -2566,8 +2658,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"trap-oid" : ("trap_oid", Snmp.Information.TrapOids.TrapOid)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("trap-oid", ("trap_oid", Snmp.Information.TrapOids.TrapOid))])
+                self._leafs = OrderedDict()
 
                 self.trap_oid = YList(self)
                 self._segment_path = lambda: "trap-oids"
@@ -2581,7 +2675,7 @@ class Snmp(Entity):
                 """
                 SNMP trap 
                 
-                .. attribute:: trap_oid  <key>
+                .. attribute:: trap_oid  (key)
                 
                 	Trap object ID
                 	**type**\: str
@@ -2614,15 +2708,18 @@ class Snmp(Entity):
                     self.yang_parent_name = "trap-oids"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.trap_oid = YLeaf(YType.str, "trap-oid")
-
-                    self.trap_oid_count = YLeaf(YType.uint32, "trap-oid-count")
-
-                    self.trap_oid_xr = YLeaf(YType.str, "trap-oid-xr")
-                    self._segment_path = lambda: "trap-oid" + "[trap-oid='" + self.trap_oid.get() + "']"
+                    self.ylist_key_names = ['trap_oid']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('trap_oid', YLeaf(YType.str, 'trap-oid')),
+                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
+                        ('trap_oid_xr', YLeaf(YType.str, 'trap-oid-xr')),
+                    ])
+                    self.trap_oid = None
+                    self.trap_oid_count = None
+                    self.trap_oid_xr = None
+                    self._segment_path = lambda: "trap-oid" + "[trap-oid='" + str(self.trap_oid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-oids/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2652,8 +2749,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"nm-spacket" : ("nm_spacket", Snmp.Information.NmSpackets.NmSpacket)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("nm-spacket", ("nm_spacket", Snmp.Information.NmSpackets.NmSpacket))])
+                self._leafs = OrderedDict()
 
                 self.nm_spacket = YList(self)
                 self._segment_path = lambda: "nm-spackets"
@@ -2667,7 +2766,7 @@ class Snmp(Entity):
                 """
                 NMS packet drop count
                 
-                .. attribute:: packetcount  <key>
+                .. attribute:: packetcount  (key)
                 
                 	NMS packet drop count
                 	**type**\: str
@@ -2712,19 +2811,22 @@ class Snmp(Entity):
                     self.yang_parent_name = "nm-spackets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.packetcount = YLeaf(YType.str, "packetcount")
-
-                    self.number_of_nmsq_pkts_dropped = YLeaf(YType.uint32, "number-of-nmsq-pkts-dropped")
-
-                    self.number_of_pkts_dropped = YLeaf(YType.uint32, "number-of-pkts-dropped")
-
-                    self.overload_start_time = YLeaf(YType.str, "overload-start-time")
-
-                    self.overload_end_time = YLeaf(YType.str, "overload-end-time")
-                    self._segment_path = lambda: "nm-spacket" + "[packetcount='" + self.packetcount.get() + "']"
+                    self.ylist_key_names = ['packetcount']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('packetcount', YLeaf(YType.str, 'packetcount')),
+                        ('number_of_nmsq_pkts_dropped', YLeaf(YType.uint32, 'number-of-nmsq-pkts-dropped')),
+                        ('number_of_pkts_dropped', YLeaf(YType.uint32, 'number-of-pkts-dropped')),
+                        ('overload_start_time', YLeaf(YType.str, 'overload-start-time')),
+                        ('overload_end_time', YLeaf(YType.str, 'overload-end-time')),
+                    ])
+                    self.packetcount = None
+                    self.number_of_nmsq_pkts_dropped = None
+                    self.number_of_pkts_dropped = None
+                    self.overload_start_time = None
+                    self.overload_end_time = None
+                    self._segment_path = lambda: "nm-spacket" + "[packetcount='" + str(self.packetcount) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nm-spackets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2754,8 +2856,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"mib" : ("mib", Snmp.Information.Mibs.Mib)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("mib", ("mib", Snmp.Information.Mibs.Mib))])
+                self._leafs = OrderedDict()
 
                 self.mib = YList(self)
                 self._segment_path = lambda: "mibs"
@@ -2769,7 +2873,7 @@ class Snmp(Entity):
                 """
                 SNMP MIB Name
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	MIB Name
                 	**type**\: str
@@ -2800,10 +2904,13 @@ class Snmp(Entity):
                     self.yang_parent_name = "mibs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"oids" : ("oids", Snmp.Information.Mibs.Mib.Oids), "mib-information" : ("mib_information", Snmp.Information.Mibs.Mib.MibInformation)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("oids", ("oids", Snmp.Information.Mibs.Mib.Oids)), ("mib-information", ("mib_information", Snmp.Information.Mibs.Mib.MibInformation))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.oids = Snmp.Information.Mibs.Mib.Oids()
                     self.oids.parent = self
@@ -2814,7 +2921,7 @@ class Snmp(Entity):
                     self.mib_information.parent = self
                     self._children_name_map["mib_information"] = "mib-information"
                     self._children_yang_names.add("mib-information")
-                    self._segment_path = lambda: "mib" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "mib" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/mibs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2844,8 +2951,10 @@ class Snmp(Entity):
                         self.yang_parent_name = "mib"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"oid" : ("oid", Snmp.Information.Mibs.Mib.Oids.Oid)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("oid", ("oid", Snmp.Information.Mibs.Mib.Oids.Oid))])
+                        self._leafs = OrderedDict()
 
                         self.oid = YList(self)
                         self._segment_path = lambda: "oids"
@@ -2858,7 +2967,7 @@ class Snmp(Entity):
                         """
                         Object identifiers of a mib
                         
-                        .. attribute:: oid  <key>
+                        .. attribute:: oid  (key)
                         
                         	Object Identifier
                         	**type**\: str
@@ -2884,13 +2993,16 @@ class Snmp(Entity):
                             self.yang_parent_name = "oids"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oid = YLeaf(YType.str, "oid")
-
-                            self.oid_name = YLeaf(YType.str, "oid-name")
-                            self._segment_path = lambda: "oid" + "[oid='" + self.oid.get() + "']"
+                            self.ylist_key_names = ['oid']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('oid', YLeaf(YType.str, 'oid')),
+                                ('oid_name', YLeaf(YType.str, 'oid-name')),
+                            ])
+                            self.oid = None
+                            self.oid_name = None
+                            self._segment_path = lambda: "oid" + "[oid='" + str(self.oid) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, ['oid', 'oid_name'], name, value)
@@ -2958,24 +3070,27 @@ class Snmp(Entity):
                         self.yang_parent_name = "mib"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.mib_name = YLeaf(YType.str, "mib-name")
-
-                        self.dll_name = YLeaf(YType.str, "dll-name")
-
-                        self.mib_config_filename = YLeaf(YType.str, "mib-config-filename")
-
-                        self.is_mib_loaded = YLeaf(YType.boolean, "is-mib-loaded")
-
-                        self.dll_capabilities = YLeaf(YType.uint32, "dll-capabilities")
-
-                        self.trap_strings = YLeaf(YType.str, "trap-strings")
-
-                        self.timeout = YLeaf(YType.boolean, "timeout")
-
-                        self.load_time = YLeaf(YType.uint32, "load-time")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('mib_name', YLeaf(YType.str, 'mib-name')),
+                            ('dll_name', YLeaf(YType.str, 'dll-name')),
+                            ('mib_config_filename', YLeaf(YType.str, 'mib-config-filename')),
+                            ('is_mib_loaded', YLeaf(YType.boolean, 'is-mib-loaded')),
+                            ('dll_capabilities', YLeaf(YType.uint32, 'dll-capabilities')),
+                            ('trap_strings', YLeaf(YType.str, 'trap-strings')),
+                            ('timeout', YLeaf(YType.boolean, 'timeout')),
+                            ('load_time', YLeaf(YType.uint32, 'load-time')),
+                        ])
+                        self.mib_name = None
+                        self.dll_name = None
+                        self.mib_config_filename = None
+                        self.is_mib_loaded = None
+                        self.dll_capabilities = None
+                        self.trap_strings = None
+                        self.timeout = None
+                        self.load_time = None
                         self._segment_path = lambda: "mib-information"
 
                     def __setattr__(self, name, value):
@@ -3005,8 +3120,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"serial-number" : ("serial_number", Snmp.Information.SerialNumbers.SerialNumber)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("serial-number", ("serial_number", Snmp.Information.SerialNumbers.SerialNumber))])
+                self._leafs = OrderedDict()
 
                 self.serial_number = YList(self)
                 self._segment_path = lambda: "serial-numbers"
@@ -3121,34 +3238,37 @@ class Snmp(Entity):
                     self.yang_parent_name = "serial-numbers"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.number = YLeaf(YType.str, "number")
-
-                    self.req_id = YLeaf(YType.int32, "req-id")
-
-                    self.port = YLeaf(YType.uint16, "port")
-
-                    self.nms = YLeaf(YType.str, "nms")
-
-                    self.request_id = YLeaf(YType.uint32, "request-id")
-
-                    self.port_xr = YLeaf(YType.uint16, "port-xr")
-
-                    self.pdu_type = YLeaf(YType.uint16, "pdu-type")
-
-                    self.error_status = YLeaf(YType.uint16, "error-status")
-
-                    self.serial_num = YLeaf(YType.uint32, "serial-num")
-
-                    self.input_q = YLeaf(YType.str, "input-q")
-
-                    self.output_q = YLeaf(YType.uint32, "output-q")
-
-                    self.pending_q = YLeaf(YType.uint32, "pending-q")
-
-                    self.response_out = YLeaf(YType.uint32, "response-out")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('number', YLeaf(YType.str, 'number')),
+                        ('req_id', YLeaf(YType.int32, 'req-id')),
+                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('nms', YLeaf(YType.str, 'nms')),
+                        ('request_id', YLeaf(YType.uint32, 'request-id')),
+                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
+                        ('pdu_type', YLeaf(YType.uint16, 'pdu-type')),
+                        ('error_status', YLeaf(YType.uint16, 'error-status')),
+                        ('serial_num', YLeaf(YType.uint32, 'serial-num')),
+                        ('input_q', YLeaf(YType.str, 'input-q')),
+                        ('output_q', YLeaf(YType.uint32, 'output-q')),
+                        ('pending_q', YLeaf(YType.uint32, 'pending-q')),
+                        ('response_out', YLeaf(YType.uint32, 'response-out')),
+                    ])
+                    self.number = None
+                    self.req_id = None
+                    self.port = None
+                    self.nms = None
+                    self.request_id = None
+                    self.port_xr = None
+                    self.pdu_type = None
+                    self.error_status = None
+                    self.serial_num = None
+                    self.input_q = None
+                    self.output_q = None
+                    self.pending_q = None
+                    self.response_out = None
                     self._segment_path = lambda: "serial-number"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/serial-numbers/%s" % self._segment_path()
 
@@ -3179,8 +3299,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"drop-nms-address" : ("drop_nms_address", Snmp.Information.DropNmsAddresses.DropNmsAddress)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("drop-nms-address", ("drop_nms_address", Snmp.Information.DropNmsAddresses.DropNmsAddress))])
+                self._leafs = OrderedDict()
 
                 self.drop_nms_address = YList(self)
                 self._segment_path = lambda: "drop-nms-addresses"
@@ -3194,7 +3316,7 @@ class Snmp(Entity):
                 """
                 PDU drop info for NMS
                 
-                .. attribute:: nms_addr  <key>
+                .. attribute:: nms_addr  (key)
                 
                 	NMS address
                 	**type**\: str
@@ -3283,31 +3405,34 @@ class Snmp(Entity):
                     self.yang_parent_name = "drop-nms-addresses"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.nms_addr = YLeaf(YType.str, "nms-addr")
-
-                    self.nms_address = YLeaf(YType.str, "nms-address")
-
-                    self.incoming_q_count = YLeaf(YType.uint32, "incoming-q-count")
-
-                    self.threshold_incoming_q_count = YLeaf(YType.uint32, "threshold-incoming-q-count")
-
-                    self.encode_count = YLeaf(YType.uint32, "encode-count")
-
-                    self.duplicate_count = YLeaf(YType.uint32, "duplicate-count")
-
-                    self.stack_count = YLeaf(YType.uint32, "stack-count")
-
-                    self.aipc_count = YLeaf(YType.uint32, "aipc-count")
-
-                    self.overload_count = YLeaf(YType.uint32, "overload-count")
-
-                    self.timeout_count = YLeaf(YType.uint32, "timeout-count")
-
-                    self.internal_count = YLeaf(YType.uint32, "internal-count")
-                    self._segment_path = lambda: "drop-nms-address" + "[nms-addr='" + self.nms_addr.get() + "']"
+                    self.ylist_key_names = ['nms_addr']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('nms_addr', YLeaf(YType.str, 'nms-addr')),
+                        ('nms_address', YLeaf(YType.str, 'nms-address')),
+                        ('incoming_q_count', YLeaf(YType.uint32, 'incoming-q-count')),
+                        ('threshold_incoming_q_count', YLeaf(YType.uint32, 'threshold-incoming-q-count')),
+                        ('encode_count', YLeaf(YType.uint32, 'encode-count')),
+                        ('duplicate_count', YLeaf(YType.uint32, 'duplicate-count')),
+                        ('stack_count', YLeaf(YType.uint32, 'stack-count')),
+                        ('aipc_count', YLeaf(YType.uint32, 'aipc-count')),
+                        ('overload_count', YLeaf(YType.uint32, 'overload-count')),
+                        ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
+                        ('internal_count', YLeaf(YType.uint32, 'internal-count')),
+                    ])
+                    self.nms_addr = None
+                    self.nms_address = None
+                    self.incoming_q_count = None
+                    self.threshold_incoming_q_count = None
+                    self.encode_count = None
+                    self.duplicate_count = None
+                    self.stack_count = None
+                    self.aipc_count = None
+                    self.overload_count = None
+                    self.timeout_count = None
+                    self.internal_count = None
+                    self._segment_path = lambda: "drop-nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/drop-nms-addresses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3337,8 +3462,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"view" : ("view", Snmp.Information.Views.View)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("view", ("view", Snmp.Information.Views.View))])
+                self._leafs = OrderedDict()
 
                 self.view = YList(self)
                 self._segment_path = lambda: "views"
@@ -3352,7 +3479,7 @@ class Snmp(Entity):
                 """
                 SNMP target view name
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	View name
                 	**type**\: str
@@ -3378,13 +3505,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "views"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"view-information" : ("view_information", Snmp.Information.Views.View.ViewInformation)}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("view-information", ("view_information", Snmp.Information.Views.View.ViewInformation))])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.view_information = YList(self)
-                    self._segment_path = lambda: "view" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "view" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/views/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -3395,7 +3525,7 @@ class Snmp(Entity):
                     """
                     View name ,familytype, storagetype and status
                     
-                    .. attribute:: object_id  <key>
+                    .. attribute:: object_id  (key)
                     
                     	SNMP view OID
                     	**type**\: str
@@ -3431,17 +3561,20 @@ class Snmp(Entity):
                         self.yang_parent_name = "view"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.object_id = YLeaf(YType.str, "object-id")
-
-                        self.snmp_view_family_type = YLeaf(YType.str, "snmp-view-family-type")
-
-                        self.snmp_view_family_storage_type = YLeaf(YType.str, "snmp-view-family-storage-type")
-
-                        self.snmp_view_family_status = YLeaf(YType.str, "snmp-view-family-status")
-                        self._segment_path = lambda: "view-information" + "[object-id='" + self.object_id.get() + "']"
+                        self.ylist_key_names = ['object_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('object_id', YLeaf(YType.str, 'object-id')),
+                            ('snmp_view_family_type', YLeaf(YType.str, 'snmp-view-family-type')),
+                            ('snmp_view_family_storage_type', YLeaf(YType.str, 'snmp-view-family-storage-type')),
+                            ('snmp_view_family_status', YLeaf(YType.str, 'snmp-view-family-status')),
+                        ])
+                        self.object_id = None
+                        self.snmp_view_family_type = None
+                        self.snmp_view_family_storage_type = None
+                        self.snmp_view_family_status = None
+                        self._segment_path = lambda: "view-information" + "[object-id='" + str(self.object_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', 'snmp_view_family_type', 'snmp_view_family_storage_type', 'snmp_view_family_status'], name, value)
@@ -3470,10 +3603,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.sys_descr = YLeaf(YType.str, "sys-descr")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sys_descr', YLeaf(YType.str, 'sys-descr')),
+                ])
+                self.sys_descr = None
                 self._segment_path = lambda: "system-descr"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -3509,8 +3645,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"groups" : ("groups", Snmp.Information.Tables.Groups), "user-engine-ids" : ("user_engine_ids", Snmp.Information.Tables.UserEngineIds)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("groups", ("groups", Snmp.Information.Tables.Groups)), ("user-engine-ids", ("user_engine_ids", Snmp.Information.Tables.UserEngineIds))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.groups = Snmp.Information.Tables.Groups()
                 self.groups.parent = self
@@ -3548,8 +3686,10 @@ class Snmp(Entity):
                     self.yang_parent_name = "tables"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"group" : ("group", Snmp.Information.Tables.Groups.Group)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("group", ("group", Snmp.Information.Tables.Groups.Group))])
+                    self._leafs = OrderedDict()
 
                     self.group = YList(self)
                     self._segment_path = lambda: "groups"
@@ -3563,7 +3703,7 @@ class Snmp(Entity):
                     """
                     SNMP group name
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Group Name
                     	**type**\: str
@@ -3589,16 +3729,19 @@ class Snmp(Entity):
                         self.yang_parent_name = "groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"group-informations" : ("group_informations", Snmp.Information.Tables.Groups.Group.GroupInformations)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("group-informations", ("group_informations", Snmp.Information.Tables.Groups.Group.GroupInformations))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
                         self.group_informations = Snmp.Information.Tables.Groups.Group.GroupInformations()
                         self.group_informations.parent = self
                         self._children_name_map["group_informations"] = "group-informations"
                         self._children_yang_names.add("group-informations")
-                        self._segment_path = lambda: "group" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "group" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/groups/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -3628,8 +3771,10 @@ class Snmp(Entity):
                             self.yang_parent_name = "group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"group-information" : ("group_information", Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("group-information", ("group_information", Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation))])
+                            self._leafs = OrderedDict()
 
                             self.group_information = YList(self)
                             self._segment_path = lambda: "group-informations"
@@ -3692,20 +3837,23 @@ class Snmp(Entity):
                                 self.yang_parent_name = "group-informations"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.modelnumber = YLeaf(YType.str, "modelnumber")
-
-                                self.level = YLeaf(YType.str, "level")
-
-                                self.vacm_access_read_view_name = YLeaf(YType.str, "vacm-access-read-view-name")
-
-                                self.vacm_access_write_view_name = YLeaf(YType.str, "vacm-access-write-view-name")
-
-                                self.vacm_access_notify_view_name = YLeaf(YType.str, "vacm-access-notify-view-name")
-
-                                self.vacm_access_status = YLeaf(YType.uint32, "vacm-access-status")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('modelnumber', YLeaf(YType.str, 'modelnumber')),
+                                    ('level', YLeaf(YType.str, 'level')),
+                                    ('vacm_access_read_view_name', YLeaf(YType.str, 'vacm-access-read-view-name')),
+                                    ('vacm_access_write_view_name', YLeaf(YType.str, 'vacm-access-write-view-name')),
+                                    ('vacm_access_notify_view_name', YLeaf(YType.str, 'vacm-access-notify-view-name')),
+                                    ('vacm_access_status', YLeaf(YType.uint32, 'vacm-access-status')),
+                                ])
+                                self.modelnumber = None
+                                self.level = None
+                                self.vacm_access_read_view_name = None
+                                self.vacm_access_write_view_name = None
+                                self.vacm_access_notify_view_name = None
+                                self.vacm_access_status = None
                                 self._segment_path = lambda: "group-information"
 
                             def __setattr__(self, name, value):
@@ -3735,8 +3883,10 @@ class Snmp(Entity):
                     self.yang_parent_name = "tables"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"user-engine-id" : ("user_engine_id", Snmp.Information.Tables.UserEngineIds.UserEngineId)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("user-engine-id", ("user_engine_id", Snmp.Information.Tables.UserEngineIds.UserEngineId))])
+                    self._leafs = OrderedDict()
 
                     self.user_engine_id = YList(self)
                     self._segment_path = lambda: "user-engine-ids"
@@ -3750,7 +3900,7 @@ class Snmp(Entity):
                     """
                     SNMP engineId
                     
-                    .. attribute:: engine_id  <key>
+                    .. attribute:: engine_id  (key)
                     
                     	SNMP Engine ID
                     	**type**\: str
@@ -3776,13 +3926,16 @@ class Snmp(Entity):
                         self.yang_parent_name = "user-engine-ids"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"user-name" : ("user_name", Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName)}
-
-                        self.engine_id = YLeaf(YType.str, "engine-id")
+                        self.ylist_key_names = ['engine_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("user-name", ("user_name", Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName))])
+                        self._leafs = OrderedDict([
+                            ('engine_id', YLeaf(YType.str, 'engine-id')),
+                        ])
+                        self.engine_id = None
 
                         self.user_name = YList(self)
-                        self._segment_path = lambda: "user-engine-id" + "[engine-id='" + self.engine_id.get() + "']"
+                        self._segment_path = lambda: "user-engine-id" + "[engine-id='" + str(self.engine_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/user-engine-ids/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -3793,7 +3946,7 @@ class Snmp(Entity):
                         """
                         User name ,storage type ,status 
                         
-                        .. attribute:: user_name  <key>
+                        .. attribute:: user_name  (key)
                         
                         	User name
                         	**type**\: str
@@ -3828,15 +3981,18 @@ class Snmp(Entity):
                             self.yang_parent_name = "user-engine-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.user_name = YLeaf(YType.str, "user-name")
-
-                            self.usm_user_storage_type = YLeaf(YType.uint32, "usm-user-storage-type")
-
-                            self.usm_user_status = YLeaf(YType.uint32, "usm-user-status")
-                            self._segment_path = lambda: "user-name" + "[user-name='" + self.user_name.get() + "']"
+                            self.ylist_key_names = ['user_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('user_name', YLeaf(YType.str, 'user-name')),
+                                ('usm_user_storage_type', YLeaf(YType.uint32, 'usm-user-storage-type')),
+                                ('usm_user_status', YLeaf(YType.uint32, 'usm-user-status')),
+                            ])
+                            self.user_name = None
+                            self.usm_user_storage_type = None
+                            self.usm_user_status = None
+                            self._segment_path = lambda: "user-name" + "[user-name='" + str(self.user_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', 'usm_user_storage_type', 'usm_user_status'], name, value)
@@ -3865,10 +4021,13 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.sys_obj_id = YLeaf(YType.str, "sys-obj-id")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('sys_obj_id', YLeaf(YType.str, 'sys-obj-id')),
+                ])
+                self.sys_obj_id = None
                 self._segment_path = lambda: "system-oid"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
 
@@ -3920,14 +4079,17 @@ class Snmp(Entity):
                 self.yang_parent_name = "information"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"trap-q" : ("trap_q", Snmp.Information.TrapQueue.TrapQ)}
-
-                self.trap_min = YLeaf(YType.uint32, "trap-min")
-
-                self.trap_avg = YLeaf(YType.uint32, "trap-avg")
-
-                self.trap_max = YLeaf(YType.uint32, "trap-max")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("trap-q", ("trap_q", Snmp.Information.TrapQueue.TrapQ))])
+                self._leafs = OrderedDict([
+                    ('trap_min', YLeaf(YType.uint32, 'trap-min')),
+                    ('trap_avg', YLeaf(YType.uint32, 'trap-avg')),
+                    ('trap_max', YLeaf(YType.uint32, 'trap-max')),
+                ])
+                self.trap_min = None
+                self.trap_avg = None
+                self.trap_max = None
 
                 self.trap_q = YList(self)
                 self._segment_path = lambda: "trap-queue"
@@ -3976,14 +4138,17 @@ class Snmp(Entity):
                     self.yang_parent_name = "trap-queue"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.min = YLeaf(YType.uint32, "min")
-
-                    self.avg = YLeaf(YType.uint32, "avg")
-
-                    self.max = YLeaf(YType.uint32, "max")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('min', YLeaf(YType.uint32, 'min')),
+                        ('avg', YLeaf(YType.uint32, 'avg')),
+                        ('max', YLeaf(YType.uint32, 'max')),
+                    ])
+                    self.min = None
+                    self.avg = None
+                    self.max = None
                     self._segment_path = lambda: "trap-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-queue/%s" % self._segment_path()
 
@@ -4014,8 +4179,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Snmp.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Snmp.Interfaces.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
@@ -4029,7 +4196,7 @@ class Snmp(Entity):
             """
             Interface Name
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Interface Name
             	**type**\: str
@@ -4059,13 +4226,16 @@ class Snmp(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.interface_index = YLeaf(YType.int32, "interface-index")
-                self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                ])
+                self.name = None
+                self.interface_index = None
+                self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -4110,8 +4280,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"rule-details" : ("rule_details", Snmp.Correlator.RuleDetails), "buffer-status" : ("buffer_status", Snmp.Correlator.BufferStatus), "rule-set-details" : ("rule_set_details", Snmp.Correlator.RuleSetDetails), "traps" : ("traps", Snmp.Correlator.Traps)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("rule-details", ("rule_details", Snmp.Correlator.RuleDetails)), ("buffer-status", ("buffer_status", Snmp.Correlator.BufferStatus)), ("rule-set-details", ("rule_set_details", Snmp.Correlator.RuleSetDetails)), ("traps", ("traps", Snmp.Correlator.Traps))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.rule_details = Snmp.Correlator.RuleDetails()
             self.rule_details.parent = self
@@ -4160,8 +4332,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "correlator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"rule-detail" : ("rule_detail", Snmp.Correlator.RuleDetails.RuleDetail)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("rule-detail", ("rule_detail", Snmp.Correlator.RuleDetails.RuleDetail))])
+                self._leafs = OrderedDict()
 
                 self.rule_detail = YList(self)
                 self._segment_path = lambda: "rule-details"
@@ -4175,7 +4349,7 @@ class Snmp(Entity):
                 """
                 Details of one of the correlation rules
                 
-                .. attribute:: rule_name  <key>
+                .. attribute:: rule_name  (key)
                 
                 	Correlation Rule Name
                 	**type**\: str
@@ -4223,12 +4397,15 @@ class Snmp(Entity):
                     self.yang_parent_name = "rule-details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"rule-summary" : ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary), "root-cause" : ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause)}
-                    self._child_list_classes = {"non-rootcaus" : ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus), "apply-host" : ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost)}
-
-                    self.rule_name = YLeaf(YType.str, "rule-name")
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
+                    self.ylist_key_names = ['rule_name']
+                    self._child_container_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause))])
+                    self._child_list_classes = OrderedDict([("non-rootcaus", ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
+                    self._leafs = OrderedDict([
+                        ('rule_name', YLeaf(YType.str, 'rule-name')),
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.rule_name = None
+                    self.timeout = None
 
                     self.rule_summary = Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary()
                     self.rule_summary.parent = self
@@ -4242,7 +4419,7 @@ class Snmp(Entity):
 
                     self.non_rootcaus = YList(self)
                     self.apply_host = YList(self)
-                    self._segment_path = lambda: "rule-detail" + "[rule-name='" + self.rule_name.get() + "']"
+                    self._segment_path = lambda: "rule-detail" + "[rule-name='" + str(self.rule_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4284,14 +4461,17 @@ class Snmp(Entity):
                         self.yang_parent_name = "rule-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rule_name = YLeaf(YType.str, "rule-name")
-
-                        self.rule_state = YLeaf(YType.enumeration, "rule-state")
-
-                        self.buffered_traps_count = YLeaf(YType.uint32, "buffered-traps-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rule_name', YLeaf(YType.str, 'rule-name')),
+                            ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
+                            ('buffered_traps_count', YLeaf(YType.uint32, 'buffered-traps-count')),
+                        ])
+                        self.rule_name = None
+                        self.rule_state = None
+                        self.buffered_traps_count = None
                         self._segment_path = lambda: "rule-summary"
 
                     def __setattr__(self, name, value):
@@ -4327,10 +4507,13 @@ class Snmp(Entity):
                         self.yang_parent_name = "rule-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"var-bind" : ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind)}
-
-                        self.oid = YLeaf(YType.str, "oid")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind))])
+                        self._leafs = OrderedDict([
+                            ('oid', YLeaf(YType.str, 'oid')),
+                        ])
+                        self.oid = None
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "root-cause"
@@ -4372,14 +4555,17 @@ class Snmp(Entity):
                             self.yang_parent_name = "root-cause"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oid = YLeaf(YType.str, "oid")
-
-                            self.match_type = YLeaf(YType.enumeration, "match-type")
-
-                            self.reg_exp = YLeaf(YType.str, "reg-exp")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('oid', YLeaf(YType.str, 'oid')),
+                                ('match_type', YLeaf(YType.enumeration, 'match-type')),
+                                ('reg_exp', YLeaf(YType.str, 'reg-exp')),
+                            ])
+                            self.oid = None
+                            self.match_type = None
+                            self.reg_exp = None
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
@@ -4415,10 +4601,13 @@ class Snmp(Entity):
                         self.yang_parent_name = "rule-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"var-bind" : ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind)}
-
-                        self.oid = YLeaf(YType.str, "oid")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind))])
+                        self._leafs = OrderedDict([
+                            ('oid', YLeaf(YType.str, 'oid')),
+                        ])
+                        self.oid = None
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "non-rootcaus"
@@ -4460,14 +4649,17 @@ class Snmp(Entity):
                             self.yang_parent_name = "non-rootcaus"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oid = YLeaf(YType.str, "oid")
-
-                            self.match_type = YLeaf(YType.enumeration, "match-type")
-
-                            self.reg_exp = YLeaf(YType.str, "reg-exp")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('oid', YLeaf(YType.str, 'oid')),
+                                ('match_type', YLeaf(YType.enumeration, 'match-type')),
+                                ('reg_exp', YLeaf(YType.str, 'reg-exp')),
+                            ])
+                            self.oid = None
+                            self.match_type = None
+                            self.reg_exp = None
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
@@ -4504,12 +4696,15 @@ class Snmp(Entity):
                         self.yang_parent_name = "rule-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.port = YLeaf(YType.uint16, "port")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('port', YLeaf(YType.uint16, 'port')),
+                        ])
+                        self.ip_address = None
+                        self.port = None
                         self._segment_path = lambda: "apply-host"
 
                     def __setattr__(self, name, value):
@@ -4549,12 +4744,15 @@ class Snmp(Entity):
                 self.yang_parent_name = "correlator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.current_size = YLeaf(YType.uint32, "current-size")
-
-                self.configured_size = YLeaf(YType.uint32, "configured-size")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('current_size', YLeaf(YType.uint32, 'current-size')),
+                    ('configured_size', YLeaf(YType.uint32, 'configured-size')),
+                ])
+                self.current_size = None
+                self.configured_size = None
                 self._segment_path = lambda: "buffer-status"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
 
@@ -4585,8 +4783,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "correlator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"rule-set-detail" : ("rule_set_detail", Snmp.Correlator.RuleSetDetails.RuleSetDetail)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("rule-set-detail", ("rule_set_detail", Snmp.Correlator.RuleSetDetails.RuleSetDetail))])
+                self._leafs = OrderedDict()
 
                 self.rule_set_detail = YList(self)
                 self._segment_path = lambda: "rule-set-details"
@@ -4600,7 +4800,7 @@ class Snmp(Entity):
                 """
                 Detail of one of the correlation rulesets
                 
-                .. attribute:: rule_set_name  <key>
+                .. attribute:: rule_set_name  (key)
                 
                 	Ruleset Name
                 	**type**\: str
@@ -4631,15 +4831,18 @@ class Snmp(Entity):
                     self.yang_parent_name = "rule-set-details"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rules" : ("rules", Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules)}
-
-                    self.rule_set_name = YLeaf(YType.str, "rule-set-name")
-
-                    self.rule_set_name_xr = YLeaf(YType.str, "rule-set-name-xr")
+                    self.ylist_key_names = ['rule_set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rules", ("rules", Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules))])
+                    self._leafs = OrderedDict([
+                        ('rule_set_name', YLeaf(YType.str, 'rule-set-name')),
+                        ('rule_set_name_xr', YLeaf(YType.str, 'rule-set-name-xr')),
+                    ])
+                    self.rule_set_name = None
+                    self.rule_set_name_xr = None
 
                     self.rules = YList(self)
-                    self._segment_path = lambda: "rule-set-detail" + "[rule-set-name='" + self.rule_set_name.get() + "']"
+                    self._segment_path = lambda: "rule-set-detail" + "[rule-set-name='" + str(self.rule_set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-set-details/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4681,14 +4884,17 @@ class Snmp(Entity):
                         self.yang_parent_name = "rule-set-detail"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rule_name = YLeaf(YType.str, "rule-name")
-
-                        self.rule_state = YLeaf(YType.enumeration, "rule-state")
-
-                        self.buffered_traps_count = YLeaf(YType.uint32, "buffered-traps-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rule_name', YLeaf(YType.str, 'rule-name')),
+                            ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
+                            ('buffered_traps_count', YLeaf(YType.uint32, 'buffered-traps-count')),
+                        ])
+                        self.rule_name = None
+                        self.rule_state = None
+                        self.buffered_traps_count = None
                         self._segment_path = lambda: "rules"
 
                     def __setattr__(self, name, value):
@@ -4718,8 +4924,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "correlator"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"trap" : ("trap", Snmp.Correlator.Traps.Trap)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("trap", ("trap", Snmp.Correlator.Traps.Trap))])
+                self._leafs = OrderedDict()
 
                 self.trap = YList(self)
                 self._segment_path = lambda: "traps"
@@ -4733,7 +4941,7 @@ class Snmp(Entity):
                 """
                 One of the correlated traps
                 
-                .. attribute:: entry_id  <key>
+                .. attribute:: entry_id  (key)
                 
                 	Entry ID
                 	**type**\: int
@@ -4776,22 +4984,25 @@ class Snmp(Entity):
                     self.yang_parent_name = "traps"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"trap-info" : ("trap_info", Snmp.Correlator.Traps.Trap.TrapInfo)}
-                    self._child_list_classes = {}
-
-                    self.entry_id = YLeaf(YType.int32, "entry-id")
-
-                    self.correlation_id = YLeaf(YType.uint32, "correlation-id")
-
-                    self.is_root_cause = YLeaf(YType.boolean, "is-root-cause")
-
-                    self.rule_name = YLeaf(YType.str, "rule-name")
+                    self.ylist_key_names = ['entry_id']
+                    self._child_container_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Correlator.Traps.Trap.TrapInfo))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('entry_id', YLeaf(YType.int32, 'entry-id')),
+                        ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
+                        ('is_root_cause', YLeaf(YType.boolean, 'is-root-cause')),
+                        ('rule_name', YLeaf(YType.str, 'rule-name')),
+                    ])
+                    self.entry_id = None
+                    self.correlation_id = None
+                    self.is_root_cause = None
+                    self.rule_name = None
 
                     self.trap_info = Snmp.Correlator.Traps.Trap.TrapInfo()
                     self.trap_info.parent = self
                     self._children_name_map["trap_info"] = "trap-info"
                     self._children_yang_names.add("trap-info")
-                    self._segment_path = lambda: "trap" + "[entry-id='" + self.entry_id.get() + "']"
+                    self._segment_path = lambda: "trap" + "[entry-id='" + str(self.entry_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/traps/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4844,14 +5055,17 @@ class Snmp(Entity):
                         self.yang_parent_name = "trap"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"var-bind" : ("var_bind", Snmp.Correlator.Traps.Trap.TrapInfo.VarBind)}
-
-                        self.oid = YLeaf(YType.str, "oid")
-
-                        self.relative_timestamp = YLeaf(YType.uint32, "relative-timestamp")
-
-                        self.timestamp = YLeaf(YType.uint64, "timestamp")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.Traps.Trap.TrapInfo.VarBind))])
+                        self._leafs = OrderedDict([
+                            ('oid', YLeaf(YType.str, 'oid')),
+                            ('relative_timestamp', YLeaf(YType.uint32, 'relative-timestamp')),
+                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
+                        ])
+                        self.oid = None
+                        self.relative_timestamp = None
+                        self.timestamp = None
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "trap-info"
@@ -4888,12 +5102,15 @@ class Snmp(Entity):
                             self.yang_parent_name = "trap-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.oid = YLeaf(YType.str, "oid")
-
-                            self.value = YLeaf(YType.str, "value")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('oid', YLeaf(YType.str, 'oid')),
+                                ('value', YLeaf(YType.str, 'value')),
+                            ])
+                            self.oid = None
+                            self.value = None
                             self._segment_path = lambda: "var-bind"
 
                         def __setattr__(self, name, value):
@@ -4923,8 +5140,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface-index" : ("interface_index", Snmp.InterfaceIndexes.InterfaceIndex)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface-index", ("interface_index", Snmp.InterfaceIndexes.InterfaceIndex))])
+            self._leafs = OrderedDict()
 
             self.interface_index = YList(self)
             self._segment_path = lambda: "interface-indexes"
@@ -4938,7 +5157,7 @@ class Snmp(Entity):
             """
             Interface Index
             
-            .. attribute:: interface_index  <key>
+            .. attribute:: interface_index  (key)
             
             	Interface Index as used by MIB tables
             	**type**\: int
@@ -4966,13 +5185,16 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-indexes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_index = YLeaf(YType.int32, "interface-index")
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-                self._segment_path = lambda: "interface-index" + "[interface-index='" + self.interface_index.get() + "']"
+                self.ylist_key_names = ['interface_index']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_index = None
+                self.interface_name = None
+                self._segment_path = lambda: "interface-index" + "[interface-index='" + str(self.interface_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/interface-indexes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5002,8 +5224,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"if-index" : ("if_index", Snmp.IfIndexes.IfIndex)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("if-index", ("if_index", Snmp.IfIndexes.IfIndex))])
+            self._leafs = OrderedDict()
 
             self.if_index = YList(self)
             self._segment_path = lambda: "if-indexes"
@@ -5017,7 +5241,7 @@ class Snmp(Entity):
             """
             Interface Index
             
-            .. attribute:: interface_index  <key>
+            .. attribute:: interface_index  (key)
             
             	Interface Index as used by MIB tables
             	**type**\: int
@@ -5043,13 +5267,16 @@ class Snmp(Entity):
                 self.yang_parent_name = "if-indexes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_index = YLeaf(YType.int32, "interface-index")
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-                self._segment_path = lambda: "if-index" + "[interface-index='" + self.interface_index.get() + "']"
+                self.ylist_key_names = ['interface_index']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_index', YLeaf(YType.int32, 'interface-index')),
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_index = None
+                self.interface_name = None
+                self._segment_path = lambda: "if-index" + "[interface-index='" + str(self.interface_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/if-indexes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5079,8 +5306,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"entity-physical-indexes" : ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("entity-physical-indexes", ("entity_physical_indexes", Snmp.EntityMib.EntityPhysicalIndexes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.entity_physical_indexes = Snmp.EntityMib.EntityPhysicalIndexes()
             self.entity_physical_indexes.parent = self
@@ -5113,8 +5342,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "entity-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"entity-physical-index" : ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("entity-physical-index", ("entity_physical_index", Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex))])
+                self._leafs = OrderedDict()
 
                 self.entity_physical_index = YList(self)
                 self._segment_path = lambda: "entity-physical-indexes"
@@ -5128,7 +5359,7 @@ class Snmp(Entity):
                 """
                 SNMP entPhysical index number
                 
-                .. attribute:: entity_phynum  <key>
+                .. attribute:: entity_phynum  (key)
                 
                 	Entity physical index
                 	**type**\: str
@@ -5201,31 +5432,34 @@ class Snmp(Entity):
                     self.yang_parent_name = "entity-physical-indexes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.entity_phynum = YLeaf(YType.str, "entity-phynum")
-
-                    self.physical_index = YLeaf(YType.uint32, "physical-index")
-
-                    self.ent_physical_name = YLeaf(YType.str, "ent-physical-name")
-
-                    self.location = YLeaf(YType.str, "location")
-
-                    self.ent_physical_descr = YLeaf(YType.str, "ent-physical-descr")
-
-                    self.ent_physical_firmware_rev = YLeaf(YType.str, "ent-physical-firmware-rev")
-
-                    self.ent_physical_hardware_rev = YLeaf(YType.str, "ent-physical-hardware-rev")
-
-                    self.ent_physical_modelname = YLeaf(YType.str, "ent-physical-modelname")
-
-                    self.ent_physical_serial_num = YLeaf(YType.str, "ent-physical-serial-num")
-
-                    self.ent_physical_software_rev = YLeaf(YType.str, "ent-physical-software-rev")
-
-                    self.ent_physical_mfg_name = YLeaf(YType.str, "ent-physical-mfg-name")
-                    self._segment_path = lambda: "entity-physical-index" + "[entity-phynum='" + self.entity_phynum.get() + "']"
+                    self.ylist_key_names = ['entity_phynum']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('entity_phynum', YLeaf(YType.str, 'entity-phynum')),
+                        ('physical_index', YLeaf(YType.uint32, 'physical-index')),
+                        ('ent_physical_name', YLeaf(YType.str, 'ent-physical-name')),
+                        ('location', YLeaf(YType.str, 'location')),
+                        ('ent_physical_descr', YLeaf(YType.str, 'ent-physical-descr')),
+                        ('ent_physical_firmware_rev', YLeaf(YType.str, 'ent-physical-firmware-rev')),
+                        ('ent_physical_hardware_rev', YLeaf(YType.str, 'ent-physical-hardware-rev')),
+                        ('ent_physical_modelname', YLeaf(YType.str, 'ent-physical-modelname')),
+                        ('ent_physical_serial_num', YLeaf(YType.str, 'ent-physical-serial-num')),
+                        ('ent_physical_software_rev', YLeaf(YType.str, 'ent-physical-software-rev')),
+                        ('ent_physical_mfg_name', YLeaf(YType.str, 'ent-physical-mfg-name')),
+                    ])
+                    self.entity_phynum = None
+                    self.physical_index = None
+                    self.ent_physical_name = None
+                    self.location = None
+                    self.ent_physical_descr = None
+                    self.ent_physical_firmware_rev = None
+                    self.ent_physical_hardware_rev = None
+                    self.ent_physical_modelname = None
+                    self.ent_physical_serial_num = None
+                    self.ent_physical_software_rev = None
+                    self.ent_physical_mfg_name = None
+                    self._segment_path = lambda: "entity-physical-index" + "[entity-phynum='" + str(self.entity_phynum) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/entity-physical-indexes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5275,8 +5509,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interfaces" : ("interfaces", Snmp.InterfaceMib.Interfaces), "interface-connectors" : ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors), "interface-aliases" : ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases), "notification-interfaces" : ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces), "interface-stack-statuses" : ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Snmp.InterfaceMib.Interfaces)), ("interface-connectors", ("interface_connectors", Snmp.InterfaceMib.InterfaceConnectors)), ("interface-aliases", ("interface_aliases", Snmp.InterfaceMib.InterfaceAliases)), ("notification-interfaces", ("notification_interfaces", Snmp.InterfaceMib.NotificationInterfaces)), ("interface-stack-statuses", ("interface_stack_statuses", Snmp.InterfaceMib.InterfaceStackStatuses))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.interfaces = Snmp.InterfaceMib.Interfaces()
             self.interfaces.parent = self
@@ -5329,8 +5565,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Snmp.InterfaceMib.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Snmp.InterfaceMib.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -5344,7 +5582,7 @@ class Snmp(Entity):
                 """
                 ifIndex for a specific Interface Name
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -5372,13 +5610,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.if_index = YLeaf(YType.uint32, "if-index")
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('if_index', YLeaf(YType.uint32, 'if-index')),
+                    ])
+                    self.interface_name = None
+                    self.if_index = None
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5408,8 +5649,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface-connector" : ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface-connector", ("interface_connector", Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector))])
+                self._leafs = OrderedDict()
 
                 self.interface_connector = YList(self)
                 self._segment_path = lambda: "interface-connectors"
@@ -5424,7 +5667,7 @@ class Snmp(Entity):
                 ifConnectorPresent for a specific Interface
                 Name
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -5450,13 +5693,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "interface-connectors"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.if_connector_present = YLeaf(YType.str, "if-connector-present")
-                    self._segment_path = lambda: "interface-connector" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('if_connector_present', YLeaf(YType.str, 'if-connector-present')),
+                    ])
+                    self.interface_name = None
+                    self.if_connector_present = None
+                    self._segment_path = lambda: "interface-connector" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-connectors/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5486,8 +5732,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface-alias" : ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface-alias", ("interface_alias", Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias))])
+                self._leafs = OrderedDict()
 
                 self.interface_alias = YList(self)
                 self._segment_path = lambda: "interface-aliases"
@@ -5501,7 +5749,7 @@ class Snmp(Entity):
                 """
                 ifAlias for a specific Interface Name
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -5527,13 +5775,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "interface-aliases"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.if_alias = YLeaf(YType.str, "if-alias")
-                    self._segment_path = lambda: "interface-alias" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('if_alias', YLeaf(YType.str, 'if-alias')),
+                    ])
+                    self.interface_name = None
+                    self.if_alias = None
+                    self._segment_path = lambda: "interface-alias" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-aliases/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5563,8 +5814,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"notification-interface" : ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("notification-interface", ("notification_interface", Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface))])
+                self._leafs = OrderedDict()
 
                 self.notification_interface = YList(self)
                 self._segment_path = lambda: "notification-interfaces"
@@ -5578,7 +5831,7 @@ class Snmp(Entity):
                 """
                 Notification for specific Interface Name
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface Name
                 	**type**\: str
@@ -5604,13 +5857,16 @@ class Snmp(Entity):
                     self.yang_parent_name = "notification-interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.link_up_down_notif_status = YLeaf(YType.enumeration, "link-up-down-notif-status")
-                    self._segment_path = lambda: "notification-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('link_up_down_notif_status', YLeaf(YType.enumeration, 'link-up-down-notif-status')),
+                    ])
+                    self.interface_name = None
+                    self.link_up_down_notif_status = None
+                    self._segment_path = lambda: "notification-interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/notification-interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5640,8 +5896,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "interface-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface-stack-status" : ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface-stack-status", ("interface_stack_status", Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus))])
+                self._leafs = OrderedDict()
 
                 self.interface_stack_status = YList(self)
                 self._segment_path = lambda: "interface-stack-statuses"
@@ -5655,7 +5913,7 @@ class Snmp(Entity):
                 """
                 ifstatus for a pair of Interface
                 
-                .. attribute:: interface_stack_status  <key>
+                .. attribute:: interface_stack_status  (key)
                 
                 	StackHigherLayer.StackLowerLayer
                 	**type**\: str
@@ -5691,17 +5949,20 @@ class Snmp(Entity):
                     self.yang_parent_name = "interface-stack-statuses"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_stack_status = YLeaf(YType.str, "interface-stack-status")
-
-                    self.if_stack_higher_layer = YLeaf(YType.str, "if-stack-higher-layer")
-
-                    self.if_stack_lower_layer = YLeaf(YType.str, "if-stack-lower-layer")
-
-                    self.if_stack_status = YLeaf(YType.str, "if-stack-status")
-                    self._segment_path = lambda: "interface-stack-status" + "[interface-stack-status='" + self.interface_stack_status.get() + "']"
+                    self.ylist_key_names = ['interface_stack_status']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_stack_status', YLeaf(YType.str, 'interface-stack-status')),
+                        ('if_stack_higher_layer', YLeaf(YType.str, 'if-stack-higher-layer')),
+                        ('if_stack_lower_layer', YLeaf(YType.str, 'if-stack-lower-layer')),
+                        ('if_stack_status', YLeaf(YType.str, 'if-stack-status')),
+                    ])
+                    self.interface_stack_status = None
+                    self.if_stack_higher_layer = None
+                    self.if_stack_lower_layer = None
+                    self.if_stack_status = None
+                    self._segment_path = lambda: "interface-stack-status" + "[interface-stack-status='" + str(self.interface_stack_status) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-stack-statuses/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5736,8 +5997,10 @@ class Snmp(Entity):
             self.yang_parent_name = "snmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"physical-indexes" : ("physical_indexes", Snmp.SensorMib.PhysicalIndexes), "ent-phy-indexes" : ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("physical-indexes", ("physical_indexes", Snmp.SensorMib.PhysicalIndexes)), ("ent-phy-indexes", ("ent_phy_indexes", Snmp.SensorMib.EntPhyIndexes))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.physical_indexes = Snmp.SensorMib.PhysicalIndexes()
             self.physical_indexes.parent = self
@@ -5776,8 +6039,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "sensor-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"physical-index" : ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("physical-index", ("physical_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex))])
+                self._leafs = OrderedDict()
 
                 self.physical_index = YList(self)
                 self._segment_path = lambda: "physical-indexes"
@@ -5791,7 +6056,7 @@ class Snmp(Entity):
                 """
                 Threshold value for physical index
                 
-                .. attribute:: index  <key>
+                .. attribute:: index  (key)
                 
                 	Physical index
                 	**type**\: str
@@ -5817,16 +6082,19 @@ class Snmp(Entity):
                     self.yang_parent_name = "physical-indexes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"threshold-indexes" : ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes)}
-                    self._child_list_classes = {}
-
-                    self.index = YLeaf(YType.str, "index")
+                    self.ylist_key_names = ['index']
+                    self._child_container_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', YLeaf(YType.str, 'index')),
+                    ])
+                    self.index = None
 
                     self.threshold_indexes = Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes()
                     self.threshold_indexes.parent = self
                     self._children_name_map["threshold_indexes"] = "threshold-indexes"
                     self._children_yang_names.add("threshold-indexes")
-                    self._segment_path = lambda: "physical-index" + "[index='" + self.index.get() + "']"
+                    self._segment_path = lambda: "physical-index" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/physical-indexes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -5856,8 +6124,10 @@ class Snmp(Entity):
                         self.yang_parent_name = "physical-index"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"threshold-index" : ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("threshold-index", ("threshold_index", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex))])
+                        self._leafs = OrderedDict()
 
                         self.threshold_index = YList(self)
                         self._segment_path = lambda: "threshold-indexes"
@@ -5929,22 +6199,25 @@ class Snmp(Entity):
                             self.yang_parent_name = "threshold-indexes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.phy_index = YLeaf(YType.str, "phy-index")
-
-                            self.thre_index = YLeaf(YType.str, "thre-index")
-
-                            self.threshold_severity = YLeaf(YType.uint32, "threshold-severity")
-
-                            self.threshold_relation = YLeaf(YType.uint32, "threshold-relation")
-
-                            self.threshold_value = YLeaf(YType.uint32, "threshold-value")
-
-                            self.threshold_evaluation = YLeaf(YType.boolean, "threshold-evaluation")
-
-                            self.threshold_notification_enabled = YLeaf(YType.boolean, "threshold-notification-enabled")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('phy_index', YLeaf(YType.str, 'phy-index')),
+                                ('thre_index', YLeaf(YType.str, 'thre-index')),
+                                ('threshold_severity', YLeaf(YType.uint32, 'threshold-severity')),
+                                ('threshold_relation', YLeaf(YType.uint32, 'threshold-relation')),
+                                ('threshold_value', YLeaf(YType.uint32, 'threshold-value')),
+                                ('threshold_evaluation', YLeaf(YType.boolean, 'threshold-evaluation')),
+                                ('threshold_notification_enabled', YLeaf(YType.boolean, 'threshold-notification-enabled')),
+                            ])
+                            self.phy_index = None
+                            self.thre_index = None
+                            self.threshold_severity = None
+                            self.threshold_relation = None
+                            self.threshold_value = None
+                            self.threshold_evaluation = None
+                            self.threshold_notification_enabled = None
                             self._segment_path = lambda: "threshold-index"
 
                         def __setattr__(self, name, value):
@@ -5974,8 +6247,10 @@ class Snmp(Entity):
                 self.yang_parent_name = "sensor-mib"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ent-phy-index" : ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ent-phy-index", ("ent_phy_index", Snmp.SensorMib.EntPhyIndexes.EntPhyIndex))])
+                self._leafs = OrderedDict()
 
                 self.ent_phy_index = YList(self)
                 self._segment_path = lambda: "ent-phy-indexes"
@@ -5989,7 +6264,7 @@ class Snmp(Entity):
                 """
                 Sensor value for physical index
                 
-                .. attribute:: index  <key>
+                .. attribute:: index  (key)
                 
                 	Physical index
                 	**type**\: str
@@ -6101,37 +6376,40 @@ class Snmp(Entity):
                     self.yang_parent_name = "ent-phy-indexes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.index = YLeaf(YType.str, "index")
-
-                    self.field_validity_bitmap = YLeaf(YType.uint32, "field-validity-bitmap")
-
-                    self.device_description = YLeaf(YType.str, "device-description")
-
-                    self.units = YLeaf(YType.str, "units")
-
-                    self.device_id = YLeaf(YType.uint32, "device-id")
-
-                    self.value = YLeaf(YType.uint32, "value")
-
-                    self.alarm_type = YLeaf(YType.uint32, "alarm-type")
-
-                    self.data_type = YLeaf(YType.uint32, "data-type")
-
-                    self.scale = YLeaf(YType.uint32, "scale")
-
-                    self.precision = YLeaf(YType.uint32, "precision")
-
-                    self.status = YLeaf(YType.uint32, "status")
-
-                    self.age_time_stamp = YLeaf(YType.uint32, "age-time-stamp")
-
-                    self.update_rate = YLeaf(YType.uint32, "update-rate")
-
-                    self.measured_entity = YLeaf(YType.uint32, "measured-entity")
-                    self._segment_path = lambda: "ent-phy-index" + "[index='" + self.index.get() + "']"
+                    self.ylist_key_names = ['index']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('index', YLeaf(YType.str, 'index')),
+                        ('field_validity_bitmap', YLeaf(YType.uint32, 'field-validity-bitmap')),
+                        ('device_description', YLeaf(YType.str, 'device-description')),
+                        ('units', YLeaf(YType.str, 'units')),
+                        ('device_id', YLeaf(YType.uint32, 'device-id')),
+                        ('value', YLeaf(YType.uint32, 'value')),
+                        ('alarm_type', YLeaf(YType.uint32, 'alarm-type')),
+                        ('data_type', YLeaf(YType.uint32, 'data-type')),
+                        ('scale', YLeaf(YType.uint32, 'scale')),
+                        ('precision', YLeaf(YType.uint32, 'precision')),
+                        ('status', YLeaf(YType.uint32, 'status')),
+                        ('age_time_stamp', YLeaf(YType.uint32, 'age-time-stamp')),
+                        ('update_rate', YLeaf(YType.uint32, 'update-rate')),
+                        ('measured_entity', YLeaf(YType.uint32, 'measured-entity')),
+                    ])
+                    self.index = None
+                    self.field_validity_bitmap = None
+                    self.device_description = None
+                    self.units = None
+                    self.device_id = None
+                    self.value = None
+                    self.alarm_type = None
+                    self.data_type = None
+                    self.scale = None
+                    self.precision = None
+                    self.status = None
+                    self.age_time_stamp = None
+                    self.update_rate = None
+                    self.measured_entity = None
+                    self._segment_path = lambda: "ent-phy-index" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/ent-phy-indexes/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):

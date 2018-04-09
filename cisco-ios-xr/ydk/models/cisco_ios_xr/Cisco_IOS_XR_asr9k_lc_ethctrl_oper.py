@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Mlan(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-asr9k-lc-ethctrl-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Mlan.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Mlan.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Mlan.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class Mlan(Entity):
             self.yang_parent_name = "mlan"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Mlan.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Mlan.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class Mlan(Entity):
             """
             Number
             
-            .. attribute:: node  <key>
+            .. attribute:: node  (key)
             
             	node number
             	**type**\: str
@@ -131,10 +137,13 @@ class Mlan(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"port-status-numbers" : ("port_status_numbers", Mlan.Nodes.Node.PortStatusNumbers), "switch-status-table" : ("switch_status_table", Mlan.Nodes.Node.SwitchStatusTable), "port-counters-numbers" : ("port_counters_numbers", Mlan.Nodes.Node.PortCountersNumbers), "atu-entry-numbers" : ("atu_entry_numbers", Mlan.Nodes.Node.AtuEntryNumbers)}
-                self._child_list_classes = {}
-
-                self.node = YLeaf(YType.str, "node")
+                self.ylist_key_names = ['node']
+                self._child_container_classes = OrderedDict([("port-status-numbers", ("port_status_numbers", Mlan.Nodes.Node.PortStatusNumbers)), ("switch-status-table", ("switch_status_table", Mlan.Nodes.Node.SwitchStatusTable)), ("port-counters-numbers", ("port_counters_numbers", Mlan.Nodes.Node.PortCountersNumbers)), ("atu-entry-numbers", ("atu_entry_numbers", Mlan.Nodes.Node.AtuEntryNumbers))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node', YLeaf(YType.str, 'node')),
+                ])
+                self.node = None
 
                 self.port_status_numbers = Mlan.Nodes.Node.PortStatusNumbers()
                 self.port_status_numbers.parent = self
@@ -155,7 +164,7 @@ class Mlan(Entity):
                 self.atu_entry_numbers.parent = self
                 self._children_name_map["atu_entry_numbers"] = "atu-entry-numbers"
                 self._children_yang_names.add("atu-entry-numbers")
-                self._segment_path = lambda: "node" + "[node='" + self.node.get() + "']"
+                self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-lc-ethctrl-oper:mlan/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -185,8 +194,10 @@ class Mlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"port-status-number" : ("port_status_number", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("port-status-number", ("port_status_number", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber))])
+                    self._leafs = OrderedDict()
 
                     self.port_status_number = YList(self)
                     self._segment_path = lambda: "port-status-numbers"
@@ -199,7 +210,7 @@ class Mlan(Entity):
                     """
                     Number
                     
-                    .. attribute:: number  <key>
+                    .. attribute:: number  (key)
                     
                     	port number
                     	**type**\: int
@@ -225,16 +236,19 @@ class Mlan(Entity):
                         self.yang_parent_name = "port-status-numbers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"port-status" : ("port_status", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus)}
-                        self._child_list_classes = {}
-
-                        self.number = YLeaf(YType.int32, "number")
+                        self.ylist_key_names = ['number']
+                        self._child_container_classes = OrderedDict([("port-status", ("port_status", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('number', YLeaf(YType.int32, 'number')),
+                        ])
+                        self.number = None
 
                         self.port_status = Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus()
                         self.port_status.parent = self
                         self._children_name_map["port_status"] = "port-status"
                         self._children_yang_names.add("port-status")
-                        self._segment_path = lambda: "port-status-number" + "[number='" + self.number.get() + "']"
+                        self._segment_path = lambda: "port-status-number" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber, ['number'], name, value)
@@ -306,16 +320,19 @@ class Mlan(Entity):
                             self.yang_parent_name = "port-status-number"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config), "phy" : ("phy", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy), "serdes" : ("serdes", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes), "mac" : ("mac", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac)}
-                            self._child_list_classes = {}
-
-                            self.port_num = YLeaf(YType.uint32, "port-num")
-
-                            self.phy_valid = YLeaf(YType.uint32, "phy-valid")
-
-                            self.serdes_valid = YLeaf(YType.uint32, "serdes-valid")
-
-                            self.mac_valid = YLeaf(YType.uint32, "mac-valid")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config)), ("phy", ("phy", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Phy)), ("serdes", ("serdes", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Serdes)), ("mac", ("mac", Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Mac))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('port_num', YLeaf(YType.uint32, 'port-num')),
+                                ('phy_valid', YLeaf(YType.uint32, 'phy-valid')),
+                                ('serdes_valid', YLeaf(YType.uint32, 'serdes-valid')),
+                                ('mac_valid', YLeaf(YType.uint32, 'mac-valid')),
+                            ])
+                            self.port_num = None
+                            self.phy_valid = None
+                            self.serdes_valid = None
+                            self.mac_valid = None
 
                             self.config = Mlan.Nodes.Node.PortStatusNumbers.PortStatusNumber.PortStatus.Config()
                             self.config.parent = self
@@ -395,18 +412,21 @@ class Mlan(Entity):
                                 self.yang_parent_name = "port-status"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.speed = YLeaf(YType.uint32, "speed")
-
-                                self.duplex = YLeaf(YType.uint32, "duplex")
-
-                                self.pause = YLeaf(YType.uint16, "pause")
-
-                                self.my_pause = YLeaf(YType.uint16, "my-pause")
-
-                                self.loopback = YLeaf(YType.uint32, "loopback")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('speed', YLeaf(YType.uint32, 'speed')),
+                                    ('duplex', YLeaf(YType.uint32, 'duplex')),
+                                    ('pause', YLeaf(YType.uint16, 'pause')),
+                                    ('my_pause', YLeaf(YType.uint16, 'my-pause')),
+                                    ('loopback', YLeaf(YType.uint32, 'loopback')),
+                                ])
+                                self.speed = None
+                                self.duplex = None
+                                self.pause = None
+                                self.my_pause = None
+                                self.loopback = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -438,10 +458,13 @@ class Mlan(Entity):
                                 self.yang_parent_name = "port-status"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reg = YLeafList(YType.uint16, "reg")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reg', YLeafList(YType.uint16, 'reg')),
+                                ])
+                                self.reg = []
                                 self._segment_path = lambda: "phy"
 
                             def __setattr__(self, name, value):
@@ -473,10 +496,13 @@ class Mlan(Entity):
                                 self.yang_parent_name = "port-status"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reg = YLeafList(YType.uint16, "reg")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reg', YLeafList(YType.uint16, 'reg')),
+                                ])
+                                self.reg = []
                                 self._segment_path = lambda: "serdes"
 
                             def __setattr__(self, name, value):
@@ -508,10 +534,13 @@ class Mlan(Entity):
                                 self.yang_parent_name = "port-status"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.reg = YLeafList(YType.uint16, "reg")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('reg', YLeafList(YType.uint16, 'reg')),
+                                ])
+                                self.reg = []
                                 self._segment_path = lambda: "mac"
 
                             def __setattr__(self, name, value):
@@ -541,8 +570,10 @@ class Mlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"switch-status" : ("switch_status", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("switch-status", ("switch_status", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.switch_status = Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus()
                     self.switch_status.parent = self
@@ -591,10 +622,13 @@ class Mlan(Entity):
                         self.yang_parent_name = "switch-status-table"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"sw-reg-1" : ("sw_reg_1", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1), "sw-reg-2" : ("sw_reg_2", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2), "sw-status" : ("sw_status", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus)}
-                        self._child_list_classes = {}
-
-                        self.rate_limit = YLeaf(YType.int32, "rate-limit")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("sw-reg-1", ("sw_reg_1", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1)), ("sw-reg-2", ("sw_reg_2", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg2)), ("sw-status", ("sw_status", Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwStatus))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rate_limit', YLeaf(YType.int32, 'rate-limit')),
+                        ])
+                        self.rate_limit = None
 
                         self.sw_reg_1 = Mlan.Nodes.Node.SwitchStatusTable.SwitchStatus.SwReg1()
                         self.sw_reg_1.parent = self
@@ -641,10 +675,13 @@ class Mlan(Entity):
                             self.yang_parent_name = "switch-status"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reg = YLeafList(YType.uint16, "reg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reg', YLeafList(YType.uint16, 'reg')),
+                            ])
+                            self.reg = []
                             self._segment_path = lambda: "sw-reg-1"
 
                         def __setattr__(self, name, value):
@@ -676,10 +713,13 @@ class Mlan(Entity):
                             self.yang_parent_name = "switch-status"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.reg = YLeafList(YType.uint16, "reg")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('reg', YLeafList(YType.uint16, 'reg')),
+                            ])
+                            self.reg = []
                             self._segment_path = lambda: "sw-reg-2"
 
                         def __setattr__(self, name, value):
@@ -753,22 +793,25 @@ class Mlan(Entity):
                             self.yang_parent_name = "switch-status"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ppu = YLeaf(YType.uint32, "ppu")
-
-                            self.mtu = YLeaf(YType.uint32, "mtu")
-
-                            self.mac = YLeaf(YType.str, "mac")
-
-                            self.cpu_port = YLeaf(YType.uint16, "cpu-port")
-
-                            self.cpu_mac = YLeaf(YType.uint16, "cpu-mac")
-
-                            self.initialized = YLeaf(YType.uint16, "initialized")
-
-                            self.restarted = YLeaf(YType.uint16, "restarted")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ppu', YLeaf(YType.uint32, 'ppu')),
+                                ('mtu', YLeaf(YType.uint32, 'mtu')),
+                                ('mac', YLeaf(YType.str, 'mac')),
+                                ('cpu_port', YLeaf(YType.uint16, 'cpu-port')),
+                                ('cpu_mac', YLeaf(YType.uint16, 'cpu-mac')),
+                                ('initialized', YLeaf(YType.uint16, 'initialized')),
+                                ('restarted', YLeaf(YType.uint16, 'restarted')),
+                            ])
+                            self.ppu = None
+                            self.mtu = None
+                            self.mac = None
+                            self.cpu_port = None
+                            self.cpu_mac = None
+                            self.initialized = None
+                            self.restarted = None
                             self._segment_path = lambda: "sw-status"
 
                         def __setattr__(self, name, value):
@@ -798,8 +841,10 @@ class Mlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"port-counters-number" : ("port_counters_number", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("port-counters-number", ("port_counters_number", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber))])
+                    self._leafs = OrderedDict()
 
                     self.port_counters_number = YList(self)
                     self._segment_path = lambda: "port-counters-numbers"
@@ -812,7 +857,7 @@ class Mlan(Entity):
                     """
                     Number
                     
-                    .. attribute:: number  <key>
+                    .. attribute:: number  (key)
                     
                     	port number
                     	**type**\: int
@@ -838,16 +883,19 @@ class Mlan(Entity):
                         self.yang_parent_name = "port-counters-numbers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"port-counters" : ("port_counters", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters)}
-                        self._child_list_classes = {}
-
-                        self.number = YLeaf(YType.int32, "number")
+                        self.ylist_key_names = ['number']
+                        self._child_container_classes = OrderedDict([("port-counters", ("port_counters", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('number', YLeaf(YType.int32, 'number')),
+                        ])
+                        self.number = None
 
                         self.port_counters = Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters()
                         self.port_counters.parent = self
                         self._children_name_map["port_counters"] = "port-counters"
                         self._children_yang_names.add("port-counters")
-                        self._segment_path = lambda: "port-counters-number" + "[number='" + self.number.get() + "']"
+                        self._segment_path = lambda: "port-counters-number" + "[number='" + str(self.number) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber, ['number'], name, value)
@@ -883,10 +931,13 @@ class Mlan(Entity):
                             self.yang_parent_name = "port-counters-number"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"mlan-stats" : ("mlan_stats", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats)}
-                            self._child_list_classes = {}
-
-                            self.port_num = YLeaf(YType.uint32, "port-num")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("mlan-stats", ("mlan_stats", Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('port_num', YLeaf(YType.uint32, 'port-num')),
+                            ])
+                            self.port_num = None
 
                             self.mlan_stats = Mlan.Nodes.Node.PortCountersNumbers.PortCountersNumber.PortCounters.MlanStats()
                             self.mlan_stats.parent = self
@@ -1161,78 +1212,81 @@ class Mlan(Entity):
                                 self.yang_parent_name = "port-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.in_good_octets_hi = YLeaf(YType.uint32, "in-good-octets-hi")
-
-                                self.in_good_octets = YLeaf(YType.uint32, "in-good-octets")
-
-                                self.in_bad_octets = YLeaf(YType.uint32, "in-bad-octets")
-
-                                self.in_unicast_pkt = YLeaf(YType.uint32, "in-unicast-pkt")
-
-                                self.in_bcast_pkt = YLeaf(YType.uint32, "in-bcast-pkt")
-
-                                self.in_mcast_pkt = YLeaf(YType.uint32, "in-mcast-pkt")
-
-                                self.in_pause_pkt = YLeaf(YType.uint32, "in-pause-pkt")
-
-                                self.in_undersize_pkt = YLeaf(YType.uint32, "in-undersize-pkt")
-
-                                self.in_fragments = YLeaf(YType.uint32, "in-fragments")
-
-                                self.in_oversize = YLeaf(YType.uint32, "in-oversize")
-
-                                self.in_jabber = YLeaf(YType.uint32, "in-jabber")
-
-                                self.in_rx_err = YLeaf(YType.uint32, "in-rx-err")
-
-                                self.in_fcs_err = YLeaf(YType.uint32, "in-fcs-err")
-
-                                self.out_octets_hi = YLeaf(YType.uint32, "out-octets-hi")
-
-                                self.out_octets = YLeaf(YType.uint32, "out-octets")
-
-                                self.out_unicast_pkt = YLeaf(YType.uint32, "out-unicast-pkt")
-
-                                self.out_bcast_pkt = YLeaf(YType.uint32, "out-bcast-pkt")
-
-                                self.out_mcast_pkt = YLeaf(YType.uint32, "out-mcast-pkt")
-
-                                self.out_pause_pkt = YLeaf(YType.uint32, "out-pause-pkt")
-
-                                self.excessive = YLeaf(YType.uint32, "excessive")
-
-                                self.collisions = YLeaf(YType.uint32, "collisions")
-
-                                self.deferred = YLeaf(YType.uint32, "deferred")
-
-                                self.single = YLeaf(YType.uint32, "single")
-
-                                self.multiple = YLeaf(YType.uint32, "multiple")
-
-                                self.out_fcs_err = YLeaf(YType.uint32, "out-fcs-err")
-
-                                self.late = YLeaf(YType.uint32, "late")
-
-                                self.rx_tx_64_octets = YLeaf(YType.uint32, "rx-tx-64-octets")
-
-                                self.rx_tx_65_127_octets = YLeaf(YType.uint32, "rx-tx-65-127-octets")
-
-                                self.rx_tx_128_255_octets = YLeaf(YType.uint32, "rx-tx-128-255-octets")
-
-                                self.rx_tx_256_511_octets = YLeaf(YType.uint32, "rx-tx-256-511-octets")
-
-                                self.rx_tx_512_1023_octets = YLeaf(YType.uint32, "rx-tx-512-1023-octets")
-
-                                self.rx_tx_1024_max_octets = YLeaf(YType.uint32, "rx-tx-1024-max-octets")
-
-                                self.in_discards = YLeaf(YType.uint32, "in-discards")
-
-                                self.in_filtered = YLeaf(YType.uint32, "in-filtered")
-
-                                self.out_filtered = YLeaf(YType.uint32, "out-filtered")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_good_octets_hi', YLeaf(YType.uint32, 'in-good-octets-hi')),
+                                    ('in_good_octets', YLeaf(YType.uint32, 'in-good-octets')),
+                                    ('in_bad_octets', YLeaf(YType.uint32, 'in-bad-octets')),
+                                    ('in_unicast_pkt', YLeaf(YType.uint32, 'in-unicast-pkt')),
+                                    ('in_bcast_pkt', YLeaf(YType.uint32, 'in-bcast-pkt')),
+                                    ('in_mcast_pkt', YLeaf(YType.uint32, 'in-mcast-pkt')),
+                                    ('in_pause_pkt', YLeaf(YType.uint32, 'in-pause-pkt')),
+                                    ('in_undersize_pkt', YLeaf(YType.uint32, 'in-undersize-pkt')),
+                                    ('in_fragments', YLeaf(YType.uint32, 'in-fragments')),
+                                    ('in_oversize', YLeaf(YType.uint32, 'in-oversize')),
+                                    ('in_jabber', YLeaf(YType.uint32, 'in-jabber')),
+                                    ('in_rx_err', YLeaf(YType.uint32, 'in-rx-err')),
+                                    ('in_fcs_err', YLeaf(YType.uint32, 'in-fcs-err')),
+                                    ('out_octets_hi', YLeaf(YType.uint32, 'out-octets-hi')),
+                                    ('out_octets', YLeaf(YType.uint32, 'out-octets')),
+                                    ('out_unicast_pkt', YLeaf(YType.uint32, 'out-unicast-pkt')),
+                                    ('out_bcast_pkt', YLeaf(YType.uint32, 'out-bcast-pkt')),
+                                    ('out_mcast_pkt', YLeaf(YType.uint32, 'out-mcast-pkt')),
+                                    ('out_pause_pkt', YLeaf(YType.uint32, 'out-pause-pkt')),
+                                    ('excessive', YLeaf(YType.uint32, 'excessive')),
+                                    ('collisions', YLeaf(YType.uint32, 'collisions')),
+                                    ('deferred', YLeaf(YType.uint32, 'deferred')),
+                                    ('single', YLeaf(YType.uint32, 'single')),
+                                    ('multiple', YLeaf(YType.uint32, 'multiple')),
+                                    ('out_fcs_err', YLeaf(YType.uint32, 'out-fcs-err')),
+                                    ('late', YLeaf(YType.uint32, 'late')),
+                                    ('rx_tx_64_octets', YLeaf(YType.uint32, 'rx-tx-64-octets')),
+                                    ('rx_tx_65_127_octets', YLeaf(YType.uint32, 'rx-tx-65-127-octets')),
+                                    ('rx_tx_128_255_octets', YLeaf(YType.uint32, 'rx-tx-128-255-octets')),
+                                    ('rx_tx_256_511_octets', YLeaf(YType.uint32, 'rx-tx-256-511-octets')),
+                                    ('rx_tx_512_1023_octets', YLeaf(YType.uint32, 'rx-tx-512-1023-octets')),
+                                    ('rx_tx_1024_max_octets', YLeaf(YType.uint32, 'rx-tx-1024-max-octets')),
+                                    ('in_discards', YLeaf(YType.uint32, 'in-discards')),
+                                    ('in_filtered', YLeaf(YType.uint32, 'in-filtered')),
+                                    ('out_filtered', YLeaf(YType.uint32, 'out-filtered')),
+                                ])
+                                self.in_good_octets_hi = None
+                                self.in_good_octets = None
+                                self.in_bad_octets = None
+                                self.in_unicast_pkt = None
+                                self.in_bcast_pkt = None
+                                self.in_mcast_pkt = None
+                                self.in_pause_pkt = None
+                                self.in_undersize_pkt = None
+                                self.in_fragments = None
+                                self.in_oversize = None
+                                self.in_jabber = None
+                                self.in_rx_err = None
+                                self.in_fcs_err = None
+                                self.out_octets_hi = None
+                                self.out_octets = None
+                                self.out_unicast_pkt = None
+                                self.out_bcast_pkt = None
+                                self.out_mcast_pkt = None
+                                self.out_pause_pkt = None
+                                self.excessive = None
+                                self.collisions = None
+                                self.deferred = None
+                                self.single = None
+                                self.multiple = None
+                                self.out_fcs_err = None
+                                self.late = None
+                                self.rx_tx_64_octets = None
+                                self.rx_tx_65_127_octets = None
+                                self.rx_tx_128_255_octets = None
+                                self.rx_tx_256_511_octets = None
+                                self.rx_tx_512_1023_octets = None
+                                self.rx_tx_1024_max_octets = None
+                                self.in_discards = None
+                                self.in_filtered = None
+                                self.out_filtered = None
                                 self._segment_path = lambda: "mlan-stats"
 
                             def __setattr__(self, name, value):
@@ -1262,8 +1316,10 @@ class Mlan(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"atu-entry-number" : ("atu_entry_number", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("atu-entry-number", ("atu_entry_number", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber))])
+                    self._leafs = OrderedDict()
 
                     self.atu_entry_number = YList(self)
                     self._segment_path = lambda: "atu-entry-numbers"
@@ -1276,7 +1332,7 @@ class Mlan(Entity):
                     """
                     Entry number
                     
-                    .. attribute:: entry  <key>
+                    .. attribute:: entry  (key)
                     
                     	entry number
                     	**type**\: int
@@ -1302,16 +1358,19 @@ class Mlan(Entity):
                         self.yang_parent_name = "atu-entry-numbers"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"switch-counters" : ("switch_counters", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters)}
-                        self._child_list_classes = {}
-
-                        self.entry = YLeaf(YType.int32, "entry")
+                        self.ylist_key_names = ['entry']
+                        self._child_container_classes = OrderedDict([("switch-counters", ("switch_counters", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('entry', YLeaf(YType.int32, 'entry')),
+                        ])
+                        self.entry = None
 
                         self.switch_counters = Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters()
                         self.switch_counters.parent = self
                         self._children_name_map["switch_counters"] = "switch-counters"
                         self._children_yang_names.add("switch-counters")
-                        self._segment_path = lambda: "atu-entry-number" + "[entry='" + self.entry.get() + "']"
+                        self._segment_path = lambda: "atu-entry-number" + "[entry='" + str(self.entry) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber, ['entry'], name, value)
@@ -1347,10 +1406,13 @@ class Mlan(Entity):
                             self.yang_parent_name = "atu-entry-number"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"atu" : ("atu", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu)}
-                            self._child_list_classes = {}
-
-                            self.entry_num = YLeaf(YType.uint32, "entry-num")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("atu", ("atu", Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('entry_num', YLeaf(YType.uint32, 'entry-num')),
+                            ])
+                            self.entry_num = None
 
                             self.atu = Mlan.Nodes.Node.AtuEntryNumbers.AtuEntryNumber.SwitchCounters.Atu()
                             self.atu.parent = self
@@ -1420,20 +1482,23 @@ class Mlan(Entity):
                                 self.yang_parent_name = "switch-counters"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.db_num = YLeaf(YType.uint16, "db-num")
-
-                                self.priority = YLeaf(YType.uint8, "priority")
-
-                                self.trunk = YLeaf(YType.boolean, "trunk")
-
-                                self.dpv = YLeaf(YType.uint8, "dpv")
-
-                                self.es = YLeaf(YType.uint8, "es")
-
-                                self.macaddr = YLeafList(YType.uint16, "macaddr")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('db_num', YLeaf(YType.uint16, 'db-num')),
+                                    ('priority', YLeaf(YType.uint8, 'priority')),
+                                    ('trunk', YLeaf(YType.boolean, 'trunk')),
+                                    ('dpv', YLeaf(YType.uint8, 'dpv')),
+                                    ('es', YLeaf(YType.uint8, 'es')),
+                                    ('macaddr', YLeafList(YType.uint16, 'macaddr')),
+                                ])
+                                self.db_num = None
+                                self.priority = None
+                                self.trunk = None
+                                self.dpv = None
+                                self.es = None
+                                self.macaddr = []
                                 self._segment_path = lambda: "atu"
 
                             def __setattr__(self, name, value):

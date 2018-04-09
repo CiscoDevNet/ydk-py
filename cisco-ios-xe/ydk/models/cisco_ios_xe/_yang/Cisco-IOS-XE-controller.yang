@@ -27,12 +27,28 @@ module Cisco-IOS-XE-controller {
 
   description
     "Cisco XE Controller Yang Model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-03 {
+    description
+      "Remove lower case t1/e1/t3 controller name";
+  }
+  revision 2017-12-16 {
+    description
+      "Add data model for Controller Celullar lte options";
+  }
+  revision 2017-12-15 {
+    description
+      "Support lte failovertimer/firmware auto-sim/radio off";
+  }
+  revision 2017-11-28 {
+    description
+      "Add description node for tx-ex controllers";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -390,9 +406,6 @@ module Cisco-IOS-XE-controller {
       key "name number";
       leaf name {
         type enumeration {
-          enum "t1";
-          enum "e1";
-          enum "t3";
           enum "T1";
           enum "E1";
           enum "T3";
@@ -442,6 +455,15 @@ module Cisco-IOS-XE-controller {
         }
       }
 
+      // controller * / description
+      leaf description {
+        description
+          "Controller specific description";
+        type string {
+          length "1..240";
+        }
+      }
+
       // controller * / linecode
       leaf linecode {
         type enumeration {
@@ -487,6 +509,145 @@ module Cisco-IOS-XE-controller {
         type string;
       }
       container lte {
+        description
+          "LTE type carrier";
+        container sim {
+          description 
+            "Subscriber Identity Module"; 
+          container authenticate {
+            description
+              "CHV1 authentication";
+            leaf pin-type {
+              description
+                "0 Specifies an UNENCRYPTED (cleartext) PIN will follow " +
+                "7 Specifies a HIDDEN PIN will follow";
+              type enumeration {
+                enum "0";
+                enum "7";
+              }
+            }
+            leaf pin {
+              description
+                "Unecrypted PIN (Length 4 to 8 characters)" +
+                "Encrypted PIN";
+              type string;
+            }
+            leaf slot {
+              description
+                "Slot number";
+              type uint8;
+            }
+          }
+          list data-profile-list {
+            description
+              "Data Profile number";
+            key slot;
+            leaf slot {
+              description
+                "Slot number";
+              type uint8;
+            }
+            leaf data-profile {
+              description
+                "Profile Number corresponding to the data bearer APN";
+              type uint8;
+            }
+            leaf attach-profile {
+              description
+                "Profile Number corresponding to initial attach APN";
+              type uint8;
+            }
+          }
+          leaf max-retry {
+            description
+              "Maximum number of SIM switchover retries";
+            type uint16;
+          }
+          container primary {
+            description
+              "Controller's primary SIM";
+            leaf slot {
+               description
+                 "Slot number";
+               type uint8;
+             }
+          }
+        }
+        container gps {
+          description 
+            "GPS configuration";
+          container nmea-conf {
+            leaf nmea {
+              description 
+                "enable NMEA data";
+              type empty;
+            }
+          }
+          container nmea {
+            container ip {
+              description 
+                "enable NMEA stream over IP UDP interface";
+              container udp {
+                description 
+                  "UDP Transport";
+                leaf source-address {
+                  description 
+                    "Source address";
+                  type inet:ipv4-address;
+                }
+                leaf destination-address {
+                  description 
+                    "Destination address";
+                  type inet:ipv4-address;
+                }
+                leaf destination-port {
+                  description 
+                    "Destination port";
+                  type uint16;
+                }
+              }
+            }
+          }
+          leaf enable {
+            description 
+              "enable GPS feature";
+            type empty;
+          }
+          leaf mode {
+            description 
+              "select GPS mode";
+            type enumeration {
+              enum "ms-based";
+              enum "standalone";
+            }
+          }
+        }
+        leaf failovertimer {
+          description
+            "Failover timeout value in mins";
+          type uint8 {
+            range "3..7";
+          }
+        }
+        container firmware {
+          description
+            "Select firmware option";
+          presence true; 
+          leaf auto-sim {
+            description
+              "Select firmware auto-sim";
+            type empty;
+          }
+        }
+        container radio {
+          description
+            "Controller's radio";
+          leaf off {
+            description
+              "Power down radio";
+            type empty;
+          }
+        }
         container modem {
           container link-recovery {
             container rssi {
@@ -502,6 +663,9 @@ module Cisco-IOS-XE-controller {
             }
             leaf debounce-count {
               type uint32;
+            }
+            leaf disable {
+              type empty;
             }
           }
         }

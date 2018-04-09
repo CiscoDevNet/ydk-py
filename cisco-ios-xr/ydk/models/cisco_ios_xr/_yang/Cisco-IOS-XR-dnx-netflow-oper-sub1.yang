@@ -1,231 +1,267 @@
 submodule Cisco-IOS-XR-dnx-netflow-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-dnx-netflow-oper {
     prefix Cisco-IOS-XR-dnx-netflow-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR dnx-netflow package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Flow-monitor-name {
     type string;
-    description "Flow monitor name";
+    description
+      "Flow monitor name";
   }
 
   grouping NFSVR-COLLECTOR-INFO {
-    description "Per collector information";
+    description
+      "Per collector information";
     leaf exporter-state {
       type string;
-      description "Exporter state";
+      description
+        "Exporter state";
     }
     leaf destination-address {
       type string;
       description
         "Destination IPv4 address in AAA.BBB.CCC.DDD
-        format";
+         format";
     }
     leaf source-address {
       type string;
-      description "Source IPv4 address in AAA.BBB.CCC.DDD format";
+      description
+        "Source IPv4 address in AAA.BBB.CCC.DDD format";
     }
     leaf vrf-name {
       type string;
-      description "VRF Name";
+      description
+        "VRF Name";
     }
     leaf destination-port {
       type uint16;
-      description "Destination port number";
+      description
+        "Destination port number";
     }
     leaf souce-port {
       type uint16;
-      description "Source port number";
+      description
+        "Source port number";
     }
     leaf transport-protocol {
       type string;
-      description "Transport protocol";
+      description
+        "Transport protocol";
     }
     leaf packets-sent {
       type uint64;
-      description "Packets sent";
+      description
+        "Packets sent";
     }
     leaf flows-sent {
       type uint64;
-      description "Flows sent";
+      description
+        "Flows sent";
     }
     leaf templates-sent {
       type uint64;
-      description "Templates sent";
+      description
+        "Templates sent";
     }
     leaf option-templates-sent {
       type uint64;
-      description "Option templates sent";
+      description
+        "Option templates sent";
     }
     leaf option-data-sent {
       type uint64;
-      description "Option data sent";
+      description
+        "Option data sent";
     }
     leaf bytes-sent {
       type uint64;
       units "byte";
-      description "Bytes sent";
+      description
+        "Bytes sent";
     }
     leaf flow-bytes-sent {
       type uint64;
       units "byte";
-      description "Flow bytes sent";
+      description
+        "Flow bytes sent";
     }
     leaf template-bytes-sent {
       type uint64;
       units "byte";
-      description "Template bytes sent";
+      description
+        "Template bytes sent";
     }
     leaf option-template-bytes-sent {
       type uint64;
       units "byte";
-      description "Option template bytes sent";
+      description
+        "Option template bytes sent";
     }
     leaf option-data-bytes-sent {
       type uint64;
       units "byte";
-      description "Option data bytes sent";
+      description
+        "Option data bytes sent";
     }
     leaf packets-dropped {
       type uint64;
-      description "Packets dropped";
+      description
+        "Packets dropped";
     }
     leaf flows-dropped {
       type uint64;
-      description "Flows dropped";
+      description
+        "Flows dropped";
     }
     leaf templates-dropped {
       type uint64;
-      description "Templates dropped";
+      description
+        "Templates dropped";
     }
     leaf option-templates-dropped {
       type uint64;
-      description "Option templates dropped";
+      description
+        "Option templates dropped";
     }
     leaf option-data-dropped {
       type uint64;
-      description "Option data dropped";
+      description
+        "Option data dropped";
     }
     leaf bytes-dropped {
       type uint64;
       units "byte";
-      description "Bytes dropped";
+      description
+        "Bytes dropped";
     }
     leaf flow-bytes-dropped {
       type uint64;
       units "byte";
-      description "Flow bytes dropped";
+      description
+        "Flow bytes dropped";
     }
     leaf template-bytes-dropped {
       type uint64;
       units "byte";
-      description "Template bytes dropped";
+      description
+        "Template bytes dropped";
     }
     leaf option-template-bytes-dropped {
       type uint64;
       units "byte";
-      description "Option template bytes dropped";
+      description
+        "Option template bytes dropped";
     }
     leaf option-data-bytes-dropped {
       type uint64;
-      description "Option data dropped";
+      description
+        "Option data dropped";
     }
     leaf last-hour-packest-sent {
       type uint64;
-      description "Total packets exported over the last one hour";
+      description
+        "Total packets exported over the last one hour";
     }
     leaf last-hour-bytes-sent {
       type uint64;
       units "byte";
-      description "Total bytes exported over the last one hour";
+      description
+        "Total bytes exported over the last one hour";
     }
     leaf last-hour-flows-sent {
       type uint64;
-      description "Total flows exported over the of last one hour";
+      description
+        "Total flows exported over the of last one hour";
     }
     leaf last-minute-packets {
       type uint64;
-      description "Total packets exported over the last one minute";
+      description
+        "Total packets exported over the last one minute";
     }
     leaf last-minute-bytes-sent {
       type uint64;
       units "byte";
-      description "Total bytes exported over the last one minute";
+      description
+        "Total bytes exported over the last one minute";
     }
     leaf last-minute-flows-sent {
       type uint64;
-      description "Total flows exported over the last one minute";
+      description
+        "Total flows exported over the last one minute";
     }
     leaf last-second-packets-sent {
       type uint64;
-      description "Total packets exported over the last one second";
+      description
+        "Total packets exported over the last one second";
     }
     leaf last-second-bytes-sent {
       type uint64;
       units "byte";
-      description "Total bytes exported over the last one second";
+      description
+        "Total bytes exported over the last one second";
     }
     leaf last-second-flows-sent {
       type uint64;
-      description "Total flows exported over the last one second";
+      description
+        "Total flows exported over the last one second";
     }
   }
 
   grouping NFSVR-SHOW-FLOW-EXPORTER-RESP-STATS {
-    description "Flow exporter information";
+    description
+      "Flow exporter information";
     leaf name {
       type string;
-      description "Exporter name";
+      description
+        "Exporter name";
     }
     leaf memory-usage {
       type uint32;
-      description "Memory usage";
+      description
+        "Memory usage";
     }
     leaf-list used-by-flow-monitor {
       type Flow-monitor-name;
-      description "List of flow monitors that use the exporter";
+      description
+        "List of flow monitors that use the exporter";
     }
-
     list collector {
-      description "Statistics of all collectors";
+      description
+        "Statistics of all collectors";
       uses NFSVR-COLLECTOR-INFO;
     }
   }
 
   grouping NFSVR-SHOW-FLOW-EXPORTER-RESP-ARRAY {
-    description "Flow exporter information";
-
+    description
+      "Flow exporter information";
     list statistic {
-      description "Array of flow exporters";
+      description
+        "Array of flow exporters";
       uses NFSVR-SHOW-FLOW-EXPORTER-RESP-STATS;
     }
   }

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 cmake_policy(SET CMP0048 NEW)
-project(path VERSION 0.7.0 LANGUAGES C CXX)
+project(path VERSION 0.7.1 LANGUAGES C CXX)
 set(CMAKE_MACOSX_RPATH 1)
 
 set(path_DESCRIPTION "Python wrapper around C++ path API using pybind11.")
@@ -10,7 +10,13 @@ set(python_src python.cpp)
 # set default build type if not specified by user
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG   "-g -O0")
+
+if(COVERAGE STREQUAL True)
+    set(CMAKE_CXX_FLAGS_DEBUG   "-g3 -O0 -fprofile-arcs -ftest-coverage")
+    set(CMAKE_BUILD_TYPE debug)
+else()
+    set(CMAKE_CXX_FLAGS_DEBUG   "-g3 -O0")
+endif()
 
 if(PYTHON_VERSION)
     message( "python version: ${PYTHON_VERSION}" )

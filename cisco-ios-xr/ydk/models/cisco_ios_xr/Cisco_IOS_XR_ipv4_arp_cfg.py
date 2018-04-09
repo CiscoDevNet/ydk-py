@@ -18,6 +18,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -26,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ArpEncap(Enum):
     """
-    ArpEncap
+    ArpEncap (Enum Class)
 
     Arp encap
 
@@ -59,7 +61,7 @@ class ArpEncap(Enum):
 
 class ArpEntry(Enum):
     """
-    ArpEntry
+    ArpEntry (Enum Class)
 
     Arp entry
 
@@ -119,14 +121,17 @@ class Arp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.max_entries = YLeaf(YType.uint32, "max-entries")
-
-        self.inner_cos = YLeaf(YType.uint32, "inner-cos")
-
-        self.outer_cos = YLeaf(YType.uint32, "outer-cos")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('max_entries', YLeaf(YType.uint32, 'max-entries')),
+            ('inner_cos', YLeaf(YType.uint32, 'inner-cos')),
+            ('outer_cos', YLeaf(YType.uint32, 'outer-cos')),
+        ])
+        self.max_entries = None
+        self.inner_cos = None
+        self.outer_cos = None
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp"
 
     def __setattr__(self, name, value):
@@ -165,12 +170,15 @@ class IedgeCfg(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.subscriber_uncond_proxy = YLeaf(YType.empty, "subscriber-uncond-proxy")
-
-        self.subscriber_scale_mode = YLeaf(YType.empty, "subscriber-scale-mode")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('subscriber_uncond_proxy', YLeaf(YType.empty, 'subscriber-uncond-proxy')),
+            ('subscriber_scale_mode', YLeaf(YType.empty, 'subscriber-scale-mode')),
+        ])
+        self.subscriber_uncond_proxy = None
+        self.subscriber_scale_mode = None
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:iedge-cfg"
 
     def __setattr__(self, name, value):
@@ -204,8 +212,10 @@ class Arpgmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"vrf" : ("vrf", Arpgmp.Vrf)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("vrf", ("vrf", Arpgmp.Vrf))])
+        self._leafs = OrderedDict()
 
         self.vrf = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp"
@@ -219,7 +229,7 @@ class Arpgmp(Entity):
         Per VRF configuration, for the default VRF use
         'default'
         
-        .. attribute:: vrf_name  <key>
+        .. attribute:: vrf_name  (key)
         
         	VRF name
         	**type**\: str
@@ -245,16 +255,19 @@ class Arpgmp(Entity):
             self.yang_parent_name = "arpgmp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"entries" : ("entries", Arpgmp.Vrf.Entries)}
-            self._child_list_classes = {}
-
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
+            self.ylist_key_names = ['vrf_name']
+            self._child_container_classes = OrderedDict([("entries", ("entries", Arpgmp.Vrf.Entries))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+            ])
+            self.vrf_name = None
 
             self.entries = Arpgmp.Vrf.Entries()
             self.entries.parent = self
             self._children_name_map["entries"] = "entries"
             self._children_yang_names.add("entries")
-            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+            self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -284,8 +297,10 @@ class Arpgmp(Entity):
                 self.yang_parent_name = "vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"entry" : ("entry", Arpgmp.Vrf.Entries.Entry)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("entry", ("entry", Arpgmp.Vrf.Entries.Entry))])
+                self._leafs = OrderedDict()
 
                 self.entry = YList(self)
                 self._segment_path = lambda: "entries"
@@ -298,7 +313,7 @@ class Arpgmp(Entity):
                 """
                 ARP static and alias entry configuration item
                 
-                .. attribute:: address  <key>
+                .. attribute:: address  (key)
                 
                 	IP Address
                 	**type**\: str
@@ -343,19 +358,22 @@ class Arpgmp(Entity):
                     self.yang_parent_name = "entries"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                    self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                    self.entry_type = YLeaf(YType.enumeration, "entry-type")
-
-                    self.interface = YLeaf(YType.str, "interface")
-                    self._segment_path = lambda: "entry" + "[address='" + self.address.get() + "']"
+                    self.ylist_key_names = ['address']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                        ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                    ])
+                    self.address = None
+                    self.mac_address = None
+                    self.encapsulation = None
+                    self.entry_type = None
+                    self.interface = None
+                    self._segment_path = lambda: "entry" + "[address='" + str(self.address) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arpgmp.Vrf.Entries.Entry, ['address', 'mac_address', 'encapsulation', 'entry_type', 'interface'], name, value)
@@ -390,8 +408,10 @@ class ArpRedundancy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-arp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"redundancy" : ("redundancy", ArpRedundancy.Redundancy)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("redundancy", ("redundancy", ArpRedundancy.Redundancy))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.redundancy = None
         self._children_name_map["redundancy"] = "redundancy"
@@ -431,11 +451,14 @@ class ArpRedundancy(Entity):
             self.yang_parent_name = "arp-redundancy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"groups" : ("groups", ArpRedundancy.Redundancy.Groups)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("groups", ("groups", ArpRedundancy.Redundancy.Groups))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.enable = YLeaf(YType.empty, "enable")
+            self._leafs = OrderedDict([
+                ('enable', YLeaf(YType.empty, 'enable')),
+            ])
+            self.enable = None
 
             self.groups = ArpRedundancy.Redundancy.Groups()
             self.groups.parent = self
@@ -471,8 +494,10 @@ class ArpRedundancy(Entity):
                 self.yang_parent_name = "redundancy"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"group" : ("group", ArpRedundancy.Redundancy.Groups.Group)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("group", ("group", ArpRedundancy.Redundancy.Groups.Group))])
+                self._leafs = OrderedDict()
 
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
@@ -486,7 +511,7 @@ class ArpRedundancy(Entity):
                 """
                 None
                 
-                .. attribute:: group_id  <key>
+                .. attribute:: group_id  (key)
                 
                 	Group ID
                 	**type**\: int
@@ -526,12 +551,15 @@ class ArpRedundancy(Entity):
                     self.yang_parent_name = "groups"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"peers" : ("peers", ArpRedundancy.Redundancy.Groups.Group.Peers), "interface-list" : ("interface_list", ArpRedundancy.Redundancy.Groups.Group.InterfaceList)}
-                    self._child_list_classes = {}
-
-                    self.group_id = YLeaf(YType.uint32, "group-id")
-
-                    self.source_interface = YLeaf(YType.str, "source-interface")
+                    self.ylist_key_names = ['group_id']
+                    self._child_container_classes = OrderedDict([("peers", ("peers", ArpRedundancy.Redundancy.Groups.Group.Peers)), ("interface-list", ("interface_list", ArpRedundancy.Redundancy.Groups.Group.InterfaceList))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('group_id', YLeaf(YType.uint32, 'group-id')),
+                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                    ])
+                    self.group_id = None
+                    self.source_interface = None
 
                     self.peers = ArpRedundancy.Redundancy.Groups.Group.Peers()
                     self.peers.parent = self
@@ -541,7 +569,7 @@ class ArpRedundancy(Entity):
                     self.interface_list = None
                     self._children_name_map["interface_list"] = "interface-list"
                     self._children_yang_names.add("interface-list")
-                    self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
+                    self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -571,8 +599,10 @@ class ArpRedundancy(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"peer" : ("peer", ArpRedundancy.Redundancy.Groups.Group.Peers.Peer)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("peer", ("peer", ArpRedundancy.Redundancy.Groups.Group.Peers.Peer))])
+                        self._leafs = OrderedDict()
 
                         self.peer = YList(self)
                         self._segment_path = lambda: "peers"
@@ -585,7 +615,7 @@ class ArpRedundancy(Entity):
                         """
                         None
                         
-                        .. attribute:: prefix_string  <key>
+                        .. attribute:: prefix_string  (key)
                         
                         	Neighbor IPv4 address
                         	**type**\: union of the below types:
@@ -612,11 +642,14 @@ class ArpRedundancy(Entity):
                             self.yang_parent_name = "peers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix_string = YLeaf(YType.str, "prefix-string")
-                            self._segment_path = lambda: "peer" + "[prefix-string='" + self.prefix_string.get() + "']"
+                            self.ylist_key_names = ['prefix_string']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix_string', YLeaf(YType.str, 'prefix-string')),
+                            ])
+                            self.prefix_string = None
+                            self._segment_path = lambda: "peer" + "[prefix-string='" + str(self.prefix_string) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, ['prefix_string'], name, value)
@@ -654,11 +687,14 @@ class ArpRedundancy(Entity):
                         self.yang_parent_name = "group"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"interfaces" : ("interfaces", ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces))])
+                        self._child_list_classes = OrderedDict([])
                         self.is_presence_container = True
-
-                        self.enable = YLeaf(YType.empty, "enable")
+                        self._leafs = OrderedDict([
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                        ])
+                        self.enable = None
 
                         self.interfaces = ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces()
                         self.interfaces.parent = self
@@ -693,8 +729,10 @@ class ArpRedundancy(Entity):
                             self.yang_parent_name = "interface-list"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"interface" : ("interface", ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("interface", ("interface", ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface))])
+                            self._leafs = OrderedDict()
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "interfaces"
@@ -707,7 +745,7 @@ class ArpRedundancy(Entity):
                             """
                             Interface for this Group
                             
-                            .. attribute:: interface_name  <key>
+                            .. attribute:: interface_name  (key)
                             
                             	Interface name
                             	**type**\: str
@@ -737,13 +775,16 @@ class ArpRedundancy(Entity):
                                 self.yang_parent_name = "interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.interface_id = YLeaf(YType.uint32, "interface-id")
-                                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                self.ylist_key_names = ['interface_name']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                                ])
+                                self.interface_name = None
+                                self.interface_id = None
+                                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)

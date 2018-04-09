@@ -11,6 +11,8 @@ within a program. Thread which adhere to POSIX standard
 is referred as a POSIX thread.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -87,8 +89,10 @@ class CISCOPROCESSMIB(Entity):
         self.yang_parent_name = "CISCO-PROCESS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpmCPUHistory" : ("cpmcpuhistory", CISCOPROCESSMIB.Cpmcpuhistory), "cpmCPUTotalTable" : ("cpmcputotaltable", CISCOPROCESSMIB.Cpmcputotaltable), "cpmCoreTable" : ("cpmcoretable", CISCOPROCESSMIB.Cpmcoretable), "cpmProcessTable" : ("cpmprocesstable", CISCOPROCESSMIB.Cpmprocesstable), "cpmProcessExtRevTable" : ("cpmprocessextrevtable", CISCOPROCESSMIB.Cpmprocessextrevtable), "cpmCPUThresholdTable" : ("cpmcputhresholdtable", CISCOPROCESSMIB.Cpmcputhresholdtable), "cpmCPUHistoryTable" : ("cpmcpuhistorytable", CISCOPROCESSMIB.Cpmcpuhistorytable), "cpmCPUProcessHistoryTable" : ("cpmcpuprocesshistorytable", CISCOPROCESSMIB.Cpmcpuprocesshistorytable), "cpmThreadTable" : ("cpmthreadtable", CISCOPROCESSMIB.Cpmthreadtable), "cpmVirtualProcessTable" : ("cpmvirtualprocesstable", CISCOPROCESSMIB.Cpmvirtualprocesstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpmCPUHistory", ("cpmcpuhistory", CISCOPROCESSMIB.Cpmcpuhistory)), ("cpmCPUTotalTable", ("cpmcputotaltable", CISCOPROCESSMIB.Cpmcputotaltable)), ("cpmCoreTable", ("cpmcoretable", CISCOPROCESSMIB.Cpmcoretable)), ("cpmProcessTable", ("cpmprocesstable", CISCOPROCESSMIB.Cpmprocesstable)), ("cpmProcessExtRevTable", ("cpmprocessextrevtable", CISCOPROCESSMIB.Cpmprocessextrevtable)), ("cpmCPUThresholdTable", ("cpmcputhresholdtable", CISCOPROCESSMIB.Cpmcputhresholdtable)), ("cpmCPUHistoryTable", ("cpmcpuhistorytable", CISCOPROCESSMIB.Cpmcpuhistorytable)), ("cpmCPUProcessHistoryTable", ("cpmcpuprocesshistorytable", CISCOPROCESSMIB.Cpmcpuprocesshistorytable)), ("cpmThreadTable", ("cpmthreadtable", CISCOPROCESSMIB.Cpmthreadtable)), ("cpmVirtualProcessTable", ("cpmvirtualprocesstable", CISCOPROCESSMIB.Cpmvirtualprocesstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpmcpuhistory = CISCOPROCESSMIB.Cpmcpuhistory()
         self.cpmcpuhistory.parent = self
@@ -174,12 +178,15 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpmcpuhistorythreshold = YLeaf(YType.uint32, "cpmCPUHistoryThreshold")
-
-            self.cpmcpuhistorysize = YLeaf(YType.uint32, "cpmCPUHistorySize")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpmcpuhistorythreshold', YLeaf(YType.uint32, 'cpmCPUHistoryThreshold')),
+                ('cpmcpuhistorysize', YLeaf(YType.uint32, 'cpmCPUHistorySize')),
+            ])
+            self.cpmcpuhistorythreshold = None
+            self.cpmcpuhistorysize = None
             self._segment_path = lambda: "cpmCPUHistory"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
 
@@ -210,8 +217,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmCPUTotalEntry" : ("cpmcputotalentry", CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmCPUTotalEntry", ("cpmcputotalentry", CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry))])
+            self._leafs = OrderedDict()
 
             self.cpmcputotalentry = YList(self)
             self._segment_path = lambda: "cpmCPUTotalTable"
@@ -227,7 +236,7 @@ class CISCOPROCESSMIB(Entity):
             table come and go as CPUs are added and removed from the
             system.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	An index that uniquely represents a CPU (or group of CPUs) whose CPU load information is reported by a row in this table. This index is assigned arbitrarily by the engine and is not saved over reboots
             	**type**\: int
@@ -494,67 +503,70 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmCPUTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.uint32, "cpmCPUTotalIndex")
-
-                self.cpmcputotalphysicalindex = YLeaf(YType.int32, "cpmCPUTotalPhysicalIndex")
-
-                self.cpmcputotal5sec = YLeaf(YType.uint32, "cpmCPUTotal5sec")
-
-                self.cpmcputotal1min = YLeaf(YType.uint32, "cpmCPUTotal1min")
-
-                self.cpmcputotal5min = YLeaf(YType.uint32, "cpmCPUTotal5min")
-
-                self.cpmcputotal5secrev = YLeaf(YType.uint32, "cpmCPUTotal5secRev")
-
-                self.cpmcputotal1minrev = YLeaf(YType.uint32, "cpmCPUTotal1minRev")
-
-                self.cpmcputotal5minrev = YLeaf(YType.uint32, "cpmCPUTotal5minRev")
-
-                self.cpmcpumoninterval = YLeaf(YType.uint32, "cpmCPUMonInterval")
-
-                self.cpmcputotalmonintervalvalue = YLeaf(YType.uint32, "cpmCPUTotalMonIntervalValue")
-
-                self.cpmcpuinterruptmonintervalvalue = YLeaf(YType.uint32, "cpmCPUInterruptMonIntervalValue")
-
-                self.cpmcpumemoryused = YLeaf(YType.uint32, "cpmCPUMemoryUsed")
-
-                self.cpmcpumemoryfree = YLeaf(YType.uint32, "cpmCPUMemoryFree")
-
-                self.cpmcpumemorykernelreserved = YLeaf(YType.uint32, "cpmCPUMemoryKernelReserved")
-
-                self.cpmcpumemorylowest = YLeaf(YType.uint32, "cpmCPUMemoryLowest")
-
-                self.cpmcpumemoryusedovrflw = YLeaf(YType.uint32, "cpmCPUMemoryUsedOvrflw")
-
-                self.cpmcpumemoryhcused = YLeaf(YType.uint64, "cpmCPUMemoryHCUsed")
-
-                self.cpmcpumemoryfreeovrflw = YLeaf(YType.uint32, "cpmCPUMemoryFreeOvrflw")
-
-                self.cpmcpumemoryhcfree = YLeaf(YType.uint64, "cpmCPUMemoryHCFree")
-
-                self.cpmcpumemorykernelreservedovrflw = YLeaf(YType.uint32, "cpmCPUMemoryKernelReservedOvrflw")
-
-                self.cpmcpumemoryhckernelreserved = YLeaf(YType.uint64, "cpmCPUMemoryHCKernelReserved")
-
-                self.cpmcpumemorylowestovrflw = YLeaf(YType.uint32, "cpmCPUMemoryLowestOvrflw")
-
-                self.cpmcpumemoryhclowest = YLeaf(YType.uint64, "cpmCPUMemoryHCLowest")
-
-                self.cpmcpuloadavg1min = YLeaf(YType.uint32, "cpmCPULoadAvg1min")
-
-                self.cpmcpuloadavg5min = YLeaf(YType.uint32, "cpmCPULoadAvg5min")
-
-                self.cpmcpuloadavg15min = YLeaf(YType.uint32, "cpmCPULoadAvg15min")
-
-                self.cpmcpumemorycommitted = YLeaf(YType.uint32, "cpmCPUMemoryCommitted")
-
-                self.cpmcpumemorycommittedovrflw = YLeaf(YType.uint32, "cpmCPUMemoryCommittedOvrflw")
-
-                self.cpmcpumemoryhccommitted = YLeaf(YType.uint64, "cpmCPUMemoryHCCommitted")
-                self._segment_path = lambda: "cpmCPUTotalEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.uint32, 'cpmCPUTotalIndex')),
+                    ('cpmcputotalphysicalindex', YLeaf(YType.int32, 'cpmCPUTotalPhysicalIndex')),
+                    ('cpmcputotal5sec', YLeaf(YType.uint32, 'cpmCPUTotal5sec')),
+                    ('cpmcputotal1min', YLeaf(YType.uint32, 'cpmCPUTotal1min')),
+                    ('cpmcputotal5min', YLeaf(YType.uint32, 'cpmCPUTotal5min')),
+                    ('cpmcputotal5secrev', YLeaf(YType.uint32, 'cpmCPUTotal5secRev')),
+                    ('cpmcputotal1minrev', YLeaf(YType.uint32, 'cpmCPUTotal1minRev')),
+                    ('cpmcputotal5minrev', YLeaf(YType.uint32, 'cpmCPUTotal5minRev')),
+                    ('cpmcpumoninterval', YLeaf(YType.uint32, 'cpmCPUMonInterval')),
+                    ('cpmcputotalmonintervalvalue', YLeaf(YType.uint32, 'cpmCPUTotalMonIntervalValue')),
+                    ('cpmcpuinterruptmonintervalvalue', YLeaf(YType.uint32, 'cpmCPUInterruptMonIntervalValue')),
+                    ('cpmcpumemoryused', YLeaf(YType.uint32, 'cpmCPUMemoryUsed')),
+                    ('cpmcpumemoryfree', YLeaf(YType.uint32, 'cpmCPUMemoryFree')),
+                    ('cpmcpumemorykernelreserved', YLeaf(YType.uint32, 'cpmCPUMemoryKernelReserved')),
+                    ('cpmcpumemorylowest', YLeaf(YType.uint32, 'cpmCPUMemoryLowest')),
+                    ('cpmcpumemoryusedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryUsedOvrflw')),
+                    ('cpmcpumemoryhcused', YLeaf(YType.uint64, 'cpmCPUMemoryHCUsed')),
+                    ('cpmcpumemoryfreeovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryFreeOvrflw')),
+                    ('cpmcpumemoryhcfree', YLeaf(YType.uint64, 'cpmCPUMemoryHCFree')),
+                    ('cpmcpumemorykernelreservedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryKernelReservedOvrflw')),
+                    ('cpmcpumemoryhckernelreserved', YLeaf(YType.uint64, 'cpmCPUMemoryHCKernelReserved')),
+                    ('cpmcpumemorylowestovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryLowestOvrflw')),
+                    ('cpmcpumemoryhclowest', YLeaf(YType.uint64, 'cpmCPUMemoryHCLowest')),
+                    ('cpmcpuloadavg1min', YLeaf(YType.uint32, 'cpmCPULoadAvg1min')),
+                    ('cpmcpuloadavg5min', YLeaf(YType.uint32, 'cpmCPULoadAvg5min')),
+                    ('cpmcpuloadavg15min', YLeaf(YType.uint32, 'cpmCPULoadAvg15min')),
+                    ('cpmcpumemorycommitted', YLeaf(YType.uint32, 'cpmCPUMemoryCommitted')),
+                    ('cpmcpumemorycommittedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryCommittedOvrflw')),
+                    ('cpmcpumemoryhccommitted', YLeaf(YType.uint64, 'cpmCPUMemoryHCCommitted')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmcputotalphysicalindex = None
+                self.cpmcputotal5sec = None
+                self.cpmcputotal1min = None
+                self.cpmcputotal5min = None
+                self.cpmcputotal5secrev = None
+                self.cpmcputotal1minrev = None
+                self.cpmcputotal5minrev = None
+                self.cpmcpumoninterval = None
+                self.cpmcputotalmonintervalvalue = None
+                self.cpmcpuinterruptmonintervalvalue = None
+                self.cpmcpumemoryused = None
+                self.cpmcpumemoryfree = None
+                self.cpmcpumemorykernelreserved = None
+                self.cpmcpumemorylowest = None
+                self.cpmcpumemoryusedovrflw = None
+                self.cpmcpumemoryhcused = None
+                self.cpmcpumemoryfreeovrflw = None
+                self.cpmcpumemoryhcfree = None
+                self.cpmcpumemorykernelreservedovrflw = None
+                self.cpmcpumemoryhckernelreserved = None
+                self.cpmcpumemorylowestovrflw = None
+                self.cpmcpumemoryhclowest = None
+                self.cpmcpuloadavg1min = None
+                self.cpmcpuloadavg5min = None
+                self.cpmcpuloadavg15min = None
+                self.cpmcpumemorycommitted = None
+                self.cpmcpumemorycommittedovrflw = None
+                self.cpmcpumemoryhccommitted = None
+                self._segment_path = lambda: "cpmCPUTotalEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -584,8 +596,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmCoreEntry" : ("cpmcoreentry", CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmCoreEntry", ("cpmcoreentry", CISCOPROCESSMIB.Cpmcoretable.Cpmcoreentry))])
+            self._leafs = OrderedDict()
 
             self.cpmcoreentry = YList(self)
             self._segment_path = lambda: "cpmCoreTable"
@@ -600,7 +614,7 @@ class CISCOPROCESSMIB(Entity):
             Overall information about the Core load. Entries in this
             table could come and go as Cores go online or offline.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -609,7 +623,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmcoreindex  <key>
+            .. attribute:: cpmcoreindex  (key)
             
             	An index that uniquely represents a Core (or group of Cores) whose Core load information is reported by a row in this table. This index is assigned arbitrarily by the engine and is not saved over reboots
             	**type**\: int
@@ -685,27 +699,30 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmCoreTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmcoreindex = YLeaf(YType.uint32, "cpmCoreIndex")
-
-                self.cpmcorephysicalindex = YLeaf(YType.int32, "cpmCorePhysicalIndex")
-
-                self.cpmcore5sec = YLeaf(YType.uint32, "cpmCore5sec")
-
-                self.cpmcore1min = YLeaf(YType.uint32, "cpmCore1min")
-
-                self.cpmcore5min = YLeaf(YType.uint32, "cpmCore5min")
-
-                self.cpmcoreloadavg1min = YLeaf(YType.uint32, "cpmCoreLoadAvg1min")
-
-                self.cpmcoreloadavg5min = YLeaf(YType.uint32, "cpmCoreLoadAvg5min")
-
-                self.cpmcoreloadavg15min = YLeaf(YType.uint32, "cpmCoreLoadAvg15min")
-                self._segment_path = lambda: "cpmCoreEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmCoreIndex='" + self.cpmcoreindex.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmcoreindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmcoreindex', YLeaf(YType.uint32, 'cpmCoreIndex')),
+                    ('cpmcorephysicalindex', YLeaf(YType.int32, 'cpmCorePhysicalIndex')),
+                    ('cpmcore5sec', YLeaf(YType.uint32, 'cpmCore5sec')),
+                    ('cpmcore1min', YLeaf(YType.uint32, 'cpmCore1min')),
+                    ('cpmcore5min', YLeaf(YType.uint32, 'cpmCore5min')),
+                    ('cpmcoreloadavg1min', YLeaf(YType.uint32, 'cpmCoreLoadAvg1min')),
+                    ('cpmcoreloadavg5min', YLeaf(YType.uint32, 'cpmCoreLoadAvg5min')),
+                    ('cpmcoreloadavg15min', YLeaf(YType.uint32, 'cpmCoreLoadAvg15min')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmcoreindex = None
+                self.cpmcorephysicalindex = None
+                self.cpmcore5sec = None
+                self.cpmcore1min = None
+                self.cpmcore5min = None
+                self.cpmcoreloadavg1min = None
+                self.cpmcoreloadavg5min = None
+                self.cpmcoreloadavg15min = None
+                self._segment_path = lambda: "cpmCoreEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCoreIndex='" + str(self.cpmcoreindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCoreTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -736,8 +753,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmProcessEntry" : ("cpmprocessentry", CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmProcessEntry", ("cpmprocessentry", CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry))])
+            self._leafs = OrderedDict()
 
             self.cpmprocessentry = YList(self)
             self._segment_path = lambda: "cpmProcessTable"
@@ -753,7 +772,7 @@ class CISCOPROCESSMIB(Entity):
             device. Entries in this table come and go as processes are 
             created and destroyed by the device.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -762,7 +781,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmprocesspid  <key>
+            .. attribute:: cpmprocesspid  (key)
             
             	This object contains the process ID. cpmTimeCreated should be checked against the last time it was polled, and if it has changed the PID has been reused and the entire entry should be polled again
             	**type**\: int
@@ -893,37 +912,40 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmProcessTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmprocesspid = YLeaf(YType.uint32, "cpmProcessPID")
-
-                self.cpmprocessname = YLeaf(YType.str, "cpmProcessName")
-
-                self.cpmprocessusecs = YLeaf(YType.uint32, "cpmProcessuSecs")
-
-                self.cpmprocesstimecreated = YLeaf(YType.uint32, "cpmProcessTimeCreated")
-
-                self.cpmprocessaverageusecs = YLeaf(YType.uint32, "cpmProcessAverageUSecs")
-
-                self.cpmprocextmemallocated = YLeaf(YType.uint32, "cpmProcExtMemAllocated")
-
-                self.cpmprocextmemfreed = YLeaf(YType.uint32, "cpmProcExtMemFreed")
-
-                self.cpmprocextinvoked = YLeaf(YType.uint32, "cpmProcExtInvoked")
-
-                self.cpmprocextruntime = YLeaf(YType.uint32, "cpmProcExtRuntime")
-
-                self.cpmprocextutil5sec = YLeaf(YType.uint32, "cpmProcExtUtil5Sec")
-
-                self.cpmprocextutil1min = YLeaf(YType.uint32, "cpmProcExtUtil1Min")
-
-                self.cpmprocextutil5min = YLeaf(YType.uint32, "cpmProcExtUtil5Min")
-
-                self.cpmprocextpriority = YLeaf(YType.enumeration, "cpmProcExtPriority")
-                self._segment_path = lambda: "cpmProcessEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmProcessPID='" + self.cpmprocesspid.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmprocesspid', YLeaf(YType.uint32, 'cpmProcessPID')),
+                    ('cpmprocessname', YLeaf(YType.str, 'cpmProcessName')),
+                    ('cpmprocessusecs', YLeaf(YType.uint32, 'cpmProcessuSecs')),
+                    ('cpmprocesstimecreated', YLeaf(YType.uint32, 'cpmProcessTimeCreated')),
+                    ('cpmprocessaverageusecs', YLeaf(YType.uint32, 'cpmProcessAverageUSecs')),
+                    ('cpmprocextmemallocated', YLeaf(YType.uint32, 'cpmProcExtMemAllocated')),
+                    ('cpmprocextmemfreed', YLeaf(YType.uint32, 'cpmProcExtMemFreed')),
+                    ('cpmprocextinvoked', YLeaf(YType.uint32, 'cpmProcExtInvoked')),
+                    ('cpmprocextruntime', YLeaf(YType.uint32, 'cpmProcExtRuntime')),
+                    ('cpmprocextutil5sec', YLeaf(YType.uint32, 'cpmProcExtUtil5Sec')),
+                    ('cpmprocextutil1min', YLeaf(YType.uint32, 'cpmProcExtUtil1Min')),
+                    ('cpmprocextutil5min', YLeaf(YType.uint32, 'cpmProcExtUtil5Min')),
+                    ('cpmprocextpriority', YLeaf(YType.enumeration, 'cpmProcExtPriority')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmprocesspid = None
+                self.cpmprocessname = None
+                self.cpmprocessusecs = None
+                self.cpmprocesstimecreated = None
+                self.cpmprocessaverageusecs = None
+                self.cpmprocextmemallocated = None
+                self.cpmprocextmemfreed = None
+                self.cpmprocextinvoked = None
+                self.cpmprocextruntime = None
+                self.cpmprocextutil5sec = None
+                self.cpmprocextutil1min = None
+                self.cpmprocextutil5min = None
+                self.cpmprocextpriority = None
+                self._segment_path = lambda: "cpmProcessEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -931,7 +953,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmprocextpriority(Enum):
                 """
-                Cpmprocextpriority
+                Cpmprocextpriority (Enum Class)
 
                 The priority level at which the process is
 
@@ -990,8 +1012,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmProcessExtRevEntry" : ("cpmprocessextreventry", CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmProcessExtRevEntry", ("cpmprocessextreventry", CISCOPROCESSMIB.Cpmprocessextrevtable.Cpmprocessextreventry))])
+            self._leafs = OrderedDict()
 
             self.cpmprocessextreventry = YList(self)
             self._segment_path = lambda: "cpmProcessExtRevTable"
@@ -1007,7 +1031,7 @@ class CISCOPROCESSMIB(Entity):
             a particular process. This object deprecates 
             cpmProcessExtEntry.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -1016,7 +1040,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmprocesspid  <key>
+            .. attribute:: cpmprocesspid  (key)
             
             	
             	**type**\: int
@@ -1285,73 +1309,76 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmProcessExtRevTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmprocesspid = YLeaf(YType.str, "cpmProcessPID")
-
-                self.cpmprocextmemallocatedrev = YLeaf(YType.uint32, "cpmProcExtMemAllocatedRev")
-
-                self.cpmprocextmemfreedrev = YLeaf(YType.uint32, "cpmProcExtMemFreedRev")
-
-                self.cpmprocextinvokedrev = YLeaf(YType.uint32, "cpmProcExtInvokedRev")
-
-                self.cpmprocextruntimerev = YLeaf(YType.uint32, "cpmProcExtRuntimeRev")
-
-                self.cpmprocextutil5secrev = YLeaf(YType.uint32, "cpmProcExtUtil5SecRev")
-
-                self.cpmprocextutil1minrev = YLeaf(YType.uint32, "cpmProcExtUtil1MinRev")
-
-                self.cpmprocextutil5minrev = YLeaf(YType.uint32, "cpmProcExtUtil5MinRev")
-
-                self.cpmprocextpriorityrev = YLeaf(YType.enumeration, "cpmProcExtPriorityRev")
-
-                self.cpmprocesstype = YLeaf(YType.enumeration, "cpmProcessType")
-
-                self.cpmprocessrespawn = YLeaf(YType.uint32, "cpmProcessRespawn")
-
-                self.cpmprocessrespawncount = YLeaf(YType.uint32, "cpmProcessRespawnCount")
-
-                self.cpmprocessrespawnafterlastpatch = YLeaf(YType.uint32, "cpmProcessRespawnAfterLastPatch")
-
-                self.cpmprocessmemorycore = YLeaf(YType.enumeration, "cpmProcessMemoryCore")
-
-                self.cpmprocesslastrestartuser = YLeaf(YType.str, "cpmProcessLastRestartUser")
-
-                self.cpmprocesstextsegmentsize = YLeaf(YType.uint32, "cpmProcessTextSegmentSize")
-
-                self.cpmprocessdatasegmentsize = YLeaf(YType.uint32, "cpmProcessDataSegmentSize")
-
-                self.cpmprocessstacksize = YLeaf(YType.uint32, "cpmProcessStackSize")
-
-                self.cpmprocessdynamicmemorysize = YLeaf(YType.uint32, "cpmProcessDynamicMemorySize")
-
-                self.cpmprocextmemallocatedrevovrflw = YLeaf(YType.uint32, "cpmProcExtMemAllocatedRevOvrflw")
-
-                self.cpmprocexthcmemallocatedrev = YLeaf(YType.uint64, "cpmProcExtHCMemAllocatedRev")
-
-                self.cpmprocextmemfreedrevovrflw = YLeaf(YType.uint32, "cpmProcExtMemFreedRevOvrflw")
-
-                self.cpmprocexthcmemfreedrev = YLeaf(YType.uint64, "cpmProcExtHCMemFreedRev")
-
-                self.cpmprocesstextsegmentsizeovrflw = YLeaf(YType.uint32, "cpmProcessTextSegmentSizeOvrflw")
-
-                self.cpmprocesshctextsegmentsize = YLeaf(YType.uint64, "cpmProcessHCTextSegmentSize")
-
-                self.cpmprocessdatasegmentsizeovrflw = YLeaf(YType.uint32, "cpmProcessDataSegmentSizeOvrflw")
-
-                self.cpmprocesshcdatasegmentsize = YLeaf(YType.uint64, "cpmProcessHCDataSegmentSize")
-
-                self.cpmprocessstacksizeovrflw = YLeaf(YType.uint32, "cpmProcessStackSizeOvrflw")
-
-                self.cpmprocesshcstacksize = YLeaf(YType.uint64, "cpmProcessHCStackSize")
-
-                self.cpmprocessdynamicmemorysizeovrflw = YLeaf(YType.uint32, "cpmProcessDynamicMemorySizeOvrflw")
-
-                self.cpmprocesshcdynamicmemorysize = YLeaf(YType.uint64, "cpmProcessHCDynamicMemorySize")
-                self._segment_path = lambda: "cpmProcessExtRevEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmProcessPID='" + self.cpmprocesspid.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
+                    ('cpmprocextmemallocatedrev', YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRev')),
+                    ('cpmprocextmemfreedrev', YLeaf(YType.uint32, 'cpmProcExtMemFreedRev')),
+                    ('cpmprocextinvokedrev', YLeaf(YType.uint32, 'cpmProcExtInvokedRev')),
+                    ('cpmprocextruntimerev', YLeaf(YType.uint32, 'cpmProcExtRuntimeRev')),
+                    ('cpmprocextutil5secrev', YLeaf(YType.uint32, 'cpmProcExtUtil5SecRev')),
+                    ('cpmprocextutil1minrev', YLeaf(YType.uint32, 'cpmProcExtUtil1MinRev')),
+                    ('cpmprocextutil5minrev', YLeaf(YType.uint32, 'cpmProcExtUtil5MinRev')),
+                    ('cpmprocextpriorityrev', YLeaf(YType.enumeration, 'cpmProcExtPriorityRev')),
+                    ('cpmprocesstype', YLeaf(YType.enumeration, 'cpmProcessType')),
+                    ('cpmprocessrespawn', YLeaf(YType.uint32, 'cpmProcessRespawn')),
+                    ('cpmprocessrespawncount', YLeaf(YType.uint32, 'cpmProcessRespawnCount')),
+                    ('cpmprocessrespawnafterlastpatch', YLeaf(YType.uint32, 'cpmProcessRespawnAfterLastPatch')),
+                    ('cpmprocessmemorycore', YLeaf(YType.enumeration, 'cpmProcessMemoryCore')),
+                    ('cpmprocesslastrestartuser', YLeaf(YType.str, 'cpmProcessLastRestartUser')),
+                    ('cpmprocesstextsegmentsize', YLeaf(YType.uint32, 'cpmProcessTextSegmentSize')),
+                    ('cpmprocessdatasegmentsize', YLeaf(YType.uint32, 'cpmProcessDataSegmentSize')),
+                    ('cpmprocessstacksize', YLeaf(YType.uint32, 'cpmProcessStackSize')),
+                    ('cpmprocessdynamicmemorysize', YLeaf(YType.uint32, 'cpmProcessDynamicMemorySize')),
+                    ('cpmprocextmemallocatedrevovrflw', YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRevOvrflw')),
+                    ('cpmprocexthcmemallocatedrev', YLeaf(YType.uint64, 'cpmProcExtHCMemAllocatedRev')),
+                    ('cpmprocextmemfreedrevovrflw', YLeaf(YType.uint32, 'cpmProcExtMemFreedRevOvrflw')),
+                    ('cpmprocexthcmemfreedrev', YLeaf(YType.uint64, 'cpmProcExtHCMemFreedRev')),
+                    ('cpmprocesstextsegmentsizeovrflw', YLeaf(YType.uint32, 'cpmProcessTextSegmentSizeOvrflw')),
+                    ('cpmprocesshctextsegmentsize', YLeaf(YType.uint64, 'cpmProcessHCTextSegmentSize')),
+                    ('cpmprocessdatasegmentsizeovrflw', YLeaf(YType.uint32, 'cpmProcessDataSegmentSizeOvrflw')),
+                    ('cpmprocesshcdatasegmentsize', YLeaf(YType.uint64, 'cpmProcessHCDataSegmentSize')),
+                    ('cpmprocessstacksizeovrflw', YLeaf(YType.uint32, 'cpmProcessStackSizeOvrflw')),
+                    ('cpmprocesshcstacksize', YLeaf(YType.uint64, 'cpmProcessHCStackSize')),
+                    ('cpmprocessdynamicmemorysizeovrflw', YLeaf(YType.uint32, 'cpmProcessDynamicMemorySizeOvrflw')),
+                    ('cpmprocesshcdynamicmemorysize', YLeaf(YType.uint64, 'cpmProcessHCDynamicMemorySize')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmprocesspid = None
+                self.cpmprocextmemallocatedrev = None
+                self.cpmprocextmemfreedrev = None
+                self.cpmprocextinvokedrev = None
+                self.cpmprocextruntimerev = None
+                self.cpmprocextutil5secrev = None
+                self.cpmprocextutil1minrev = None
+                self.cpmprocextutil5minrev = None
+                self.cpmprocextpriorityrev = None
+                self.cpmprocesstype = None
+                self.cpmprocessrespawn = None
+                self.cpmprocessrespawncount = None
+                self.cpmprocessrespawnafterlastpatch = None
+                self.cpmprocessmemorycore = None
+                self.cpmprocesslastrestartuser = None
+                self.cpmprocesstextsegmentsize = None
+                self.cpmprocessdatasegmentsize = None
+                self.cpmprocessstacksize = None
+                self.cpmprocessdynamicmemorysize = None
+                self.cpmprocextmemallocatedrevovrflw = None
+                self.cpmprocexthcmemallocatedrev = None
+                self.cpmprocextmemfreedrevovrflw = None
+                self.cpmprocexthcmemfreedrev = None
+                self.cpmprocesstextsegmentsizeovrflw = None
+                self.cpmprocesshctextsegmentsize = None
+                self.cpmprocessdatasegmentsizeovrflw = None
+                self.cpmprocesshcdatasegmentsize = None
+                self.cpmprocessstacksizeovrflw = None
+                self.cpmprocesshcstacksize = None
+                self.cpmprocessdynamicmemorysizeovrflw = None
+                self.cpmprocesshcdynamicmemorysize = None
+                self._segment_path = lambda: "cpmProcessExtRevEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessExtRevTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1359,7 +1386,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmprocessmemorycore(Enum):
                 """
-                Cpmprocessmemorycore
+                Cpmprocessmemorycore (Enum Class)
 
                 This indicates the part of process memory to be
 
@@ -1420,7 +1447,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmprocesstype(Enum):
                 """
-                Cpmprocesstype
+                Cpmprocesstype (Enum Class)
 
                 This indicates the kind of process in context.
 
@@ -1445,7 +1472,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmprocextpriorityrev(Enum):
                 """
-                Cpmprocextpriorityrev
+                Cpmprocextpriorityrev (Enum Class)
 
                 The priority level at  which the process is
 
@@ -1501,8 +1528,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmCPUThresholdEntry" : ("cpmcputhresholdentry", CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmCPUThresholdEntry", ("cpmcputhresholdentry", CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry))])
+            self._leafs = OrderedDict()
 
             self.cpmcputhresholdentry = YList(self)
             self._segment_path = lambda: "cpmCPUThresholdTable"
@@ -1519,7 +1548,7 @@ class CISCOPROCESSMIB(Entity):
             identifies the CPU (or group of CPUs) for which this
             configuration applies.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -1528,7 +1557,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmcputhresholdclass  <key>
+            .. attribute:: cpmcputhresholdclass  (key)
             
             	Value of this object indicates the type of utilization, which is monitored. The total(1) indicates the total CPU utilization, interrupt(2) indicates the the CPU utilization in interrupt context and process(3) indicates the CPU utilization in the process level execution context
             	**type**\:  :py:class:`Cpmcputhresholdclass <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputhresholdtable.Cpmcputhresholdentry.Cpmcputhresholdclass>`
@@ -1584,23 +1613,26 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmCPUThresholdTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmcputhresholdclass = YLeaf(YType.enumeration, "cpmCPUThresholdClass")
-
-                self.cpmcpurisingthresholdvalue = YLeaf(YType.uint32, "cpmCPURisingThresholdValue")
-
-                self.cpmcpurisingthresholdperiod = YLeaf(YType.uint32, "cpmCPURisingThresholdPeriod")
-
-                self.cpmcpufallingthresholdvalue = YLeaf(YType.uint32, "cpmCPUFallingThresholdValue")
-
-                self.cpmcpufallingthresholdperiod = YLeaf(YType.uint32, "cpmCPUFallingThresholdPeriod")
-
-                self.cpmcputhresholdentrystatus = YLeaf(YType.enumeration, "cpmCPUThresholdEntryStatus")
-                self._segment_path = lambda: "cpmCPUThresholdEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmCPUThresholdClass='" + self.cpmcputhresholdclass.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmcputhresholdclass']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmcputhresholdclass', YLeaf(YType.enumeration, 'cpmCPUThresholdClass')),
+                    ('cpmcpurisingthresholdvalue', YLeaf(YType.uint32, 'cpmCPURisingThresholdValue')),
+                    ('cpmcpurisingthresholdperiod', YLeaf(YType.uint32, 'cpmCPURisingThresholdPeriod')),
+                    ('cpmcpufallingthresholdvalue', YLeaf(YType.uint32, 'cpmCPUFallingThresholdValue')),
+                    ('cpmcpufallingthresholdperiod', YLeaf(YType.uint32, 'cpmCPUFallingThresholdPeriod')),
+                    ('cpmcputhresholdentrystatus', YLeaf(YType.enumeration, 'cpmCPUThresholdEntryStatus')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmcputhresholdclass = None
+                self.cpmcpurisingthresholdvalue = None
+                self.cpmcpurisingthresholdperiod = None
+                self.cpmcpufallingthresholdvalue = None
+                self.cpmcpufallingthresholdperiod = None
+                self.cpmcputhresholdentrystatus = None
+                self._segment_path = lambda: "cpmCPUThresholdEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUThresholdClass='" + str(self.cpmcputhresholdclass) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUThresholdTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1608,7 +1640,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmcputhresholdclass(Enum):
                 """
-                Cpmcputhresholdclass
+                Cpmcputhresholdclass (Enum Class)
 
                 Value of this object indicates the type of
 
@@ -1661,8 +1693,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmCPUHistoryEntry" : ("cpmcpuhistoryentry", CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmCPUHistoryEntry", ("cpmcpuhistoryentry", CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry))])
+            self._leafs = OrderedDict()
 
             self.cpmcpuhistoryentry = YList(self)
             self._segment_path = lambda: "cpmCPUHistoryTable"
@@ -1680,7 +1714,7 @@ class CISCOPROCESSMIB(Entity):
             When the cpmCPUHistorySize is
             reached the least recent entry is lost.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -1689,7 +1723,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmcpuhistoryreportid  <key>
+            .. attribute:: cpmcpuhistoryreportid  (key)
             
             	All the entries which are created at the same time will have same value for this object. When the configured threshold for being a part of History table is reached then the qualified processes become the part of history table. The entries which became the  part of history table at one instant will have the same value for this object. When this object reaches the max index value then it will wrap around
             	**type**\: int
@@ -1742,21 +1776,24 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmCPUHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmcpuhistoryreportid = YLeaf(YType.uint32, "cpmCPUHistoryReportId")
-
-                self.cpmcpuhistoryreportsize = YLeaf(YType.uint32, "cpmCPUHistoryReportSize")
-
-                self.cpmcpuhistorytotalutil = YLeaf(YType.uint32, "cpmCPUHistoryTotalUtil")
-
-                self.cpmcpuhistoryinterruptutil = YLeaf(YType.uint32, "cpmCPUHistoryInterruptUtil")
-
-                self.cpmcpuhistorycreatedtime = YLeaf(YType.uint32, "cpmCPUHistoryCreatedTime")
-                self._segment_path = lambda: "cpmCPUHistoryEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmCPUHistoryReportId='" + self.cpmcpuhistoryreportid.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmcpuhistoryreportid', YLeaf(YType.uint32, 'cpmCPUHistoryReportId')),
+                    ('cpmcpuhistoryreportsize', YLeaf(YType.uint32, 'cpmCPUHistoryReportSize')),
+                    ('cpmcpuhistorytotalutil', YLeaf(YType.uint32, 'cpmCPUHistoryTotalUtil')),
+                    ('cpmcpuhistoryinterruptutil', YLeaf(YType.uint32, 'cpmCPUHistoryInterruptUtil')),
+                    ('cpmcpuhistorycreatedtime', YLeaf(YType.uint32, 'cpmCPUHistoryCreatedTime')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmcpuhistoryreportid = None
+                self.cpmcpuhistoryreportsize = None
+                self.cpmcpuhistorytotalutil = None
+                self.cpmcpuhistoryinterruptutil = None
+                self.cpmcpuhistorycreatedtime = None
+                self._segment_path = lambda: "cpmCPUHistoryEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + str(self.cpmcpuhistoryreportid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1788,8 +1825,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmCPUProcessHistoryEntry" : ("cpmcpuprocesshistoryentry", CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmCPUProcessHistoryEntry", ("cpmcpuprocesshistoryentry", CISCOPROCESSMIB.Cpmcpuprocesshistorytable.Cpmcpuprocesshistoryentry))])
+            self._leafs = OrderedDict()
 
             self.cpmcpuprocesshistoryentry = YList(self)
             self._segment_path = lambda: "cpmCPUProcessHistoryTable"
@@ -1808,7 +1847,7 @@ class CISCOPROCESSMIB(Entity):
             associated with this entry in the cpmCPUHistoryTable 
             gets deleted.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -1817,7 +1856,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmcpuhistoryreportid  <key>
+            .. attribute:: cpmcpuhistoryreportid  (key)
             
             	
             	**type**\: int
@@ -1826,7 +1865,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcpuhistoryreportid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcpuhistorytable.Cpmcpuhistoryentry>`
             
-            .. attribute:: cpmcpuprocesshistoryindex  <key>
+            .. attribute:: cpmcpuprocesshistoryindex  (key)
             
             	An index that uniquely identifies an entry in the cmpCPUProcessHistory table among those in the  same report. This index is between 1 to N,  where N is the cpmCPUHistoryReportSize
             	**type**\: int
@@ -1875,23 +1914,26 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmCPUProcessHistoryTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmcpuhistoryreportid = YLeaf(YType.str, "cpmCPUHistoryReportId")
-
-                self.cpmcpuprocesshistoryindex = YLeaf(YType.uint32, "cpmCPUProcessHistoryIndex")
-
-                self.cpmcpuhistoryprocid = YLeaf(YType.uint32, "cpmCPUHistoryProcId")
-
-                self.cpmcpuhistoryprocname = YLeaf(YType.str, "cpmCPUHistoryProcName")
-
-                self.cpmcpuhistoryproccreated = YLeaf(YType.uint32, "cpmCPUHistoryProcCreated")
-
-                self.cpmcpuhistoryprocutil = YLeaf(YType.uint32, "cpmCPUHistoryProcUtil")
-                self._segment_path = lambda: "cpmCPUProcessHistoryEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmCPUHistoryReportId='" + self.cpmcpuhistoryreportid.get() + "']" + "[cpmCPUProcessHistoryIndex='" + self.cpmcpuprocesshistoryindex.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid','cpmcpuprocesshistoryindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmcpuhistoryreportid', YLeaf(YType.str, 'cpmCPUHistoryReportId')),
+                    ('cpmcpuprocesshistoryindex', YLeaf(YType.uint32, 'cpmCPUProcessHistoryIndex')),
+                    ('cpmcpuhistoryprocid', YLeaf(YType.uint32, 'cpmCPUHistoryProcId')),
+                    ('cpmcpuhistoryprocname', YLeaf(YType.str, 'cpmCPUHistoryProcName')),
+                    ('cpmcpuhistoryproccreated', YLeaf(YType.uint32, 'cpmCPUHistoryProcCreated')),
+                    ('cpmcpuhistoryprocutil', YLeaf(YType.uint32, 'cpmCPUHistoryProcUtil')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmcpuhistoryreportid = None
+                self.cpmcpuprocesshistoryindex = None
+                self.cpmcpuhistoryprocid = None
+                self.cpmcpuhistoryprocname = None
+                self.cpmcpuhistoryproccreated = None
+                self.cpmcpuhistoryprocutil = None
+                self._segment_path = lambda: "cpmCPUProcessHistoryEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + str(self.cpmcpuhistoryreportid) + "']" + "[cpmCPUProcessHistoryIndex='" + str(self.cpmcpuprocesshistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUProcessHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1922,8 +1964,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmThreadEntry" : ("cpmthreadentry", CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmThreadEntry", ("cpmthreadentry", CISCOPROCESSMIB.Cpmthreadtable.Cpmthreadentry))])
+            self._leafs = OrderedDict()
 
             self.cpmthreadentry = YList(self)
             self._segment_path = lambda: "cpmThreadTable"
@@ -1938,7 +1982,7 @@ class CISCOPROCESSMIB(Entity):
             An entry containing the general statistics
             of a POSIX thread.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -1947,7 +1991,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmprocesspid  <key>
+            .. attribute:: cpmprocesspid  (key)
             
             	
             	**type**\: int
@@ -1956,7 +2000,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
             
-            .. attribute:: cpmthreadid  <key>
+            .. attribute:: cpmthreadid  (key)
             
             	This object contains the thread ID. ThreadID is Unique per process
             	**type**\: int
@@ -2037,31 +2081,34 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmThreadTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmprocesspid = YLeaf(YType.str, "cpmProcessPID")
-
-                self.cpmthreadid = YLeaf(YType.uint32, "cpmThreadID")
-
-                self.cpmthreadname = YLeaf(YType.str, "cpmThreadName")
-
-                self.cpmthreadpriority = YLeaf(YType.uint32, "cpmThreadPriority")
-
-                self.cpmthreadstate = YLeaf(YType.enumeration, "cpmThreadState")
-
-                self.cpmthreadblockingprocess = YLeaf(YType.str, "cpmThreadBlockingProcess")
-
-                self.cpmthreadcpuutilization = YLeaf(YType.uint32, "cpmThreadCpuUtilization")
-
-                self.cpmthreadstacksize = YLeaf(YType.uint32, "cpmThreadStackSize")
-
-                self.cpmthreadstacksizeovrflw = YLeaf(YType.uint32, "cpmThreadStackSizeOvrflw")
-
-                self.cpmthreadhcstacksize = YLeaf(YType.uint64, "cpmThreadHCStackSize")
-                self._segment_path = lambda: "cpmThreadEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmProcessPID='" + self.cpmprocesspid.get() + "']" + "[cpmThreadID='" + self.cpmthreadid.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmthreadid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
+                    ('cpmthreadid', YLeaf(YType.uint32, 'cpmThreadID')),
+                    ('cpmthreadname', YLeaf(YType.str, 'cpmThreadName')),
+                    ('cpmthreadpriority', YLeaf(YType.uint32, 'cpmThreadPriority')),
+                    ('cpmthreadstate', YLeaf(YType.enumeration, 'cpmThreadState')),
+                    ('cpmthreadblockingprocess', YLeaf(YType.str, 'cpmThreadBlockingProcess')),
+                    ('cpmthreadcpuutilization', YLeaf(YType.uint32, 'cpmThreadCpuUtilization')),
+                    ('cpmthreadstacksize', YLeaf(YType.uint32, 'cpmThreadStackSize')),
+                    ('cpmthreadstacksizeovrflw', YLeaf(YType.uint32, 'cpmThreadStackSizeOvrflw')),
+                    ('cpmthreadhcstacksize', YLeaf(YType.uint64, 'cpmThreadHCStackSize')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmprocesspid = None
+                self.cpmthreadid = None
+                self.cpmthreadname = None
+                self.cpmthreadpriority = None
+                self.cpmthreadstate = None
+                self.cpmthreadblockingprocess = None
+                self.cpmthreadcpuutilization = None
+                self.cpmthreadstacksize = None
+                self.cpmthreadstacksizeovrflw = None
+                self.cpmthreadhcstacksize = None
+                self._segment_path = lambda: "cpmThreadEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']" + "[cpmThreadID='" + str(self.cpmthreadid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmThreadTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2069,7 +2116,7 @@ class CISCOPROCESSMIB(Entity):
 
             class Cpmthreadstate(Enum):
                 """
-                Cpmthreadstate
+                Cpmthreadstate (Enum Class)
 
                 This object indicates the current state of a thread.
 
@@ -2233,8 +2280,10 @@ class CISCOPROCESSMIB(Entity):
             self.yang_parent_name = "CISCO-PROCESS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpmVirtualProcessEntry" : ("cpmvirtualprocessentry", CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpmVirtualProcessEntry", ("cpmvirtualprocessentry", CISCOPROCESSMIB.Cpmvirtualprocesstable.Cpmvirtualprocessentry))])
+            self._leafs = OrderedDict()
 
             self.cpmvirtualprocessentry = YList(self)
             self._segment_path = lambda: "cpmVirtualProcessTable"
@@ -2249,7 +2298,7 @@ class CISCOPROCESSMIB(Entity):
             An entry containing the general statistics of a
             virtual process in a virtual machine.
             
-            .. attribute:: cpmcputotalindex  <key>
+            .. attribute:: cpmcputotalindex  (key)
             
             	
             	**type**\: int
@@ -2258,7 +2307,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmcputotalindex <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmcputotaltable.Cpmcputotalentry>`
             
-            .. attribute:: cpmprocesspid  <key>
+            .. attribute:: cpmprocesspid  (key)
             
             	
             	**type**\: int
@@ -2267,7 +2316,7 @@ class CISCOPROCESSMIB(Entity):
             
             	**refers to**\:  :py:class:`cpmprocesspid <ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB.CISCOPROCESSMIB.Cpmprocesstable.Cpmprocessentry>`
             
-            .. attribute:: cpmvirtualprocessid  <key>
+            .. attribute:: cpmvirtualprocessid  (key)
             
             	This object indicates the process ID of a virtual process. PID is unique only inside one address space. Virtual process PID should be considered along with  Parent process cpmProcessPID
             	**type**\: int
@@ -2392,39 +2441,42 @@ class CISCOPROCESSMIB(Entity):
                 self.yang_parent_name = "cpmVirtualProcessTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpmcputotalindex = YLeaf(YType.str, "cpmCPUTotalIndex")
-
-                self.cpmprocesspid = YLeaf(YType.str, "cpmProcessPID")
-
-                self.cpmvirtualprocessid = YLeaf(YType.uint32, "cpmVirtualProcessID")
-
-                self.cpmvirtualprocessname = YLeaf(YType.str, "cpmVirtualProcessName")
-
-                self.cpmvirtualprocessutil5sec = YLeaf(YType.uint32, "cpmVirtualProcessUtil5Sec")
-
-                self.cpmvirtualprocessutil1min = YLeaf(YType.uint32, "cpmVirtualProcessUtil1Min")
-
-                self.cpmvirtualprocessutil5min = YLeaf(YType.uint32, "cpmVirtualProcessUtil5Min")
-
-                self.cpmvirtualprocessmemallocated = YLeaf(YType.uint32, "cpmVirtualProcessMemAllocated")
-
-                self.cpmvirtualprocessmemfreed = YLeaf(YType.uint32, "cpmVirtualProcessMemFreed")
-
-                self.cpmvirtualprocessinvokecount = YLeaf(YType.uint32, "cpmVirtualProcessInvokeCount")
-
-                self.cpmvirtualprocessruntime = YLeaf(YType.uint32, "cpmVirtualProcessRuntime")
-
-                self.cpmvirtualprocessmemallocatedovrflw = YLeaf(YType.uint32, "cpmVirtualProcessMemAllocatedOvrflw")
-
-                self.cpmvirtualprocesshcmemallocated = YLeaf(YType.uint64, "cpmVirtualProcessHCMemAllocated")
-
-                self.cpmvirtualprocessmemfreedovrflw = YLeaf(YType.uint32, "cpmVirtualProcessMemFreedOvrflw")
-
-                self.cpmvirtualprocesshcmemfreed = YLeaf(YType.uint64, "cpmVirtualProcessHCMemFreed")
-                self._segment_path = lambda: "cpmVirtualProcessEntry" + "[cpmCPUTotalIndex='" + self.cpmcputotalindex.get() + "']" + "[cpmProcessPID='" + self.cpmprocesspid.get() + "']" + "[cpmVirtualProcessID='" + self.cpmvirtualprocessid.get() + "']"
+                self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmvirtualprocessid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
+                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
+                    ('cpmvirtualprocessid', YLeaf(YType.uint32, 'cpmVirtualProcessID')),
+                    ('cpmvirtualprocessname', YLeaf(YType.str, 'cpmVirtualProcessName')),
+                    ('cpmvirtualprocessutil5sec', YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Sec')),
+                    ('cpmvirtualprocessutil1min', YLeaf(YType.uint32, 'cpmVirtualProcessUtil1Min')),
+                    ('cpmvirtualprocessutil5min', YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Min')),
+                    ('cpmvirtualprocessmemallocated', YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocated')),
+                    ('cpmvirtualprocessmemfreed', YLeaf(YType.uint32, 'cpmVirtualProcessMemFreed')),
+                    ('cpmvirtualprocessinvokecount', YLeaf(YType.uint32, 'cpmVirtualProcessInvokeCount')),
+                    ('cpmvirtualprocessruntime', YLeaf(YType.uint32, 'cpmVirtualProcessRuntime')),
+                    ('cpmvirtualprocessmemallocatedovrflw', YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocatedOvrflw')),
+                    ('cpmvirtualprocesshcmemallocated', YLeaf(YType.uint64, 'cpmVirtualProcessHCMemAllocated')),
+                    ('cpmvirtualprocessmemfreedovrflw', YLeaf(YType.uint32, 'cpmVirtualProcessMemFreedOvrflw')),
+                    ('cpmvirtualprocesshcmemfreed', YLeaf(YType.uint64, 'cpmVirtualProcessHCMemFreed')),
+                ])
+                self.cpmcputotalindex = None
+                self.cpmprocesspid = None
+                self.cpmvirtualprocessid = None
+                self.cpmvirtualprocessname = None
+                self.cpmvirtualprocessutil5sec = None
+                self.cpmvirtualprocessutil1min = None
+                self.cpmvirtualprocessutil5min = None
+                self.cpmvirtualprocessmemallocated = None
+                self.cpmvirtualprocessmemfreed = None
+                self.cpmvirtualprocessinvokecount = None
+                self.cpmvirtualprocessruntime = None
+                self.cpmvirtualprocessmemallocatedovrflw = None
+                self.cpmvirtualprocesshcmemallocated = None
+                self.cpmvirtualprocessmemfreedovrflw = None
+                self.cpmvirtualprocesshcmemfreed = None
+                self._segment_path = lambda: "cpmVirtualProcessEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']" + "[cpmVirtualProcessID='" + str(self.cpmvirtualprocessid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmVirtualProcessTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

@@ -4,6 +4,8 @@ The MIB module for management of the Cisco Discovery
 Protocol in Cisco devices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -55,8 +57,10 @@ class CISCOCDPMIB(Entity):
         self.yang_parent_name = "CISCO-CDP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cdpGlobal" : ("cdpglobal", CISCOCDPMIB.Cdpglobal), "cdpInterfaceTable" : ("cdpinterfacetable", CISCOCDPMIB.Cdpinterfacetable), "cdpInterfaceExtTable" : ("cdpinterfaceexttable", CISCOCDPMIB.Cdpinterfaceexttable), "cdpCacheTable" : ("cdpcachetable", CISCOCDPMIB.Cdpcachetable), "cdpCtAddressTable" : ("cdpctaddresstable", CISCOCDPMIB.Cdpctaddresstable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cdpGlobal", ("cdpglobal", CISCOCDPMIB.Cdpglobal)), ("cdpInterfaceTable", ("cdpinterfacetable", CISCOCDPMIB.Cdpinterfacetable)), ("cdpInterfaceExtTable", ("cdpinterfaceexttable", CISCOCDPMIB.Cdpinterfaceexttable)), ("cdpCacheTable", ("cdpcachetable", CISCOCDPMIB.Cdpcachetable)), ("cdpCtAddressTable", ("cdpctaddresstable", CISCOCDPMIB.Cdpctaddresstable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cdpglobal = CISCOCDPMIB.Cdpglobal()
         self.cdpglobal.parent = self
@@ -148,22 +152,25 @@ class CISCOCDPMIB(Entity):
             self.yang_parent_name = "CISCO-CDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cdpglobalrun = YLeaf(YType.boolean, "cdpGlobalRun")
-
-            self.cdpglobalmessageinterval = YLeaf(YType.int32, "cdpGlobalMessageInterval")
-
-            self.cdpglobalholdtime = YLeaf(YType.int32, "cdpGlobalHoldTime")
-
-            self.cdpglobaldeviceid = YLeaf(YType.str, "cdpGlobalDeviceId")
-
-            self.cdpgloballastchange = YLeaf(YType.uint32, "cdpGlobalLastChange")
-
-            self.cdpglobaldeviceidformatcpb = YLeaf(YType.bits, "cdpGlobalDeviceIdFormatCpb")
-
-            self.cdpglobaldeviceidformat = YLeaf(YType.enumeration, "cdpGlobalDeviceIdFormat")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cdpglobalrun', YLeaf(YType.boolean, 'cdpGlobalRun')),
+                ('cdpglobalmessageinterval', YLeaf(YType.int32, 'cdpGlobalMessageInterval')),
+                ('cdpglobalholdtime', YLeaf(YType.int32, 'cdpGlobalHoldTime')),
+                ('cdpglobaldeviceid', YLeaf(YType.str, 'cdpGlobalDeviceId')),
+                ('cdpgloballastchange', YLeaf(YType.uint32, 'cdpGlobalLastChange')),
+                ('cdpglobaldeviceidformatcpb', YLeaf(YType.bits, 'cdpGlobalDeviceIdFormatCpb')),
+                ('cdpglobaldeviceidformat', YLeaf(YType.enumeration, 'cdpGlobalDeviceIdFormat')),
+            ])
+            self.cdpglobalrun = None
+            self.cdpglobalmessageinterval = None
+            self.cdpglobalholdtime = None
+            self.cdpglobaldeviceid = None
+            self.cdpgloballastchange = None
+            self.cdpglobaldeviceidformatcpb = Bits()
+            self.cdpglobaldeviceidformat = None
             self._segment_path = lambda: "cdpGlobal"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
 
@@ -172,7 +179,7 @@ class CISCOCDPMIB(Entity):
 
         class Cdpglobaldeviceidformat(Enum):
             """
-            Cdpglobaldeviceidformat
+            Cdpglobaldeviceidformat (Enum Class)
 
             An indication of the format of Device\-Id contained in the
 
@@ -240,8 +247,10 @@ class CISCOCDPMIB(Entity):
             self.yang_parent_name = "CISCO-CDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdpInterfaceEntry" : ("cdpinterfaceentry", CISCOCDPMIB.Cdpinterfacetable.Cdpinterfaceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdpInterfaceEntry", ("cdpinterfaceentry", CISCOCDPMIB.Cdpinterfacetable.Cdpinterfaceentry))])
+            self._leafs = OrderedDict()
 
             self.cdpinterfaceentry = YList(self)
             self._segment_path = lambda: "cdpInterfaceTable"
@@ -256,7 +265,7 @@ class CISCOCDPMIB(Entity):
             An entry (conceptual row) in the cdpInterfaceTable,
             containing the status of CDP on an interface.
             
-            .. attribute:: cdpinterfaceifindex  <key>
+            .. attribute:: cdpinterfaceifindex  (key)
             
             	The ifIndex value of the local interface.  For 802.3 Repeaters on which the repeater ports do not have ifIndex values assigned, this value is a unique value for the port, and greater than any ifIndex value supported by the repeater; in this case, the specific port is indicated by corresponding values of cdpInterfaceGroup and cdpInterfacePort, where these values correspond to the group number and port number values of RFC 1516
             	**type**\: int
@@ -312,21 +321,24 @@ class CISCOCDPMIB(Entity):
                 self.yang_parent_name = "cdpInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdpinterfaceifindex = YLeaf(YType.int32, "cdpInterfaceIfIndex")
-
-                self.cdpinterfaceenable = YLeaf(YType.boolean, "cdpInterfaceEnable")
-
-                self.cdpinterfacemessageinterval = YLeaf(YType.int32, "cdpInterfaceMessageInterval")
-
-                self.cdpinterfacegroup = YLeaf(YType.int32, "cdpInterfaceGroup")
-
-                self.cdpinterfaceport = YLeaf(YType.int32, "cdpInterfacePort")
-
-                self.cdpinterfacename = YLeaf(YType.str, "cdpInterfaceName")
-                self._segment_path = lambda: "cdpInterfaceEntry" + "[cdpInterfaceIfIndex='" + self.cdpinterfaceifindex.get() + "']"
+                self.ylist_key_names = ['cdpinterfaceifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdpinterfaceifindex', YLeaf(YType.int32, 'cdpInterfaceIfIndex')),
+                    ('cdpinterfaceenable', YLeaf(YType.boolean, 'cdpInterfaceEnable')),
+                    ('cdpinterfacemessageinterval', YLeaf(YType.int32, 'cdpInterfaceMessageInterval')),
+                    ('cdpinterfacegroup', YLeaf(YType.int32, 'cdpInterfaceGroup')),
+                    ('cdpinterfaceport', YLeaf(YType.int32, 'cdpInterfacePort')),
+                    ('cdpinterfacename', YLeaf(YType.str, 'cdpInterfaceName')),
+                ])
+                self.cdpinterfaceifindex = None
+                self.cdpinterfaceenable = None
+                self.cdpinterfacemessageinterval = None
+                self.cdpinterfacegroup = None
+                self.cdpinterfaceport = None
+                self.cdpinterfacename = None
+                self._segment_path = lambda: "cdpInterfaceEntry" + "[cdpInterfaceIfIndex='" + str(self.cdpinterfaceifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -357,8 +369,10 @@ class CISCOCDPMIB(Entity):
             self.yang_parent_name = "CISCO-CDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdpInterfaceExtEntry" : ("cdpinterfaceextentry", CISCOCDPMIB.Cdpinterfaceexttable.Cdpinterfaceextentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdpInterfaceExtEntry", ("cdpinterfaceextentry", CISCOCDPMIB.Cdpinterfaceexttable.Cdpinterfaceextentry))])
+            self._leafs = OrderedDict()
 
             self.cdpinterfaceextentry = YList(self)
             self._segment_path = lambda: "cdpInterfaceExtTable"
@@ -375,7 +389,7 @@ class CISCOCDPMIB(Entity):
             for Untrusted Ports TLV on an interface which supports the
             sending of these TLVs.
             
-            .. attribute:: ifindex  <key>
+            .. attribute:: ifindex  (key)
             
             	
             	**type**\: int
@@ -410,15 +424,18 @@ class CISCOCDPMIB(Entity):
                 self.yang_parent_name = "cdpInterfaceExtTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ifindex = YLeaf(YType.str, "ifIndex")
-
-                self.cdpinterfaceextendedtrust = YLeaf(YType.enumeration, "cdpInterfaceExtendedTrust")
-
-                self.cdpinterfacecosforuntrustedport = YLeaf(YType.uint32, "cdpInterfaceCosForUntrustedPort")
-                self._segment_path = lambda: "cdpInterfaceExtEntry" + "[ifIndex='" + self.ifindex.get() + "']"
+                self.ylist_key_names = ['ifindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
+                    ('cdpinterfaceextendedtrust', YLeaf(YType.enumeration, 'cdpInterfaceExtendedTrust')),
+                    ('cdpinterfacecosforuntrustedport', YLeaf(YType.uint32, 'cdpInterfaceCosForUntrustedPort')),
+                ])
+                self.ifindex = None
+                self.cdpinterfaceextendedtrust = None
+                self.cdpinterfacecosforuntrustedport = None
+                self._segment_path = lambda: "cdpInterfaceExtEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceExtTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -426,7 +443,7 @@ class CISCOCDPMIB(Entity):
 
             class Cdpinterfaceextendedtrust(Enum):
                 """
-                Cdpinterfaceextendedtrust
+                Cdpinterfaceextendedtrust (Enum Class)
 
                 Indicates the value to be sent by Extended Trust TLV.
 
@@ -478,8 +495,10 @@ class CISCOCDPMIB(Entity):
             self.yang_parent_name = "CISCO-CDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdpCacheEntry" : ("cdpcacheentry", CISCOCDPMIB.Cdpcachetable.Cdpcacheentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdpCacheEntry", ("cdpcacheentry", CISCOCDPMIB.Cdpcachetable.Cdpcacheentry))])
+            self._leafs = OrderedDict()
 
             self.cdpcacheentry = YList(self)
             self._segment_path = lambda: "cdpCacheTable"
@@ -498,14 +517,14 @@ class CISCOCDPMIB(Entity):
             device.  Entries disappear when CDP is disabled
             on the interface, or globally.
             
-            .. attribute:: cdpcacheifindex  <key>
+            .. attribute:: cdpcacheifindex  (key)
             
             	Normally, the ifIndex value of the local interface. For 802.3 Repeaters for which the repeater ports do not have ifIndex values assigned, this value is a unique value for the port, and greater than any ifIndex value supported by the repeater; the specific port number in this case, is given by the corresponding value of cdpInterfacePort
             	**type**\: int
             
             	**range:** 0..2147483647
             
-            .. attribute:: cdpcachedeviceindex  <key>
+            .. attribute:: cdpcachedeviceindex  (key)
             
             	A unique value for each device from which CDP messages are being received
             	**type**\: int
@@ -658,57 +677,60 @@ class CISCOCDPMIB(Entity):
                 self.yang_parent_name = "cdpCacheTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdpcacheifindex = YLeaf(YType.int32, "cdpCacheIfIndex")
-
-                self.cdpcachedeviceindex = YLeaf(YType.int32, "cdpCacheDeviceIndex")
-
-                self.cdpcacheaddresstype = YLeaf(YType.enumeration, "cdpCacheAddressType")
-
-                self.cdpcacheaddress = YLeaf(YType.str, "cdpCacheAddress")
-
-                self.cdpcacheversion = YLeaf(YType.str, "cdpCacheVersion")
-
-                self.cdpcachedeviceid = YLeaf(YType.str, "cdpCacheDeviceId")
-
-                self.cdpcachedeviceport = YLeaf(YType.str, "cdpCacheDevicePort")
-
-                self.cdpcacheplatform = YLeaf(YType.str, "cdpCachePlatform")
-
-                self.cdpcachecapabilities = YLeaf(YType.str, "cdpCacheCapabilities")
-
-                self.cdpcachevtpmgmtdomain = YLeaf(YType.str, "cdpCacheVTPMgmtDomain")
-
-                self.cdpcachenativevlan = YLeaf(YType.int32, "cdpCacheNativeVLAN")
-
-                self.cdpcacheduplex = YLeaf(YType.enumeration, "cdpCacheDuplex")
-
-                self.cdpcacheapplianceid = YLeaf(YType.uint32, "cdpCacheApplianceID")
-
-                self.cdpcachevlanid = YLeaf(YType.uint32, "cdpCacheVlanID")
-
-                self.cdpcachepowerconsumption = YLeaf(YType.uint32, "cdpCachePowerConsumption")
-
-                self.cdpcachemtu = YLeaf(YType.uint32, "cdpCacheMTU")
-
-                self.cdpcachesysname = YLeaf(YType.str, "cdpCacheSysName")
-
-                self.cdpcachesysobjectid = YLeaf(YType.str, "cdpCacheSysObjectID")
-
-                self.cdpcacheprimarymgmtaddrtype = YLeaf(YType.enumeration, "cdpCachePrimaryMgmtAddrType")
-
-                self.cdpcacheprimarymgmtaddr = YLeaf(YType.str, "cdpCachePrimaryMgmtAddr")
-
-                self.cdpcachesecondarymgmtaddrtype = YLeaf(YType.enumeration, "cdpCacheSecondaryMgmtAddrType")
-
-                self.cdpcachesecondarymgmtaddr = YLeaf(YType.str, "cdpCacheSecondaryMgmtAddr")
-
-                self.cdpcachephyslocation = YLeaf(YType.str, "cdpCachePhysLocation")
-
-                self.cdpcachelastchange = YLeaf(YType.uint32, "cdpCacheLastChange")
-                self._segment_path = lambda: "cdpCacheEntry" + "[cdpCacheIfIndex='" + self.cdpcacheifindex.get() + "']" + "[cdpCacheDeviceIndex='" + self.cdpcachedeviceindex.get() + "']"
+                self.ylist_key_names = ['cdpcacheifindex','cdpcachedeviceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdpcacheifindex', YLeaf(YType.int32, 'cdpCacheIfIndex')),
+                    ('cdpcachedeviceindex', YLeaf(YType.int32, 'cdpCacheDeviceIndex')),
+                    ('cdpcacheaddresstype', YLeaf(YType.enumeration, 'cdpCacheAddressType')),
+                    ('cdpcacheaddress', YLeaf(YType.str, 'cdpCacheAddress')),
+                    ('cdpcacheversion', YLeaf(YType.str, 'cdpCacheVersion')),
+                    ('cdpcachedeviceid', YLeaf(YType.str, 'cdpCacheDeviceId')),
+                    ('cdpcachedeviceport', YLeaf(YType.str, 'cdpCacheDevicePort')),
+                    ('cdpcacheplatform', YLeaf(YType.str, 'cdpCachePlatform')),
+                    ('cdpcachecapabilities', YLeaf(YType.str, 'cdpCacheCapabilities')),
+                    ('cdpcachevtpmgmtdomain', YLeaf(YType.str, 'cdpCacheVTPMgmtDomain')),
+                    ('cdpcachenativevlan', YLeaf(YType.int32, 'cdpCacheNativeVLAN')),
+                    ('cdpcacheduplex', YLeaf(YType.enumeration, 'cdpCacheDuplex')),
+                    ('cdpcacheapplianceid', YLeaf(YType.uint32, 'cdpCacheApplianceID')),
+                    ('cdpcachevlanid', YLeaf(YType.uint32, 'cdpCacheVlanID')),
+                    ('cdpcachepowerconsumption', YLeaf(YType.uint32, 'cdpCachePowerConsumption')),
+                    ('cdpcachemtu', YLeaf(YType.uint32, 'cdpCacheMTU')),
+                    ('cdpcachesysname', YLeaf(YType.str, 'cdpCacheSysName')),
+                    ('cdpcachesysobjectid', YLeaf(YType.str, 'cdpCacheSysObjectID')),
+                    ('cdpcacheprimarymgmtaddrtype', YLeaf(YType.enumeration, 'cdpCachePrimaryMgmtAddrType')),
+                    ('cdpcacheprimarymgmtaddr', YLeaf(YType.str, 'cdpCachePrimaryMgmtAddr')),
+                    ('cdpcachesecondarymgmtaddrtype', YLeaf(YType.enumeration, 'cdpCacheSecondaryMgmtAddrType')),
+                    ('cdpcachesecondarymgmtaddr', YLeaf(YType.str, 'cdpCacheSecondaryMgmtAddr')),
+                    ('cdpcachephyslocation', YLeaf(YType.str, 'cdpCachePhysLocation')),
+                    ('cdpcachelastchange', YLeaf(YType.uint32, 'cdpCacheLastChange')),
+                ])
+                self.cdpcacheifindex = None
+                self.cdpcachedeviceindex = None
+                self.cdpcacheaddresstype = None
+                self.cdpcacheaddress = None
+                self.cdpcacheversion = None
+                self.cdpcachedeviceid = None
+                self.cdpcachedeviceport = None
+                self.cdpcacheplatform = None
+                self.cdpcachecapabilities = None
+                self.cdpcachevtpmgmtdomain = None
+                self.cdpcachenativevlan = None
+                self.cdpcacheduplex = None
+                self.cdpcacheapplianceid = None
+                self.cdpcachevlanid = None
+                self.cdpcachepowerconsumption = None
+                self.cdpcachemtu = None
+                self.cdpcachesysname = None
+                self.cdpcachesysobjectid = None
+                self.cdpcacheprimarymgmtaddrtype = None
+                self.cdpcacheprimarymgmtaddr = None
+                self.cdpcachesecondarymgmtaddrtype = None
+                self.cdpcachesecondarymgmtaddr = None
+                self.cdpcachephyslocation = None
+                self.cdpcachelastchange = None
+                self._segment_path = lambda: "cdpCacheEntry" + "[cdpCacheIfIndex='" + str(self.cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + str(self.cdpcachedeviceindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -716,7 +738,7 @@ class CISCOCDPMIB(Entity):
 
             class Cdpcacheduplex(Enum):
                 """
-                Cdpcacheduplex
+                Cdpcacheduplex (Enum Class)
 
                 The remote device's interface's duplex mode, as reported in the 
 
@@ -771,8 +793,10 @@ class CISCOCDPMIB(Entity):
             self.yang_parent_name = "CISCO-CDP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cdpCtAddressEntry" : ("cdpctaddressentry", CISCOCDPMIB.Cdpctaddresstable.Cdpctaddressentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cdpCtAddressEntry", ("cdpctaddressentry", CISCOCDPMIB.Cdpctaddresstable.Cdpctaddressentry))])
+            self._leafs = OrderedDict()
 
             self.cdpctaddressentry = YList(self)
             self._segment_path = lambda: "cdpCtAddressTable"
@@ -794,7 +818,7 @@ class CISCOCDPMIB(Entity):
             received CDP packet contain fewer address entries in the
             Address TLV, than are currently present in the CDP cache.
             
-            .. attribute:: cdpcacheifindex  <key>
+            .. attribute:: cdpcacheifindex  (key)
             
             	
             	**type**\: int
@@ -803,7 +827,7 @@ class CISCOCDPMIB(Entity):
             
             	**refers to**\:  :py:class:`cdpcacheifindex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.Cdpcachetable.Cdpcacheentry>`
             
-            .. attribute:: cdpcachedeviceindex  <key>
+            .. attribute:: cdpcachedeviceindex  (key)
             
             	
             	**type**\: int
@@ -812,7 +836,7 @@ class CISCOCDPMIB(Entity):
             
             	**refers to**\:  :py:class:`cdpcachedeviceindex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.Cdpcachetable.Cdpcacheentry>`
             
-            .. attribute:: cdpctaddressindex  <key>
+            .. attribute:: cdpctaddressindex  (key)
             
             	The index of the address entry for a given  cdpCacheIfIndex,cdpCacheDeviceIndex pair. It has the value N\-1 for the N\-th address in the Address TLV
             	**type**\: int
@@ -843,19 +867,22 @@ class CISCOCDPMIB(Entity):
                 self.yang_parent_name = "cdpCtAddressTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cdpcacheifindex = YLeaf(YType.str, "cdpCacheIfIndex")
-
-                self.cdpcachedeviceindex = YLeaf(YType.str, "cdpCacheDeviceIndex")
-
-                self.cdpctaddressindex = YLeaf(YType.int32, "cdpCtAddressIndex")
-
-                self.cdpctaddresstype = YLeaf(YType.enumeration, "cdpCtAddressType")
-
-                self.cdpctaddress = YLeaf(YType.str, "cdpCtAddress")
-                self._segment_path = lambda: "cdpCtAddressEntry" + "[cdpCacheIfIndex='" + self.cdpcacheifindex.get() + "']" + "[cdpCacheDeviceIndex='" + self.cdpcachedeviceindex.get() + "']" + "[cdpCtAddressIndex='" + self.cdpctaddressindex.get() + "']"
+                self.ylist_key_names = ['cdpcacheifindex','cdpcachedeviceindex','cdpctaddressindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cdpcacheifindex', YLeaf(YType.str, 'cdpCacheIfIndex')),
+                    ('cdpcachedeviceindex', YLeaf(YType.str, 'cdpCacheDeviceIndex')),
+                    ('cdpctaddressindex', YLeaf(YType.int32, 'cdpCtAddressIndex')),
+                    ('cdpctaddresstype', YLeaf(YType.enumeration, 'cdpCtAddressType')),
+                    ('cdpctaddress', YLeaf(YType.str, 'cdpCtAddress')),
+                ])
+                self.cdpcacheifindex = None
+                self.cdpcachedeviceindex = None
+                self.cdpctaddressindex = None
+                self.cdpctaddresstype = None
+                self.cdpctaddress = None
+                self._segment_path = lambda: "cdpCtAddressEntry" + "[cdpCacheIfIndex='" + str(self.cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + str(self.cdpcachedeviceindex) + "']" + "[cdpCtAddressIndex='" + str(self.cdpctaddressindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCtAddressTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

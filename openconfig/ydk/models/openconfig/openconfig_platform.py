@@ -37,6 +37,8 @@ specific physical data in one location, including inventory
 attributes or status).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -68,8 +70,10 @@ class Components(Entity):
         self.yang_parent_name = "openconfig-platform"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"component" : ("component", Components.Component)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("component", ("component", Components.Component))])
+        self._leafs = OrderedDict()
 
         self.component = YList(self)
         self._segment_path = lambda: "openconfig-platform:components"
@@ -82,7 +86,7 @@ class Components(Entity):
         """
         List of components, keyed by component name.
         
-        .. attribute:: name  <key>
+        .. attribute:: name  (key)
         
         	References the component name
         	**type**\: str
@@ -138,10 +142,13 @@ class Components(Entity):
             self.yang_parent_name = "components"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", Components.Component.Config), "state" : ("state", Components.Component.State), "properties" : ("properties", Components.Component.Properties), "subcomponents" : ("subcomponents", Components.Component.Subcomponents), "openconfig-transport-line-common:optical-port" : ("optical_port", Components.Component.OpticalPort), "openconfig-platform-transceiver:transceiver" : ("transceiver", Components.Component.Transceiver), "openconfig-terminal-device:optical-channel" : ("optical_channel", Components.Component.OpticalChannel)}
-            self._child_list_classes = {}
-
-            self.name = YLeaf(YType.str, "name")
+            self.ylist_key_names = ['name']
+            self._child_container_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('name', YLeaf(YType.str, 'name')),
+            ])
+            self.name = None
 
             self.config = Components.Component.Config()
             self.config.parent = self
@@ -165,19 +172,19 @@ class Components(Entity):
 
             self.optical_port = Components.Component.OpticalPort()
             self.optical_port.parent = self
-            self._children_name_map["optical_port"] = "optical-port"
-            self._children_yang_names.add("optical-port")
+            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
+            self._children_yang_names.add("openconfig-transport-line-common:optical-port")
 
             self.transceiver = Components.Component.Transceiver()
             self.transceiver.parent = self
-            self._children_name_map["transceiver"] = "transceiver"
-            self._children_yang_names.add("transceiver")
+            self._children_name_map["transceiver"] = "openconfig-platform-transceiver:transceiver"
+            self._children_yang_names.add("openconfig-platform-transceiver:transceiver")
 
             self.optical_channel = Components.Component.OpticalChannel()
             self.optical_channel.parent = self
-            self._children_name_map["optical_channel"] = "optical-channel"
-            self._children_yang_names.add("optical-channel")
-            self._segment_path = lambda: "component" + "[name='" + self.name.get() + "']"
+            self._children_name_map["optical_channel"] = "openconfig-terminal-device:optical-channel"
+            self._children_yang_names.add("openconfig-terminal-device:optical-channel")
+            self._segment_path = lambda: "component" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-platform:components/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -207,10 +214,13 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
                 self._segment_path = lambda: "config"
 
             def __setattr__(self, name, value):
@@ -279,24 +289,27 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.type = YLeaf(YType.str, "type")
-
-                self.id = YLeaf(YType.str, "id")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.mfg_name = YLeaf(YType.str, "mfg-name")
-
-                self.version = YLeaf(YType.str, "version")
-
-                self.serial_no = YLeaf(YType.str, "serial-no")
-
-                self.part_no = YLeaf(YType.str, "part-no")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('type', YLeaf(YType.str, 'type')),
+                    ('id', YLeaf(YType.str, 'id')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('mfg_name', YLeaf(YType.str, 'mfg-name')),
+                    ('version', YLeaf(YType.str, 'version')),
+                    ('serial_no', YLeaf(YType.str, 'serial-no')),
+                    ('part_no', YLeaf(YType.str, 'part-no')),
+                ])
+                self.name = None
+                self.type = None
+                self.id = None
+                self.description = None
+                self.mfg_name = None
+                self.version = None
+                self.serial_no = None
+                self.part_no = None
                 self._segment_path = lambda: "state"
 
             def __setattr__(self, name, value):
@@ -326,8 +339,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"property" : ("property", Components.Component.Properties.Property)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("property", ("property", Components.Component.Properties.Property))])
+                self._leafs = OrderedDict()
 
                 self.property = YList(self)
                 self._segment_path = lambda: "properties"
@@ -340,7 +355,7 @@ class Components(Entity):
                 """
                 List of system properties for the component
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Reference to the property name
                 	**type**\: str
@@ -371,10 +386,13 @@ class Components(Entity):
                     self.yang_parent_name = "properties"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Components.Component.Properties.Property.Config), "state" : ("state", Components.Component.Properties.Property.State)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Components.Component.Properties.Property.Config)), ("state", ("state", Components.Component.Properties.Property.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.config = Components.Component.Properties.Property.Config()
                     self.config.parent = self
@@ -385,7 +403,7 @@ class Components(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "property" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "property" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.Properties.Property, ['name'], name, value)
@@ -435,12 +453,15 @@ class Components(Entity):
                         self.yang_parent_name = "property"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.value = YLeaf(YType.str, "value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('value', YLeaf(YType.str, 'value')),
+                        ])
+                        self.name = None
+                        self.value = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -496,14 +517,17 @@ class Components(Entity):
                         self.yang_parent_name = "property"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
-
-                        self.value = YLeaf(YType.str, "value")
-
-                        self.configurable = YLeaf(YType.boolean, "configurable")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                            ('value', YLeaf(YType.str, 'value')),
+                            ('configurable', YLeaf(YType.boolean, 'configurable')),
+                        ])
+                        self.name = None
+                        self.value = None
+                        self.configurable = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -533,8 +557,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"subcomponent" : ("subcomponent", Components.Component.Subcomponents.Subcomponent)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("subcomponent", ("subcomponent", Components.Component.Subcomponents.Subcomponent))])
+                self._leafs = OrderedDict()
 
                 self.subcomponent = YList(self)
                 self._segment_path = lambda: "subcomponents"
@@ -547,7 +573,7 @@ class Components(Entity):
                 """
                 List of subcomponent references
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Reference to the name list key
                 	**type**\: str
@@ -578,10 +604,13 @@ class Components(Entity):
                     self.yang_parent_name = "subcomponents"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", Components.Component.Subcomponents.Subcomponent.Config), "state" : ("state", Components.Component.Subcomponents.Subcomponent.State)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("config", ("config", Components.Component.Subcomponents.Subcomponent.Config)), ("state", ("state", Components.Component.Subcomponents.Subcomponent.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
 
                     self.config = Components.Component.Subcomponents.Subcomponent.Config()
                     self.config.parent = self
@@ -592,7 +621,7 @@ class Components(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "subcomponent" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "subcomponent" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.Subcomponents.Subcomponent, ['name'], name, value)
@@ -623,10 +652,13 @@ class Components(Entity):
                         self.yang_parent_name = "subcomponent"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -658,10 +690,13 @@ class Components(Entity):
                         self.yang_parent_name = "subcomponent"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -696,8 +731,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"config" : ("config", Components.Component.OpticalPort.Config), "state" : ("state", Components.Component.OpticalPort.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.config = Components.Component.OpticalPort.Config()
                 self.config.parent = self
@@ -734,10 +771,13 @@ class Components(Entity):
                     self.yang_parent_name = "optical-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                    ])
+                    self.admin_state = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -782,12 +822,15 @@ class Components(Entity):
                     self.yang_parent_name = "optical-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"input-power" : ("input_power", Components.Component.OpticalPort.State.InputPower), "output-power" : ("output_power", Components.Component.OpticalPort.State.OutputPower)}
-                    self._child_list_classes = {}
-
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                    self.optical_port_type = YLeaf(YType.identityref, "optical-port-type")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
+                        ('optical_port_type', YLeaf(YType.identityref, 'optical-port-type')),
+                    ])
+                    self.admin_state = None
+                    self.optical_port_type = None
 
                     self.input_power = Components.Component.OpticalPort.State.InputPower()
                     self.input_power.parent = self
@@ -860,16 +903,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "input-power"
 
                     def __setattr__(self, name, value):
@@ -932,16 +978,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "output-power"
 
                     def __setattr__(self, name, value):
@@ -981,8 +1030,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"config" : ("config", Components.Component.Transceiver.Config), "state" : ("state", Components.Component.Transceiver.State), "physical-channels" : ("physical_channels", Components.Component.Transceiver.PhysicalChannels)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Components.Component.Transceiver.Config)), ("state", ("state", Components.Component.Transceiver.State)), ("physical-channels", ("physical_channels", Components.Component.Transceiver.PhysicalChannels))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.config = Components.Component.Transceiver.Config()
                 self.config.parent = self
@@ -1029,12 +1080,15 @@ class Components(Entity):
                     self.yang_parent_name = "transceiver"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.form_factor = YLeaf(YType.identityref, "form-factor")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('form_factor', YLeaf(YType.identityref, 'form-factor')),
+                    ])
+                    self.enabled = None
+                    self.form_factor = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -1141,36 +1195,39 @@ class Components(Entity):
                     self.yang_parent_name = "transceiver"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.form_factor = YLeaf(YType.identityref, "form-factor")
-
-                    self.present = YLeaf(YType.enumeration, "present")
-
-                    self.connector_type = YLeaf(YType.identityref, "connector-type")
-
-                    self.internal_temp = YLeaf(YType.int16, "internal-temp")
-
-                    self.vendor = YLeaf(YType.str, "vendor")
-
-                    self.vendor_part = YLeaf(YType.str, "vendor-part")
-
-                    self.vendor_rev = YLeaf(YType.str, "vendor-rev")
-
-                    self.ethernet_compliance_code = YLeaf(YType.identityref, "ethernet-compliance-code")
-
-                    self.sonet_sdh_compliance_code = YLeaf(YType.identityref, "sonet-sdh-compliance-code")
-
-                    self.otn_compliance_code = YLeaf(YType.identityref, "otn-compliance-code")
-
-                    self.serial_no = YLeaf(YType.str, "serial-no")
-
-                    self.date_code = YLeaf(YType.str, "date-code")
-
-                    self.fault_condition = YLeaf(YType.boolean, "fault-condition")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('form_factor', YLeaf(YType.identityref, 'form-factor')),
+                        ('present', YLeaf(YType.enumeration, 'present')),
+                        ('connector_type', YLeaf(YType.identityref, 'connector-type')),
+                        ('internal_temp', YLeaf(YType.int16, 'internal-temp')),
+                        ('vendor', YLeaf(YType.str, 'vendor')),
+                        ('vendor_part', YLeaf(YType.str, 'vendor-part')),
+                        ('vendor_rev', YLeaf(YType.str, 'vendor-rev')),
+                        ('ethernet_compliance_code', YLeaf(YType.identityref, 'ethernet-compliance-code')),
+                        ('sonet_sdh_compliance_code', YLeaf(YType.identityref, 'sonet-sdh-compliance-code')),
+                        ('otn_compliance_code', YLeaf(YType.identityref, 'otn-compliance-code')),
+                        ('serial_no', YLeaf(YType.str, 'serial-no')),
+                        ('date_code', YLeaf(YType.str, 'date-code')),
+                        ('fault_condition', YLeaf(YType.boolean, 'fault-condition')),
+                    ])
+                    self.enabled = None
+                    self.form_factor = None
+                    self.present = None
+                    self.connector_type = None
+                    self.internal_temp = None
+                    self.vendor = None
+                    self.vendor_part = None
+                    self.vendor_rev = None
+                    self.ethernet_compliance_code = None
+                    self.sonet_sdh_compliance_code = None
+                    self.otn_compliance_code = None
+                    self.serial_no = None
+                    self.date_code = None
+                    self.fault_condition = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -1178,7 +1235,7 @@ class Components(Entity):
 
                 class Present(Enum):
                     """
-                    Present
+                    Present (Enum Class)
 
                     Indicates whether a transceiver is present in
 
@@ -1223,8 +1280,10 @@ class Components(Entity):
                     self.yang_parent_name = "transceiver"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"channel" : ("channel", Components.Component.Transceiver.PhysicalChannels.Channel)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("channel", ("channel", Components.Component.Transceiver.PhysicalChannels.Channel))])
+                    self._leafs = OrderedDict()
 
                     self.channel = YList(self)
                     self._segment_path = lambda: "physical-channels"
@@ -1239,7 +1298,7 @@ class Components(Entity):
                     client port.  A physical port with a single channel would
                     have a single zero\-indexed element
                     
-                    .. attribute:: index  <key>
+                    .. attribute:: index  (key)
                     
                     	Reference to the index number of the channel
                     	**type**\: int
@@ -1272,10 +1331,13 @@ class Components(Entity):
                         self.yang_parent_name = "physical-channels"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", Components.Component.Transceiver.PhysicalChannels.Channel.Config), "state" : ("state", Components.Component.Transceiver.PhysicalChannels.Channel.State)}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.str, "index")
+                        self.ylist_key_names = ['index']
+                        self._child_container_classes = OrderedDict([("config", ("config", Components.Component.Transceiver.PhysicalChannels.Channel.Config)), ("state", ("state", Components.Component.Transceiver.PhysicalChannels.Channel.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('index', YLeaf(YType.str, 'index')),
+                        ])
+                        self.index = None
 
                         self.config = Components.Component.Transceiver.PhysicalChannels.Channel.Config()
                         self.config.parent = self
@@ -1286,7 +1348,7 @@ class Components(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "channel" + "[index='" + self.index.get() + "']"
+                        self._segment_path = lambda: "channel" + "[index='" + str(self.index) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel, ['index'], name, value)
@@ -1336,16 +1398,19 @@ class Components(Entity):
                             self.yang_parent_name = "channel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.uint16, "index")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.tx_laser = YLeaf(YType.boolean, "tx-laser")
-
-                            self.target_output_power = YLeaf(YType.str, "target-output-power")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.uint16, 'index')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('tx_laser', YLeaf(YType.boolean, 'tx-laser')),
+                                ('target_output_power', YLeaf(YType.str, 'target-output-power')),
+                            ])
+                            self.index = None
+                            self.description = None
+                            self.tx_laser = None
+                            self.target_output_power = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1418,18 +1483,21 @@ class Components(Entity):
                             self.yang_parent_name = "channel"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"output-power" : ("output_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower), "input-power" : ("input_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower), "laser-bias-current" : ("laser_bias_current", Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent)}
-                            self._child_list_classes = {}
-
-                            self.index = YLeaf(YType.uint16, "index")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.tx_laser = YLeaf(YType.boolean, "tx-laser")
-
-                            self.target_output_power = YLeaf(YType.str, "target-output-power")
-
-                            self.output_frequency = YLeaf(YType.uint64, "output-frequency")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("output-power", ("output_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower)), ("input-power", ("input_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower)), ("laser-bias-current", ("laser_bias_current", Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('index', YLeaf(YType.uint16, 'index')),
+                                ('description', YLeaf(YType.str, 'description')),
+                                ('tx_laser', YLeaf(YType.boolean, 'tx-laser')),
+                                ('target_output_power', YLeaf(YType.str, 'target-output-power')),
+                                ('output_frequency', YLeaf(YType.uint64, 'output-frequency')),
+                            ])
+                            self.index = None
+                            self.description = None
+                            self.tx_laser = None
+                            self.target_output_power = None
+                            self.output_frequency = None
 
                             self.output_power = Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower()
                             self.output_power.parent = self
@@ -1501,16 +1569,19 @@ class Components(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "output-power"
 
                             def __setattr__(self, name, value):
@@ -1567,16 +1638,19 @@ class Components(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "input-power"
 
                             def __setattr__(self, name, value):
@@ -1633,16 +1707,19 @@ class Components(Entity):
                                 self.yang_parent_name = "state"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.instant = YLeaf(YType.str, "instant")
-
-                                self.avg = YLeaf(YType.str, "avg")
-
-                                self.min = YLeaf(YType.str, "min")
-
-                                self.max = YLeaf(YType.str, "max")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('instant', YLeaf(YType.str, 'instant')),
+                                    ('avg', YLeaf(YType.str, 'avg')),
+                                    ('min', YLeaf(YType.str, 'min')),
+                                    ('max', YLeaf(YType.str, 'max')),
+                                ])
+                                self.instant = None
+                                self.avg = None
+                                self.min = None
+                                self.max = None
                                 self._segment_path = lambda: "laser-bias-current"
 
                             def __setattr__(self, name, value):
@@ -1677,8 +1754,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"config" : ("config", Components.Component.OpticalChannel.Config), "state" : ("state", Components.Component.OpticalChannel.State)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("config", ("config", Components.Component.OpticalChannel.Config)), ("state", ("state", Components.Component.OpticalChannel.State))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.config = Components.Component.OpticalChannel.Config()
                 self.config.parent = self
@@ -1740,16 +1819,19 @@ class Components(Entity):
                     self.yang_parent_name = "optical-channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.frequency = YLeaf(YType.uint64, "frequency")
-
-                    self.target_output_power = YLeaf(YType.str, "target-output-power")
-
-                    self.operational_mode = YLeaf(YType.uint16, "operational-mode")
-
-                    self.line_port = YLeaf(YType.str, "line-port")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('frequency', YLeaf(YType.uint64, 'frequency')),
+                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
+                        ('operational_mode', YLeaf(YType.uint16, 'operational-mode')),
+                        ('line_port', YLeaf(YType.str, 'line-port')),
+                    ])
+                    self.frequency = None
+                    self.target_output_power = None
+                    self.operational_mode = None
+                    self.line_port = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -1846,18 +1928,21 @@ class Components(Entity):
                     self.yang_parent_name = "optical-channel"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"output-power" : ("output_power", Components.Component.OpticalChannel.State.OutputPower), "input-power" : ("input_power", Components.Component.OpticalChannel.State.InputPower), "laser-bias-current" : ("laser_bias_current", Components.Component.OpticalChannel.State.LaserBiasCurrent), "chromatic-dispersion" : ("chromatic_dispersion", Components.Component.OpticalChannel.State.ChromaticDispersion), "polarization-mode-dispersion" : ("polarization_mode_dispersion", Components.Component.OpticalChannel.State.PolarizationModeDispersion), "second-order-polarization-mode-dispersion" : ("second_order_polarization_mode_dispersion", Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion), "polarization-dependent-loss" : ("polarization_dependent_loss", Components.Component.OpticalChannel.State.PolarizationDependentLoss)}
-                    self._child_list_classes = {}
-
-                    self.frequency = YLeaf(YType.uint64, "frequency")
-
-                    self.target_output_power = YLeaf(YType.str, "target-output-power")
-
-                    self.operational_mode = YLeaf(YType.uint16, "operational-mode")
-
-                    self.line_port = YLeaf(YType.str, "line-port")
-
-                    self.group_id = YLeaf(YType.uint32, "group-id")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("output-power", ("output_power", Components.Component.OpticalChannel.State.OutputPower)), ("input-power", ("input_power", Components.Component.OpticalChannel.State.InputPower)), ("laser-bias-current", ("laser_bias_current", Components.Component.OpticalChannel.State.LaserBiasCurrent)), ("chromatic-dispersion", ("chromatic_dispersion", Components.Component.OpticalChannel.State.ChromaticDispersion)), ("polarization-mode-dispersion", ("polarization_mode_dispersion", Components.Component.OpticalChannel.State.PolarizationModeDispersion)), ("second-order-polarization-mode-dispersion", ("second_order_polarization_mode_dispersion", Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion)), ("polarization-dependent-loss", ("polarization_dependent_loss", Components.Component.OpticalChannel.State.PolarizationDependentLoss))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('frequency', YLeaf(YType.uint64, 'frequency')),
+                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
+                        ('operational_mode', YLeaf(YType.uint16, 'operational-mode')),
+                        ('line_port', YLeaf(YType.str, 'line-port')),
+                        ('group_id', YLeaf(YType.uint32, 'group-id')),
+                    ])
+                    self.frequency = None
+                    self.target_output_power = None
+                    self.operational_mode = None
+                    self.line_port = None
+                    self.group_id = None
 
                     self.output_power = Components.Component.OpticalChannel.State.OutputPower()
                     self.output_power.parent = self
@@ -1949,16 +2034,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "output-power"
 
                     def __setattr__(self, name, value):
@@ -2015,16 +2103,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "input-power"
 
                     def __setattr__(self, name, value):
@@ -2081,16 +2172,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "laser-bias-current"
 
                     def __setattr__(self, name, value):
@@ -2144,16 +2238,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "chromatic-dispersion"
 
                     def __setattr__(self, name, value):
@@ -2207,16 +2304,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "polarization-mode-dispersion"
 
                     def __setattr__(self, name, value):
@@ -2270,16 +2370,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "second-order-polarization-mode-dispersion"
 
                     def __setattr__(self, name, value):
@@ -2333,16 +2436,19 @@ class Components(Entity):
                         self.yang_parent_name = "state"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.instant = YLeaf(YType.str, "instant")
-
-                        self.avg = YLeaf(YType.str, "avg")
-
-                        self.min = YLeaf(YType.str, "min")
-
-                        self.max = YLeaf(YType.str, "max")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', YLeaf(YType.str, 'instant')),
+                            ('avg', YLeaf(YType.str, 'avg')),
+                            ('min', YLeaf(YType.str, 'min')),
+                            ('max', YLeaf(YType.str, 'max')),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
                         self._segment_path = lambda: "polarization-dependent-loss"
 
                     def __setattr__(self, name, value):

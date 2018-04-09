@@ -9,6 +9,8 @@ version of this MIB module is part of RFC 3413;
 see the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -40,8 +42,10 @@ class SNMPPROXYMIB(Entity):
         self.yang_parent_name = "SNMP-PROXY-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"snmpProxyTable" : ("snmpproxytable", SNMPPROXYMIB.Snmpproxytable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("snmpProxyTable", ("snmpproxytable", SNMPPROXYMIB.Snmpproxytable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.snmpproxytable = SNMPPROXYMIB.Snmpproxytable()
         self.snmpproxytable.parent = self
@@ -74,8 +78,10 @@ class SNMPPROXYMIB(Entity):
             self.yang_parent_name = "SNMP-PROXY-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"snmpProxyEntry" : ("snmpproxyentry", SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("snmpProxyEntry", ("snmpproxyentry", SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry))])
+            self._leafs = OrderedDict()
 
             self.snmpproxyentry = YList(self)
             self._segment_path = lambda: "snmpProxyTable"
@@ -93,7 +99,7 @@ class SNMPPROXYMIB(Entity):
             Entries in the snmpProxyTable are created and deleted
             using the snmpProxyRowStatus object.
             
-            .. attribute:: snmpproxyname  <key>
+            .. attribute:: snmpproxyname  (key)
             
             	The locally arbitrary, but unique identifier associated with this snmpProxyEntry
             	**type**\: str
@@ -156,27 +162,30 @@ class SNMPPROXYMIB(Entity):
                 self.yang_parent_name = "snmpProxyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.snmpproxyname = YLeaf(YType.str, "snmpProxyName")
-
-                self.snmpproxytype = YLeaf(YType.enumeration, "snmpProxyType")
-
-                self.snmpproxycontextengineid = YLeaf(YType.str, "snmpProxyContextEngineID")
-
-                self.snmpproxycontextname = YLeaf(YType.str, "snmpProxyContextName")
-
-                self.snmpproxytargetparamsin = YLeaf(YType.str, "snmpProxyTargetParamsIn")
-
-                self.snmpproxysingletargetout = YLeaf(YType.str, "snmpProxySingleTargetOut")
-
-                self.snmpproxymultipletargetout = YLeaf(YType.str, "snmpProxyMultipleTargetOut")
-
-                self.snmpproxystoragetype = YLeaf(YType.enumeration, "snmpProxyStorageType")
-
-                self.snmpproxyrowstatus = YLeaf(YType.enumeration, "snmpProxyRowStatus")
-                self._segment_path = lambda: "snmpProxyEntry" + "[snmpProxyName='" + self.snmpproxyname.get() + "']"
+                self.ylist_key_names = ['snmpproxyname']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('snmpproxyname', YLeaf(YType.str, 'snmpProxyName')),
+                    ('snmpproxytype', YLeaf(YType.enumeration, 'snmpProxyType')),
+                    ('snmpproxycontextengineid', YLeaf(YType.str, 'snmpProxyContextEngineID')),
+                    ('snmpproxycontextname', YLeaf(YType.str, 'snmpProxyContextName')),
+                    ('snmpproxytargetparamsin', YLeaf(YType.str, 'snmpProxyTargetParamsIn')),
+                    ('snmpproxysingletargetout', YLeaf(YType.str, 'snmpProxySingleTargetOut')),
+                    ('snmpproxymultipletargetout', YLeaf(YType.str, 'snmpProxyMultipleTargetOut')),
+                    ('snmpproxystoragetype', YLeaf(YType.enumeration, 'snmpProxyStorageType')),
+                    ('snmpproxyrowstatus', YLeaf(YType.enumeration, 'snmpProxyRowStatus')),
+                ])
+                self.snmpproxyname = None
+                self.snmpproxytype = None
+                self.snmpproxycontextengineid = None
+                self.snmpproxycontextname = None
+                self.snmpproxytargetparamsin = None
+                self.snmpproxysingletargetout = None
+                self.snmpproxymultipletargetout = None
+                self.snmpproxystoragetype = None
+                self.snmpproxyrowstatus = None
+                self._segment_path = lambda: "snmpProxyEntry" + "[snmpProxyName='" + str(self.snmpproxyname) + "']"
                 self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -184,7 +193,7 @@ class SNMPPROXYMIB(Entity):
 
             class Snmpproxytype(Enum):
                 """
-                Snmpproxytype
+                Snmpproxytype (Enum Class)
 
                 The type of message that may be forwarded using
 

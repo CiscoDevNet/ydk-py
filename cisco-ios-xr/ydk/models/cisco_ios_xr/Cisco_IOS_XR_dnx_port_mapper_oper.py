@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class Oor(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-dnx-port-mapper-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Oor.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", Oor.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = Oor.Nodes()
         self.nodes.parent = self
@@ -75,8 +79,10 @@ class Oor(Entity):
             self.yang_parent_name = "oor"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Oor.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Oor.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -90,7 +96,7 @@ class Oor(Entity):
             """
             DPA operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node ID
             	**type**\: str
@@ -121,10 +127,13 @@ class Oor(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"summary" : ("summary", Oor.Nodes.Node.Summary), "interface-names" : ("interface_names", Oor.Nodes.Node.InterfaceNames)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("summary", ("summary", Oor.Nodes.Node.Summary)), ("interface-names", ("interface_names", Oor.Nodes.Node.InterfaceNames))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.summary = Oor.Nodes.Node.Summary()
                 self.summary.parent = self
@@ -135,7 +144,7 @@ class Oor(Entity):
                 self.interface_names.parent = self
                 self._children_name_map["interface_names"] = "interface-names"
                 self._children_yang_names.add("interface-names")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -181,14 +190,17 @@ class Oor(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.red = YLeaf(YType.uint32, "red")
-
-                    self.green = YLeaf(YType.uint32, "green")
-
-                    self.yel_low = YLeaf(YType.uint32, "yel-low")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('red', YLeaf(YType.uint32, 'red')),
+                        ('green', YLeaf(YType.uint32, 'green')),
+                        ('yel_low', YLeaf(YType.uint32, 'yel-low')),
+                    ])
+                    self.red = None
+                    self.green = None
+                    self.yel_low = None
                     self._segment_path = lambda: "summary"
 
                 def __setattr__(self, name, value):
@@ -218,8 +230,10 @@ class Oor(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-name" : ("interface_name", Oor.Nodes.Node.InterfaceNames.InterfaceName)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-name", ("interface_name", Oor.Nodes.Node.InterfaceNames.InterfaceName))])
+                    self._leafs = OrderedDict()
 
                     self.interface_name = YList(self)
                     self._segment_path = lambda: "interface-names"
@@ -232,7 +246,7 @@ class Oor(Entity):
                     """
                     OOR Data for particular interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	The name of the interface
                     	**type**\: str
@@ -258,13 +272,16 @@ class Oor(Entity):
                         self.yang_parent_name = "interface-names"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("interface", ("interface", Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
 
                         self.interface = YList(self)
-                        self._segment_path = lambda: "interface-name" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface-name" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oor.Nodes.Node.InterfaceNames.InterfaceName, ['interface_name'], name, value)
@@ -313,18 +330,21 @@ class Oor(Entity):
                             self.yang_parent_name = "interface-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_status = YLeaf(YType.str, "interface-status")
-
-                            self.time_stamp = YLeaf(YType.str, "time-stamp")
-
-                            self.npu_id = YLeaf(YType.str, "npu-id")
-
-                            self.hardware_resource = YLeaf(YType.str, "hardware-resource")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_status', YLeaf(YType.str, 'interface-status')),
+                                ('time_stamp', YLeaf(YType.str, 'time-stamp')),
+                                ('npu_id', YLeaf(YType.str, 'npu-id')),
+                                ('hardware_resource', YLeaf(YType.str, 'hardware-resource')),
+                            ])
+                            self.interface_name = None
+                            self.interface_status = None
+                            self.time_stamp = None
+                            self.npu_id = None
+                            self.hardware_resource = None
                             self._segment_path = lambda: "interface"
 
                         def __setattr__(self, name, value):

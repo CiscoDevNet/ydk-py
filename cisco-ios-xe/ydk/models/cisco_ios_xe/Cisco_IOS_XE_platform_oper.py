@@ -6,6 +6,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -14,7 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class PlatformCompType(Enum):
     """
-    PlatformCompType
+    PlatformCompType (Enum Class)
 
     Component Type
 
@@ -40,7 +42,7 @@ class PlatformCompType(Enum):
 
     .. data:: comp_optical_channel = 10
 
-    .. data:: CONTAINER = 11
+    .. data:: comp_container = 11
 
     """
 
@@ -66,12 +68,12 @@ class PlatformCompType(Enum):
 
     comp_optical_channel = Enum.YLeaf(10, "comp-optical-channel")
 
-    CONTAINER = Enum.YLeaf(11, "CONTAINER")
+    comp_container = Enum.YLeaf(11, "comp-container")
 
 
 class PlatformPropValueType(Enum):
     """
-    PlatformPropValueType
+    PlatformPropValueType (Enum Class)
 
     Property value type
 
@@ -113,7 +115,7 @@ class Components(Entity):
     """
 
     _prefix = 'platform-ios-xe-oper'
-    _revision = '2017-02-06'
+    _revision = '2017-10-11'
 
     def __init__(self):
         super(Components, self).__init__()
@@ -123,8 +125,10 @@ class Components(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-platform-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"component" : ("component", Components.Component)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("component", ("component", Components.Component))])
+        self._leafs = OrderedDict()
 
         self.component = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-platform-oper:components"
@@ -137,7 +141,7 @@ class Components(Entity):
         """
         List of components, keyed by component name
         
-        .. attribute:: cname  <key>
+        .. attribute:: cname  (key)
         
         	References component name
         	**type**\: str
@@ -162,7 +166,7 @@ class Components(Entity):
         """
 
         _prefix = 'platform-ios-xe-oper'
-        _revision = '2017-02-06'
+        _revision = '2017-10-11'
 
         def __init__(self):
             super(Components.Component, self).__init__()
@@ -171,10 +175,13 @@ class Components(Entity):
             self.yang_parent_name = "components"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"state" : ("state", Components.Component.State), "platform-properties" : ("platform_properties", Components.Component.PlatformProperties), "platform-subcomponents" : ("platform_subcomponents", Components.Component.PlatformSubcomponents)}
-            self._child_list_classes = {}
-
-            self.cname = YLeaf(YType.str, "cname")
+            self.ylist_key_names = ['cname']
+            self._child_container_classes = OrderedDict([("state", ("state", Components.Component.State)), ("platform-properties", ("platform_properties", Components.Component.PlatformProperties)), ("platform-subcomponents", ("platform_subcomponents", Components.Component.PlatformSubcomponents))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cname', YLeaf(YType.str, 'cname')),
+            ])
+            self.cname = None
 
             self.state = Components.Component.State()
             self.state.parent = self
@@ -190,7 +197,7 @@ class Components(Entity):
             self.platform_subcomponents.parent = self
             self._children_name_map["platform_subcomponents"] = "platform-subcomponents"
             self._children_yang_names.add("platform-subcomponents")
-            self._segment_path = lambda: "component" + "[cname='" + self.cname.get() + "']"
+            self._segment_path = lambda: "component" + "[cname='" + str(self.cname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-oper:components/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -246,7 +253,7 @@ class Components(Entity):
             """
 
             _prefix = 'platform-ios-xe-oper'
-            _revision = '2017-02-06'
+            _revision = '2017-10-11'
 
             def __init__(self):
                 super(Components.Component.State, self).__init__()
@@ -255,22 +262,25 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"temp" : ("temp", Components.Component.State.Temp)}
-                self._child_list_classes = {}
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.id = YLeaf(YType.str, "id")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.mfg_name = YLeaf(YType.str, "mfg-name")
-
-                self.version = YLeaf(YType.str, "version")
-
-                self.serial_no = YLeaf(YType.str, "serial-no")
-
-                self.part_no = YLeaf(YType.str, "part-no")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("temp", ("temp", Components.Component.State.Temp))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('id', YLeaf(YType.str, 'id')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('mfg_name', YLeaf(YType.str, 'mfg-name')),
+                    ('version', YLeaf(YType.str, 'version')),
+                    ('serial_no', YLeaf(YType.str, 'serial-no')),
+                    ('part_no', YLeaf(YType.str, 'part-no')),
+                ])
+                self.type = None
+                self.id = None
+                self.description = None
+                self.mfg_name = None
+                self.version = None
+                self.serial_no = None
+                self.part_no = None
 
                 self.temp = Components.Component.State.Temp()
                 self.temp.parent = self
@@ -322,7 +332,7 @@ class Components(Entity):
                 """
 
                 _prefix = 'platform-ios-xe-oper'
-                _revision = '2017-02-06'
+                _revision = '2017-10-11'
 
                 def __init__(self):
                     super(Components.Component.State.Temp, self).__init__()
@@ -331,16 +341,19 @@ class Components(Entity):
                     self.yang_parent_name = "state"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.temp_instant = YLeaf(YType.str, "temp-instant")
-
-                    self.temp_avg = YLeaf(YType.str, "temp-avg")
-
-                    self.temp_max = YLeaf(YType.str, "temp-max")
-
-                    self.temp_min = YLeaf(YType.str, "temp-min")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('temp_instant', YLeaf(YType.str, 'temp-instant')),
+                        ('temp_avg', YLeaf(YType.str, 'temp-avg')),
+                        ('temp_max', YLeaf(YType.str, 'temp-max')),
+                        ('temp_min', YLeaf(YType.str, 'temp-min')),
+                    ])
+                    self.temp_instant = None
+                    self.temp_avg = None
+                    self.temp_max = None
+                    self.temp_min = None
                     self._segment_path = lambda: "temp"
 
                 def __setattr__(self, name, value):
@@ -361,7 +374,7 @@ class Components(Entity):
             """
 
             _prefix = 'platform-ios-xe-oper'
-            _revision = '2017-02-06'
+            _revision = '2017-10-11'
 
             def __init__(self):
                 super(Components.Component.PlatformProperties, self).__init__()
@@ -370,8 +383,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"platform-property" : ("platform_property", Components.Component.PlatformProperties.PlatformProperty)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("platform-property", ("platform_property", Components.Component.PlatformProperties.PlatformProperty))])
+                self._leafs = OrderedDict()
 
                 self.platform_property = YList(self)
                 self._segment_path = lambda: "platform-properties"
@@ -384,7 +399,7 @@ class Components(Entity):
                 """
                 List of platform component properties
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Property name
                 	**type**\: str
@@ -399,17 +414,12 @@ class Components(Entity):
                 	Indication of whether the property is user\-configurable
                 	**type**\: bool
                 
-                .. attribute:: parent_platform_component_cname_key
-                
-                	Name of the parent component
-                	**type**\: str
-                
                 
 
                 """
 
                 _prefix = 'platform-ios-xe-oper'
-                _revision = '2017-02-06'
+                _revision = '2017-10-11'
 
                 def __init__(self):
                     super(Components.Component.PlatformProperties.PlatformProperty, self).__init__()
@@ -418,23 +428,24 @@ class Components(Entity):
                     self.yang_parent_name = "platform-properties"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"value" : ("value", Components.Component.PlatformProperties.PlatformProperty.Value)}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.configurable = YLeaf(YType.boolean, "configurable")
-
-                    self.parent_platform_component_cname_key = YLeaf(YType.str, "parent-platform-component-cname-key")
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([("value", ("value", Components.Component.PlatformProperties.PlatformProperty.Value))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                        ('configurable', YLeaf(YType.boolean, 'configurable')),
+                    ])
+                    self.name = None
+                    self.configurable = None
 
                     self.value = Components.Component.PlatformProperties.PlatformProperty.Value()
                     self.value.parent = self
                     self._children_name_map["value"] = "value"
                     self._children_yang_names.add("value")
-                    self._segment_path = lambda: "platform-property" + "[name='" + self.name.get() + "']"
+                    self._segment_path = lambda: "platform-property" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty, ['name', 'configurable', 'parent_platform_component_cname_key'], name, value)
+                    self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty, ['name', 'configurable'], name, value)
 
 
                 class Value(Entity):
@@ -477,7 +488,7 @@ class Components(Entity):
                     """
 
                     _prefix = 'platform-ios-xe-oper'
-                    _revision = '2017-02-06'
+                    _revision = '2017-10-11'
 
                     def __init__(self):
                         super(Components.Component.PlatformProperties.PlatformProperty.Value, self).__init__()
@@ -486,18 +497,21 @@ class Components(Entity):
                         self.yang_parent_name = "platform-property"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.string = YLeaf(YType.str, "string")
-
-                        self.boolean = YLeaf(YType.boolean, "boolean")
-
-                        self.intsixfour = YLeaf(YType.int64, "intsixfour")
-
-                        self.uintsixfour = YLeaf(YType.uint64, "uintsixfour")
-
-                        self.decimal = YLeaf(YType.str, "decimal")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('string', YLeaf(YType.str, 'string')),
+                            ('boolean', YLeaf(YType.boolean, 'boolean')),
+                            ('intsixfour', YLeaf(YType.int64, 'intsixfour')),
+                            ('uintsixfour', YLeaf(YType.uint64, 'uintsixfour')),
+                            ('decimal', YLeaf(YType.str, 'decimal')),
+                        ])
+                        self.string = None
+                        self.boolean = None
+                        self.intsixfour = None
+                        self.uintsixfour = None
+                        self.decimal = None
                         self._segment_path = lambda: "value"
 
                     def __setattr__(self, name, value):
@@ -518,7 +532,7 @@ class Components(Entity):
             """
 
             _prefix = 'platform-ios-xe-oper'
-            _revision = '2017-02-06'
+            _revision = '2017-10-11'
 
             def __init__(self):
                 super(Components.Component.PlatformSubcomponents, self).__init__()
@@ -527,8 +541,10 @@ class Components(Entity):
                 self.yang_parent_name = "component"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"platform-subcomponent" : ("platform_subcomponent", Components.Component.PlatformSubcomponents.PlatformSubcomponent)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("platform-subcomponent", ("platform_subcomponent", Components.Component.PlatformSubcomponents.PlatformSubcomponent))])
+                self._leafs = OrderedDict()
 
                 self.platform_subcomponent = YList(self)
                 self._segment_path = lambda: "platform-subcomponents"
@@ -541,14 +557,9 @@ class Components(Entity):
                 """
                 List of platform subcomponents
                 
-                .. attribute:: name  <key>
+                .. attribute:: name  (key)
                 
                 	Subcomponent name
-                	**type**\: str
-                
-                .. attribute:: parent_platform_component_cname_key
-                
-                	Name of the parent component
                 	**type**\: str
                 
                 
@@ -556,7 +567,7 @@ class Components(Entity):
                 """
 
                 _prefix = 'platform-ios-xe-oper'
-                _revision = '2017-02-06'
+                _revision = '2017-10-11'
 
                 def __init__(self):
                     super(Components.Component.PlatformSubcomponents.PlatformSubcomponent, self).__init__()
@@ -565,16 +576,17 @@ class Components(Entity):
                     self.yang_parent_name = "platform-subcomponents"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.parent_platform_component_cname_key = YLeaf(YType.str, "parent-platform-component-cname-key")
-                    self._segment_path = lambda: "platform-subcomponent" + "[name='" + self.name.get() + "']"
+                    self.ylist_key_names = ['name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
+                    self._segment_path = lambda: "platform-subcomponent" + "[name='" + str(self.name) + "']"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.PlatformSubcomponents.PlatformSubcomponent, ['name', 'parent_platform_component_cname_key'], name, value)
+                    self._perform_setattr(Components.Component.PlatformSubcomponents.PlatformSubcomponent, ['name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Components()

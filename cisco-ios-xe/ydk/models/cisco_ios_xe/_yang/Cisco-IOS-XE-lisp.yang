@@ -37,7 +37,20 @@ module Cisco-IOS-XE-lisp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+    description
+      "This revision has changes for the new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for the new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -2968,7 +2981,19 @@ module Cisco-IOS-XE-lisp {
     uses config-interface-ip-lisp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-lisp-grouping;
   }
 
@@ -3003,7 +3028,19 @@ module Cisco-IOS-XE-lisp {
     uses config-interface-lisp-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-lisp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-lisp-grouping;
   }
 

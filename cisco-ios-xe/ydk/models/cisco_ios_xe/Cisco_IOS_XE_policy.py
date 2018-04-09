@@ -5,6 +5,8 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BytesMsUsType(Enum):
     """
-    BytesMsUsType
+    BytesMsUsType (Enum Class)
 
     .. data:: bytes = 0
 
@@ -32,7 +34,7 @@ class BytesMsUsType(Enum):
 
 class ClassNameType(Enum):
     """
-    ClassNameType
+    ClassNameType (Enum Class)
 
     .. data:: class_default = 0
 
@@ -43,7 +45,7 @@ class ClassNameType(Enum):
 
 class PolicePacketsBytesType(Enum):
     """
-    PolicePacketsBytesType
+    PolicePacketsBytesType (Enum Class)
 
     .. data:: packets = 0
 
@@ -58,7 +60,7 @@ class PolicePacketsBytesType(Enum):
 
 class PolicePpsBpsType(Enum):
     """
-    PolicePpsBpsType
+    PolicePpsBpsType (Enum Class)
 
     .. data:: pps = 0
 
@@ -73,7 +75,7 @@ class PolicePpsBpsType(Enum):
 
 class PolicyActionType(Enum):
     """
-    PolicyActionType
+    PolicyActionType (Enum Class)
 
     .. data:: bandwidth = 0
 
@@ -148,7 +150,7 @@ class PolicyActionType(Enum):
 
 class PrecedenceType2(Enum):
     """
-    PrecedenceType2
+    PrecedenceType2 (Enum Class)
 
     .. data:: rsvp = 0
 

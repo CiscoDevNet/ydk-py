@@ -7,6 +7,8 @@ of this MIB module is part of RFC 4268; see the RFC
 itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -38,8 +40,10 @@ class ENTITYSTATEMIB(Entity):
         self.yang_parent_name = "ENTITY-STATE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"entStateTable" : ("entstatetable", ENTITYSTATEMIB.Entstatetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("entStateTable", ("entstatetable", ENTITYSTATEMIB.Entstatetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.entstatetable = ENTITYSTATEMIB.Entstatetable()
         self.entstatetable.parent = self
@@ -76,8 +80,10 @@ class ENTITYSTATEMIB(Entity):
             self.yang_parent_name = "ENTITY-STATE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"entStateEntry" : ("entstateentry", ENTITYSTATEMIB.Entstatetable.Entstateentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("entStateEntry", ("entstateentry", ENTITYSTATEMIB.Entstatetable.Entstateentry))])
+            self._leafs = OrderedDict()
 
             self.entstateentry = YList(self)
             self._segment_path = lambda: "entStateTable"
@@ -91,7 +97,7 @@ class ENTITYSTATEMIB(Entity):
             """
             State information about this physical entity.
             
-            .. attribute:: entphysicalindex  <key>
+            .. attribute:: entphysicalindex  (key)
             
             	
             	**type**\: int
@@ -144,23 +150,26 @@ class ENTITYSTATEMIB(Entity):
                 self.yang_parent_name = "entStateTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
-
-                self.entstatelastchanged = YLeaf(YType.str, "entStateLastChanged")
-
-                self.entstateadmin = YLeaf(YType.enumeration, "entStateAdmin")
-
-                self.entstateoper = YLeaf(YType.enumeration, "entStateOper")
-
-                self.entstateusage = YLeaf(YType.enumeration, "entStateUsage")
-
-                self.entstatealarm = YLeaf(YType.bits, "entStateAlarm")
-
-                self.entstatestandby = YLeaf(YType.enumeration, "entStateStandby")
-                self._segment_path = lambda: "entStateEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']"
+                self.ylist_key_names = ['entphysicalindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
+                    ('entstatelastchanged', YLeaf(YType.str, 'entStateLastChanged')),
+                    ('entstateadmin', YLeaf(YType.enumeration, 'entStateAdmin')),
+                    ('entstateoper', YLeaf(YType.enumeration, 'entStateOper')),
+                    ('entstateusage', YLeaf(YType.enumeration, 'entStateUsage')),
+                    ('entstatealarm', YLeaf(YType.bits, 'entStateAlarm')),
+                    ('entstatestandby', YLeaf(YType.enumeration, 'entStateStandby')),
+                ])
+                self.entphysicalindex = None
+                self.entstatelastchanged = None
+                self.entstateadmin = None
+                self.entstateoper = None
+                self.entstateusage = None
+                self.entstatealarm = Bits()
+                self.entstatestandby = None
+                self._segment_path = lambda: "entStateEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB/entStateTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

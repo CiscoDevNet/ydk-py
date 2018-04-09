@@ -45,7 +45,20 @@ module Cisco-IOS-XE-isis {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
 
+  revision 2017-11-14 {
+    description
+      "This revision has changes for the new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for the new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -2447,7 +2460,19 @@ module Cisco-IOS-XE-isis {
     uses config-interface-isis-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:isis" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:isis" {
+    uses config-interface-isis-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:isis" {
     uses config-interface-isis-grouping;
   }
 

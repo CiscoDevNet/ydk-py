@@ -5,6 +5,8 @@ and OBJECT\-IDENTITY Objects to be used by
 ATM systems.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -13,7 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class AtmConnCastType(Enum):
     """
-    AtmConnCastType
+    AtmConnCastType (Enum Class)
 
     The type of topology of a connection (point\-
 
@@ -64,7 +66,7 @@ class AtmConnCastType(Enum):
 
 class AtmConnKind(Enum):
     """
-    AtmConnKind
+    AtmConnKind (Enum Class)
 
     The type of call control used for an ATM
 
@@ -155,7 +157,7 @@ class AtmConnKind(Enum):
 
 class AtmInterfaceType(Enum):
     """
-    AtmInterfaceType
+    AtmInterfaceType (Enum Class)
 
     The connection setup procedures used for the
 
@@ -320,7 +322,7 @@ class AtmInterfaceType(Enum):
 
 class AtmServiceCategory(Enum):
     """
-    AtmServiceCategory
+    AtmServiceCategory (Enum Class)
 
     The service category for a connection.
 
@@ -353,7 +355,7 @@ class AtmServiceCategory(Enum):
 
 class AtmVorXAdminStatus(Enum):
     """
-    AtmVorXAdminStatus
+    AtmVorXAdminStatus (Enum Class)
 
     The value determines the desired administrative
 
@@ -378,7 +380,7 @@ class AtmVorXAdminStatus(Enum):
 
 class AtmVorXOperStatus(Enum):
     """
-    AtmVorXOperStatus
+    AtmVorXOperStatus (Enum Class)
 
     The value determines the operational status of a
 

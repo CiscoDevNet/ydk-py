@@ -27,6 +27,8 @@ VCC         \-\- Virtual Channel Connection.
 VCL         \-\- Virtual Channel Link.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -35,7 +37,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class OamCCStatus(Enum):
     """
-    OamCCStatus
+    OamCCStatus (Enum Class)
 
     OAM Continuity check (CC) status.
 
@@ -76,7 +78,7 @@ class OamCCStatus(Enum):
 
 class OamCCVcState(Enum):
     """
-    OamCCVcState
+    OamCCVcState (Enum Class)
 
     OAM Continuity check (CC) VC state.
 

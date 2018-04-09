@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class PppoeMaLimitState(Enum):
     """
-    PppoeMaLimitState
+    PppoeMaLimitState (Enum Class)
 
     Pppoe ma limit state
 
@@ -46,7 +48,7 @@ class PppoeMaLimitState(Enum):
 
 class PppoeMaSessionIdbSrgState(Enum):
     """
-    PppoeMaSessionIdbSrgState
+    PppoeMaSessionIdbSrgState (Enum Class)
 
     Pppoe ma session idb srg state
 
@@ -73,7 +75,7 @@ class PppoeMaSessionIdbSrgState(Enum):
 
 class PppoeMaThrottleState(Enum):
     """
-    PppoeMaThrottleState
+    PppoeMaThrottleState (Enum Class)
 
     Pppoe ma throttle state
 
@@ -128,8 +130,10 @@ class Pppoe(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-subscriber-pppoe-ma-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"access-interface-statistics" : ("access_interface_statistics", Pppoe.AccessInterfaceStatistics), "nodes" : ("nodes", Pppoe.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("access-interface-statistics", ("access_interface_statistics", Pppoe.AccessInterfaceStatistics)), ("nodes", ("nodes", Pppoe.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.access_interface_statistics = Pppoe.AccessInterfaceStatistics()
         self.access_interface_statistics.parent = self
@@ -166,8 +170,10 @@ class Pppoe(Entity):
             self.yang_parent_name = "pppoe"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"access-interface-statistic" : ("access_interface_statistic", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("access-interface-statistic", ("access_interface_statistic", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic))])
+            self._leafs = OrderedDict()
 
             self.access_interface_statistic = YList(self)
             self._segment_path = lambda: "access-interface-statistics"
@@ -182,7 +188,7 @@ class Pppoe(Entity):
             Statistics information for a PPPoE\-enabled
             access interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	PPPoE Access Interface
             	**type**\: str
@@ -208,16 +214,19 @@ class Pppoe(Entity):
                 self.yang_parent_name = "access-interface-statistics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"packet-counts" : ("packet_counts", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                ])
+                self.interface_name = None
 
                 self.packet_counts = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts()
                 self.packet_counts.parent = self
                 self._children_name_map["packet_counts"] = "packet-counts"
                 self._children_yang_names.add("packet-counts")
-                self._segment_path = lambda: "access-interface-statistic" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "access-interface-statistic" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/access-interface-statistics/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -282,8 +291,10 @@ class Pppoe(Entity):
                     self.yang_parent_name = "access-interface-statistic"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"padi" : ("padi", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi), "pado" : ("pado", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado), "padr" : ("padr", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr), "pads-success" : ("pads_success", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess), "pads-error" : ("pads_error", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError), "padt" : ("padt", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt), "session-state" : ("session_state", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState), "other" : ("other", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("padi", ("padi", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi)), ("pado", ("pado", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado)), ("padr", ("padr", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState)), ("other", ("other", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.padi = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi()
                     self.padi.parent = self
@@ -366,14 +377,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "padi"
 
                     def __setattr__(self, name, value):
@@ -419,14 +433,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "pado"
 
                     def __setattr__(self, name, value):
@@ -472,14 +489,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "padr"
 
                     def __setattr__(self, name, value):
@@ -525,14 +545,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "pads-success"
 
                     def __setattr__(self, name, value):
@@ -578,14 +601,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "pads-error"
 
                     def __setattr__(self, name, value):
@@ -631,14 +657,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "padt"
 
                     def __setattr__(self, name, value):
@@ -684,14 +713,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "session-state"
 
                     def __setattr__(self, name, value):
@@ -737,14 +769,17 @@ class Pppoe(Entity):
                         self.yang_parent_name = "packet-counts"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.sent = YLeaf(YType.uint32, "sent")
-
-                        self.received = YLeaf(YType.uint32, "received")
-
-                        self.dropped = YLeaf(YType.uint32, "dropped")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('sent', YLeaf(YType.uint32, 'sent')),
+                            ('received', YLeaf(YType.uint32, 'received')),
+                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                        ])
+                        self.sent = None
+                        self.received = None
+                        self.dropped = None
                         self._segment_path = lambda: "other"
 
                     def __setattr__(self, name, value):
@@ -774,8 +809,10 @@ class Pppoe(Entity):
             self.yang_parent_name = "pppoe"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Pppoe.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Pppoe.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -789,7 +826,7 @@ class Pppoe(Entity):
             """
             PPPoE operational data for a particular node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node
             	**type**\: str
@@ -835,10 +872,13 @@ class Pppoe(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"statistics" : ("statistics", Pppoe.Nodes.Node.Statistics), "access-interface" : ("access_interface", Pppoe.Nodes.Node.AccessInterface), "interfaces" : ("interfaces", Pppoe.Nodes.Node.Interfaces), "bba-groups" : ("bba_groups", Pppoe.Nodes.Node.BbaGroups), "summary-total" : ("summary_total", Pppoe.Nodes.Node.SummaryTotal)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("statistics", ("statistics", Pppoe.Nodes.Node.Statistics)), ("access-interface", ("access_interface", Pppoe.Nodes.Node.AccessInterface)), ("interfaces", ("interfaces", Pppoe.Nodes.Node.Interfaces)), ("bba-groups", ("bba_groups", Pppoe.Nodes.Node.BbaGroups)), ("summary-total", ("summary_total", Pppoe.Nodes.Node.SummaryTotal))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.statistics = Pppoe.Nodes.Node.Statistics()
                 self.statistics.parent = self
@@ -864,7 +904,7 @@ class Pppoe(Entity):
                 self.summary_total.parent = self
                 self._children_name_map["summary_total"] = "summary-total"
                 self._children_yang_names.add("summary-total")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -899,8 +939,10 @@ class Pppoe(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"packet-counts" : ("packet_counts", Pppoe.Nodes.Node.Statistics.PacketCounts), "packet-error-counts" : ("packet_error_counts", Pppoe.Nodes.Node.Statistics.PacketErrorCounts)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.Nodes.Node.Statistics.PacketCounts)), ("packet-error-counts", ("packet_error_counts", Pppoe.Nodes.Node.Statistics.PacketErrorCounts))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.packet_counts = Pppoe.Nodes.Node.Statistics.PacketCounts()
                     self.packet_counts.parent = self
@@ -972,8 +1014,10 @@ class Pppoe(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"padi" : ("padi", Pppoe.Nodes.Node.Statistics.PacketCounts.Padi), "pado" : ("pado", Pppoe.Nodes.Node.Statistics.PacketCounts.Pado), "padr" : ("padr", Pppoe.Nodes.Node.Statistics.PacketCounts.Padr), "pads-success" : ("pads_success", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess), "pads-error" : ("pads_error", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError), "padt" : ("padt", Pppoe.Nodes.Node.Statistics.PacketCounts.Padt), "session-state" : ("session_state", Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState), "other" : ("other", Pppoe.Nodes.Node.Statistics.PacketCounts.Other)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("padi", ("padi", Pppoe.Nodes.Node.Statistics.PacketCounts.Padi)), ("pado", ("pado", Pppoe.Nodes.Node.Statistics.PacketCounts.Pado)), ("padr", ("padr", Pppoe.Nodes.Node.Statistics.PacketCounts.Padr)), ("pads-success", ("pads_success", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess)), ("pads-error", ("pads_error", Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError)), ("padt", ("padt", Pppoe.Nodes.Node.Statistics.PacketCounts.Padt)), ("session-state", ("session_state", Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState)), ("other", ("other", Pppoe.Nodes.Node.Statistics.PacketCounts.Other))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.padi = Pppoe.Nodes.Node.Statistics.PacketCounts.Padi()
                         self.padi.parent = self
@@ -1056,14 +1100,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "padi"
 
                         def __setattr__(self, name, value):
@@ -1109,14 +1156,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "pado"
 
                         def __setattr__(self, name, value):
@@ -1162,14 +1212,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "padr"
 
                         def __setattr__(self, name, value):
@@ -1215,14 +1268,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "pads-success"
 
                         def __setattr__(self, name, value):
@@ -1268,14 +1324,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "pads-error"
 
                         def __setattr__(self, name, value):
@@ -1321,14 +1380,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "padt"
 
                         def __setattr__(self, name, value):
@@ -1374,14 +1436,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "session-state"
 
                         def __setattr__(self, name, value):
@@ -1427,14 +1492,17 @@ class Pppoe(Entity):
                             self.yang_parent_name = "packet-counts"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.sent = YLeaf(YType.uint32, "sent")
-
-                            self.received = YLeaf(YType.uint32, "received")
-
-                            self.dropped = YLeaf(YType.uint32, "dropped")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('sent', YLeaf(YType.uint32, 'sent')),
+                                ('received', YLeaf(YType.uint32, 'received')),
+                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ])
+                            self.sent = None
+                            self.received = None
+                            self.dropped = None
                             self._segment_path = lambda: "other"
 
                         def __setattr__(self, name, value):
@@ -1823,112 +1891,115 @@ class Pppoe(Entity):
                         self.yang_parent_name = "statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.no_interface_handle = YLeaf(YType.uint32, "no-interface-handle")
-
-                        self.no_packet_payload = YLeaf(YType.uint32, "no-packet-payload")
-
-                        self.no_packet_mac_address = YLeaf(YType.uint32, "no-packet-mac-address")
-
-                        self.invalid_version_type_value = YLeaf(YType.uint32, "invalid-version-type-value")
-
-                        self.bad_packet_length = YLeaf(YType.uint32, "bad-packet-length")
-
-                        self.unknown_interface = YLeaf(YType.uint32, "unknown-interface")
-
-                        self.pado_received = YLeaf(YType.uint32, "pado-received")
-
-                        self.pads_received = YLeaf(YType.uint32, "pads-received")
-
-                        self.unknown_packet_type_received = YLeaf(YType.uint32, "unknown-packet-type-received")
-
-                        self.unexpected_session_id_in_packet = YLeaf(YType.uint32, "unexpected-session-id-in-packet")
-
-                        self.no_service_name_tag = YLeaf(YType.uint32, "no-service-name-tag")
-
-                        self.padt_for_unknown_session = YLeaf(YType.uint32, "padt-for-unknown-session")
-
-                        self.padt_with_wrong_peer_mac = YLeaf(YType.uint32, "padt-with-wrong-peer-mac")
-
-                        self.padt_with_wrong_vlan_tags = YLeaf(YType.uint32, "padt-with-wrong-vlan-tags")
-
-                        self.zero_length_host_uniq = YLeaf(YType.uint32, "zero-length-host-uniq")
-
-                        self.padt_before_pads_sent = YLeaf(YType.uint32, "padt-before-pads-sent")
-
-                        self.session_stage_packet_for_unknown_session = YLeaf(YType.uint32, "session-stage-packet-for-unknown-session")
-
-                        self.session_stage_packet_with_wrong_mac = YLeaf(YType.uint32, "session-stage-packet-with-wrong-mac")
-
-                        self.session_stage_packet_with_wrong_vlan_tags = YLeaf(YType.uint32, "session-stage-packet-with-wrong-vlan-tags")
-
-                        self.session_stage_packet_with_no_error = YLeaf(YType.uint32, "session-stage-packet-with-no-error")
-
-                        self.tag_too_short = YLeaf(YType.uint32, "tag-too-short")
-
-                        self.bad_tag_length_field = YLeaf(YType.uint32, "bad-tag-length-field")
-
-                        self.multiple_service_name_tags = YLeaf(YType.uint32, "multiple-service-name-tags")
-
-                        self.multiple_max_payload_tags = YLeaf(YType.uint32, "multiple-max-payload-tags")
-
-                        self.invalid_max_payload_tag = YLeaf(YType.uint32, "invalid-max-payload-tag")
-
-                        self.multiple_vendor_specific_tags = YLeaf(YType.uint32, "multiple-vendor-specific-tags")
-
-                        self.unexpected_ac_name_tag = YLeaf(YType.uint32, "unexpected-ac-name-tag")
-
-                        self.unexpected_error_tags = YLeaf(YType.uint32, "unexpected-error-tags")
-
-                        self.unknown_tag_received = YLeaf(YType.uint32, "unknown-tag-received")
-
-                        self.no_iana_code_invendor_tag = YLeaf(YType.uint32, "no-iana-code-invendor-tag")
-
-                        self.invalid_iana_code_invendor_tag = YLeaf(YType.uint32, "invalid-iana-code-invendor-tag")
-
-                        self.vendor_tag_too_short = YLeaf(YType.uint32, "vendor-tag-too-short")
-
-                        self.bad_vendor_tag_length_field = YLeaf(YType.uint32, "bad-vendor-tag-length-field")
-
-                        self.multiple_host_uniq_tags = YLeaf(YType.uint32, "multiple-host-uniq-tags")
-
-                        self.multiple_relay_session_id_tags = YLeaf(YType.uint32, "multiple-relay-session-id-tags")
-
-                        self.multiple_circuit_id_tags = YLeaf(YType.uint32, "multiple-circuit-id-tags")
-
-                        self.multiple_remote_id_tags = YLeaf(YType.uint32, "multiple-remote-id-tags")
-
-                        self.invalid_dsl_tag = YLeaf(YType.uint32, "invalid-dsl-tag")
-
-                        self.multiple_of_the_same_dsl_tag = YLeaf(YType.uint32, "multiple-of-the-same-dsl-tag")
-
-                        self.invalid_iwf_tag = YLeaf(YType.uint32, "invalid-iwf-tag")
-
-                        self.multiple_iwf_tags = YLeaf(YType.uint32, "multiple-iwf-tags")
-
-                        self.unknownvendor_tag = YLeaf(YType.uint32, "unknownvendor-tag")
-
-                        self.no_space_left_in_packet = YLeaf(YType.uint32, "no-space-left-in-packet")
-
-                        self.duplicate_host_uniq_tag_received = YLeaf(YType.uint32, "duplicate-host-uniq-tag-received")
-
-                        self.duplicate_relay_session_id_tag_received = YLeaf(YType.uint32, "duplicate-relay-session-id-tag-received")
-
-                        self.packet_too_long = YLeaf(YType.uint32, "packet-too-long")
-
-                        self.invalid_ale_tag = YLeaf(YType.uint32, "invalid-ale-tag")
-
-                        self.multiple_ale_tags = YLeaf(YType.uint32, "multiple-ale-tags")
-
-                        self.invalid_service_name = YLeaf(YType.uint32, "invalid-service-name")
-
-                        self.invalid_peer_mac = YLeaf(YType.uint32, "invalid-peer-mac")
-
-                        self.invalid_vlan_tags = YLeaf(YType.uint32, "invalid-vlan-tags")
-
-                        self.packet_on_srg_slave = YLeaf(YType.uint32, "packet-on-srg-slave")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('no_interface_handle', YLeaf(YType.uint32, 'no-interface-handle')),
+                            ('no_packet_payload', YLeaf(YType.uint32, 'no-packet-payload')),
+                            ('no_packet_mac_address', YLeaf(YType.uint32, 'no-packet-mac-address')),
+                            ('invalid_version_type_value', YLeaf(YType.uint32, 'invalid-version-type-value')),
+                            ('bad_packet_length', YLeaf(YType.uint32, 'bad-packet-length')),
+                            ('unknown_interface', YLeaf(YType.uint32, 'unknown-interface')),
+                            ('pado_received', YLeaf(YType.uint32, 'pado-received')),
+                            ('pads_received', YLeaf(YType.uint32, 'pads-received')),
+                            ('unknown_packet_type_received', YLeaf(YType.uint32, 'unknown-packet-type-received')),
+                            ('unexpected_session_id_in_packet', YLeaf(YType.uint32, 'unexpected-session-id-in-packet')),
+                            ('no_service_name_tag', YLeaf(YType.uint32, 'no-service-name-tag')),
+                            ('padt_for_unknown_session', YLeaf(YType.uint32, 'padt-for-unknown-session')),
+                            ('padt_with_wrong_peer_mac', YLeaf(YType.uint32, 'padt-with-wrong-peer-mac')),
+                            ('padt_with_wrong_vlan_tags', YLeaf(YType.uint32, 'padt-with-wrong-vlan-tags')),
+                            ('zero_length_host_uniq', YLeaf(YType.uint32, 'zero-length-host-uniq')),
+                            ('padt_before_pads_sent', YLeaf(YType.uint32, 'padt-before-pads-sent')),
+                            ('session_stage_packet_for_unknown_session', YLeaf(YType.uint32, 'session-stage-packet-for-unknown-session')),
+                            ('session_stage_packet_with_wrong_mac', YLeaf(YType.uint32, 'session-stage-packet-with-wrong-mac')),
+                            ('session_stage_packet_with_wrong_vlan_tags', YLeaf(YType.uint32, 'session-stage-packet-with-wrong-vlan-tags')),
+                            ('session_stage_packet_with_no_error', YLeaf(YType.uint32, 'session-stage-packet-with-no-error')),
+                            ('tag_too_short', YLeaf(YType.uint32, 'tag-too-short')),
+                            ('bad_tag_length_field', YLeaf(YType.uint32, 'bad-tag-length-field')),
+                            ('multiple_service_name_tags', YLeaf(YType.uint32, 'multiple-service-name-tags')),
+                            ('multiple_max_payload_tags', YLeaf(YType.uint32, 'multiple-max-payload-tags')),
+                            ('invalid_max_payload_tag', YLeaf(YType.uint32, 'invalid-max-payload-tag')),
+                            ('multiple_vendor_specific_tags', YLeaf(YType.uint32, 'multiple-vendor-specific-tags')),
+                            ('unexpected_ac_name_tag', YLeaf(YType.uint32, 'unexpected-ac-name-tag')),
+                            ('unexpected_error_tags', YLeaf(YType.uint32, 'unexpected-error-tags')),
+                            ('unknown_tag_received', YLeaf(YType.uint32, 'unknown-tag-received')),
+                            ('no_iana_code_invendor_tag', YLeaf(YType.uint32, 'no-iana-code-invendor-tag')),
+                            ('invalid_iana_code_invendor_tag', YLeaf(YType.uint32, 'invalid-iana-code-invendor-tag')),
+                            ('vendor_tag_too_short', YLeaf(YType.uint32, 'vendor-tag-too-short')),
+                            ('bad_vendor_tag_length_field', YLeaf(YType.uint32, 'bad-vendor-tag-length-field')),
+                            ('multiple_host_uniq_tags', YLeaf(YType.uint32, 'multiple-host-uniq-tags')),
+                            ('multiple_relay_session_id_tags', YLeaf(YType.uint32, 'multiple-relay-session-id-tags')),
+                            ('multiple_circuit_id_tags', YLeaf(YType.uint32, 'multiple-circuit-id-tags')),
+                            ('multiple_remote_id_tags', YLeaf(YType.uint32, 'multiple-remote-id-tags')),
+                            ('invalid_dsl_tag', YLeaf(YType.uint32, 'invalid-dsl-tag')),
+                            ('multiple_of_the_same_dsl_tag', YLeaf(YType.uint32, 'multiple-of-the-same-dsl-tag')),
+                            ('invalid_iwf_tag', YLeaf(YType.uint32, 'invalid-iwf-tag')),
+                            ('multiple_iwf_tags', YLeaf(YType.uint32, 'multiple-iwf-tags')),
+                            ('unknownvendor_tag', YLeaf(YType.uint32, 'unknownvendor-tag')),
+                            ('no_space_left_in_packet', YLeaf(YType.uint32, 'no-space-left-in-packet')),
+                            ('duplicate_host_uniq_tag_received', YLeaf(YType.uint32, 'duplicate-host-uniq-tag-received')),
+                            ('duplicate_relay_session_id_tag_received', YLeaf(YType.uint32, 'duplicate-relay-session-id-tag-received')),
+                            ('packet_too_long', YLeaf(YType.uint32, 'packet-too-long')),
+                            ('invalid_ale_tag', YLeaf(YType.uint32, 'invalid-ale-tag')),
+                            ('multiple_ale_tags', YLeaf(YType.uint32, 'multiple-ale-tags')),
+                            ('invalid_service_name', YLeaf(YType.uint32, 'invalid-service-name')),
+                            ('invalid_peer_mac', YLeaf(YType.uint32, 'invalid-peer-mac')),
+                            ('invalid_vlan_tags', YLeaf(YType.uint32, 'invalid-vlan-tags')),
+                            ('packet_on_srg_slave', YLeaf(YType.uint32, 'packet-on-srg-slave')),
+                        ])
+                        self.no_interface_handle = None
+                        self.no_packet_payload = None
+                        self.no_packet_mac_address = None
+                        self.invalid_version_type_value = None
+                        self.bad_packet_length = None
+                        self.unknown_interface = None
+                        self.pado_received = None
+                        self.pads_received = None
+                        self.unknown_packet_type_received = None
+                        self.unexpected_session_id_in_packet = None
+                        self.no_service_name_tag = None
+                        self.padt_for_unknown_session = None
+                        self.padt_with_wrong_peer_mac = None
+                        self.padt_with_wrong_vlan_tags = None
+                        self.zero_length_host_uniq = None
+                        self.padt_before_pads_sent = None
+                        self.session_stage_packet_for_unknown_session = None
+                        self.session_stage_packet_with_wrong_mac = None
+                        self.session_stage_packet_with_wrong_vlan_tags = None
+                        self.session_stage_packet_with_no_error = None
+                        self.tag_too_short = None
+                        self.bad_tag_length_field = None
+                        self.multiple_service_name_tags = None
+                        self.multiple_max_payload_tags = None
+                        self.invalid_max_payload_tag = None
+                        self.multiple_vendor_specific_tags = None
+                        self.unexpected_ac_name_tag = None
+                        self.unexpected_error_tags = None
+                        self.unknown_tag_received = None
+                        self.no_iana_code_invendor_tag = None
+                        self.invalid_iana_code_invendor_tag = None
+                        self.vendor_tag_too_short = None
+                        self.bad_vendor_tag_length_field = None
+                        self.multiple_host_uniq_tags = None
+                        self.multiple_relay_session_id_tags = None
+                        self.multiple_circuit_id_tags = None
+                        self.multiple_remote_id_tags = None
+                        self.invalid_dsl_tag = None
+                        self.multiple_of_the_same_dsl_tag = None
+                        self.invalid_iwf_tag = None
+                        self.multiple_iwf_tags = None
+                        self.unknownvendor_tag = None
+                        self.no_space_left_in_packet = None
+                        self.duplicate_host_uniq_tag_received = None
+                        self.duplicate_relay_session_id_tag_received = None
+                        self.packet_too_long = None
+                        self.invalid_ale_tag = None
+                        self.multiple_ale_tags = None
+                        self.invalid_service_name = None
+                        self.invalid_peer_mac = None
+                        self.invalid_vlan_tags = None
+                        self.packet_on_srg_slave = None
                         self._segment_path = lambda: "packet-error-counts"
 
                     def __setattr__(self, name, value):
@@ -1958,8 +2029,10 @@ class Pppoe(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"summaries" : ("summaries", Pppoe.Nodes.Node.AccessInterface.Summaries)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("summaries", ("summaries", Pppoe.Nodes.Node.AccessInterface.Summaries))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict()
 
                     self.summaries = Pppoe.Nodes.Node.AccessInterface.Summaries()
                     self.summaries.parent = self
@@ -1991,8 +2064,10 @@ class Pppoe(Entity):
                         self.yang_parent_name = "access-interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"summary" : ("summary", Pppoe.Nodes.Node.AccessInterface.Summaries.Summary)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("summary", ("summary", Pppoe.Nodes.Node.AccessInterface.Summaries.Summary))])
+                        self._leafs = OrderedDict()
 
                         self.summary = YList(self)
                         self._segment_path = lambda: "summaries"
@@ -2006,7 +2081,7 @@ class Pppoe(Entity):
                         Summary information for a PPPoE\-enabled
                         access interface
                         
-                        .. attribute:: interface_name  <key>
+                        .. attribute:: interface_name  (key)
                         
                         	PPPoE Access Interface
                         	**type**\: str
@@ -2074,25 +2149,28 @@ class Pppoe(Entity):
                             self.yang_parent_name = "summaries"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                            self.interface_state = YLeaf(YType.uint32, "interface-state")
-
-                            self.mac_address = YLeaf(YType.str, "mac-address")
-
-                            self.bba_group_name = YLeaf(YType.str, "bba-group-name")
-
-                            self.is_ready = YLeaf(YType.int32, "is-ready")
-
-                            self.sessions = YLeaf(YType.uint32, "sessions")
-
-                            self.incomplete_sessions = YLeaf(YType.uint32, "incomplete-sessions")
-                            self._segment_path = lambda: "summary" + "[interface-name='" + self.interface_name.get() + "']"
+                            self.ylist_key_names = ['interface_name']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                                ('interface_state', YLeaf(YType.uint32, 'interface-state')),
+                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
+                                ('is_ready', YLeaf(YType.int32, 'is-ready')),
+                                ('sessions', YLeaf(YType.uint32, 'sessions')),
+                                ('incomplete_sessions', YLeaf(YType.uint32, 'incomplete-sessions')),
+                            ])
+                            self.interface_name = None
+                            self.interface_name_xr = None
+                            self.interface_state = None
+                            self.mac_address = None
+                            self.bba_group_name = None
+                            self.is_ready = None
+                            self.sessions = None
+                            self.incomplete_sessions = None
+                            self._segment_path = lambda: "summary" + "[interface-name='" + str(self.interface_name) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', 'interface_name_xr', 'interface_state', 'mac_address', 'bba_group_name', 'is_ready', 'sessions', 'incomplete_sessions'], name, value)
@@ -2121,8 +2199,10 @@ class Pppoe(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Pppoe.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Pppoe.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -2135,7 +2215,7 @@ class Pppoe(Entity):
                     """
                     Data for a PPPoE interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	PPPoE Interface
                     	**type**\: str
@@ -2227,36 +2307,39 @@ class Pppoe(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"tags" : ("tags", Pppoe.Nodes.Node.Interfaces.Interface.Tags)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                        self.access_interface_name = YLeaf(YType.str, "access-interface-name")
-
-                        self.bba_group_name = YLeaf(YType.str, "bba-group-name")
-
-                        self.session_id = YLeaf(YType.uint16, "session-id")
-
-                        self.local_mac_address = YLeaf(YType.str, "local-mac-address")
-
-                        self.peer_mac_address = YLeaf(YType.str, "peer-mac-address")
-
-                        self.is_complete = YLeaf(YType.int32, "is-complete")
-
-                        self.vlan_outer_id = YLeaf(YType.uint16, "vlan-outer-id")
-
-                        self.vlan_inner_id = YLeaf(YType.uint16, "vlan-inner-id")
-
-                        self.srg_state = YLeaf(YType.enumeration, "srg-state")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.Interfaces.Interface.Tags))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                            ('access_interface_name', YLeaf(YType.str, 'access-interface-name')),
+                            ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
+                            ('session_id', YLeaf(YType.uint16, 'session-id')),
+                            ('local_mac_address', YLeaf(YType.str, 'local-mac-address')),
+                            ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
+                            ('is_complete', YLeaf(YType.int32, 'is-complete')),
+                            ('vlan_outer_id', YLeaf(YType.uint16, 'vlan-outer-id')),
+                            ('vlan_inner_id', YLeaf(YType.uint16, 'vlan-inner-id')),
+                            ('srg_state', YLeaf(YType.enumeration, 'srg-state')),
+                        ])
+                        self.interface_name = None
+                        self.interface_name_xr = None
+                        self.access_interface_name = None
+                        self.bba_group_name = None
+                        self.session_id = None
+                        self.local_mac_address = None
+                        self.peer_mac_address = None
+                        self.is_complete = None
+                        self.vlan_outer_id = None
+                        self.vlan_inner_id = None
+                        self.srg_state = None
 
                         self.tags = Pppoe.Nodes.Node.Interfaces.Interface.Tags()
                         self.tags.parent = self
                         self._children_name_map["tags"] = "tags"
                         self._children_yang_names.add("tags")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'access_interface_name', 'bba_group_name', 'session_id', 'local_mac_address', 'peer_mac_address', 'is_complete', 'vlan_outer_id', 'vlan_inner_id', 'srg_state'], name, value)
@@ -2426,50 +2509,53 @@ class Pppoe(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"access-loop-encapsulation" : ("access_loop_encapsulation", Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation)}
-                            self._child_list_classes = {}
-
-                            self.service_name = YLeaf(YType.str, "service-name")
-
-                            self.max_payload = YLeaf(YType.uint16, "max-payload")
-
-                            self.host_uniq = YLeaf(YType.str, "host-uniq")
-
-                            self.relay_session_id = YLeaf(YType.str, "relay-session-id")
-
-                            self.remote_id = YLeaf(YType.str, "remote-id")
-
-                            self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                            self.is_iwf = YLeaf(YType.int32, "is-iwf")
-
-                            self.dsl_actual_up = YLeaf(YType.uint32, "dsl-actual-up")
-
-                            self.dsl_actual_down = YLeaf(YType.uint32, "dsl-actual-down")
-
-                            self.dsl_min_up = YLeaf(YType.uint32, "dsl-min-up")
-
-                            self.dsl_min_down = YLeaf(YType.uint32, "dsl-min-down")
-
-                            self.dsl_attain_up = YLeaf(YType.uint32, "dsl-attain-up")
-
-                            self.dsl_attain_down = YLeaf(YType.uint32, "dsl-attain-down")
-
-                            self.dsl_max_up = YLeaf(YType.uint32, "dsl-max-up")
-
-                            self.dsl_max_down = YLeaf(YType.uint32, "dsl-max-down")
-
-                            self.dsl_min_up_low = YLeaf(YType.uint32, "dsl-min-up-low")
-
-                            self.dsl_min_down_low = YLeaf(YType.uint32, "dsl-min-down-low")
-
-                            self.dsl_max_delay_up = YLeaf(YType.uint32, "dsl-max-delay-up")
-
-                            self.dsl_actual_delay_up = YLeaf(YType.uint32, "dsl-actual-delay-up")
-
-                            self.dsl_max_delay_down = YLeaf(YType.uint32, "dsl-max-delay-down")
-
-                            self.dsl_actual_delay_down = YLeaf(YType.uint32, "dsl-actual-delay-down")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('service_name', YLeaf(YType.str, 'service-name')),
+                                ('max_payload', YLeaf(YType.uint16, 'max-payload')),
+                                ('host_uniq', YLeaf(YType.str, 'host-uniq')),
+                                ('relay_session_id', YLeaf(YType.str, 'relay-session-id')),
+                                ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                                ('is_iwf', YLeaf(YType.int32, 'is-iwf')),
+                                ('dsl_actual_up', YLeaf(YType.uint32, 'dsl-actual-up')),
+                                ('dsl_actual_down', YLeaf(YType.uint32, 'dsl-actual-down')),
+                                ('dsl_min_up', YLeaf(YType.uint32, 'dsl-min-up')),
+                                ('dsl_min_down', YLeaf(YType.uint32, 'dsl-min-down')),
+                                ('dsl_attain_up', YLeaf(YType.uint32, 'dsl-attain-up')),
+                                ('dsl_attain_down', YLeaf(YType.uint32, 'dsl-attain-down')),
+                                ('dsl_max_up', YLeaf(YType.uint32, 'dsl-max-up')),
+                                ('dsl_max_down', YLeaf(YType.uint32, 'dsl-max-down')),
+                                ('dsl_min_up_low', YLeaf(YType.uint32, 'dsl-min-up-low')),
+                                ('dsl_min_down_low', YLeaf(YType.uint32, 'dsl-min-down-low')),
+                                ('dsl_max_delay_up', YLeaf(YType.uint32, 'dsl-max-delay-up')),
+                                ('dsl_actual_delay_up', YLeaf(YType.uint32, 'dsl-actual-delay-up')),
+                                ('dsl_max_delay_down', YLeaf(YType.uint32, 'dsl-max-delay-down')),
+                                ('dsl_actual_delay_down', YLeaf(YType.uint32, 'dsl-actual-delay-down')),
+                            ])
+                            self.service_name = None
+                            self.max_payload = None
+                            self.host_uniq = None
+                            self.relay_session_id = None
+                            self.remote_id = None
+                            self.circuit_id = None
+                            self.is_iwf = None
+                            self.dsl_actual_up = None
+                            self.dsl_actual_down = None
+                            self.dsl_min_up = None
+                            self.dsl_min_down = None
+                            self.dsl_attain_up = None
+                            self.dsl_attain_down = None
+                            self.dsl_max_up = None
+                            self.dsl_max_down = None
+                            self.dsl_min_up_low = None
+                            self.dsl_min_down_low = None
+                            self.dsl_max_delay_up = None
+                            self.dsl_actual_delay_up = None
+                            self.dsl_max_delay_down = None
+                            self.dsl_actual_delay_down = None
 
                             self.access_loop_encapsulation = Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation()
                             self.access_loop_encapsulation.parent = self
@@ -2520,14 +2606,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "tags"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.data_link = YLeaf(YType.uint8, "data-link")
-
-                                self.encaps1 = YLeaf(YType.uint8, "encaps1")
-
-                                self.encaps2 = YLeaf(YType.uint8, "encaps2")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('data_link', YLeaf(YType.uint8, 'data-link')),
+                                    ('encaps1', YLeaf(YType.uint8, 'encaps1')),
+                                    ('encaps2', YLeaf(YType.uint8, 'encaps2')),
+                                ])
+                                self.data_link = None
+                                self.encaps1 = None
+                                self.encaps2 = None
                                 self._segment_path = lambda: "access-loop-encapsulation"
 
                             def __setattr__(self, name, value):
@@ -2557,8 +2646,10 @@ class Pppoe(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bba-group" : ("bba_group", Pppoe.Nodes.Node.BbaGroups.BbaGroup)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bba-group", ("bba_group", Pppoe.Nodes.Node.BbaGroups.BbaGroup))])
+                    self._leafs = OrderedDict()
 
                     self.bba_group = YList(self)
                     self._segment_path = lambda: "bba-groups"
@@ -2571,7 +2662,7 @@ class Pppoe(Entity):
                     """
                     PPPoE BBA\-Group information
                     
-                    .. attribute:: bba_group_name  <key>
+                    .. attribute:: bba_group_name  (key)
                     
                     	BBA Group
                     	**type**\: str
@@ -2612,10 +2703,13 @@ class Pppoe(Entity):
                         self.yang_parent_name = "bba-groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"limit-config" : ("limit_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig), "limits" : ("limits", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits), "throttles" : ("throttles", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles), "throttle-config" : ("throttle_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig)}
-                        self._child_list_classes = {}
-
-                        self.bba_group_name = YLeaf(YType.str, "bba-group-name")
+                        self.ylist_key_names = ['bba_group_name']
+                        self._child_container_classes = OrderedDict([("limit-config", ("limit_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig)), ("limits", ("limits", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits)), ("throttles", ("throttles", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles)), ("throttle-config", ("throttle_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
+                        ])
+                        self.bba_group_name = None
 
                         self.limit_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig()
                         self.limit_config.parent = self
@@ -2636,7 +2730,7 @@ class Pppoe(Entity):
                         self.throttle_config.parent = self
                         self._children_name_map["throttle_config"] = "throttle-config"
                         self._children_yang_names.add("throttle-config")
-                        self._segment_path = lambda: "bba-group" + "[bba-group-name='" + self.bba_group_name.get() + "']"
+                        self._segment_path = lambda: "bba-group" + "[bba-group-name='" + str(self.bba_group_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup, ['bba_group_name'], name, value)
@@ -2720,8 +2814,10 @@ class Pppoe(Entity):
                             self.yang_parent_name = "bba-group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"card" : ("card", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card), "access-intf" : ("access_intf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf), "mac" : ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac), "mac-iwf" : ("mac_iwf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf), "mac-access-interface" : ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface), "mac-iwf-access-interface" : ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface), "circuit-id" : ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId), "remote-id" : ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId), "circuit-id-and-remote-id" : ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId), "outer-vlan-id" : ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId), "inner-vlan-id" : ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId), "vlan-id" : ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("card", ("card", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card)), ("access-intf", ("access_intf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf)), ("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac)), ("mac-iwf", ("mac_iwf", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.card = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card()
                             self.card.parent = self
@@ -2824,14 +2920,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "card"
 
                             def __setattr__(self, name, value):
@@ -2877,14 +2976,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "access-intf"
 
                             def __setattr__(self, name, value):
@@ -2930,14 +3032,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac"
 
                             def __setattr__(self, name, value):
@@ -2983,14 +3088,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-iwf"
 
                             def __setattr__(self, name, value):
@@ -3036,14 +3144,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-access-interface"
 
                             def __setattr__(self, name, value):
@@ -3089,14 +3200,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-iwf-access-interface"
 
                             def __setattr__(self, name, value):
@@ -3142,14 +3256,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "circuit-id"
 
                             def __setattr__(self, name, value):
@@ -3195,14 +3312,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "remote-id"
 
                             def __setattr__(self, name, value):
@@ -3248,14 +3368,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "circuit-id-and-remote-id"
 
                             def __setattr__(self, name, value):
@@ -3301,14 +3424,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "outer-vlan-id"
 
                             def __setattr__(self, name, value):
@@ -3354,14 +3480,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "inner-vlan-id"
 
                             def __setattr__(self, name, value):
@@ -3407,14 +3536,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limit-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.max_limit = YLeaf(YType.uint32, "max-limit")
-
-                                self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
+                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                ])
+                                self.max_limit = None
+                                self.threshold = None
+                                self.radius_override_enabled = None
                                 self._segment_path = lambda: "vlan-id"
 
                             def __setattr__(self, name, value):
@@ -3444,8 +3576,10 @@ class Pppoe(Entity):
                             self.yang_parent_name = "bba-group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"limit" : ("limit", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("limit", ("limit", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit))])
+                            self._leafs = OrderedDict()
 
                             self.limit = YList(self)
                             self._segment_path = lambda: "limits"
@@ -3545,30 +3679,33 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "limits"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.iwf = YLeaf(YType.boolean, "iwf")
-
-                                self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.outer_vlan_id = YLeaf(YType.uint32, "outer-vlan-id")
-
-                                self.inner_vlan_id = YLeaf(YType.uint32, "inner-vlan-id")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.session_count = YLeaf(YType.uint32, "session-count")
-
-                                self.radius_override_set = YLeaf(YType.int32, "radius-override-set")
-
-                                self.override_limit = YLeaf(YType.uint32, "override-limit")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('iwf', YLeaf(YType.boolean, 'iwf')),
+                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('outer_vlan_id', YLeaf(YType.uint32, 'outer-vlan-id')),
+                                    ('inner_vlan_id', YLeaf(YType.uint32, 'inner-vlan-id')),
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                    ('radius_override_set', YLeaf(YType.int32, 'radius-override-set')),
+                                    ('override_limit', YLeaf(YType.uint32, 'override-limit')),
+                                ])
+                                self.interface_name = None
+                                self.mac_address = None
+                                self.iwf = None
+                                self.circuit_id = None
+                                self.remote_id = None
+                                self.outer_vlan_id = None
+                                self.inner_vlan_id = None
+                                self.state = None
+                                self.session_count = None
+                                self.radius_override_set = None
+                                self.override_limit = None
                                 self._segment_path = lambda: "limit"
 
                             def __setattr__(self, name, value):
@@ -3598,8 +3735,10 @@ class Pppoe(Entity):
                             self.yang_parent_name = "bba-group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"throttle" : ("throttle", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("throttle", ("throttle", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle))])
+                            self._leafs = OrderedDict()
 
                             self.throttle = YList(self)
                             self._segment_path = lambda: "throttles"
@@ -3710,32 +3849,35 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttles"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.iwf = YLeaf(YType.boolean, "iwf")
-
-                                self.circuit_id = YLeaf(YType.str, "circuit-id")
-
-                                self.remote_id = YLeaf(YType.str, "remote-id")
-
-                                self.outer_vlan_id = YLeaf(YType.uint32, "outer-vlan-id")
-
-                                self.inner_vlan_id = YLeaf(YType.uint32, "inner-vlan-id")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.time_left = YLeaf(YType.uint32, "time-left")
-
-                                self.since_reset = YLeaf(YType.uint32, "since-reset")
-
-                                self.padi_count = YLeaf(YType.uint32, "padi-count")
-
-                                self.padr_count = YLeaf(YType.uint32, "padr-count")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('iwf', YLeaf(YType.boolean, 'iwf')),
+                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
+                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                    ('outer_vlan_id', YLeaf(YType.uint32, 'outer-vlan-id')),
+                                    ('inner_vlan_id', YLeaf(YType.uint32, 'inner-vlan-id')),
+                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('time_left', YLeaf(YType.uint32, 'time-left')),
+                                    ('since_reset', YLeaf(YType.uint32, 'since-reset')),
+                                    ('padi_count', YLeaf(YType.uint32, 'padi-count')),
+                                    ('padr_count', YLeaf(YType.uint32, 'padr-count')),
+                                ])
+                                self.interface_name = None
+                                self.mac_address = None
+                                self.iwf = None
+                                self.circuit_id = None
+                                self.remote_id = None
+                                self.outer_vlan_id = None
+                                self.inner_vlan_id = None
+                                self.state = None
+                                self.time_left = None
+                                self.since_reset = None
+                                self.padi_count = None
+                                self.padr_count = None
                                 self._segment_path = lambda: "throttle"
 
                             def __setattr__(self, name, value):
@@ -3805,8 +3947,10 @@ class Pppoe(Entity):
                             self.yang_parent_name = "bba-group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"mac" : ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac), "mac-access-interface" : ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface), "mac-iwf-access-interface" : ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface), "circuit-id" : ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId), "remote-id" : ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId), "circuit-id-and-remote-id" : ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId), "outer-vlan-id" : ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId), "inner-vlan-id" : ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId), "vlan-id" : ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("mac", ("mac", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac)), ("mac-access-interface", ("mac_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface)), ("mac-iwf-access-interface", ("mac_iwf_access_interface", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface)), ("circuit-id", ("circuit_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId)), ("remote-id", ("remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId)), ("circuit-id-and-remote-id", ("circuit_id_and_remote_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId)), ("outer-vlan-id", ("outer_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId)), ("inner-vlan-id", ("inner_vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId)), ("vlan-id", ("vlan_id", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac()
                             self.mac.parent = self
@@ -3894,14 +4038,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "mac"
 
                             def __setattr__(self, name, value):
@@ -3947,14 +4094,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "mac-access-interface"
 
                             def __setattr__(self, name, value):
@@ -4000,14 +4150,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "mac-iwf-access-interface"
 
                             def __setattr__(self, name, value):
@@ -4053,14 +4206,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "circuit-id"
 
                             def __setattr__(self, name, value):
@@ -4106,14 +4262,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "remote-id"
 
                             def __setattr__(self, name, value):
@@ -4159,14 +4318,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "circuit-id-and-remote-id"
 
                             def __setattr__(self, name, value):
@@ -4212,14 +4374,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "outer-vlan-id"
 
                             def __setattr__(self, name, value):
@@ -4265,14 +4430,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "inner-vlan-id"
 
                             def __setattr__(self, name, value):
@@ -4318,14 +4486,17 @@ class Pppoe(Entity):
                                 self.yang_parent_name = "throttle-config"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.limit = YLeaf(YType.uint32, "limit")
-
-                                self.request_period = YLeaf(YType.uint32, "request-period")
-
-                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('limit', YLeaf(YType.uint32, 'limit')),
+                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
+                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                ])
+                                self.limit = None
+                                self.request_period = None
+                                self.blocking_period = None
                                 self._segment_path = lambda: "vlan-id"
 
                             def __setattr__(self, name, value):
@@ -4420,28 +4591,31 @@ class Pppoe(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ready_access_interfaces = YLeaf(YType.uint32, "ready-access-interfaces")
-
-                    self.not_ready_access_interfaces = YLeaf(YType.uint32, "not-ready-access-interfaces")
-
-                    self.complete_sessions = YLeaf(YType.uint32, "complete-sessions")
-
-                    self.incomplete_sessions = YLeaf(YType.uint32, "incomplete-sessions")
-
-                    self.flow_control_limit = YLeaf(YType.uint32, "flow-control-limit")
-
-                    self.flow_control_in_flight_sessions = YLeaf(YType.uint32, "flow-control-in-flight-sessions")
-
-                    self.flow_control_dropped_sessions = YLeaf(YType.uint64, "flow-control-dropped-sessions")
-
-                    self.flow_control_disconnected_sessions = YLeaf(YType.uint64, "flow-control-disconnected-sessions")
-
-                    self.flow_control_successful_sessions = YLeaf(YType.uint64, "flow-control-successful-sessions")
-
-                    self.pppoema_subscriber_infra_flow_control = YLeaf(YType.uint32, "pppoema-subscriber-infra-flow-control")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ready_access_interfaces', YLeaf(YType.uint32, 'ready-access-interfaces')),
+                        ('not_ready_access_interfaces', YLeaf(YType.uint32, 'not-ready-access-interfaces')),
+                        ('complete_sessions', YLeaf(YType.uint32, 'complete-sessions')),
+                        ('incomplete_sessions', YLeaf(YType.uint32, 'incomplete-sessions')),
+                        ('flow_control_limit', YLeaf(YType.uint32, 'flow-control-limit')),
+                        ('flow_control_in_flight_sessions', YLeaf(YType.uint32, 'flow-control-in-flight-sessions')),
+                        ('flow_control_dropped_sessions', YLeaf(YType.uint64, 'flow-control-dropped-sessions')),
+                        ('flow_control_disconnected_sessions', YLeaf(YType.uint64, 'flow-control-disconnected-sessions')),
+                        ('flow_control_successful_sessions', YLeaf(YType.uint64, 'flow-control-successful-sessions')),
+                        ('pppoema_subscriber_infra_flow_control', YLeaf(YType.uint32, 'pppoema-subscriber-infra-flow-control')),
+                    ])
+                    self.ready_access_interfaces = None
+                    self.not_ready_access_interfaces = None
+                    self.complete_sessions = None
+                    self.incomplete_sessions = None
+                    self.flow_control_limit = None
+                    self.flow_control_in_flight_sessions = None
+                    self.flow_control_dropped_sessions = None
+                    self.flow_control_disconnected_sessions = None
+                    self.flow_control_successful_sessions = None
+                    self.pppoema_subscriber_infra_flow_control = None
                     self._segment_path = lambda: "summary-total"
 
                 def __setattr__(self, name, value):

@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -62,12 +64,15 @@ class RoutingPolicy(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-policy-repository-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"route-policies" : ("route_policies", RoutingPolicy.RoutePolicies), "sets" : ("sets", RoutingPolicy.Sets), "limits" : ("limits", RoutingPolicy.Limits)}
-        self._child_list_classes = {}
-
-        self.set_exit_as_abort = YLeaf(YType.empty, "set-exit-as-abort")
-
-        self.editor = YLeaf(YType.str, "editor")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("route-policies", ("route_policies", RoutingPolicy.RoutePolicies)), ("sets", ("sets", RoutingPolicy.Sets)), ("limits", ("limits", RoutingPolicy.Limits))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('set_exit_as_abort', YLeaf(YType.empty, 'set-exit-as-abort')),
+            ('editor', YLeaf(YType.str, 'editor')),
+        ])
+        self.set_exit_as_abort = None
+        self.editor = None
 
         self.route_policies = RoutingPolicy.RoutePolicies()
         self.route_policies.parent = self
@@ -112,8 +117,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"route-policy" : ("route_policy", RoutingPolicy.RoutePolicies.RoutePolicy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("route-policy", ("route_policy", RoutingPolicy.RoutePolicies.RoutePolicy))])
+            self._leafs = OrderedDict()
 
             self.route_policy = YList(self)
             self._segment_path = lambda: "route-policies"
@@ -127,7 +134,7 @@ class RoutingPolicy(Entity):
             """
             Information about an individual policy
             
-            .. attribute:: route_policy_name  <key>
+            .. attribute:: route_policy_name  (key)
             
             	Route policy name
             	**type**\: str
@@ -155,13 +162,16 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "route-policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.route_policy_name = YLeaf(YType.str, "route-policy-name")
-
-                self.rpl_route_policy = YLeaf(YType.str, "rpl-route-policy")
-                self._segment_path = lambda: "route-policy" + "[route-policy-name='" + self.route_policy_name.get() + "']"
+                self.ylist_key_names = ['route_policy_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
+                    ('rpl_route_policy', YLeaf(YType.str, 'rpl-route-policy')),
+                ])
+                self.route_policy_name = None
+                self.rpl_route_policy = None
+                self._segment_path = lambda: "route-policy" + "[route-policy-name='" + str(self.route_policy_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/route-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -171,11 +181,6 @@ class RoutingPolicy(Entity):
     class Sets(Entity):
         """
         All configured sets
-        
-        .. attribute:: prepend_etag_sets
-        
-        	Information about Etag sets
-        	**type**\:  :py:class:`PrependEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets>`
         
         .. attribute:: prefix_sets
         
@@ -187,26 +192,6 @@ class RoutingPolicy(Entity):
         	Information about Large Community sets
         	**type**\:  :py:class:`LargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.LargeCommunitySets>`
         
-        .. attribute:: prepend_large_community_sets
-        
-        	Information about Large Community sets
-        	**type**\:  :py:class:`PrependLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets>`
-        
-        .. attribute:: append_etag_sets
-        
-        	Information about Etag sets
-        	**type**\:  :py:class:`AppendEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets>`
-        
-        .. attribute:: remove_etag_sets
-        
-        	Information about Etag sets
-        	**type**\:  :py:class:`RemoveEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets>`
-        
-        .. attribute:: remove_large_community_sets
-        
-        	Information about Large Community sets
-        	**type**\:  :py:class:`RemoveLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets>`
-        
         .. attribute:: mac_sets
         
         	Information about Mac sets
@@ -217,30 +202,15 @@ class RoutingPolicy(Entity):
         	Information about Opaque sets
         	**type**\:  :py:class:`ExtendedCommunityOpaqueSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityOpaqueSets>`
         
-        .. attribute:: prepend_mac_sets
-        
-        	Information about Mac sets
-        	**type**\:  :py:class:`PrependMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets>`
-        
         .. attribute:: ospf_area_sets
         
         	Information about OSPF Area sets
         	**type**\:  :py:class:`OspfAreaSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.OspfAreaSets>`
         
-        .. attribute:: append_mac_sets
-        
-        	Information about Mac sets
-        	**type**\:  :py:class:`AppendMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets>`
-        
         .. attribute:: extended_community_cost_sets
         
         	Information about Cost sets
         	**type**\:  :py:class:`ExtendedCommunityCostSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunityCostSets>`
-        
-        .. attribute:: remove_mac_sets
-        
-        	Information about Mac sets
-        	**type**\:  :py:class:`RemoveMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets>`
         
         .. attribute:: extended_community_soo_sets
         
@@ -251,21 +221,6 @@ class RoutingPolicy(Entity):
         
         	Information about Esi sets
         	**type**\:  :py:class:`EsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets>`
-        
-        .. attribute:: prepend_esi_sets
-        
-        	Information about Esi sets
-        	**type**\:  :py:class:`PrependEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets>`
-        
-        .. attribute:: append_esi_sets
-        
-        	Information about Esi sets
-        	**type**\:  :py:class:`AppendEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets>`
-        
-        .. attribute:: remove_esi_sets
-        
-        	Information about Esi sets
-        	**type**\:  :py:class:`RemoveEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets>`
         
         .. attribute:: extended_community_seg_nh_sets
         
@@ -281,11 +236,6 @@ class RoutingPolicy(Entity):
         
         	Information about PolicyGlobal sets
         	**type**\:  :py:class:`PolicyGlobalSetTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PolicyGlobalSetTable>`
-        
-        .. attribute:: append_large_community_sets
-        
-        	Information about Large Community sets
-        	**type**\:  :py:class:`AppendLargeCommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets>`
         
         .. attribute:: extended_community_bandwidth_sets
         
@@ -331,13 +281,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"prepend-etag-sets" : ("prepend_etag_sets", RoutingPolicy.Sets.PrependEtagSets), "prefix-sets" : ("prefix_sets", RoutingPolicy.Sets.PrefixSets), "large-community-sets" : ("large_community_sets", RoutingPolicy.Sets.LargeCommunitySets), "prepend-large-community-sets" : ("prepend_large_community_sets", RoutingPolicy.Sets.PrependLargeCommunitySets), "append-etag-sets" : ("append_etag_sets", RoutingPolicy.Sets.AppendEtagSets), "remove-etag-sets" : ("remove_etag_sets", RoutingPolicy.Sets.RemoveEtagSets), "remove-large-community-sets" : ("remove_large_community_sets", RoutingPolicy.Sets.RemoveLargeCommunitySets), "mac-sets" : ("mac_sets", RoutingPolicy.Sets.MacSets), "extended-community-opaque-sets" : ("extended_community_opaque_sets", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets), "prepend-mac-sets" : ("prepend_mac_sets", RoutingPolicy.Sets.PrependMacSets), "ospf-area-sets" : ("ospf_area_sets", RoutingPolicy.Sets.OspfAreaSets), "append-mac-sets" : ("append_mac_sets", RoutingPolicy.Sets.AppendMacSets), "extended-community-cost-sets" : ("extended_community_cost_sets", RoutingPolicy.Sets.ExtendedCommunityCostSets), "remove-mac-sets" : ("remove_mac_sets", RoutingPolicy.Sets.RemoveMacSets), "extended-community-soo-sets" : ("extended_community_soo_sets", RoutingPolicy.Sets.ExtendedCommunitySooSets), "esi-sets" : ("esi_sets", RoutingPolicy.Sets.EsiSets), "prepend-esi-sets" : ("prepend_esi_sets", RoutingPolicy.Sets.PrependEsiSets), "append-esi-sets" : ("append_esi_sets", RoutingPolicy.Sets.AppendEsiSets), "remove-esi-sets" : ("remove_esi_sets", RoutingPolicy.Sets.RemoveEsiSets), "extended-community-seg-nh-sets" : ("extended_community_seg_nh_sets", RoutingPolicy.Sets.ExtendedCommunitySegNhSets), "rd-sets" : ("rd_sets", RoutingPolicy.Sets.RdSets), "policy-global-set-table" : ("policy_global_set_table", RoutingPolicy.Sets.PolicyGlobalSetTable), "append-large-community-sets" : ("append_large_community_sets", RoutingPolicy.Sets.AppendLargeCommunitySets), "extended-community-bandwidth-sets" : ("extended_community_bandwidth_sets", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets), "community-sets" : ("community_sets", RoutingPolicy.Sets.CommunitySets), "as-path-sets" : ("as_path_sets", RoutingPolicy.Sets.AsPathSets), "tag-sets" : ("tag_sets", RoutingPolicy.Sets.TagSets), "etag-sets" : ("etag_sets", RoutingPolicy.Sets.EtagSets), "extended-community-rt-sets" : ("extended_community_rt_sets", RoutingPolicy.Sets.ExtendedCommunityRtSets)}
-            self._child_list_classes = {}
-
-            self.prepend_etag_sets = RoutingPolicy.Sets.PrependEtagSets()
-            self.prepend_etag_sets.parent = self
-            self._children_name_map["prepend_etag_sets"] = "prepend-etag-sets"
-            self._children_yang_names.add("prepend-etag-sets")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("prefix-sets", ("prefix_sets", RoutingPolicy.Sets.PrefixSets)), ("large-community-sets", ("large_community_sets", RoutingPolicy.Sets.LargeCommunitySets)), ("mac-sets", ("mac_sets", RoutingPolicy.Sets.MacSets)), ("extended-community-opaque-sets", ("extended_community_opaque_sets", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets)), ("ospf-area-sets", ("ospf_area_sets", RoutingPolicy.Sets.OspfAreaSets)), ("extended-community-cost-sets", ("extended_community_cost_sets", RoutingPolicy.Sets.ExtendedCommunityCostSets)), ("extended-community-soo-sets", ("extended_community_soo_sets", RoutingPolicy.Sets.ExtendedCommunitySooSets)), ("esi-sets", ("esi_sets", RoutingPolicy.Sets.EsiSets)), ("extended-community-seg-nh-sets", ("extended_community_seg_nh_sets", RoutingPolicy.Sets.ExtendedCommunitySegNhSets)), ("rd-sets", ("rd_sets", RoutingPolicy.Sets.RdSets)), ("policy-global-set-table", ("policy_global_set_table", RoutingPolicy.Sets.PolicyGlobalSetTable)), ("extended-community-bandwidth-sets", ("extended_community_bandwidth_sets", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets)), ("community-sets", ("community_sets", RoutingPolicy.Sets.CommunitySets)), ("as-path-sets", ("as_path_sets", RoutingPolicy.Sets.AsPathSets)), ("tag-sets", ("tag_sets", RoutingPolicy.Sets.TagSets)), ("etag-sets", ("etag_sets", RoutingPolicy.Sets.EtagSets)), ("extended-community-rt-sets", ("extended_community_rt_sets", RoutingPolicy.Sets.ExtendedCommunityRtSets))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
             self.prefix_sets.parent = self
@@ -349,26 +296,6 @@ class RoutingPolicy(Entity):
             self._children_name_map["large_community_sets"] = "large-community-sets"
             self._children_yang_names.add("large-community-sets")
 
-            self.prepend_large_community_sets = RoutingPolicy.Sets.PrependLargeCommunitySets()
-            self.prepend_large_community_sets.parent = self
-            self._children_name_map["prepend_large_community_sets"] = "prepend-large-community-sets"
-            self._children_yang_names.add("prepend-large-community-sets")
-
-            self.append_etag_sets = RoutingPolicy.Sets.AppendEtagSets()
-            self.append_etag_sets.parent = self
-            self._children_name_map["append_etag_sets"] = "append-etag-sets"
-            self._children_yang_names.add("append-etag-sets")
-
-            self.remove_etag_sets = RoutingPolicy.Sets.RemoveEtagSets()
-            self.remove_etag_sets.parent = self
-            self._children_name_map["remove_etag_sets"] = "remove-etag-sets"
-            self._children_yang_names.add("remove-etag-sets")
-
-            self.remove_large_community_sets = RoutingPolicy.Sets.RemoveLargeCommunitySets()
-            self.remove_large_community_sets.parent = self
-            self._children_name_map["remove_large_community_sets"] = "remove-large-community-sets"
-            self._children_yang_names.add("remove-large-community-sets")
-
             self.mac_sets = RoutingPolicy.Sets.MacSets()
             self.mac_sets.parent = self
             self._children_name_map["mac_sets"] = "mac-sets"
@@ -379,30 +306,15 @@ class RoutingPolicy(Entity):
             self._children_name_map["extended_community_opaque_sets"] = "extended-community-opaque-sets"
             self._children_yang_names.add("extended-community-opaque-sets")
 
-            self.prepend_mac_sets = RoutingPolicy.Sets.PrependMacSets()
-            self.prepend_mac_sets.parent = self
-            self._children_name_map["prepend_mac_sets"] = "prepend-mac-sets"
-            self._children_yang_names.add("prepend-mac-sets")
-
             self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
             self.ospf_area_sets.parent = self
             self._children_name_map["ospf_area_sets"] = "ospf-area-sets"
             self._children_yang_names.add("ospf-area-sets")
 
-            self.append_mac_sets = RoutingPolicy.Sets.AppendMacSets()
-            self.append_mac_sets.parent = self
-            self._children_name_map["append_mac_sets"] = "append-mac-sets"
-            self._children_yang_names.add("append-mac-sets")
-
             self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
             self.extended_community_cost_sets.parent = self
             self._children_name_map["extended_community_cost_sets"] = "extended-community-cost-sets"
             self._children_yang_names.add("extended-community-cost-sets")
-
-            self.remove_mac_sets = RoutingPolicy.Sets.RemoveMacSets()
-            self.remove_mac_sets.parent = self
-            self._children_name_map["remove_mac_sets"] = "remove-mac-sets"
-            self._children_yang_names.add("remove-mac-sets")
 
             self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
             self.extended_community_soo_sets.parent = self
@@ -413,21 +325,6 @@ class RoutingPolicy(Entity):
             self.esi_sets.parent = self
             self._children_name_map["esi_sets"] = "esi-sets"
             self._children_yang_names.add("esi-sets")
-
-            self.prepend_esi_sets = RoutingPolicy.Sets.PrependEsiSets()
-            self.prepend_esi_sets.parent = self
-            self._children_name_map["prepend_esi_sets"] = "prepend-esi-sets"
-            self._children_yang_names.add("prepend-esi-sets")
-
-            self.append_esi_sets = RoutingPolicy.Sets.AppendEsiSets()
-            self.append_esi_sets.parent = self
-            self._children_name_map["append_esi_sets"] = "append-esi-sets"
-            self._children_yang_names.add("append-esi-sets")
-
-            self.remove_esi_sets = RoutingPolicy.Sets.RemoveEsiSets()
-            self.remove_esi_sets.parent = self
-            self._children_name_map["remove_esi_sets"] = "remove-esi-sets"
-            self._children_yang_names.add("remove-esi-sets")
 
             self.extended_community_seg_nh_sets = RoutingPolicy.Sets.ExtendedCommunitySegNhSets()
             self.extended_community_seg_nh_sets.parent = self
@@ -443,11 +340,6 @@ class RoutingPolicy(Entity):
             self.policy_global_set_table.parent = self
             self._children_name_map["policy_global_set_table"] = "policy-global-set-table"
             self._children_yang_names.add("policy-global-set-table")
-
-            self.append_large_community_sets = RoutingPolicy.Sets.AppendLargeCommunitySets()
-            self.append_large_community_sets.parent = self
-            self._children_name_map["append_large_community_sets"] = "append-large-community-sets"
-            self._children_yang_names.add("append-large-community-sets")
 
             self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
             self.extended_community_bandwidth_sets.parent = self
@@ -482,85 +374,6 @@ class RoutingPolicy(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
 
 
-        class PrependEtagSets(Entity):
-            """
-            Information about Etag sets
-            
-            .. attribute:: prepend_etag_set
-            
-            	Prepend the entries to the existing set
-            	**type**\: list of  		 :py:class:`PrependEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.PrependEtagSets, self).__init__()
-
-                self.yang_name = "prepend-etag-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prepend-etag-set" : ("prepend_etag_set", RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet)}
-
-                self.prepend_etag_set = YList(self)
-                self._segment_path = lambda: "prepend-etag-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.PrependEtagSets, [], name, value)
-
-
-            class PrependEtagSet(Entity):
-                """
-                Prepend the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: etag_set_as_text
-                
-                	Etag Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet, self).__init__()
-
-                    self.yang_name = "prepend-etag-set"
-                    self.yang_parent_name = "prepend-etag-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
-                    self._segment_path = lambda: "prepend-etag-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-etag-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet, ['set_name', 'etag_set_as_text'], name, value)
-
-
         class PrefixSets(Entity):
             """
             Information about Prefix sets
@@ -584,8 +397,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prefix-set" : ("prefix_set", RoutingPolicy.Sets.PrefixSets.PrefixSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("prefix-set", ("prefix_set", RoutingPolicy.Sets.PrefixSets.PrefixSet))])
+                self._leafs = OrderedDict()
 
                 self.prefix_set = YList(self)
                 self._segment_path = lambda: "prefix-sets"
@@ -599,7 +414,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -627,13 +442,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "prefix-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_prefix_set = YLeaf(YType.str, "rpl-prefix-set")
-                    self._segment_path = lambda: "prefix-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_prefix_set', YLeaf(YType.str, 'rpl-prefix-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_prefix_set = None
+                    self._segment_path = lambda: "prefix-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prefix-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -663,8 +481,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"large-community-set" : ("large_community_set", RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("large-community-set", ("large_community_set", RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet))])
+                self._leafs = OrderedDict()
 
                 self.large_community_set = YList(self)
                 self._segment_path = lambda: "large-community-sets"
@@ -678,7 +498,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -706,333 +526,20 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "large-community-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.large_community_set_as_text = YLeaf(YType.str, "large-community-set-as-text")
-                    self._segment_path = lambda: "large-community-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('large_community_set_as_text', YLeaf(YType.str, 'large-community-set-as-text')),
+                    ])
+                    self.set_name = None
+                    self.large_community_set_as_text = None
+                    self._segment_path = lambda: "large-community-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/large-community-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
-
-
-        class PrependLargeCommunitySets(Entity):
-            """
-            Information about Large Community sets
-            
-            .. attribute:: prepend_large_community_set
-            
-            	Prepend the entries to the existing set
-            	**type**\: list of  		 :py:class:`PrependLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.PrependLargeCommunitySets, self).__init__()
-
-                self.yang_name = "prepend-large-community-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prepend-large-community-set" : ("prepend_large_community_set", RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet)}
-
-                self.prepend_large_community_set = YList(self)
-                self._segment_path = lambda: "prepend-large-community-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.PrependLargeCommunitySets, [], name, value)
-
-
-            class PrependLargeCommunitySet(Entity):
-                """
-                Prepend the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: large_community_set_as_text
-                
-                	Large Community Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet, self).__init__()
-
-                    self.yang_name = "prepend-large-community-set"
-                    self.yang_parent_name = "prepend-large-community-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.large_community_set_as_text = YLeaf(YType.str, "large-community-set-as-text")
-                    self._segment_path = lambda: "prepend-large-community-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-large-community-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.PrependLargeCommunitySets.PrependLargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
-
-
-        class AppendEtagSets(Entity):
-            """
-            Information about Etag sets
-            
-            .. attribute:: append_etag_set
-            
-            	Append the entries to the existing set
-            	**type**\: list of  		 :py:class:`AppendEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.AppendEtagSets, self).__init__()
-
-                self.yang_name = "append-etag-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"append-etag-set" : ("append_etag_set", RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet)}
-
-                self.append_etag_set = YList(self)
-                self._segment_path = lambda: "append-etag-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.AppendEtagSets, [], name, value)
-
-
-            class AppendEtagSet(Entity):
-                """
-                Append the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: etag_set_as_text
-                
-                	Etag Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet, self).__init__()
-
-                    self.yang_name = "append-etag-set"
-                    self.yang_parent_name = "append-etag-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
-                    self._segment_path = lambda: "append-etag-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-etag-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet, ['set_name', 'etag_set_as_text'], name, value)
-
-
-        class RemoveEtagSets(Entity):
-            """
-            Information about Etag sets
-            
-            .. attribute:: remove_etag_set
-            
-            	Remove the entries from the existing set
-            	**type**\: list of  		 :py:class:`RemoveEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.RemoveEtagSets, self).__init__()
-
-                self.yang_name = "remove-etag-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remove-etag-set" : ("remove_etag_set", RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet)}
-
-                self.remove_etag_set = YList(self)
-                self._segment_path = lambda: "remove-etag-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.RemoveEtagSets, [], name, value)
-
-
-            class RemoveEtagSet(Entity):
-                """
-                Remove the entries from the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: etag_set_as_text
-                
-                	Etag Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet, self).__init__()
-
-                    self.yang_name = "remove-etag-set"
-                    self.yang_parent_name = "remove-etag-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
-                    self._segment_path = lambda: "remove-etag-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-etag-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet, ['set_name', 'etag_set_as_text'], name, value)
-
-
-        class RemoveLargeCommunitySets(Entity):
-            """
-            Information about Large Community sets
-            
-            .. attribute:: remove_large_community_set
-            
-            	Remove the entries from the existing set
-            	**type**\: list of  		 :py:class:`RemoveLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.RemoveLargeCommunitySets, self).__init__()
-
-                self.yang_name = "remove-large-community-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remove-large-community-set" : ("remove_large_community_set", RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet)}
-
-                self.remove_large_community_set = YList(self)
-                self._segment_path = lambda: "remove-large-community-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.RemoveLargeCommunitySets, [], name, value)
-
-
-            class RemoveLargeCommunitySet(Entity):
-                """
-                Remove the entries from the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: large_community_set_as_text
-                
-                	Large Community Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet, self).__init__()
-
-                    self.yang_name = "remove-large-community-set"
-                    self.yang_parent_name = "remove-large-community-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.large_community_set_as_text = YLeaf(YType.str, "large-community-set-as-text")
-                    self._segment_path = lambda: "remove-large-community-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-large-community-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.RemoveLargeCommunitySets.RemoveLargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
 
 
         class MacSets(Entity):
@@ -1058,8 +565,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"mac-set" : ("mac_set", RoutingPolicy.Sets.MacSets.MacSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("mac-set", ("mac_set", RoutingPolicy.Sets.MacSets.MacSet))])
+                self._leafs = OrderedDict()
 
                 self.mac_set = YList(self)
                 self._segment_path = lambda: "mac-sets"
@@ -1073,7 +582,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1101,13 +610,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "mac-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
-                    self._segment_path = lambda: "mac-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('mac_set_as_text', YLeaf(YType.str, 'mac-set-as-text')),
+                    ])
+                    self.set_name = None
+                    self.mac_set_as_text = None
+                    self._segment_path = lambda: "mac-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/mac-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1137,8 +649,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-opaque-set" : ("extended_community_opaque_set", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-opaque-set", ("extended_community_opaque_set", RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_opaque_set = YList(self)
                 self._segment_path = lambda: "extended-community-opaque-sets"
@@ -1152,7 +666,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1180,96 +694,20 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-opaque-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_opaque_set = YLeaf(YType.str, "rpl-extended-community-opaque-set")
-                    self._segment_path = lambda: "extended-community-opaque-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_opaque_set', YLeaf(YType.str, 'rpl-extended-community-opaque-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_opaque_set = None
+                    self._segment_path = lambda: "extended-community-opaque-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-opaque-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, ['set_name', 'rpl_extended_community_opaque_set'], name, value)
-
-
-        class PrependMacSets(Entity):
-            """
-            Information about Mac sets
-            
-            .. attribute:: prepend_mac_set
-            
-            	Prepend the entries to the existing set
-            	**type**\: list of  		 :py:class:`PrependMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets.PrependMacSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.PrependMacSets, self).__init__()
-
-                self.yang_name = "prepend-mac-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prepend-mac-set" : ("prepend_mac_set", RoutingPolicy.Sets.PrependMacSets.PrependMacSet)}
-
-                self.prepend_mac_set = YList(self)
-                self._segment_path = lambda: "prepend-mac-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.PrependMacSets, [], name, value)
-
-
-            class PrependMacSet(Entity):
-                """
-                Prepend the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: mac_set_as_text
-                
-                	Mac Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.PrependMacSets.PrependMacSet, self).__init__()
-
-                    self.yang_name = "prepend-mac-set"
-                    self.yang_parent_name = "prepend-mac-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
-                    self._segment_path = lambda: "prepend-mac-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-mac-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.PrependMacSets.PrependMacSet, ['set_name', 'mac_set_as_text'], name, value)
 
 
         class OspfAreaSets(Entity):
@@ -1295,8 +733,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"ospf-area-set" : ("ospf_area_set", RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("ospf-area-set", ("ospf_area_set", RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet))])
+                self._leafs = OrderedDict()
 
                 self.ospf_area_set = YList(self)
                 self._segment_path = lambda: "ospf-area-sets"
@@ -1325,7 +765,7 @@ class RoutingPolicy(Entity):
                 example these are areas 1 and                 
                 192.168.1.255.                                
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1353,96 +793,20 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "ospf-area-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rplospf_area_set = YLeaf(YType.str, "rplospf-area-set")
-                    self._segment_path = lambda: "ospf-area-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rplospf_area_set', YLeaf(YType.str, 'rplospf-area-set')),
+                    ])
+                    self.set_name = None
+                    self.rplospf_area_set = None
+                    self._segment_path = lambda: "ospf-area-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/ospf-area-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, ['set_name', 'rplospf_area_set'], name, value)
-
-
-        class AppendMacSets(Entity):
-            """
-            Information about Mac sets
-            
-            .. attribute:: append_mac_set
-            
-            	Append the entries to the existing set
-            	**type**\: list of  		 :py:class:`AppendMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets.AppendMacSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.AppendMacSets, self).__init__()
-
-                self.yang_name = "append-mac-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"append-mac-set" : ("append_mac_set", RoutingPolicy.Sets.AppendMacSets.AppendMacSet)}
-
-                self.append_mac_set = YList(self)
-                self._segment_path = lambda: "append-mac-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.AppendMacSets, [], name, value)
-
-
-            class AppendMacSet(Entity):
-                """
-                Append the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: mac_set_as_text
-                
-                	Mac Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.AppendMacSets.AppendMacSet, self).__init__()
-
-                    self.yang_name = "append-mac-set"
-                    self.yang_parent_name = "append-mac-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
-                    self._segment_path = lambda: "append-mac-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-mac-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AppendMacSets.AppendMacSet, ['set_name', 'mac_set_as_text'], name, value)
 
 
         class ExtendedCommunityCostSets(Entity):
@@ -1468,8 +832,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-cost-set" : ("extended_community_cost_set", RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-cost-set", ("extended_community_cost_set", RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_cost_set = YList(self)
                 self._segment_path = lambda: "extended-community-cost-sets"
@@ -1483,7 +849,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1511,96 +877,20 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-cost-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_cost_set = YLeaf(YType.str, "rpl-extended-community-cost-set")
-                    self._segment_path = lambda: "extended-community-cost-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_cost_set', YLeaf(YType.str, 'rpl-extended-community-cost-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_cost_set = None
+                    self._segment_path = lambda: "extended-community-cost-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-cost-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, ['set_name', 'rpl_extended_community_cost_set'], name, value)
-
-
-        class RemoveMacSets(Entity):
-            """
-            Information about Mac sets
-            
-            .. attribute:: remove_mac_set
-            
-            	Remove the entries from the existing set
-            	**type**\: list of  		 :py:class:`RemoveMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.RemoveMacSets, self).__init__()
-
-                self.yang_name = "remove-mac-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remove-mac-set" : ("remove_mac_set", RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet)}
-
-                self.remove_mac_set = YList(self)
-                self._segment_path = lambda: "remove-mac-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.RemoveMacSets, [], name, value)
-
-
-            class RemoveMacSet(Entity):
-                """
-                Remove the entries from the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: mac_set_as_text
-                
-                	Mac Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet, self).__init__()
-
-                    self.yang_name = "remove-mac-set"
-                    self.yang_parent_name = "remove-mac-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.mac_set_as_text = YLeaf(YType.str, "mac-set-as-text")
-                    self._segment_path = lambda: "remove-mac-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-mac-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet, ['set_name', 'mac_set_as_text'], name, value)
 
 
         class ExtendedCommunitySooSets(Entity):
@@ -1626,8 +916,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-soo-set" : ("extended_community_soo_set", RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-soo-set", ("extended_community_soo_set", RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_soo_set = YList(self)
                 self._segment_path = lambda: "extended-community-soo-sets"
@@ -1641,7 +933,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1669,13 +961,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-soo-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_soo_set = YLeaf(YType.str, "rpl-extended-community-soo-set")
-                    self._segment_path = lambda: "extended-community-soo-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_soo_set', YLeaf(YType.str, 'rpl-extended-community-soo-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_soo_set = None
+                    self._segment_path = lambda: "extended-community-soo-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-soo-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -1705,8 +1000,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"esi-set" : ("esi_set", RoutingPolicy.Sets.EsiSets.EsiSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("esi-set", ("esi_set", RoutingPolicy.Sets.EsiSets.EsiSet))])
+                self._leafs = OrderedDict()
 
                 self.esi_set = YList(self)
                 self._segment_path = lambda: "esi-sets"
@@ -1720,7 +1017,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -1748,254 +1045,20 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "esi-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
-                    self._segment_path = lambda: "esi-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('esi_set_as_text', YLeaf(YType.str, 'esi-set-as-text')),
+                    ])
+                    self.set_name = None
+                    self.esi_set_as_text = None
+                    self._segment_path = lambda: "esi-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/esi-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.EsiSets.EsiSet, ['set_name', 'esi_set_as_text'], name, value)
-
-
-        class PrependEsiSets(Entity):
-            """
-            Information about Esi sets
-            
-            .. attribute:: prepend_esi_set
-            
-            	Prepend the entries to the existing set
-            	**type**\: list of  		 :py:class:`PrependEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.PrependEsiSets, self).__init__()
-
-                self.yang_name = "prepend-esi-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prepend-esi-set" : ("prepend_esi_set", RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet)}
-
-                self.prepend_esi_set = YList(self)
-                self._segment_path = lambda: "prepend-esi-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.PrependEsiSets, [], name, value)
-
-
-            class PrependEsiSet(Entity):
-                """
-                Prepend the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: esi_set_as_text
-                
-                	Esi Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet, self).__init__()
-
-                    self.yang_name = "prepend-esi-set"
-                    self.yang_parent_name = "prepend-esi-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
-                    self._segment_path = lambda: "prepend-esi-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prepend-esi-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet, ['set_name', 'esi_set_as_text'], name, value)
-
-
-        class AppendEsiSets(Entity):
-            """
-            Information about Esi sets
-            
-            .. attribute:: append_esi_set
-            
-            	Append the entries to the existing set
-            	**type**\: list of  		 :py:class:`AppendEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.AppendEsiSets, self).__init__()
-
-                self.yang_name = "append-esi-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"append-esi-set" : ("append_esi_set", RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet)}
-
-                self.append_esi_set = YList(self)
-                self._segment_path = lambda: "append-esi-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.AppendEsiSets, [], name, value)
-
-
-            class AppendEsiSet(Entity):
-                """
-                Append the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: esi_set_as_text
-                
-                	Esi Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet, self).__init__()
-
-                    self.yang_name = "append-esi-set"
-                    self.yang_parent_name = "append-esi-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
-                    self._segment_path = lambda: "append-esi-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-esi-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet, ['set_name', 'esi_set_as_text'], name, value)
-
-
-        class RemoveEsiSets(Entity):
-            """
-            Information about Esi sets
-            
-            .. attribute:: remove_esi_set
-            
-            	Remove the entries from the existing set
-            	**type**\: list of  		 :py:class:`RemoveEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.RemoveEsiSets, self).__init__()
-
-                self.yang_name = "remove-esi-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"remove-esi-set" : ("remove_esi_set", RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet)}
-
-                self.remove_esi_set = YList(self)
-                self._segment_path = lambda: "remove-esi-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.RemoveEsiSets, [], name, value)
-
-
-            class RemoveEsiSet(Entity):
-                """
-                Remove the entries from the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: esi_set_as_text
-                
-                	Esi Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet, self).__init__()
-
-                    self.yang_name = "remove-esi-set"
-                    self.yang_parent_name = "remove-esi-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.esi_set_as_text = YLeaf(YType.str, "esi-set-as-text")
-                    self._segment_path = lambda: "remove-esi-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/remove-esi-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet, ['set_name', 'esi_set_as_text'], name, value)
 
 
         class ExtendedCommunitySegNhSets(Entity):
@@ -2021,8 +1084,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-seg-nh-set" : ("extended_community_seg_nh_set", RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-seg-nh-set", ("extended_community_seg_nh_set", RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_seg_nh_set = YList(self)
                 self._segment_path = lambda: "extended-community-seg-nh-sets"
@@ -2036,7 +1101,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2064,13 +1129,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-seg-nh-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_seg_nh_set = YLeaf(YType.str, "rpl-extended-community-seg-nh-set")
-                    self._segment_path = lambda: "extended-community-seg-nh-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_seg_nh_set', YLeaf(YType.str, 'rpl-extended-community-seg-nh-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_seg_nh_set = None
+                    self._segment_path = lambda: "extended-community-seg-nh-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-seg-nh-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2100,8 +1168,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"rd-set" : ("rd_set", RoutingPolicy.Sets.RdSets.RdSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("rd-set", ("rd_set", RoutingPolicy.Sets.RdSets.RdSet))])
+                self._leafs = OrderedDict()
 
                 self.rd_set = YList(self)
                 self._segment_path = lambda: "rd-sets"
@@ -2115,7 +1185,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2143,13 +1213,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "rd-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rplrd_set = YLeaf(YType.str, "rplrd-set")
-                    self._segment_path = lambda: "rd-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rplrd_set', YLeaf(YType.str, 'rplrd-set')),
+                    ])
+                    self.set_name = None
+                    self.rplrd_set = None
+                    self._segment_path = lambda: "rd-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/rd-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2179,94 +1252,18 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.policy_global_set = YLeaf(YType.str, "policy-global-set")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('policy_global_set', YLeaf(YType.str, 'policy-global-set')),
+                ])
+                self.policy_global_set = None
                 self._segment_path = lambda: "policy-global-set-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.PolicyGlobalSetTable, ['policy_global_set'], name, value)
-
-
-        class AppendLargeCommunitySets(Entity):
-            """
-            Information about Large Community sets
-            
-            .. attribute:: append_large_community_set
-            
-            	Append the entries to the existing set
-            	**type**\: list of  		 :py:class:`AppendLargeCommunitySet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet>`
-            
-            
-
-            """
-
-            _prefix = 'policy-repository-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(RoutingPolicy.Sets.AppendLargeCommunitySets, self).__init__()
-
-                self.yang_name = "append-large-community-sets"
-                self.yang_parent_name = "sets"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"append-large-community-set" : ("append_large_community_set", RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet)}
-
-                self.append_large_community_set = YList(self)
-                self._segment_path = lambda: "append-large-community-sets"
-                self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(RoutingPolicy.Sets.AppendLargeCommunitySets, [], name, value)
-
-
-            class AppendLargeCommunitySet(Entity):
-                """
-                Append the entries to the existing set
-                
-                .. attribute:: set_name  <key>
-                
-                	Set name
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: large_community_set_as_text
-                
-                	Large Community Set
-                	**type**\: str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'policy-repository-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet, self).__init__()
-
-                    self.yang_name = "append-large-community-set"
-                    self.yang_parent_name = "append-large-community-sets"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.large_community_set_as_text = YLeaf(YType.str, "large-community-set-as-text")
-                    self._segment_path = lambda: "append-large-community-set" + "[set-name='" + self.set_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/append-large-community-sets/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.Sets.AppendLargeCommunitySets.AppendLargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
 
 
         class ExtendedCommunityBandwidthSets(Entity):
@@ -2292,8 +1289,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-bandwidth-set" : ("extended_community_bandwidth_set", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-bandwidth-set", ("extended_community_bandwidth_set", RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_bandwidth_set = YList(self)
                 self._segment_path = lambda: "extended-community-bandwidth-sets"
@@ -2307,7 +1306,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2335,13 +1334,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-bandwidth-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_bandwidth_set = YLeaf(YType.str, "rpl-extended-community-bandwidth-set")
-                    self._segment_path = lambda: "extended-community-bandwidth-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_bandwidth_set', YLeaf(YType.str, 'rpl-extended-community-bandwidth-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_bandwidth_set = None
+                    self._segment_path = lambda: "extended-community-bandwidth-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-bandwidth-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2371,8 +1373,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"community-set" : ("community_set", RoutingPolicy.Sets.CommunitySets.CommunitySet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("community-set", ("community_set", RoutingPolicy.Sets.CommunitySets.CommunitySet))])
+                self._leafs = OrderedDict()
 
                 self.community_set = YList(self)
                 self._segment_path = lambda: "community-sets"
@@ -2386,7 +1390,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2414,13 +1418,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "community-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_community_set = YLeaf(YType.str, "rpl-community-set")
-                    self._segment_path = lambda: "community-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_community_set', YLeaf(YType.str, 'rpl-community-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_community_set = None
+                    self._segment_path = lambda: "community-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/community-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2450,8 +1457,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"as-path-set" : ("as_path_set", RoutingPolicy.Sets.AsPathSets.AsPathSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("as-path-set", ("as_path_set", RoutingPolicy.Sets.AsPathSets.AsPathSet))])
+                self._leafs = OrderedDict()
 
                 self.as_path_set = YList(self)
                 self._segment_path = lambda: "as-path-sets"
@@ -2465,7 +1474,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2493,13 +1502,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "as-path-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rplas_path_set = YLeaf(YType.str, "rplas-path-set")
-                    self._segment_path = lambda: "as-path-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rplas_path_set', YLeaf(YType.str, 'rplas-path-set')),
+                    ])
+                    self.set_name = None
+                    self.rplas_path_set = None
+                    self._segment_path = lambda: "as-path-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/as-path-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2529,8 +1541,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tag-set" : ("tag_set", RoutingPolicy.Sets.TagSets.TagSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tag-set", ("tag_set", RoutingPolicy.Sets.TagSets.TagSet))])
+                self._leafs = OrderedDict()
 
                 self.tag_set = YList(self)
                 self._segment_path = lambda: "tag-sets"
@@ -2544,7 +1558,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2572,13 +1586,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "tag-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_tag_set = YLeaf(YType.str, "rpl-tag-set")
-                    self._segment_path = lambda: "tag-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_tag_set', YLeaf(YType.str, 'rpl-tag-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_tag_set = None
+                    self._segment_path = lambda: "tag-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/tag-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2608,8 +1625,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"etag-set" : ("etag_set", RoutingPolicy.Sets.EtagSets.EtagSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("etag-set", ("etag_set", RoutingPolicy.Sets.EtagSets.EtagSet))])
+                self._leafs = OrderedDict()
 
                 self.etag_set = YList(self)
                 self._segment_path = lambda: "etag-sets"
@@ -2623,7 +1642,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2651,13 +1670,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "etag-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.etag_set_as_text = YLeaf(YType.str, "etag-set-as-text")
-                    self._segment_path = lambda: "etag-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('etag_set_as_text', YLeaf(YType.str, 'etag-set-as-text')),
+                    ])
+                    self.set_name = None
+                    self.etag_set_as_text = None
+                    self._segment_path = lambda: "etag-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/etag-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2687,8 +1709,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"extended-community-rt-set" : ("extended_community_rt_set", RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("extended-community-rt-set", ("extended_community_rt_set", RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet))])
+                self._leafs = OrderedDict()
 
                 self.extended_community_rt_set = YList(self)
                 self._segment_path = lambda: "extended-community-rt-sets"
@@ -2702,7 +1726,7 @@ class RoutingPolicy(Entity):
                 """
                 Information about an individual set
                 
-                .. attribute:: set_name  <key>
+                .. attribute:: set_name  (key)
                 
                 	Set name
                 	**type**\: str
@@ -2730,13 +1754,16 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "extended-community-rt-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.set_name = YLeaf(YType.str, "set-name")
-
-                    self.rpl_extended_community_rt_set = YLeaf(YType.str, "rpl-extended-community-rt-set")
-                    self._segment_path = lambda: "extended-community-rt-set" + "[set-name='" + self.set_name.get() + "']"
+                    self.ylist_key_names = ['set_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('set_name', YLeaf(YType.str, 'set-name')),
+                        ('rpl_extended_community_rt_set', YLeaf(YType.str, 'rpl-extended-community-rt-set')),
+                    ])
+                    self.set_name = None
+                    self.rpl_extended_community_rt_set = None
+                    self._segment_path = lambda: "extended-community-rt-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-rt-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -2779,12 +1806,15 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.maximum_lines_of_policy = YLeaf(YType.int32, "maximum-lines-of-policy")
-
-            self.maximum_number_of_policies = YLeaf(YType.int32, "maximum-number-of-policies")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('maximum_lines_of_policy', YLeaf(YType.int32, 'maximum-lines-of-policy')),
+                ('maximum_number_of_policies', YLeaf(YType.int32, 'maximum-number-of-policies')),
+            ])
+            self.maximum_lines_of_policy = None
+            self.maximum_number_of_policies = None
             self._segment_path = lambda: "limits"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
 

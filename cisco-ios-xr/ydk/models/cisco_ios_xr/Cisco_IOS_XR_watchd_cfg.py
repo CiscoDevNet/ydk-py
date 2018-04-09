@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -31,6 +33,11 @@ class Watchdog(Entity):
     
     	Memory thresholds
     	**type**\:  :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg.Watchdog.ThresholdMemory>`
+    
+    .. attribute:: disk_limit
+    
+    	Disk thresholds
+    	**type**\:  :py:class:`DiskLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg.Watchdog.DiskLimit>`
     
     .. attribute:: overload_notification
     
@@ -71,21 +78,29 @@ class Watchdog(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"threshold-memory" : ("threshold_memory", Watchdog.ThresholdMemory)}
-        self._child_list_classes = {}
-
-        self.overload_notification = YLeaf(YType.empty, "overload-notification")
-
-        self.restart_deadlock_disable = YLeaf(YType.empty, "restart-deadlock-disable")
-
-        self.restart_memoryhog_disable = YLeaf(YType.empty, "restart-memoryhog-disable")
-
-        self.overload_throttle_timeout = YLeaf(YType.uint32, "overload-throttle-timeout")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.ThresholdMemory)), ("disk-limit", ("disk_limit", Watchdog.DiskLimit))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('overload_notification', YLeaf(YType.empty, 'overload-notification')),
+            ('restart_deadlock_disable', YLeaf(YType.empty, 'restart-deadlock-disable')),
+            ('restart_memoryhog_disable', YLeaf(YType.empty, 'restart-memoryhog-disable')),
+            ('overload_throttle_timeout', YLeaf(YType.uint32, 'overload-throttle-timeout')),
+        ])
+        self.overload_notification = None
+        self.restart_deadlock_disable = None
+        self.restart_memoryhog_disable = None
+        self.overload_throttle_timeout = None
 
         self.threshold_memory = Watchdog.ThresholdMemory()
         self.threshold_memory.parent = self
         self._children_name_map["threshold_memory"] = "threshold-memory"
         self._children_yang_names.add("threshold-memory")
+
+        self.disk_limit = Watchdog.DiskLimit()
+        self.disk_limit.parent = self
+        self._children_name_map["disk_limit"] = "disk-limit"
+        self._children_yang_names.add("disk-limit")
         self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog"
 
     def __setattr__(self, name, value):
@@ -131,19 +146,79 @@ class Watchdog(Entity):
             self.yang_parent_name = "watchdog"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.minor = YLeaf(YType.uint32, "minor")
-
-            self.severe = YLeaf(YType.uint32, "severe")
-
-            self.critical = YLeaf(YType.uint32, "critical")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('minor', YLeaf(YType.uint32, 'minor')),
+                ('severe', YLeaf(YType.uint32, 'severe')),
+                ('critical', YLeaf(YType.uint32, 'critical')),
+            ])
+            self.minor = None
+            self.severe = None
+            self.critical = None
             self._segment_path = lambda: "threshold-memory"
             self._absolute_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(Watchdog.ThresholdMemory, ['minor', 'severe', 'critical'], name, value)
+
+
+    class DiskLimit(Entity):
+        """
+        Disk thresholds
+        
+        .. attribute:: minor
+        
+        	Threshold, Range (5, 40)
+        	**type**\: int
+        
+        	**range:** 5..40
+        
+        .. attribute:: severe
+        
+        	Threshold, Range (4, minor)
+        	**type**\: int
+        
+        	**range:** 4..40
+        
+        .. attribute:: critical
+        
+        	Threshold, Range (3, severe)
+        	**type**\: int
+        
+        	**range:** 3..40
+        
+        
+
+        """
+
+        _prefix = 'watchd-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Watchdog.DiskLimit, self).__init__()
+
+            self.yang_name = "disk-limit"
+            self.yang_parent_name = "watchdog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('minor', YLeaf(YType.uint32, 'minor')),
+                ('severe', YLeaf(YType.uint32, 'severe')),
+                ('critical', YLeaf(YType.uint32, 'critical')),
+            ])
+            self.minor = None
+            self.severe = None
+            self.critical = None
+            self._segment_path = lambda: "disk-limit"
+            self._absolute_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Watchdog.DiskLimit, ['minor', 'severe', 'critical'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Watchdog()
@@ -177,10 +252,13 @@ class Watchd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-watchd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.timeout = YLeaf(YType.uint32, "timeout")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('timeout', YLeaf(YType.uint32, 'timeout')),
+        ])
+        self.timeout = None
         self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchd"
 
     def __setattr__(self, name, value):

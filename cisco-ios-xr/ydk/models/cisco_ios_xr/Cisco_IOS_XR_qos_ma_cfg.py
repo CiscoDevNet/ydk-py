@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -24,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class QosFieldNotSupported(Enum):
     """
-    QosFieldNotSupported
+    QosFieldNotSupported (Enum Class)
 
     Qos field not supported
 
@@ -39,7 +41,7 @@ class QosFieldNotSupported(Enum):
 
 class QosPolicyAccount(Enum):
     """
-    QosPolicyAccount
+    QosPolicyAccount (Enum Class)
 
     Qos policy account
 
@@ -97,10 +99,13 @@ class Qos(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-qos-ma-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.fabric_service_policy = YLeaf(YType.str, "fabric-service-policy")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('fabric_service_policy', YLeaf(YType.str, 'fabric-service-policy')),
+        ])
+        self.fabric_service_policy = None
         self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-cfg:qos"
 
     def __setattr__(self, name, value):

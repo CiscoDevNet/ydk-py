@@ -39,12 +39,37 @@ module Cisco-IOS-XE-crypto {
 
   description
     "Cisco XE Crypto Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-06 {
+     description
+       "Change 'crypto pki trustpool import url' to string";
+  }
+
+  revision 2018-01-04 {
+     description
+       "Change crypto map sequence to list";
+  }
+
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Add 40 and 100GE support";
+  }
+
+  revision 2017-10-06 {
+    description
+      "Add pki server submod support";
+  }
+
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -94,6 +119,20 @@ module Cisco-IOS-XE-crypto {
   revision 2017-02-07 {
     description
       "Initial revision";
+  }
+
+  grouping database-password-grouping {
+    container password {
+      description "Passphrase to protect the private key archive";
+      leaf encryption-type {
+        type uint8 {
+          range "0..9";
+        }
+      }
+      leaf passphrase {
+        type string;
+      } 
+    }
   }
 
   grouping lifetime-grouping {
@@ -5843,17 +5882,17 @@ module Cisco-IOS-XE-crypto {
       list map {
         description
           "Enter a crypto map";
-        key "name";
+        key "name sequence-number";
         leaf name {
           type string;
+        }
+        leaf sequence-number {
+          type uint16;
         }
         leaf ipv6 {
           description
             "IPv6 crypto map";
           type empty;
-        }
-        leaf sequence-number {
-          type uint16;
         }
         leaf keying {
           type enumeration {
@@ -6427,19 +6466,69 @@ Hex-data is not supported */
         description
           "Enable IOS Certificate server";
         leaf name {
+          description
+            "Certificate Server Name";
           type string;
         }
-        leaf rollover {
+        container database {
           description
-            "Rollover the server's key and certificate";
-          type empty;
+            "Certificate Server database config parameters";
+          container archive {
+            description
+              "Backup Certificate Server Signing Certificate and Keys";
+            choice format {
+              container pem {
+                description
+                  "PEM format";
+                presence true;
+                uses database-password-grouping;
+              }
+              container pkcs12 {
+                description
+                  "PKCS12 format";
+                presence true;
+                uses database-password-grouping;
+              }
+            }
+          }
+        } 
+        leaf issuer-name {
+          description
+            "Issuer name";
+          type string;
         }
-        leaf cancel {
+        leaf grant {
           description
-            "Cancel a pending rollover";
-          type empty;
+            "Certificate granting options";
+          type enumeration {
+            enum "auto";
+            enum "none";
+            enum "ra-auto";
+          }
+        } 
+      }   
+      /* add the following container to avoid duplicate 
+       name "server" in the same level" */
+      container pki-server-no-submode {
+        container server {
+          description
+            "Enable IOS Certificate server";
+          leaf name {
+            type string;
+          }
+          leaf rollover {
+            description
+              "Rollover the server's key and certificate";
+            type empty;
+          }
+          leaf cancel {
+            description
+              "Cancel a pending rollover";
+            type empty;
+          }
         }
       }
+
       // crypto pki trustpoint *
       list trustpoint {
         description
@@ -6540,14 +6629,14 @@ Hex-data is not supported */
           description
             "revocation password";
           presence true;
-          leaf encryption_type {
+          leaf encryption-type {
             description
               "Encryption type";
             type uint8 {
               range "0..9";
             }
           }
-          leaf clear_password {
+          leaf clear-password {
             description
               "revocation password";
             type string;
@@ -6673,10 +6762,12 @@ Hex-data is not supported */
               "Import bundle via the terminal (cut-and-paste) in PEM format";
             type empty;
           }
-          container url {
+          leaf url {
             description
               "Import via the file systems";
-            uses crypto-key-url-file-im-grouping;
+            type string {
+              pattern "(((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)|(webui:)).*)";
+            }
           }
         }
       }
@@ -7072,7 +7163,25 @@ Hex-data is not supported */
     }
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-crypto-grouping {
       if-feature ios-features:crypto;
     }
@@ -7135,12 +7244,28 @@ Hex-data is not supported */
     }
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
     uses config-interface-ipv6-crypto-grouping {
       if-feature ios-features:crypto;
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
   augment "/ios:native/ios:interface/ios:Loopback/ios:ipv6" {
     uses config-interface-ipv6-crypto-grouping {
       if-feature ios-features:crypto;

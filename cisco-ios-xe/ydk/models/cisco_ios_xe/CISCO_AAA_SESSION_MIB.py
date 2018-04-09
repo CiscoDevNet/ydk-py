@@ -10,6 +10,8 @@ References\:
     The TACACS+ Protocol Version 1.78, Internet Draft
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -51,8 +53,10 @@ class CISCOAAASESSIONMIB(Entity):
         self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"casnActive" : ("casnactive", CISCOAAASESSIONMIB.Casnactive), "casnGeneral" : ("casngeneral", CISCOAAASESSIONMIB.Casngeneral), "casnActiveTable" : ("casnactivetable", CISCOAAASESSIONMIB.Casnactivetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("casnActive", ("casnactive", CISCOAAASESSIONMIB.Casnactive)), ("casnGeneral", ("casngeneral", CISCOAAASESSIONMIB.Casngeneral)), ("casnActiveTable", ("casnactivetable", CISCOAAASESSIONMIB.Casnactivetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.casnactive = CISCOAAASESSIONMIB.Casnactive()
         self.casnactive.parent = self
@@ -103,12 +107,15 @@ class CISCOAAASESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.casnactivetableentries = YLeaf(YType.uint32, "casnActiveTableEntries")
-
-            self.casnactivetablehighwatermark = YLeaf(YType.uint32, "casnActiveTableHighWaterMark")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('casnactivetableentries', YLeaf(YType.uint32, 'casnActiveTableEntries')),
+                ('casnactivetablehighwatermark', YLeaf(YType.uint32, 'casnActiveTableHighWaterMark')),
+            ])
+            self.casnactivetableentries = None
+            self.casnactivetablehighwatermark = None
             self._segment_path = lambda: "casnActive"
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
 
@@ -148,12 +155,15 @@ class CISCOAAASESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.casntotalsessions = YLeaf(YType.uint32, "casnTotalSessions")
-
-            self.casndisconnectedsessions = YLeaf(YType.uint32, "casnDisconnectedSessions")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('casntotalsessions', YLeaf(YType.uint32, 'casnTotalSessions')),
+                ('casndisconnectedsessions', YLeaf(YType.uint32, 'casnDisconnectedSessions')),
+            ])
+            self.casntotalsessions = None
+            self.casndisconnectedsessions = None
             self._segment_path = lambda: "casnGeneral"
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
 
@@ -185,8 +195,10 @@ class CISCOAAASESSIONMIB(Entity):
             self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"casnActiveEntry" : ("casnactiveentry", CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("casnActiveEntry", ("casnactiveentry", CISCOAAASESSIONMIB.Casnactivetable.Casnactiveentry))])
+            self._leafs = OrderedDict()
 
             self.casnactiveentry = YList(self)
             self._segment_path = lambda: "casnActiveTable"
@@ -210,7 +222,7 @@ class CISCOAAASESSIONMIB(Entity):
             casnDisconnect will cause removal of the entry when
             the session completes termination.
             
-            .. attribute:: casnsessionid  <key>
+            .. attribute:: casnsessionid  (key)
             
             	This is the session identification used by the accounting protocol.  This value is unique to a session within the system, even if multiple accounting protocols are in use.  The value of this object corresponds to these accounting protocol attributes.    RADIUS\:  attribute 44, Acct\-Session\-Id    TACACS+\: attribute 'task\_id'
             	**type**\: int
@@ -280,25 +292,28 @@ class CISCOAAASESSIONMIB(Entity):
                 self.yang_parent_name = "casnActiveTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.casnsessionid = YLeaf(YType.uint32, "casnSessionId")
-
-                self.casnuserid = YLeaf(YType.str, "casnUserId")
-
-                self.casnipaddr = YLeaf(YType.str, "casnIpAddr")
-
-                self.casnidletime = YLeaf(YType.uint32, "casnIdleTime")
-
-                self.casndisconnect = YLeaf(YType.boolean, "casnDisconnect")
-
-                self.casncalltrackerid = YLeaf(YType.uint32, "casnCallTrackerId")
-
-                self.casnnasport = YLeaf(YType.str, "casnNasPort")
-
-                self.casnvaiifindex = YLeaf(YType.int32, "casnVaiIfIndex")
-                self._segment_path = lambda: "casnActiveEntry" + "[casnSessionId='" + self.casnsessionid.get() + "']"
+                self.ylist_key_names = ['casnsessionid']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('casnsessionid', YLeaf(YType.uint32, 'casnSessionId')),
+                    ('casnuserid', YLeaf(YType.str, 'casnUserId')),
+                    ('casnipaddr', YLeaf(YType.str, 'casnIpAddr')),
+                    ('casnidletime', YLeaf(YType.uint32, 'casnIdleTime')),
+                    ('casndisconnect', YLeaf(YType.boolean, 'casnDisconnect')),
+                    ('casncalltrackerid', YLeaf(YType.uint32, 'casnCallTrackerId')),
+                    ('casnnasport', YLeaf(YType.str, 'casnNasPort')),
+                    ('casnvaiifindex', YLeaf(YType.int32, 'casnVaiIfIndex')),
+                ])
+                self.casnsessionid = None
+                self.casnuserid = None
+                self.casnipaddr = None
+                self.casnidletime = None
+                self.casndisconnect = None
+                self.casncalltrackerid = None
+                self.casnnasport = None
+                self.casnvaiifindex = None
+                self._segment_path = lambda: "casnActiveEntry" + "[casnSessionId='" + str(self.casnsessionid) + "']"
                 self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/casnActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

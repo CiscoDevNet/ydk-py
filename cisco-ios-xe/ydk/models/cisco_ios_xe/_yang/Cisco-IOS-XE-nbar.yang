@@ -34,6 +34,20 @@ module Cisco-IOS-XE-nbar {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -835,6 +849,20 @@ module Cisco-IOS-XE-nbar {
             uses config-custom-grouping;
           }
         }
+        container ip {
+          description "Custom protocols based on the transport layer and below";
+          container any {
+            description "TCP transport";
+            presence true;
+            leaf id {
+              description "Selector ID";
+              type uint16 {
+                range "1..65535";
+              }
+            }
+            uses config-custom-grouping;
+          }
+        }
        }
        container protocol-pack {
          description "Protocol Pack";
@@ -849,6 +877,10 @@ module Cisco-IOS-XE-nbar {
              type empty;
            }
          }
+       }
+       leaf http-services {
+         description "Enable HTTP services";
+         type empty;
        }
      }
    }
@@ -880,7 +912,18 @@ module Cisco-IOS-XE-nbar {
     uses config-interface-ip-nbar-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-nbar-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nbar-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nbar-grouping;
+  }
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-nbar-grouping;
   }
 

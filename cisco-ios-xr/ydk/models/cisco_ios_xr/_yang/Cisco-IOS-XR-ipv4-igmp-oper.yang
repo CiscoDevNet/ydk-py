@@ -1,84 +1,82 @@
 module Cisco-IOS-XR-ipv4-igmp-oper {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-igmp-oper";
+  prefix ipv4-igmp-oper;
 
-
-  prefix "ipv4-igmp-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-ipv4-igmp-oper-sub1 {
     revision-date 2015-11-09;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-igmp package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        mld: MLD operational data
        igmp: igmp
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Igmpssm-map {
     type enumeration {
-      enum static {
+      enum "static" {
         value 0;
-        description "Static";
+        description
+          "Static";
       }
-      enum dns {
+      enum "dns" {
         value 1;
-        description "Dns";
+        description
+          "Dns";
       }
-      enum all {
+      enum "all" {
         value 2;
-        description "All";
+        description
+          "All";
       }
     }
-    description "Igmpssm map";
+    description
+      "Igmpssm map";
   }
 
   grouping INTERFACE-STATE-OFF-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container interface-state-offs {
-      description "IGMP Interface state off";
-
+      description
+        "IGMP Interface state off";
       list interface-state-off {
         key "interface-name";
-        description "IGMP Interface";
+        description
+          "IGMP Interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         uses IGMP-EDM-IDB-BAG;
       }
@@ -86,20 +84,23 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping RANGE-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container ranges {
-      description "Range table";
-
+      description
+        "Range table";
       list range {
-        description "Range information";
+        description
+          "Range information";
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group address";
+          description
+            "Group address";
         }
         leaf group-mask {
           type int32;
-          description "Group Mask";
+          description
+            "Group Mask";
         }
         uses IGMP-GROUP-RANGE;
       }
@@ -107,20 +108,23 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping SSM-MAP-DETAIL-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container ssm-map-details {
-      description "SSM Map Detail";
-
+      description
+        "SSM Map Detail";
       list ssm-map-detail {
-        description "SSM Map Detail Table information";
+        description
+          "SSM Map Detail Table information";
         leaf ssm-map-type {
           type Igmpssm-map;
-          description "SSM Map Type";
+          description
+            "SSM Map Type";
         }
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group address";
+          description
+            "Group address";
         }
         uses IGMP-EDM-SSM-MAP-DETAIL-BAG;
       }
@@ -128,24 +132,28 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping EXPLICIT-GROUP-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container explicit-groups {
-      description "IGMP Explicit Group Database";
-
+      description
+        "IGMP Explicit Group Database";
       list explicit-group {
-        description "IGMP Explicit Group Entry Information";
+        description
+          "IGMP Explicit Group Entry Information";
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group Address";
+          description
+            "Group Address";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         leaf source-address {
           type inet:ip-address-no-zone;
-          description "Source/Host Address";
+          description
+            "Source/Host Address";
         }
         uses IGMP-EDM-GROUPS-ET-BAG;
       }
@@ -153,20 +161,23 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping GROUP-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container groups {
-      description "IGMP Group Database Table";
-
+      description
+        "IGMP Group Database Table";
       list group {
-        description "IGMP Group Entry Information";
+        description
+          "IGMP Group Entry Information";
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group Address";
+          description
+            "Group Address";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         uses IGMP-EDM-GROUPS-BAG;
       }
@@ -174,28 +185,31 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping GROUP-SUMMARY {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container group-summary {
-      description "IGMP Groups Summary";
+      description
+        "IGMP Groups Summary";
       uses IGMP-EDM-GROUPS-SUMMARY-BAG;
     }
   }
 
   grouping VRF-TABLE {
-    description "Common node of active, standby";
-
+    description
+      "Common node of active, standby";
     container vrfs {
-      description "VRF Table";
-
+      description
+        "VRF Table";
       list vrf {
         key "vrf-name";
-        description "VRF table Names";
+        description
+          "VRF table Names";
         leaf vrf-name {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
-          description "VRF name";
+          description
+            "VRF name";
         }
         uses SUMMARY;
         uses INTERFACE-STATE-ON-TABLE;
@@ -219,17 +233,19 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping INTERFACE-STATE-ON-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container interface-state-ons {
-      description "IGMP Interface state on";
-
+      description
+        "IGMP Interface state on";
       list interface-state-on {
         key "interface-name";
-        description "IGMP Interface";
+        description
+          "IGMP Interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         uses IGMP-EDM-IDB-BAG;
       }
@@ -239,31 +255,34 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   grouping INTERFACE {
     description
       "Common node of interface-table,
-      global-interface-table";
-
+       global-interface-table";
     list interface {
       key "interface-name";
-      description "IGMP Interface";
+      description
+        "IGMP Interface";
       leaf interface-name {
         type xr:Interface-name;
-        description "Interface Name";
+        description
+          "Interface Name";
       }
       uses IGMP-EDM-IDB-BAG;
     }
   }
 
   grouping IFRS-INTERFACE-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container ifrs-interfaces {
-      description "IGMP Interface specific";
-
+      description
+        "IGMP Interface specific";
       list ifrs-interface {
         key "interface-name";
-        description "IGMP IFRS Interface";
+        description
+          "IGMP IFRS Interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "IFRS Interface Name";
+          description
+            "IFRS Interface Name";
         }
         uses IGMP-EDM-IDB-IFRS-BAG;
       }
@@ -271,80 +290,85 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping PROCESS {
-    description "Common node of active, standby";
-
+    description
+      "Common node of active, standby";
     container process {
-      description "Process";
-
+      description
+        "Process";
       container amt-summary {
-        description "MRIB RouteDB Expiry Information";
+        description
+          "MRIB RouteDB Expiry Information";
         uses AMT-SUMMARY-BAG;
       }
-
       container nsr {
-        description "NSR Information";
+        description
+          "NSR Information";
         uses IGMP-EDM-NSR-BAG;
       }
-
       container amt-gatewaies {
         description
           "Table containing AMT Gateway DataBase
-          information";
-
+           information";
         list amt-gateway {
-          description "AMT Gateway DataBase information";
+          description
+            "AMT Gateway DataBase information";
           leaf gateway-address {
             type inet:ip-address-no-zone;
-            description "Gateway Address";
+            description
+              "Gateway Address";
           }
           leaf port {
             type int32;
-            description "Port";
+            description
+              "Port";
           }
           uses AMT-GW-BAG;
         }
       }
-
       container unicast-qos-adjust-stats {
-        description "IGMP Unicast-Qos-Adjust Statistics";
+        description
+          "IGMP Unicast-Qos-Adjust Statistics";
         uses IGMP-EDM-I2Q-STATS-BAG;
       }
-
       container bvi-statistics {
-        description "IGMP BVI Stats";
+        description
+          "IGMP BVI Stats";
         uses IGMP-EDM-BVI-STATS-BAG;
       }
-
       container nsf {
-        description "NSF Information";
+        description
+          "NSF Information";
         uses IGMP-EDM-NSF-BAG;
       }
     }
   }
 
   grouping TRAFFIC-COUNTERS {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container traffic-counters {
-      description "IGMP Message Traffic Counters";
+      description
+        "IGMP Message Traffic Counters";
       uses IGMP-EDM-TRAFFIC-BAG;
     }
   }
 
   grouping GLOBAL-INTERFACE-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container global-interface-table {
-      description "IGMP Global Interface ";
+      description
+        "IGMP Global Interface ";
       uses INTERFACE;
     }
   }
 
   grouping ACTIVE {
-    description "Common node of igmp, mld";
-
+    description
+      "Common node of igmp, mld";
     container active {
-      description "Active Process";
+      description
+        "Active Process";
       uses VRF-TABLE;
       uses PROCESS;
       uses DEFAULT-CONTEXT;
@@ -352,17 +376,19 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping INTERFACE-UNICAST-QOS-ADJUST-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container interface-unicast-qos-adjusts {
-      description "IGMP Interface Unicast-Qos-Adjust";
-
+      description
+        "IGMP Interface Unicast-Qos-Adjust";
       list interface-unicast-qos-adjust {
         key "interface-name";
-        description "IGMP Interface";
+        description
+          "IGMP Interface";
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         uses IGMP-EDM-I2Q-INTF-STATS-BAG;
       }
@@ -370,51 +396,58 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping INTERFACE-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container interface-table {
-      description "IGMP Interface specific Table";
+      description
+        "IGMP Interface specific Table";
       uses INTERFACE;
     }
   }
 
   grouping SUMMARY {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container summary {
-      description "IGMP Summary Information";
+      description
+        "IGMP Summary Information";
       uses IGMP-EDM-SUMMARY-BAG;
     }
   }
 
   grouping NON-ACTIVE-GROUPS {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container non-active-groups {
-      description "IGMP Non-Active Groups Information";
+      description
+        "IGMP Non-Active Groups Information";
       uses IGMP-EDM-NOT-ACTIVE-ALLGROUPS-BAG;
     }
   }
 
   grouping DETAIL-GROUP-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container detail-groups {
-      description "IGMP Detail Group Database";
-
+      description
+        "IGMP Detail Group Database";
       list detail-group {
-        description "IGMP Detail Group Entry Information";
+        description
+          "IGMP Detail Group Entry Information";
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group Address";
+          description
+            "Group Address";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "Interface Name";
+          description
+            "Interface Name";
         }
         leaf source-address {
           type inet:ip-address-no-zone;
-          description "Source/Host Address";
+          description
+            "Source/Host Address";
         }
         uses IGMP-EDM-GROUPS-DETAIL-BAG;
       }
@@ -422,20 +455,23 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping SSM-MAP-TABLE {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container ssm-maps {
-      description "SSM Map Table";
-
+      description
+        "SSM Map Table";
       list ssm-map {
-        description "SSM Map information";
+        description
+          "SSM Map information";
         leaf ssm-map-type {
           type Igmpssm-map;
-          description "SSM Map Type";
+          description
+            "SSM Map Type";
         }
         leaf group-address {
           type inet:ip-address-no-zone;
-          description "Group address";
+          description
+            "Group address";
         }
         uses IGMP-EDM-SSM-MAP-BAG;
       }
@@ -443,10 +479,11 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping DEFAULT-CONTEXT {
-    description "Common node of active, standby";
-
+    description
+      "Common node of active, standby";
     container default-context {
-      description "Default Context";
+      description
+        "Default Context";
       uses SUMMARY;
       uses INTERFACE-STATE-ON-TABLE;
       uses DETAIL-GROUP-TABLE;
@@ -468,19 +505,21 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
   }
 
   grouping IFRS-INTERFACE-SUMMARY {
-    description "Common node of vrf, default-context";
-
+    description
+      "Common node of vrf, default-context";
     container ifrs-interface-summary {
-      description "IGMP IFRS Interface summary";
+      description
+        "IGMP IFRS Interface summary";
       uses IGMP-EDM-IDB-SUMM-BAG;
     }
   }
 
   grouping STANDBY {
-    description "Common node of igmp, mld";
-
+    description
+      "Common node of igmp, mld";
     container standby {
-      description "Standby Process";
+      description
+        "Standby Process";
       uses VRF-TABLE;
       uses PROCESS;
       uses DEFAULT-CONTEXT;
@@ -489,14 +528,15 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
 
   container mld {
     config false;
-    description "MLD operational data";
+    description
+      "MLD operational data";
     uses STANDBY;
     uses ACTIVE;
   }
-
   container igmp {
     config false;
-    description "igmp";
+    description
+      "igmp";
     uses STANDBY;
     uses ACTIVE;
   }

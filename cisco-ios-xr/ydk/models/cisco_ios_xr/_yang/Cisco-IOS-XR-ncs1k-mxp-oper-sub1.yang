@@ -1,204 +1,235 @@
 submodule Cisco-IOS-XR-ncs1k-mxp-oper-sub1 {
-
   belongs-to Cisco-IOS-XR-ncs1k-mxp-oper {
     prefix Cisco-IOS-XR-ncs1k-mxp-oper;
   }
 
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ncs1k-mxp package operational data.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Hw-module-slice-status {
     type enumeration {
-      enum not-provisioned {
+      enum "not-provisioned" {
         value 0;
-        description "Not Provisioned";
+        description
+          "Not Provisioned";
       }
-      enum provisioning-in-progress {
+      enum "provisioning-in-progress" {
         value 1;
-        description "Provisioning In-Progress";
+        description
+          "Provisioning In-Progress";
       }
-      enum provisioned {
+      enum "provisioned" {
         value 2;
-        description "Provisioned";
+        description
+          "Provisioned";
       }
-      enum provisioning-failed {
+      enum "provisioning-failed" {
         value 3;
-        description "Provisioning Failed";
+        description
+          "Provisioning Failed";
       }
-      enum provisioning-scheduled {
+      enum "provisioning-scheduled" {
         value 4;
-        description "Provisioning Scheduled";
+        description
+          "Provisioning Scheduled";
       }
-      enum reprovisioning-aborted {
+      enum "reprovisioning-aborted" {
         value 5;
-        description "Reprovisioning Aborted";
+        description
+          "Reprovisioning Aborted";
       }
     }
-    description "Hw module slice status";
+    description
+      "Hw module slice status";
   }
+
   typedef Trunk-data-rate {
     type enumeration {
-      enum fifty-gig {
+      enum "fifty-gig" {
         value 1;
-        description "FiftyGig";
+        description
+          "FiftyGig";
       }
-      enum hundred-gig {
+      enum "hundred-gig" {
         value 2;
-        description "HundredGig";
+        description
+          "HundredGig";
       }
-      enum two-hundred-gig {
+      enum "two-hundred-gig" {
         value 3;
-        description "TwoHundredGig";
+        description
+          "TwoHundredGig";
       }
-      enum two-hundred-fifty-gig {
+      enum "two-hundred-fifty-gig" {
         value 4;
-        description "TwoHundredFiftyGig";
+        description
+          "TwoHundredFiftyGig";
       }
     }
-    description "Trunk data rate";
+    description
+      "Trunk data rate";
   }
+
   typedef Client-data-rate {
     type enumeration {
-      enum ten-gig {
+      enum "ten-gig" {
         value 1;
-        description "Ten Gig";
+        description
+          "Ten Gig";
       }
-      enum forty-gig {
+      enum "forty-gig" {
         value 2;
-        description "Forty Gig";
+        description
+          "Forty Gig";
       }
-      enum hundred-gig {
+      enum "hundred-gig" {
         value 3;
-        description "Hundread Gig";
+        description
+          "Hundread Gig";
       }
-      enum ten-and-hundred-gig {
+      enum "ten-and-hundred-gig" {
         value 4;
-        description "Ten and Hundread Gig";
+        description
+          "Ten and Hundread Gig";
       }
     }
-    description "Client data rate";
+    description
+      "Client data rate";
+  }
+
+  grouping MXP-HWMOD-OP {
+    description
+      "ipsec cli o/p entry";
+    list slice-info {
+      description
+        "slice info";
+      uses HW-MODULE-SLICE-INFO-B;
+    }
   }
 
   grouping HW-MODULE-SLICE-CLIENT-TRAFFIC-SPLIT-INFO-B {
-    description "HW MODULE SLICE CLIENT TRAFFIC SPLIT INFO B";
+    description
+      "HW MODULE SLICE CLIENT TRAFFIC SPLIT INFO B";
     leaf trunk-name {
       type string {
         length "0..64";
       }
-      description "TrunkName";
+      description
+        "TrunkName";
     }
     leaf if-index {
       type uint32;
-      description "IfIndex";
+      description
+        "IfIndex";
     }
     leaf percentage {
       type string {
         length "0..8";
       }
-      description "Percentage";
+      description
+        "Percentage";
     }
   }
 
   grouping HW-MODULE-SLICE-CLIENT-PORT-INFO-B {
-    description "HW MODULE SLICE CLIENT PORT INFO B";
+    description
+      "HW MODULE SLICE CLIENT PORT INFO B";
     leaf client-name {
       type string {
         length "0..64";
       }
-      description "ClientName";
+      description
+        "ClientName";
     }
     leaf if-index {
       type uint32;
-      description "IfIndex";
+      description
+        "IfIndex";
     }
-
     list trunk-port {
-      description "trunk port";
+      description
+        "trunk port";
       uses HW-MODULE-SLICE-CLIENT-TRAFFIC-SPLIT-INFO-B;
     }
   }
 
   grouping HW-MODULE-SLICE-INFO-B {
-    description "HW MODULE SLICE INFO B";
+    description
+      "HW MODULE SLICE INFO B";
     leaf slice-id {
       type uint32;
-      description "SliceId";
+      description
+        "SliceId";
     }
     leaf client-rate {
       type Client-data-rate;
-      description "ClientRate";
+      description
+        "ClientRate";
     }
     leaf trunk-rate {
       type Trunk-data-rate;
-      description "TrunkRate";
+      description
+        "TrunkRate";
     }
     leaf hardware-status {
       type Hw-module-slice-status;
-      description "HardwareStatus";
+      description
+        "HardwareStatus";
     }
     leaf dp-fpga-fw-type {
       type string {
         length "0..10";
       }
-      description "DpFpgaFwType";
+      description
+        "DpFpgaFwType";
     }
     leaf dp-fpga-fw-ver {
       type string {
         length "0..10";
       }
-      description "DpFpgaFwVer";
+      description
+        "DpFpgaFwVer";
     }
     leaf need-upg {
       type uint32;
-      description "NeedUpg";
+      description
+        "NeedUpg";
     }
     leaf encryption-supported {
       type boolean;
-      description "EncryptionSupported";
+      description
+        "EncryptionSupported";
     }
     leaf lldp-drop-status {
       type boolean;
-      description "LldpDropStatus";
+      description
+        "LldpDropStatus";
     }
-
     list client-port {
-      description "client port";
+      description
+        "client port";
       uses HW-MODULE-SLICE-CLIENT-PORT-INFO-B;
-    }
-  }
-
-  grouping MXP-HWMOD-OP {
-    description "ipsec cli o/p entry";
-
-    list slice-info {
-      description "slice info";
-      uses HW-MODULE-SLICE-INFO-B;
     }
   }
 }

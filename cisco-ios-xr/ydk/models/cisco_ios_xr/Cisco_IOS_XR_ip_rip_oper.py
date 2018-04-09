@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class InterfaceState(Enum):
     """
-    InterfaceState
+    InterfaceState (Enum Class)
 
     Interface state
 
@@ -52,7 +54,7 @@ class InterfaceState(Enum):
 
 class RipRouteOrigin(Enum):
     """
-    RipRouteOrigin
+    RipRouteOrigin (Enum Class)
 
     Rip route origin
 
@@ -130,8 +132,10 @@ class Rip(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-rip-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"vrfs" : ("vrfs", Rip.Vrfs), "protocol" : ("protocol", Rip.Protocol), "default-vrf" : ("default_vrf", Rip.DefaultVrf)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Rip.Vrfs)), ("protocol", ("protocol", Rip.Protocol)), ("default-vrf", ("default_vrf", Rip.DefaultVrf))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.vrfs = Rip.Vrfs()
         self.vrfs.parent = self
@@ -173,8 +177,10 @@ class Rip(Entity):
             self.yang_parent_name = "rip"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vrf" : ("vrf", Rip.Vrfs.Vrf)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("vrf", ("vrf", Rip.Vrfs.Vrf))])
+            self._leafs = OrderedDict()
 
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
@@ -188,7 +194,7 @@ class Rip(Entity):
             """
             Operational data for a particular VRF
             
-            .. attribute:: vrf_name  <key>
+            .. attribute:: vrf_name  (key)
             
             	Name of the VRF
             	**type**\: str
@@ -218,7 +224,7 @@ class Rip(Entity):
             .. attribute:: global_
             
             	Global Information 
-            	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global_>`
+            	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global>`
             
             
 
@@ -234,10 +240,13 @@ class Rip(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"routes" : ("routes", Rip.Vrfs.Vrf.Routes), "configuration" : ("configuration", Rip.Vrfs.Vrf.Configuration), "statistics" : ("statistics", Rip.Vrfs.Vrf.Statistics), "interfaces" : ("interfaces", Rip.Vrfs.Vrf.Interfaces), "global" : ("global_", Rip.Vrfs.Vrf.Global_)}
-                self._child_list_classes = {}
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                self.ylist_key_names = ['vrf_name']
+                self._child_container_classes = OrderedDict([("routes", ("routes", Rip.Vrfs.Vrf.Routes)), ("configuration", ("configuration", Rip.Vrfs.Vrf.Configuration)), ("statistics", ("statistics", Rip.Vrfs.Vrf.Statistics)), ("interfaces", ("interfaces", Rip.Vrfs.Vrf.Interfaces)), ("global", ("global_", Rip.Vrfs.Vrf.Global))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ])
+                self.vrf_name = None
 
                 self.routes = Rip.Vrfs.Vrf.Routes()
                 self.routes.parent = self
@@ -259,11 +268,11 @@ class Rip(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
 
-                self.global_ = Rip.Vrfs.Vrf.Global_()
+                self.global_ = Rip.Vrfs.Vrf.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
                 self._children_yang_names.add("global")
-                self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -293,8 +302,10 @@ class Rip(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"route" : ("route", Rip.Vrfs.Vrf.Routes.Route)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("route", ("route", Rip.Vrfs.Vrf.Routes.Route))])
+                    self._leafs = OrderedDict()
 
                     self.route = YList(self)
                     self._segment_path = lambda: "routes"
@@ -416,36 +427,39 @@ class Rip(Entity):
                         self.yang_parent_name = "routes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"paths" : ("paths", Rip.Vrfs.Vrf.Routes.Route.Paths)}
-
-                        self.prefix = YLeaf(YType.str, "prefix")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
-
-                        self.distance = YLeaf(YType.uint16, "distance")
-
-                        self.bgp_count = YLeaf(YType.uint16, "bgp-count")
-
-                        self.route_type = YLeaf(YType.uint16, "route-type")
-
-                        self.route_summary = YLeaf(YType.boolean, "route-summary")
-
-                        self.route_tag = YLeaf(YType.uint16, "route-tag")
-
-                        self.version = YLeaf(YType.uint8, "version")
-
-                        self.attributes = YLeaf(YType.uint32, "attributes")
-
-                        self.active = YLeaf(YType.boolean, "active")
-
-                        self.path_origin = YLeaf(YType.enumeration, "path-origin")
-
-                        self.hold_down = YLeaf(YType.boolean, "hold-down")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("paths", ("paths", Rip.Vrfs.Vrf.Routes.Route.Paths))])
+                        self._leafs = OrderedDict([
+                            ('prefix', YLeaf(YType.str, 'prefix')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                            ('distance', YLeaf(YType.uint16, 'distance')),
+                            ('bgp_count', YLeaf(YType.uint16, 'bgp-count')),
+                            ('route_type', YLeaf(YType.uint16, 'route-type')),
+                            ('route_summary', YLeaf(YType.boolean, 'route-summary')),
+                            ('route_tag', YLeaf(YType.uint16, 'route-tag')),
+                            ('version', YLeaf(YType.uint8, 'version')),
+                            ('attributes', YLeaf(YType.uint32, 'attributes')),
+                            ('active', YLeaf(YType.boolean, 'active')),
+                            ('path_origin', YLeaf(YType.enumeration, 'path-origin')),
+                            ('hold_down', YLeaf(YType.boolean, 'hold-down')),
+                        ])
+                        self.prefix = None
+                        self.prefix_length = None
+                        self.destination_address = None
+                        self.prefix_length_xr = None
+                        self.distance = None
+                        self.bgp_count = None
+                        self.route_type = None
+                        self.route_summary = None
+                        self.route_tag = None
+                        self.version = None
+                        self.attributes = None
+                        self.active = None
+                        self.path_origin = None
+                        self.hold_down = None
 
                         self.paths = YList(self)
                         self._segment_path = lambda: "route"
@@ -519,22 +533,25 @@ class Rip(Entity):
                             self.yang_parent_name = "route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.metric = YLeaf(YType.uint16, "metric")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.interface = YLeaf(YType.str, "interface")
-
-                            self.uptime = YLeaf(YType.uint32, "uptime")
-
-                            self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                ('tag', YLeaf(YType.uint16, 'tag')),
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('uptime', YLeaf(YType.uint32, 'uptime')),
+                                ('is_permanent', YLeaf(YType.boolean, 'is-permanent')),
+                            ])
+                            self.source_address = None
+                            self.next_hop_address = None
+                            self.metric = None
+                            self.tag = None
+                            self.interface = None
+                            self.uptime = None
+                            self.is_permanent = None
                             self._segment_path = lambda: "paths"
 
                         def __setattr__(self, name, value):
@@ -678,46 +695,49 @@ class Rip(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active = YLeaf(YType.boolean, "active")
-
-                    self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
-
-                    self.rip_version = YLeaf(YType.int32, "rip-version")
-
-                    self.default_metric = YLeaf(YType.uint8, "default-metric")
-
-                    self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
-
-                    self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
-
-                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                    self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
-
-                    self.input_q_length = YLeaf(YType.uint16, "input-q-length")
-
-                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                    self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
-
-                    self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.nsf_status = YLeaf(YType.boolean, "nsf-status")
-
-                    self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active', YLeaf(YType.boolean, 'active')),
+                        ('vr_fised_socket', YLeaf(YType.boolean, 'vr-fised-socket')),
+                        ('rip_version', YLeaf(YType.int32, 'rip-version')),
+                        ('default_metric', YLeaf(YType.uint8, 'default-metric')),
+                        ('maximum_paths', YLeaf(YType.uint8, 'maximum-paths')),
+                        ('auto_summarize', YLeaf(YType.boolean, 'auto-summarize')),
+                        ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                        ('flash_threshold', YLeaf(YType.uint8, 'flash-threshold')),
+                        ('input_q_length', YLeaf(YType.uint16, 'input-q-length')),
+                        ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                        ('validation_indicator', YLeaf(YType.boolean, 'validation-indicator')),
+                        ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                        ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                        ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                        ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                        ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('nsf_status', YLeaf(YType.boolean, 'nsf-status')),
+                        ('nsf_life_time', YLeaf(YType.uint32, 'nsf-life-time')),
+                    ])
+                    self.active = None
+                    self.vr_fised_socket = None
+                    self.rip_version = None
+                    self.default_metric = None
+                    self.maximum_paths = None
+                    self.auto_summarize = None
+                    self.multicast_address = None
+                    self.flash_threshold = None
+                    self.input_q_length = None
+                    self.triggered_rip = None
+                    self.validation_indicator = None
+                    self.update_timer = None
+                    self.next_update_time = None
+                    self.invalid_timer = None
+                    self.hold_down_timer = None
+                    self.flush_timer = None
+                    self.oom_flags = None
+                    self.nsf_status = None
+                    self.nsf_life_time = None
                     self._segment_path = lambda: "configuration"
 
                 def __setattr__(self, name, value):
@@ -833,34 +853,37 @@ class Rip(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.received_packets = YLeaf(YType.uint32, "received-packets")
-
-                    self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
-
-                    self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
-
-                    self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
-
-                    self.sent_messages = YLeaf(YType.uint32, "sent-messages")
-
-                    self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
-
-                    self.query_responses = YLeaf(YType.uint32, "query-responses")
-
-                    self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
-
-                    self.route_count = YLeaf(YType.uint32, "route-count")
-
-                    self.path_count = YLeaf(YType.uint32, "path-count")
-
-                    self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
-
-                    self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
-
-                    self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('received_packets', YLeaf(YType.uint32, 'received-packets')),
+                        ('discarded_packets', YLeaf(YType.uint32, 'discarded-packets')),
+                        ('discarded_routes', YLeaf(YType.uint32, 'discarded-routes')),
+                        ('standby_packets_received', YLeaf(YType.uint32, 'standby-packets-received')),
+                        ('sent_messages', YLeaf(YType.uint32, 'sent-messages')),
+                        ('sent_message_failures', YLeaf(YType.uint32, 'sent-message-failures')),
+                        ('query_responses', YLeaf(YType.uint32, 'query-responses')),
+                        ('periodic_updates', YLeaf(YType.uint32, 'periodic-updates')),
+                        ('route_count', YLeaf(YType.uint32, 'route-count')),
+                        ('path_count', YLeaf(YType.uint32, 'path-count')),
+                        ('route_malloc_failures', YLeaf(YType.uint32, 'route-malloc-failures')),
+                        ('path_malloc_failures', YLeaf(YType.uint32, 'path-malloc-failures')),
+                        ('rib_updates', YLeaf(YType.uint32, 'rib-updates')),
+                    ])
+                    self.received_packets = None
+                    self.discarded_packets = None
+                    self.discarded_routes = None
+                    self.standby_packets_received = None
+                    self.sent_messages = None
+                    self.sent_message_failures = None
+                    self.query_responses = None
+                    self.periodic_updates = None
+                    self.route_count = None
+                    self.path_count = None
+                    self.route_malloc_failures = None
+                    self.path_malloc_failures = None
+                    self.rib_updates = None
                     self._segment_path = lambda: "statistics"
 
                 def __setattr__(self, name, value):
@@ -890,8 +913,10 @@ class Rip(Entity):
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Rip.Vrfs.Vrf.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Rip.Vrfs.Vrf.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -904,7 +929,7 @@ class Rip(Entity):
                     """
                     Information about a particular RIP interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -1110,72 +1135,75 @@ class Rip(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"rip-summary" : ("rip_summary", Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary), "rip-peer" : ("rip_peer", Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.if_handle = YLeaf(YType.str, "if-handle")
-
-                        self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
-
-                        self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
-
-                        self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                        self.accept_metric = YLeaf(YType.boolean, "accept-metric")
-
-                        self.send_version = YLeaf(YType.uint32, "send-version")
-
-                        self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.metric_cost = YLeaf(YType.uint32, "metric-cost")
-
-                        self.split_horizon = YLeaf(YType.boolean, "split-horizon")
-
-                        self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
-
-                        self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                        self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.join_status = YLeaf(YType.boolean, "join-status")
-
-                        self.lpts_state = YLeaf(YType.boolean, "lpts-state")
-
-                        self.auth_mode = YLeaf(YType.uint32, "auth-mode")
-
-                        self.auth_keychain = YLeaf(YType.str, "auth-keychain")
-
-                        self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
-
-                        self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
-
-                        self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
-
-                        self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
-
-                        self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
-
-                        self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
-
-                        self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
-
-                        self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("rip-summary", ("rip_summary", Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary)), ("rip-peer", ("rip_peer", Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('if_handle', YLeaf(YType.str, 'if-handle')),
+                            ('rip_enabled', YLeaf(YType.boolean, 'rip-enabled')),
+                            ('is_passive_interface', YLeaf(YType.boolean, 'is-passive-interface')),
+                            ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                            ('accept_metric', YLeaf(YType.boolean, 'accept-metric')),
+                            ('send_version', YLeaf(YType.uint32, 'send-version')),
+                            ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('metric_cost', YLeaf(YType.uint32, 'metric-cost')),
+                            ('split_horizon', YLeaf(YType.boolean, 'split-horizon')),
+                            ('poison_horizon', YLeaf(YType.boolean, 'poison-horizon')),
+                            ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('join_status', YLeaf(YType.boolean, 'join-status')),
+                            ('lpts_state', YLeaf(YType.boolean, 'lpts-state')),
+                            ('auth_mode', YLeaf(YType.uint32, 'auth-mode')),
+                            ('auth_keychain', YLeaf(YType.str, 'auth-keychain')),
+                            ('send_auth_key_exists', YLeaf(YType.boolean, 'send-auth-key-exists')),
+                            ('auth_key_md5', YLeaf(YType.boolean, 'auth-key-md5')),
+                            ('auth_key_send_id', YLeaf(YType.uint64, 'auth-key-send-id')),
+                            ('total_pkt_recvd', YLeaf(YType.uint32, 'total-pkt-recvd')),
+                            ('pkt_drop_wrong_kc', YLeaf(YType.uint32, 'pkt-drop-wrong-kc')),
+                            ('pkt_drop_no_auth', YLeaf(YType.uint32, 'pkt-drop-no-auth')),
+                            ('pkt_drop_invalid_auth', YLeaf(YType.uint32, 'pkt-drop-invalid-auth')),
+                            ('pkt_accepted_valid_auth', YLeaf(YType.uint32, 'pkt-accepted-valid-auth')),
+                        ])
+                        self.interface_name = None
+                        self.interface = None
+                        self.if_handle = None
+                        self.rip_enabled = None
+                        self.is_passive_interface = None
+                        self.multicast_address = None
+                        self.accept_metric = None
+                        self.send_version = None
+                        self.receive_version = None
+                        self.state = None
+                        self.destination_address = None
+                        self.prefix_length = None
+                        self.metric_cost = None
+                        self.split_horizon = None
+                        self.poison_horizon = None
+                        self.triggered_rip = None
+                        self.neighbor_address = None
+                        self.oom_flags = None
+                        self.join_status = None
+                        self.lpts_state = None
+                        self.auth_mode = None
+                        self.auth_keychain = None
+                        self.send_auth_key_exists = None
+                        self.auth_key_md5 = None
+                        self.auth_key_send_id = None
+                        self.total_pkt_recvd = None
+                        self.pkt_drop_wrong_kc = None
+                        self.pkt_drop_no_auth = None
+                        self.pkt_drop_invalid_auth = None
+                        self.pkt_accepted_valid_auth = None
 
                         self.rip_summary = YList(self)
                         self.rip_peer = YList(self)
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'interface', 'if_handle', 'rip_enabled', 'is_passive_interface', 'multicast_address', 'accept_metric', 'send_version', 'receive_version', 'state', 'destination_address', 'prefix_length', 'metric_cost', 'split_horizon', 'poison_horizon', 'triggered_rip', 'neighbor_address', 'oom_flags', 'join_status', 'lpts_state', 'auth_mode', 'auth_keychain', 'send_auth_key_exists', 'auth_key_md5', 'auth_key_send_id', 'total_pkt_recvd', 'pkt_drop_wrong_kc', 'pkt_drop_no_auth', 'pkt_drop_invalid_auth', 'pkt_accepted_valid_auth'], name, value)
@@ -1227,16 +1255,19 @@ class Rip(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.metric = YLeaf(YType.int32, "metric")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                ('metric', YLeaf(YType.int32, 'metric')),
+                            ])
+                            self.prefix = None
+                            self.prefix_length = None
+                            self.next_hop_address = None
+                            self.metric = None
                             self._segment_path = lambda: "rip-summary"
 
                         def __setattr__(self, name, value):
@@ -1296,37 +1327,40 @@ class Rip(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
-
-                            self.peer_address = YLeaf(YType.str, "peer-address")
-
-                            self.peer_version = YLeaf(YType.uint8, "peer-version")
-
-                            self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
-
-                            self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('peer_uptime', YLeaf(YType.uint32, 'peer-uptime')),
+                                ('peer_address', YLeaf(YType.str, 'peer-address')),
+                                ('peer_version', YLeaf(YType.uint8, 'peer-version')),
+                                ('discarded_peer_packets', YLeaf(YType.uint32, 'discarded-peer-packets')),
+                                ('discarded_peer_routes', YLeaf(YType.uint32, 'discarded-peer-routes')),
+                            ])
+                            self.peer_uptime = None
+                            self.peer_address = None
+                            self.peer_version = None
+                            self.discarded_peer_packets = None
+                            self.discarded_peer_routes = None
                             self._segment_path = lambda: "rip-peer"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
-            class Global_(Entity):
+            class Global(Entity):
                 """
                 Global Information 
                 
                 .. attribute:: vrf_summary
                 
                 	VRF summary data
-                	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global_.VrfSummary>`
+                	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global.VrfSummary>`
                 
                 .. attribute:: interface_summary
                 
                 	List of Interfaces configured
-                	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global_.InterfaceSummary>`
+                	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global.InterfaceSummary>`
                 
                 
 
@@ -1336,16 +1370,18 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Vrfs.Vrf.Global_, self).__init__()
+                    super(Rip.Vrfs.Vrf.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"vrf-summary" : ("vrf_summary", Rip.Vrfs.Vrf.Global_.VrfSummary)}
-                    self._child_list_classes = {"interface-summary" : ("interface_summary", Rip.Vrfs.Vrf.Global_.InterfaceSummary)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("vrf-summary", ("vrf_summary", Rip.Vrfs.Vrf.Global.VrfSummary))])
+                    self._child_list_classes = OrderedDict([("interface-summary", ("interface_summary", Rip.Vrfs.Vrf.Global.InterfaceSummary))])
+                    self._leafs = OrderedDict()
 
-                    self.vrf_summary = Rip.Vrfs.Vrf.Global_.VrfSummary()
+                    self.vrf_summary = Rip.Vrfs.Vrf.Global.VrfSummary()
                     self.vrf_summary.parent = self
                     self._children_name_map["vrf_summary"] = "vrf-summary"
                     self._children_yang_names.add("vrf-summary")
@@ -1354,7 +1390,7 @@ class Rip(Entity):
                     self._segment_path = lambda: "global"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rip.Vrfs.Vrf.Global_, [], name, value)
+                    self._perform_setattr(Rip.Vrfs.Vrf.Global, [], name, value)
 
 
                 class VrfSummary(Entity):
@@ -1449,42 +1485,45 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Global_.VrfSummary, self).__init__()
+                        super(Rip.Vrfs.Vrf.Global.VrfSummary, self).__init__()
 
                         self.yang_name = "vrf-summary"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.active = YLeaf(YType.boolean, "active")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                        self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                        self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                        self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                        self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                        self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
-
-                        self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('active', YLeaf(YType.boolean, 'active')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                            ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                            ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                            ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                            ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                            ('interface_configured_count', YLeaf(YType.uint32, 'interface-configured-count')),
+                            ('active_interface_count', YLeaf(YType.uint32, 'active-interface-count')),
+                        ])
+                        self.vrf_name = None
+                        self.active = None
+                        self.oom_flags = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.update_timer = None
+                        self.next_update_time = None
+                        self.invalid_timer = None
+                        self.hold_down_timer = None
+                        self.flush_timer = None
+                        self.interface_configured_count = None
+                        self.active_interface_count = None
                         self._segment_path = lambda: "vrf-summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rip.Vrfs.Vrf.Global_.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
+                        self._perform_setattr(Rip.Vrfs.Vrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
                 class InterfaceSummary(Entity):
@@ -1556,36 +1595,39 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Vrfs.Vrf.Global_.InterfaceSummary, self).__init__()
+                        super(Rip.Vrfs.Vrf.Global.InterfaceSummary, self).__init__()
 
                         self.yang_name = "interface-summary"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.send_version = YLeaf(YType.uint32, "send-version")
-
-                        self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                        self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('send_version', YLeaf(YType.uint32, 'send-version')),
+                            ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                            ('neighbor_count', YLeaf(YType.uint32, 'neighbor-count')),
+                        ])
+                        self.interface_name = None
+                        self.enabled = None
+                        self.state = None
+                        self.destination_address = None
+                        self.prefix_length = None
+                        self.oom_flags = None
+                        self.send_version = None
+                        self.receive_version = None
+                        self.neighbor_count = None
                         self._segment_path = lambda: "interface-summary"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rip.Vrfs.Vrf.Global_.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
+                        self._perform_setattr(Rip.Vrfs.Vrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
 
     class Protocol(Entity):
@@ -1616,8 +1658,10 @@ class Rip(Entity):
             self.yang_parent_name = "rip"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"process" : ("process", Rip.Protocol.Process), "default-vrf" : ("default_vrf", Rip.Protocol.DefaultVrf)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("process", ("process", Rip.Protocol.Process)), ("default-vrf", ("default_vrf", Rip.Protocol.DefaultVrf))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.process = Rip.Protocol.Process()
             self.process.parent = self
@@ -1697,20 +1741,23 @@ class Rip(Entity):
                 self.yang_parent_name = "protocol"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"vrf-summary" : ("vrf_summary", Rip.Protocol.Process.VrfSummary)}
-
-                self.vrf_config_count = YLeaf(YType.uint32, "vrf-config-count")
-
-                self.vrf_active_count = YLeaf(YType.uint32, "vrf-active-count")
-
-                self.socket_descriptor = YLeaf(YType.int32, "socket-descriptor")
-
-                self.current_oom_state = YLeaf(YType.int32, "current-oom-state")
-
-                self.route_count = YLeaf(YType.uint32, "route-count")
-
-                self.path_count = YLeaf(YType.uint32, "path-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("vrf-summary", ("vrf_summary", Rip.Protocol.Process.VrfSummary))])
+                self._leafs = OrderedDict([
+                    ('vrf_config_count', YLeaf(YType.uint32, 'vrf-config-count')),
+                    ('vrf_active_count', YLeaf(YType.uint32, 'vrf-active-count')),
+                    ('socket_descriptor', YLeaf(YType.int32, 'socket-descriptor')),
+                    ('current_oom_state', YLeaf(YType.int32, 'current-oom-state')),
+                    ('route_count', YLeaf(YType.uint32, 'route-count')),
+                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                ])
+                self.vrf_config_count = None
+                self.vrf_active_count = None
+                self.socket_descriptor = None
+                self.current_oom_state = None
+                self.route_count = None
+                self.path_count = None
 
                 self.vrf_summary = YList(self)
                 self._segment_path = lambda: "process"
@@ -1818,32 +1865,35 @@ class Rip(Entity):
                     self.yang_parent_name = "process"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.active = YLeaf(YType.boolean, "active")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.route_count = YLeaf(YType.uint32, "route-count")
-
-                    self.path_count = YLeaf(YType.uint32, "path-count")
-
-                    self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                    self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
-
-                    self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('active', YLeaf(YType.boolean, 'active')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('route_count', YLeaf(YType.uint32, 'route-count')),
+                        ('path_count', YLeaf(YType.uint32, 'path-count')),
+                        ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                        ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                        ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                        ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                        ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                        ('interface_configured_count', YLeaf(YType.uint32, 'interface-configured-count')),
+                        ('active_interface_count', YLeaf(YType.uint32, 'active-interface-count')),
+                    ])
+                    self.vrf_name = None
+                    self.active = None
+                    self.oom_flags = None
+                    self.route_count = None
+                    self.path_count = None
+                    self.update_timer = None
+                    self.next_update_time = None
+                    self.invalid_timer = None
+                    self.hold_down_timer = None
+                    self.flush_timer = None
+                    self.interface_configured_count = None
+                    self.active_interface_count = None
                     self._segment_path = lambda: "vrf-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/process/%s" % self._segment_path()
 
@@ -1878,7 +1928,7 @@ class Rip(Entity):
             .. attribute:: global_
             
             	Global Information 
-            	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global_>`
+            	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global>`
             
             
 
@@ -1894,8 +1944,10 @@ class Rip(Entity):
                 self.yang_parent_name = "protocol"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"routes" : ("routes", Rip.Protocol.DefaultVrf.Routes), "configuration" : ("configuration", Rip.Protocol.DefaultVrf.Configuration), "statistics" : ("statistics", Rip.Protocol.DefaultVrf.Statistics), "interfaces" : ("interfaces", Rip.Protocol.DefaultVrf.Interfaces), "global" : ("global_", Rip.Protocol.DefaultVrf.Global_)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("routes", ("routes", Rip.Protocol.DefaultVrf.Routes)), ("configuration", ("configuration", Rip.Protocol.DefaultVrf.Configuration)), ("statistics", ("statistics", Rip.Protocol.DefaultVrf.Statistics)), ("interfaces", ("interfaces", Rip.Protocol.DefaultVrf.Interfaces)), ("global", ("global_", Rip.Protocol.DefaultVrf.Global))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.routes = Rip.Protocol.DefaultVrf.Routes()
                 self.routes.parent = self
@@ -1917,7 +1969,7 @@ class Rip(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
 
-                self.global_ = Rip.Protocol.DefaultVrf.Global_()
+                self.global_ = Rip.Protocol.DefaultVrf.Global()
                 self.global_.parent = self
                 self._children_name_map["global_"] = "global"
                 self._children_yang_names.add("global")
@@ -1948,8 +2000,10 @@ class Rip(Entity):
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"route" : ("route", Rip.Protocol.DefaultVrf.Routes.Route)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("route", ("route", Rip.Protocol.DefaultVrf.Routes.Route))])
+                    self._leafs = OrderedDict()
 
                     self.route = YList(self)
                     self._segment_path = lambda: "routes"
@@ -2072,36 +2126,39 @@ class Rip(Entity):
                         self.yang_parent_name = "routes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"paths" : ("paths", Rip.Protocol.DefaultVrf.Routes.Route.Paths)}
-
-                        self.prefix = YLeaf(YType.str, "prefix")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
-
-                        self.distance = YLeaf(YType.uint16, "distance")
-
-                        self.bgp_count = YLeaf(YType.uint16, "bgp-count")
-
-                        self.route_type = YLeaf(YType.uint16, "route-type")
-
-                        self.route_summary = YLeaf(YType.boolean, "route-summary")
-
-                        self.route_tag = YLeaf(YType.uint16, "route-tag")
-
-                        self.version = YLeaf(YType.uint8, "version")
-
-                        self.attributes = YLeaf(YType.uint32, "attributes")
-
-                        self.active = YLeaf(YType.boolean, "active")
-
-                        self.path_origin = YLeaf(YType.enumeration, "path-origin")
-
-                        self.hold_down = YLeaf(YType.boolean, "hold-down")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("paths", ("paths", Rip.Protocol.DefaultVrf.Routes.Route.Paths))])
+                        self._leafs = OrderedDict([
+                            ('prefix', YLeaf(YType.str, 'prefix')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                            ('distance', YLeaf(YType.uint16, 'distance')),
+                            ('bgp_count', YLeaf(YType.uint16, 'bgp-count')),
+                            ('route_type', YLeaf(YType.uint16, 'route-type')),
+                            ('route_summary', YLeaf(YType.boolean, 'route-summary')),
+                            ('route_tag', YLeaf(YType.uint16, 'route-tag')),
+                            ('version', YLeaf(YType.uint8, 'version')),
+                            ('attributes', YLeaf(YType.uint32, 'attributes')),
+                            ('active', YLeaf(YType.boolean, 'active')),
+                            ('path_origin', YLeaf(YType.enumeration, 'path-origin')),
+                            ('hold_down', YLeaf(YType.boolean, 'hold-down')),
+                        ])
+                        self.prefix = None
+                        self.prefix_length = None
+                        self.destination_address = None
+                        self.prefix_length_xr = None
+                        self.distance = None
+                        self.bgp_count = None
+                        self.route_type = None
+                        self.route_summary = None
+                        self.route_tag = None
+                        self.version = None
+                        self.attributes = None
+                        self.active = None
+                        self.path_origin = None
+                        self.hold_down = None
 
                         self.paths = YList(self)
                         self._segment_path = lambda: "route"
@@ -2176,22 +2233,25 @@ class Rip(Entity):
                             self.yang_parent_name = "route"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.source_address = YLeaf(YType.str, "source-address")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.metric = YLeaf(YType.uint16, "metric")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.interface = YLeaf(YType.str, "interface")
-
-                            self.uptime = YLeaf(YType.uint32, "uptime")
-
-                            self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('source_address', YLeaf(YType.str, 'source-address')),
+                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                ('tag', YLeaf(YType.uint16, 'tag')),
+                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('uptime', YLeaf(YType.uint32, 'uptime')),
+                                ('is_permanent', YLeaf(YType.boolean, 'is-permanent')),
+                            ])
+                            self.source_address = None
+                            self.next_hop_address = None
+                            self.metric = None
+                            self.tag = None
+                            self.interface = None
+                            self.uptime = None
+                            self.is_permanent = None
                             self._segment_path = lambda: "paths"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/routes/route/%s" % self._segment_path()
 
@@ -2336,46 +2396,49 @@ class Rip(Entity):
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.active = YLeaf(YType.boolean, "active")
-
-                    self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
-
-                    self.rip_version = YLeaf(YType.int32, "rip-version")
-
-                    self.default_metric = YLeaf(YType.uint8, "default-metric")
-
-                    self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
-
-                    self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
-
-                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                    self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
-
-                    self.input_q_length = YLeaf(YType.uint16, "input-q-length")
-
-                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                    self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
-
-                    self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.nsf_status = YLeaf(YType.boolean, "nsf-status")
-
-                    self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('active', YLeaf(YType.boolean, 'active')),
+                        ('vr_fised_socket', YLeaf(YType.boolean, 'vr-fised-socket')),
+                        ('rip_version', YLeaf(YType.int32, 'rip-version')),
+                        ('default_metric', YLeaf(YType.uint8, 'default-metric')),
+                        ('maximum_paths', YLeaf(YType.uint8, 'maximum-paths')),
+                        ('auto_summarize', YLeaf(YType.boolean, 'auto-summarize')),
+                        ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                        ('flash_threshold', YLeaf(YType.uint8, 'flash-threshold')),
+                        ('input_q_length', YLeaf(YType.uint16, 'input-q-length')),
+                        ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                        ('validation_indicator', YLeaf(YType.boolean, 'validation-indicator')),
+                        ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                        ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                        ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                        ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                        ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('nsf_status', YLeaf(YType.boolean, 'nsf-status')),
+                        ('nsf_life_time', YLeaf(YType.uint32, 'nsf-life-time')),
+                    ])
+                    self.active = None
+                    self.vr_fised_socket = None
+                    self.rip_version = None
+                    self.default_metric = None
+                    self.maximum_paths = None
+                    self.auto_summarize = None
+                    self.multicast_address = None
+                    self.flash_threshold = None
+                    self.input_q_length = None
+                    self.triggered_rip = None
+                    self.validation_indicator = None
+                    self.update_timer = None
+                    self.next_update_time = None
+                    self.invalid_timer = None
+                    self.hold_down_timer = None
+                    self.flush_timer = None
+                    self.oom_flags = None
+                    self.nsf_status = None
+                    self.nsf_life_time = None
                     self._segment_path = lambda: "configuration"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self._segment_path()
 
@@ -2492,34 +2555,37 @@ class Rip(Entity):
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.received_packets = YLeaf(YType.uint32, "received-packets")
-
-                    self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
-
-                    self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
-
-                    self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
-
-                    self.sent_messages = YLeaf(YType.uint32, "sent-messages")
-
-                    self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
-
-                    self.query_responses = YLeaf(YType.uint32, "query-responses")
-
-                    self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
-
-                    self.route_count = YLeaf(YType.uint32, "route-count")
-
-                    self.path_count = YLeaf(YType.uint32, "path-count")
-
-                    self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
-
-                    self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
-
-                    self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('received_packets', YLeaf(YType.uint32, 'received-packets')),
+                        ('discarded_packets', YLeaf(YType.uint32, 'discarded-packets')),
+                        ('discarded_routes', YLeaf(YType.uint32, 'discarded-routes')),
+                        ('standby_packets_received', YLeaf(YType.uint32, 'standby-packets-received')),
+                        ('sent_messages', YLeaf(YType.uint32, 'sent-messages')),
+                        ('sent_message_failures', YLeaf(YType.uint32, 'sent-message-failures')),
+                        ('query_responses', YLeaf(YType.uint32, 'query-responses')),
+                        ('periodic_updates', YLeaf(YType.uint32, 'periodic-updates')),
+                        ('route_count', YLeaf(YType.uint32, 'route-count')),
+                        ('path_count', YLeaf(YType.uint32, 'path-count')),
+                        ('route_malloc_failures', YLeaf(YType.uint32, 'route-malloc-failures')),
+                        ('path_malloc_failures', YLeaf(YType.uint32, 'path-malloc-failures')),
+                        ('rib_updates', YLeaf(YType.uint32, 'rib-updates')),
+                    ])
+                    self.received_packets = None
+                    self.discarded_packets = None
+                    self.discarded_routes = None
+                    self.standby_packets_received = None
+                    self.sent_messages = None
+                    self.sent_message_failures = None
+                    self.query_responses = None
+                    self.periodic_updates = None
+                    self.route_count = None
+                    self.path_count = None
+                    self.route_malloc_failures = None
+                    self.path_malloc_failures = None
+                    self.rib_updates = None
                     self._segment_path = lambda: "statistics"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self._segment_path()
 
@@ -2550,8 +2616,10 @@ class Rip(Entity):
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Rip.Protocol.DefaultVrf.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Rip.Protocol.DefaultVrf.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -2565,7 +2633,7 @@ class Rip(Entity):
                     """
                     Information about a particular RIP interface
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -2771,72 +2839,75 @@ class Rip(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"rip-summary" : ("rip_summary", Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary), "rip-peer" : ("rip_peer", Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.if_handle = YLeaf(YType.str, "if-handle")
-
-                        self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
-
-                        self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
-
-                        self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                        self.accept_metric = YLeaf(YType.boolean, "accept-metric")
-
-                        self.send_version = YLeaf(YType.uint32, "send-version")
-
-                        self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.metric_cost = YLeaf(YType.uint32, "metric-cost")
-
-                        self.split_horizon = YLeaf(YType.boolean, "split-horizon")
-
-                        self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
-
-                        self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                        self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.join_status = YLeaf(YType.boolean, "join-status")
-
-                        self.lpts_state = YLeaf(YType.boolean, "lpts-state")
-
-                        self.auth_mode = YLeaf(YType.uint32, "auth-mode")
-
-                        self.auth_keychain = YLeaf(YType.str, "auth-keychain")
-
-                        self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
-
-                        self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
-
-                        self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
-
-                        self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
-
-                        self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
-
-                        self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
-
-                        self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
-
-                        self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("rip-summary", ("rip_summary", Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary)), ("rip-peer", ("rip_peer", Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('if_handle', YLeaf(YType.str, 'if-handle')),
+                            ('rip_enabled', YLeaf(YType.boolean, 'rip-enabled')),
+                            ('is_passive_interface', YLeaf(YType.boolean, 'is-passive-interface')),
+                            ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                            ('accept_metric', YLeaf(YType.boolean, 'accept-metric')),
+                            ('send_version', YLeaf(YType.uint32, 'send-version')),
+                            ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('metric_cost', YLeaf(YType.uint32, 'metric-cost')),
+                            ('split_horizon', YLeaf(YType.boolean, 'split-horizon')),
+                            ('poison_horizon', YLeaf(YType.boolean, 'poison-horizon')),
+                            ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('join_status', YLeaf(YType.boolean, 'join-status')),
+                            ('lpts_state', YLeaf(YType.boolean, 'lpts-state')),
+                            ('auth_mode', YLeaf(YType.uint32, 'auth-mode')),
+                            ('auth_keychain', YLeaf(YType.str, 'auth-keychain')),
+                            ('send_auth_key_exists', YLeaf(YType.boolean, 'send-auth-key-exists')),
+                            ('auth_key_md5', YLeaf(YType.boolean, 'auth-key-md5')),
+                            ('auth_key_send_id', YLeaf(YType.uint64, 'auth-key-send-id')),
+                            ('total_pkt_recvd', YLeaf(YType.uint32, 'total-pkt-recvd')),
+                            ('pkt_drop_wrong_kc', YLeaf(YType.uint32, 'pkt-drop-wrong-kc')),
+                            ('pkt_drop_no_auth', YLeaf(YType.uint32, 'pkt-drop-no-auth')),
+                            ('pkt_drop_invalid_auth', YLeaf(YType.uint32, 'pkt-drop-invalid-auth')),
+                            ('pkt_accepted_valid_auth', YLeaf(YType.uint32, 'pkt-accepted-valid-auth')),
+                        ])
+                        self.interface_name = None
+                        self.interface = None
+                        self.if_handle = None
+                        self.rip_enabled = None
+                        self.is_passive_interface = None
+                        self.multicast_address = None
+                        self.accept_metric = None
+                        self.send_version = None
+                        self.receive_version = None
+                        self.state = None
+                        self.destination_address = None
+                        self.prefix_length = None
+                        self.metric_cost = None
+                        self.split_horizon = None
+                        self.poison_horizon = None
+                        self.triggered_rip = None
+                        self.neighbor_address = None
+                        self.oom_flags = None
+                        self.join_status = None
+                        self.lpts_state = None
+                        self.auth_mode = None
+                        self.auth_keychain = None
+                        self.send_auth_key_exists = None
+                        self.auth_key_md5 = None
+                        self.auth_key_send_id = None
+                        self.total_pkt_recvd = None
+                        self.pkt_drop_wrong_kc = None
+                        self.pkt_drop_no_auth = None
+                        self.pkt_drop_invalid_auth = None
+                        self.pkt_accepted_valid_auth = None
 
                         self.rip_summary = YList(self)
                         self.rip_peer = YList(self)
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/interfaces/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -2889,16 +2960,19 @@ class Rip(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.metric = YLeaf(YType.int32, "metric")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('prefix', YLeaf(YType.str, 'prefix')),
+                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                ('metric', YLeaf(YType.int32, 'metric')),
+                            ])
+                            self.prefix = None
+                            self.prefix_length = None
+                            self.next_hop_address = None
+                            self.metric = None
                             self._segment_path = lambda: "rip-summary"
 
                         def __setattr__(self, name, value):
@@ -2958,37 +3032,40 @@ class Rip(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
-
-                            self.peer_address = YLeaf(YType.str, "peer-address")
-
-                            self.peer_version = YLeaf(YType.uint8, "peer-version")
-
-                            self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
-
-                            self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('peer_uptime', YLeaf(YType.uint32, 'peer-uptime')),
+                                ('peer_address', YLeaf(YType.str, 'peer-address')),
+                                ('peer_version', YLeaf(YType.uint8, 'peer-version')),
+                                ('discarded_peer_packets', YLeaf(YType.uint32, 'discarded-peer-packets')),
+                                ('discarded_peer_routes', YLeaf(YType.uint32, 'discarded-peer-routes')),
+                            ])
+                            self.peer_uptime = None
+                            self.peer_address = None
+                            self.peer_version = None
+                            self.discarded_peer_packets = None
+                            self.discarded_peer_routes = None
                             self._segment_path = lambda: "rip-peer"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
-            class Global_(Entity):
+            class Global(Entity):
                 """
                 Global Information 
                 
                 .. attribute:: vrf_summary
                 
                 	VRF summary data
-                	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global_.VrfSummary>`
+                	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global.VrfSummary>`
                 
                 .. attribute:: interface_summary
                 
                 	List of Interfaces configured
-                	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global_.InterfaceSummary>`
+                	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global.InterfaceSummary>`
                 
                 
 
@@ -2998,16 +3075,18 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.Protocol.DefaultVrf.Global_, self).__init__()
+                    super(Rip.Protocol.DefaultVrf.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "default-vrf"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"vrf-summary" : ("vrf_summary", Rip.Protocol.DefaultVrf.Global_.VrfSummary)}
-                    self._child_list_classes = {"interface-summary" : ("interface_summary", Rip.Protocol.DefaultVrf.Global_.InterfaceSummary)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("vrf-summary", ("vrf_summary", Rip.Protocol.DefaultVrf.Global.VrfSummary))])
+                    self._child_list_classes = OrderedDict([("interface-summary", ("interface_summary", Rip.Protocol.DefaultVrf.Global.InterfaceSummary))])
+                    self._leafs = OrderedDict()
 
-                    self.vrf_summary = Rip.Protocol.DefaultVrf.Global_.VrfSummary()
+                    self.vrf_summary = Rip.Protocol.DefaultVrf.Global.VrfSummary()
                     self.vrf_summary.parent = self
                     self._children_name_map["vrf_summary"] = "vrf-summary"
                     self._children_yang_names.add("vrf-summary")
@@ -3017,7 +3096,7 @@ class Rip(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rip.Protocol.DefaultVrf.Global_, [], name, value)
+                    self._perform_setattr(Rip.Protocol.DefaultVrf.Global, [], name, value)
 
 
                 class VrfSummary(Entity):
@@ -3112,43 +3191,46 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Global_.VrfSummary, self).__init__()
+                        super(Rip.Protocol.DefaultVrf.Global.VrfSummary, self).__init__()
 
                         self.yang_name = "vrf-summary"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                        self.active = YLeaf(YType.boolean, "active")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.route_count = YLeaf(YType.uint32, "route-count")
-
-                        self.path_count = YLeaf(YType.uint32, "path-count")
-
-                        self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                        self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                        self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                        self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                        self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                        self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
-
-                        self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('active', YLeaf(YType.boolean, 'active')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('route_count', YLeaf(YType.uint32, 'route-count')),
+                            ('path_count', YLeaf(YType.uint32, 'path-count')),
+                            ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                            ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                            ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                            ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                            ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                            ('interface_configured_count', YLeaf(YType.uint32, 'interface-configured-count')),
+                            ('active_interface_count', YLeaf(YType.uint32, 'active-interface-count')),
+                        ])
+                        self.vrf_name = None
+                        self.active = None
+                        self.oom_flags = None
+                        self.route_count = None
+                        self.path_count = None
+                        self.update_timer = None
+                        self.next_update_time = None
+                        self.invalid_timer = None
+                        self.hold_down_timer = None
+                        self.flush_timer = None
+                        self.interface_configured_count = None
+                        self.active_interface_count = None
                         self._segment_path = lambda: "vrf-summary"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rip.Protocol.DefaultVrf.Global_.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
+                        self._perform_setattr(Rip.Protocol.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
                 class InterfaceSummary(Entity):
@@ -3220,37 +3302,40 @@ class Rip(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Rip.Protocol.DefaultVrf.Global_.InterfaceSummary, self).__init__()
+                        super(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, self).__init__()
 
                         self.yang_name = "interface-summary"
                         self.yang_parent_name = "global"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.enabled = YLeaf(YType.boolean, "enabled")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-
-                        self.destination_address = YLeaf(YType.str, "destination-address")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                        self.send_version = YLeaf(YType.uint32, "send-version")
-
-                        self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                        self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('enabled', YLeaf(YType.boolean, 'enabled')),
+                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('destination_address', YLeaf(YType.str, 'destination-address')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                            ('send_version', YLeaf(YType.uint32, 'send-version')),
+                            ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                            ('neighbor_count', YLeaf(YType.uint32, 'neighbor-count')),
+                        ])
+                        self.interface_name = None
+                        self.enabled = None
+                        self.state = None
+                        self.destination_address = None
+                        self.prefix_length = None
+                        self.oom_flags = None
+                        self.send_version = None
+                        self.receive_version = None
+                        self.neighbor_count = None
                         self._segment_path = lambda: "interface-summary"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Rip.Protocol.DefaultVrf.Global_.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
+                        self._perform_setattr(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
 
     class DefaultVrf(Entity):
@@ -3280,7 +3365,7 @@ class Rip(Entity):
         .. attribute:: global_
         
         	Global Information 
-        	**type**\:  :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global_>`
+        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global>`
         
         
 
@@ -3296,8 +3381,10 @@ class Rip(Entity):
             self.yang_parent_name = "rip"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"routes" : ("routes", Rip.DefaultVrf.Routes), "configuration" : ("configuration", Rip.DefaultVrf.Configuration), "statistics" : ("statistics", Rip.DefaultVrf.Statistics), "interfaces" : ("interfaces", Rip.DefaultVrf.Interfaces), "global" : ("global_", Rip.DefaultVrf.Global_)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("routes", ("routes", Rip.DefaultVrf.Routes)), ("configuration", ("configuration", Rip.DefaultVrf.Configuration)), ("statistics", ("statistics", Rip.DefaultVrf.Statistics)), ("interfaces", ("interfaces", Rip.DefaultVrf.Interfaces)), ("global", ("global_", Rip.DefaultVrf.Global))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.routes = Rip.DefaultVrf.Routes()
             self.routes.parent = self
@@ -3319,7 +3406,7 @@ class Rip(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._children_yang_names.add("interfaces")
 
-            self.global_ = Rip.DefaultVrf.Global_()
+            self.global_ = Rip.DefaultVrf.Global()
             self.global_.parent = self
             self._children_name_map["global_"] = "global"
             self._children_yang_names.add("global")
@@ -3350,8 +3437,10 @@ class Rip(Entity):
                 self.yang_parent_name = "default-vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"route" : ("route", Rip.DefaultVrf.Routes.Route)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("route", ("route", Rip.DefaultVrf.Routes.Route))])
+                self._leafs = OrderedDict()
 
                 self.route = YList(self)
                 self._segment_path = lambda: "routes"
@@ -3474,36 +3563,39 @@ class Rip(Entity):
                     self.yang_parent_name = "routes"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"paths" : ("paths", Rip.DefaultVrf.Routes.Route.Paths)}
-
-                    self.prefix = YLeaf(YType.str, "prefix")
-
-                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                    self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
-
-                    self.distance = YLeaf(YType.uint16, "distance")
-
-                    self.bgp_count = YLeaf(YType.uint16, "bgp-count")
-
-                    self.route_type = YLeaf(YType.uint16, "route-type")
-
-                    self.route_summary = YLeaf(YType.boolean, "route-summary")
-
-                    self.route_tag = YLeaf(YType.uint16, "route-tag")
-
-                    self.version = YLeaf(YType.uint8, "version")
-
-                    self.attributes = YLeaf(YType.uint32, "attributes")
-
-                    self.active = YLeaf(YType.boolean, "active")
-
-                    self.path_origin = YLeaf(YType.enumeration, "path-origin")
-
-                    self.hold_down = YLeaf(YType.boolean, "hold-down")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("paths", ("paths", Rip.DefaultVrf.Routes.Route.Paths))])
+                    self._leafs = OrderedDict([
+                        ('prefix', YLeaf(YType.str, 'prefix')),
+                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                        ('distance', YLeaf(YType.uint16, 'distance')),
+                        ('bgp_count', YLeaf(YType.uint16, 'bgp-count')),
+                        ('route_type', YLeaf(YType.uint16, 'route-type')),
+                        ('route_summary', YLeaf(YType.boolean, 'route-summary')),
+                        ('route_tag', YLeaf(YType.uint16, 'route-tag')),
+                        ('version', YLeaf(YType.uint8, 'version')),
+                        ('attributes', YLeaf(YType.uint32, 'attributes')),
+                        ('active', YLeaf(YType.boolean, 'active')),
+                        ('path_origin', YLeaf(YType.enumeration, 'path-origin')),
+                        ('hold_down', YLeaf(YType.boolean, 'hold-down')),
+                    ])
+                    self.prefix = None
+                    self.prefix_length = None
+                    self.destination_address = None
+                    self.prefix_length_xr = None
+                    self.distance = None
+                    self.bgp_count = None
+                    self.route_type = None
+                    self.route_summary = None
+                    self.route_tag = None
+                    self.version = None
+                    self.attributes = None
+                    self.active = None
+                    self.path_origin = None
+                    self.hold_down = None
 
                     self.paths = YList(self)
                     self._segment_path = lambda: "route"
@@ -3578,22 +3670,25 @@ class Rip(Entity):
                         self.yang_parent_name = "route"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_address = YLeaf(YType.str, "source-address")
-
-                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                        self.metric = YLeaf(YType.uint16, "metric")
-
-                        self.tag = YLeaf(YType.uint16, "tag")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.uptime = YLeaf(YType.uint32, "uptime")
-
-                        self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_address', YLeaf(YType.str, 'source-address')),
+                            ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                            ('metric', YLeaf(YType.uint16, 'metric')),
+                            ('tag', YLeaf(YType.uint16, 'tag')),
+                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('uptime', YLeaf(YType.uint32, 'uptime')),
+                            ('is_permanent', YLeaf(YType.boolean, 'is-permanent')),
+                        ])
+                        self.source_address = None
+                        self.next_hop_address = None
+                        self.metric = None
+                        self.tag = None
+                        self.interface = None
+                        self.uptime = None
+                        self.is_permanent = None
                         self._segment_path = lambda: "paths"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/routes/route/%s" % self._segment_path()
 
@@ -3738,46 +3833,49 @@ class Rip(Entity):
                 self.yang_parent_name = "default-vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.active = YLeaf(YType.boolean, "active")
-
-                self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
-
-                self.rip_version = YLeaf(YType.int32, "rip-version")
-
-                self.default_metric = YLeaf(YType.uint8, "default-metric")
-
-                self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
-
-                self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
-
-                self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
-
-                self.input_q_length = YLeaf(YType.uint16, "input-q-length")
-
-                self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
-
-                self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                self.nsf_status = YLeaf(YType.boolean, "nsf-status")
-
-                self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('active', YLeaf(YType.boolean, 'active')),
+                    ('vr_fised_socket', YLeaf(YType.boolean, 'vr-fised-socket')),
+                    ('rip_version', YLeaf(YType.int32, 'rip-version')),
+                    ('default_metric', YLeaf(YType.uint8, 'default-metric')),
+                    ('maximum_paths', YLeaf(YType.uint8, 'maximum-paths')),
+                    ('auto_summarize', YLeaf(YType.boolean, 'auto-summarize')),
+                    ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                    ('flash_threshold', YLeaf(YType.uint8, 'flash-threshold')),
+                    ('input_q_length', YLeaf(YType.uint16, 'input-q-length')),
+                    ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                    ('validation_indicator', YLeaf(YType.boolean, 'validation-indicator')),
+                    ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                    ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                    ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                    ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                    ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                    ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                    ('nsf_status', YLeaf(YType.boolean, 'nsf-status')),
+                    ('nsf_life_time', YLeaf(YType.uint32, 'nsf-life-time')),
+                ])
+                self.active = None
+                self.vr_fised_socket = None
+                self.rip_version = None
+                self.default_metric = None
+                self.maximum_paths = None
+                self.auto_summarize = None
+                self.multicast_address = None
+                self.flash_threshold = None
+                self.input_q_length = None
+                self.triggered_rip = None
+                self.validation_indicator = None
+                self.update_timer = None
+                self.next_update_time = None
+                self.invalid_timer = None
+                self.hold_down_timer = None
+                self.flush_timer = None
+                self.oom_flags = None
+                self.nsf_status = None
+                self.nsf_life_time = None
                 self._segment_path = lambda: "configuration"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self._segment_path()
 
@@ -3894,34 +3992,37 @@ class Rip(Entity):
                 self.yang_parent_name = "default-vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.received_packets = YLeaf(YType.uint32, "received-packets")
-
-                self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
-
-                self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
-
-                self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
-
-                self.sent_messages = YLeaf(YType.uint32, "sent-messages")
-
-                self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
-
-                self.query_responses = YLeaf(YType.uint32, "query-responses")
-
-                self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
-
-                self.route_count = YLeaf(YType.uint32, "route-count")
-
-                self.path_count = YLeaf(YType.uint32, "path-count")
-
-                self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
-
-                self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
-
-                self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('received_packets', YLeaf(YType.uint32, 'received-packets')),
+                    ('discarded_packets', YLeaf(YType.uint32, 'discarded-packets')),
+                    ('discarded_routes', YLeaf(YType.uint32, 'discarded-routes')),
+                    ('standby_packets_received', YLeaf(YType.uint32, 'standby-packets-received')),
+                    ('sent_messages', YLeaf(YType.uint32, 'sent-messages')),
+                    ('sent_message_failures', YLeaf(YType.uint32, 'sent-message-failures')),
+                    ('query_responses', YLeaf(YType.uint32, 'query-responses')),
+                    ('periodic_updates', YLeaf(YType.uint32, 'periodic-updates')),
+                    ('route_count', YLeaf(YType.uint32, 'route-count')),
+                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                    ('route_malloc_failures', YLeaf(YType.uint32, 'route-malloc-failures')),
+                    ('path_malloc_failures', YLeaf(YType.uint32, 'path-malloc-failures')),
+                    ('rib_updates', YLeaf(YType.uint32, 'rib-updates')),
+                ])
+                self.received_packets = None
+                self.discarded_packets = None
+                self.discarded_routes = None
+                self.standby_packets_received = None
+                self.sent_messages = None
+                self.sent_message_failures = None
+                self.query_responses = None
+                self.periodic_updates = None
+                self.route_count = None
+                self.path_count = None
+                self.route_malloc_failures = None
+                self.path_malloc_failures = None
+                self.rib_updates = None
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self._segment_path()
 
@@ -3952,8 +4053,10 @@ class Rip(Entity):
                 self.yang_parent_name = "default-vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"interface" : ("interface", Rip.DefaultVrf.Interfaces.Interface)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("interface", ("interface", Rip.DefaultVrf.Interfaces.Interface))])
+                self._leafs = OrderedDict()
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
@@ -3967,7 +4070,7 @@ class Rip(Entity):
                 """
                 Information about a particular RIP interface
                 
-                .. attribute:: interface_name  <key>
+                .. attribute:: interface_name  (key)
                 
                 	Interface name
                 	**type**\: str
@@ -4173,72 +4276,75 @@ class Rip(Entity):
                     self.yang_parent_name = "interfaces"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"rip-summary" : ("rip_summary", Rip.DefaultVrf.Interfaces.Interface.RipSummary), "rip-peer" : ("rip_peer", Rip.DefaultVrf.Interfaces.Interface.RipPeer)}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.if_handle = YLeaf(YType.str, "if-handle")
-
-                    self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
-
-                    self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
-
-                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
-
-                    self.accept_metric = YLeaf(YType.boolean, "accept-metric")
-
-                    self.send_version = YLeaf(YType.uint32, "send-version")
-
-                    self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                    self.metric_cost = YLeaf(YType.uint32, "metric-cost")
-
-                    self.split_horizon = YLeaf(YType.boolean, "split-horizon")
-
-                    self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
-
-                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
-
-                    self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.join_status = YLeaf(YType.boolean, "join-status")
-
-                    self.lpts_state = YLeaf(YType.boolean, "lpts-state")
-
-                    self.auth_mode = YLeaf(YType.uint32, "auth-mode")
-
-                    self.auth_keychain = YLeaf(YType.str, "auth-keychain")
-
-                    self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
-
-                    self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
-
-                    self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
-
-                    self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
-
-                    self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
-
-                    self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
-
-                    self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
-
-                    self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+                    self.ylist_key_names = ['interface_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("rip-summary", ("rip_summary", Rip.DefaultVrf.Interfaces.Interface.RipSummary)), ("rip-peer", ("rip_peer", Rip.DefaultVrf.Interfaces.Interface.RipPeer))])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('if_handle', YLeaf(YType.str, 'if-handle')),
+                        ('rip_enabled', YLeaf(YType.boolean, 'rip-enabled')),
+                        ('is_passive_interface', YLeaf(YType.boolean, 'is-passive-interface')),
+                        ('multicast_address', YLeaf(YType.boolean, 'multicast-address')),
+                        ('accept_metric', YLeaf(YType.boolean, 'accept-metric')),
+                        ('send_version', YLeaf(YType.uint32, 'send-version')),
+                        ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                        ('metric_cost', YLeaf(YType.uint32, 'metric-cost')),
+                        ('split_horizon', YLeaf(YType.boolean, 'split-horizon')),
+                        ('poison_horizon', YLeaf(YType.boolean, 'poison-horizon')),
+                        ('triggered_rip', YLeaf(YType.boolean, 'triggered-rip')),
+                        ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('join_status', YLeaf(YType.boolean, 'join-status')),
+                        ('lpts_state', YLeaf(YType.boolean, 'lpts-state')),
+                        ('auth_mode', YLeaf(YType.uint32, 'auth-mode')),
+                        ('auth_keychain', YLeaf(YType.str, 'auth-keychain')),
+                        ('send_auth_key_exists', YLeaf(YType.boolean, 'send-auth-key-exists')),
+                        ('auth_key_md5', YLeaf(YType.boolean, 'auth-key-md5')),
+                        ('auth_key_send_id', YLeaf(YType.uint64, 'auth-key-send-id')),
+                        ('total_pkt_recvd', YLeaf(YType.uint32, 'total-pkt-recvd')),
+                        ('pkt_drop_wrong_kc', YLeaf(YType.uint32, 'pkt-drop-wrong-kc')),
+                        ('pkt_drop_no_auth', YLeaf(YType.uint32, 'pkt-drop-no-auth')),
+                        ('pkt_drop_invalid_auth', YLeaf(YType.uint32, 'pkt-drop-invalid-auth')),
+                        ('pkt_accepted_valid_auth', YLeaf(YType.uint32, 'pkt-accepted-valid-auth')),
+                    ])
+                    self.interface_name = None
+                    self.interface = None
+                    self.if_handle = None
+                    self.rip_enabled = None
+                    self.is_passive_interface = None
+                    self.multicast_address = None
+                    self.accept_metric = None
+                    self.send_version = None
+                    self.receive_version = None
+                    self.state = None
+                    self.destination_address = None
+                    self.prefix_length = None
+                    self.metric_cost = None
+                    self.split_horizon = None
+                    self.poison_horizon = None
+                    self.triggered_rip = None
+                    self.neighbor_address = None
+                    self.oom_flags = None
+                    self.join_status = None
+                    self.lpts_state = None
+                    self.auth_mode = None
+                    self.auth_keychain = None
+                    self.send_auth_key_exists = None
+                    self.auth_key_md5 = None
+                    self.auth_key_send_id = None
+                    self.total_pkt_recvd = None
+                    self.pkt_drop_wrong_kc = None
+                    self.pkt_drop_no_auth = None
+                    self.pkt_drop_invalid_auth = None
+                    self.pkt_accepted_valid_auth = None
 
                     self.rip_summary = YList(self)
                     self.rip_peer = YList(self)
-                    self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                    self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/interfaces/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -4291,16 +4397,19 @@ class Rip(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.prefix = YLeaf(YType.str, "prefix")
-
-                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                        self.metric = YLeaf(YType.int32, "metric")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('prefix', YLeaf(YType.str, 'prefix')),
+                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                            ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                            ('metric', YLeaf(YType.int32, 'metric')),
+                        ])
+                        self.prefix = None
+                        self.prefix_length = None
+                        self.next_hop_address = None
+                        self.metric = None
                         self._segment_path = lambda: "rip-summary"
 
                     def __setattr__(self, name, value):
@@ -4360,37 +4469,40 @@ class Rip(Entity):
                         self.yang_parent_name = "interface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
-
-                        self.peer_address = YLeaf(YType.str, "peer-address")
-
-                        self.peer_version = YLeaf(YType.uint8, "peer-version")
-
-                        self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
-
-                        self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('peer_uptime', YLeaf(YType.uint32, 'peer-uptime')),
+                            ('peer_address', YLeaf(YType.str, 'peer-address')),
+                            ('peer_version', YLeaf(YType.uint8, 'peer-version')),
+                            ('discarded_peer_packets', YLeaf(YType.uint32, 'discarded-peer-packets')),
+                            ('discarded_peer_routes', YLeaf(YType.uint32, 'discarded-peer-routes')),
+                        ])
+                        self.peer_uptime = None
+                        self.peer_address = None
+                        self.peer_version = None
+                        self.discarded_peer_packets = None
+                        self.discarded_peer_routes = None
                         self._segment_path = lambda: "rip-peer"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
-        class Global_(Entity):
+        class Global(Entity):
             """
             Global Information 
             
             .. attribute:: vrf_summary
             
             	VRF summary data
-            	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global_.VrfSummary>`
+            	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global.VrfSummary>`
             
             .. attribute:: interface_summary
             
             	List of Interfaces configured
-            	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global_.InterfaceSummary>`
+            	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global.InterfaceSummary>`
             
             
 
@@ -4400,16 +4512,18 @@ class Rip(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Rip.DefaultVrf.Global_, self).__init__()
+                super(Rip.DefaultVrf.Global, self).__init__()
 
                 self.yang_name = "global"
                 self.yang_parent_name = "default-vrf"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"vrf-summary" : ("vrf_summary", Rip.DefaultVrf.Global_.VrfSummary)}
-                self._child_list_classes = {"interface-summary" : ("interface_summary", Rip.DefaultVrf.Global_.InterfaceSummary)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("vrf-summary", ("vrf_summary", Rip.DefaultVrf.Global.VrfSummary))])
+                self._child_list_classes = OrderedDict([("interface-summary", ("interface_summary", Rip.DefaultVrf.Global.InterfaceSummary))])
+                self._leafs = OrderedDict()
 
-                self.vrf_summary = Rip.DefaultVrf.Global_.VrfSummary()
+                self.vrf_summary = Rip.DefaultVrf.Global.VrfSummary()
                 self.vrf_summary.parent = self
                 self._children_name_map["vrf_summary"] = "vrf-summary"
                 self._children_yang_names.add("vrf-summary")
@@ -4419,7 +4533,7 @@ class Rip(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Rip.DefaultVrf.Global_, [], name, value)
+                self._perform_setattr(Rip.DefaultVrf.Global, [], name, value)
 
 
             class VrfSummary(Entity):
@@ -4514,43 +4628,46 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Global_.VrfSummary, self).__init__()
+                    super(Rip.DefaultVrf.Global.VrfSummary, self).__init__()
 
                     self.yang_name = "vrf-summary"
                     self.yang_parent_name = "global"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.active = YLeaf(YType.boolean, "active")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.route_count = YLeaf(YType.uint32, "route-count")
-
-                    self.path_count = YLeaf(YType.uint32, "path-count")
-
-                    self.update_timer = YLeaf(YType.uint32, "update-timer")
-
-                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
-
-                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
-
-                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
-
-                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
-
-                    self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
-
-                    self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('active', YLeaf(YType.boolean, 'active')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('route_count', YLeaf(YType.uint32, 'route-count')),
+                        ('path_count', YLeaf(YType.uint32, 'path-count')),
+                        ('update_timer', YLeaf(YType.uint32, 'update-timer')),
+                        ('next_update_time', YLeaf(YType.uint32, 'next-update-time')),
+                        ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
+                        ('hold_down_timer', YLeaf(YType.uint32, 'hold-down-timer')),
+                        ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                        ('interface_configured_count', YLeaf(YType.uint32, 'interface-configured-count')),
+                        ('active_interface_count', YLeaf(YType.uint32, 'active-interface-count')),
+                    ])
+                    self.vrf_name = None
+                    self.active = None
+                    self.oom_flags = None
+                    self.route_count = None
+                    self.path_count = None
+                    self.update_timer = None
+                    self.next_update_time = None
+                    self.invalid_timer = None
+                    self.hold_down_timer = None
+                    self.flush_timer = None
+                    self.interface_configured_count = None
+                    self.active_interface_count = None
                     self._segment_path = lambda: "vrf-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rip.DefaultVrf.Global_.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
+                    self._perform_setattr(Rip.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
             class InterfaceSummary(Entity):
@@ -4622,37 +4739,40 @@ class Rip(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Rip.DefaultVrf.Global_.InterfaceSummary, self).__init__()
+                    super(Rip.DefaultVrf.Global.InterfaceSummary, self).__init__()
 
                     self.yang_name = "interface-summary"
                     self.yang_parent_name = "global"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.destination_address = YLeaf(YType.str, "destination-address")
-
-                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
-
-                    self.send_version = YLeaf(YType.uint32, "send-version")
-
-                    self.receive_version = YLeaf(YType.uint32, "receive-version")
-
-                    self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                        ('oom_flags', YLeaf(YType.uint32, 'oom-flags')),
+                        ('send_version', YLeaf(YType.uint32, 'send-version')),
+                        ('receive_version', YLeaf(YType.uint32, 'receive-version')),
+                        ('neighbor_count', YLeaf(YType.uint32, 'neighbor-count')),
+                    ])
+                    self.interface_name = None
+                    self.enabled = None
+                    self.state = None
+                    self.destination_address = None
+                    self.prefix_length = None
+                    self.oom_flags = None
+                    self.send_version = None
+                    self.receive_version = None
+                    self.neighbor_count = None
                     self._segment_path = lambda: "interface-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Rip.DefaultVrf.Global_.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
+                    self._perform_setattr(Rip.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Rip()

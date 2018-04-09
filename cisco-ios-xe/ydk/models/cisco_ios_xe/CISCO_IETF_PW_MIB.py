@@ -25,6 +25,8 @@ and the MIB is therefore subject to change based on the WG
 progress.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -86,8 +88,10 @@ class CISCOIETFPWMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwVcObjects" : ("cpwvcobjects", CISCOIETFPWMIB.Cpwvcobjects), "cpwVcTable" : ("cpwvctable", CISCOIETFPWMIB.Cpwvctable), "cpwVcPerfCurrentTable" : ("cpwvcperfcurrenttable", CISCOIETFPWMIB.Cpwvcperfcurrenttable), "cpwVcPerfIntervalTable" : ("cpwvcperfintervaltable", CISCOIETFPWMIB.Cpwvcperfintervaltable), "cpwVcPerfTotalTable" : ("cpwvcperftotaltable", CISCOIETFPWMIB.Cpwvcperftotaltable), "cpwVcIdMappingTable" : ("cpwvcidmappingtable", CISCOIETFPWMIB.Cpwvcidmappingtable), "cpwVcPeerMappingTable" : ("cpwvcpeermappingtable", CISCOIETFPWMIB.Cpwvcpeermappingtable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cpwVcObjects", ("cpwvcobjects", CISCOIETFPWMIB.Cpwvcobjects)), ("cpwVcTable", ("cpwvctable", CISCOIETFPWMIB.Cpwvctable)), ("cpwVcPerfCurrentTable", ("cpwvcperfcurrenttable", CISCOIETFPWMIB.Cpwvcperfcurrenttable)), ("cpwVcPerfIntervalTable", ("cpwvcperfintervaltable", CISCOIETFPWMIB.Cpwvcperfintervaltable)), ("cpwVcPerfTotalTable", ("cpwvcperftotaltable", CISCOIETFPWMIB.Cpwvcperftotaltable)), ("cpwVcIdMappingTable", ("cpwvcidmappingtable", CISCOIETFPWMIB.Cpwvcidmappingtable)), ("cpwVcPeerMappingTable", ("cpwvcpeermappingtable", CISCOIETFPWMIB.Cpwvcpeermappingtable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cpwvcobjects = CISCOIETFPWMIB.Cpwvcobjects()
         self.cpwvcobjects.parent = self
@@ -170,16 +174,19 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpwvcindexnext = YLeaf(YType.uint32, "cpwVcIndexNext")
-
-            self.cpwvcperftotalerrorpackets = YLeaf(YType.uint64, "cpwVcPerfTotalErrorPackets")
-
-            self.cpwvcupdownnotifenable = YLeaf(YType.boolean, "cpwVcUpDownNotifEnable")
-
-            self.cpwvcnotifrate = YLeaf(YType.uint32, "cpwVcNotifRate")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cpwvcindexnext', YLeaf(YType.uint32, 'cpwVcIndexNext')),
+                ('cpwvcperftotalerrorpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalErrorPackets')),
+                ('cpwvcupdownnotifenable', YLeaf(YType.boolean, 'cpwVcUpDownNotifEnable')),
+                ('cpwvcnotifrate', YLeaf(YType.uint32, 'cpwVcNotifRate')),
+            ])
+            self.cpwvcindexnext = None
+            self.cpwvcperftotalerrorpackets = None
+            self.cpwvcupdownnotifenable = None
+            self.cpwvcnotifrate = None
             self._segment_path = lambda: "cpwVcObjects"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
 
@@ -211,8 +218,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcEntry" : ("cpwvcentry", CISCOIETFPWMIB.Cpwvctable.Cpwvcentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcEntry", ("cpwvcentry", CISCOIETFPWMIB.Cpwvctable.Cpwvcentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcentry = YList(self)
             self._segment_path = lambda: "cpwVcTable"
@@ -229,7 +238,7 @@ class CISCOIETFPWMIB(Entity):
             cpwVcIndex, which uniquely identifying a singular  
             connection. 
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	Index for the conceptual row identifying a VC within   this PW Emulation VC table
             	**type**\: int
@@ -435,73 +444,76 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.uint32, "cpwVcIndex")
-
-                self.cpwvctype = YLeaf(YType.enumeration, "cpwVcType")
-
-                self.cpwvcowner = YLeaf(YType.enumeration, "cpwVcOwner")
-
-                self.cpwvcpsntype = YLeaf(YType.enumeration, "cpwVcPsnType")
-
-                self.cpwvcsetuppriority = YLeaf(YType.int32, "cpwVcSetUpPriority")
-
-                self.cpwvcholdingpriority = YLeaf(YType.int32, "cpwVcHoldingPriority")
-
-                self.cpwvcinboundmode = YLeaf(YType.enumeration, "cpwVcInboundMode")
-
-                self.cpwvcpeeraddrtype = YLeaf(YType.enumeration, "cpwVcPeerAddrType")
-
-                self.cpwvcpeeraddr = YLeaf(YType.str, "cpwVcPeerAddr")
-
-                self.cpwvcid = YLeaf(YType.uint32, "cpwVcID")
-
-                self.cpwvclocalgroupid = YLeaf(YType.uint32, "cpwVcLocalGroupID")
-
-                self.cpwvccontrolword = YLeaf(YType.boolean, "cpwVcControlWord")
-
-                self.cpwvclocalifmtu = YLeaf(YType.uint32, "cpwVcLocalIfMtu")
-
-                self.cpwvclocalifstring = YLeaf(YType.boolean, "cpwVcLocalIfString")
-
-                self.cpwvcremotegroupid = YLeaf(YType.uint32, "cpwVcRemoteGroupID")
-
-                self.cpwvcremotecontrolword = YLeaf(YType.enumeration, "cpwVcRemoteControlWord")
-
-                self.cpwvcremoteifmtu = YLeaf(YType.uint32, "cpwVcRemoteIfMtu")
-
-                self.cpwvcremoteifstring = YLeaf(YType.str, "cpwVcRemoteIfString")
-
-                self.cpwvcoutboundvclabel = YLeaf(YType.uint32, "cpwVcOutboundVcLabel")
-
-                self.cpwvcinboundvclabel = YLeaf(YType.uint32, "cpwVcInboundVcLabel")
-
-                self.cpwvcname = YLeaf(YType.str, "cpwVcName")
-
-                self.cpwvcdescr = YLeaf(YType.str, "cpwVcDescr")
-
-                self.cpwvccreatetime = YLeaf(YType.uint32, "cpwVcCreateTime")
-
-                self.cpwvcuptime = YLeaf(YType.uint32, "cpwVcUpTime")
-
-                self.cpwvcadminstatus = YLeaf(YType.enumeration, "cpwVcAdminStatus")
-
-                self.cpwvcoperstatus = YLeaf(YType.enumeration, "cpwVcOperStatus")
-
-                self.cpwvcinboundoperstatus = YLeaf(YType.enumeration, "cpwVcInboundOperStatus")
-
-                self.cpwvcoutboundoperstatus = YLeaf(YType.enumeration, "cpwVcOutboundOperStatus")
-
-                self.cpwvctimeelapsed = YLeaf(YType.int32, "cpwVcTimeElapsed")
-
-                self.cpwvcvalidintervals = YLeaf(YType.int32, "cpwVcValidIntervals")
-
-                self.cpwvcrowstatus = YLeaf(YType.enumeration, "cpwVcRowStatus")
-
-                self.cpwvcstoragetype = YLeaf(YType.enumeration, "cpwVcStorageType")
-                self._segment_path = lambda: "cpwVcEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.uint32, 'cpwVcIndex')),
+                    ('cpwvctype', YLeaf(YType.enumeration, 'cpwVcType')),
+                    ('cpwvcowner', YLeaf(YType.enumeration, 'cpwVcOwner')),
+                    ('cpwvcpsntype', YLeaf(YType.enumeration, 'cpwVcPsnType')),
+                    ('cpwvcsetuppriority', YLeaf(YType.int32, 'cpwVcSetUpPriority')),
+                    ('cpwvcholdingpriority', YLeaf(YType.int32, 'cpwVcHoldingPriority')),
+                    ('cpwvcinboundmode', YLeaf(YType.enumeration, 'cpwVcInboundMode')),
+                    ('cpwvcpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcPeerAddrType')),
+                    ('cpwvcpeeraddr', YLeaf(YType.str, 'cpwVcPeerAddr')),
+                    ('cpwvcid', YLeaf(YType.uint32, 'cpwVcID')),
+                    ('cpwvclocalgroupid', YLeaf(YType.uint32, 'cpwVcLocalGroupID')),
+                    ('cpwvccontrolword', YLeaf(YType.boolean, 'cpwVcControlWord')),
+                    ('cpwvclocalifmtu', YLeaf(YType.uint32, 'cpwVcLocalIfMtu')),
+                    ('cpwvclocalifstring', YLeaf(YType.boolean, 'cpwVcLocalIfString')),
+                    ('cpwvcremotegroupid', YLeaf(YType.uint32, 'cpwVcRemoteGroupID')),
+                    ('cpwvcremotecontrolword', YLeaf(YType.enumeration, 'cpwVcRemoteControlWord')),
+                    ('cpwvcremoteifmtu', YLeaf(YType.uint32, 'cpwVcRemoteIfMtu')),
+                    ('cpwvcremoteifstring', YLeaf(YType.str, 'cpwVcRemoteIfString')),
+                    ('cpwvcoutboundvclabel', YLeaf(YType.uint32, 'cpwVcOutboundVcLabel')),
+                    ('cpwvcinboundvclabel', YLeaf(YType.uint32, 'cpwVcInboundVcLabel')),
+                    ('cpwvcname', YLeaf(YType.str, 'cpwVcName')),
+                    ('cpwvcdescr', YLeaf(YType.str, 'cpwVcDescr')),
+                    ('cpwvccreatetime', YLeaf(YType.uint32, 'cpwVcCreateTime')),
+                    ('cpwvcuptime', YLeaf(YType.uint32, 'cpwVcUpTime')),
+                    ('cpwvcadminstatus', YLeaf(YType.enumeration, 'cpwVcAdminStatus')),
+                    ('cpwvcoperstatus', YLeaf(YType.enumeration, 'cpwVcOperStatus')),
+                    ('cpwvcinboundoperstatus', YLeaf(YType.enumeration, 'cpwVcInboundOperStatus')),
+                    ('cpwvcoutboundoperstatus', YLeaf(YType.enumeration, 'cpwVcOutboundOperStatus')),
+                    ('cpwvctimeelapsed', YLeaf(YType.int32, 'cpwVcTimeElapsed')),
+                    ('cpwvcvalidintervals', YLeaf(YType.int32, 'cpwVcValidIntervals')),
+                    ('cpwvcrowstatus', YLeaf(YType.enumeration, 'cpwVcRowStatus')),
+                    ('cpwvcstoragetype', YLeaf(YType.enumeration, 'cpwVcStorageType')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvctype = None
+                self.cpwvcowner = None
+                self.cpwvcpsntype = None
+                self.cpwvcsetuppriority = None
+                self.cpwvcholdingpriority = None
+                self.cpwvcinboundmode = None
+                self.cpwvcpeeraddrtype = None
+                self.cpwvcpeeraddr = None
+                self.cpwvcid = None
+                self.cpwvclocalgroupid = None
+                self.cpwvccontrolword = None
+                self.cpwvclocalifmtu = None
+                self.cpwvclocalifstring = None
+                self.cpwvcremotegroupid = None
+                self.cpwvcremotecontrolword = None
+                self.cpwvcremoteifmtu = None
+                self.cpwvcremoteifstring = None
+                self.cpwvcoutboundvclabel = None
+                self.cpwvcinboundvclabel = None
+                self.cpwvcname = None
+                self.cpwvcdescr = None
+                self.cpwvccreatetime = None
+                self.cpwvcuptime = None
+                self.cpwvcadminstatus = None
+                self.cpwvcoperstatus = None
+                self.cpwvcinboundoperstatus = None
+                self.cpwvcoutboundoperstatus = None
+                self.cpwvctimeelapsed = None
+                self.cpwvcvalidintervals = None
+                self.cpwvcrowstatus = None
+                self.cpwvcstoragetype = None
+                self._segment_path = lambda: "cpwVcEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -509,7 +521,7 @@ class CISCOIETFPWMIB(Entity):
 
             class Cpwvcadminstatus(Enum):
                 """
-                Cpwvcadminstatus
+                Cpwvcadminstatus (Enum Class)
 
                 The desired operational status of this VC.
 
@@ -530,7 +542,7 @@ class CISCOIETFPWMIB(Entity):
 
             class Cpwvcinboundmode(Enum):
                 """
-                Cpwvcinboundmode
+                Cpwvcinboundmode (Enum Class)
 
                 This object is used to enable greater security for  
 
@@ -571,7 +583,7 @@ class CISCOIETFPWMIB(Entity):
 
             class Cpwvcowner(Enum):
                 """
-                Cpwvcowner
+                Cpwvcowner (Enum Class)
 
                 Set by the operator to indicate the protocol responsible  
 
@@ -610,7 +622,7 @@ class CISCOIETFPWMIB(Entity):
 
             class Cpwvcpsntype(Enum):
                 """
-                Cpwvcpsntype
+                Cpwvcpsntype (Enum Class)
 
                 Set by the operator to indicate the PSN type on which this  
 
@@ -657,7 +669,7 @@ class CISCOIETFPWMIB(Entity):
 
             class Cpwvcremotecontrolword(Enum):
                 """
-                Cpwvcremotecontrolword
+                Cpwvcremotecontrolword (Enum Class)
 
                 If maintenance protocol is used for VC establishment, this  
 
@@ -717,8 +729,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcPerfCurrentEntry" : ("cpwvcperfcurrententry", CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcPerfCurrentEntry", ("cpwvcperfcurrententry", CISCOIETFPWMIB.Cpwvcperfcurrenttable.Cpwvcperfcurrententry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcperfcurrententry = YList(self)
             self._segment_path = lambda: "cpwVcPerfCurrentTable"
@@ -733,7 +747,7 @@ class CISCOIETFPWMIB(Entity):
             An entry in this table is created by the agent for 
             every VC.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -784,19 +798,22 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcPerfCurrentTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcperfcurrentinhcpackets = YLeaf(YType.uint64, "cpwVcPerfCurrentInHCPackets")
-
-                self.cpwvcperfcurrentinhcbytes = YLeaf(YType.uint64, "cpwVcPerfCurrentInHCBytes")
-
-                self.cpwvcperfcurrentouthcpackets = YLeaf(YType.uint64, "cpwVcPerfCurrentOutHCPackets")
-
-                self.cpwvcperfcurrentouthcbytes = YLeaf(YType.uint64, "cpwVcPerfCurrentOutHCBytes")
-                self._segment_path = lambda: "cpwVcPerfCurrentEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcperfcurrentinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCPackets')),
+                    ('cpwvcperfcurrentinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCBytes')),
+                    ('cpwvcperfcurrentouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCPackets')),
+                    ('cpwvcperfcurrentouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCBytes')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcperfcurrentinhcpackets = None
+                self.cpwvcperfcurrentinhcbytes = None
+                self.cpwvcperfcurrentouthcpackets = None
+                self.cpwvcperfcurrentouthcbytes = None
+                self._segment_path = lambda: "cpwVcPerfCurrentEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -827,8 +844,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcPerfIntervalEntry" : ("cpwvcperfintervalentry", CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcPerfIntervalEntry", ("cpwvcperfintervalentry", CISCOIETFPWMIB.Cpwvcperfintervaltable.Cpwvcperfintervalentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcperfintervalentry = YList(self)
             self._segment_path = lambda: "cpwVcPerfIntervalTable"
@@ -842,7 +861,7 @@ class CISCOIETFPWMIB(Entity):
             """
             An entry in this table is created agent for every VC.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -851,7 +870,7 @@ class CISCOIETFPWMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwvcperfintervalnumber  <key>
+            .. attribute:: cpwvcperfintervalnumber  (key)
             
             	A number N, between 1 and 96, which identifies the  interval for which the set of statistics is available.  The interval identified by 1 is the most recently  completed 15 minute interval, and the interval identified  by N is the interval immediately preceding the one  identified by N\-1.  The minimum range of N is 1 through 4. The default range  is 1 to 32. The maximum range of N is 1 through 96. 
             	**type**\: int
@@ -912,25 +931,28 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcPerfIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcperfintervalnumber = YLeaf(YType.int32, "cpwVcPerfIntervalNumber")
-
-                self.cpwvcperfintervalvaliddata = YLeaf(YType.boolean, "cpwVcPerfIntervalValidData")
-
-                self.cpwvcperfintervaltimeelapsed = YLeaf(YType.int32, "cpwVcPerfIntervalTimeElapsed")
-
-                self.cpwvcperfintervalinhcpackets = YLeaf(YType.uint64, "cpwVcPerfIntervalInHCPackets")
-
-                self.cpwvcperfintervalinhcbytes = YLeaf(YType.uint64, "cpwVcPerfIntervalInHCBytes")
-
-                self.cpwvcperfintervalouthcpackets = YLeaf(YType.uint64, "cpwVcPerfIntervalOutHCPackets")
-
-                self.cpwvcperfintervalouthcbytes = YLeaf(YType.uint64, "cpwVcPerfIntervalOutHCBytes")
-                self._segment_path = lambda: "cpwVcPerfIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcPerfIntervalNumber='" + self.cpwvcperfintervalnumber.get() + "']"
+                self.ylist_key_names = ['cpwvcindex','cpwvcperfintervalnumber']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcperfintervalnumber', YLeaf(YType.int32, 'cpwVcPerfIntervalNumber')),
+                    ('cpwvcperfintervalvaliddata', YLeaf(YType.boolean, 'cpwVcPerfIntervalValidData')),
+                    ('cpwvcperfintervaltimeelapsed', YLeaf(YType.int32, 'cpwVcPerfIntervalTimeElapsed')),
+                    ('cpwvcperfintervalinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCPackets')),
+                    ('cpwvcperfintervalinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCBytes')),
+                    ('cpwvcperfintervalouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCPackets')),
+                    ('cpwvcperfintervalouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCBytes')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcperfintervalnumber = None
+                self.cpwvcperfintervalvaliddata = None
+                self.cpwvcperfintervaltimeelapsed = None
+                self.cpwvcperfintervalinhcpackets = None
+                self.cpwvcperfintervalinhcbytes = None
+                self.cpwvcperfintervalouthcpackets = None
+                self.cpwvcperfintervalouthcbytes = None
+                self._segment_path = lambda: "cpwVcPerfIntervalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcPerfIntervalNumber='" + str(self.cpwvcperfintervalnumber) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -961,8 +983,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcPerfTotalEntry" : ("cpwvcperftotalentry", CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcPerfTotalEntry", ("cpwvcperftotalentry", CISCOIETFPWMIB.Cpwvcperftotaltable.Cpwvcperftotalentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcperftotalentry = YList(self)
             self._segment_path = lambda: "cpwVcPerfTotalTable"
@@ -976,7 +1000,7 @@ class CISCOIETFPWMIB(Entity):
             """
             An entry in this table is created agent for every VC.
             
-            .. attribute:: cpwvcindex  <key>
+            .. attribute:: cpwvcindex  (key)
             
             	
             	**type**\: int
@@ -1034,21 +1058,24 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcPerfTotalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwvcperftotalinhcpackets = YLeaf(YType.uint64, "cpwVcPerfTotalInHCPackets")
-
-                self.cpwvcperftotalinhcbytes = YLeaf(YType.uint64, "cpwVcPerfTotalInHCBytes")
-
-                self.cpwvcperftotalouthcpackets = YLeaf(YType.uint64, "cpwVcPerfTotalOutHCPackets")
-
-                self.cpwvcperftotalouthcbytes = YLeaf(YType.uint64, "cpwVcPerfTotalOutHCBytes")
-
-                self.cpwvcperftotaldiscontinuitytime = YLeaf(YType.uint32, "cpwVcPerfTotalDiscontinuityTime")
-                self._segment_path = lambda: "cpwVcPerfTotalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
+                    ('cpwvcperftotalinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalInHCPackets')),
+                    ('cpwvcperftotalinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfTotalInHCBytes')),
+                    ('cpwvcperftotalouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCPackets')),
+                    ('cpwvcperftotalouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCBytes')),
+                    ('cpwvcperftotaldiscontinuitytime', YLeaf(YType.uint32, 'cpwVcPerfTotalDiscontinuityTime')),
+                ])
+                self.cpwvcindex = None
+                self.cpwvcperftotalinhcpackets = None
+                self.cpwvcperftotalinhcbytes = None
+                self.cpwvcperftotalouthcpackets = None
+                self.cpwvcperftotalouthcbytes = None
+                self.cpwvcperftotaldiscontinuitytime = None
+                self._segment_path = lambda: "cpwVcPerfTotalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1080,8 +1107,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcIdMappingEntry" : ("cpwvcidmappingentry", CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcIdMappingEntry", ("cpwvcidmappingentry", CISCOIETFPWMIB.Cpwvcidmappingtable.Cpwvcidmappingentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcidmappingentry = YList(self)
             self._segment_path = lambda: "cpwVcIdMappingTable"
@@ -1096,31 +1125,31 @@ class CISCOIETFPWMIB(Entity):
             An entry in this table is created by the agent for every  
             VC configured by the cpwVcTable.
             
-            .. attribute:: cpwvcidmappingvctype  <key>
+            .. attribute:: cpwvcidmappingvctype  (key)
             
             	The VC type (indicate the service) of this VC
             	**type**\:  :py:class:`CpwVcType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwVcType>`
             
-            .. attribute:: cpwvcidmappingvcid  <key>
+            .. attribute:: cpwvcidmappingvcid  (key)
             
             	The VC ID of this VC. Zero if the VC is configured   manually
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwvcidmappingpeeraddrtype  <key>
+            .. attribute:: cpwvcidmappingpeeraddrtype  (key)
             
             	IP address type of the peer node
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cpwvcidmappingpeeraddr  <key>
+            .. attribute:: cpwvcidmappingpeeraddr  (key)
             
             	IP address type of the peer node
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: cpwvcidmappingvcindex  <key>
+            .. attribute:: cpwvcidmappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
@@ -1141,19 +1170,22 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcIdMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcidmappingvctype = YLeaf(YType.enumeration, "cpwVcIdMappingVcType")
-
-                self.cpwvcidmappingvcid = YLeaf(YType.uint32, "cpwVcIdMappingVcID")
-
-                self.cpwvcidmappingpeeraddrtype = YLeaf(YType.enumeration, "cpwVcIdMappingPeerAddrType")
-
-                self.cpwvcidmappingpeeraddr = YLeaf(YType.str, "cpwVcIdMappingPeerAddr")
-
-                self.cpwvcidmappingvcindex = YLeaf(YType.uint32, "cpwVcIdMappingVcIndex")
-                self._segment_path = lambda: "cpwVcIdMappingEntry" + "[cpwVcIdMappingVcType='" + self.cpwvcidmappingvctype.get() + "']" + "[cpwVcIdMappingVcID='" + self.cpwvcidmappingvcid.get() + "']" + "[cpwVcIdMappingPeerAddrType='" + self.cpwvcidmappingpeeraddrtype.get() + "']" + "[cpwVcIdMappingPeerAddr='" + self.cpwvcidmappingpeeraddr.get() + "']" + "[cpwVcIdMappingVcIndex='" + self.cpwvcidmappingvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcidmappingvctype','cpwvcidmappingvcid','cpwvcidmappingpeeraddrtype','cpwvcidmappingpeeraddr','cpwvcidmappingvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcidmappingvctype', YLeaf(YType.enumeration, 'cpwVcIdMappingVcType')),
+                    ('cpwvcidmappingvcid', YLeaf(YType.uint32, 'cpwVcIdMappingVcID')),
+                    ('cpwvcidmappingpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcIdMappingPeerAddrType')),
+                    ('cpwvcidmappingpeeraddr', YLeaf(YType.str, 'cpwVcIdMappingPeerAddr')),
+                    ('cpwvcidmappingvcindex', YLeaf(YType.uint32, 'cpwVcIdMappingVcIndex')),
+                ])
+                self.cpwvcidmappingvctype = None
+                self.cpwvcidmappingvcid = None
+                self.cpwvcidmappingpeeraddrtype = None
+                self.cpwvcidmappingpeeraddr = None
+                self.cpwvcidmappingvcindex = None
+                self._segment_path = lambda: "cpwVcIdMappingEntry" + "[cpwVcIdMappingVcType='" + str(self.cpwvcidmappingvctype) + "']" + "[cpwVcIdMappingVcID='" + str(self.cpwvcidmappingvcid) + "']" + "[cpwVcIdMappingPeerAddrType='" + str(self.cpwvcidmappingpeeraddrtype) + "']" + "[cpwVcIdMappingPeerAddr='" + str(self.cpwvcidmappingpeeraddr) + "']" + "[cpwVcIdMappingVcIndex='" + str(self.cpwvcidmappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcIdMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1185,8 +1217,10 @@ class CISCOIETFPWMIB(Entity):
             self.yang_parent_name = "CISCO-IETF-PW-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwVcPeerMappingEntry" : ("cpwvcpeermappingentry", CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("cpwVcPeerMappingEntry", ("cpwvcpeermappingentry", CISCOIETFPWMIB.Cpwvcpeermappingtable.Cpwvcpeermappingentry))])
+            self._leafs = OrderedDict()
 
             self.cpwvcpeermappingentry = YList(self)
             self._segment_path = lambda: "cpwVcPeerMappingTable"
@@ -1201,31 +1235,31 @@ class CISCOIETFPWMIB(Entity):
             An entry in this table is created by the agent for every  
             VC configured in cpwVcTable.
             
-            .. attribute:: cpwvcpeermappingpeeraddrtype  <key>
+            .. attribute:: cpwvcpeermappingpeeraddrtype  (key)
             
             	IP address type of the peer node
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cpwvcpeermappingpeeraddr  <key>
+            .. attribute:: cpwvcpeermappingpeeraddr  (key)
             
             	IP address type of the peer node
             	**type**\: str
             
             	**length:** 0..255
             
-            .. attribute:: cpwvcpeermappingvctype  <key>
+            .. attribute:: cpwvcpeermappingvctype  (key)
             
             	The VC type (indicate the service) of this VC
             	**type**\:  :py:class:`CpwVcType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwVcType>`
             
-            .. attribute:: cpwvcpeermappingvcid  <key>
+            .. attribute:: cpwvcpeermappingvcid  (key)
             
             	The VC ID of this VC. Zero if the VC is configured   manually
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwvcpeermappingvcindex  <key>
+            .. attribute:: cpwvcpeermappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
@@ -1246,19 +1280,22 @@ class CISCOIETFPWMIB(Entity):
                 self.yang_parent_name = "cpwVcPeerMappingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcpeermappingpeeraddrtype = YLeaf(YType.enumeration, "cpwVcPeerMappingPeerAddrType")
-
-                self.cpwvcpeermappingpeeraddr = YLeaf(YType.str, "cpwVcPeerMappingPeerAddr")
-
-                self.cpwvcpeermappingvctype = YLeaf(YType.enumeration, "cpwVcPeerMappingVcType")
-
-                self.cpwvcpeermappingvcid = YLeaf(YType.uint32, "cpwVcPeerMappingVcID")
-
-                self.cpwvcpeermappingvcindex = YLeaf(YType.uint32, "cpwVcPeerMappingVcIndex")
-                self._segment_path = lambda: "cpwVcPeerMappingEntry" + "[cpwVcPeerMappingPeerAddrType='" + self.cpwvcpeermappingpeeraddrtype.get() + "']" + "[cpwVcPeerMappingPeerAddr='" + self.cpwvcpeermappingpeeraddr.get() + "']" + "[cpwVcPeerMappingVcType='" + self.cpwvcpeermappingvctype.get() + "']" + "[cpwVcPeerMappingVcID='" + self.cpwvcpeermappingvcid.get() + "']" + "[cpwVcPeerMappingVcIndex='" + self.cpwvcpeermappingvcindex.get() + "']"
+                self.ylist_key_names = ['cpwvcpeermappingpeeraddrtype','cpwvcpeermappingpeeraddr','cpwvcpeermappingvctype','cpwvcpeermappingvcid','cpwvcpeermappingvcindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('cpwvcpeermappingpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcPeerMappingPeerAddrType')),
+                    ('cpwvcpeermappingpeeraddr', YLeaf(YType.str, 'cpwVcPeerMappingPeerAddr')),
+                    ('cpwvcpeermappingvctype', YLeaf(YType.enumeration, 'cpwVcPeerMappingVcType')),
+                    ('cpwvcpeermappingvcid', YLeaf(YType.uint32, 'cpwVcPeerMappingVcID')),
+                    ('cpwvcpeermappingvcindex', YLeaf(YType.uint32, 'cpwVcPeerMappingVcIndex')),
+                ])
+                self.cpwvcpeermappingpeeraddrtype = None
+                self.cpwvcpeermappingpeeraddr = None
+                self.cpwvcpeermappingvctype = None
+                self.cpwvcpeermappingvcid = None
+                self.cpwvcpeermappingvcindex = None
+                self._segment_path = lambda: "cpwVcPeerMappingEntry" + "[cpwVcPeerMappingPeerAddrType='" + str(self.cpwvcpeermappingpeeraddrtype) + "']" + "[cpwVcPeerMappingPeerAddr='" + str(self.cpwvcpeermappingpeeraddr) + "']" + "[cpwVcPeerMappingVcType='" + str(self.cpwvcpeermappingvctype) + "']" + "[cpwVcPeerMappingVcID='" + str(self.cpwvcpeermappingvcid) + "']" + "[cpwVcPeerMappingVcIndex='" + str(self.cpwvcpeermappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPeerMappingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

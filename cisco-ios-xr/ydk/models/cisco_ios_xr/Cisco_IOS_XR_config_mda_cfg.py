@@ -12,6 +12,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -43,8 +45,10 @@ class ActiveNodes(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-config-mda-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"active-node" : ("active_node", ActiveNodes.ActiveNode)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("active-node", ("active_node", ActiveNodes.ActiveNode))])
+        self._leafs = OrderedDict()
 
         self.active_node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes"
@@ -57,7 +61,7 @@ class ActiveNodes(Entity):
         """
         The configuration for an active node
         
-        .. attribute:: node_name  <key>
+        .. attribute:: node_name  (key)
         
         	The identifier for this node
         	**type**\: str
@@ -108,41 +112,44 @@ class ActiveNodes(Entity):
             self.yang_parent_name = "active-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"Cisco-IOS-XR-freqsync-cfg:clock-interface" : ("clock_interface", ActiveNodes.ActiveNode.ClockInterface), "Cisco-IOS-XR-infra-ltrace-cfg:ltrace" : ("ltrace", ActiveNodes.ActiveNode.Ltrace), "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local" : ("lpts_local", ActiveNodes.ActiveNode.LptsLocal), "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group" : ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup), "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
-            self._child_list_classes = {}
-
-            self.node_name = YLeaf(YType.str, "node-name")
+            self.ylist_key_names = ['node_name']
+            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('node_name', YLeaf(YType.str, 'node-name')),
+            ])
+            self.node_name = None
 
             self.clock_interface = ActiveNodes.ActiveNode.ClockInterface()
             self.clock_interface.parent = self
-            self._children_name_map["clock_interface"] = "clock-interface"
-            self._children_yang_names.add("clock-interface")
+            self._children_name_map["clock_interface"] = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
+            self._children_yang_names.add("Cisco-IOS-XR-freqsync-cfg:clock-interface")
 
             self.ltrace = ActiveNodes.ActiveNode.Ltrace()
             self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "ltrace"
-            self._children_yang_names.add("ltrace")
+            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+            self._children_yang_names.add("Cisco-IOS-XR-infra-ltrace-cfg:ltrace")
 
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
-            self._children_name_map["lpts_local"] = "lpts-local"
-            self._children_yang_names.add("lpts-local")
+            self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+            self._children_yang_names.add("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local")
 
             self.ssrp_group = ActiveNodes.ActiveNode.SsrpGroup()
             self.ssrp_group.parent = self
-            self._children_name_map["ssrp_group"] = "ssrp-group"
-            self._children_yang_names.add("ssrp-group")
+            self._children_name_map["ssrp_group"] = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group"
+            self._children_yang_names.add("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group")
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "watchdog-node-threshold"
-            self._children_yang_names.add("watchdog-node-threshold")
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+            self._children_yang_names.add("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold")
 
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_ = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_.parent = self
-            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "watchdog-node-threshold"
-            self._children_yang_names.add("watchdog-node-threshold")
-            self._segment_path = lambda: "active-node" + "[node-name='" + self.node_name.get() + "']"
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+            self._children_yang_names.add("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold")
+            self._segment_path = lambda: "active-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:active-nodes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -172,8 +179,10 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"clocks" : ("clocks", ActiveNodes.ActiveNode.ClockInterface.Clocks)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("clocks", ("clocks", ActiveNodes.ActiveNode.ClockInterface.Clocks))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.clocks = ActiveNodes.ActiveNode.ClockInterface.Clocks()
                 self.clocks.parent = self
@@ -205,8 +214,10 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "clock-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"clock" : ("clock", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("clock", ("clock", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock))])
+                    self._leafs = OrderedDict()
 
                     self.clock = YList(self)
                     self._segment_path = lambda: "clocks"
@@ -219,12 +230,12 @@ class ActiveNodes(Entity):
                     """
                     Configuration for a clock interface
                     
-                    .. attribute:: clock_type  <key>
+                    .. attribute:: clock_type  (key)
                     
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
-                    .. attribute:: port  <key>
+                    .. attribute:: port  (key)
                     
                     	Clock port
                     	**type**\: int
@@ -235,6 +246,11 @@ class ActiveNodes(Entity):
                     
                     	Frequency Synchronization clock configuraiton
                     	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
+                    
+                    .. attribute:: sync_controller
+                    
+                    	sync\-controller value
+                    	**type**\:  :py:class:`SyncController <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController>`
                     
                     
 
@@ -250,18 +266,26 @@ class ActiveNodes(Entity):
                         self.yang_parent_name = "clocks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"frequency-synchronization" : ("frequency_synchronization", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization)}
-                        self._child_list_classes = {}
-
-                        self.clock_type = YLeaf(YType.enumeration, "clock-type")
-
-                        self.port = YLeaf(YType.int32, "port")
+                        self.ylist_key_names = ['clock_type','port']
+                        self._child_container_classes = OrderedDict([("frequency-synchronization", ("frequency_synchronization", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization)), ("Cisco-IOS-XR-syncc-controller-cfg:sync-controller", ("sync_controller", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('clock_type', YLeaf(YType.enumeration, 'clock-type')),
+                            ('port', YLeaf(YType.int32, 'port')),
+                        ])
+                        self.clock_type = None
+                        self.port = None
 
                         self.frequency_synchronization = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization()
                         self.frequency_synchronization.parent = self
                         self._children_name_map["frequency_synchronization"] = "frequency-synchronization"
                         self._children_yang_names.add("frequency-synchronization")
-                        self._segment_path = lambda: "clock" + "[clock-type='" + self.clock_type.get() + "']" + "[port='" + self.port.get() + "']"
+
+                        self.sync_controller = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController()
+                        self.sync_controller.parent = self
+                        self._children_name_map["sync_controller"] = "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+                        self._children_yang_names.add("Cisco-IOS-XR-syncc-controller-cfg:sync-controller")
+                        self._segment_path = lambda: "clock" + "[clock-type='" + str(self.clock_type) + "']" + "[port='" + str(self.port) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock, ['clock_type', 'port'], name, value)
@@ -332,18 +356,21 @@ class ActiveNodes(Entity):
                             self.yang_parent_name = "clock"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"output-quality-level" : ("output_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel), "input-quality-level" : ("input_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel)}
-                            self._child_list_classes = {}
-
-                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.selection_input = YLeaf(YType.empty, "selection-input")
-
-                            self.time_of_day_priority = YLeaf(YType.uint32, "time-of-day-priority")
-
-                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("output-quality-level", ("output_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel)), ("input-quality-level", ("input_quality_level", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('wait_to_restore_time', YLeaf(YType.uint32, 'wait-to-restore-time')),
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('selection_input', YLeaf(YType.empty, 'selection-input')),
+                                ('time_of_day_priority', YLeaf(YType.uint32, 'time-of-day-priority')),
+                                ('ssm_disable', YLeaf(YType.empty, 'ssm-disable')),
+                            ])
+                            self.wait_to_restore_time = None
+                            self.priority = None
+                            self.selection_input = None
+                            self.time_of_day_priority = None
+                            self.ssm_disable = None
 
                             self.output_quality_level = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel()
                             self.output_quality_level.parent = self
@@ -398,16 +425,19 @@ class ActiveNodes(Entity):
                                 self.yang_parent_name = "frequency-synchronization"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
+                                    ('exact_quality_level_value', YLeaf(YType.enumeration, 'exact-quality-level-value')),
+                                    ('min_quality_level_value', YLeaf(YType.enumeration, 'min-quality-level-value')),
+                                    ('max_quality_level_value', YLeaf(YType.enumeration, 'max-quality-level-value')),
+                                ])
+                                self.quality_level_option = None
+                                self.exact_quality_level_value = None
+                                self.min_quality_level_value = None
+                                self.max_quality_level_value = None
                                 self._segment_path = lambda: "output-quality-level"
 
                             def __setattr__(self, name, value):
@@ -452,20 +482,413 @@ class ActiveNodes(Entity):
                                 self.yang_parent_name = "frequency-synchronization"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
+                                    ('exact_quality_level_value', YLeaf(YType.enumeration, 'exact-quality-level-value')),
+                                    ('min_quality_level_value', YLeaf(YType.enumeration, 'min-quality-level-value')),
+                                    ('max_quality_level_value', YLeaf(YType.enumeration, 'max-quality-level-value')),
+                                ])
+                                self.quality_level_option = None
+                                self.exact_quality_level_value = None
+                                self.min_quality_level_value = None
+                                self.max_quality_level_value = None
                                 self._segment_path = lambda: "input-quality-level"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+                    class SyncController(Entity):
+                        """
+                        sync\-controller value
+                        
+                        .. attribute:: transport_mode
+                        
+                        	Transport mode
+                        	**type**\:  :py:class:`TransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'syncc-controller-cfg'
+                        _revision = '2017-06-22'
+
+                        def __init__(self):
+                            super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController, self).__init__()
+
+                            self.yang_name = "sync-controller"
+                            self.yang_parent_name = "clock"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("transport-mode", ("transport_mode", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+
+                            self.transport_mode = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode()
+                            self.transport_mode.parent = self
+                            self._children_name_map["transport_mode"] = "transport-mode"
+                            self._children_yang_names.add("transport-mode")
+                            self._segment_path = lambda: "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+
+
+                        class TransportMode(Entity):
+                            """
+                            Transport mode
+                            
+                            .. attribute:: frequency_mode
+                            
+                            	Frequency Mode
+                            	**type**\:  :py:class:`FrequencyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'syncc-controller-cfg'
+                            _revision = '2017-06-22'
+
+                            def __init__(self):
+                                super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode, self).__init__()
+
+                                self.yang_name = "transport-mode"
+                                self.yang_parent_name = "sync-controller"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("frequency-mode", ("frequency_mode", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+
+                                self.frequency_mode = ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode()
+                                self.frequency_mode.parent = self
+                                self._children_name_map["frequency_mode"] = "frequency-mode"
+                                self._children_yang_names.add("frequency-mode")
+                                self._segment_path = lambda: "transport-mode"
+
+
+                            class FrequencyMode(Entity):
+                                """
+                                Frequency Mode
+                                
+                                .. attribute:: port_mode
+                                
+                                	clock\-interface sync <value> location <value> port\-parameters bits\-input 2m \-> Option1=0, Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input 2m \-> Option1=0, Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input 64k\-input\-only \-> Option1=0, Option2=3, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa4 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa4 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=0 , Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa5 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa5 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa6 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa6 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa7 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa7 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa8 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa8 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 non\-crc\-4 ami \-> Option1=0, Option2=1, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 non\-crc\-4 hdb3 \-> Option1=0, Option2=1, Option3=0, Option4=1 , Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 d4 ami \-> Option1=0, Option2=0, Option3=1, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 d4 b8zs \-> Option1=0, Option2=0 , Option3=1, Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 esf ami \-> Option1=0, Option2=0, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 esf b8zs \-> Option1=0, Option2=0, Option3=0, Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output 2m \-> Option1=1 , Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output 6m\-output\-only \-> Option1=1 , Option2=4, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa4 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa4 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa5 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa5 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa6 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa6 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa7 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa7 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa8 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa8 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 non\-crc\-4 ami \-> Option1=1 , Option2=1, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 non\-crc\-4 hdb3 \-> Option1=1 , Option2=1, Option3=0 , Option4=1, Option5=0clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 0 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 1 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 2 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 3 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 4 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 0 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 1 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 2 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 3 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 4 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 0 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 1 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 2 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 3 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 4 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 0 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 1 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 2 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 3 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 4 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters port\-parameters uti \-> Option1=2 , Option2=0, Option3=0 , Option4=0, Option5=0 
+                                	**type**\:  :py:class:`PortMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode>`
+                                
+                                	**presence node**\: True
+                                
+                                .. attribute:: shutdown
+                                
+                                	Disable the SyncE Port
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'syncc-controller-cfg'
+                                _revision = '2017-06-22'
+
+                                def __init__(self):
+                                    super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode, self).__init__()
+
+                                    self.yang_name = "frequency-mode"
+                                    self.yang_parent_name = "transport-mode"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("port-mode", ("port_mode", ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                                    ])
+                                    self.shutdown = None
+
+                                    self.port_mode = None
+                                    self._children_name_map["port_mode"] = "port-mode"
+                                    self._children_yang_names.add("port-mode")
+                                    self._segment_path = lambda: "frequency-mode"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode, ['shutdown'], name, value)
+
+
+                                class PortMode(Entity):
+                                    """
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 2m \-> Option1=0,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 2m \-> Option1=0,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 64k\-input\-only \->
+                                    Option1=0, Option2=3, Option3=0, Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa4 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa4 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=0
+                                    , Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa5 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa5 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa6 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa6 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa7 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa7 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa8 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa8 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 non\-crc\-4 ami \-> Option1=0, Option2=1,
+                                    Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 non\-crc\-4 hdb3
+                                    \-> Option1=0, Option2=1, Option3=0, Option4=1
+                                    , Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    t1 d4 ami \-> Option1=0, Option2=0, Option3=1,
+                                    Option4=0, Option5=0 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-input t1 d4 b8zs \-> Option1=0, Option2=0
+                                    , Option3=1, Option4=1, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input t1 esf ami \->
+                                    Option1=0, Option2=0, Option3=0, Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    t1 esf b8zs \-> Option1=0, Option2=0,
+                                    Option3=0, Option4=1, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output 2m \-> Option1=1 ,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output 6m\-output\-only \->
+                                    Option1=1 , Option2=4, Option3=0 , Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    e1 crc\-4 sa4 ami \-> Option1=1 , Option2=1,
+                                    Option3=1 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa4 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=0 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa5 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa5 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=1 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa6 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa6 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=2 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa7 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa7 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=3 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa8 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa8 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=4 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 non\-crc\-4 ami \-> Option1=1 ,
+                                    Option2=1, Option3=0 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 non\-crc\-4 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=0 ,
+                                    Option4=1, Option5=0clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output t1 d4 ami 0 \-> Option1=1 ,
+                                    Option2=0, Option3=1 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 ami 1 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=0,
+                                    Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 ami 2 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 ami 3 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=0,
+                                    Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 ami 4 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 0 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 b8zs 1 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=1, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 2 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 b8zs 3 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=1, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 4 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 0 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf ami 1 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=0,
+                                    Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 2 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf ami 3 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=0,
+                                    Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 4 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 0 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf b8zs 1 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=1, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 2 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf b8zs 3 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=1, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 4 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters
+                                    port\-parameters uti \-> Option1=2 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=0 
+                                    
+                                    .. attribute:: option1
+                                    
+                                    	Option value #1
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..2
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option2
+                                    
+                                    	Option value #2
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option3
+                                    
+                                    	Option value #3
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option4
+                                    
+                                    	Option value #4
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option5
+                                    
+                                    	Option value #5
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'syncc-controller-cfg'
+                                    _revision = '2017-06-22'
+
+                                    def __init__(self):
+                                        super(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, self).__init__()
+
+                                        self.yang_name = "port-mode"
+                                        self.yang_parent_name = "frequency-mode"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self.is_presence_container = True
+                                        self._leafs = OrderedDict([
+                                            ('option1', YLeaf(YType.uint32, 'option1')),
+                                            ('option2', YLeaf(YType.uint32, 'option2')),
+                                            ('option3', YLeaf(YType.uint32, 'option3')),
+                                            ('option4', YLeaf(YType.uint32, 'option4')),
+                                            ('option5', YLeaf(YType.uint32, 'option5')),
+                                        ])
+                                        self.option1 = None
+                                        self.option2 = None
+                                        self.option3 = None
+                                        self.option4 = None
+                                        self.option5 = None
+                                        self._segment_path = lambda: "port-mode"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, ['option1', 'option2', 'option3', 'option4', 'option5'], name, value)
 
 
         class Ltrace(Entity):
@@ -491,8 +914,10 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"allocation-params" : ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("allocation-params", ("allocation_params", ActiveNodes.ActiveNode.Ltrace.AllocationParams))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
                 self.allocation_params.parent = self
@@ -529,12 +954,15 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "ltrace"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
-
-                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mode', YLeaf(YType.enumeration, 'mode')),
+                        ('scale_factor', YLeaf(YType.enumeration, 'scale-factor')),
+                    ])
+                    self.mode = None
+                    self.scale_factor = None
                     self._segment_path = lambda: "allocation-params"
 
                 def __setattr__(self, name, value):
@@ -576,8 +1004,10 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"ipolicer-local-tables" : ("ipolicer_local_tables", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables), "dynamic-flows-tables" : ("dynamic_flows_tables", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ipolicer-local-tables", ("ipolicer_local_tables", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables)), ("dynamic-flows-tables", ("dynamic_flows_tables", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables)), ("ipolicer-local", ("ipolicer_local", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.ipolicer_local_tables = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
@@ -619,8 +1049,10 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ipolicer-local-table", ("ipolicer_local_table", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable))])
+                    self._leafs = OrderedDict()
 
                     self.ipolicer_local_table = YList(self)
                     self._segment_path = lambda: "ipolicer-local-tables"
@@ -634,17 +1066,17 @@ class ActiveNodes(Entity):
                     Pre IFIB (Internal Forwarding Information
                     Base) configuration table
                     
-                    .. attribute:: id1  <key>
+                    .. attribute:: id1  (key)
                     
                     	none
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: nps
+                    .. attribute:: np_flows
                     
                     	NP name
-                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:  :py:class:`NpFlows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows>`
                     
                     
 
@@ -660,29 +1092,32 @@ class ActiveNodes(Entity):
                         self.yang_parent_name = "ipolicer-local-tables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"nps" : ("nps", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['id1']
+                        self._child_container_classes = OrderedDict([("np-flows", ("np_flows", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id1', YLeaf(YType.str, 'id1')),
+                        ])
+                        self.id1 = None
 
-                        self.id1 = YLeaf(YType.str, "id1")
-
-                        self.nps = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
-                        self.nps.parent = self
-                        self._children_name_map["nps"] = "nps"
-                        self._children_yang_names.add("nps")
-                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
+                        self.np_flows = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows()
+                        self.np_flows.parent = self
+                        self._children_name_map["np_flows"] = "np-flows"
+                        self._children_yang_names.add("np-flows")
+                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + str(self.id1) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
 
 
-                    class Nps(Entity):
+                    class NpFlows(Entity):
                         """
                         NP name
                         
-                        .. attribute:: np
+                        .. attribute:: np_flow
                         
-                        	Table of NP names
-                        	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	Table of NP Flow names
+                        	**type**\: list of  		 :py:class:`NpFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow>`
                         
                         
 
@@ -692,41 +1127,39 @@ class ActiveNodes(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
+                            super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows, self).__init__()
 
-                            self.yang_name = "nps"
+                            self.yang_name = "np-flows"
                             self.yang_parent_name = "ipolicer-local-table"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np" : ("np", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("np-flow", ("np_flow", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow))])
+                            self._leafs = OrderedDict()
 
-                            self.np = YList(self)
-                            self._segment_path = lambda: "nps"
+                            self.np_flow = YList(self)
+                            self._segment_path = lambda: "np-flows"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
+                            self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows, [], name, value)
 
 
-                        class Np(Entity):
+                        class NpFlow(Entity):
                             """
-                            Table of NP names
+                            Table of NP Flow names
                             
-                            .. attribute:: id1  <key>
+                            .. attribute:: flow_type  (key)
                             
-                            	none
+                            	LPTS Flow Type
+                            	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                            
+                            .. attribute:: np_rate
+                            
+                            	Configured rate value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: rate
-                            
-                            	Packets per second
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**units**\: packet/s
+                            	**range:** 0..4294967295
                             
                             
 
@@ -736,22 +1169,25 @@ class ActiveNodes(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
+                                super(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, self).__init__()
 
-                                self.yang_name = "np"
-                                self.yang_parent_name = "nps"
+                                self.yang_name = "np-flow"
+                                self.yang_parent_name = "np-flows"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.id1 = YLeaf(YType.int32, "id1")
-
-                                self.rate = YLeaf(YType.int32, "rate")
-                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
+                                self.ylist_key_names = ['flow_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                    ('np_rate', YLeaf(YType.uint32, 'np-rate')),
+                                ])
+                                self.flow_type = None
+                                self.np_rate = None
+                                self._segment_path = lambda: "np-flow" + "[flow-type='" + str(self.flow_type) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
+                                self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, ['flow_type', 'np_rate'], name, value)
 
 
             class DynamicFlowsTables(Entity):
@@ -778,8 +1214,10 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"dynamic-flows-table" : ("dynamic_flows_table", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("dynamic-flows-table", ("dynamic_flows_table", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable))])
+                    self._leafs = OrderedDict()
 
                     self.dynamic_flows_table = YList(self)
                     self._segment_path = lambda: "dynamic-flows-tables"
@@ -792,7 +1230,7 @@ class ActiveNodes(Entity):
                     """
                     Table for Dynamic Flows
                     
-                    .. attribute:: table_type  <key>
+                    .. attribute:: table_type  (key)
                     
                     	LPTS Dynamic Flows Table Type
                     	**type**\:  :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
@@ -816,13 +1254,16 @@ class ActiveNodes(Entity):
                         self.yang_parent_name = "dynamic-flows-tables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"flow-type" : ("flow_type", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType)}
-
-                        self.table_type = YLeaf(YType.enumeration, "table-type")
+                        self.ylist_key_names = ['table_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("flow-type", ("flow_type", ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType))])
+                        self._leafs = OrderedDict([
+                            ('table_type', YLeaf(YType.enumeration, 'table-type')),
+                        ])
+                        self.table_type = None
 
                         self.flow_type = YList(self)
-                        self._segment_path = lambda: "dynamic-flows-table" + "[table-type='" + self.table_type.get() + "']"
+                        self._segment_path = lambda: "dynamic-flows-table" + "[table-type='" + str(self.table_type) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable, ['table_type'], name, value)
@@ -832,7 +1273,7 @@ class ActiveNodes(Entity):
                         """
                         Selected flow type
                         
-                        .. attribute:: flow_type  <key>
+                        .. attribute:: flow_type  (key)
                         
                         	LPTS Flow Type
                         	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
@@ -858,13 +1299,16 @@ class ActiveNodes(Entity):
                             self.yang_parent_name = "dynamic-flows-table"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.flow_type = YLeaf(YType.enumeration, "flow-type")
-
-                            self.max = YLeaf(YType.int32, "max")
-                            self._segment_path = lambda: "flow-type" + "[flow-type='" + self.flow_type.get() + "']"
+                            self.ylist_key_names = ['flow_type']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                ('max', YLeaf(YType.int32, 'max')),
+                            ])
+                            self.flow_type = None
+                            self.max = None
+                            self._segment_path = lambda: "flow-type" + "[flow-type='" + str(self.flow_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType, ['flow_type', 'max'], name, value)
@@ -903,11 +1347,14 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"flows" : ("flows", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("flows", ("flows", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows))])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.enable = None
 
                     self.flows = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows()
                     self.flows.parent = self
@@ -942,8 +1389,10 @@ class ActiveNodes(Entity):
                         self.yang_parent_name = "ipolicer-local"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"flow" : ("flow", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("flow", ("flow", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow))])
+                        self._leafs = OrderedDict()
 
                         self.flow = YList(self)
                         self._segment_path = lambda: "flows"
@@ -956,7 +1405,7 @@ class ActiveNodes(Entity):
                         """
                         selected flow type
                         
-                        .. attribute:: flow_type  <key>
+                        .. attribute:: flow_type  (key)
                         
                         	LPTS Flow Type
                         	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
@@ -971,7 +1420,7 @@ class ActiveNodes(Entity):
                         	Configured rate value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         
 
@@ -987,18 +1436,21 @@ class ActiveNodes(Entity):
                             self.yang_parent_name = "flows"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"precedences" : ("precedences", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences)}
-                            self._child_list_classes = {}
-
-                            self.flow_type = YLeaf(YType.enumeration, "flow-type")
-
-                            self.rate = YLeaf(YType.int32, "rate")
+                            self.ylist_key_names = ['flow_type']
+                            self._child_container_classes = OrderedDict([("precedences", ("precedences", ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                ('rate', YLeaf(YType.uint32, 'rate')),
+                            ])
+                            self.flow_type = None
+                            self.rate = None
 
                             self.precedences = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
                             self.precedences.parent = self
                             self._children_name_map["precedences"] = "precedences"
                             self._children_yang_names.add("precedences")
-                            self._segment_path = lambda: "flow" + "[flow-type='" + self.flow_type.get() + "']"
+                            self._segment_path = lambda: "flow" + "[flow-type='" + str(self.flow_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow, ['flow_type', 'rate'], name, value)
@@ -1033,10 +1485,13 @@ class ActiveNodes(Entity):
                                 self.yang_parent_name = "flow"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.precedence = YLeafList(YType.str, "precedence")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('precedence', YLeafList(YType.str, 'precedence')),
+                                ])
+                                self.precedence = []
                                 self._segment_path = lambda: "precedences"
 
                             def __setattr__(self, name, value):
@@ -1066,8 +1521,10 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"groups" : ("groups", ActiveNodes.ActiveNode.SsrpGroup.Groups)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("groups", ("groups", ActiveNodes.ActiveNode.SsrpGroup.Groups))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.groups = ActiveNodes.ActiveNode.SsrpGroup.Groups()
                 self.groups.parent = self
@@ -1099,8 +1556,10 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "ssrp-group"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"group" : ("group", ActiveNodes.ActiveNode.SsrpGroup.Groups.Group)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("group", ("group", ActiveNodes.ActiveNode.SsrpGroup.Groups.Group))])
+                    self._leafs = OrderedDict()
 
                     self.group = YList(self)
                     self._segment_path = lambda: "groups"
@@ -1113,7 +1572,7 @@ class ActiveNodes(Entity):
                     """
                     SSRP Group configuration
                     
-                    .. attribute:: group_id  <key>
+                    .. attribute:: group_id  (key)
                     
                     	The identifier for this group
                     	**type**\: int
@@ -1139,13 +1598,16 @@ class ActiveNodes(Entity):
                         self.yang_parent_name = "groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.group_id = YLeaf(YType.uint32, "group-id")
-
-                        self.profile = YLeaf(YType.str, "profile")
-                        self._segment_path = lambda: "group" + "[group-id='" + self.group_id.get() + "']"
+                        self.ylist_key_names = ['group_id']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('group_id', YLeaf(YType.uint32, 'group-id')),
+                            ('profile', YLeaf(YType.str, 'profile')),
+                        ])
+                        self.group_id = None
+                        self.profile = None
+                        self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.SsrpGroup.Groups.Group, ['group_id', 'profile'], name, value)
@@ -1154,6 +1616,11 @@ class ActiveNodes(Entity):
         class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
             """
             watchdog node threshold
+            
+            .. attribute:: disk_threshold
+            
+            	Disk thresholds
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold>`
             
             .. attribute:: memory_threshold
             
@@ -1174,14 +1641,77 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("disk-threshold", ("disk_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
+
+                self.disk_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold.parent = self
+                self._children_name_map["disk_threshold"] = "disk-threshold"
+                self._children_yang_names.add("disk-threshold")
 
                 self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
                 self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+
+
+            class DiskThreshold(Entity):
+                """
+                Disk thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, self).__init__()
+
+                    self.yang_name = "disk-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "disk-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
             class MemoryThreshold(Entity):
@@ -1223,14 +1753,17 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-
-                    self.critical = YLeaf(YType.uint32, "critical")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
                     self._segment_path = lambda: "memory-threshold"
 
                 def __setattr__(self, name, value):
@@ -1260,8 +1793,10 @@ class ActiveNodes(Entity):
                 self.yang_parent_name = "active-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
@@ -1309,14 +1844,17 @@ class ActiveNodes(Entity):
                     self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-
-                    self.critical = YLeaf(YType.uint32, "critical")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
                     self._segment_path = lambda: "memory-threshold"
 
                 def __setattr__(self, name, value):
@@ -1350,8 +1888,10 @@ class PreconfiguredNodes(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-config-mda-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"preconfigured-node" : ("preconfigured_node", PreconfiguredNodes.PreconfiguredNode)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("preconfigured-node", ("preconfigured_node", PreconfiguredNodes.PreconfiguredNode))])
+        self._leafs = OrderedDict()
 
         self.preconfigured_node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes"
@@ -1364,7 +1904,7 @@ class PreconfiguredNodes(Entity):
         """
         The configuration for a non\-active node
         
-        .. attribute:: node_name  <key>
+        .. attribute:: node_name  (key)
         
         	The identifier for this node
         	**type**\: str
@@ -1410,36 +1950,39 @@ class PreconfiguredNodes(Entity):
             self.yang_parent_name = "preconfigured-nodes"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"Cisco-IOS-XR-freqsync-cfg:clock-interface" : ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface), "Cisco-IOS-XR-infra-ltrace-cfg:ltrace" : ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace), "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local" : ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal), "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold), "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold" : ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold)}
-            self._child_list_classes = {}
-
-            self.node_name = YLeaf(YType.str, "node-name")
+            self.ylist_key_names = ['node_name']
+            self._child_container_classes = OrderedDict([("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("cisco_ios_xr_watchd_cfg_watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold)), ("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", ("cisco_ios_xr_wd_cfg_watchdog_node_threshold_", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('node_name', YLeaf(YType.str, 'node-name')),
+            ])
+            self.node_name = None
 
             self.clock_interface = PreconfiguredNodes.PreconfiguredNode.ClockInterface()
             self.clock_interface.parent = self
-            self._children_name_map["clock_interface"] = "clock-interface"
-            self._children_yang_names.add("clock-interface")
+            self._children_name_map["clock_interface"] = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
+            self._children_yang_names.add("Cisco-IOS-XR-freqsync-cfg:clock-interface")
 
             self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
             self.ltrace.parent = self
-            self._children_name_map["ltrace"] = "ltrace"
-            self._children_yang_names.add("ltrace")
+            self._children_name_map["ltrace"] = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+            self._children_yang_names.add("Cisco-IOS-XR-infra-ltrace-cfg:ltrace")
 
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
-            self._children_name_map["lpts_local"] = "lpts-local"
-            self._children_yang_names.add("lpts-local")
+            self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+            self._children_yang_names.add("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local")
 
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "watchdog-node-threshold"
-            self._children_yang_names.add("watchdog-node-threshold")
+            self._children_name_map["cisco_ios_xr_watchd_cfg_watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+            self._children_yang_names.add("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold")
 
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_ = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold_.parent = self
-            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "watchdog-node-threshold"
-            self._children_yang_names.add("watchdog-node-threshold")
-            self._segment_path = lambda: "preconfigured-node" + "[node-name='" + self.node_name.get() + "']"
+            self._children_name_map["cisco_ios_xr_wd_cfg_watchdog_node_threshold_"] = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+            self._children_yang_names.add("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold")
+            self._segment_path = lambda: "preconfigured-node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -1469,8 +2012,10 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"clocks" : ("clocks", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("clocks", ("clocks", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.clocks = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks()
                 self.clocks.parent = self
@@ -1502,8 +2047,10 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "clock-interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"clock" : ("clock", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("clock", ("clock", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock))])
+                    self._leafs = OrderedDict()
 
                     self.clock = YList(self)
                     self._segment_path = lambda: "clocks"
@@ -1516,12 +2063,12 @@ class PreconfiguredNodes(Entity):
                     """
                     Configuration for a clock interface
                     
-                    .. attribute:: clock_type  <key>
+                    .. attribute:: clock_type  (key)
                     
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
-                    .. attribute:: port  <key>
+                    .. attribute:: port  (key)
                     
                     	Clock port
                     	**type**\: int
@@ -1532,6 +2079,11 @@ class PreconfiguredNodes(Entity):
                     
                     	Frequency Synchronization clock configuraiton
                     	**type**\:  :py:class:`FrequencySynchronization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization>`
+                    
+                    .. attribute:: sync_controller
+                    
+                    	sync\-controller value
+                    	**type**\:  :py:class:`SyncController <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController>`
                     
                     
 
@@ -1547,18 +2099,26 @@ class PreconfiguredNodes(Entity):
                         self.yang_parent_name = "clocks"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"frequency-synchronization" : ("frequency_synchronization", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization)}
-                        self._child_list_classes = {}
-
-                        self.clock_type = YLeaf(YType.enumeration, "clock-type")
-
-                        self.port = YLeaf(YType.int32, "port")
+                        self.ylist_key_names = ['clock_type','port']
+                        self._child_container_classes = OrderedDict([("frequency-synchronization", ("frequency_synchronization", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization)), ("Cisco-IOS-XR-syncc-controller-cfg:sync-controller", ("sync_controller", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('clock_type', YLeaf(YType.enumeration, 'clock-type')),
+                            ('port', YLeaf(YType.int32, 'port')),
+                        ])
+                        self.clock_type = None
+                        self.port = None
 
                         self.frequency_synchronization = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization()
                         self.frequency_synchronization.parent = self
                         self._children_name_map["frequency_synchronization"] = "frequency-synchronization"
                         self._children_yang_names.add("frequency-synchronization")
-                        self._segment_path = lambda: "clock" + "[clock-type='" + self.clock_type.get() + "']" + "[port='" + self.port.get() + "']"
+
+                        self.sync_controller = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController()
+                        self.sync_controller.parent = self
+                        self._children_name_map["sync_controller"] = "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+                        self._children_yang_names.add("Cisco-IOS-XR-syncc-controller-cfg:sync-controller")
+                        self._segment_path = lambda: "clock" + "[clock-type='" + str(self.clock_type) + "']" + "[port='" + str(self.port) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock, ['clock_type', 'port'], name, value)
@@ -1629,18 +2189,21 @@ class PreconfiguredNodes(Entity):
                             self.yang_parent_name = "clock"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"output-quality-level" : ("output_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel), "input-quality-level" : ("input_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel)}
-                            self._child_list_classes = {}
-
-                            self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
-
-                            self.priority = YLeaf(YType.uint32, "priority")
-
-                            self.selection_input = YLeaf(YType.empty, "selection-input")
-
-                            self.time_of_day_priority = YLeaf(YType.uint32, "time-of-day-priority")
-
-                            self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("output-quality-level", ("output_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel)), ("input-quality-level", ("input_quality_level", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('wait_to_restore_time', YLeaf(YType.uint32, 'wait-to-restore-time')),
+                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('selection_input', YLeaf(YType.empty, 'selection-input')),
+                                ('time_of_day_priority', YLeaf(YType.uint32, 'time-of-day-priority')),
+                                ('ssm_disable', YLeaf(YType.empty, 'ssm-disable')),
+                            ])
+                            self.wait_to_restore_time = None
+                            self.priority = None
+                            self.selection_input = None
+                            self.time_of_day_priority = None
+                            self.ssm_disable = None
 
                             self.output_quality_level = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel()
                             self.output_quality_level.parent = self
@@ -1695,16 +2258,19 @@ class PreconfiguredNodes(Entity):
                                 self.yang_parent_name = "frequency-synchronization"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
+                                    ('exact_quality_level_value', YLeaf(YType.enumeration, 'exact-quality-level-value')),
+                                    ('min_quality_level_value', YLeaf(YType.enumeration, 'min-quality-level-value')),
+                                    ('max_quality_level_value', YLeaf(YType.enumeration, 'max-quality-level-value')),
+                                ])
+                                self.quality_level_option = None
+                                self.exact_quality_level_value = None
+                                self.min_quality_level_value = None
+                                self.max_quality_level_value = None
                                 self._segment_path = lambda: "output-quality-level"
 
                             def __setattr__(self, name, value):
@@ -1749,20 +2315,413 @@ class PreconfiguredNodes(Entity):
                                 self.yang_parent_name = "frequency-synchronization"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
-                                self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
-
-                                self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
-
-                                self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
+                                    ('exact_quality_level_value', YLeaf(YType.enumeration, 'exact-quality-level-value')),
+                                    ('min_quality_level_value', YLeaf(YType.enumeration, 'min-quality-level-value')),
+                                    ('max_quality_level_value', YLeaf(YType.enumeration, 'max-quality-level-value')),
+                                ])
+                                self.quality_level_option = None
+                                self.exact_quality_level_value = None
+                                self.min_quality_level_value = None
+                                self.max_quality_level_value = None
                                 self._segment_path = lambda: "input-quality-level"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
+                    class SyncController(Entity):
+                        """
+                        sync\-controller value
+                        
+                        .. attribute:: transport_mode
+                        
+                        	Transport mode
+                        	**type**\:  :py:class:`TransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'syncc-controller-cfg'
+                        _revision = '2017-06-22'
+
+                        def __init__(self):
+                            super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController, self).__init__()
+
+                            self.yang_name = "sync-controller"
+                            self.yang_parent_name = "clock"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("transport-mode", ("transport_mode", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
+
+                            self.transport_mode = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode()
+                            self.transport_mode.parent = self
+                            self._children_name_map["transport_mode"] = "transport-mode"
+                            self._children_yang_names.add("transport-mode")
+                            self._segment_path = lambda: "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+
+
+                        class TransportMode(Entity):
+                            """
+                            Transport mode
+                            
+                            .. attribute:: frequency_mode
+                            
+                            	Frequency Mode
+                            	**type**\:  :py:class:`FrequencyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'syncc-controller-cfg'
+                            _revision = '2017-06-22'
+
+                            def __init__(self):
+                                super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode, self).__init__()
+
+                                self.yang_name = "transport-mode"
+                                self.yang_parent_name = "sync-controller"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("frequency-mode", ("frequency_mode", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+
+                                self.frequency_mode = PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode()
+                                self.frequency_mode.parent = self
+                                self._children_name_map["frequency_mode"] = "frequency-mode"
+                                self._children_yang_names.add("frequency-mode")
+                                self._segment_path = lambda: "transport-mode"
+
+
+                            class FrequencyMode(Entity):
+                                """
+                                Frequency Mode
+                                
+                                .. attribute:: port_mode
+                                
+                                	clock\-interface sync <value> location <value> port\-parameters bits\-input 2m \-> Option1=0, Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input 2m \-> Option1=0, Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input 64k\-input\-only \-> Option1=0, Option2=3, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa4 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa4 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=0 , Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa5 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa5 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa6 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa6 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa7 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa7 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa8 ami \-> Option1=0, Option2=1, Option3=1, Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 crc\-4 sa8 hdb3 \-> Option1=0, Option2=1, Option3=1, Option4=1 , Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 non\-crc\-4 ami \-> Option1=0, Option2=1, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input e1 non\-crc\-4 hdb3 \-> Option1=0, Option2=1, Option3=0, Option4=1 , Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 d4 ami \-> Option1=0, Option2=0, Option3=1, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 d4 b8zs \-> Option1=0, Option2=0 , Option3=1, Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 esf ami \-> Option1=0, Option2=0, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-input t1 esf b8zs \-> Option1=0, Option2=0, Option3=0, Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output 2m \-> Option1=1 , Option2=2, Option3=0, Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output 6m\-output\-only \-> Option1=1 , Option2=4, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa4 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa4 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa5 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa5 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa6 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa6 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa7 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa7 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa8 ami \-> Option1=1 , Option2=1, Option3=1 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 crc\-4 sa8 hdb3 \-> Option1=1 , Option2=1, Option3=1 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 non\-crc\-4 ami \-> Option1=1 , Option2=1, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output e1 non\-crc\-4 hdb3 \-> Option1=1 , Option2=1, Option3=0 , Option4=1, Option5=0clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 0 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 1 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 2 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 3 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 ami 4 \-> Option1=1 , Option2=0, Option3=1 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 0 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 1 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 2 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 3 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 d4 b8zs 4 \-> Option1=1 , Option2=0, Option3=1 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 0 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 1 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 2 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 3 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf ami 4 \-> Option1=1 , Option2=0, Option3=0 , Option4=0, Option5=4 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 0 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=0 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 1 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=1 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 2 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=2 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 3 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=3 clock\-interface sync <value> location <value> port\-parameters bits\-output t1 esf b8zs 4 \-> Option1=1 , Option2=0, Option3=0 , Option4=1, Option5=4 clock\-interface sync <value> location <value> port\-parameters port\-parameters uti \-> Option1=2 , Option2=0, Option3=0 , Option4=0, Option5=0 
+                                	**type**\:  :py:class:`PortMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode>`
+                                
+                                	**presence node**\: True
+                                
+                                .. attribute:: shutdown
+                                
+                                	Disable the SyncE Port
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'syncc-controller-cfg'
+                                _revision = '2017-06-22'
+
+                                def __init__(self):
+                                    super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode, self).__init__()
+
+                                    self.yang_name = "frequency-mode"
+                                    self.yang_parent_name = "transport-mode"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("port-mode", ("port_mode", PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
+                                    ])
+                                    self.shutdown = None
+
+                                    self.port_mode = None
+                                    self._children_name_map["port_mode"] = "port-mode"
+                                    self._children_yang_names.add("port-mode")
+                                    self._segment_path = lambda: "frequency-mode"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode, ['shutdown'], name, value)
+
+
+                                class PortMode(Entity):
+                                    """
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 2m \-> Option1=0,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 2m \-> Option1=0,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input 64k\-input\-only \->
+                                    Option1=0, Option2=3, Option3=0, Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa4 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa4 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=0
+                                    , Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa5 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa5 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa6 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa6 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa7 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa7 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 crc\-4 sa8 ami \-> Option1=0, Option2=1,
+                                    Option3=1, Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 crc\-4 sa8 hdb3
+                                    \-> Option1=0, Option2=1, Option3=1, Option4=1
+                                    , Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    e1 non\-crc\-4 ami \-> Option1=0, Option2=1,
+                                    Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input e1 non\-crc\-4 hdb3
+                                    \-> Option1=0, Option2=1, Option3=0, Option4=1
+                                    , Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    t1 d4 ami \-> Option1=0, Option2=0, Option3=1,
+                                    Option4=0, Option5=0 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-input t1 d4 b8zs \-> Option1=0, Option2=0
+                                    , Option3=1, Option4=1, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-input t1 esf ami \->
+                                    Option1=0, Option2=0, Option3=0, Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-input
+                                    t1 esf b8zs \-> Option1=0, Option2=0,
+                                    Option3=0, Option4=1, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output 2m \-> Option1=1 ,
+                                    Option2=2, Option3=0, Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output 6m\-output\-only \->
+                                    Option1=1 , Option2=4, Option3=0 , Option4=0,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    e1 crc\-4 sa4 ami \-> Option1=1 , Option2=1,
+                                    Option3=1 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa4 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=0 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa5 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa5 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=1 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa6 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa6 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=2 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa7 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa7 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=3 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 crc\-4 sa8 ami \-> Option1=1 ,
+                                    Option2=1, Option3=1 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 crc\-4 sa8 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=1 ,
+                                    Option4=1, Option5=4 clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output e1 non\-crc\-4 ami \-> Option1=1 ,
+                                    Option2=1, Option3=0 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output e1 non\-crc\-4 hdb3
+                                    \-> Option1=1 , Option2=1, Option3=0 ,
+                                    Option4=1, Option5=0clock\-interface sync
+                                    <value> location <value> port\-parameters
+                                    bits\-output t1 d4 ami 0 \-> Option1=1 ,
+                                    Option2=0, Option3=1 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 ami 1 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=0,
+                                    Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 ami 2 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 ami 3 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=0,
+                                    Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 ami 4 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 0 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 b8zs 1 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=1, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 2 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 d4 b8zs 3 \-> Option1=1 , Option2=0,
+                                    Option3=1 , Option4=1, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 d4 b8zs 4 \->
+                                    Option1=1 , Option2=0, Option3=1 , Option4=1,
+                                    Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 0 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=0
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf ami 1 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=0,
+                                    Option5=1 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 2 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=2
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf ami 3 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=0,
+                                    Option5=3 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf ami 4 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=4
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 0 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=0 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf b8zs 1 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=1, Option5=1
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 2 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=2 clock\-interface sync <value>
+                                    location <value> port\-parameters bits\-output
+                                    t1 esf b8zs 3 \-> Option1=1 , Option2=0,
+                                    Option3=0 , Option4=1, Option5=3
+                                    clock\-interface sync <value> location <value>
+                                    port\-parameters bits\-output t1 esf b8zs 4 \->
+                                    Option1=1 , Option2=0, Option3=0 , Option4=1,
+                                    Option5=4 clock\-interface sync <value>
+                                    location <value> port\-parameters
+                                    port\-parameters uti \-> Option1=2 , Option2=0,
+                                    Option3=0 , Option4=0, Option5=0 
+                                    
+                                    .. attribute:: option1
+                                    
+                                    	Option value #1
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..2
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option2
+                                    
+                                    	Option value #2
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option3
+                                    
+                                    	Option value #3
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option4
+                                    
+                                    	Option value #4
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..1
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: option5
+                                    
+                                    	Option value #5
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'syncc-controller-cfg'
+                                    _revision = '2017-06-22'
+
+                                    def __init__(self):
+                                        super(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, self).__init__()
+
+                                        self.yang_name = "port-mode"
+                                        self.yang_parent_name = "frequency-mode"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self.is_presence_container = True
+                                        self._leafs = OrderedDict([
+                                            ('option1', YLeaf(YType.uint32, 'option1')),
+                                            ('option2', YLeaf(YType.uint32, 'option2')),
+                                            ('option3', YLeaf(YType.uint32, 'option3')),
+                                            ('option4', YLeaf(YType.uint32, 'option4')),
+                                            ('option5', YLeaf(YType.uint32, 'option5')),
+                                        ])
+                                        self.option1 = None
+                                        self.option2 = None
+                                        self.option3 = None
+                                        self.option4 = None
+                                        self.option5 = None
+                                        self._segment_path = lambda: "port-mode"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, ['option1', 'option2', 'option3', 'option4', 'option5'], name, value)
 
 
         class Ltrace(Entity):
@@ -1788,8 +2747,10 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"allocation-params" : ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("allocation-params", ("allocation_params", PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
                 self.allocation_params.parent = self
@@ -1826,12 +2787,15 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "ltrace"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.mode = YLeaf(YType.enumeration, "mode")
-
-                    self.scale_factor = YLeaf(YType.enumeration, "scale-factor")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('mode', YLeaf(YType.enumeration, 'mode')),
+                        ('scale_factor', YLeaf(YType.enumeration, 'scale-factor')),
+                    ])
+                    self.mode = None
+                    self.scale_factor = None
                     self._segment_path = lambda: "allocation-params"
 
                 def __setattr__(self, name, value):
@@ -1873,8 +2837,10 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"ipolicer-local-tables" : ("ipolicer_local_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables), "dynamic-flows-tables" : ("dynamic_flows_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables), "ipolicer-local" : ("ipolicer_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("ipolicer-local-tables", ("ipolicer_local_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables)), ("dynamic-flows-tables", ("dynamic_flows_tables", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables)), ("ipolicer-local", ("ipolicer_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.ipolicer_local_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
@@ -1916,8 +2882,10 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ipolicer-local-table" : ("ipolicer_local_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ipolicer-local-table", ("ipolicer_local_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable))])
+                    self._leafs = OrderedDict()
 
                     self.ipolicer_local_table = YList(self)
                     self._segment_path = lambda: "ipolicer-local-tables"
@@ -1931,17 +2899,17 @@ class PreconfiguredNodes(Entity):
                     Pre IFIB (Internal Forwarding Information
                     Base) configuration table
                     
-                    .. attribute:: id1  <key>
+                    .. attribute:: id1  (key)
                     
                     	none
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: nps
+                    .. attribute:: np_flows
                     
                     	NP name
-                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:  :py:class:`NpFlows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows>`
                     
                     
 
@@ -1957,29 +2925,32 @@ class PreconfiguredNodes(Entity):
                         self.yang_parent_name = "ipolicer-local-tables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"nps" : ("nps", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = ['id1']
+                        self._child_container_classes = OrderedDict([("np-flows", ("np_flows", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id1', YLeaf(YType.str, 'id1')),
+                        ])
+                        self.id1 = None
 
-                        self.id1 = YLeaf(YType.str, "id1")
-
-                        self.nps = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps()
-                        self.nps.parent = self
-                        self._children_name_map["nps"] = "nps"
-                        self._children_yang_names.add("nps")
-                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + self.id1.get() + "']"
+                        self.np_flows = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows()
+                        self.np_flows.parent = self
+                        self._children_name_map["np_flows"] = "np-flows"
+                        self._children_yang_names.add("np-flows")
+                        self._segment_path = lambda: "ipolicer-local-table" + "[id1='" + str(self.id1) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable, ['id1'], name, value)
 
 
-                    class Nps(Entity):
+                    class NpFlows(Entity):
                         """
                         NP name
                         
-                        .. attribute:: np
+                        .. attribute:: np_flow
                         
-                        	Table of NP names
-                        	**type**\: list of  		 :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	Table of NP Flow names
+                        	**type**\: list of  		 :py:class:`NpFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow>`
                         
                         
 
@@ -1989,41 +2960,39 @@ class PreconfiguredNodes(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, self).__init__()
+                            super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows, self).__init__()
 
-                            self.yang_name = "nps"
+                            self.yang_name = "np-flows"
                             self.yang_parent_name = "ipolicer-local-table"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"np" : ("np", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("np-flow", ("np_flow", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow))])
+                            self._leafs = OrderedDict()
 
-                            self.np = YList(self)
-                            self._segment_path = lambda: "nps"
+                            self.np_flow = YList(self)
+                            self._segment_path = lambda: "np-flows"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps, [], name, value)
+                            self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows, [], name, value)
 
 
-                        class Np(Entity):
+                        class NpFlow(Entity):
                             """
-                            Table of NP names
+                            Table of NP Flow names
                             
-                            .. attribute:: id1  <key>
+                            .. attribute:: flow_type  (key)
                             
-                            	none
+                            	LPTS Flow Type
+                            	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
+                            
+                            .. attribute:: np_rate
+                            
+                            	Configured rate value
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: rate
-                            
-                            	Packets per second
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            	**units**\: packet/s
+                            	**range:** 0..4294967295
                             
                             
 
@@ -2033,22 +3002,25 @@ class PreconfiguredNodes(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, self).__init__()
+                                super(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, self).__init__()
 
-                                self.yang_name = "np"
-                                self.yang_parent_name = "nps"
+                                self.yang_name = "np-flow"
+                                self.yang_parent_name = "np-flows"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.id1 = YLeaf(YType.int32, "id1")
-
-                                self.rate = YLeaf(YType.int32, "rate")
-                                self._segment_path = lambda: "np" + "[id1='" + self.id1.get() + "']"
+                                self.ylist_key_names = ['flow_type']
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                    ('np_rate', YLeaf(YType.uint32, 'np-rate')),
+                                ])
+                                self.flow_type = None
+                                self.np_rate = None
+                                self._segment_path = lambda: "np-flow" + "[flow-type='" + str(self.flow_type) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np, ['id1', 'rate'], name, value)
+                                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, ['flow_type', 'np_rate'], name, value)
 
 
             class DynamicFlowsTables(Entity):
@@ -2075,8 +3047,10 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"dynamic-flows-table" : ("dynamic_flows_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("dynamic-flows-table", ("dynamic_flows_table", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable))])
+                    self._leafs = OrderedDict()
 
                     self.dynamic_flows_table = YList(self)
                     self._segment_path = lambda: "dynamic-flows-tables"
@@ -2089,7 +3063,7 @@ class PreconfiguredNodes(Entity):
                     """
                     Table for Dynamic Flows
                     
-                    .. attribute:: table_type  <key>
+                    .. attribute:: table_type  (key)
                     
                     	LPTS Dynamic Flows Table Type
                     	**type**\:  :py:class:`LptsDynamicFlowConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsDynamicFlowConfig>`
@@ -2113,13 +3087,16 @@ class PreconfiguredNodes(Entity):
                         self.yang_parent_name = "dynamic-flows-tables"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"flow-type" : ("flow_type", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType)}
-
-                        self.table_type = YLeaf(YType.enumeration, "table-type")
+                        self.ylist_key_names = ['table_type']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("flow-type", ("flow_type", PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType))])
+                        self._leafs = OrderedDict([
+                            ('table_type', YLeaf(YType.enumeration, 'table-type')),
+                        ])
+                        self.table_type = None
 
                         self.flow_type = YList(self)
-                        self._segment_path = lambda: "dynamic-flows-table" + "[table-type='" + self.table_type.get() + "']"
+                        self._segment_path = lambda: "dynamic-flows-table" + "[table-type='" + str(self.table_type) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable, ['table_type'], name, value)
@@ -2129,7 +3106,7 @@ class PreconfiguredNodes(Entity):
                         """
                         Selected flow type
                         
-                        .. attribute:: flow_type  <key>
+                        .. attribute:: flow_type  (key)
                         
                         	LPTS Flow Type
                         	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
@@ -2155,13 +3132,16 @@ class PreconfiguredNodes(Entity):
                             self.yang_parent_name = "dynamic-flows-table"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.flow_type = YLeaf(YType.enumeration, "flow-type")
-
-                            self.max = YLeaf(YType.int32, "max")
-                            self._segment_path = lambda: "flow-type" + "[flow-type='" + self.flow_type.get() + "']"
+                            self.ylist_key_names = ['flow_type']
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                ('max', YLeaf(YType.int32, 'max')),
+                            ])
+                            self.flow_type = None
+                            self.max = None
+                            self._segment_path = lambda: "flow-type" + "[flow-type='" + str(self.flow_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType, ['flow_type', 'max'], name, value)
@@ -2200,11 +3180,14 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "lpts-local"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"flows" : ("flows", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows)}
-                    self._child_list_classes = {}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("flows", ("flows", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows))])
+                    self._child_list_classes = OrderedDict([])
                     self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.empty, "enable")
+                    self._leafs = OrderedDict([
+                        ('enable', YLeaf(YType.empty, 'enable')),
+                    ])
+                    self.enable = None
 
                     self.flows = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows()
                     self.flows.parent = self
@@ -2239,8 +3222,10 @@ class PreconfiguredNodes(Entity):
                         self.yang_parent_name = "ipolicer-local"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"flow" : ("flow", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("flow", ("flow", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow))])
+                        self._leafs = OrderedDict()
 
                         self.flow = YList(self)
                         self._segment_path = lambda: "flows"
@@ -2253,7 +3238,7 @@ class PreconfiguredNodes(Entity):
                         """
                         selected flow type
                         
-                        .. attribute:: flow_type  <key>
+                        .. attribute:: flow_type  (key)
                         
                         	LPTS Flow Type
                         	**type**\:  :py:class:`LptsFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow>`
@@ -2268,7 +3253,7 @@ class PreconfiguredNodes(Entity):
                         	Configured rate value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         
 
@@ -2284,18 +3269,21 @@ class PreconfiguredNodes(Entity):
                             self.yang_parent_name = "flows"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"precedences" : ("precedences", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences)}
-                            self._child_list_classes = {}
-
-                            self.flow_type = YLeaf(YType.enumeration, "flow-type")
-
-                            self.rate = YLeaf(YType.int32, "rate")
+                            self.ylist_key_names = ['flow_type']
+                            self._child_container_classes = OrderedDict([("precedences", ("precedences", PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('flow_type', YLeaf(YType.enumeration, 'flow-type')),
+                                ('rate', YLeaf(YType.uint32, 'rate')),
+                            ])
+                            self.flow_type = None
+                            self.rate = None
 
                             self.precedences = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
                             self.precedences.parent = self
                             self._children_name_map["precedences"] = "precedences"
                             self._children_yang_names.add("precedences")
-                            self._segment_path = lambda: "flow" + "[flow-type='" + self.flow_type.get() + "']"
+                            self._segment_path = lambda: "flow" + "[flow-type='" + str(self.flow_type) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow, ['flow_type', 'rate'], name, value)
@@ -2330,10 +3318,13 @@ class PreconfiguredNodes(Entity):
                                 self.yang_parent_name = "flow"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.precedence = YLeafList(YType.str, "precedence")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('precedence', YLeafList(YType.str, 'precedence')),
+                                ])
+                                self.precedence = []
                                 self._segment_path = lambda: "precedences"
 
                             def __setattr__(self, name, value):
@@ -2343,6 +3334,11 @@ class PreconfiguredNodes(Entity):
         class CiscoIOSXRWatchdCfgWatchdogNodeThreshold(Entity):
             """
             watchdog node threshold
+            
+            .. attribute:: disk_threshold
+            
+            	Disk thresholds
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold>`
             
             .. attribute:: memory_threshold
             
@@ -2363,14 +3359,77 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("disk-threshold", ("disk_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
+
+                self.disk_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold.parent = self
+                self._children_name_map["disk_threshold"] = "disk-threshold"
+                self._children_yang_names.add("disk-threshold")
 
                 self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
                 self._children_name_map["memory_threshold"] = "memory-threshold"
                 self._children_yang_names.add("memory-threshold")
                 self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+
+
+            class DiskThreshold(Entity):
+                """
+                Disk thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, self).__init__()
+
+                    self.yang_name = "disk-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "disk-threshold"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
             class MemoryThreshold(Entity):
@@ -2412,14 +3471,17 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-
-                    self.critical = YLeaf(YType.uint32, "critical")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
                     self._segment_path = lambda: "memory-threshold"
 
                 def __setattr__(self, name, value):
@@ -2449,8 +3511,10 @@ class PreconfiguredNodes(Entity):
                 self.yang_parent_name = "preconfigured-node"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {"memory-threshold" : ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
@@ -2498,14 +3562,17 @@ class PreconfiguredNodes(Entity):
                     self.yang_parent_name = "watchdog-node-threshold"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.minor = YLeaf(YType.uint32, "minor")
-
-                    self.severe = YLeaf(YType.uint32, "severe")
-
-                    self.critical = YLeaf(YType.uint32, "critical")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', YLeaf(YType.uint32, 'minor')),
+                        ('severe', YLeaf(YType.uint32, 'severe')),
+                        ('critical', YLeaf(YType.uint32, 'critical')),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
                     self._segment_path = lambda: "memory-threshold"
 
                 def __setattr__(self, name, value):

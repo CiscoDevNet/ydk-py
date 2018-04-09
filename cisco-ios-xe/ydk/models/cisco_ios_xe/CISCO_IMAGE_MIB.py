@@ -4,6 +4,8 @@ Router image MIB which identify the capabilities
 and characteristics of the image
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -35,8 +37,10 @@ class CISCOIMAGEMIB(Entity):
         self.yang_parent_name = "CISCO-IMAGE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoImageTable" : ("ciscoimagetable", CISCOIMAGEMIB.Ciscoimagetable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ciscoImageTable", ("ciscoimagetable", CISCOIMAGEMIB.Ciscoimagetable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ciscoimagetable = CISCOIMAGEMIB.Ciscoimagetable()
         self.ciscoimagetable.parent = self
@@ -69,8 +73,10 @@ class CISCOIMAGEMIB(Entity):
             self.yang_parent_name = "CISCO-IMAGE-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoImageEntry" : ("ciscoimageentry", CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("ciscoImageEntry", ("ciscoimageentry", CISCOIMAGEMIB.Ciscoimagetable.Ciscoimageentry))])
+            self._leafs = OrderedDict()
 
             self.ciscoimageentry = YList(self)
             self._segment_path = lambda: "ciscoImageTable"
@@ -84,7 +90,7 @@ class CISCOIMAGEMIB(Entity):
             """
             A image characteristic string entry.
             
-            .. attribute:: ciscoimageindex  <key>
+            .. attribute:: ciscoimageindex  (key)
             
             	A sequence number for each string stored in the IOS image
             	**type**\: int
@@ -110,13 +116,16 @@ class CISCOIMAGEMIB(Entity):
                 self.yang_parent_name = "ciscoImageTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoimageindex = YLeaf(YType.int32, "ciscoImageIndex")
-
-                self.ciscoimagestring = YLeaf(YType.str, "ciscoImageString")
-                self._segment_path = lambda: "ciscoImageEntry" + "[ciscoImageIndex='" + self.ciscoimageindex.get() + "']"
+                self.ylist_key_names = ['ciscoimageindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('ciscoimageindex', YLeaf(YType.int32, 'ciscoImageIndex')),
+                    ('ciscoimagestring', YLeaf(YType.str, 'ciscoImageString')),
+                ])
+                self.ciscoimageindex = None
+                self.ciscoimagestring = None
+                self._segment_path = lambda: "ciscoImageEntry" + "[ciscoImageIndex='" + str(self.ciscoimageindex) + "']"
                 self._absolute_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/ciscoImageTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

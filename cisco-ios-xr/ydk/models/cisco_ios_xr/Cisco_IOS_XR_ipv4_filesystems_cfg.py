@@ -13,6 +13,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -34,7 +36,7 @@ class Rcp(Entity):
     """
 
     _prefix = 'ipv4-filesystems-cfg'
-    _revision = '2017-07-17'
+    _revision = '2017-11-28'
 
     def __init__(self):
         super(Rcp, self).__init__()
@@ -44,8 +46,10 @@ class Rcp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-filesystems-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"rcp-client" : ("rcp_client", Rcp.RcpClient)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("rcp-client", ("rcp_client", Rcp.RcpClient))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.rcp_client = Rcp.RcpClient()
         self.rcp_client.parent = self
@@ -75,7 +79,7 @@ class Rcp(Entity):
         """
 
         _prefix = 'ipv4-filesystems-cfg'
-        _revision = '2017-07-17'
+        _revision = '2017-11-28'
 
         def __init__(self):
             super(Rcp.RcpClient, self).__init__()
@@ -84,12 +88,15 @@ class Rcp(Entity):
             self.yang_parent_name = "rcp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.username = YLeaf(YType.str, "username")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('username', YLeaf(YType.str, 'username')),
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ])
+            self.username = None
+            self.source_interface = None
             self._segment_path = lambda: "rcp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp/%s" % self._segment_path()
 
@@ -114,7 +121,7 @@ class Ftp(Entity):
     """
 
     _prefix = 'ipv4-filesystems-cfg'
-    _revision = '2017-07-17'
+    _revision = '2017-11-28'
 
     def __init__(self):
         super(Ftp, self).__init__()
@@ -124,8 +131,10 @@ class Ftp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-filesystems-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ftp-client" : ("ftp_client", Ftp.FtpClient)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("ftp-client", ("ftp_client", Ftp.FtpClient))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.ftp_client = Ftp.FtpClient()
         self.ftp_client.parent = self
@@ -137,6 +146,11 @@ class Ftp(Entity):
     class FtpClient(Entity):
         """
         FTP client configuration
+        
+        .. attribute:: vrfs
+        
+        	VRF table
+        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient.Vrfs>`
         
         .. attribute:: passive
         
@@ -172,7 +186,7 @@ class Ftp(Entity):
         """
 
         _prefix = 'ipv4-filesystems-cfg'
-        _revision = '2017-07-17'
+        _revision = '2017-11-28'
 
         def __init__(self):
             super(Ftp.FtpClient, self).__init__()
@@ -181,23 +195,145 @@ class Ftp(Entity):
             self.yang_parent_name = "ftp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Ftp.FtpClient.Vrfs))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('passive', YLeaf(YType.empty, 'passive')),
+                ('password', YLeaf(YType.str, 'password')),
+                ('anonymous_password', YLeaf(YType.str, 'anonymous-password')),
+                ('username', YLeaf(YType.str, 'username')),
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ])
+            self.passive = None
+            self.password = None
+            self.anonymous_password = None
+            self.username = None
+            self.source_interface = None
 
-            self.passive = YLeaf(YType.empty, "passive")
-
-            self.password = YLeaf(YType.str, "password")
-
-            self.anonymous_password = YLeaf(YType.str, "anonymous-password")
-
-            self.username = YLeaf(YType.str, "username")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
+            self.vrfs = Ftp.FtpClient.Vrfs()
+            self.vrfs.parent = self
+            self._children_name_map["vrfs"] = "vrfs"
+            self._children_yang_names.add("vrfs")
             self._segment_path = lambda: "ftp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ftp.FtpClient, ['passive', 'password', 'anonymous_password', 'username', 'source_interface'], name, value)
+
+
+        class Vrfs(Entity):
+            """
+            VRF table
+            
+            .. attribute:: vrf
+            
+            	VRF specific data
+            	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient.Vrfs.Vrf>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-filesystems-cfg'
+            _revision = '2017-11-28'
+
+            def __init__(self):
+                super(Ftp.FtpClient.Vrfs, self).__init__()
+
+                self.yang_name = "vrfs"
+                self.yang_parent_name = "ftp-client"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("vrf", ("vrf", Ftp.FtpClient.Vrfs.Vrf))])
+                self._leafs = OrderedDict()
+
+                self.vrf = YList(self)
+                self._segment_path = lambda: "vrfs"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ftp.FtpClient.Vrfs, [], name, value)
+
+
+            class Vrf(Entity):
+                """
+                VRF specific data
+                
+                .. attribute:: vrf_name  (key)
+                
+                	Name of the VRF instance
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: source_interface
+                
+                	Specify interface for source address in connections
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                
+                .. attribute:: username
+                
+                	Specify username for connections
+                	**type**\: str
+                
+                .. attribute:: anonymous_password
+                
+                	Password for anonymous user (ftp server dependent)
+                	**type**\: str
+                
+                .. attribute:: password
+                
+                	Specify password for ftp connnection
+                	**type**\: str
+                
+                	**pattern:** (!.+)\|([^!].+)
+                
+                .. attribute:: passive
+                
+                	Enable connect using passive mode
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-filesystems-cfg'
+                _revision = '2017-11-28'
+
+                def __init__(self):
+                    super(Ftp.FtpClient.Vrfs.Vrf, self).__init__()
+
+                    self.yang_name = "vrf"
+                    self.yang_parent_name = "vrfs"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['vrf_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                        ('username', YLeaf(YType.str, 'username')),
+                        ('anonymous_password', YLeaf(YType.str, 'anonymous-password')),
+                        ('password', YLeaf(YType.str, 'password')),
+                        ('passive', YLeaf(YType.empty, 'passive')),
+                    ])
+                    self.vrf_name = None
+                    self.source_interface = None
+                    self.username = None
+                    self.anonymous_password = None
+                    self.password = None
+                    self.passive = None
+                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/vrfs/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ftp.FtpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'username', 'anonymous_password', 'password', 'passive'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ftp()
@@ -217,7 +353,7 @@ class Tftp(Entity):
     """
 
     _prefix = 'ipv4-filesystems-cfg'
-    _revision = '2017-07-17'
+    _revision = '2017-11-28'
 
     def __init__(self):
         super(Tftp, self).__init__()
@@ -227,8 +363,10 @@ class Tftp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-filesystems-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"tftp-client" : ("tftp_client", Tftp.TftpClient)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("tftp-client", ("tftp_client", Tftp.TftpClient))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.tftp_client = Tftp.TftpClient()
         self.tftp_client.parent = self
@@ -274,7 +412,7 @@ class Tftp(Entity):
         """
 
         _prefix = 'ipv4-filesystems-cfg'
-        _revision = '2017-07-17'
+        _revision = '2017-11-28'
 
         def __init__(self):
             super(Tftp.TftpClient, self).__init__()
@@ -283,14 +421,17 @@ class Tftp(Entity):
             self.yang_parent_name = "tftp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"vrfs" : ("vrfs", Tftp.TftpClient.Vrfs)}
-            self._child_list_classes = {}
-
-            self.retry = YLeaf(YType.uint32, "retry")
-
-            self.timeout = YLeaf(YType.uint32, "timeout")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("vrfs", ("vrfs", Tftp.TftpClient.Vrfs))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('retry', YLeaf(YType.uint32, 'retry')),
+                ('timeout', YLeaf(YType.uint32, 'timeout')),
+                ('source_interface', YLeaf(YType.str, 'source-interface')),
+            ])
+            self.retry = None
+            self.timeout = None
+            self.source_interface = None
 
             self.vrfs = Tftp.TftpClient.Vrfs()
             self.vrfs.parent = self
@@ -317,7 +458,7 @@ class Tftp(Entity):
             """
 
             _prefix = 'ipv4-filesystems-cfg'
-            _revision = '2017-07-17'
+            _revision = '2017-11-28'
 
             def __init__(self):
                 super(Tftp.TftpClient.Vrfs, self).__init__()
@@ -326,8 +467,10 @@ class Tftp(Entity):
                 self.yang_parent_name = "tftp-client"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"vrf" : ("vrf", Tftp.TftpClient.Vrfs.Vrf)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("vrf", ("vrf", Tftp.TftpClient.Vrfs.Vrf))])
+                self._leafs = OrderedDict()
 
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
@@ -341,7 +484,7 @@ class Tftp(Entity):
                 """
                 VRF specific data
                 
-                .. attribute:: vrf_name  <key>
+                .. attribute:: vrf_name  (key)
                 
                 	Name of the VRF instance
                 	**type**\: str
@@ -376,7 +519,7 @@ class Tftp(Entity):
                 """
 
                 _prefix = 'ipv4-filesystems-cfg'
-                _revision = '2017-07-17'
+                _revision = '2017-11-28'
 
                 def __init__(self):
                     super(Tftp.TftpClient.Vrfs.Vrf, self).__init__()
@@ -385,17 +528,20 @@ class Tftp(Entity):
                     self.yang_parent_name = "vrfs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.source_interface = YLeaf(YType.str, "source-interface")
-
-                    self.retry = YLeaf(YType.uint32, "retry")
-
-                    self.timeout = YLeaf(YType.uint32, "timeout")
-                    self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+                    self.ylist_key_names = ['vrf_name']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                        ('retry', YLeaf(YType.uint32, 'retry')),
+                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                    ])
+                    self.vrf_name = None
+                    self.source_interface = None
+                    self.retry = None
+                    self.timeout = None
+                    self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/vrfs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):

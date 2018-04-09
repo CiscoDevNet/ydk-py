@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class DnxQoseaShowAction(Enum):
     """
-    DnxQoseaShowAction
+    DnxQoseaShowAction (Enum Class)
 
     Policer action type
 
@@ -52,7 +54,7 @@ class DnxQoseaShowAction(Enum):
 
 class DnxQoseaShowHpLevel(Enum):
     """
-    DnxQoseaShowHpLevel
+    DnxQoseaShowHpLevel (Enum Class)
 
     Priority level
 
@@ -109,7 +111,7 @@ class DnxQoseaShowHpLevel(Enum):
 
 class DnxQoseaShowIntfStatus(Enum):
     """
-    DnxQoseaShowIntfStatus
+    DnxQoseaShowIntfStatus (Enum Class)
 
     Intf Status
 
@@ -130,7 +132,7 @@ class DnxQoseaShowIntfStatus(Enum):
 
 class DnxQoseaShowLevel(Enum):
     """
-    DnxQoseaShowLevel
+    DnxQoseaShowLevel (Enum Class)
 
     Level type
 
@@ -169,7 +171,7 @@ class DnxQoseaShowLevel(Enum):
 
 class DnxQoseaShowMark(Enum):
     """
-    DnxQoseaShowMark
+    DnxQoseaShowMark (Enum Class)
 
     Mark type
 
@@ -268,7 +270,7 @@ class DnxQoseaShowMark(Enum):
 
 class DnxQoseaShowPolicyStatus(Enum):
     """
-    DnxQoseaShowPolicyStatus
+    DnxQoseaShowPolicyStatus (Enum Class)
 
     Status
 
@@ -289,7 +291,7 @@ class DnxQoseaShowPolicyStatus(Enum):
 
 class DnxQoseaShowQueue(Enum):
     """
-    DnxQoseaShowQueue
+    DnxQoseaShowQueue (Enum Class)
 
     Priority Queue Type
 
@@ -322,7 +324,7 @@ class DnxQoseaShowQueue(Enum):
 
 class DnxQoseaShowWred(Enum):
     """
-    DnxQoseaShowWred
+    DnxQoseaShowWred (Enum Class)
 
     WRED type
 
@@ -379,7 +381,7 @@ class DnxQoseaShowWred(Enum):
 
 class PolicyParamUnit(Enum):
     """
-    PolicyParamUnit
+    PolicyParamUnit (Enum Class)
 
     Policy param unit
 
@@ -532,7 +534,7 @@ class PolicyParamUnit(Enum):
 
 class QosPolicyAccountEnum(Enum):
     """
-    QosPolicyAccountEnum
+    QosPolicyAccountEnum (Enum Class)
 
     Qos policy account enum
 
@@ -594,8 +596,10 @@ class PlatformQos(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs5500-qos-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", PlatformQos.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", PlatformQos.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = PlatformQos.Nodes()
         self.nodes.parent = self
@@ -628,8 +632,10 @@ class PlatformQos(Entity):
             self.yang_parent_name = "platform-qos"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", PlatformQos.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", PlatformQos.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -643,7 +649,7 @@ class PlatformQos(Entity):
             """
             Node with platform specific QoS configuration
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node name
             	**type**\: str
@@ -659,6 +665,11 @@ class PlatformQos(Entity):
             
             	QoS list of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
+            
+            .. attribute:: bundle_interface_singles
+            
+            	QoS list of bundle interfaces
+            	**type**\:  :py:class:`BundleInterfaceSingles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles>`
             
             .. attribute:: remote_interfaces
             
@@ -679,10 +690,13 @@ class PlatformQos(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bundle-interfaces" : ("bundle_interfaces", PlatformQos.Nodes.Node.BundleInterfaces), "interfaces" : ("interfaces", PlatformQos.Nodes.Node.Interfaces), "remote-interfaces" : ("remote_interfaces", PlatformQos.Nodes.Node.RemoteInterfaces)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("bundle-interfaces", ("bundle_interfaces", PlatformQos.Nodes.Node.BundleInterfaces)), ("interfaces", ("interfaces", PlatformQos.Nodes.Node.Interfaces)), ("bundle-interface-singles", ("bundle_interface_singles", PlatformQos.Nodes.Node.BundleInterfaceSingles)), ("remote-interfaces", ("remote_interfaces", PlatformQos.Nodes.Node.RemoteInterfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.bundle_interfaces = PlatformQos.Nodes.Node.BundleInterfaces()
                 self.bundle_interfaces.parent = self
@@ -694,11 +708,16 @@ class PlatformQos(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
 
+                self.bundle_interface_singles = PlatformQos.Nodes.Node.BundleInterfaceSingles()
+                self.bundle_interface_singles.parent = self
+                self._children_name_map["bundle_interface_singles"] = "bundle-interface-singles"
+                self._children_yang_names.add("bundle-interface-singles")
+
                 self.remote_interfaces = PlatformQos.Nodes.Node.RemoteInterfaces()
                 self.remote_interfaces.parent = self
                 self._children_name_map["remote_interfaces"] = "remote-interfaces"
                 self._children_yang_names.add("remote-interfaces")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -728,8 +747,10 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bundle-interface" : ("bundle_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bundle-interface", ("bundle_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface))])
+                    self._leafs = OrderedDict()
 
                     self.bundle_interface = YList(self)
                     self._segment_path = lambda: "bundle-interfaces"
@@ -742,17 +763,12 @@ class PlatformQos(Entity):
                     """
                     QoS interface names
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name
                     
                     	Bundle interface name
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: member_interfaces
-                    
-                    	QoS list of member interfaces
-                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     .. attribute:: npu_id
                     
@@ -770,6 +786,11 @@ class PlatformQos(Entity):
                     
                     	Policy Details
                     	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
+                    
+                    .. attribute:: member_interfaces
+                    
+                    	QoS list of member interfaces
+                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     .. attribute:: classes
                     
@@ -790,33 +811,151 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "bundle-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"member-interfaces" : ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces), "policy-details" : ("policy_details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails), "classes" : ("classes", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.npu_id = YLeaf(YType.int32, "npu-id")
-
-                        self.qos_direction = YLeaf(YType.str, "qos-direction")
-
-                        self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces()
-                        self.member_interfaces.parent = self
-                        self._children_name_map["member_interfaces"] = "member-interfaces"
-                        self._children_yang_names.add("member-interfaces")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("policy-details", ("policy_details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails)), ("member-interfaces", ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces)), ("classes", ("classes", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('npu_id', YLeaf(YType.int32, 'npu-id')),
+                            ('qos_direction', YLeaf(YType.str, 'qos-direction')),
+                        ])
+                        self.interface_name = None
+                        self.npu_id = None
+                        self.qos_direction = None
 
                         self.policy_details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails()
                         self.policy_details.parent = self
                         self._children_name_map["policy_details"] = "policy-details"
                         self._children_yang_names.add("policy-details")
 
+                        self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces()
+                        self.member_interfaces.parent = self
+                        self._children_name_map["member_interfaces"] = "member-interfaces"
+                        self._children_yang_names.add("member-interfaces")
+
                         self.classes = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes()
                         self.classes.parent = self
                         self._children_name_map["classes"] = "classes"
                         self._children_yang_names.add("classes")
-                        self._segment_path = lambda: "bundle-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "bundle-interface"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'npu_id', 'qos_direction'], name, value)
+
+
+                    class PolicyDetails(Entity):
+                        """
+                        Policy Details
+                        
+                        .. attribute:: npu_id
+                        
+                        	NPU ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	InterfaceHandle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_bandwidth_kbps
+                        
+                        	Interface Bandwidth (in kbps)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
+                        
+                        .. attribute:: policy_name
+                        
+                        	Policy name
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: total_number_of_classes
+                        
+                        	Number of Classes
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: voq_base_address
+                        
+                        	VOQ base address
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: voq_stats_handle
+                        
+                        	VOQ stats handle
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: stats_accounting_type
+                        
+                        	QoS Statistics Accounting Type
+                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: policy_status
+                        
+                        	Policy Status
+                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface Status
+                        	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails, self).__init__()
+
+                            self.yang_name = "policy-details"
+                            self.yang_parent_name = "bundle-interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                ('interface_bandwidth_kbps', YLeaf(YType.uint32, 'interface-bandwidth-kbps')),
+                                ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                ('total_number_of_classes', YLeaf(YType.uint16, 'total-number-of-classes')),
+                                ('voq_base_address', YLeaf(YType.uint32, 'voq-base-address')),
+                                ('voq_stats_handle', YLeaf(YType.uint64, 'voq-stats-handle')),
+                                ('stats_accounting_type', YLeaf(YType.enumeration, 'stats-accounting-type')),
+                                ('policy_status', YLeaf(YType.enumeration, 'policy-status')),
+                                ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
+                            ])
+                            self.npu_id = None
+                            self.interface_handle = None
+                            self.interface_bandwidth_kbps = None
+                            self.policy_name = None
+                            self.total_number_of_classes = None
+                            self.voq_base_address = None
+                            self.voq_stats_handle = None
+                            self.stats_accounting_type = None
+                            self.policy_status = None
+                            self.interface_status = None
+                            self._segment_path = lambda: "policy-details"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails, ['npu_id', 'interface_handle', 'interface_bandwidth_kbps', 'policy_name', 'total_number_of_classes', 'voq_base_address', 'voq_stats_handle', 'stats_accounting_type', 'policy_status', 'interface_status'], name, value)
 
 
                     class MemberInterfaces(Entity):
@@ -842,8 +981,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"member-interface" : ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("member-interface", ("member_interface", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface))])
+                            self._leafs = OrderedDict()
 
                             self.member_interface = YList(self)
                             self._segment_path = lambda: "member-interfaces"
@@ -856,7 +997,7 @@ class PlatformQos(Entity):
                             """
                             QoS interface names
                             
-                            .. attribute:: interface_name  <key>
+                            .. attribute:: interface_name  (key)
                             
                             	Member interface
                             	**type**\: str
@@ -887,10 +1028,13 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "member-interfaces"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"policy-details" : ("policy_details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails), "classes" : ("classes", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes)}
-                                self._child_list_classes = {}
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
+                                self.ylist_key_names = ['interface_name']
+                                self._child_container_classes = OrderedDict([("policy-details", ("policy_details", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails)), ("classes", ("classes", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ])
+                                self.interface_name = None
 
                                 self.policy_details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails()
                                 self.policy_details.parent = self
@@ -901,7 +1045,7 @@ class PlatformQos(Entity):
                                 self.classes.parent = self
                                 self._children_name_map["classes"] = "classes"
                                 self._children_yang_names.add("classes")
-                                self._segment_path = lambda: "member-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                                self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
@@ -991,28 +1135,31 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "member-interface"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.npu_id = YLeaf(YType.uint32, "npu-id")
-
-                                    self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                                    self.interface_bandwidth_kbps = YLeaf(YType.uint32, "interface-bandwidth-kbps")
-
-                                    self.policy_name = YLeaf(YType.str, "policy-name")
-
-                                    self.total_number_of_classes = YLeaf(YType.uint16, "total-number-of-classes")
-
-                                    self.voq_base_address = YLeaf(YType.uint32, "voq-base-address")
-
-                                    self.voq_stats_handle = YLeaf(YType.uint64, "voq-stats-handle")
-
-                                    self.stats_accounting_type = YLeaf(YType.enumeration, "stats-accounting-type")
-
-                                    self.policy_status = YLeaf(YType.enumeration, "policy-status")
-
-                                    self.interface_status = YLeaf(YType.enumeration, "interface-status")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                        ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                        ('interface_bandwidth_kbps', YLeaf(YType.uint32, 'interface-bandwidth-kbps')),
+                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                        ('total_number_of_classes', YLeaf(YType.uint16, 'total-number-of-classes')),
+                                        ('voq_base_address', YLeaf(YType.uint32, 'voq-base-address')),
+                                        ('voq_stats_handle', YLeaf(YType.uint64, 'voq-stats-handle')),
+                                        ('stats_accounting_type', YLeaf(YType.enumeration, 'stats-accounting-type')),
+                                        ('policy_status', YLeaf(YType.enumeration, 'policy-status')),
+                                        ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
+                                    ])
+                                    self.npu_id = None
+                                    self.interface_handle = None
+                                    self.interface_bandwidth_kbps = None
+                                    self.policy_name = None
+                                    self.total_number_of_classes = None
+                                    self.voq_base_address = None
+                                    self.voq_stats_handle = None
+                                    self.stats_accounting_type = None
+                                    self.policy_status = None
+                                    self.interface_status = None
                                     self._segment_path = lambda: "policy-details"
 
                                 def __setattr__(self, name, value):
@@ -1026,7 +1173,7 @@ class PlatformQos(Entity):
                                 .. attribute:: class_
                                 
                                 	QoS policy class
-                                	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_>`
+                                	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class>`
                                 
                                 
 
@@ -1042,8 +1189,10 @@ class PlatformQos(Entity):
                                     self.yang_parent_name = "member-interface"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"class" : ("class_", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("class", ("class_", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class))])
+                                    self._leafs = OrderedDict()
 
                                     self.class_ = YList(self)
                                     self._segment_path = lambda: "classes"
@@ -1052,11 +1201,11 @@ class PlatformQos(Entity):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes, [], name, value)
 
 
-                                class Class_(Entity):
+                                class Class(Entity):
                                     """
                                     QoS policy class
                                     
-                                    .. attribute:: level_one_class_name  <key>
+                                    .. attribute:: level_one_class_name  (key)
                                     
                                     	QoS policy class name at level 1
                                     	**type**\: str
@@ -1069,52 +1218,52 @@ class PlatformQos(Entity):
                                     .. attribute:: config_max_rate
                                     
                                     	Configured maximum rate
-                                    	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate>`
+                                    	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate>`
                                     
                                     .. attribute:: config_min_rate
                                     
                                     	Configured minimum rate
-                                    	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate>`
+                                    	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate>`
                                     
                                     .. attribute:: config_queue_limit
                                     
                                     	Configured queue limit
-                                    	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit>`
+                                    	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit>`
                                     
                                     .. attribute:: config_policer_average_rate
                                     
                                     	Configured policer average rate
-                                    	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate>`
+                                    	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate>`
                                     
                                     .. attribute:: config_policer_peak_rate
                                     
                                     	Config policer peak rate
-                                    	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate>`
+                                    	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate>`
                                     
                                     .. attribute:: config_policer_conform_burst
                                     
                                     	Configured policer conform burst
-                                    	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst>`
+                                    	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst>`
                                     
                                     .. attribute:: config_policer_excess_burst
                                     
                                     	Configured policer excess burst
-                                    	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst>`
+                                    	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst>`
                                     
                                     .. attribute:: conform_action
                                     
                                     	Conform action
-                                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction>`
+                                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction>`
                                     
                                     .. attribute:: exceed_action
                                     
                                     	Exceed action
-                                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction>`
+                                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction>`
                                     
                                     .. attribute:: violate_action
                                     
                                     	Violate action
-                                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction>`
+                                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction>`
                                     
                                     .. attribute:: class_level
                                     
@@ -1251,22 +1400,22 @@ class PlatformQos(Entity):
                                     .. attribute:: ip_mark
                                     
                                     	IP mark
-                                    	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark>`
+                                    	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark>`
                                     
                                     .. attribute:: common_mark
                                     
                                     	Common mark
-                                    	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark>`
+                                    	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark>`
                                     
                                     .. attribute:: mpls_mark
                                     
                                     	MPLS mark
-                                    	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark>`
+                                    	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark>`
                                     
                                     .. attribute:: wred
                                     
                                     	WRED parameters
-                                    	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred>`
+                                    	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred>`
                                     
                                     
 
@@ -1276,101 +1425,104 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class, self).__init__()
 
                                         self.yang_name = "class"
                                         self.yang_parent_name = "classes"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config-max-rate" : ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate), "config-min-rate" : ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit), "config-policer-average-rate" : ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate), "config-policer-peak-rate" : ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate), "config-policer-conform-burst" : ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst), "config-policer-excess-burst" : ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst), "conform-action" : ("conform_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction), "exceed-action" : ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction), "violate-action" : ("violate_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction)}
-                                        self._child_list_classes = {"ip-mark" : ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark), "common-mark" : ("common_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark), "mpls-mark" : ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred)}
+                                        self.ylist_key_names = ['level_one_class_name']
+                                        self._child_container_classes = OrderedDict([("config-max-rate", ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate)), ("config-min-rate", ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit)), ("config-policer-average-rate", ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate)), ("config-policer-peak-rate", ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate)), ("config-policer-conform-burst", ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst)), ("config-policer-excess-burst", ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst)), ("conform-action", ("conform_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction)), ("exceed-action", ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction)), ("violate-action", ("violate_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction))])
+                                        self._child_list_classes = OrderedDict([("ip-mark", ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark)), ("common-mark", ("common_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark)), ("mpls-mark", ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred))])
+                                        self._leafs = OrderedDict([
+                                            ('level_one_class_name', YLeaf(YType.str, 'level-one-class-name')),
+                                            ('level_two_class_name', YLeaf(YType.str, 'level-two-class-name')),
+                                            ('class_level', YLeaf(YType.enumeration, 'class-level')),
+                                            ('egress_queue_id', YLeaf(YType.int32, 'egress-queue-id')),
+                                            ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                            ('priority_level', YLeaf(YType.enumeration, 'priority-level')),
+                                            ('hardware_max_rate_kbps', YLeaf(YType.uint32, 'hardware-max-rate-kbps')),
+                                            ('hardware_min_rate_kbps', YLeaf(YType.uint32, 'hardware-min-rate-kbps')),
+                                            ('config_excess_bandwidth_percent', YLeaf(YType.uint32, 'config-excess-bandwidth-percent')),
+                                            ('config_excess_bandwidth_unit', YLeaf(YType.uint32, 'config-excess-bandwidth-unit')),
+                                            ('hardware_excess_bandwidth_weight', YLeaf(YType.uint32, 'hardware-excess-bandwidth-weight')),
+                                            ('network_min_bandwidth_kbps', YLeaf(YType.uint32, 'network-min-bandwidth-kbps')),
+                                            ('hardware_queue_limit_bytes', YLeaf(YType.uint64, 'hardware-queue-limit-bytes')),
+                                            ('hardware_queue_limit_microseconds', YLeaf(YType.uint64, 'hardware-queue-limit-microseconds')),
+                                            ('policer_bucket_id', YLeaf(YType.uint32, 'policer-bucket-id')),
+                                            ('policer_stats_handle', YLeaf(YType.uint64, 'policer-stats-handle')),
+                                            ('hardware_policer_average_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-average-rate-kbps')),
+                                            ('hardware_policer_peak_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-peak-rate-kbps')),
+                                            ('hardware_policer_conform_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-conform-burst-bytes')),
+                                            ('hardware_policer_excess_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-excess-burst-bytes')),
+                                        ])
+                                        self.level_one_class_name = None
+                                        self.level_two_class_name = None
+                                        self.class_level = None
+                                        self.egress_queue_id = None
+                                        self.queue_type = None
+                                        self.priority_level = None
+                                        self.hardware_max_rate_kbps = None
+                                        self.hardware_min_rate_kbps = None
+                                        self.config_excess_bandwidth_percent = None
+                                        self.config_excess_bandwidth_unit = None
+                                        self.hardware_excess_bandwidth_weight = None
+                                        self.network_min_bandwidth_kbps = None
+                                        self.hardware_queue_limit_bytes = None
+                                        self.hardware_queue_limit_microseconds = None
+                                        self.policer_bucket_id = None
+                                        self.policer_stats_handle = None
+                                        self.hardware_policer_average_rate_kbps = None
+                                        self.hardware_policer_peak_rate_kbps = None
+                                        self.hardware_policer_conform_burst_bytes = None
+                                        self.hardware_policer_excess_burst_bytes = None
 
-                                        self.level_one_class_name = YLeaf(YType.str, "level-one-class-name")
-
-                                        self.level_two_class_name = YLeaf(YType.str, "level-two-class-name")
-
-                                        self.class_level = YLeaf(YType.enumeration, "class-level")
-
-                                        self.egress_queue_id = YLeaf(YType.int32, "egress-queue-id")
-
-                                        self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                        self.priority_level = YLeaf(YType.enumeration, "priority-level")
-
-                                        self.hardware_max_rate_kbps = YLeaf(YType.uint32, "hardware-max-rate-kbps")
-
-                                        self.hardware_min_rate_kbps = YLeaf(YType.uint32, "hardware-min-rate-kbps")
-
-                                        self.config_excess_bandwidth_percent = YLeaf(YType.uint32, "config-excess-bandwidth-percent")
-
-                                        self.config_excess_bandwidth_unit = YLeaf(YType.uint32, "config-excess-bandwidth-unit")
-
-                                        self.hardware_excess_bandwidth_weight = YLeaf(YType.uint32, "hardware-excess-bandwidth-weight")
-
-                                        self.network_min_bandwidth_kbps = YLeaf(YType.uint32, "network-min-bandwidth-kbps")
-
-                                        self.hardware_queue_limit_bytes = YLeaf(YType.uint64, "hardware-queue-limit-bytes")
-
-                                        self.hardware_queue_limit_microseconds = YLeaf(YType.uint64, "hardware-queue-limit-microseconds")
-
-                                        self.policer_bucket_id = YLeaf(YType.uint32, "policer-bucket-id")
-
-                                        self.policer_stats_handle = YLeaf(YType.uint64, "policer-stats-handle")
-
-                                        self.hardware_policer_average_rate_kbps = YLeaf(YType.uint32, "hardware-policer-average-rate-kbps")
-
-                                        self.hardware_policer_peak_rate_kbps = YLeaf(YType.uint32, "hardware-policer-peak-rate-kbps")
-
-                                        self.hardware_policer_conform_burst_bytes = YLeaf(YType.uint32, "hardware-policer-conform-burst-bytes")
-
-                                        self.hardware_policer_excess_burst_bytes = YLeaf(YType.uint32, "hardware-policer-excess-burst-bytes")
-
-                                        self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate()
+                                        self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate()
                                         self.config_max_rate.parent = self
                                         self._children_name_map["config_max_rate"] = "config-max-rate"
                                         self._children_yang_names.add("config-max-rate")
 
-                                        self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate()
+                                        self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate()
                                         self.config_min_rate.parent = self
                                         self._children_name_map["config_min_rate"] = "config-min-rate"
                                         self._children_yang_names.add("config-min-rate")
 
-                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit()
+                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit()
                                         self.config_queue_limit.parent = self
                                         self._children_name_map["config_queue_limit"] = "config-queue-limit"
                                         self._children_yang_names.add("config-queue-limit")
 
-                                        self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate()
+                                        self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate()
                                         self.config_policer_average_rate.parent = self
                                         self._children_name_map["config_policer_average_rate"] = "config-policer-average-rate"
                                         self._children_yang_names.add("config-policer-average-rate")
 
-                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate()
+                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate()
                                         self.config_policer_peak_rate.parent = self
                                         self._children_name_map["config_policer_peak_rate"] = "config-policer-peak-rate"
                                         self._children_yang_names.add("config-policer-peak-rate")
 
-                                        self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst()
+                                        self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst()
                                         self.config_policer_conform_burst.parent = self
                                         self._children_name_map["config_policer_conform_burst"] = "config-policer-conform-burst"
                                         self._children_yang_names.add("config-policer-conform-burst")
 
-                                        self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst()
+                                        self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst()
                                         self.config_policer_excess_burst.parent = self
                                         self._children_name_map["config_policer_excess_burst"] = "config-policer-excess-burst"
                                         self._children_yang_names.add("config-policer-excess-burst")
 
-                                        self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction()
+                                        self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction()
                                         self.conform_action.parent = self
                                         self._children_name_map["conform_action"] = "conform-action"
                                         self._children_yang_names.add("conform-action")
 
-                                        self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction()
+                                        self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction()
                                         self.exceed_action.parent = self
                                         self._children_name_map["exceed_action"] = "exceed-action"
                                         self._children_yang_names.add("exceed-action")
 
-                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction()
+                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction()
                                         self.violate_action.parent = self
                                         self._children_name_map["violate_action"] = "violate-action"
                                         self._children_yang_names.add("violate-action")
@@ -1379,10 +1531,10 @@ class PlatformQos(Entity):
                                         self.common_mark = YList(self)
                                         self.mpls_mark = YList(self)
                                         self.wred = YList(self)
-                                        self._segment_path = lambda: "class" + "[level-one-class-name='" + self.level_one_class_name.get() + "']"
+                                        self._segment_path = lambda: "class" + "[level-one-class-name='" + str(self.level_one_class_name) + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
 
 
                                     class ConfigMaxRate(Entity):
@@ -1409,22 +1561,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate, self).__init__()
 
                                             self.yang_name = "config-max-rate"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-max-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigMinRate(Entity):
@@ -1451,22 +1606,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate, self).__init__()
 
                                             self.yang_name = "config-min-rate"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-min-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigQueueLimit(Entity):
@@ -1493,22 +1651,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit, self).__init__()
 
                                             self.yang_name = "config-queue-limit"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-queue-limit"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigPolicerAverageRate(Entity):
@@ -1535,22 +1696,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate, self).__init__()
 
                                             self.yang_name = "config-policer-average-rate"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-policer-average-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigPolicerPeakRate(Entity):
@@ -1577,22 +1741,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate, self).__init__()
 
                                             self.yang_name = "config-policer-peak-rate"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-policer-peak-rate"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigPolicerConformBurst(Entity):
@@ -1619,22 +1786,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst, self).__init__()
 
                                             self.yang_name = "config-policer-conform-burst"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-policer-conform-burst"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConfigPolicerExcessBurst(Entity):
@@ -1661,22 +1831,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst, self).__init__()
 
                                             self.yang_name = "config-policer-excess-burst"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                            self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
                                             self._segment_path = lambda: "config-policer-excess-burst"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                                     class ConformAction(Entity):
@@ -1691,7 +1864,7 @@ class PlatformQos(Entity):
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark>`
                                         
                                         
 
@@ -1701,22 +1874,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction, self).__init__()
 
                                             self.yang_name = "conform-action"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
 
                                             self.mark = YList(self)
                                             self._segment_path = lambda: "conform-action"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction, ['action_type'], name, value)
 
 
                                         class Mark(Entity):
@@ -1743,22 +1919,25 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark, self).__init__()
 
                                                 self.yang_name = "mark"
                                                 self.yang_parent_name = "conform-action"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                                self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
                                                 self._segment_path = lambda: "mark"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class ExceedAction(Entity):
@@ -1773,7 +1952,7 @@ class PlatformQos(Entity):
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark>`
                                         
                                         
 
@@ -1783,22 +1962,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction, self).__init__()
 
                                             self.yang_name = "exceed-action"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
 
                                             self.mark = YList(self)
                                             self._segment_path = lambda: "exceed-action"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction, ['action_type'], name, value)
 
 
                                         class Mark(Entity):
@@ -1825,22 +2007,25 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark, self).__init__()
 
                                                 self.yang_name = "mark"
                                                 self.yang_parent_name = "exceed-action"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                                self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
                                                 self._segment_path = lambda: "mark"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class ViolateAction(Entity):
@@ -1855,7 +2040,7 @@ class PlatformQos(Entity):
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark>`
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark>`
                                         
                                         
 
@@ -1865,22 +2050,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction, self).__init__()
 
                                             self.yang_name = "violate-action"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark)}
-
-                                            self.action_type = YLeaf(YType.enumeration, "action-type")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
 
                                             self.mark = YList(self)
                                             self._segment_path = lambda: "violate-action"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction, ['action_type'], name, value)
 
 
                                         class Mark(Entity):
@@ -1907,22 +2095,25 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark, self).__init__()
 
                                                 self.yang_name = "mark"
                                                 self.yang_parent_name = "violate-action"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                                self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
                                                 self._segment_path = lambda: "mark"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class IpMark(Entity):
@@ -1949,22 +2140,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark, self).__init__()
 
                                             self.yang_name = "ip-mark"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                            self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
                                             self._segment_path = lambda: "ip-mark"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark, ['mark_type', 'mark_value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class CommonMark(Entity):
@@ -1991,22 +2185,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark, self).__init__()
 
                                             self.yang_name = "common-mark"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                            self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
                                             self._segment_path = lambda: "common-mark"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark, ['mark_type', 'mark_value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class MplsMark(Entity):
@@ -2033,22 +2230,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark, self).__init__()
 
                                             self.yang_name = "mpls-mark"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                            self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
                                             self._segment_path = lambda: "mpls-mark"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark, ['mark_type', 'mark_value'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark, ['mark_type', 'mark_value'], name, value)
 
 
                                     class Wred(Entity):
@@ -2058,17 +2258,17 @@ class PlatformQos(Entity):
                                         .. attribute:: wred_match_value
                                         
                                         	WRED match values
-                                        	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue>`
+                                        	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue>`
                                         
                                         .. attribute:: config_min_threshold
                                         
                                         	Configured minimum threshold
-                                        	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                        	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold>`
                                         
                                         .. attribute:: config_max_threshold
                                         
                                         	Configured maximum threshold
-                                        	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                        	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold>`
                                         
                                         .. attribute:: wred_match_type
                                         
@@ -2111,43 +2311,46 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred, self).__init__()
 
                                             self.yang_name = "wred"
                                             self.yang_parent_name = "class"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {"wred-match-value" : ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue), "config-min-threshold" : ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold), "config-max-threshold" : ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold)}
-                                            self._child_list_classes = {}
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("wred-match-value", ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue)), ("config-min-threshold", ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold)), ("config-max-threshold", ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('wred_match_type', YLeaf(YType.enumeration, 'wred-match-type')),
+                                                ('hardware_min_threshold_bytes', YLeaf(YType.uint32, 'hardware-min-threshold-bytes')),
+                                                ('hardware_max_threshold_bytes', YLeaf(YType.uint32, 'hardware-max-threshold-bytes')),
+                                                ('first_segment', YLeaf(YType.uint16, 'first-segment')),
+                                                ('segment_size', YLeaf(YType.uint32, 'segment-size')),
+                                            ])
+                                            self.wred_match_type = None
+                                            self.hardware_min_threshold_bytes = None
+                                            self.hardware_max_threshold_bytes = None
+                                            self.first_segment = None
+                                            self.segment_size = None
 
-                                            self.wred_match_type = YLeaf(YType.enumeration, "wred-match-type")
-
-                                            self.hardware_min_threshold_bytes = YLeaf(YType.uint32, "hardware-min-threshold-bytes")
-
-                                            self.hardware_max_threshold_bytes = YLeaf(YType.uint32, "hardware-max-threshold-bytes")
-
-                                            self.first_segment = YLeaf(YType.uint16, "first-segment")
-
-                                            self.segment_size = YLeaf(YType.uint32, "segment-size")
-
-                                            self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue()
+                                            self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue()
                                             self.wred_match_value.parent = self
                                             self._children_name_map["wred_match_value"] = "wred-match-value"
                                             self._children_yang_names.add("wred-match-value")
 
-                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold()
+                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold()
                                             self.config_min_threshold.parent = self
                                             self._children_name_map["config_min_threshold"] = "config-min-threshold"
                                             self._children_yang_names.add("config-min-threshold")
 
-                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold()
+                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold()
                                             self.config_max_threshold.parent = self
                                             self._children_name_map["config_max_threshold"] = "config-max-threshold"
                                             self._children_yang_names.add("config-max-threshold")
                                             self._segment_path = lambda: "wred"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
 
 
                                         class WredMatchValue(Entity):
@@ -2157,7 +2360,7 @@ class PlatformQos(Entity):
                                             .. attribute:: dnx_qosea_show_red_match_value
                                             
                                             	dnx qosea show red match value
-                                            	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                            	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                             
                                             
 
@@ -2167,20 +2370,22 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue, self).__init__()
 
                                                 self.yang_name = "wred-match-value"
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {"dnx-qosea-show-red-match-value" : ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue)}
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("dnx-qosea-show-red-match-value", ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue))])
+                                                self._leafs = OrderedDict()
 
                                                 self.dnx_qosea_show_red_match_value = YList(self)
                                                 self._segment_path = lambda: "wred-match-value"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue, [], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue, [], name, value)
 
 
                                             class DnxQoseaShowRedMatchValue(Entity):
@@ -2209,22 +2414,25 @@ class PlatformQos(Entity):
                                                 _revision = '2015-11-09'
 
                                                 def __init__(self):
-                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
 
                                                     self.yang_name = "dnx-qosea-show-red-match-value"
                                                     self.yang_parent_name = "wred-match-value"
                                                     self.is_top_level_class = False
                                                     self.has_list_ancestor = True
-                                                    self._child_container_classes = {}
-                                                    self._child_list_classes = {}
-
-                                                    self.range_start = YLeaf(YType.uint8, "range-start")
-
-                                                    self.range_end = YLeaf(YType.uint8, "range-end")
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('range_start', YLeaf(YType.uint8, 'range-start')),
+                                                        ('range_end', YLeaf(YType.uint8, 'range-end')),
+                                                    ])
+                                                    self.range_start = None
+                                                    self.range_end = None
                                                     self._segment_path = lambda: "dnx-qosea-show-red-match-value"
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
 
 
                                         class ConfigMinThreshold(Entity):
@@ -2251,22 +2459,25 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold, self).__init__()
 
                                                 self.yang_name = "config-min-threshold"
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                                self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                    ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                                ])
+                                                self.policy_value = None
+                                                self.policy_unit = None
                                                 self._segment_path = lambda: "config-min-threshold"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
                                         class ConfigMaxThreshold(Entity):
@@ -2293,134 +2504,25 @@ class PlatformQos(Entity):
                                             _revision = '2015-11-09'
 
                                             def __init__(self):
-                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold, self).__init__()
+                                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold, self).__init__()
 
                                                 self.yang_name = "config-max-threshold"
                                                 self.yang_parent_name = "wred"
                                                 self.is_top_level_class = False
                                                 self.has_list_ancestor = True
-                                                self._child_container_classes = {}
-                                                self._child_list_classes = {}
-
-                                                self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                                self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                    ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                                ])
+                                                self.policy_value = None
+                                                self.policy_unit = None
                                                 self._segment_path = lambda: "config-max-threshold"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
-
-
-                    class PolicyDetails(Entity):
-                        """
-                        Policy Details
-                        
-                        .. attribute:: npu_id
-                        
-                        	NPU ID
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_handle
-                        
-                        	InterfaceHandle
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_bandwidth_kbps
-                        
-                        	Interface Bandwidth (in kbps)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: kbit/s
-                        
-                        .. attribute:: policy_name
-                        
-                        	Policy name
-                        	**type**\: str
-                        
-                        	**length:** 0..64
-                        
-                        .. attribute:: total_number_of_classes
-                        
-                        	Number of Classes
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: voq_base_address
-                        
-                        	VOQ base address
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: voq_stats_handle
-                        
-                        	VOQ stats handle
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: stats_accounting_type
-                        
-                        	QoS Statistics Accounting Type
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: policy_status
-                        
-                        	Policy Status
-                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
-                        
-                        .. attribute:: interface_status
-                        
-                        	Interface Status
-                        	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs5500-qos-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails, self).__init__()
-
-                            self.yang_name = "policy-details"
-                            self.yang_parent_name = "bundle-interface"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.npu_id = YLeaf(YType.uint32, "npu-id")
-
-                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                            self.interface_bandwidth_kbps = YLeaf(YType.uint32, "interface-bandwidth-kbps")
-
-                            self.policy_name = YLeaf(YType.str, "policy-name")
-
-                            self.total_number_of_classes = YLeaf(YType.uint16, "total-number-of-classes")
-
-                            self.voq_base_address = YLeaf(YType.uint32, "voq-base-address")
-
-                            self.voq_stats_handle = YLeaf(YType.uint64, "voq-stats-handle")
-
-                            self.stats_accounting_type = YLeaf(YType.enumeration, "stats-accounting-type")
-
-                            self.policy_status = YLeaf(YType.enumeration, "policy-status")
-
-                            self.interface_status = YLeaf(YType.enumeration, "interface-status")
-                            self._segment_path = lambda: "policy-details"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails, ['npu_id', 'interface_handle', 'interface_bandwidth_kbps', 'policy_name', 'total_number_of_classes', 'voq_base_address', 'voq_stats_handle', 'stats_accounting_type', 'policy_status', 'interface_status'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
                     class Classes(Entity):
@@ -2430,7 +2532,7 @@ class PlatformQos(Entity):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_>`
+                        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class>`
                         
                         
 
@@ -2446,8 +2548,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "bundle-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"class" : ("class_", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("class", ("class_", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class))])
+                            self._leafs = OrderedDict()
 
                             self.class_ = YList(self)
                             self._segment_path = lambda: "classes"
@@ -2456,11 +2560,11 @@ class PlatformQos(Entity):
                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes, [], name, value)
 
 
-                        class Class_(Entity):
+                        class Class(Entity):
                             """
                             QoS policy class
                             
-                            .. attribute:: level_one_class_name  <key>
+                            .. attribute:: level_one_class_name  (key)
                             
                             	QoS policy class name at level 1
                             	**type**\: str
@@ -2473,52 +2577,52 @@ class PlatformQos(Entity):
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate>`
+                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate>`
+                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit>`
+                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate>`
+                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate>`
+                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction>`
+                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction>`
                             
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction>`
+                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction>`
+                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction>`
                             
                             .. attribute:: class_level
                             
@@ -2655,22 +2759,22 @@ class PlatformQos(Entity):
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark>`
+                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark>`
+                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark>`
                             
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark>`
+                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred>`
+                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred>`
                             
                             
 
@@ -2680,101 +2784,104 @@ class PlatformQos(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_, self).__init__()
+                                super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class, self).__init__()
 
                                 self.yang_name = "class"
                                 self.yang_parent_name = "classes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config-max-rate" : ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate), "config-min-rate" : ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit), "config-policer-average-rate" : ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate), "config-policer-peak-rate" : ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate), "config-policer-conform-burst" : ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst), "config-policer-excess-burst" : ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst), "conform-action" : ("conform_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction), "exceed-action" : ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction), "violate-action" : ("violate_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction)}
-                                self._child_list_classes = {"ip-mark" : ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark), "common-mark" : ("common_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark), "mpls-mark" : ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark), "wred" : ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred)}
+                                self.ylist_key_names = ['level_one_class_name']
+                                self._child_container_classes = OrderedDict([("config-max-rate", ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate)), ("config-min-rate", ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit)), ("config-policer-average-rate", ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate)), ("config-policer-peak-rate", ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate)), ("config-policer-conform-burst", ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst)), ("config-policer-excess-burst", ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst)), ("conform-action", ("conform_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction)), ("exceed-action", ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction)), ("violate-action", ("violate_action", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction))])
+                                self._child_list_classes = OrderedDict([("ip-mark", ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark)), ("common-mark", ("common_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark)), ("mpls-mark", ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred))])
+                                self._leafs = OrderedDict([
+                                    ('level_one_class_name', YLeaf(YType.str, 'level-one-class-name')),
+                                    ('level_two_class_name', YLeaf(YType.str, 'level-two-class-name')),
+                                    ('class_level', YLeaf(YType.enumeration, 'class-level')),
+                                    ('egress_queue_id', YLeaf(YType.int32, 'egress-queue-id')),
+                                    ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                    ('priority_level', YLeaf(YType.enumeration, 'priority-level')),
+                                    ('hardware_max_rate_kbps', YLeaf(YType.uint32, 'hardware-max-rate-kbps')),
+                                    ('hardware_min_rate_kbps', YLeaf(YType.uint32, 'hardware-min-rate-kbps')),
+                                    ('config_excess_bandwidth_percent', YLeaf(YType.uint32, 'config-excess-bandwidth-percent')),
+                                    ('config_excess_bandwidth_unit', YLeaf(YType.uint32, 'config-excess-bandwidth-unit')),
+                                    ('hardware_excess_bandwidth_weight', YLeaf(YType.uint32, 'hardware-excess-bandwidth-weight')),
+                                    ('network_min_bandwidth_kbps', YLeaf(YType.uint32, 'network-min-bandwidth-kbps')),
+                                    ('hardware_queue_limit_bytes', YLeaf(YType.uint64, 'hardware-queue-limit-bytes')),
+                                    ('hardware_queue_limit_microseconds', YLeaf(YType.uint64, 'hardware-queue-limit-microseconds')),
+                                    ('policer_bucket_id', YLeaf(YType.uint32, 'policer-bucket-id')),
+                                    ('policer_stats_handle', YLeaf(YType.uint64, 'policer-stats-handle')),
+                                    ('hardware_policer_average_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-average-rate-kbps')),
+                                    ('hardware_policer_peak_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-peak-rate-kbps')),
+                                    ('hardware_policer_conform_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-conform-burst-bytes')),
+                                    ('hardware_policer_excess_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-excess-burst-bytes')),
+                                ])
+                                self.level_one_class_name = None
+                                self.level_two_class_name = None
+                                self.class_level = None
+                                self.egress_queue_id = None
+                                self.queue_type = None
+                                self.priority_level = None
+                                self.hardware_max_rate_kbps = None
+                                self.hardware_min_rate_kbps = None
+                                self.config_excess_bandwidth_percent = None
+                                self.config_excess_bandwidth_unit = None
+                                self.hardware_excess_bandwidth_weight = None
+                                self.network_min_bandwidth_kbps = None
+                                self.hardware_queue_limit_bytes = None
+                                self.hardware_queue_limit_microseconds = None
+                                self.policer_bucket_id = None
+                                self.policer_stats_handle = None
+                                self.hardware_policer_average_rate_kbps = None
+                                self.hardware_policer_peak_rate_kbps = None
+                                self.hardware_policer_conform_burst_bytes = None
+                                self.hardware_policer_excess_burst_bytes = None
 
-                                self.level_one_class_name = YLeaf(YType.str, "level-one-class-name")
-
-                                self.level_two_class_name = YLeaf(YType.str, "level-two-class-name")
-
-                                self.class_level = YLeaf(YType.enumeration, "class-level")
-
-                                self.egress_queue_id = YLeaf(YType.int32, "egress-queue-id")
-
-                                self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                self.priority_level = YLeaf(YType.enumeration, "priority-level")
-
-                                self.hardware_max_rate_kbps = YLeaf(YType.uint32, "hardware-max-rate-kbps")
-
-                                self.hardware_min_rate_kbps = YLeaf(YType.uint32, "hardware-min-rate-kbps")
-
-                                self.config_excess_bandwidth_percent = YLeaf(YType.uint32, "config-excess-bandwidth-percent")
-
-                                self.config_excess_bandwidth_unit = YLeaf(YType.uint32, "config-excess-bandwidth-unit")
-
-                                self.hardware_excess_bandwidth_weight = YLeaf(YType.uint32, "hardware-excess-bandwidth-weight")
-
-                                self.network_min_bandwidth_kbps = YLeaf(YType.uint32, "network-min-bandwidth-kbps")
-
-                                self.hardware_queue_limit_bytes = YLeaf(YType.uint64, "hardware-queue-limit-bytes")
-
-                                self.hardware_queue_limit_microseconds = YLeaf(YType.uint64, "hardware-queue-limit-microseconds")
-
-                                self.policer_bucket_id = YLeaf(YType.uint32, "policer-bucket-id")
-
-                                self.policer_stats_handle = YLeaf(YType.uint64, "policer-stats-handle")
-
-                                self.hardware_policer_average_rate_kbps = YLeaf(YType.uint32, "hardware-policer-average-rate-kbps")
-
-                                self.hardware_policer_peak_rate_kbps = YLeaf(YType.uint32, "hardware-policer-peak-rate-kbps")
-
-                                self.hardware_policer_conform_burst_bytes = YLeaf(YType.uint32, "hardware-policer-conform-burst-bytes")
-
-                                self.hardware_policer_excess_burst_bytes = YLeaf(YType.uint32, "hardware-policer-excess-burst-bytes")
-
-                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate()
+                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate()
                                 self.config_max_rate.parent = self
                                 self._children_name_map["config_max_rate"] = "config-max-rate"
                                 self._children_yang_names.add("config-max-rate")
 
-                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate()
+                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate()
                                 self.config_min_rate.parent = self
                                 self._children_name_map["config_min_rate"] = "config-min-rate"
                                 self._children_yang_names.add("config-min-rate")
 
-                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit()
+                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit()
                                 self.config_queue_limit.parent = self
                                 self._children_name_map["config_queue_limit"] = "config-queue-limit"
                                 self._children_yang_names.add("config-queue-limit")
 
-                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate()
                                 self.config_policer_average_rate.parent = self
                                 self._children_name_map["config_policer_average_rate"] = "config-policer-average-rate"
                                 self._children_yang_names.add("config-policer-average-rate")
 
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate()
                                 self.config_policer_peak_rate.parent = self
                                 self._children_name_map["config_policer_peak_rate"] = "config-policer-peak-rate"
                                 self._children_yang_names.add("config-policer-peak-rate")
 
-                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst()
                                 self.config_policer_conform_burst.parent = self
                                 self._children_name_map["config_policer_conform_burst"] = "config-policer-conform-burst"
                                 self._children_yang_names.add("config-policer-conform-burst")
 
-                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst()
                                 self.config_policer_excess_burst.parent = self
                                 self._children_name_map["config_policer_excess_burst"] = "config-policer-excess-burst"
                                 self._children_yang_names.add("config-policer-excess-burst")
 
-                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction()
+                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction()
                                 self.conform_action.parent = self
                                 self._children_name_map["conform_action"] = "conform-action"
                                 self._children_yang_names.add("conform-action")
 
-                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction()
+                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction()
                                 self.exceed_action.parent = self
                                 self._children_name_map["exceed_action"] = "exceed-action"
                                 self._children_yang_names.add("exceed-action")
 
-                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction()
+                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction()
                                 self.violate_action.parent = self
                                 self._children_name_map["violate_action"] = "violate-action"
                                 self._children_yang_names.add("violate-action")
@@ -2783,10 +2890,10 @@ class PlatformQos(Entity):
                                 self.common_mark = YList(self)
                                 self.mpls_mark = YList(self)
                                 self.wred = YList(self)
-                                self._segment_path = lambda: "class" + "[level-one-class-name='" + self.level_one_class_name.get() + "']"
+                                self._segment_path = lambda: "class" + "[level-one-class-name='" + str(self.level_one_class_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
 
 
                             class ConfigMaxRate(Entity):
@@ -2813,22 +2920,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate, self).__init__()
 
                                     self.yang_name = "config-max-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-max-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigMinRate(Entity):
@@ -2855,22 +2965,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate, self).__init__()
 
                                     self.yang_name = "config-min-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-min-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigQueueLimit(Entity):
@@ -2897,22 +3010,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit, self).__init__()
 
                                     self.yang_name = "config-queue-limit"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-queue-limit"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerAverageRate(Entity):
@@ -2939,22 +3055,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate, self).__init__()
 
                                     self.yang_name = "config-policer-average-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-average-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerPeakRate(Entity):
@@ -2981,22 +3100,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate, self).__init__()
 
                                     self.yang_name = "config-policer-peak-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-peak-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerConformBurst(Entity):
@@ -3023,22 +3145,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst, self).__init__()
 
                                     self.yang_name = "config-policer-conform-burst"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-conform-burst"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerExcessBurst(Entity):
@@ -3065,22 +3190,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst, self).__init__()
 
                                     self.yang_name = "config-policer-excess-burst"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-excess-burst"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConformAction(Entity):
@@ -3095,7 +3223,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark>`
                                 
                                 
 
@@ -3105,22 +3233,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction, self).__init__()
 
                                     self.yang_name = "conform-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "conform-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -3147,22 +3278,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "conform-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class ExceedAction(Entity):
@@ -3177,7 +3311,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark>`
                                 
                                 
 
@@ -3187,22 +3321,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction, self).__init__()
 
                                     self.yang_name = "exceed-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "exceed-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -3229,22 +3366,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "exceed-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class ViolateAction(Entity):
@@ -3259,7 +3399,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark>`
                                 
                                 
 
@@ -3269,22 +3409,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction, self).__init__()
 
                                     self.yang_name = "violate-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "violate-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -3311,22 +3454,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "violate-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class IpMark(Entity):
@@ -3353,22 +3499,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark, self).__init__()
 
                                     self.yang_name = "ip-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "ip-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class CommonMark(Entity):
@@ -3395,22 +3544,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark, self).__init__()
 
                                     self.yang_name = "common-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "common-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class MplsMark(Entity):
@@ -3437,22 +3589,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark, self).__init__()
 
                                     self.yang_name = "mpls-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "mpls-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class Wred(Entity):
@@ -3462,17 +3617,17 @@ class PlatformQos(Entity):
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue>`
+                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: wred_match_type
                                 
@@ -3515,43 +3670,46 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred, self).__init__()
+                                    super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred, self).__init__()
 
                                     self.yang_name = "wred"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"wred-match-value" : ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue), "config-min-threshold" : ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold), "config-max-threshold" : ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("wred-match-value", ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue)), ("config-min-threshold", ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold)), ("config-max-threshold", ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wred_match_type', YLeaf(YType.enumeration, 'wred-match-type')),
+                                        ('hardware_min_threshold_bytes', YLeaf(YType.uint32, 'hardware-min-threshold-bytes')),
+                                        ('hardware_max_threshold_bytes', YLeaf(YType.uint32, 'hardware-max-threshold-bytes')),
+                                        ('first_segment', YLeaf(YType.uint16, 'first-segment')),
+                                        ('segment_size', YLeaf(YType.uint32, 'segment-size')),
+                                    ])
+                                    self.wred_match_type = None
+                                    self.hardware_min_threshold_bytes = None
+                                    self.hardware_max_threshold_bytes = None
+                                    self.first_segment = None
+                                    self.segment_size = None
 
-                                    self.wred_match_type = YLeaf(YType.enumeration, "wred-match-type")
-
-                                    self.hardware_min_threshold_bytes = YLeaf(YType.uint32, "hardware-min-threshold-bytes")
-
-                                    self.hardware_max_threshold_bytes = YLeaf(YType.uint32, "hardware-max-threshold-bytes")
-
-                                    self.first_segment = YLeaf(YType.uint16, "first-segment")
-
-                                    self.segment_size = YLeaf(YType.uint32, "segment-size")
-
-                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue()
+                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue()
                                     self.wred_match_value.parent = self
                                     self._children_name_map["wred_match_value"] = "wred-match-value"
                                     self._children_yang_names.add("wred-match-value")
 
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold()
                                     self.config_min_threshold.parent = self
                                     self._children_name_map["config_min_threshold"] = "config-min-threshold"
                                     self._children_yang_names.add("config-min-threshold")
 
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold()
                                     self.config_max_threshold.parent = self
                                     self._children_name_map["config_max_threshold"] = "config-max-threshold"
                                     self._children_yang_names.add("config-max-threshold")
                                     self._segment_path = lambda: "wred"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
 
 
                                 class WredMatchValue(Entity):
@@ -3561,7 +3719,7 @@ class PlatformQos(Entity):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -3571,20 +3729,22 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue, self).__init__()
 
                                         self.yang_name = "wred-match-value"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"dnx-qosea-show-red-match-value" : ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("dnx-qosea-show-red-match-value", ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue))])
+                                        self._leafs = OrderedDict()
 
                                         self.dnx_qosea_show_red_match_value = YList(self)
                                         self._segment_path = lambda: "wred-match-value"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue, [], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue, [], name, value)
 
 
                                     class DnxQoseaShowRedMatchValue(Entity):
@@ -3613,22 +3773,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
+                                            super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
 
                                             self.yang_name = "dnx-qosea-show-red-match-value"
                                             self.yang_parent_name = "wred-match-value"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.range_start = YLeaf(YType.uint8, "range-start")
-
-                                            self.range_end = YLeaf(YType.uint8, "range-end")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('range_start', YLeaf(YType.uint8, 'range-start')),
+                                                ('range_end', YLeaf(YType.uint8, 'range-end')),
+                                            ])
+                                            self.range_start = None
+                                            self.range_end = None
                                             self._segment_path = lambda: "dnx-qosea-show-red-match-value"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
 
 
                                 class ConfigMinThreshold(Entity):
@@ -3655,22 +3818,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold, self).__init__()
 
                                         self.yang_name = "config-min-threshold"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                        self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
                                         self._segment_path = lambda: "config-min-threshold"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
                                 class ConfigMaxThreshold(Entity):
@@ -3697,22 +3863,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold, self).__init__()
+                                        super(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold, self).__init__()
 
                                         self.yang_name = "config-max-threshold"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                        self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
                                         self._segment_path = lambda: "config-max-threshold"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
             class Interfaces(Entity):
@@ -3738,8 +3907,10 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", PlatformQos.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", PlatformQos.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -3752,7 +3923,7 @@ class PlatformQos(Entity):
                     """
                     QoS interface names
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	The name of the interface
                     	**type**\: str
@@ -3788,12 +3959,15 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"policy-details" : ("policy_details", PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails), "classes" : ("classes", PlatformQos.Nodes.Node.Interfaces.Interface.Classes)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.qos_direction = YLeaf(YType.str, "qos-direction")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("policy-details", ("policy_details", PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails)), ("classes", ("classes", PlatformQos.Nodes.Node.Interfaces.Interface.Classes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('qos_direction', YLeaf(YType.str, 'qos-direction')),
+                        ])
+                        self.interface_name = None
+                        self.qos_direction = None
 
                         self.policy_details = PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails()
                         self.policy_details.parent = self
@@ -3804,7 +3978,7 @@ class PlatformQos(Entity):
                         self.classes.parent = self
                         self._children_name_map["classes"] = "classes"
                         self._children_yang_names.add("classes")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface, ['interface_name', 'qos_direction'], name, value)
@@ -3894,28 +4068,31 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.npu_id = YLeaf(YType.uint32, "npu-id")
-
-                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                            self.interface_bandwidth_kbps = YLeaf(YType.uint32, "interface-bandwidth-kbps")
-
-                            self.policy_name = YLeaf(YType.str, "policy-name")
-
-                            self.total_number_of_classes = YLeaf(YType.uint16, "total-number-of-classes")
-
-                            self.voq_base_address = YLeaf(YType.uint32, "voq-base-address")
-
-                            self.voq_stats_handle = YLeaf(YType.uint64, "voq-stats-handle")
-
-                            self.stats_accounting_type = YLeaf(YType.enumeration, "stats-accounting-type")
-
-                            self.policy_status = YLeaf(YType.enumeration, "policy-status")
-
-                            self.interface_status = YLeaf(YType.enumeration, "interface-status")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                ('interface_bandwidth_kbps', YLeaf(YType.uint32, 'interface-bandwidth-kbps')),
+                                ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                ('total_number_of_classes', YLeaf(YType.uint16, 'total-number-of-classes')),
+                                ('voq_base_address', YLeaf(YType.uint32, 'voq-base-address')),
+                                ('voq_stats_handle', YLeaf(YType.uint64, 'voq-stats-handle')),
+                                ('stats_accounting_type', YLeaf(YType.enumeration, 'stats-accounting-type')),
+                                ('policy_status', YLeaf(YType.enumeration, 'policy-status')),
+                                ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
+                            ])
+                            self.npu_id = None
+                            self.interface_handle = None
+                            self.interface_bandwidth_kbps = None
+                            self.policy_name = None
+                            self.total_number_of_classes = None
+                            self.voq_base_address = None
+                            self.voq_stats_handle = None
+                            self.stats_accounting_type = None
+                            self.policy_status = None
+                            self.interface_status = None
                             self._segment_path = lambda: "policy-details"
 
                         def __setattr__(self, name, value):
@@ -3929,7 +4106,7 @@ class PlatformQos(Entity):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of  		 :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_>`
+                        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class>`
                         
                         
 
@@ -3945,8 +4122,10 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"class" : ("class_", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_)}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("class", ("class_", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class))])
+                            self._leafs = OrderedDict()
 
                             self.class_ = YList(self)
                             self._segment_path = lambda: "classes"
@@ -3955,11 +4134,11 @@ class PlatformQos(Entity):
                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes, [], name, value)
 
 
-                        class Class_(Entity):
+                        class Class(Entity):
                             """
                             QoS policy class
                             
-                            .. attribute:: level_one_class_name  <key>
+                            .. attribute:: level_one_class_name  (key)
                             
                             	QoS policy class name at level 1
                             	**type**\: str
@@ -3972,52 +4151,52 @@ class PlatformQos(Entity):
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate>`
+                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate>`
+                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit>`
+                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate>`
+                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate>`
+                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst>`
+                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction>`
+                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction>`
                             
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction>`
+                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction>`
+                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction>`
                             
                             .. attribute:: class_level
                             
@@ -4154,22 +4333,22 @@ class PlatformQos(Entity):
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark>`
+                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark>`
+                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark>`
                             
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark>`
+                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred>`
+                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred>`
                             
                             
 
@@ -4179,101 +4358,104 @@ class PlatformQos(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_, self).__init__()
+                                super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class, self).__init__()
 
                                 self.yang_name = "class"
                                 self.yang_parent_name = "classes"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config-max-rate" : ("config_max_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate), "config-min-rate" : ("config_min_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate), "config-queue-limit" : ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit), "config-policer-average-rate" : ("config_policer_average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate), "config-policer-peak-rate" : ("config_policer_peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate), "config-policer-conform-burst" : ("config_policer_conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst), "config-policer-excess-burst" : ("config_policer_excess_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst), "conform-action" : ("conform_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction), "exceed-action" : ("exceed_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction), "violate-action" : ("violate_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction)}
-                                self._child_list_classes = {"ip-mark" : ("ip_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark), "common-mark" : ("common_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark), "mpls-mark" : ("mpls_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark), "wred" : ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred)}
+                                self.ylist_key_names = ['level_one_class_name']
+                                self._child_container_classes = OrderedDict([("config-max-rate", ("config_max_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate)), ("config-min-rate", ("config_min_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit)), ("config-policer-average-rate", ("config_policer_average_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate)), ("config-policer-peak-rate", ("config_policer_peak_rate", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate)), ("config-policer-conform-burst", ("config_policer_conform_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst)), ("config-policer-excess-burst", ("config_policer_excess_burst", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst)), ("conform-action", ("conform_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction)), ("exceed-action", ("exceed_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction)), ("violate-action", ("violate_action", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction))])
+                                self._child_list_classes = OrderedDict([("ip-mark", ("ip_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark)), ("common-mark", ("common_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark)), ("mpls-mark", ("mpls_mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark)), ("wred", ("wred", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred))])
+                                self._leafs = OrderedDict([
+                                    ('level_one_class_name', YLeaf(YType.str, 'level-one-class-name')),
+                                    ('level_two_class_name', YLeaf(YType.str, 'level-two-class-name')),
+                                    ('class_level', YLeaf(YType.enumeration, 'class-level')),
+                                    ('egress_queue_id', YLeaf(YType.int32, 'egress-queue-id')),
+                                    ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                    ('priority_level', YLeaf(YType.enumeration, 'priority-level')),
+                                    ('hardware_max_rate_kbps', YLeaf(YType.uint32, 'hardware-max-rate-kbps')),
+                                    ('hardware_min_rate_kbps', YLeaf(YType.uint32, 'hardware-min-rate-kbps')),
+                                    ('config_excess_bandwidth_percent', YLeaf(YType.uint32, 'config-excess-bandwidth-percent')),
+                                    ('config_excess_bandwidth_unit', YLeaf(YType.uint32, 'config-excess-bandwidth-unit')),
+                                    ('hardware_excess_bandwidth_weight', YLeaf(YType.uint32, 'hardware-excess-bandwidth-weight')),
+                                    ('network_min_bandwidth_kbps', YLeaf(YType.uint32, 'network-min-bandwidth-kbps')),
+                                    ('hardware_queue_limit_bytes', YLeaf(YType.uint64, 'hardware-queue-limit-bytes')),
+                                    ('hardware_queue_limit_microseconds', YLeaf(YType.uint64, 'hardware-queue-limit-microseconds')),
+                                    ('policer_bucket_id', YLeaf(YType.uint32, 'policer-bucket-id')),
+                                    ('policer_stats_handle', YLeaf(YType.uint64, 'policer-stats-handle')),
+                                    ('hardware_policer_average_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-average-rate-kbps')),
+                                    ('hardware_policer_peak_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-peak-rate-kbps')),
+                                    ('hardware_policer_conform_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-conform-burst-bytes')),
+                                    ('hardware_policer_excess_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-excess-burst-bytes')),
+                                ])
+                                self.level_one_class_name = None
+                                self.level_two_class_name = None
+                                self.class_level = None
+                                self.egress_queue_id = None
+                                self.queue_type = None
+                                self.priority_level = None
+                                self.hardware_max_rate_kbps = None
+                                self.hardware_min_rate_kbps = None
+                                self.config_excess_bandwidth_percent = None
+                                self.config_excess_bandwidth_unit = None
+                                self.hardware_excess_bandwidth_weight = None
+                                self.network_min_bandwidth_kbps = None
+                                self.hardware_queue_limit_bytes = None
+                                self.hardware_queue_limit_microseconds = None
+                                self.policer_bucket_id = None
+                                self.policer_stats_handle = None
+                                self.hardware_policer_average_rate_kbps = None
+                                self.hardware_policer_peak_rate_kbps = None
+                                self.hardware_policer_conform_burst_bytes = None
+                                self.hardware_policer_excess_burst_bytes = None
 
-                                self.level_one_class_name = YLeaf(YType.str, "level-one-class-name")
-
-                                self.level_two_class_name = YLeaf(YType.str, "level-two-class-name")
-
-                                self.class_level = YLeaf(YType.enumeration, "class-level")
-
-                                self.egress_queue_id = YLeaf(YType.int32, "egress-queue-id")
-
-                                self.queue_type = YLeaf(YType.enumeration, "queue-type")
-
-                                self.priority_level = YLeaf(YType.enumeration, "priority-level")
-
-                                self.hardware_max_rate_kbps = YLeaf(YType.uint32, "hardware-max-rate-kbps")
-
-                                self.hardware_min_rate_kbps = YLeaf(YType.uint32, "hardware-min-rate-kbps")
-
-                                self.config_excess_bandwidth_percent = YLeaf(YType.uint32, "config-excess-bandwidth-percent")
-
-                                self.config_excess_bandwidth_unit = YLeaf(YType.uint32, "config-excess-bandwidth-unit")
-
-                                self.hardware_excess_bandwidth_weight = YLeaf(YType.uint32, "hardware-excess-bandwidth-weight")
-
-                                self.network_min_bandwidth_kbps = YLeaf(YType.uint32, "network-min-bandwidth-kbps")
-
-                                self.hardware_queue_limit_bytes = YLeaf(YType.uint64, "hardware-queue-limit-bytes")
-
-                                self.hardware_queue_limit_microseconds = YLeaf(YType.uint64, "hardware-queue-limit-microseconds")
-
-                                self.policer_bucket_id = YLeaf(YType.uint32, "policer-bucket-id")
-
-                                self.policer_stats_handle = YLeaf(YType.uint64, "policer-stats-handle")
-
-                                self.hardware_policer_average_rate_kbps = YLeaf(YType.uint32, "hardware-policer-average-rate-kbps")
-
-                                self.hardware_policer_peak_rate_kbps = YLeaf(YType.uint32, "hardware-policer-peak-rate-kbps")
-
-                                self.hardware_policer_conform_burst_bytes = YLeaf(YType.uint32, "hardware-policer-conform-burst-bytes")
-
-                                self.hardware_policer_excess_burst_bytes = YLeaf(YType.uint32, "hardware-policer-excess-burst-bytes")
-
-                                self.config_max_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate()
+                                self.config_max_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate()
                                 self.config_max_rate.parent = self
                                 self._children_name_map["config_max_rate"] = "config-max-rate"
                                 self._children_yang_names.add("config-max-rate")
 
-                                self.config_min_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate()
+                                self.config_min_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate()
                                 self.config_min_rate.parent = self
                                 self._children_name_map["config_min_rate"] = "config-min-rate"
                                 self._children_yang_names.add("config-min-rate")
 
-                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit()
+                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit()
                                 self.config_queue_limit.parent = self
                                 self._children_name_map["config_queue_limit"] = "config-queue-limit"
                                 self._children_yang_names.add("config-queue-limit")
 
-                                self.config_policer_average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate()
                                 self.config_policer_average_rate.parent = self
                                 self._children_name_map["config_policer_average_rate"] = "config-policer-average-rate"
                                 self._children_yang_names.add("config-policer-average-rate")
 
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate()
                                 self.config_policer_peak_rate.parent = self
                                 self._children_name_map["config_policer_peak_rate"] = "config-policer-peak-rate"
                                 self._children_yang_names.add("config-policer-peak-rate")
 
-                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst()
                                 self.config_policer_conform_burst.parent = self
                                 self._children_name_map["config_policer_conform_burst"] = "config-policer-conform-burst"
                                 self._children_yang_names.add("config-policer-conform-burst")
 
-                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst()
                                 self.config_policer_excess_burst.parent = self
                                 self._children_name_map["config_policer_excess_burst"] = "config-policer-excess-burst"
                                 self._children_yang_names.add("config-policer-excess-burst")
 
-                                self.conform_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction()
+                                self.conform_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction()
                                 self.conform_action.parent = self
                                 self._children_name_map["conform_action"] = "conform-action"
                                 self._children_yang_names.add("conform-action")
 
-                                self.exceed_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction()
+                                self.exceed_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction()
                                 self.exceed_action.parent = self
                                 self._children_name_map["exceed_action"] = "exceed-action"
                                 self._children_yang_names.add("exceed-action")
 
-                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction()
+                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction()
                                 self.violate_action.parent = self
                                 self._children_name_map["violate_action"] = "violate-action"
                                 self._children_yang_names.add("violate-action")
@@ -4282,10 +4464,10 @@ class PlatformQos(Entity):
                                 self.common_mark = YList(self)
                                 self.mpls_mark = YList(self)
                                 self.wred = YList(self)
-                                self._segment_path = lambda: "class" + "[level-one-class-name='" + self.level_one_class_name.get() + "']"
+                                self._segment_path = lambda: "class" + "[level-one-class-name='" + str(self.level_one_class_name) + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
 
 
                             class ConfigMaxRate(Entity):
@@ -4312,22 +4494,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate, self).__init__()
 
                                     self.yang_name = "config-max-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-max-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigMinRate(Entity):
@@ -4354,22 +4539,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate, self).__init__()
 
                                     self.yang_name = "config-min-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-min-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigQueueLimit(Entity):
@@ -4396,22 +4584,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit, self).__init__()
 
                                     self.yang_name = "config-queue-limit"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-queue-limit"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerAverageRate(Entity):
@@ -4438,22 +4629,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate, self).__init__()
 
                                     self.yang_name = "config-policer-average-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-average-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerPeakRate(Entity):
@@ -4480,22 +4674,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate, self).__init__()
 
                                     self.yang_name = "config-policer-peak-rate"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-peak-rate"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerConformBurst(Entity):
@@ -4522,22 +4719,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst, self).__init__()
 
                                     self.yang_name = "config-policer-conform-burst"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-conform-burst"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConfigPolicerExcessBurst(Entity):
@@ -4564,22 +4764,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst, self).__init__()
 
                                     self.yang_name = "config-policer-excess-burst"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                    self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
                                     self._segment_path = lambda: "config-policer-excess-burst"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
 
 
                             class ConformAction(Entity):
@@ -4594,7 +4797,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark>`
                                 
                                 
 
@@ -4604,22 +4807,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction, self).__init__()
 
                                     self.yang_name = "conform-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "conform-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -4646,22 +4852,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "conform-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class ExceedAction(Entity):
@@ -4676,7 +4885,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark>`
                                 
                                 
 
@@ -4686,22 +4895,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction, self).__init__()
 
                                     self.yang_name = "exceed-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "exceed-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -4728,22 +4940,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "exceed-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class ViolateAction(Entity):
@@ -4758,7 +4973,7 @@ class PlatformQos(Entity):
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark>`
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark>`
                                 
                                 
 
@@ -4768,22 +4983,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction, self).__init__()
 
                                     self.yang_name = "violate-action"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"mark" : ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark)}
-
-                                    self.action_type = YLeaf(YType.enumeration, "action-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
 
                                     self.mark = YList(self)
                                     self._segment_path = lambda: "violate-action"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction, ['action_type'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction, ['action_type'], name, value)
 
 
                                 class Mark(Entity):
@@ -4810,22 +5028,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark, self).__init__()
 
                                         self.yang_name = "mark"
                                         self.yang_parent_name = "violate-action"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                        self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
                                         self._segment_path = lambda: "mark"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
 
 
                             class IpMark(Entity):
@@ -4852,22 +5073,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark, self).__init__()
 
                                     self.yang_name = "ip-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "ip-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class CommonMark(Entity):
@@ -4894,22 +5118,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark, self).__init__()
 
                                     self.yang_name = "common-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "common-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class MplsMark(Entity):
@@ -4936,22 +5163,25 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark, self).__init__()
 
                                     self.yang_name = "mpls-mark"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.mark_type = YLeaf(YType.enumeration, "mark-type")
-
-                                    self.mark_value = YLeaf(YType.uint16, "mark-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
                                     self._segment_path = lambda: "mpls-mark"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark, ['mark_type', 'mark_value'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark, ['mark_type', 'mark_value'], name, value)
 
 
                             class Wred(Entity):
@@ -4961,17 +5191,17 @@ class PlatformQos(Entity):
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue>`
+                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold>`
+                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold>`
+                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: wred_match_type
                                 
@@ -5014,43 +5244,46 @@ class PlatformQos(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred, self).__init__()
+                                    super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred, self).__init__()
 
                                     self.yang_name = "wred"
                                     self.yang_parent_name = "class"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"wred-match-value" : ("wred_match_value", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue), "config-min-threshold" : ("config_min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold), "config-max-threshold" : ("config_max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("wred-match-value", ("wred_match_value", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue)), ("config-min-threshold", ("config_min_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold)), ("config-max-threshold", ("config_max_threshold", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wred_match_type', YLeaf(YType.enumeration, 'wred-match-type')),
+                                        ('hardware_min_threshold_bytes', YLeaf(YType.uint32, 'hardware-min-threshold-bytes')),
+                                        ('hardware_max_threshold_bytes', YLeaf(YType.uint32, 'hardware-max-threshold-bytes')),
+                                        ('first_segment', YLeaf(YType.uint16, 'first-segment')),
+                                        ('segment_size', YLeaf(YType.uint32, 'segment-size')),
+                                    ])
+                                    self.wred_match_type = None
+                                    self.hardware_min_threshold_bytes = None
+                                    self.hardware_max_threshold_bytes = None
+                                    self.first_segment = None
+                                    self.segment_size = None
 
-                                    self.wred_match_type = YLeaf(YType.enumeration, "wred-match-type")
-
-                                    self.hardware_min_threshold_bytes = YLeaf(YType.uint32, "hardware-min-threshold-bytes")
-
-                                    self.hardware_max_threshold_bytes = YLeaf(YType.uint32, "hardware-max-threshold-bytes")
-
-                                    self.first_segment = YLeaf(YType.uint16, "first-segment")
-
-                                    self.segment_size = YLeaf(YType.uint32, "segment-size")
-
-                                    self.wred_match_value = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue()
+                                    self.wred_match_value = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue()
                                     self.wred_match_value.parent = self
                                     self._children_name_map["wred_match_value"] = "wred-match-value"
                                     self._children_yang_names.add("wred-match-value")
 
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold()
                                     self.config_min_threshold.parent = self
                                     self._children_name_map["config_min_threshold"] = "config-min-threshold"
                                     self._children_yang_names.add("config-min-threshold")
 
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold()
                                     self.config_max_threshold.parent = self
                                     self._children_name_map["config_max_threshold"] = "config-max-threshold"
                                     self._children_yang_names.add("config-max-threshold")
                                     self._segment_path = lambda: "wred"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
 
 
                                 class WredMatchValue(Entity):
@@ -5060,7 +5293,7 @@ class PlatformQos(Entity):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -5070,20 +5303,22 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue, self).__init__()
 
                                         self.yang_name = "wred-match-value"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"dnx-qosea-show-red-match-value" : ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue)}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("dnx-qosea-show-red-match-value", ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue))])
+                                        self._leafs = OrderedDict()
 
                                         self.dnx_qosea_show_red_match_value = YList(self)
                                         self._segment_path = lambda: "wred-match-value"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue, [], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue, [], name, value)
 
 
                                     class DnxQoseaShowRedMatchValue(Entity):
@@ -5112,22 +5347,25 @@ class PlatformQos(Entity):
                                         _revision = '2015-11-09'
 
                                         def __init__(self):
-                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
+                                            super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
 
                                             self.yang_name = "dnx-qosea-show-red-match-value"
                                             self.yang_parent_name = "wred-match-value"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.range_start = YLeaf(YType.uint8, "range-start")
-
-                                            self.range_end = YLeaf(YType.uint8, "range-end")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('range_start', YLeaf(YType.uint8, 'range-start')),
+                                                ('range_end', YLeaf(YType.uint8, 'range-end')),
+                                            ])
+                                            self.range_start = None
+                                            self.range_end = None
                                             self._segment_path = lambda: "dnx-qosea-show-red-match-value"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
 
 
                                 class ConfigMinThreshold(Entity):
@@ -5154,22 +5392,25 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold, self).__init__()
 
                                         self.yang_name = "config-min-threshold"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                        self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
                                         self._segment_path = lambda: "config-min-threshold"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
                                 class ConfigMaxThreshold(Entity):
@@ -5196,22 +5437,3169 @@ class PlatformQos(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold, self).__init__()
+                                        super(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold, self).__init__()
 
                                         self.yang_name = "config-max-threshold"
                                         self.yang_parent_name = "wred"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.policy_value = YLeaf(YType.uint32, "policy-value")
-
-                                        self.policy_unit = YLeaf(YType.enumeration, "policy-unit")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
                                         self._segment_path = lambda: "config-max-threshold"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
+
+
+            class BundleInterfaceSingles(Entity):
+                """
+                QoS list of bundle interfaces
+                
+                .. attribute:: bundle_interface_single
+                
+                	QoS interface names
+                	**type**\: list of  		 :py:class:`BundleInterfaceSingle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle>`
+                
+                
+
+                """
+
+                _prefix = 'ncs5500-qos-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles, self).__init__()
+
+                    self.yang_name = "bundle-interface-singles"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("bundle-interface-single", ("bundle_interface_single", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle))])
+                    self._leafs = OrderedDict()
+
+                    self.bundle_interface_single = YList(self)
+                    self._segment_path = lambda: "bundle-interface-singles"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles, [], name, value)
+
+
+                class BundleInterfaceSingle(Entity):
+                    """
+                    QoS interface names
+                    
+                    .. attribute:: interface_name  (key)
+                    
+                    	Bundle interface name
+                    	**type**\: str
+                    
+                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    
+                    .. attribute:: policy_details
+                    
+                    	Policy Details
+                    	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.PolicyDetails>`
+                    
+                    .. attribute:: member_interfaces
+                    
+                    	QoS list of member interfaces
+                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces>`
+                    
+                    .. attribute:: classes
+                    
+                    	QoS list of class names
+                    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs5500-qos-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle, self).__init__()
+
+                        self.yang_name = "bundle-interface-single"
+                        self.yang_parent_name = "bundle-interface-singles"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([("policy-details", ("policy_details", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.PolicyDetails)), ("member-interfaces", ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces)), ("classes", ("classes", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ])
+                        self.interface_name = None
+
+                        self.policy_details = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.PolicyDetails()
+                        self.policy_details.parent = self
+                        self._children_name_map["policy_details"] = "policy-details"
+                        self._children_yang_names.add("policy-details")
+
+                        self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces()
+                        self.member_interfaces.parent = self
+                        self._children_name_map["member_interfaces"] = "member-interfaces"
+                        self._children_yang_names.add("member-interfaces")
+
+                        self.classes = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes()
+                        self.classes.parent = self
+                        self._children_name_map["classes"] = "classes"
+                        self._children_yang_names.add("classes")
+                        self._segment_path = lambda: "bundle-interface-single" + "[interface-name='" + str(self.interface_name) + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle, ['interface_name'], name, value)
+
+
+                    class PolicyDetails(Entity):
+                        """
+                        Policy Details
+                        
+                        .. attribute:: npu_id
+                        
+                        	NPU ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	InterfaceHandle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_bandwidth_kbps
+                        
+                        	Interface Bandwidth (in kbps)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
+                        
+                        .. attribute:: policy_name
+                        
+                        	Policy name
+                        	**type**\: str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: total_number_of_classes
+                        
+                        	Number of Classes
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: voq_base_address
+                        
+                        	VOQ base address
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: voq_stats_handle
+                        
+                        	VOQ stats handle
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: stats_accounting_type
+                        
+                        	QoS Statistics Accounting Type
+                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                        
+                        .. attribute:: policy_status
+                        
+                        	Policy Status
+                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface Status
+                        	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.PolicyDetails, self).__init__()
+
+                            self.yang_name = "policy-details"
+                            self.yang_parent_name = "bundle-interface-single"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                ('interface_bandwidth_kbps', YLeaf(YType.uint32, 'interface-bandwidth-kbps')),
+                                ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                ('total_number_of_classes', YLeaf(YType.uint16, 'total-number-of-classes')),
+                                ('voq_base_address', YLeaf(YType.uint32, 'voq-base-address')),
+                                ('voq_stats_handle', YLeaf(YType.uint64, 'voq-stats-handle')),
+                                ('stats_accounting_type', YLeaf(YType.enumeration, 'stats-accounting-type')),
+                                ('policy_status', YLeaf(YType.enumeration, 'policy-status')),
+                                ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
+                            ])
+                            self.npu_id = None
+                            self.interface_handle = None
+                            self.interface_bandwidth_kbps = None
+                            self.policy_name = None
+                            self.total_number_of_classes = None
+                            self.voq_base_address = None
+                            self.voq_stats_handle = None
+                            self.stats_accounting_type = None
+                            self.policy_status = None
+                            self.interface_status = None
+                            self._segment_path = lambda: "policy-details"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.PolicyDetails, ['npu_id', 'interface_handle', 'interface_bandwidth_kbps', 'policy_name', 'total_number_of_classes', 'voq_base_address', 'voq_stats_handle', 'stats_accounting_type', 'policy_status', 'interface_status'], name, value)
+
+
+                    class MemberInterfaces(Entity):
+                        """
+                        QoS list of member interfaces
+                        
+                        .. attribute:: member_interface
+                        
+                        	QoS interface names
+                        	**type**\: list of  		 :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces, self).__init__()
+
+                            self.yang_name = "member-interfaces"
+                            self.yang_parent_name = "bundle-interface-single"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("member-interface", ("member_interface", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface))])
+                            self._leafs = OrderedDict()
+
+                            self.member_interface = YList(self)
+                            self._segment_path = lambda: "member-interfaces"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces, [], name, value)
+
+
+                        class MemberInterface(Entity):
+                            """
+                            QoS interface names
+                            
+                            .. attribute:: interface_name  (key)
+                            
+                            	Member interface
+                            	**type**\: str
+                            
+                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            
+                            .. attribute:: policy_details
+                            
+                            	Policy Details
+                            	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.PolicyDetails>`
+                            
+                            .. attribute:: classes
+                            
+                            	QoS list of class names
+                            	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs5500-qos-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface, self).__init__()
+
+                                self.yang_name = "member-interface"
+                                self.yang_parent_name = "member-interfaces"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['interface_name']
+                                self._child_container_classes = OrderedDict([("policy-details", ("policy_details", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.PolicyDetails)), ("classes", ("classes", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ])
+                                self.interface_name = None
+
+                                self.policy_details = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.PolicyDetails()
+                                self.policy_details.parent = self
+                                self._children_name_map["policy_details"] = "policy-details"
+                                self._children_yang_names.add("policy-details")
+
+                                self.classes = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes()
+                                self.classes.parent = self
+                                self._children_name_map["classes"] = "classes"
+                                self._children_yang_names.add("classes")
+                                self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
+
+
+                            class PolicyDetails(Entity):
+                                """
+                                Policy Details
+                                
+                                .. attribute:: npu_id
+                                
+                                	NPU ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interface_handle
+                                
+                                	InterfaceHandle
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interface_bandwidth_kbps
+                                
+                                	Interface Bandwidth (in kbps)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: kbit/s
+                                
+                                .. attribute:: policy_name
+                                
+                                	Policy name
+                                	**type**\: str
+                                
+                                	**length:** 0..64
+                                
+                                .. attribute:: total_number_of_classes
+                                
+                                	Number of Classes
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: voq_base_address
+                                
+                                	VOQ base address
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: voq_stats_handle
+                                
+                                	VOQ stats handle
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: stats_accounting_type
+                                
+                                	QoS Statistics Accounting Type
+                                	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum>`
+                                
+                                .. attribute:: policy_status
+                                
+                                	Policy Status
+                                	**type**\:  :py:class:`DnxQoseaShowPolicyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus>`
+                                
+                                .. attribute:: interface_status
+                                
+                                	Interface Status
+                                	**type**\:  :py:class:`DnxQoseaShowIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.PolicyDetails, self).__init__()
+
+                                    self.yang_name = "policy-details"
+                                    self.yang_parent_name = "member-interface"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                        ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                                        ('interface_bandwidth_kbps', YLeaf(YType.uint32, 'interface-bandwidth-kbps')),
+                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
+                                        ('total_number_of_classes', YLeaf(YType.uint16, 'total-number-of-classes')),
+                                        ('voq_base_address', YLeaf(YType.uint32, 'voq-base-address')),
+                                        ('voq_stats_handle', YLeaf(YType.uint64, 'voq-stats-handle')),
+                                        ('stats_accounting_type', YLeaf(YType.enumeration, 'stats-accounting-type')),
+                                        ('policy_status', YLeaf(YType.enumeration, 'policy-status')),
+                                        ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
+                                    ])
+                                    self.npu_id = None
+                                    self.interface_handle = None
+                                    self.interface_bandwidth_kbps = None
+                                    self.policy_name = None
+                                    self.total_number_of_classes = None
+                                    self.voq_base_address = None
+                                    self.voq_stats_handle = None
+                                    self.stats_accounting_type = None
+                                    self.policy_status = None
+                                    self.interface_status = None
+                                    self._segment_path = lambda: "policy-details"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.PolicyDetails, ['npu_id', 'interface_handle', 'interface_bandwidth_kbps', 'policy_name', 'total_number_of_classes', 'voq_base_address', 'voq_stats_handle', 'stats_accounting_type', 'policy_status', 'interface_status'], name, value)
+
+
+                            class Classes(Entity):
+                                """
+                                QoS list of class names
+                                
+                                .. attribute:: class_
+                                
+                                	QoS policy class
+                                	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes, self).__init__()
+
+                                    self.yang_name = "classes"
+                                    self.yang_parent_name = "member-interface"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("class", ("class_", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class))])
+                                    self._leafs = OrderedDict()
+
+                                    self.class_ = YList(self)
+                                    self._segment_path = lambda: "classes"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes, [], name, value)
+
+
+                                class Class(Entity):
+                                    """
+                                    QoS policy class
+                                    
+                                    .. attribute:: level_one_class_name  (key)
+                                    
+                                    	QoS policy class name at level 1
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level_two_class_name
+                                    
+                                    	QoS policy child class name at level 2
+                                    	**type**\: str
+                                    
+                                    .. attribute:: config_max_rate
+                                    
+                                    	Configured maximum rate
+                                    	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate>`
+                                    
+                                    .. attribute:: config_min_rate
+                                    
+                                    	Configured minimum rate
+                                    	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate>`
+                                    
+                                    .. attribute:: config_queue_limit
+                                    
+                                    	Configured queue limit
+                                    	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit>`
+                                    
+                                    .. attribute:: config_policer_average_rate
+                                    
+                                    	Configured policer average rate
+                                    	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate>`
+                                    
+                                    .. attribute:: config_policer_peak_rate
+                                    
+                                    	Config policer peak rate
+                                    	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate>`
+                                    
+                                    .. attribute:: config_policer_conform_burst
+                                    
+                                    	Configured policer conform burst
+                                    	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst>`
+                                    
+                                    .. attribute:: config_policer_excess_burst
+                                    
+                                    	Configured policer excess burst
+                                    	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst>`
+                                    
+                                    .. attribute:: conform_action
+                                    
+                                    	Conform action
+                                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction>`
+                                    
+                                    .. attribute:: exceed_action
+                                    
+                                    	Exceed action
+                                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction>`
+                                    
+                                    .. attribute:: violate_action
+                                    
+                                    	Violate action
+                                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction>`
+                                    
+                                    .. attribute:: class_level
+                                    
+                                    	Class level
+                                    	**type**\:  :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
+                                    
+                                    .. attribute:: egress_queue_id
+                                    
+                                    	Egress Queue ID
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: queue_type
+                                    
+                                    	Queue type
+                                    	**type**\:  :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
+                                    
+                                    .. attribute:: priority_level
+                                    
+                                    	Priority level
+                                    	**type**\:  :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
+                                    
+                                    .. attribute:: hardware_max_rate_kbps
+                                    
+                                    	Hardware maximum rate in kbps
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: kbit/s
+                                    
+                                    .. attribute:: hardware_min_rate_kbps
+                                    
+                                    	Hardware minimum rate in kbps
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: kbit/s
+                                    
+                                    .. attribute:: config_excess_bandwidth_percent
+                                    
+                                    	Configured excess bandwidth percentage
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: percentage
+                                    
+                                    .. attribute:: config_excess_bandwidth_unit
+                                    
+                                    	Configured excess bandwidth unit
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_excess_bandwidth_weight
+                                    
+                                    	Hardware excess bandwidth weight
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: network_min_bandwidth_kbps
+                                    
+                                    	Network minimum Bandwith
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_queue_limit_bytes
+                                    
+                                    	Hardware queue limit in bytes
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: hardware_queue_limit_microseconds
+                                    
+                                    	Hardware queue limit in microseconds
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: microsecond
+                                    
+                                    .. attribute:: policer_bucket_id
+                                    
+                                    	PolicerBucketID
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policer_stats_handle
+                                    
+                                    	PolicerStatsHandle
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: hardware_policer_average_rate_kbps
+                                    
+                                    	Hardware policer average in kbps
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: kbit/s
+                                    
+                                    .. attribute:: hardware_policer_peak_rate_kbps
+                                    
+                                    	Hardware policer peak rate
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_policer_conform_burst_bytes
+                                    
+                                    	Hardware policer conform burst
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_policer_excess_burst_bytes
+                                    
+                                    	Hardware policer excess burst
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: ip_mark
+                                    
+                                    	IP mark
+                                    	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.IpMark>`
+                                    
+                                    .. attribute:: common_mark
+                                    
+                                    	Common mark
+                                    	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.CommonMark>`
+                                    
+                                    .. attribute:: mpls_mark
+                                    
+                                    	MPLS mark
+                                    	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.MplsMark>`
+                                    
+                                    .. attribute:: wred
+                                    
+                                    	WRED parameters
+                                    	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class, self).__init__()
+
+                                        self.yang_name = "class"
+                                        self.yang_parent_name = "classes"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['level_one_class_name']
+                                        self._child_container_classes = OrderedDict([("config-max-rate", ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate)), ("config-min-rate", ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit)), ("config-policer-average-rate", ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate)), ("config-policer-peak-rate", ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate)), ("config-policer-conform-burst", ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst)), ("config-policer-excess-burst", ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst)), ("conform-action", ("conform_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction)), ("exceed-action", ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction)), ("violate-action", ("violate_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction))])
+                                        self._child_list_classes = OrderedDict([("ip-mark", ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.IpMark)), ("common-mark", ("common_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.CommonMark)), ("mpls-mark", ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.MplsMark)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred))])
+                                        self._leafs = OrderedDict([
+                                            ('level_one_class_name', YLeaf(YType.str, 'level-one-class-name')),
+                                            ('level_two_class_name', YLeaf(YType.str, 'level-two-class-name')),
+                                            ('class_level', YLeaf(YType.enumeration, 'class-level')),
+                                            ('egress_queue_id', YLeaf(YType.int32, 'egress-queue-id')),
+                                            ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                            ('priority_level', YLeaf(YType.enumeration, 'priority-level')),
+                                            ('hardware_max_rate_kbps', YLeaf(YType.uint32, 'hardware-max-rate-kbps')),
+                                            ('hardware_min_rate_kbps', YLeaf(YType.uint32, 'hardware-min-rate-kbps')),
+                                            ('config_excess_bandwidth_percent', YLeaf(YType.uint32, 'config-excess-bandwidth-percent')),
+                                            ('config_excess_bandwidth_unit', YLeaf(YType.uint32, 'config-excess-bandwidth-unit')),
+                                            ('hardware_excess_bandwidth_weight', YLeaf(YType.uint32, 'hardware-excess-bandwidth-weight')),
+                                            ('network_min_bandwidth_kbps', YLeaf(YType.uint32, 'network-min-bandwidth-kbps')),
+                                            ('hardware_queue_limit_bytes', YLeaf(YType.uint64, 'hardware-queue-limit-bytes')),
+                                            ('hardware_queue_limit_microseconds', YLeaf(YType.uint64, 'hardware-queue-limit-microseconds')),
+                                            ('policer_bucket_id', YLeaf(YType.uint32, 'policer-bucket-id')),
+                                            ('policer_stats_handle', YLeaf(YType.uint64, 'policer-stats-handle')),
+                                            ('hardware_policer_average_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-average-rate-kbps')),
+                                            ('hardware_policer_peak_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-peak-rate-kbps')),
+                                            ('hardware_policer_conform_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-conform-burst-bytes')),
+                                            ('hardware_policer_excess_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-excess-burst-bytes')),
+                                        ])
+                                        self.level_one_class_name = None
+                                        self.level_two_class_name = None
+                                        self.class_level = None
+                                        self.egress_queue_id = None
+                                        self.queue_type = None
+                                        self.priority_level = None
+                                        self.hardware_max_rate_kbps = None
+                                        self.hardware_min_rate_kbps = None
+                                        self.config_excess_bandwidth_percent = None
+                                        self.config_excess_bandwidth_unit = None
+                                        self.hardware_excess_bandwidth_weight = None
+                                        self.network_min_bandwidth_kbps = None
+                                        self.hardware_queue_limit_bytes = None
+                                        self.hardware_queue_limit_microseconds = None
+                                        self.policer_bucket_id = None
+                                        self.policer_stats_handle = None
+                                        self.hardware_policer_average_rate_kbps = None
+                                        self.hardware_policer_peak_rate_kbps = None
+                                        self.hardware_policer_conform_burst_bytes = None
+                                        self.hardware_policer_excess_burst_bytes = None
+
+                                        self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate()
+                                        self.config_max_rate.parent = self
+                                        self._children_name_map["config_max_rate"] = "config-max-rate"
+                                        self._children_yang_names.add("config-max-rate")
+
+                                        self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate()
+                                        self.config_min_rate.parent = self
+                                        self._children_name_map["config_min_rate"] = "config-min-rate"
+                                        self._children_yang_names.add("config-min-rate")
+
+                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit()
+                                        self.config_queue_limit.parent = self
+                                        self._children_name_map["config_queue_limit"] = "config-queue-limit"
+                                        self._children_yang_names.add("config-queue-limit")
+
+                                        self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate()
+                                        self.config_policer_average_rate.parent = self
+                                        self._children_name_map["config_policer_average_rate"] = "config-policer-average-rate"
+                                        self._children_yang_names.add("config-policer-average-rate")
+
+                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate()
+                                        self.config_policer_peak_rate.parent = self
+                                        self._children_name_map["config_policer_peak_rate"] = "config-policer-peak-rate"
+                                        self._children_yang_names.add("config-policer-peak-rate")
+
+                                        self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst()
+                                        self.config_policer_conform_burst.parent = self
+                                        self._children_name_map["config_policer_conform_burst"] = "config-policer-conform-burst"
+                                        self._children_yang_names.add("config-policer-conform-burst")
+
+                                        self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst()
+                                        self.config_policer_excess_burst.parent = self
+                                        self._children_name_map["config_policer_excess_burst"] = "config-policer-excess-burst"
+                                        self._children_yang_names.add("config-policer-excess-burst")
+
+                                        self.conform_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction()
+                                        self.conform_action.parent = self
+                                        self._children_name_map["conform_action"] = "conform-action"
+                                        self._children_yang_names.add("conform-action")
+
+                                        self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction()
+                                        self.exceed_action.parent = self
+                                        self._children_name_map["exceed_action"] = "exceed-action"
+                                        self._children_yang_names.add("exceed-action")
+
+                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction()
+                                        self.violate_action.parent = self
+                                        self._children_name_map["violate_action"] = "violate-action"
+                                        self._children_yang_names.add("violate-action")
+
+                                        self.ip_mark = YList(self)
+                                        self.common_mark = YList(self)
+                                        self.mpls_mark = YList(self)
+                                        self.wred = YList(self)
+                                        self._segment_path = lambda: "class" + "[level-one-class-name='" + str(self.level_one_class_name) + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
+
+
+                                    class ConfigMaxRate(Entity):
+                                        """
+                                        Configured maximum rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate, self).__init__()
+
+                                            self.yang_name = "config-max-rate"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-max-rate"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigMinRate(Entity):
+                                        """
+                                        Configured minimum rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate, self).__init__()
+
+                                            self.yang_name = "config-min-rate"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-min-rate"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigQueueLimit(Entity):
+                                        """
+                                        Configured queue limit
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit, self).__init__()
+
+                                            self.yang_name = "config-queue-limit"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-queue-limit"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigPolicerAverageRate(Entity):
+                                        """
+                                        Configured policer average rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate, self).__init__()
+
+                                            self.yang_name = "config-policer-average-rate"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-policer-average-rate"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigPolicerPeakRate(Entity):
+                                        """
+                                        Config policer peak rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate, self).__init__()
+
+                                            self.yang_name = "config-policer-peak-rate"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-policer-peak-rate"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigPolicerConformBurst(Entity):
+                                        """
+                                        Configured policer conform burst
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst, self).__init__()
+
+                                            self.yang_name = "config-policer-conform-burst"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-policer-conform-burst"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConfigPolicerExcessBurst(Entity):
+                                        """
+                                        Configured policer excess burst
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst, self).__init__()
+
+                                            self.yang_name = "config-policer-excess-burst"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                            ])
+                                            self.policy_value = None
+                                            self.policy_unit = None
+                                            self._segment_path = lambda: "config-policer-excess-burst"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
+
+
+                                    class ConformAction(Entity):
+                                        """
+                                        Conform action
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Policer action type
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        
+                                        .. attribute:: mark
+                                        
+                                        	Action mark
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction, self).__init__()
+
+                                            self.yang_name = "conform-action"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
+
+                                            self.mark = YList(self)
+                                            self._segment_path = lambda: "conform-action"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction, ['action_type'], name, value)
+
+
+                                        class Mark(Entity):
+                                            """
+                                            Action mark
+                                            
+                                            .. attribute:: mark_type
+                                            
+                                            	Mark type
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark, self).__init__()
+
+                                                self.yang_name = "mark"
+                                                self.yang_parent_name = "conform-action"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
+                                                self._segment_path = lambda: "mark"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class ExceedAction(Entity):
+                                        """
+                                        Exceed action
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Policer action type
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        
+                                        .. attribute:: mark
+                                        
+                                        	Action mark
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction, self).__init__()
+
+                                            self.yang_name = "exceed-action"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
+
+                                            self.mark = YList(self)
+                                            self._segment_path = lambda: "exceed-action"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction, ['action_type'], name, value)
+
+
+                                        class Mark(Entity):
+                                            """
+                                            Action mark
+                                            
+                                            .. attribute:: mark_type
+                                            
+                                            	Mark type
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark, self).__init__()
+
+                                                self.yang_name = "mark"
+                                                self.yang_parent_name = "exceed-action"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
+                                                self._segment_path = lambda: "mark"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class ViolateAction(Entity):
+                                        """
+                                        Violate action
+                                        
+                                        .. attribute:: action_type
+                                        
+                                        	Policer action type
+                                        	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                        
+                                        .. attribute:: mark
+                                        
+                                        	Action mark
+                                        	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction, self).__init__()
+
+                                            self.yang_name = "violate-action"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark))])
+                                            self._leafs = OrderedDict([
+                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                            ])
+                                            self.action_type = None
+
+                                            self.mark = YList(self)
+                                            self._segment_path = lambda: "violate-action"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction, ['action_type'], name, value)
+
+
+                                        class Mark(Entity):
+                                            """
+                                            Action mark
+                                            
+                                            .. attribute:: mark_type
+                                            
+                                            	Mark type
+                                            	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                            
+                                            .. attribute:: mark_value
+                                            
+                                            	Mark value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark, self).__init__()
+
+                                                self.yang_name = "mark"
+                                                self.yang_parent_name = "violate-action"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                    ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                                ])
+                                                self.mark_type = None
+                                                self.mark_value = None
+                                                self._segment_path = lambda: "mark"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class IpMark(Entity):
+                                        """
+                                        IP mark
+                                        
+                                        .. attribute:: mark_type
+                                        
+                                        	Mark type
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        
+                                        .. attribute:: mark_value
+                                        
+                                        	Mark value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.IpMark, self).__init__()
+
+                                            self.yang_name = "ip-mark"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
+                                            self._segment_path = lambda: "ip-mark"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.IpMark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class CommonMark(Entity):
+                                        """
+                                        Common mark
+                                        
+                                        .. attribute:: mark_type
+                                        
+                                        	Mark type
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        
+                                        .. attribute:: mark_value
+                                        
+                                        	Mark value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.CommonMark, self).__init__()
+
+                                            self.yang_name = "common-mark"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
+                                            self._segment_path = lambda: "common-mark"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.CommonMark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class MplsMark(Entity):
+                                        """
+                                        MPLS mark
+                                        
+                                        .. attribute:: mark_type
+                                        
+                                        	Mark type
+                                        	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                        
+                                        .. attribute:: mark_value
+                                        
+                                        	Mark value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.MplsMark, self).__init__()
+
+                                            self.yang_name = "mpls-mark"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                                ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                            ])
+                                            self.mark_type = None
+                                            self.mark_value = None
+                                            self._segment_path = lambda: "mpls-mark"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.MplsMark, ['mark_type', 'mark_value'], name, value)
+
+
+                                    class Wred(Entity):
+                                        """
+                                        WRED parameters
+                                        
+                                        .. attribute:: wred_match_value
+                                        
+                                        	WRED match values
+                                        	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue>`
+                                        
+                                        .. attribute:: config_min_threshold
+                                        
+                                        	Configured minimum threshold
+                                        	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold>`
+                                        
+                                        .. attribute:: config_max_threshold
+                                        
+                                        	Configured maximum threshold
+                                        	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                        
+                                        .. attribute:: wred_match_type
+                                        
+                                        	WREDMatchType
+                                        	**type**\:  :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
+                                        
+                                        .. attribute:: hardware_min_threshold_bytes
+                                        
+                                        	Hardware minimum threshold
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: hardware_max_threshold_bytes
+                                        
+                                        	Hardware maximum threshold
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: first_segment
+                                        
+                                        	First segment
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: segment_size
+                                        
+                                        	Segment size
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred, self).__init__()
+
+                                            self.yang_name = "wred"
+                                            self.yang_parent_name = "class"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([("wred-match-value", ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue)), ("config-min-threshold", ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold)), ("config-max-threshold", ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold))])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('wred_match_type', YLeaf(YType.enumeration, 'wred-match-type')),
+                                                ('hardware_min_threshold_bytes', YLeaf(YType.uint32, 'hardware-min-threshold-bytes')),
+                                                ('hardware_max_threshold_bytes', YLeaf(YType.uint32, 'hardware-max-threshold-bytes')),
+                                                ('first_segment', YLeaf(YType.uint16, 'first-segment')),
+                                                ('segment_size', YLeaf(YType.uint32, 'segment-size')),
+                                            ])
+                                            self.wred_match_type = None
+                                            self.hardware_min_threshold_bytes = None
+                                            self.hardware_max_threshold_bytes = None
+                                            self.first_segment = None
+                                            self.segment_size = None
+
+                                            self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue()
+                                            self.wred_match_value.parent = self
+                                            self._children_name_map["wred_match_value"] = "wred-match-value"
+                                            self._children_yang_names.add("wred-match-value")
+
+                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold()
+                                            self.config_min_threshold.parent = self
+                                            self._children_name_map["config_min_threshold"] = "config-min-threshold"
+                                            self._children_yang_names.add("config-min-threshold")
+
+                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold()
+                                            self.config_max_threshold.parent = self
+                                            self._children_name_map["config_max_threshold"] = "config-max-threshold"
+                                            self._children_yang_names.add("config-max-threshold")
+                                            self._segment_path = lambda: "wred"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
+
+
+                                        class WredMatchValue(Entity):
+                                            """
+                                            WRED match values
+                                            
+                                            .. attribute:: dnx_qosea_show_red_match_value
+                                            
+                                            	dnx qosea show red match value
+                                            	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue, self).__init__()
+
+                                                self.yang_name = "wred-match-value"
+                                                self.yang_parent_name = "wred"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([("dnx-qosea-show-red-match-value", ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue))])
+                                                self._leafs = OrderedDict()
+
+                                                self.dnx_qosea_show_red_match_value = YList(self)
+                                                self._segment_path = lambda: "wred-match-value"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue, [], name, value)
+
+
+                                            class DnxQoseaShowRedMatchValue(Entity):
+                                                """
+                                                dnx qosea show red match value
+                                                
+                                                .. attribute:: range_start
+                                                
+                                                	Start value of a range
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                .. attribute:: range_end
+                                                
+                                                	End value of a range
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ncs5500-qos-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
+
+                                                    self.yang_name = "dnx-qosea-show-red-match-value"
+                                                    self.yang_parent_name = "wred-match-value"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = []
+                                                    self._child_container_classes = OrderedDict([])
+                                                    self._child_list_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('range_start', YLeaf(YType.uint8, 'range-start')),
+                                                        ('range_end', YLeaf(YType.uint8, 'range-end')),
+                                                    ])
+                                                    self.range_start = None
+                                                    self.range_end = None
+                                                    self._segment_path = lambda: "dnx-qosea-show-red-match-value"
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
+
+
+                                        class ConfigMinThreshold(Entity):
+                                            """
+                                            Configured minimum threshold
+                                            
+                                            .. attribute:: policy_value
+                                            
+                                            	Policy value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policy_unit
+                                            
+                                            	Policy unit
+                                            	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold, self).__init__()
+
+                                                self.yang_name = "config-min-threshold"
+                                                self.yang_parent_name = "wred"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                    ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                                ])
+                                                self.policy_value = None
+                                                self.policy_unit = None
+                                                self._segment_path = lambda: "config-min-threshold"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
+
+
+                                        class ConfigMaxThreshold(Entity):
+                                            """
+                                            Configured maximum threshold
+                                            
+                                            .. attribute:: policy_value
+                                            
+                                            	Policy value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policy_unit
+                                            
+                                            	Policy unit
+                                            	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold, self).__init__()
+
+                                                self.yang_name = "config-max-threshold"
+                                                self.yang_parent_name = "wred"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_container_classes = OrderedDict([])
+                                                self._child_list_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                                    ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                                ])
+                                                self.policy_value = None
+                                                self.policy_unit = None
+                                                self._segment_path = lambda: "config-max-threshold"
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
+
+
+                    class Classes(Entity):
+                        """
+                        QoS list of class names
+                        
+                        .. attribute:: class_
+                        
+                        	QoS policy class
+                        	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes, self).__init__()
+
+                            self.yang_name = "classes"
+                            self.yang_parent_name = "bundle-interface-single"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("class", ("class_", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class))])
+                            self._leafs = OrderedDict()
+
+                            self.class_ = YList(self)
+                            self._segment_path = lambda: "classes"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes, [], name, value)
+
+
+                        class Class(Entity):
+                            """
+                            QoS policy class
+                            
+                            .. attribute:: level_one_class_name  (key)
+                            
+                            	QoS policy class name at level 1
+                            	**type**\: str
+                            
+                            .. attribute:: level_two_class_name
+                            
+                            	QoS policy child class name at level 2
+                            	**type**\: str
+                            
+                            .. attribute:: config_max_rate
+                            
+                            	Configured maximum rate
+                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMaxRate>`
+                            
+                            .. attribute:: config_min_rate
+                            
+                            	Configured minimum rate
+                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMinRate>`
+                            
+                            .. attribute:: config_queue_limit
+                            
+                            	Configured queue limit
+                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigQueueLimit>`
+                            
+                            .. attribute:: config_policer_average_rate
+                            
+                            	Configured policer average rate
+                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerAverageRate>`
+                            
+                            .. attribute:: config_policer_peak_rate
+                            
+                            	Config policer peak rate
+                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerPeakRate>`
+                            
+                            .. attribute:: config_policer_conform_burst
+                            
+                            	Configured policer conform burst
+                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerConformBurst>`
+                            
+                            .. attribute:: config_policer_excess_burst
+                            
+                            	Configured policer excess burst
+                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerExcessBurst>`
+                            
+                            .. attribute:: conform_action
+                            
+                            	Conform action
+                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction>`
+                            
+                            .. attribute:: exceed_action
+                            
+                            	Exceed action
+                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction>`
+                            
+                            .. attribute:: violate_action
+                            
+                            	Violate action
+                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction>`
+                            
+                            .. attribute:: class_level
+                            
+                            	Class level
+                            	**type**\:  :py:class:`DnxQoseaShowLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel>`
+                            
+                            .. attribute:: egress_queue_id
+                            
+                            	Egress Queue ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: queue_type
+                            
+                            	Queue type
+                            	**type**\:  :py:class:`DnxQoseaShowQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue>`
+                            
+                            .. attribute:: priority_level
+                            
+                            	Priority level
+                            	**type**\:  :py:class:`DnxQoseaShowHpLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel>`
+                            
+                            .. attribute:: hardware_max_rate_kbps
+                            
+                            	Hardware maximum rate in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: hardware_min_rate_kbps
+                            
+                            	Hardware minimum rate in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: config_excess_bandwidth_percent
+                            
+                            	Configured excess bandwidth percentage
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: percentage
+                            
+                            .. attribute:: config_excess_bandwidth_unit
+                            
+                            	Configured excess bandwidth unit
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_excess_bandwidth_weight
+                            
+                            	Hardware excess bandwidth weight
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: network_min_bandwidth_kbps
+                            
+                            	Network minimum Bandwith
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_queue_limit_bytes
+                            
+                            	Hardware queue limit in bytes
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
+                            
+                            .. attribute:: hardware_queue_limit_microseconds
+                            
+                            	Hardware queue limit in microseconds
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: microsecond
+                            
+                            .. attribute:: policer_bucket_id
+                            
+                            	PolicerBucketID
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: policer_stats_handle
+                            
+                            	PolicerStatsHandle
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: hardware_policer_average_rate_kbps
+                            
+                            	Hardware policer average in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: hardware_policer_peak_rate_kbps
+                            
+                            	Hardware policer peak rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_conform_burst_bytes
+                            
+                            	Hardware policer conform burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_excess_burst_bytes
+                            
+                            	Hardware policer excess burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ip_mark
+                            
+                            	IP mark
+                            	**type**\: list of  		 :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.IpMark>`
+                            
+                            .. attribute:: common_mark
+                            
+                            	Common mark
+                            	**type**\: list of  		 :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.CommonMark>`
+                            
+                            .. attribute:: mpls_mark
+                            
+                            	MPLS mark
+                            	**type**\: list of  		 :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.MplsMark>`
+                            
+                            .. attribute:: wred
+                            
+                            	WRED parameters
+                            	**type**\: list of  		 :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs5500-qos-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class, self).__init__()
+
+                                self.yang_name = "class"
+                                self.yang_parent_name = "classes"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['level_one_class_name']
+                                self._child_container_classes = OrderedDict([("config-max-rate", ("config_max_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMaxRate)), ("config-min-rate", ("config_min_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMinRate)), ("config-queue-limit", ("config_queue_limit", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigQueueLimit)), ("config-policer-average-rate", ("config_policer_average_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerAverageRate)), ("config-policer-peak-rate", ("config_policer_peak_rate", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerPeakRate)), ("config-policer-conform-burst", ("config_policer_conform_burst", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerConformBurst)), ("config-policer-excess-burst", ("config_policer_excess_burst", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerExcessBurst)), ("conform-action", ("conform_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction)), ("exceed-action", ("exceed_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction)), ("violate-action", ("violate_action", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction))])
+                                self._child_list_classes = OrderedDict([("ip-mark", ("ip_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.IpMark)), ("common-mark", ("common_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.CommonMark)), ("mpls-mark", ("mpls_mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.MplsMark)), ("wred", ("wred", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred))])
+                                self._leafs = OrderedDict([
+                                    ('level_one_class_name', YLeaf(YType.str, 'level-one-class-name')),
+                                    ('level_two_class_name', YLeaf(YType.str, 'level-two-class-name')),
+                                    ('class_level', YLeaf(YType.enumeration, 'class-level')),
+                                    ('egress_queue_id', YLeaf(YType.int32, 'egress-queue-id')),
+                                    ('queue_type', YLeaf(YType.enumeration, 'queue-type')),
+                                    ('priority_level', YLeaf(YType.enumeration, 'priority-level')),
+                                    ('hardware_max_rate_kbps', YLeaf(YType.uint32, 'hardware-max-rate-kbps')),
+                                    ('hardware_min_rate_kbps', YLeaf(YType.uint32, 'hardware-min-rate-kbps')),
+                                    ('config_excess_bandwidth_percent', YLeaf(YType.uint32, 'config-excess-bandwidth-percent')),
+                                    ('config_excess_bandwidth_unit', YLeaf(YType.uint32, 'config-excess-bandwidth-unit')),
+                                    ('hardware_excess_bandwidth_weight', YLeaf(YType.uint32, 'hardware-excess-bandwidth-weight')),
+                                    ('network_min_bandwidth_kbps', YLeaf(YType.uint32, 'network-min-bandwidth-kbps')),
+                                    ('hardware_queue_limit_bytes', YLeaf(YType.uint64, 'hardware-queue-limit-bytes')),
+                                    ('hardware_queue_limit_microseconds', YLeaf(YType.uint64, 'hardware-queue-limit-microseconds')),
+                                    ('policer_bucket_id', YLeaf(YType.uint32, 'policer-bucket-id')),
+                                    ('policer_stats_handle', YLeaf(YType.uint64, 'policer-stats-handle')),
+                                    ('hardware_policer_average_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-average-rate-kbps')),
+                                    ('hardware_policer_peak_rate_kbps', YLeaf(YType.uint32, 'hardware-policer-peak-rate-kbps')),
+                                    ('hardware_policer_conform_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-conform-burst-bytes')),
+                                    ('hardware_policer_excess_burst_bytes', YLeaf(YType.uint32, 'hardware-policer-excess-burst-bytes')),
+                                ])
+                                self.level_one_class_name = None
+                                self.level_two_class_name = None
+                                self.class_level = None
+                                self.egress_queue_id = None
+                                self.queue_type = None
+                                self.priority_level = None
+                                self.hardware_max_rate_kbps = None
+                                self.hardware_min_rate_kbps = None
+                                self.config_excess_bandwidth_percent = None
+                                self.config_excess_bandwidth_unit = None
+                                self.hardware_excess_bandwidth_weight = None
+                                self.network_min_bandwidth_kbps = None
+                                self.hardware_queue_limit_bytes = None
+                                self.hardware_queue_limit_microseconds = None
+                                self.policer_bucket_id = None
+                                self.policer_stats_handle = None
+                                self.hardware_policer_average_rate_kbps = None
+                                self.hardware_policer_peak_rate_kbps = None
+                                self.hardware_policer_conform_burst_bytes = None
+                                self.hardware_policer_excess_burst_bytes = None
+
+                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMaxRate()
+                                self.config_max_rate.parent = self
+                                self._children_name_map["config_max_rate"] = "config-max-rate"
+                                self._children_yang_names.add("config-max-rate")
+
+                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMinRate()
+                                self.config_min_rate.parent = self
+                                self._children_name_map["config_min_rate"] = "config-min-rate"
+                                self._children_yang_names.add("config-min-rate")
+
+                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigQueueLimit()
+                                self.config_queue_limit.parent = self
+                                self._children_name_map["config_queue_limit"] = "config-queue-limit"
+                                self._children_yang_names.add("config-queue-limit")
+
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate.parent = self
+                                self._children_name_map["config_policer_average_rate"] = "config-policer-average-rate"
+                                self._children_yang_names.add("config-policer-average-rate")
+
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate.parent = self
+                                self._children_name_map["config_policer_peak_rate"] = "config-policer-peak-rate"
+                                self._children_yang_names.add("config-policer-peak-rate")
+
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst.parent = self
+                                self._children_name_map["config_policer_conform_burst"] = "config-policer-conform-burst"
+                                self._children_yang_names.add("config-policer-conform-burst")
+
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst.parent = self
+                                self._children_name_map["config_policer_excess_burst"] = "config-policer-excess-burst"
+                                self._children_yang_names.add("config-policer-excess-burst")
+
+                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction()
+                                self.conform_action.parent = self
+                                self._children_name_map["conform_action"] = "conform-action"
+                                self._children_yang_names.add("conform-action")
+
+                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction()
+                                self.exceed_action.parent = self
+                                self._children_name_map["exceed_action"] = "exceed-action"
+                                self._children_yang_names.add("exceed-action")
+
+                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction()
+                                self.violate_action.parent = self
+                                self._children_name_map["violate_action"] = "violate-action"
+                                self._children_yang_names.add("violate-action")
+
+                                self.ip_mark = YList(self)
+                                self.common_mark = YList(self)
+                                self.mpls_mark = YList(self)
+                                self.wred = YList(self)
+                                self._segment_path = lambda: "class" + "[level-one-class-name='" + str(self.level_one_class_name) + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class, ['level_one_class_name', 'level_two_class_name', 'class_level', 'egress_queue_id', 'queue_type', 'priority_level', 'hardware_max_rate_kbps', 'hardware_min_rate_kbps', 'config_excess_bandwidth_percent', 'config_excess_bandwidth_unit', 'hardware_excess_bandwidth_weight', 'network_min_bandwidth_kbps', 'hardware_queue_limit_bytes', 'hardware_queue_limit_microseconds', 'policer_bucket_id', 'policer_stats_handle', 'hardware_policer_average_rate_kbps', 'hardware_policer_peak_rate_kbps', 'hardware_policer_conform_burst_bytes', 'hardware_policer_excess_burst_bytes'], name, value)
+
+
+                            class ConfigMaxRate(Entity):
+                                """
+                                Configured maximum rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMaxRate, self).__init__()
+
+                                    self.yang_name = "config-max-rate"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-max-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMaxRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigMinRate(Entity):
+                                """
+                                Configured minimum rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMinRate, self).__init__()
+
+                                    self.yang_name = "config-min-rate"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-min-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigMinRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigQueueLimit(Entity):
+                                """
+                                Configured queue limit
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigQueueLimit, self).__init__()
+
+                                    self.yang_name = "config-queue-limit"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-queue-limit"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigQueueLimit, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigPolicerAverageRate(Entity):
+                                """
+                                Configured policer average rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerAverageRate, self).__init__()
+
+                                    self.yang_name = "config-policer-average-rate"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-policer-average-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerAverageRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigPolicerPeakRate(Entity):
+                                """
+                                Config policer peak rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerPeakRate, self).__init__()
+
+                                    self.yang_name = "config-policer-peak-rate"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-policer-peak-rate"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerPeakRate, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigPolicerConformBurst(Entity):
+                                """
+                                Configured policer conform burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerConformBurst, self).__init__()
+
+                                    self.yang_name = "config-policer-conform-burst"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-policer-conform-burst"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerConformBurst, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConfigPolicerExcessBurst(Entity):
+                                """
+                                Configured policer excess burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerExcessBurst, self).__init__()
+
+                                    self.yang_name = "config-policer-excess-burst"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                        ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                    ])
+                                    self.policy_value = None
+                                    self.policy_unit = None
+                                    self._segment_path = lambda: "config-policer-excess-burst"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConfigPolicerExcessBurst, ['policy_value', 'policy_unit'], name, value)
+
+
+                            class ConformAction(Entity):
+                                """
+                                Conform action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction, self).__init__()
+
+                                    self.yang_name = "conform-action"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
+
+                                    self.mark = YList(self)
+                                    self._segment_path = lambda: "conform-action"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction, ['action_type'], name, value)
+
+
+                                class Mark(Entity):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction.Mark, self).__init__()
+
+                                        self.yang_name = "mark"
+                                        self.yang_parent_name = "conform-action"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
+                                        self._segment_path = lambda: "mark"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ConformAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class ExceedAction(Entity):
+                                """
+                                Exceed action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction, self).__init__()
+
+                                    self.yang_name = "exceed-action"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
+
+                                    self.mark = YList(self)
+                                    self._segment_path = lambda: "exceed-action"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction, ['action_type'], name, value)
+
+
+                                class Mark(Entity):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction.Mark, self).__init__()
+
+                                        self.yang_name = "mark"
+                                        self.yang_parent_name = "exceed-action"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
+                                        self._segment_path = lambda: "mark"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ExceedAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class ViolateAction(Entity):
+                                """
+                                Violate action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\:  :py:class:`DnxQoseaShowAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of  		 :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction, self).__init__()
+
+                                    self.yang_name = "violate-action"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("mark", ("mark", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction.Mark))])
+                                    self._leafs = OrderedDict([
+                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                    ])
+                                    self.action_type = None
+
+                                    self.mark = YList(self)
+                                    self._segment_path = lambda: "violate-action"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction, ['action_type'], name, value)
+
+
+                                class Mark(Entity):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction.Mark, self).__init__()
+
+                                        self.yang_name = "mark"
+                                        self.yang_parent_name = "violate-action"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                            ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                        ])
+                                        self.mark_type = None
+                                        self.mark_value = None
+                                        self._segment_path = lambda: "mark"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.ViolateAction.Mark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class IpMark(Entity):
+                                """
+                                IP mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.IpMark, self).__init__()
+
+                                    self.yang_name = "ip-mark"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
+                                    self._segment_path = lambda: "ip-mark"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.IpMark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class CommonMark(Entity):
+                                """
+                                Common mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.CommonMark, self).__init__()
+
+                                    self.yang_name = "common-mark"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
+                                    self._segment_path = lambda: "common-mark"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.CommonMark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class MplsMark(Entity):
+                                """
+                                MPLS mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\:  :py:class:`DnxQoseaShowMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.MplsMark, self).__init__()
+
+                                    self.yang_name = "mpls-mark"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mark_type', YLeaf(YType.enumeration, 'mark-type')),
+                                        ('mark_value', YLeaf(YType.uint16, 'mark-value')),
+                                    ])
+                                    self.mark_type = None
+                                    self.mark_value = None
+                                    self._segment_path = lambda: "mpls-mark"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.MplsMark, ['mark_type', 'mark_value'], name, value)
+
+
+                            class Wred(Entity):
+                                """
+                                WRED parameters
+                                
+                                .. attribute:: wred_match_value
+                                
+                                	WRED match values
+                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue>`
+                                
+                                .. attribute:: config_min_threshold
+                                
+                                	Configured minimum threshold
+                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMinThreshold>`
+                                
+                                .. attribute:: config_max_threshold
+                                
+                                	Configured maximum threshold
+                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMaxThreshold>`
+                                
+                                .. attribute:: wred_match_type
+                                
+                                	WREDMatchType
+                                	**type**\:  :py:class:`DnxQoseaShowWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred>`
+                                
+                                .. attribute:: hardware_min_threshold_bytes
+                                
+                                	Hardware minimum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: hardware_max_threshold_bytes
+                                
+                                	Hardware maximum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: first_segment
+                                
+                                	First segment
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: segment_size
+                                
+                                	Segment size
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred, self).__init__()
+
+                                    self.yang_name = "wred"
+                                    self.yang_parent_name = "class"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("wred-match-value", ("wred_match_value", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue)), ("config-min-threshold", ("config_min_threshold", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMinThreshold)), ("config-max-threshold", ("config_max_threshold", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMaxThreshold))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('wred_match_type', YLeaf(YType.enumeration, 'wred-match-type')),
+                                        ('hardware_min_threshold_bytes', YLeaf(YType.uint32, 'hardware-min-threshold-bytes')),
+                                        ('hardware_max_threshold_bytes', YLeaf(YType.uint32, 'hardware-max-threshold-bytes')),
+                                        ('first_segment', YLeaf(YType.uint16, 'first-segment')),
+                                        ('segment_size', YLeaf(YType.uint32, 'segment-size')),
+                                    ])
+                                    self.wred_match_type = None
+                                    self.hardware_min_threshold_bytes = None
+                                    self.hardware_max_threshold_bytes = None
+                                    self.first_segment = None
+                                    self.segment_size = None
+
+                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue()
+                                    self.wred_match_value.parent = self
+                                    self._children_name_map["wred_match_value"] = "wred-match-value"
+                                    self._children_yang_names.add("wred-match-value")
+
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold.parent = self
+                                    self._children_name_map["config_min_threshold"] = "config-min-threshold"
+                                    self._children_yang_names.add("config-min-threshold")
+
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold.parent = self
+                                    self._children_name_map["config_max_threshold"] = "config-max-threshold"
+                                    self._children_yang_names.add("config-max-threshold")
+                                    self._segment_path = lambda: "wred"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred, ['wred_match_type', 'hardware_min_threshold_bytes', 'hardware_max_threshold_bytes', 'first_segment', 'segment_size'], name, value)
+
+
+                                class WredMatchValue(Entity):
+                                    """
+                                    WRED match values
+                                    
+                                    .. attribute:: dnx_qosea_show_red_match_value
+                                    
+                                    	dnx qosea show red match value
+                                    	**type**\: list of  		 :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue, self).__init__()
+
+                                        self.yang_name = "wred-match-value"
+                                        self.yang_parent_name = "wred"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("dnx-qosea-show-red-match-value", ("dnx_qosea_show_red_match_value", PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue))])
+                                        self._leafs = OrderedDict()
+
+                                        self.dnx_qosea_show_red_match_value = YList(self)
+                                        self._segment_path = lambda: "wred-match-value"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue, [], name, value)
+
+
+                                    class DnxQoseaShowRedMatchValue(Entity):
+                                        """
+                                        dnx qosea show red match value
+                                        
+                                        .. attribute:: range_start
+                                        
+                                        	Start value of a range
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: range_end
+                                        
+                                        	End value of a range
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, self).__init__()
+
+                                            self.yang_name = "dnx-qosea-show-red-match-value"
+                                            self.yang_parent_name = "wred-match-value"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('range_start', YLeaf(YType.uint8, 'range-start')),
+                                                ('range_end', YLeaf(YType.uint8, 'range-end')),
+                                            ])
+                                            self.range_start = None
+                                            self.range_end = None
+                                            self._segment_path = lambda: "dnx-qosea-show-red-match-value"
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue, ['range_start', 'range_end'], name, value)
+
+
+                                class ConfigMinThreshold(Entity):
+                                    """
+                                    Configured minimum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMinThreshold, self).__init__()
+
+                                        self.yang_name = "config-min-threshold"
+                                        self.yang_parent_name = "wred"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
+                                        self._segment_path = lambda: "config-min-threshold"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMinThreshold, ['policy_value', 'policy_unit'], name, value)
+
+
+                                class ConfigMaxThreshold(Entity):
+                                    """
+                                    Configured maximum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\:  :py:class:`PolicyParamUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnit>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMaxThreshold, self).__init__()
+
+                                        self.yang_name = "config-max-threshold"
+                                        self.yang_parent_name = "wred"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('policy_value', YLeaf(YType.uint32, 'policy-value')),
+                                            ('policy_unit', YLeaf(YType.enumeration, 'policy-unit')),
+                                        ])
+                                        self.policy_value = None
+                                        self.policy_unit = None
+                                        self._segment_path = lambda: "config-max-threshold"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaceSingles.BundleInterfaceSingle.Classes.Class.Wred.ConfigMaxThreshold, ['policy_value', 'policy_unit'], name, value)
 
 
             class RemoteInterfaces(Entity):
@@ -5237,8 +8625,10 @@ class PlatformQos(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"remote-interface" : ("remote_interface", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("remote-interface", ("remote_interface", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface))])
+                    self._leafs = OrderedDict()
 
                     self.remote_interface = YList(self)
                     self._segment_path = lambda: "remote-interfaces"
@@ -5251,7 +8641,7 @@ class PlatformQos(Entity):
                     """
                     QoS remote interface names
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	The name of the remote interface
                     	**type**\: str
@@ -5312,23 +8702,26 @@ class PlatformQos(Entity):
                         self.yang_parent_name = "remote-interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"remote-class" : ("remote_class", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.policy_name = YLeaf(YType.str, "policy-name")
-
-                        self.virtual_output_queue_statistics_handle = YLeaf(YType.uint64, "virtual-output-queue-statistics-handle")
-
-                        self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                        self.number_of_virtual_output_queues = YLeaf(YType.uint32, "number-of-virtual-output-queues")
-
-                        self.number_of_classes = YLeaf(YType.uint32, "number-of-classes")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("remote-class", ("remote_class", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('policy_name', YLeaf(YType.str, 'policy-name')),
+                            ('virtual_output_queue_statistics_handle', YLeaf(YType.uint64, 'virtual-output-queue-statistics-handle')),
+                            ('interface_handle', YLeaf(YType.uint32, 'interface-handle')),
+                            ('number_of_virtual_output_queues', YLeaf(YType.uint32, 'number-of-virtual-output-queues')),
+                            ('number_of_classes', YLeaf(YType.uint32, 'number-of-classes')),
+                        ])
+                        self.interface_name = None
+                        self.policy_name = None
+                        self.virtual_output_queue_statistics_handle = None
+                        self.interface_handle = None
+                        self.number_of_virtual_output_queues = None
+                        self.number_of_classes = None
 
                         self.remote_class = YList(self)
-                        self._segment_path = lambda: "remote-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "remote-interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface, ['interface_name', 'policy_name', 'virtual_output_queue_statistics_handle', 'interface_handle', 'number_of_virtual_output_queues', 'number_of_classes'], name, value)
@@ -5401,18 +8794,21 @@ class PlatformQos(Entity):
                             self.yang_parent_name = "remote-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"wred" : ("wred", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred), "hw-wred" : ("hw_wred", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred)}
-
-                            self.class_name = YLeaf(YType.str, "class-name")
-
-                            self.class_id = YLeaf(YType.uint32, "class-id")
-
-                            self.cos_q = YLeaf(YType.uint32, "cos-q")
-
-                            self.queue_limit = YLeaf(YType.uint32, "queue-limit")
-
-                            self.hardware_queue_limit = YLeaf(YType.uint32, "hardware-queue-limit")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([("wred", ("wred", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred)), ("hw-wred", ("hw_wred", PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred))])
+                            self._leafs = OrderedDict([
+                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                ('class_id', YLeaf(YType.uint32, 'class-id')),
+                                ('cos_q', YLeaf(YType.uint32, 'cos-q')),
+                                ('queue_limit', YLeaf(YType.uint32, 'queue-limit')),
+                                ('hardware_queue_limit', YLeaf(YType.uint32, 'hardware-queue-limit')),
+                            ])
+                            self.class_name = None
+                            self.class_id = None
+                            self.cos_q = None
+                            self.queue_limit = None
+                            self.hardware_queue_limit = None
 
                             self.wred = YList(self)
                             self.hw_wred = YList(self)
@@ -5461,14 +8857,17 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "remote-class"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.min_threshold = YLeaf(YType.uint32, "min-threshold")
-
-                                self.max_threshold = YLeaf(YType.uint32, "max-threshold")
-
-                                self.drop_probability = YLeaf(YType.uint32, "drop-probability")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('min_threshold', YLeaf(YType.uint32, 'min-threshold')),
+                                    ('max_threshold', YLeaf(YType.uint32, 'max-threshold')),
+                                    ('drop_probability', YLeaf(YType.uint32, 'drop-probability')),
+                                ])
+                                self.min_threshold = None
+                                self.max_threshold = None
+                                self.drop_probability = None
                                 self._segment_path = lambda: "wred"
 
                             def __setattr__(self, name, value):
@@ -5514,14 +8913,17 @@ class PlatformQos(Entity):
                                 self.yang_parent_name = "remote-class"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.min_threshold = YLeaf(YType.uint32, "min-threshold")
-
-                                self.max_threshold = YLeaf(YType.uint32, "max-threshold")
-
-                                self.drop_probability = YLeaf(YType.uint32, "drop-probability")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('min_threshold', YLeaf(YType.uint32, 'min-threshold')),
+                                    ('max_threshold', YLeaf(YType.uint32, 'max-threshold')),
+                                    ('drop_probability', YLeaf(YType.uint32, 'drop-probability')),
+                                ])
+                                self.min_threshold = None
+                                self.max_threshold = None
+                                self.drop_probability = None
                                 self._segment_path = lambda: "hw-wred"
 
                             def __setattr__(self, name, value):

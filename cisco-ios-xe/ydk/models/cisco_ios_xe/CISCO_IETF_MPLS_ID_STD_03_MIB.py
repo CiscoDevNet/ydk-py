@@ -9,6 +9,8 @@ cisco\-ized version of the IETF draft\:
 draft\-ietf\-mpls\-tp\-te\-mib\-03.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -40,8 +42,10 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         self.yang_parent_name = "CISCO-IETF-MPLS-ID-STD-03-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cmplsIdObjects" : ("cmplsidobjects", CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("cmplsIdObjects", ("cmplsidobjects", CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.cmplsidobjects = CISCOIETFMPLSIDSTD03MIB.Cmplsidobjects()
         self.cmplsidobjects.parent = self
@@ -89,14 +93,17 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
             self.yang_parent_name = "CISCO-IETF-MPLS-ID-STD-03-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cmplsglobalid = YLeaf(YType.str, "cmplsGlobalId")
-
-            self.cmplsicc = YLeaf(YType.str, "cmplsIcc")
-
-            self.cmplsnodeid = YLeaf(YType.uint32, "cmplsNodeId")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cmplsglobalid', YLeaf(YType.str, 'cmplsGlobalId')),
+                ('cmplsicc', YLeaf(YType.str, 'cmplsIcc')),
+                ('cmplsnodeid', YLeaf(YType.uint32, 'cmplsNodeId')),
+            ])
+            self.cmplsglobalid = None
+            self.cmplsicc = None
+            self.cmplsnodeid = None
             self._segment_path = lambda: "cmplsIdObjects"
             self._absolute_path = lambda: "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB/%s" % self._segment_path()
 

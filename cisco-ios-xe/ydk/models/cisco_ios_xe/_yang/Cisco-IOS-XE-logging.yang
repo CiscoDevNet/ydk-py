@@ -34,6 +34,10 @@ submodule Cisco-IOS-XE-logging {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-10 {
+    description
+      "Add more nodes under logging persistent";
+  }
   revision 2017-08-25 {
     description
       "enforce order of deleting logging cli";
@@ -163,27 +167,53 @@ submodule Cisco-IOS-XE-logging {
         description
           "Set persistent logging parameters";
         presence "true";
-        container file {
-          leaf url {
-            description
-              "URL to store logging messages";
-            type string;
+        leaf url {
+          description
+            "URL to store logging messages";
+          type string;
+        }
+        leaf size {
+          description
+            "Set disk space for writing log messages";
+          type uint32 {
+            range "16384..2147483647";
           }
-          leaf size {
-            description
-              "Set disk space for writing log messages";
-            type string;
+        }
+        leaf filesize {
+          description
+            "Set size of individual log files";
+          type uint32 {
+            range "8192..2147483647";
           }
-          leaf threshold {
-            description
-              "Set threshold for logging persistent";
-            type string;
+        }
+        leaf batch {
+          description
+            "Batch size for writing to persistent storage";
+          type uint32 {
+            range "4096..2147483647";
           }
-          leaf protected {
-            description
-              "Eliminates manipulation on logging-persistent files";
-            type empty;
+        }
+        leaf threshold {
+          description
+            "Setting threshold capacity. When setting circular logging is disabled";
+          type uint8 {
+            range "1..99";
           }
+        }
+        leaf immediate {
+          description
+            "Write log entry to storage immediately (no buffering).";
+          type empty;
+        }
+        leaf notify {
+          description
+            "Notify when show logging [persistent] is activated.";
+          type empty;
+        }
+        leaf protected {
+          description
+            "Eliminates manipulation on logging-persistent files";
+          type empty;
         }
       }
       // <no> logging monitor

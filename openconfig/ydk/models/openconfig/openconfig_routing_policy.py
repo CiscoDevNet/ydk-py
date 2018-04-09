@@ -56,6 +56,8 @@ the remaining conditions (using a modified route if the
 subroutine performed any changes to the route).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -64,7 +66,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class DefaultPolicyType(Enum):
     """
-    DefaultPolicyType
+    DefaultPolicyType (Enum Class)
 
     type used to specify default route disposition in
 
@@ -115,8 +117,10 @@ class RoutingPolicy(Entity):
         self.yang_parent_name = "openconfig-routing-policy"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"defined-sets" : ("defined_sets", RoutingPolicy.DefinedSets), "policy-definitions" : ("policy_definitions", RoutingPolicy.PolicyDefinitions)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("defined-sets", ("defined_sets", RoutingPolicy.DefinedSets)), ("policy-definitions", ("policy_definitions", RoutingPolicy.PolicyDefinitions))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.defined_sets = RoutingPolicy.DefinedSets()
         self.defined_sets.parent = self
@@ -169,8 +173,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"prefix-sets" : ("prefix_sets", RoutingPolicy.DefinedSets.PrefixSets), "neighbor-sets" : ("neighbor_sets", RoutingPolicy.DefinedSets.NeighborSets), "tag-sets" : ("tag_sets", RoutingPolicy.DefinedSets.TagSets), "openconfig-bgp-policy:bgp-defined-sets" : ("bgp_defined_sets", RoutingPolicy.DefinedSets.BgpDefinedSets)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("prefix-sets", ("prefix_sets", RoutingPolicy.DefinedSets.PrefixSets)), ("neighbor-sets", ("neighbor_sets", RoutingPolicy.DefinedSets.NeighborSets)), ("tag-sets", ("tag_sets", RoutingPolicy.DefinedSets.TagSets)), ("openconfig-bgp-policy:bgp-defined-sets", ("bgp_defined_sets", RoutingPolicy.DefinedSets.BgpDefinedSets))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.prefix_sets = RoutingPolicy.DefinedSets.PrefixSets()
             self.prefix_sets.parent = self
@@ -189,8 +195,8 @@ class RoutingPolicy(Entity):
 
             self.bgp_defined_sets = RoutingPolicy.DefinedSets.BgpDefinedSets()
             self.bgp_defined_sets.parent = self
-            self._children_name_map["bgp_defined_sets"] = "bgp-defined-sets"
-            self._children_yang_names.add("bgp-defined-sets")
+            self._children_name_map["bgp_defined_sets"] = "openconfig-bgp-policy:bgp-defined-sets"
+            self._children_yang_names.add("openconfig-bgp-policy:bgp-defined-sets")
             self._segment_path = lambda: "defined-sets"
             self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/%s" % self._segment_path()
 
@@ -218,8 +224,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "defined-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"prefix-set" : ("prefix_set", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("prefix-set", ("prefix_set", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet))])
+                self._leafs = OrderedDict()
 
                 self.prefix_set = YList(self)
                 self._segment_path = lambda: "prefix-sets"
@@ -233,7 +241,7 @@ class RoutingPolicy(Entity):
                 """
                 List of the defined prefix sets
                 
-                .. attribute:: prefix_set_name  <key>
+                .. attribute:: prefix_set_name  (key)
                 
                 	Reference to prefix name list key
                 	**type**\: str
@@ -269,10 +277,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "prefix-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State), "prefixes" : ("prefixes", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes)}
-                    self._child_list_classes = {}
-
-                    self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
+                    self.ylist_key_names = ['prefix_set_name']
+                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State)), ("prefixes", ("prefixes", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('prefix_set_name', YLeaf(YType.str, 'prefix-set-name')),
+                    ])
+                    self.prefix_set_name = None
 
                     self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config()
                     self.config.parent = self
@@ -288,7 +299,7 @@ class RoutingPolicy(Entity):
                     self.prefixes.parent = self
                     self._children_name_map["prefixes"] = "prefixes"
                     self._children_yang_names.add("prefixes")
-                    self._segment_path = lambda: "prefix-set" + "[prefix-set-name='" + self.prefix_set_name.get() + "']"
+                    self._segment_path = lambda: "prefix-set" + "[prefix-set-name='" + str(self.prefix_set_name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -318,10 +329,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "prefix-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('prefix_set_name', YLeaf(YType.str, 'prefix-set-name')),
+                        ])
+                        self.prefix_set_name = None
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -351,10 +365,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "prefix-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.prefix_set_name = YLeaf(YType.str, "prefix-set-name")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('prefix_set_name', YLeaf(YType.str, 'prefix-set-name')),
+                        ])
+                        self.prefix_set_name = None
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -385,8 +402,10 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "prefix-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix" : ("prefix", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("prefix", ("prefix", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix))])
+                        self._leafs = OrderedDict()
 
                         self.prefix = YList(self)
                         self._segment_path = lambda: "prefixes"
@@ -399,7 +418,7 @@ class RoutingPolicy(Entity):
                         """
                         List of prefixes in the prefix set
                         
-                        .. attribute:: ip_prefix  <key>
+                        .. attribute:: ip_prefix  (key)
                         
                         	Reference to the ip\-prefix list key
                         	**type**\: union of the below types:
@@ -414,7 +433,7 @@ class RoutingPolicy(Entity):
                         
                         	**refers to**\:  :py:class:`ip_prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
                         
-                        .. attribute:: masklength_range  <key>
+                        .. attribute:: masklength_range  (key)
                         
                         	Reference to the masklength\-range list key
                         	**type**\: str
@@ -447,12 +466,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "prefixes"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config), "state" : ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State)}
-                            self._child_list_classes = {}
-
-                            self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                            self.masklength_range = YLeaf(YType.str, "masklength-range")
+                            self.ylist_key_names = ['ip_prefix','masklength_range']
+                            self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config)), ("state", ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+                                ('masklength_range', YLeaf(YType.str, 'masklength-range')),
+                            ])
+                            self.ip_prefix = None
+                            self.masklength_range = None
 
                             self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config()
                             self.config.parent = self
@@ -463,7 +485,7 @@ class RoutingPolicy(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._children_yang_names.add("state")
-                            self._segment_path = lambda: "prefix" + "[ip-prefix='" + self.ip_prefix.get() + "']" + "[masklength-range='" + self.masklength_range.get() + "']"
+                            self._segment_path = lambda: "prefix" + "[ip-prefix='" + str(self.ip_prefix) + "']" + "[masklength-range='" + str(self.masklength_range) + "']"
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, ['ip_prefix', 'masklength_range'], name, value)
@@ -509,12 +531,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "prefix"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                                self.masklength_range = YLeaf(YType.str, "masklength-range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+                                    ('masklength_range', YLeaf(YType.str, 'masklength-range')),
+                                ])
+                                self.ip_prefix = None
+                                self.masklength_range = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -561,12 +586,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "prefix"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ip_prefix = YLeaf(YType.str, "ip-prefix")
-
-                                self.masklength_range = YLeaf(YType.str, "masklength-range")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ip_prefix', YLeaf(YType.str, 'ip-prefix')),
+                                    ('masklength_range', YLeaf(YType.str, 'masklength-range')),
+                                ])
+                                self.ip_prefix = None
+                                self.masklength_range = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -597,8 +625,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "defined-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"neighbor-set" : ("neighbor_set", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("neighbor-set", ("neighbor_set", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet))])
+                self._leafs = OrderedDict()
 
                 self.neighbor_set = YList(self)
                 self._segment_path = lambda: "neighbor-sets"
@@ -612,7 +642,7 @@ class RoutingPolicy(Entity):
                 """
                 List of defined neighbor sets for use in policies.
                 
-                .. attribute:: neighbor_set_name  <key>
+                .. attribute:: neighbor_set_name  (key)
                 
                 	Reference to the neighbor set name list key
                 	**type**\: str
@@ -643,10 +673,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "neighbor-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State)}
-                    self._child_list_classes = {}
-
-                    self.neighbor_set_name = YLeaf(YType.str, "neighbor-set-name")
+                    self.ylist_key_names = ['neighbor_set_name']
+                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('neighbor_set_name', YLeaf(YType.str, 'neighbor-set-name')),
+                    ])
+                    self.neighbor_set_name = None
 
                     self.config = RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config()
                     self.config.parent = self
@@ -657,7 +690,7 @@ class RoutingPolicy(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "neighbor-set" + "[neighbor-set-name='" + self.neighbor_set_name.get() + "']"
+                    self._segment_path = lambda: "neighbor-set" + "[neighbor-set-name='" + str(self.neighbor_set_name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -700,12 +733,15 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "neighbor-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.neighbor_set_name = YLeaf(YType.str, "neighbor-set-name")
-
-                        self.address = YLeafList(YType.str, "address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('neighbor_set_name', YLeaf(YType.str, 'neighbor-set-name')),
+                            ('address', YLeafList(YType.str, 'address')),
+                        ])
+                        self.neighbor_set_name = None
+                        self.address = []
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -748,12 +784,15 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "neighbor-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.neighbor_set_name = YLeaf(YType.str, "neighbor-set-name")
-
-                        self.address = YLeafList(YType.str, "address")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('neighbor_set_name', YLeaf(YType.str, 'neighbor-set-name')),
+                            ('address', YLeafList(YType.str, 'address')),
+                        ])
+                        self.neighbor_set_name = None
+                        self.address = []
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -783,8 +822,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "defined-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"tag-set" : ("tag_set", RoutingPolicy.DefinedSets.TagSets.TagSet)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("tag-set", ("tag_set", RoutingPolicy.DefinedSets.TagSets.TagSet))])
+                self._leafs = OrderedDict()
 
                 self.tag_set = YList(self)
                 self._segment_path = lambda: "tag-sets"
@@ -798,7 +839,7 @@ class RoutingPolicy(Entity):
                 """
                 List of tag set definitions.
                 
-                .. attribute:: tag_set_name  <key>
+                .. attribute:: tag_set_name  (key)
                 
                 	Reference to the tag set name list key
                 	**type**\: str
@@ -829,10 +870,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "tag-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.TagSets.TagSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.TagSets.TagSet.State)}
-                    self._child_list_classes = {}
-
-                    self.tag_set_name = YLeaf(YType.str, "tag-set-name")
+                    self.ylist_key_names = ['tag_set_name']
+                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.TagSets.TagSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.TagSets.TagSet.State))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('tag_set_name', YLeaf(YType.str, 'tag-set-name')),
+                    ])
+                    self.tag_set_name = None
 
                     self.config = RoutingPolicy.DefinedSets.TagSets.TagSet.Config()
                     self.config.parent = self
@@ -843,7 +887,7 @@ class RoutingPolicy(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._children_yang_names.add("state")
-                    self._segment_path = lambda: "tag-set" + "[tag-set-name='" + self.tag_set_name.get() + "']"
+                    self._segment_path = lambda: "tag-set" + "[tag-set-name='" + str(self.tag_set_name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/tag-sets/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
@@ -886,12 +930,15 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "tag-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tag_set_name = YLeaf(YType.str, "tag-set-name")
-
-                        self.tag_value = YLeafList(YType.str, "tag-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tag_set_name', YLeaf(YType.str, 'tag-set-name')),
+                            ('tag_value', YLeafList(YType.str, 'tag-value')),
+                        ])
+                        self.tag_set_name = None
+                        self.tag_value = []
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
@@ -934,12 +981,15 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "tag-set"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tag_set_name = YLeaf(YType.str, "tag-set-name")
-
-                        self.tag_value = YLeafList(YType.str, "tag-value")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('tag_set_name', YLeaf(YType.str, 'tag-set-name')),
+                            ('tag_value', YLeafList(YType.str, 'tag-value')),
+                        ])
+                        self.tag_set_name = None
+                        self.tag_value = []
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
@@ -979,8 +1029,10 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "defined-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"community-sets" : ("community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets), "ext-community-sets" : ("ext_community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets), "as-path-sets" : ("as_path_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets)}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("community-sets", ("community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets)), ("ext-community-sets", ("ext_community_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets)), ("as-path-sets", ("as_path_sets", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict()
 
                 self.community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets()
                 self.community_sets.parent = self
@@ -1023,8 +1075,10 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "bgp-defined-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"community-set" : ("community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("community-set", ("community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet))])
+                    self._leafs = OrderedDict()
 
                     self.community_set = YList(self)
                     self._segment_path = lambda: "community-sets"
@@ -1038,7 +1092,7 @@ class RoutingPolicy(Entity):
                     """
                     List of defined BGP community sets
                     
-                    .. attribute:: community_set_name  <key>
+                    .. attribute:: community_set_name  (key)
                     
                     	Reference to list key
                     	**type**\: str
@@ -1069,10 +1123,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "community-sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State)}
-                        self._child_list_classes = {}
-
-                        self.community_set_name = YLeaf(YType.str, "community-set-name")
+                        self.ylist_key_names = ['community_set_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('community_set_name', YLeaf(YType.str, 'community-set-name')),
+                        ])
+                        self.community_set_name = None
 
                         self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config()
                         self.config.parent = self
@@ -1083,7 +1140,7 @@ class RoutingPolicy(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "community-set" + "[community-set-name='" + self.community_set_name.get() + "']"
+                        self._segment_path = lambda: "community-set" + "[community-set-name='" + str(self.community_set_name) + "']"
                         self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1132,12 +1189,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "community-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.community_set_name = YLeaf(YType.str, "community-set-name")
-
-                            self.community_member = YLeafList(YType.str, "community-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('community_set_name', YLeaf(YType.str, 'community-set-name')),
+                                ('community_member', YLeafList(YType.str, 'community-member')),
+                            ])
+                            self.community_set_name = None
+                            self.community_member = []
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1186,12 +1246,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "community-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.community_set_name = YLeaf(YType.str, "community-set-name")
-
-                            self.community_member = YLeafList(YType.str, "community-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('community_set_name', YLeaf(YType.str, 'community-set-name')),
+                                ('community_member', YLeafList(YType.str, 'community-member')),
+                            ])
+                            self.community_set_name = None
+                            self.community_member = []
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -1222,8 +1285,10 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "bgp-defined-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ext-community-set" : ("ext_community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("ext-community-set", ("ext_community_set", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet))])
+                    self._leafs = OrderedDict()
 
                     self.ext_community_set = YList(self)
                     self._segment_path = lambda: "ext-community-sets"
@@ -1237,7 +1302,7 @@ class RoutingPolicy(Entity):
                     """
                     List of defined extended BGP community sets
                     
-                    .. attribute:: ext_community_set_name  <key>
+                    .. attribute:: ext_community_set_name  (key)
                     
                     	Reference to list key
                     	**type**\: str
@@ -1268,10 +1333,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "ext-community-sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State)}
-                        self._child_list_classes = {}
-
-                        self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
+                        self.ylist_key_names = ['ext_community_set_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ext_community_set_name', YLeaf(YType.str, 'ext-community-set-name')),
+                        ])
+                        self.ext_community_set_name = None
 
                         self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config()
                         self.config.parent = self
@@ -1282,7 +1350,7 @@ class RoutingPolicy(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "ext-community-set" + "[ext-community-set-name='" + self.ext_community_set_name.get() + "']"
+                        self._segment_path = lambda: "ext-community-set" + "[ext-community-set-name='" + str(self.ext_community_set_name) + "']"
                         self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1343,12 +1411,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "ext-community-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
-
-                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ext_community_set_name', YLeaf(YType.str, 'ext-community-set-name')),
+                                ('ext_community_member', YLeafList(YType.str, 'ext-community-member')),
+                            ])
+                            self.ext_community_set_name = None
+                            self.ext_community_member = []
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1409,12 +1480,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "ext-community-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ext_community_set_name = YLeaf(YType.str, "ext-community-set-name")
-
-                            self.ext_community_member = YLeafList(YType.str, "ext-community-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ext_community_set_name', YLeaf(YType.str, 'ext-community-set-name')),
+                                ('ext_community_member', YLeafList(YType.str, 'ext-community-member')),
+                            ])
+                            self.ext_community_set_name = None
+                            self.ext_community_member = []
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -1444,8 +1518,10 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "bgp-defined-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"as-path-set" : ("as_path_set", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("as-path-set", ("as_path_set", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet))])
+                    self._leafs = OrderedDict()
 
                     self.as_path_set = YList(self)
                     self._segment_path = lambda: "as-path-sets"
@@ -1459,7 +1535,7 @@ class RoutingPolicy(Entity):
                     """
                     List of defined AS path sets
                     
-                    .. attribute:: as_path_set_name  <key>
+                    .. attribute:: as_path_set_name  (key)
                     
                     	Reference to list key
                     	**type**\: str
@@ -1490,10 +1566,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "as-path-sets"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config), "state" : ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State)}
-                        self._child_list_classes = {}
-
-                        self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
+                        self.ylist_key_names = ['as_path_set_name']
+                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('as_path_set_name', YLeaf(YType.str, 'as-path-set-name')),
+                        ])
+                        self.as_path_set_name = None
 
                         self.config = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config()
                         self.config.parent = self
@@ -1504,7 +1583,7 @@ class RoutingPolicy(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._children_yang_names.add("state")
-                        self._segment_path = lambda: "as-path-set" + "[as-path-set-name='" + self.as_path_set_name.get() + "']"
+                        self._segment_path = lambda: "as-path-set" + "[as-path-set-name='" + str(self.as_path_set_name) + "']"
                         self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
@@ -1539,12 +1618,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "as-path-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
-
-                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('as_path_set_name', YLeaf(YType.str, 'as-path-set-name')),
+                                ('as_path_set_member', YLeafList(YType.str, 'as-path-set-member')),
+                            ])
+                            self.as_path_set_name = None
+                            self.as_path_set_member = []
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1579,12 +1661,15 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "as-path-set"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.as_path_set_name = YLeaf(YType.str, "as-path-set-name")
-
-                            self.as_path_set_member = YLeafList(YType.str, "as-path-set-member")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('as_path_set_name', YLeaf(YType.str, 'as-path-set-name')),
+                                ('as_path_set_member', YLeafList(YType.str, 'as-path-set-member')),
+                            ])
+                            self.as_path_set_name = None
+                            self.as_path_set_member = []
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -1615,8 +1700,10 @@ class RoutingPolicy(Entity):
             self.yang_parent_name = "routing-policy"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"policy-definition" : ("policy_definition", RoutingPolicy.PolicyDefinitions.PolicyDefinition)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("policy-definition", ("policy_definition", RoutingPolicy.PolicyDefinitions.PolicyDefinition))])
+            self._leafs = OrderedDict()
 
             self.policy_definition = YList(self)
             self._segment_path = lambda: "policy-definitions"
@@ -1633,7 +1720,7 @@ class RoutingPolicy(Entity):
             referenced (by name) in policy chains specified in import
             or export configuration statements.
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Reference to the list key
             	**type**\: str
@@ -1669,10 +1756,13 @@ class RoutingPolicy(Entity):
                 self.yang_parent_name = "policy-definitions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.State), "statements" : ("statements", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.State)), ("statements", ("statements", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                ])
+                self.name = None
 
                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config()
                 self.config.parent = self
@@ -1688,7 +1778,7 @@ class RoutingPolicy(Entity):
                 self.statements.parent = self
                 self._children_name_map["statements"] = "statements"
                 self._children_yang_names.add("statements")
-                self._segment_path = lambda: "policy-definition" + "[name='" + self.name.get() + "']"
+                self._segment_path = lambda: "policy-definition" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/policy-definitions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1718,10 +1808,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "policy-definition"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
@@ -1751,10 +1844,13 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "policy-definition"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.name = YLeaf(YType.str, "name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('name', YLeaf(YType.str, 'name')),
+                    ])
+                    self.name = None
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
@@ -1784,8 +1880,10 @@ class RoutingPolicy(Entity):
                     self.yang_parent_name = "policy-definition"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"statement" : ("statement", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("statement", ("statement", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement))])
+                    self._leafs = OrderedDict()
 
                     self.statement = YList(self)
                     self._segment_path = lambda: "statements"
@@ -1801,7 +1899,7 @@ class RoutingPolicy(Entity):
                     the order specified (see the description of policy
                     evaluation at the top of this module.
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: name  (key)
                     
                     	Reference to list key
                     	**type**\: str
@@ -1842,10 +1940,13 @@ class RoutingPolicy(Entity):
                         self.yang_parent_name = "statements"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State), "conditions" : ("conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions), "actions" : ("actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions)}
-                        self._child_list_classes = {}
-
-                        self.name = YLeaf(YType.str, "name")
+                        self.ylist_key_names = ['name']
+                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State)), ("conditions", ("conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions)), ("actions", ("actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('name', YLeaf(YType.str, 'name')),
+                        ])
+                        self.name = None
 
                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config()
                         self.config.parent = self
@@ -1866,7 +1967,7 @@ class RoutingPolicy(Entity):
                         self.actions.parent = self
                         self._children_name_map["actions"] = "actions"
                         self._children_yang_names.add("actions")
-                        self._segment_path = lambda: "statement" + "[name='" + self.name.get() + "']"
+                        self._segment_path = lambda: "statement" + "[name='" + str(self.name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, ['name'], name, value)
@@ -1895,10 +1996,13 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
@@ -1928,10 +2032,13 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.name = YLeaf(YType.str, "name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('name', YLeaf(YType.str, 'name')),
+                            ])
+                            self.name = None
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
@@ -1982,6 +2089,11 @@ class RoutingPolicy(Entity):
                         	Top\-level container 
                         	**type**\:  :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
                         
+                        .. attribute:: isis_conditions
+                        
+                        	Match conditions relating to the IS\-IS protocol
+                        	**type**\:  :py:class:`IsisConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions>`
+                        
                         
 
                         """
@@ -1996,8 +2108,10 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State), "match-interface" : ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface), "match-prefix-set" : ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet), "match-neighbor-set" : ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet), "match-tag-set" : ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet), "igp-conditions" : ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions), "openconfig-bgp-policy:bgp-conditions" : ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)), ("match-interface", ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface)), ("match-prefix-set", ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet)), ("match-neighbor-set", ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet)), ("match-tag-set", ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet)), ("igp-conditions", ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions)), ("openconfig-bgp-policy:bgp-conditions", ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions)), ("openconfig-isis-policy:isis-conditions", ("isis_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config()
                             self.config.parent = self
@@ -2036,8 +2150,13 @@ class RoutingPolicy(Entity):
 
                             self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
                             self.bgp_conditions.parent = self
-                            self._children_name_map["bgp_conditions"] = "bgp-conditions"
-                            self._children_yang_names.add("bgp-conditions")
+                            self._children_name_map["bgp_conditions"] = "openconfig-bgp-policy:bgp-conditions"
+                            self._children_yang_names.add("openconfig-bgp-policy:bgp-conditions")
+
+                            self.isis_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions()
+                            self.isis_conditions.parent = self
+                            self._children_name_map["isis_conditions"] = "openconfig-isis-policy:isis-conditions"
+                            self._children_yang_names.add("openconfig-isis-policy:isis-conditions")
                             self._segment_path = lambda: "conditions"
 
 
@@ -2071,12 +2190,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.call_policy = YLeaf(YType.str, "call-policy")
-
-                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('call_policy', YLeaf(YType.str, 'call-policy')),
+                                    ('install_protocol_eq', YLeaf(YType.identityref, 'install-protocol-eq')),
+                                ])
+                                self.call_policy = None
+                                self.install_protocol_eq = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -2113,12 +2235,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.call_policy = YLeaf(YType.str, "call-policy")
-
-                                self.install_protocol_eq = YLeaf(YType.identityref, "install-protocol-eq")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('call_policy', YLeaf(YType.str, 'call-policy')),
+                                    ('install_protocol_eq', YLeaf(YType.identityref, 'install-protocol-eq')),
+                                ])
+                                self.call_policy = None
+                                self.install_protocol_eq = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -2153,8 +2278,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config()
                                 self.config.parent = self
@@ -2202,12 +2329,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-interface"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.subinterface = YLeaf(YType.str, "subinterface")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface', YLeaf(YType.str, 'interface')),
+                                        ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                    ])
+                                    self.interface = None
+                                    self.subinterface = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -2248,12 +2378,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-interface"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.interface = YLeaf(YType.str, "interface")
-
-                                    self.subinterface = YLeaf(YType.str, "subinterface")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('interface', YLeaf(YType.str, 'interface')),
+                                        ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                    ])
+                                    self.interface = None
+                                    self.subinterface = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -2289,8 +2422,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config()
                                 self.config.parent = self
@@ -2334,12 +2469,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-prefix-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_set', YLeaf(YType.str, 'prefix-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.prefix_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -2376,12 +2514,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-prefix-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.prefix_set = YLeaf(YType.str, "prefix-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('prefix_set', YLeaf(YType.str, 'prefix-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.prefix_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -2417,8 +2558,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config()
                                 self.config.parent = self
@@ -2462,12 +2605,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-neighbor-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('neighbor_set', YLeaf(YType.str, 'neighbor-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.neighbor_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -2504,12 +2650,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-neighbor-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.neighbor_set = YLeaf(YType.str, "neighbor-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('neighbor_set', YLeaf(YType.str, 'neighbor-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.neighbor_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -2545,8 +2694,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config()
                                 self.config.parent = self
@@ -2590,12 +2741,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-tag-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.tag_set = YLeaf(YType.str, "tag-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tag_set', YLeaf(YType.str, 'tag-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.tag_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -2632,12 +2786,15 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "match-tag-set"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.tag_set = YLeaf(YType.str, "tag-set")
-
-                                    self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('tag_set', YLeaf(YType.str, 'tag-set')),
+                                        ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                    ])
+                                    self.tag_set = None
+                                    self.match_set_options = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -2662,8 +2819,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
                                 self._segment_path = lambda: "igp-conditions"
 
 
@@ -2720,8 +2879,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State), "community-count" : ("community_count", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount), "as-path-length" : ("as_path_length", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength), "match-community-set" : ("match_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet), "match-ext-community-set" : ("match_ext_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet), "match-as-path-set" : ("match_as_path_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State)), ("community-count", ("community_count", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount)), ("as-path-length", ("as_path_length", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength)), ("match-community-set", ("match_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet)), ("match-ext-community-set", ("match_ext_community_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet)), ("match-as-path-set", ("match_as_path_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config()
                                 self.config.parent = self
@@ -2820,20 +2981,23 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
-
-                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
-
-                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
-
-                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
-
-                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
-
-                                    self.route_type = YLeaf(YType.enumeration, "route-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('med_eq', YLeaf(YType.uint32, 'med-eq')),
+                                        ('origin_eq', YLeaf(YType.enumeration, 'origin-eq')),
+                                        ('next_hop_in', YLeafList(YType.str, 'next-hop-in')),
+                                        ('afi_safi_in', YLeafList(YType.identityref, 'afi-safi-in')),
+                                        ('local_pref_eq', YLeaf(YType.uint32, 'local-pref-eq')),
+                                        ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                    ])
+                                    self.med_eq = None
+                                    self.origin_eq = None
+                                    self.next_hop_in = []
+                                    self.afi_safi_in = []
+                                    self.local_pref_eq = None
+                                    self.route_type = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -2841,7 +3005,7 @@ class RoutingPolicy(Entity):
 
                                 class RouteType(Enum):
                                     """
-                                    RouteType
+                                    RouteType (Enum Class)
 
                                     Condition to check the route type in the route update
 
@@ -2922,20 +3086,23 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.med_eq = YLeaf(YType.uint32, "med-eq")
-
-                                    self.origin_eq = YLeaf(YType.enumeration, "origin-eq")
-
-                                    self.next_hop_in = YLeafList(YType.str, "next-hop-in")
-
-                                    self.afi_safi_in = YLeafList(YType.identityref, "afi-safi-in")
-
-                                    self.local_pref_eq = YLeaf(YType.uint32, "local-pref-eq")
-
-                                    self.route_type = YLeaf(YType.enumeration, "route-type")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('med_eq', YLeaf(YType.uint32, 'med-eq')),
+                                        ('origin_eq', YLeaf(YType.enumeration, 'origin-eq')),
+                                        ('next_hop_in', YLeafList(YType.str, 'next-hop-in')),
+                                        ('afi_safi_in', YLeafList(YType.identityref, 'afi-safi-in')),
+                                        ('local_pref_eq', YLeaf(YType.uint32, 'local-pref-eq')),
+                                        ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                    ])
+                                    self.med_eq = None
+                                    self.origin_eq = None
+                                    self.next_hop_in = []
+                                    self.afi_safi_in = []
+                                    self.local_pref_eq = None
+                                    self.route_type = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -2943,7 +3110,7 @@ class RoutingPolicy(Entity):
 
                                 class RouteType(Enum):
                                     """
-                                    RouteType
+                                    RouteType (Enum Class)
 
                                     Condition to check the route type in the route update
 
@@ -2992,8 +3159,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config()
                                     self.config.parent = self
@@ -3037,12 +3206,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "community-count"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.operator = YLeaf(YType.identityref, "operator")
-
-                                        self.value = YLeaf(YType.uint32, "value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('operator', YLeaf(YType.identityref, 'operator')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                        ])
+                                        self.operator = None
+                                        self.value = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -3079,12 +3251,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "community-count"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.operator = YLeaf(YType.identityref, "operator")
-
-                                        self.value = YLeaf(YType.uint32, "value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('operator', YLeaf(YType.identityref, 'operator')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                        ])
+                                        self.operator = None
+                                        self.value = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -3120,8 +3295,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config()
                                     self.config.parent = self
@@ -3165,12 +3342,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "as-path-length"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.operator = YLeaf(YType.identityref, "operator")
-
-                                        self.value = YLeaf(YType.uint32, "value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('operator', YLeaf(YType.identityref, 'operator')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                        ])
+                                        self.operator = None
+                                        self.value = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -3207,12 +3387,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "as-path-length"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.operator = YLeaf(YType.identityref, "operator")
-
-                                        self.value = YLeaf(YType.uint32, "value")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('operator', YLeaf(YType.identityref, 'operator')),
+                                            ('value', YLeaf(YType.uint32, 'value')),
+                                        ])
+                                        self.operator = None
+                                        self.value = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -3249,8 +3432,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config()
                                     self.config.parent = self
@@ -3294,12 +3479,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-community-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.community_set = YLeaf(YType.str, "community-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('community_set', YLeaf(YType.str, 'community-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.community_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -3336,12 +3524,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-community-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.community_set = YLeaf(YType.str, "community-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('community_set', YLeaf(YType.str, 'community-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.community_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -3377,8 +3568,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config()
                                     self.config.parent = self
@@ -3423,12 +3616,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-ext-community-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ext_community_set = YLeaf(YType.str, "ext-community-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ext_community_set', YLeaf(YType.str, 'ext-community-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.ext_community_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -3466,12 +3662,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-ext-community-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ext_community_set = YLeaf(YType.str, "ext-community-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ext_community_set', YLeaf(YType.str, 'ext-community-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.ext_community_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -3507,8 +3706,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-conditions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config()
                                     self.config.parent = self
@@ -3552,12 +3753,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-as-path-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_path_set', YLeaf(YType.str, 'as-path-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.as_path_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -3595,16 +3799,142 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "match-as-path-set"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.as_path_set = YLeaf(YType.str, "as-path-set")
-
-                                        self.match_set_options = YLeaf(YType.enumeration, "match-set-options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('as_path_set', YLeaf(YType.str, 'as-path-set')),
+                                            ('match_set_options', YLeaf(YType.enumeration, 'match-set-options')),
+                                        ])
+                                        self.as_path_set = None
+                                        self.match_set_options = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, ['as_path_set', 'match_set_options'], name, value)
+
+
+                        class IsisConditions(Entity):
+                            """
+                            Match conditions relating to the IS\-IS protocol
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2017-05-15'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, self).__init__()
+
+                                self.yang_name = "isis-conditions"
+                                self.yang_parent_name = "conditions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-conditions"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', YLeaf(YType.uint8, 'level-eq')),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, ['level_eq'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', YLeaf(YType.uint8, 'level-eq')),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, ['level_eq'], name, value)
 
 
                     class Actions(Entity):
@@ -3631,6 +3961,11 @@ class RoutingPolicy(Entity):
                         	Top\-level container for BGP\-specific actions
                         	**type**\:  :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
                         
+                        .. attribute:: isis_actions
+                        
+                        	Actions that can be performed by IS\-IS within a policy
+                        	**type**\:  :py:class:`IsisActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions>`
+                        
                         
 
                         """
@@ -3645,8 +3980,10 @@ class RoutingPolicy(Entity):
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State), "igp-actions" : ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions), "openconfig-bgp-policy:bgp-actions" : ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)), ("igp-actions", ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions)), ("openconfig-bgp-policy:bgp-actions", ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions)), ("openconfig-isis-policy:isis-actions", ("isis_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config()
                             self.config.parent = self
@@ -3665,8 +4002,13 @@ class RoutingPolicy(Entity):
 
                             self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
                             self.bgp_actions.parent = self
-                            self._children_name_map["bgp_actions"] = "bgp-actions"
-                            self._children_yang_names.add("bgp-actions")
+                            self._children_name_map["bgp_actions"] = "openconfig-bgp-policy:bgp-actions"
+                            self._children_yang_names.add("openconfig-bgp-policy:bgp-actions")
+
+                            self.isis_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions()
+                            self.isis_actions.parent = self
+                            self._children_name_map["isis_actions"] = "openconfig-isis-policy:isis-actions"
+                            self._children_yang_names.add("openconfig-isis-policy:isis-actions")
                             self._segment_path = lambda: "actions"
 
 
@@ -3698,12 +4040,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.accept_route = YLeaf(YType.empty, "accept-route")
-
-                                self.reject_route = YLeaf(YType.empty, "reject-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('accept_route', YLeaf(YType.empty, 'accept-route')),
+                                    ('reject_route', YLeaf(YType.empty, 'reject-route')),
+                                ])
+                                self.accept_route = None
+                                self.reject_route = None
                                 self._segment_path = lambda: "config"
 
                             def __setattr__(self, name, value):
@@ -3738,12 +4083,15 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.accept_route = YLeaf(YType.empty, "accept-route")
-
-                                self.reject_route = YLeaf(YType.empty, "reject-route")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('accept_route', YLeaf(YType.empty, 'accept-route')),
+                                    ('reject_route', YLeaf(YType.empty, 'reject-route')),
+                                ])
+                                self.accept_route = None
+                                self.reject_route = None
                                 self._segment_path = lambda: "state"
 
                             def __setattr__(self, name, value):
@@ -3779,8 +4127,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config()
                                 self.config.parent = self
@@ -3825,10 +4175,13 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "igp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_tag = YLeaf(YType.str, "set-tag")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                                    ])
+                                    self.set_tag = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -3866,10 +4219,13 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "igp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_tag = YLeaf(YType.str, "set-tag")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                                    ])
+                                    self.set_tag = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -3919,8 +4275,10 @@ class RoutingPolicy(Entity):
                                 self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State), "set-as-path-prepend" : ("set_as_path_prepend", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend), "set-community" : ("set_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity), "set-ext-community" : ("set_ext_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity)}
-                                self._child_list_classes = {}
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State)), ("set-as-path-prepend", ("set_as_path_prepend", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend)), ("set-community", ("set_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity)), ("set-ext-community", ("set_ext_community", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
 
                                 self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config()
                                 self.config.parent = self
@@ -4009,16 +4367,19 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
-
-                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
-
-                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
-
-                                    self.set_med = YLeaf(YType.str, "set-med")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_route_origin', YLeaf(YType.enumeration, 'set-route-origin')),
+                                        ('set_local_pref', YLeaf(YType.uint32, 'set-local-pref')),
+                                        ('set_next_hop', YLeaf(YType.str, 'set-next-hop')),
+                                        ('set_med', YLeaf(YType.str, 'set-med')),
+                                    ])
+                                    self.set_route_origin = None
+                                    self.set_local_pref = None
+                                    self.set_next_hop = None
+                                    self.set_med = None
                                     self._segment_path = lambda: "config"
 
                                 def __setattr__(self, name, value):
@@ -4085,16 +4446,19 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.set_route_origin = YLeaf(YType.enumeration, "set-route-origin")
-
-                                    self.set_local_pref = YLeaf(YType.uint32, "set-local-pref")
-
-                                    self.set_next_hop = YLeaf(YType.str, "set-next-hop")
-
-                                    self.set_med = YLeaf(YType.str, "set-med")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_route_origin', YLeaf(YType.enumeration, 'set-route-origin')),
+                                        ('set_local_pref', YLeaf(YType.uint32, 'set-local-pref')),
+                                        ('set_next_hop', YLeaf(YType.str, 'set-next-hop')),
+                                        ('set_med', YLeaf(YType.str, 'set-med')),
+                                    ])
+                                    self.set_route_origin = None
+                                    self.set_local_pref = None
+                                    self.set_next_hop = None
+                                    self.set_med = None
                                     self._segment_path = lambda: "state"
 
                                 def __setattr__(self, name, value):
@@ -4130,8 +4494,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config()
                                     self.config.parent = self
@@ -4170,10 +4536,13 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-as-path-prepend"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('repeat_n', YLeaf(YType.uint8, 'repeat-n')),
+                                        ])
+                                        self.repeat_n = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -4205,10 +4574,13 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-as-path-prepend"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.repeat_n = YLeaf(YType.uint8, "repeat-n")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('repeat_n', YLeaf(YType.uint8, 'repeat-n')),
+                                        ])
+                                        self.repeat_n = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -4256,8 +4628,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State)), ("inline", ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline)), ("reference", ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config()
                                     self.config.parent = self
@@ -4309,12 +4683,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('method', YLeaf(YType.enumeration, 'method')),
+                                            ('options', YLeaf(YType.enumeration, 'options')),
+                                        ])
+                                        self.method = None
+                                        self.options = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -4322,7 +4699,7 @@ class RoutingPolicy(Entity):
 
                                     class Method(Enum):
                                         """
-                                        Method
+                                        Method (Enum Class)
 
                                         Indicates the method used to specify the extended
 
@@ -4376,12 +4753,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('method', YLeaf(YType.enumeration, 'method')),
+                                            ('options', YLeaf(YType.enumeration, 'options')),
+                                        ])
+                                        self.method = None
+                                        self.options = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -4389,7 +4769,7 @@ class RoutingPolicy(Entity):
 
                                     class Method(Enum):
                                         """
-                                        Method
+                                        Method (Enum Class)
 
                                         Indicates the method used to specify the extended
 
@@ -4444,8 +4824,10 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config()
                                         self.config.parent = self
@@ -4493,10 +4875,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "inline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('communities', YLeafList(YType.str, 'communities')),
+                                            ])
+                                            self.communities = []
                                             self._segment_path = lambda: "config"
 
                                         def __setattr__(self, name, value):
@@ -4537,10 +4922,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "inline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('communities', YLeafList(YType.str, 'communities')),
+                                            ])
+                                            self.communities = []
                                             self._segment_path = lambda: "state"
 
                                         def __setattr__(self, name, value):
@@ -4576,8 +4964,10 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config()
                                         self.config.parent = self
@@ -4617,10 +5007,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "reference"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('community_set_ref', YLeaf(YType.str, 'community-set-ref')),
+                                            ])
+                                            self.community_set_ref = None
                                             self._segment_path = lambda: "config"
 
                                         def __setattr__(self, name, value):
@@ -4653,10 +5046,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "reference"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.community_set_ref = YLeaf(YType.str, "community-set-ref")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('community_set_ref', YLeaf(YType.str, 'community-set-ref')),
+                                            ])
+                                            self.community_set_ref = None
                                             self._segment_path = lambda: "state"
 
                                         def __setattr__(self, name, value):
@@ -4705,8 +5101,10 @@ class RoutingPolicy(Entity):
                                     self.yang_parent_name = "bgp-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State), "inline" : ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline), "reference" : ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State)), ("inline", ("inline", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline)), ("reference", ("reference", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict()
 
                                     self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config()
                                     self.config.parent = self
@@ -4758,12 +5156,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-ext-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('method', YLeaf(YType.enumeration, 'method')),
+                                            ('options', YLeaf(YType.enumeration, 'options')),
+                                        ])
+                                        self.method = None
+                                        self.options = None
                                         self._segment_path = lambda: "config"
 
                                     def __setattr__(self, name, value):
@@ -4771,7 +5172,7 @@ class RoutingPolicy(Entity):
 
                                     class Method(Enum):
                                         """
-                                        Method
+                                        Method (Enum Class)
 
                                         Indicates the method used to specify the extended
 
@@ -4825,12 +5226,15 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-ext-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.method = YLeaf(YType.enumeration, "method")
-
-                                        self.options = YLeaf(YType.enumeration, "options")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('method', YLeaf(YType.enumeration, 'method')),
+                                            ('options', YLeaf(YType.enumeration, 'options')),
+                                        ])
+                                        self.method = None
+                                        self.options = None
                                         self._segment_path = lambda: "state"
 
                                     def __setattr__(self, name, value):
@@ -4838,7 +5242,7 @@ class RoutingPolicy(Entity):
 
                                     class Method(Enum):
                                         """
-                                        Method
+                                        Method (Enum Class)
 
                                         Indicates the method used to specify the extended
 
@@ -4893,8 +5297,10 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-ext-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config()
                                         self.config.parent = self
@@ -4958,10 +5364,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "inline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('communities', YLeafList(YType.str, 'communities')),
+                                            ])
+                                            self.communities = []
                                             self._segment_path = lambda: "config"
 
                                         def __setattr__(self, name, value):
@@ -5018,10 +5427,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "inline"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.communities = YLeafList(YType.str, "communities")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('communities', YLeafList(YType.str, 'communities')),
+                                            ])
+                                            self.communities = []
                                             self._segment_path = lambda: "state"
 
                                         def __setattr__(self, name, value):
@@ -5057,8 +5469,10 @@ class RoutingPolicy(Entity):
                                         self.yang_parent_name = "set-ext-community"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {"config" : ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config), "state" : ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State)}
-                                        self._child_list_classes = {}
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State))])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict()
 
                                         self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config()
                                         self.config.parent = self
@@ -5098,10 +5512,13 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "reference"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ext_community_set_ref', YLeaf(YType.str, 'ext-community-set-ref')),
+                                            ])
+                                            self.ext_community_set_ref = None
                                             self._segment_path = lambda: "config"
 
                                         def __setattr__(self, name, value):
@@ -5134,14 +5551,174 @@ class RoutingPolicy(Entity):
                                             self.yang_parent_name = "reference"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.ext_community_set_ref = YLeaf(YType.str, "ext-community-set-ref")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ext_community_set_ref', YLeaf(YType.str, 'ext-community-set-ref')),
+                                            ])
+                                            self.ext_community_set_ref = None
                                             self._segment_path = lambda: "state"
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, ['ext_community_set_ref'], name, value)
+
+
+                        class IsisActions(Entity):
+                            """
+                            Actions that can be performed by IS\-IS within a policy
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to IS\-IS actions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state associated with IS\-IS actions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2017-05-15'
+
+                            def __init__(self):
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, self).__init__()
+
+                                self.yang_name = "isis-actions"
+                                self.yang_parent_name = "actions"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict()
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+                                self._children_yang_names.add("config")
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._children_yang_names.add("state")
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-actions"
+
+
+                            class Config(Entity):
+                                """
+                                Configuration parameters relating to IS\-IS actions
+                                
+                                .. attribute:: set_level
+                                
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric_type
+                                
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "isis-actions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_level', YLeaf(YType.uint8, 'set-level')),
+                                        ('set_metric_type', YLeaf(YType.uint8, 'set-metric-type')),
+                                        ('set_metric', YLeaf(YType.uint32, 'set-metric')),
+                                    ])
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
+                                    self._segment_path = lambda: "config"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, ['set_level', 'set_metric_type', 'set_metric'], name, value)
+
+
+                            class State(Entity):
+                                """
+                                Operational state associated with IS\-IS actions
+                                
+                                .. attribute:: set_level
+                                
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric_type
+                                
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2017-05-15'
+
+                                def __init__(self):
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "isis-actions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('set_level', YLeaf(YType.uint8, 'set-level')),
+                                        ('set_metric_type', YLeaf(YType.uint8, 'set-metric-type')),
+                                        ('set_metric', YLeaf(YType.uint32, 'set-metric')),
+                                    ])
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
+                                    self._segment_path = lambda: "state"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, ['set_level', 'set_metric_type', 'set_metric'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RoutingPolicy()

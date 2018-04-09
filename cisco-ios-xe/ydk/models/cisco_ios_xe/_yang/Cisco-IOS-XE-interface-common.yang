@@ -25,6 +25,19 @@ module Cisco-IOS-XE-interface-common {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-13 {
+    description
+      "Added leafs for FortyGigabitEthernet and HundredGigE interfaces";
+  }
+  revision 2017-09-15 {
+    description
+      "This revison has changes for the new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -132,12 +145,29 @@ module Cisco-IOS-XE-interface-common {
         type string;
       }
 
-      leaf TwentyFiveGigabitEthernet {
+      leaf TwentyFiveGigE {
         description
           "Twenty Five GigabitEthernet ";
         type string;
       }
 
+      leaf TwoGigabitEthernet {
+        description
+          "Two GigabitEthernet ";
+        type string;
+      }
+
+      leaf FortyGigabitEthernet {
+        description
+          "Forty GigabitEthernet ";
+        type string;
+      }
+
+      leaf HundredGigE {
+        description
+          "Hundred GigabitEthernet";
+        type string;
+      }
 
       leaf LISP {
         description

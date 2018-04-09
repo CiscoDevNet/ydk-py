@@ -13,6 +13,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -21,7 +23,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Priority(Enum):
     """
-    Priority
+    Priority (Enum Class)
 
     Priority
 
@@ -60,7 +62,7 @@ class Priority(Enum):
 
 class Source(Enum):
     """
-    Source
+    Source (Enum Class)
 
     Source
 
@@ -140,8 +142,10 @@ class VrfGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", VrfGroup.Nodes)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("nodes", ("nodes", VrfGroup.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.nodes = VrfGroup.Nodes()
         self.nodes.parent = self
@@ -173,8 +177,10 @@ class VrfGroup(Entity):
             self.yang_parent_name = "vrf-group"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", VrfGroup.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", VrfGroup.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -188,7 +194,7 @@ class VrfGroup(Entity):
             """
             Node details
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node
             	**type**\: str
@@ -214,16 +220,19 @@ class VrfGroup(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"groups" : ("groups", VrfGroup.Nodes.Node.Groups)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("groups", ("groups", VrfGroup.Nodes.Node.Groups))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.groups = VrfGroup.Nodes.Node.Groups()
                 self.groups.parent = self
                 self._children_name_map["groups"] = "groups"
                 self._children_yang_names.add("groups")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -253,8 +262,10 @@ class VrfGroup(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"group" : ("group", VrfGroup.Nodes.Node.Groups.Group)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("group", ("group", VrfGroup.Nodes.Node.Groups.Group))])
+                    self._leafs = OrderedDict()
 
                     self.group = YList(self)
                     self._segment_path = lambda: "groups"
@@ -267,7 +278,7 @@ class VrfGroup(Entity):
                     """
                     Group details
                     
-                    .. attribute:: group_name  <key>
+                    .. attribute:: group_name  (key)
                     
                     	Group name
                     	**type**\: str
@@ -305,17 +316,20 @@ class VrfGroup(Entity):
                         self.yang_parent_name = "groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", VrfGroup.Nodes.Node.Groups.Group.Vrf)}
-
-                        self.group_name = YLeaf(YType.str, "group-name")
-
-                        self.vr_fs = YLeaf(YType.uint32, "vr-fs")
-
-                        self.forward_reference = YLeaf(YType.boolean, "forward-reference")
+                        self.ylist_key_names = ['group_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("vrf", ("vrf", VrfGroup.Nodes.Node.Groups.Group.Vrf))])
+                        self._leafs = OrderedDict([
+                            ('group_name', YLeaf(YType.str, 'group-name')),
+                            ('vr_fs', YLeaf(YType.uint32, 'vr-fs')),
+                            ('forward_reference', YLeaf(YType.boolean, 'forward-reference')),
+                        ])
+                        self.group_name = None
+                        self.vr_fs = None
+                        self.forward_reference = None
 
                         self.vrf = YList(self)
-                        self._segment_path = lambda: "group" + "[group-name='" + self.group_name.get() + "']"
+                        self._segment_path = lambda: "group" + "[group-name='" + str(self.group_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', 'vr_fs', 'forward_reference'], name, value)
@@ -344,10 +358,13 @@ class VrfGroup(Entity):
                             self.yang_parent_name = "group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ])
+                            self.vrf_name = None
                             self._segment_path = lambda: "vrf"
 
                         def __setattr__(self, name, value):
@@ -391,8 +408,10 @@ class Srlg(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"srlg-maps" : ("srlg_maps", Srlg.SrlgMaps), "nodes" : ("nodes", Srlg.Nodes), "interface-srlg-names" : ("interface_srlg_names", Srlg.InterfaceSrlgNames)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("srlg-maps", ("srlg_maps", Srlg.SrlgMaps)), ("nodes", ("nodes", Srlg.Nodes)), ("interface-srlg-names", ("interface_srlg_names", Srlg.InterfaceSrlgNames))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.srlg_maps = Srlg.SrlgMaps()
         self.srlg_maps.parent = self
@@ -434,8 +453,10 @@ class Srlg(Entity):
             self.yang_parent_name = "srlg"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"srlg-map" : ("srlg_map", Srlg.SrlgMaps.SrlgMap)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("srlg-map", ("srlg_map", Srlg.SrlgMaps.SrlgMap))])
+            self._leafs = OrderedDict()
 
             self.srlg_map = YList(self)
             self._segment_path = lambda: "srlg-maps"
@@ -449,7 +470,7 @@ class Srlg(Entity):
             """
             Configured SRLG name details 
             
-            .. attribute:: srlg_name  <key>
+            .. attribute:: srlg_name  (key)
             
             	SRLG name
             	**type**\: str
@@ -482,15 +503,18 @@ class Srlg(Entity):
                 self.yang_parent_name = "srlg-maps"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.srlg_name = YLeaf(YType.str, "srlg-name")
-
-                self.srlg_value = YLeaf(YType.uint32, "srlg-value")
-
-                self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
-                self._segment_path = lambda: "srlg-map" + "[srlg-name='" + self.srlg_name.get() + "']"
+                self.ylist_key_names = ['srlg_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                    ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                    ('srlg_name_xr', YLeaf(YType.str, 'srlg-name-xr')),
+                ])
+                self.srlg_name = None
+                self.srlg_value = None
+                self.srlg_name_xr = None
+                self._segment_path = lambda: "srlg-map" + "[srlg-name='" + str(self.srlg_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-oper:srlg/srlg-maps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -520,8 +544,10 @@ class Srlg(Entity):
             self.yang_parent_name = "srlg"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", Srlg.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", Srlg.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -535,7 +561,7 @@ class Srlg(Entity):
             """
             RSI SRLG operational data
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Node
             	**type**\: str
@@ -591,10 +617,13 @@ class Srlg(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"srlg-maps" : ("srlg_maps", Srlg.Nodes.Node.SrlgMaps), "groups" : ("groups", Srlg.Nodes.Node.Groups), "inherit-nodes" : ("inherit_nodes", Srlg.Nodes.Node.InheritNodes), "interfaces" : ("interfaces", Srlg.Nodes.Node.Interfaces), "interface-details" : ("interface_details", Srlg.Nodes.Node.InterfaceDetails), "srlg-values" : ("srlg_values", Srlg.Nodes.Node.SrlgValues), "interface-srlg-names" : ("interface_srlg_names", Srlg.Nodes.Node.InterfaceSrlgNames)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([("srlg-maps", ("srlg_maps", Srlg.Nodes.Node.SrlgMaps)), ("groups", ("groups", Srlg.Nodes.Node.Groups)), ("inherit-nodes", ("inherit_nodes", Srlg.Nodes.Node.InheritNodes)), ("interfaces", ("interfaces", Srlg.Nodes.Node.Interfaces)), ("interface-details", ("interface_details", Srlg.Nodes.Node.InterfaceDetails)), ("srlg-values", ("srlg_values", Srlg.Nodes.Node.SrlgValues)), ("interface-srlg-names", ("interface_srlg_names", Srlg.Nodes.Node.InterfaceSrlgNames))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                ])
+                self.node_name = None
 
                 self.srlg_maps = Srlg.Nodes.Node.SrlgMaps()
                 self.srlg_maps.parent = self
@@ -630,7 +659,7 @@ class Srlg(Entity):
                 self.interface_srlg_names.parent = self
                 self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
                 self._children_yang_names.add("interface-srlg-names")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -660,8 +689,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"srlg-map" : ("srlg_map", Srlg.Nodes.Node.SrlgMaps.SrlgMap)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("srlg-map", ("srlg_map", Srlg.Nodes.Node.SrlgMaps.SrlgMap))])
+                    self._leafs = OrderedDict()
 
                     self.srlg_map = YList(self)
                     self._segment_path = lambda: "srlg-maps"
@@ -674,7 +705,7 @@ class Srlg(Entity):
                     """
                     Configured SRLG name details 
                     
-                    .. attribute:: srlg_name  <key>
+                    .. attribute:: srlg_name  (key)
                     
                     	SRLG name
                     	**type**\: str
@@ -707,15 +738,18 @@ class Srlg(Entity):
                         self.yang_parent_name = "srlg-maps"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.srlg_name = YLeaf(YType.str, "srlg-name")
-
-                        self.srlg_value = YLeaf(YType.uint32, "srlg-value")
-
-                        self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
-                        self._segment_path = lambda: "srlg-map" + "[srlg-name='" + self.srlg_name.get() + "']"
+                        self.ylist_key_names = ['srlg_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                            ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                            ('srlg_name_xr', YLeaf(YType.str, 'srlg-name-xr')),
+                        ])
+                        self.srlg_name = None
+                        self.srlg_value = None
+                        self.srlg_name_xr = None
+                        self._segment_path = lambda: "srlg-map" + "[srlg-name='" + str(self.srlg_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
@@ -744,8 +778,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"group" : ("group", Srlg.Nodes.Node.Groups.Group)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("group", ("group", Srlg.Nodes.Node.Groups.Group))])
+                    self._leafs = OrderedDict()
 
                     self.group = YList(self)
                     self._segment_path = lambda: "groups"
@@ -758,7 +794,7 @@ class Srlg(Entity):
                     """
                     SRLG group details
                     
-                    .. attribute:: group_name  <key>
+                    .. attribute:: group_name  (key)
                     
                     	Group name
                     	**type**\: str
@@ -796,17 +832,20 @@ class Srlg(Entity):
                         self.yang_parent_name = "groups"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"srlg-attribute" : ("srlg_attribute", Srlg.Nodes.Node.Groups.Group.SrlgAttribute)}
-
-                        self.group_name = YLeaf(YType.str, "group-name")
-
-                        self.group_name_xr = YLeaf(YType.str, "group-name-xr")
-
-                        self.group_values = YLeaf(YType.uint32, "group-values")
+                        self.ylist_key_names = ['group_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("srlg-attribute", ("srlg_attribute", Srlg.Nodes.Node.Groups.Group.SrlgAttribute))])
+                        self._leafs = OrderedDict([
+                            ('group_name', YLeaf(YType.str, 'group-name')),
+                            ('group_name_xr', YLeaf(YType.str, 'group-name-xr')),
+                            ('group_values', YLeaf(YType.uint32, 'group-values')),
+                        ])
+                        self.group_name = None
+                        self.group_name_xr = None
+                        self.group_values = None
 
                         self.srlg_attribute = YList(self)
-                        self._segment_path = lambda: "group" + "[group-name='" + self.group_name.get() + "']"
+                        self._segment_path = lambda: "group" + "[group-name='" + str(self.group_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
@@ -849,14 +888,17 @@ class Srlg(Entity):
                             self.yang_parent_name = "group"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('srlg_index', YLeaf(YType.uint16, 'srlg-index')),
+                            ])
+                            self.srlg_value = None
+                            self.priority = None
+                            self.srlg_index = None
                             self._segment_path = lambda: "srlg-attribute"
 
                         def __setattr__(self, name, value):
@@ -886,8 +928,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inherit-node" : ("inherit_node", Srlg.Nodes.Node.InheritNodes.InheritNode)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("inherit-node", ("inherit_node", Srlg.Nodes.Node.InheritNodes.InheritNode))])
+                    self._leafs = OrderedDict()
 
                     self.inherit_node = YList(self)
                     self._segment_path = lambda: "inherit-nodes"
@@ -900,7 +944,7 @@ class Srlg(Entity):
                     """
                     SRLG inherit location details
                     
-                    .. attribute:: inherit_node_name  <key>
+                    .. attribute:: inherit_node_name  (key)
                     
                     	Inherit node
                     	**type**\: str
@@ -938,17 +982,20 @@ class Srlg(Entity):
                         self.yang_parent_name = "inherit-nodes"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"srlg-attribute" : ("srlg_attribute", Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute)}
-
-                        self.inherit_node_name = YLeaf(YType.str, "inherit-node-name")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.node_values = YLeaf(YType.uint32, "node-values")
+                        self.ylist_key_names = ['inherit_node_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("srlg-attribute", ("srlg_attribute", Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute))])
+                        self._leafs = OrderedDict([
+                            ('inherit_node_name', YLeaf(YType.str, 'inherit-node-name')),
+                            ('node_name', YLeaf(YType.str, 'node-name')),
+                            ('node_values', YLeaf(YType.uint32, 'node-values')),
+                        ])
+                        self.inherit_node_name = None
+                        self.node_name = None
+                        self.node_values = None
 
                         self.srlg_attribute = YList(self)
-                        self._segment_path = lambda: "inherit-node" + "[inherit-node-name='" + self.inherit_node_name.get() + "']"
+                        self._segment_path = lambda: "inherit-node" + "[inherit-node-name='" + str(self.inherit_node_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
@@ -991,14 +1038,17 @@ class Srlg(Entity):
                             self.yang_parent_name = "inherit-node"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('srlg_index', YLeaf(YType.uint16, 'srlg-index')),
+                            ])
+                            self.srlg_value = None
+                            self.priority = None
+                            self.srlg_index = None
                             self._segment_path = lambda: "srlg-attribute"
 
                         def __setattr__(self, name, value):
@@ -1028,8 +1078,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Srlg.Nodes.Node.Interfaces.Interface)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface", ("interface", Srlg.Nodes.Node.Interfaces.Interface))])
+                    self._leafs = OrderedDict()
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
@@ -1042,7 +1094,7 @@ class Srlg(Entity):
                     """
                     SRLG interface summary
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -1089,19 +1141,22 @@ class Srlg(Entity):
                         self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                        self.value_count = YLeaf(YType.uint32, "value-count")
-
-                        self.registrations = YLeaf(YType.uint32, "registrations")
-
-                        self.srlg_value = YLeafList(YType.uint32, "srlg-value")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
+                            ('value_count', YLeaf(YType.uint32, 'value-count')),
+                            ('registrations', YLeaf(YType.uint32, 'registrations')),
+                            ('srlg_value', YLeafList(YType.uint32, 'srlg-value')),
+                        ])
+                        self.interface_name = None
+                        self.interface_name_xr = None
+                        self.value_count = None
+                        self.registrations = None
+                        self.srlg_value = []
+                        self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
@@ -1130,8 +1185,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-detail" : ("interface_detail", Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-detail", ("interface_detail", Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail))])
+                    self._leafs = OrderedDict()
 
                     self.interface_detail = YList(self)
                     self._segment_path = lambda: "interface-details"
@@ -1144,7 +1201,7 @@ class Srlg(Entity):
                     """
                     SRLG interface details
                     
-                    .. attribute:: interface_name  <key>
+                    .. attribute:: interface_name  (key)
                     
                     	Interface name
                     	**type**\: str
@@ -1184,17 +1241,20 @@ class Srlg(Entity):
                         self.yang_parent_name = "interface-details"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"srlg-attribute" : ("srlg_attribute", Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute)}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.groups = YLeaf(YType.uint32, "groups")
-
-                        self.nodes = YLeaf(YType.uint32, "nodes")
+                        self.ylist_key_names = ['interface_name']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("srlg-attribute", ("srlg_attribute", Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute))])
+                        self._leafs = OrderedDict([
+                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('groups', YLeaf(YType.uint32, 'groups')),
+                            ('nodes', YLeaf(YType.uint32, 'nodes')),
+                        ])
+                        self.interface_name = None
+                        self.groups = None
+                        self.nodes = None
 
                         self.srlg_attribute = YList(self)
-                        self._segment_path = lambda: "interface-detail" + "[interface-name='" + self.interface_name.get() + "']"
+                        self._segment_path = lambda: "interface-detail" + "[interface-name='" + str(self.interface_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
@@ -1247,18 +1307,21 @@ class Srlg(Entity):
                             self.yang_parent_name = "interface-detail"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
-
-                            self.priority = YLeaf(YType.enumeration, "priority")
-
-                            self.source = YLeaf(YType.enumeration, "source")
-
-                            self.source_name = YLeaf(YType.str, "source-name")
-
-                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                                ('priority', YLeaf(YType.enumeration, 'priority')),
+                                ('source', YLeaf(YType.enumeration, 'source')),
+                                ('source_name', YLeaf(YType.str, 'source-name')),
+                                ('srlg_index', YLeaf(YType.uint16, 'srlg-index')),
+                            ])
+                            self.srlg_value = None
+                            self.priority = None
+                            self.source = None
+                            self.source_name = None
+                            self.srlg_index = None
                             self._segment_path = lambda: "srlg-attribute"
 
                         def __setattr__(self, name, value):
@@ -1288,8 +1351,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"srlg-value" : ("srlg_value", Srlg.Nodes.Node.SrlgValues.SrlgValue)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("srlg-value", ("srlg_value", Srlg.Nodes.Node.SrlgValues.SrlgValue))])
+                    self._leafs = OrderedDict()
 
                     self.srlg_value = YList(self)
                     self._segment_path = lambda: "srlg-values"
@@ -1302,7 +1367,7 @@ class Srlg(Entity):
                     """
                     Configured SRLG value details 
                     
-                    .. attribute:: value  <key>
+                    .. attribute:: value  (key)
                     
                     	SRLG value
                     	**type**\: int
@@ -1328,13 +1393,16 @@ class Srlg(Entity):
                         self.yang_parent_name = "srlg-values"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.value = YLeaf(YType.int32, "value")
-
-                        self.interface_name = YLeafList(YType.str, "interface-name")
-                        self._segment_path = lambda: "srlg-value" + "[value='" + self.value.get() + "']"
+                        self.ylist_key_names = ['value']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('value', YLeaf(YType.int32, 'value')),
+                            ('interface_name', YLeafList(YType.str, 'interface-name')),
+                        ])
+                        self.value = None
+                        self.interface_name = []
+                        self._segment_path = lambda: "srlg-value" + "[value='" + str(self.value) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
@@ -1363,8 +1431,10 @@ class Srlg(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface-srlg-name" : ("interface_srlg_name", Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("interface-srlg-name", ("interface_srlg_name", Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName))])
+                    self._leafs = OrderedDict()
 
                     self.interface_srlg_name = YList(self)
                     self._segment_path = lambda: "interface-srlg-names"
@@ -1377,7 +1447,7 @@ class Srlg(Entity):
                     """
                     Configured SRLG name details 
                     
-                    .. attribute:: srlg_name  <key>
+                    .. attribute:: srlg_name  (key)
                     
                     	SRLG name
                     	**type**\: str
@@ -1415,20 +1485,23 @@ class Srlg(Entity):
                         self.yang_parent_name = "interface-srlg-names"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"interfaces" : ("interfaces", Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces)}
-                        self._child_list_classes = {}
-
-                        self.srlg_name = YLeaf(YType.str, "srlg-name")
-
-                        self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
-
-                        self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+                        self.ylist_key_names = ['srlg_name']
+                        self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                            ('srlg_name_xr', YLeaf(YType.str, 'srlg-name-xr')),
+                            ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                        ])
+                        self.srlg_name = None
+                        self.srlg_name_xr = None
+                        self.srlg_value = None
 
                         self.interfaces = Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
                         self._children_yang_names.add("interfaces")
-                        self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + self.srlg_name.get() + "']"
+                        self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + str(self.srlg_name) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
@@ -1457,10 +1530,13 @@ class Srlg(Entity):
                             self.yang_parent_name = "interface-srlg-name"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeafList(YType.str, "interface-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeafList(YType.str, 'interface-name')),
+                            ])
+                            self.interface_name = []
                             self._segment_path = lambda: "interfaces"
 
                         def __setattr__(self, name, value):
@@ -1490,8 +1566,10 @@ class Srlg(Entity):
             self.yang_parent_name = "srlg"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface-srlg-name" : ("interface_srlg_name", Srlg.InterfaceSrlgNames.InterfaceSrlgName)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface-srlg-name", ("interface_srlg_name", Srlg.InterfaceSrlgNames.InterfaceSrlgName))])
+            self._leafs = OrderedDict()
 
             self.interface_srlg_name = YList(self)
             self._segment_path = lambda: "interface-srlg-names"
@@ -1505,7 +1583,7 @@ class Srlg(Entity):
             """
             Configured SRLG name details 
             
-            .. attribute:: srlg_name  <key>
+            .. attribute:: srlg_name  (key)
             
             	SRLG name
             	**type**\: str
@@ -1543,20 +1621,23 @@ class Srlg(Entity):
                 self.yang_parent_name = "interface-srlg-names"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interfaces" : ("interfaces", Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces)}
-                self._child_list_classes = {}
-
-                self.srlg_name = YLeaf(YType.str, "srlg-name")
-
-                self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
-
-                self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+                self.ylist_key_names = ['srlg_name']
+                self._child_container_classes = OrderedDict([("interfaces", ("interfaces", Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                    ('srlg_name_xr', YLeaf(YType.str, 'srlg-name-xr')),
+                    ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                ])
+                self.srlg_name = None
+                self.srlg_name_xr = None
+                self.srlg_value = None
 
                 self.interfaces = Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
                 self.interfaces.parent = self
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
-                self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + self.srlg_name.get() + "']"
+                self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + str(self.srlg_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-srlg-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1586,10 +1667,13 @@ class Srlg(Entity):
                     self.yang_parent_name = "interface-srlg-name"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_name = YLeafList(YType.str, "interface-name")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_name', YLeafList(YType.str, 'interface-name')),
+                    ])
+                    self.interface_name = []
                     self._segment_path = lambda: "interfaces"
 
                 def __setattr__(self, name, value):
@@ -1623,8 +1707,10 @@ class SelectiveVrfDownload(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"state" : ("state", SelectiveVrfDownload.State)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("state", ("state", SelectiveVrfDownload.State))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.state = SelectiveVrfDownload.State()
         self.state.parent = self
@@ -1661,12 +1747,15 @@ class SelectiveVrfDownload(Entity):
             self.yang_parent_name = "selective-vrf-download"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.is_svd_enabled = YLeaf(YType.boolean, "is-svd-enabled")
-
-            self.is_svd_enabled_cfg = YLeaf(YType.boolean, "is-svd-enabled-cfg")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('is_svd_enabled', YLeaf(YType.boolean, 'is-svd-enabled')),
+                ('is_svd_enabled_cfg', YLeaf(YType.boolean, 'is-svd-enabled-cfg')),
+            ])
+            self.is_svd_enabled = None
+            self.is_svd_enabled_cfg = None
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download/%s" % self._segment_path()
 

@@ -14,6 +14,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -22,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class CfmLmCountersCfg(Enum):
     """
-    CfmLmCountersCfg
+    CfmLmCountersCfg (Enum Class)
 
     Cfm lm counters cfg
 
@@ -49,7 +51,7 @@ class CfmLmCountersCfg(Enum):
 
 class CfmMdidFormat(Enum):
     """
-    CfmMdidFormat
+    CfmMdidFormat (Enum Class)
 
     Cfm mdid format
 
@@ -82,7 +84,7 @@ class CfmMdidFormat(Enum):
 
 class CfmMipPolicy(Enum):
     """
-    CfmMipPolicy
+    CfmMipPolicy (Enum Class)
 
     Cfm mip policy
 
@@ -107,7 +109,7 @@ class CfmMipPolicy(Enum):
 
 class CfmService(Enum):
     """
-    CfmService
+    CfmService (Enum Class)
 
     Cfm service
 
@@ -162,7 +164,7 @@ class CfmService(Enum):
 
 class CfmShortMaNameFormat(Enum):
     """
-    CfmShortMaNameFormat
+    CfmShortMaNameFormat (Enum Class)
 
     Cfm short ma name format
 

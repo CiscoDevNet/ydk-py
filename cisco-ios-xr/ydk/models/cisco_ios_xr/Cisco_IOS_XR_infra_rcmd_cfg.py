@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ProtocolName(Enum):
     """
-    ProtocolName
+    ProtocolName (Enum Class)
 
     Protocol name
 
@@ -40,7 +42,7 @@ class ProtocolName(Enum):
 
 class RcmdPriority(Enum):
     """
-    RcmdPriority
+    RcmdPriority (Enum Class)
 
     Rcmd priority
 
@@ -160,20 +162,23 @@ class RouterConvergence(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-rcmd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"protocols" : ("protocols", RouterConvergence.Protocols), "storage-location" : ("storage_location", RouterConvergence.StorageLocation), "mpls-ldp" : ("mpls_ldp", RouterConvergence.MplsLdp), "collect-diagnostics" : ("collect_diagnostics", RouterConvergence.CollectDiagnostics), "nodes" : ("nodes", RouterConvergence.Nodes)}
-        self._child_list_classes = {}
-
-        self.event_buffer_size = YLeaf(YType.uint32, "event-buffer-size")
-
-        self.prefix_monitor_limit = YLeaf(YType.uint32, "prefix-monitor-limit")
-
-        self.disable = YLeaf(YType.empty, "disable")
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.max_events_stored = YLeaf(YType.uint32, "max-events-stored")
-
-        self.monitoring_interval = YLeaf(YType.uint32, "monitoring-interval")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("protocols", ("protocols", RouterConvergence.Protocols)), ("storage-location", ("storage_location", RouterConvergence.StorageLocation)), ("mpls-ldp", ("mpls_ldp", RouterConvergence.MplsLdp)), ("collect-diagnostics", ("collect_diagnostics", RouterConvergence.CollectDiagnostics)), ("nodes", ("nodes", RouterConvergence.Nodes))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('event_buffer_size', YLeaf(YType.uint32, 'event-buffer-size')),
+            ('prefix_monitor_limit', YLeaf(YType.uint32, 'prefix-monitor-limit')),
+            ('disable', YLeaf(YType.empty, 'disable')),
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('max_events_stored', YLeaf(YType.uint32, 'max-events-stored')),
+            ('monitoring_interval', YLeaf(YType.uint32, 'monitoring-interval')),
+        ])
+        self.event_buffer_size = None
+        self.prefix_monitor_limit = None
+        self.disable = None
+        self.enable = None
+        self.max_events_stored = None
+        self.monitoring_interval = None
 
         self.protocols = RouterConvergence.Protocols()
         self.protocols.parent = self
@@ -226,8 +231,10 @@ class RouterConvergence(Entity):
             self.yang_parent_name = "router-convergence"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"protocol" : ("protocol", RouterConvergence.Protocols.Protocol)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("protocol", ("protocol", RouterConvergence.Protocols.Protocol))])
+            self._leafs = OrderedDict()
 
             self.protocol = YList(self)
             self._segment_path = lambda: "protocols"
@@ -241,7 +248,7 @@ class RouterConvergence(Entity):
             """
             Protocol for which to configure RCMD parameters
             
-            .. attribute:: protocol_name  <key>
+            .. attribute:: protocol_name  (key)
             
             	Specify the protocol
             	**type**\:  :py:class:`ProtocolName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.ProtocolName>`
@@ -270,18 +277,21 @@ class RouterConvergence(Entity):
                 self.yang_parent_name = "protocols"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"priorities" : ("priorities", RouterConvergence.Protocols.Protocol.Priorities)}
-                self._child_list_classes = {}
-
-                self.protocol_name = YLeaf(YType.enumeration, "protocol-name")
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = ['protocol_name']
+                self._child_container_classes = OrderedDict([("priorities", ("priorities", RouterConvergence.Protocols.Protocol.Priorities))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.protocol_name = None
+                self.enable = None
 
                 self.priorities = RouterConvergence.Protocols.Protocol.Priorities()
                 self.priorities.parent = self
                 self._children_name_map["priorities"] = "priorities"
                 self._children_yang_names.add("priorities")
-                self._segment_path = lambda: "protocol" + "[protocol-name='" + self.protocol_name.get() + "']"
+                self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/protocols/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -311,8 +321,10 @@ class RouterConvergence(Entity):
                     self.yang_parent_name = "protocol"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"priority" : ("priority", RouterConvergence.Protocols.Protocol.Priorities.Priority)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("priority", ("priority", RouterConvergence.Protocols.Protocol.Priorities.Priority))])
+                    self._leafs = OrderedDict()
 
                     self.priority = YList(self)
                     self._segment_path = lambda: "priorities"
@@ -325,7 +337,7 @@ class RouterConvergence(Entity):
                     """
                     Priority
                     
-                    .. attribute:: rcmd_priority  <key>
+                    .. attribute:: rcmd_priority  (key)
                     
                     	Specify the priority
                     	**type**\:  :py:class:`RcmdPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RcmdPriority>`
@@ -377,21 +389,24 @@ class RouterConvergence(Entity):
                         self.yang_parent_name = "priorities"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.rcmd_priority = YLeaf(YType.enumeration, "rcmd-priority")
-
-                        self.threshold = YLeaf(YType.int32, "threshold")
-
-                        self.leaf_networks = YLeaf(YType.uint32, "leaf-networks")
-
-                        self.disable = YLeaf(YType.empty, "disable")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.frr_threshold = YLeaf(YType.uint32, "frr-threshold")
-                        self._segment_path = lambda: "priority" + "[rcmd-priority='" + self.rcmd_priority.get() + "']"
+                        self.ylist_key_names = ['rcmd_priority']
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('rcmd_priority', YLeaf(YType.enumeration, 'rcmd-priority')),
+                            ('threshold', YLeaf(YType.int32, 'threshold')),
+                            ('leaf_networks', YLeaf(YType.uint32, 'leaf-networks')),
+                            ('disable', YLeaf(YType.empty, 'disable')),
+                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('frr_threshold', YLeaf(YType.uint32, 'frr-threshold')),
+                        ])
+                        self.rcmd_priority = None
+                        self.threshold = None
+                        self.leaf_networks = None
+                        self.disable = None
+                        self.enable = None
+                        self.frr_threshold = None
+                        self._segment_path = lambda: "priority" + "[rcmd-priority='" + str(self.rcmd_priority) + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities.Priority, ['rcmd_priority', 'threshold', 'leaf_networks', 'disable', 'enable', 'frr_threshold'], name, value)
@@ -443,17 +458,20 @@ class RouterConvergence(Entity):
             self.yang_parent_name = "router-convergence"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
-
-            self.diagnostics = YLeaf(YType.str, "diagnostics")
-
-            self.diagnostics_size = YLeaf(YType.uint32, "diagnostics-size")
-
-            self.reports_size = YLeaf(YType.uint32, "reports-size")
-
-            self.reports = YLeaf(YType.str, "reports")
+            self._leafs = OrderedDict([
+                ('diagnostics', YLeaf(YType.str, 'diagnostics')),
+                ('diagnostics_size', YLeaf(YType.uint32, 'diagnostics-size')),
+                ('reports_size', YLeaf(YType.uint32, 'reports-size')),
+                ('reports', YLeaf(YType.str, 'reports')),
+            ])
+            self.diagnostics = None
+            self.diagnostics_size = None
+            self.reports_size = None
+            self.reports = None
             self._segment_path = lambda: "storage-location"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
 
@@ -488,9 +506,11 @@ class RouterConvergence(Entity):
             self.yang_parent_name = "router-convergence"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"remote-lfa" : ("remote_lfa", RouterConvergence.MplsLdp.RemoteLfa)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("remote-lfa", ("remote_lfa", RouterConvergence.MplsLdp.RemoteLfa))])
+            self._child_list_classes = OrderedDict([])
             self.is_presence_container = True
+            self._leafs = OrderedDict()
 
             self.remote_lfa = None
             self._children_name_map["remote_lfa"] = "remote-lfa"
@@ -528,11 +548,14 @@ class RouterConvergence(Entity):
                 self.yang_parent_name = "mpls-ldp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
                 self.is_presence_container = True
-
-                self.threshold = YLeaf(YType.uint32, "threshold")
+                self._leafs = OrderedDict([
+                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                ])
+                self.threshold = None
                 self._segment_path = lambda: "remote-lfa"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/mpls-ldp/%s" % self._segment_path()
 
@@ -563,8 +586,10 @@ class RouterConvergence(Entity):
             self.yang_parent_name = "router-convergence"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"collect-diagnostic" : ("collect_diagnostic", RouterConvergence.CollectDiagnostics.CollectDiagnostic)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("collect-diagnostic", ("collect_diagnostic", RouterConvergence.CollectDiagnostics.CollectDiagnostic))])
+            self._leafs = OrderedDict()
 
             self.collect_diagnostic = YList(self)
             self._segment_path = lambda: "collect-diagnostics"
@@ -578,7 +603,7 @@ class RouterConvergence(Entity):
             """
             Collect diagnostics on specified node
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Specified location
             	**type**\: str
@@ -604,13 +629,16 @@ class RouterConvergence(Entity):
                 self.yang_parent_name = "collect-diagnostics"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.enable = YLeaf(YType.empty, "enable")
-                self._segment_path = lambda: "collect-diagnostic" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.node_name = None
+                self.enable = None
+                self._segment_path = lambda: "collect-diagnostic" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/collect-diagnostics/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -640,8 +668,10 @@ class RouterConvergence(Entity):
             self.yang_parent_name = "router-convergence"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", RouterConvergence.Nodes.Node)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node", ("node", RouterConvergence.Nodes.Node))])
+            self._leafs = OrderedDict()
 
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
@@ -656,7 +686,7 @@ class RouterConvergence(Entity):
             Configure parameters for the specified node
             (Partially qualified location allowed)
             
-            .. attribute:: node_name  <key>
+            .. attribute:: node_name  (key)
             
             	Wildcard expression(eg. \*/\*/\*, R/\*/\*, R/S/\*, R/S/I)
             	**type**\: str
@@ -687,15 +717,18 @@ class RouterConvergence(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.disable = YLeaf(YType.empty, "disable")
-
-                self.enable = YLeaf(YType.empty, "enable")
-                self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                self.ylist_key_names = ['node_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('disable', YLeaf(YType.empty, 'disable')),
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.node_name = None
+                self.disable = None
+                self.enable = None
+                self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

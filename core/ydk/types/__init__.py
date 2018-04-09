@@ -14,7 +14,7 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 
-from .py_types import Entity, YList, YLeafList
+from .py_types import Entity, EntityCollection, Config, Filter, YList, YLeafList
 from ydk.ext.types import Bits
 from ydk.ext.types import ChildrenMap
 from ydk.ext.types import ModelCachingOption
@@ -29,17 +29,19 @@ from ydk.ext.types import LeafDataList
 from ydk.ext.types import YType
 from ydk.ext.types import YLeaf
 
-
 __all__ = [ "YList",
             "Bits",
             "ChildrenMap",
+            "Config",
             "ModelCachingOption",
             "Decimal64",
             "Empty",
             "EncodingFormat",
             "Entity",
+            "EntityCollection",
             "EntityPath",
             "Enum",
+            "Filter",
             "Identity",
             "LeafData",
             "LeafDataList",

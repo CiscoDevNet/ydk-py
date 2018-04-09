@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BfdReversePath(Enum):
     """
-    BfdReversePath
+    BfdReversePath (Enum Class)
 
     Bfd reverse path
 
@@ -30,7 +32,7 @@ class BfdReversePath(Enum):
 
 class Ctype(Enum):
     """
-    Ctype
+    Ctype (Enum Class)
 
     Ctype
 
@@ -81,7 +83,7 @@ class Ctype(Enum):
 
 class MplsTeAffinityValue(Enum):
     """
-    MplsTeAffinityValue
+    MplsTeAffinityValue (Enum Class)
 
     Mpls te affinity value
 
@@ -102,7 +104,7 @@ class MplsTeAffinityValue(Enum):
 
 class MplsTeAttrSet(Enum):
     """
-    MplsTeAttrSet
+    MplsTeAttrSet (Enum Class)
 
     Mpls te attr set
 
@@ -171,7 +173,7 @@ class MplsTeAttrSet(Enum):
 
 class MplsTeAutorouteMetric(Enum):
     """
-    MplsTeAutorouteMetric
+    MplsTeAutorouteMetric (Enum Class)
 
     Mpls te autoroute metric
 
@@ -198,7 +200,7 @@ class MplsTeAutorouteMetric(Enum):
 
 class MplsTeBackupBandwidthClass(Enum):
     """
-    MplsTeBackupBandwidthClass
+    MplsTeBackupBandwidthClass (Enum Class)
 
     Mpls te backup bandwidth class
 
@@ -225,7 +227,7 @@ class MplsTeBackupBandwidthClass(Enum):
 
 class MplsTeBackupBandwidthPool(Enum):
     """
-    MplsTeBackupBandwidthPool
+    MplsTeBackupBandwidthPool (Enum Class)
 
     Mpls te backup bandwidth pool
 
@@ -252,7 +254,7 @@ class MplsTeBackupBandwidthPool(Enum):
 
 class MplsTeBandwidthDste(Enum):
     """
-    MplsTeBandwidthDste
+    MplsTeBandwidthDste (Enum Class)
 
     Mpls te bandwidth dste
 
@@ -273,7 +275,7 @@ class MplsTeBandwidthDste(Enum):
 
 class MplsTeBandwidthLimit(Enum):
     """
-    MplsTeBandwidthLimit
+    MplsTeBandwidthLimit (Enum Class)
 
     Mpls te bandwidth limit
 
@@ -294,7 +296,7 @@ class MplsTeBandwidthLimit(Enum):
 
 class MplsTeBandwidthPool(Enum):
     """
-    MplsTeBandwidthPool
+    MplsTeBandwidthPool (Enum Class)
 
     Mpls te bandwidth pool
 
@@ -315,7 +317,7 @@ class MplsTeBandwidthPool(Enum):
 
 class MplsTeBfdSessionDownAction(Enum):
     """
-    MplsTeBfdSessionDownAction
+    MplsTeBfdSessionDownAction (Enum Class)
 
     Mpls te bfd session down action
 
@@ -330,7 +332,7 @@ class MplsTeBfdSessionDownAction(Enum):
 
 class MplsTeIgpProtocol(Enum):
     """
-    MplsTeIgpProtocol
+    MplsTeIgpProtocol (Enum Class)
 
     Mpls te igp protocol
 
@@ -357,7 +359,7 @@ class MplsTeIgpProtocol(Enum):
 
 class MplsTeLogFrrProtection(Enum):
     """
-    MplsTeLogFrrProtection
+    MplsTeLogFrrProtection (Enum Class)
 
     Mpls te log frr protection
 
@@ -396,7 +398,7 @@ class MplsTeLogFrrProtection(Enum):
 
 class MplsTeOtnApsProtection(Enum):
     """
-    MplsTeOtnApsProtection
+    MplsTeOtnApsProtection (Enum Class)
 
     Mpls te otn aps protection
 
@@ -423,7 +425,7 @@ class MplsTeOtnApsProtection(Enum):
 
 class MplsTeOtnApsProtectionMode(Enum):
     """
-    MplsTeOtnApsProtectionMode
+    MplsTeOtnApsProtectionMode (Enum Class)
 
     Mpls te otn aps protection mode
 
@@ -444,7 +446,7 @@ class MplsTeOtnApsProtectionMode(Enum):
 
 class MplsTeOtnApsRestorationStyle(Enum):
     """
-    MplsTeOtnApsRestorationStyle
+    MplsTeOtnApsRestorationStyle (Enum Class)
 
     Mpls te otn aps restoration style
 
@@ -465,7 +467,7 @@ class MplsTeOtnApsRestorationStyle(Enum):
 
 class MplsTeOtnSncMode(Enum):
     """
-    MplsTeOtnSncMode
+    MplsTeOtnSncMode (Enum Class)
 
     Mpls te otn snc mode
 
@@ -492,7 +494,7 @@ class MplsTeOtnSncMode(Enum):
 
 class MplsTePathDiversityConformance(Enum):
     """
-    MplsTePathDiversityConformance
+    MplsTePathDiversityConformance (Enum Class)
 
     Mpls te path diversity conformance
 
@@ -513,7 +515,7 @@ class MplsTePathDiversityConformance(Enum):
 
 class MplsTePathOption(Enum):
     """
-    MplsTePathOption
+    MplsTePathOption (Enum Class)
 
     Mpls te path option
 
@@ -558,7 +560,7 @@ class MplsTePathOption(Enum):
 
 class MplsTePathOptionProperty(Enum):
     """
-    MplsTePathOptionProperty
+    MplsTePathOptionProperty (Enum Class)
 
     Mpls te path option property
 
@@ -599,7 +601,7 @@ class MplsTePathOptionProperty(Enum):
 
 class MplsTePathOptionProtection(Enum):
     """
-    MplsTePathOptionProtection
+    MplsTePathOptionProtection (Enum Class)
 
     Mpls te path option protection
 
@@ -620,7 +622,7 @@ class MplsTePathOptionProtection(Enum):
 
 class MplsTePathSelectionInvalidationTimerExpire(Enum):
     """
-    MplsTePathSelectionInvalidationTimerExpire
+    MplsTePathSelectionInvalidationTimerExpire (Enum Class)
 
     Mpls te path selection invalidation timer expire
 
@@ -641,7 +643,7 @@ class MplsTePathSelectionInvalidationTimerExpire(Enum):
 
 class MplsTePathSelectionMetric(Enum):
     """
-    MplsTePathSelectionMetric
+    MplsTePathSelectionMetric (Enum Class)
 
     Mpls te path selection metric
 
@@ -668,7 +670,7 @@ class MplsTePathSelectionMetric(Enum):
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
     """
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection (Enum Class)
 
     Mpls te path selection segment routing adjacency
 
@@ -701,7 +703,7 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
 
 class MplsTePathSelectionTiebreaker(Enum):
     """
-    MplsTePathSelectionTiebreaker
+    MplsTePathSelectionTiebreaker (Enum Class)
 
     Mpls te path selection tiebreaker
 
@@ -728,7 +730,7 @@ class MplsTePathSelectionTiebreaker(Enum):
 
 class MplsTeSigNameOption(Enum):
     """
-    MplsTeSigNameOption
+    MplsTeSigNameOption (Enum Class)
 
     Mpls te sig name option
 
@@ -755,7 +757,7 @@ class MplsTeSigNameOption(Enum):
 
 class MplsTeSwitchingCap(Enum):
     """
-    MplsTeSwitchingCap
+    MplsTeSwitchingCap (Enum Class)
 
     Mpls te switching cap
 
@@ -782,7 +784,7 @@ class MplsTeSwitchingCap(Enum):
 
 class MplsTeTunnelAffinity(Enum):
     """
-    MplsTeTunnelAffinity
+    MplsTeTunnelAffinity (Enum Class)
 
     Mpls te tunnel affinity
 
@@ -821,7 +823,7 @@ class MplsTeTunnelAffinity(Enum):
 
 class MplsTesrlgExclude(Enum):
     """
-    MplsTesrlgExclude
+    MplsTesrlgExclude (Enum Class)
 
     Mpls tesrlg exclude
 
@@ -848,7 +850,7 @@ class MplsTesrlgExclude(Enum):
 
 class PathInvalidationAction(Enum):
     """
-    PathInvalidationAction
+    PathInvalidationAction (Enum Class)
 
     Path invalidation action
 
@@ -869,7 +871,7 @@ class PathInvalidationAction(Enum):
 
 class SrPrepend(Enum):
     """
-    SrPrepend
+    SrPrepend (Enum Class)
 
     Sr prepend
 

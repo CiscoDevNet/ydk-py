@@ -4,6 +4,8 @@ Model for managing Ethernet interfaces \-\- augments the IETF YANG
 model for interfaces described by RFC 7223
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError

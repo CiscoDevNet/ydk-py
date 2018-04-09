@@ -17,6 +17,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -48,8 +50,10 @@ class NvSatelliteGlobal(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"chassis-mac" : ("chassis_mac", NvSatelliteGlobal.ChassisMac)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("chassis-mac", ("chassis_mac", NvSatelliteGlobal.ChassisMac))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.chassis_mac = NvSatelliteGlobal.ChassisMac()
         self.chassis_mac.parent = self
@@ -103,14 +107,17 @@ class NvSatelliteGlobal(Entity):
             self.yang_parent_name = "nv-satellite-global"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mac1 = YLeaf(YType.uint32, "mac1")
-
-            self.mac2 = YLeaf(YType.uint32, "mac2")
-
-            self.mac3 = YLeaf(YType.uint32, "mac3")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('mac1', YLeaf(YType.uint32, 'mac1')),
+                ('mac2', YLeaf(YType.uint32, 'mac2')),
+                ('mac3', YLeaf(YType.uint32, 'mac3')),
+            ])
+            self.mac1 = None
+            self.mac2 = None
+            self.mac3 = None
             self._segment_path = lambda: "chassis-mac"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/%s" % self._segment_path()
 
@@ -145,8 +152,10 @@ class NvSatellites(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {"nv-satellite" : ("nv_satellite", NvSatellites.NvSatellite)}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([("nv-satellite", ("nv_satellite", NvSatellites.NvSatellite))])
+        self._leafs = OrderedDict()
 
         self.nv_satellite = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites"
@@ -159,7 +168,7 @@ class NvSatellites(Entity):
         """
         Satellite Configuration
         
-        .. attribute:: satellite_id  <key>
+        .. attribute:: satellite_id  (key)
         
         	Satellite ID
         	**type**\: int
@@ -273,32 +282,35 @@ class NvSatellites(Entity):
             self.yang_parent_name = "nv-satellites"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"upgrade-on-connect" : ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect), "candidate-fabric-ports" : ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts), "connection-info" : ("connection_info", NvSatellites.NvSatellite.ConnectionInfo), "redundancy" : ("redundancy", NvSatellites.NvSatellite.Redundancy)}
-            self._child_list_classes = {}
-
-            self.satellite_id = YLeaf(YType.uint32, "satellite-id")
-
-            self.vrf = YLeaf(YType.str, "vrf")
-
-            self.timeout_warning = YLeaf(YType.uint32, "timeout-warning")
-
-            self.device_name = YLeaf(YType.str, "device-name")
-
-            self.description = YLeaf(YType.str, "description")
-
-            self.type = YLeaf(YType.str, "type")
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.disc_timeout = YLeaf(YType.uint32, "disc-timeout")
-
-            self.delayed_switchback = YLeaf(YType.uint32, "delayed-switchback")
-
-            self.serial_number = YLeaf(YType.str, "serial-number")
-
-            self.secret = YLeaf(YType.str, "secret")
-
-            self.ip_address = YLeaf(YType.str, "ip-address")
+            self.ylist_key_names = ['satellite_id']
+            self._child_container_classes = OrderedDict([("upgrade-on-connect", ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)), ("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts)), ("connection-info", ("connection_info", NvSatellites.NvSatellite.ConnectionInfo)), ("redundancy", ("redundancy", NvSatellites.NvSatellite.Redundancy))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
+                ('vrf', YLeaf(YType.str, 'vrf')),
+                ('timeout_warning', YLeaf(YType.uint32, 'timeout-warning')),
+                ('device_name', YLeaf(YType.str, 'device-name')),
+                ('description', YLeaf(YType.str, 'description')),
+                ('type', YLeaf(YType.str, 'type')),
+                ('enable', YLeaf(YType.empty, 'enable')),
+                ('disc_timeout', YLeaf(YType.uint32, 'disc-timeout')),
+                ('delayed_switchback', YLeaf(YType.uint32, 'delayed-switchback')),
+                ('serial_number', YLeaf(YType.str, 'serial-number')),
+                ('secret', YLeaf(YType.str, 'secret')),
+                ('ip_address', YLeaf(YType.str, 'ip-address')),
+            ])
+            self.satellite_id = None
+            self.vrf = None
+            self.timeout_warning = None
+            self.device_name = None
+            self.description = None
+            self.type = None
+            self.enable = None
+            self.disc_timeout = None
+            self.delayed_switchback = None
+            self.serial_number = None
+            self.secret = None
+            self.ip_address = None
 
             self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
             self.upgrade_on_connect.parent = self
@@ -319,7 +331,7 @@ class NvSatellites(Entity):
             self.redundancy.parent = self
             self._children_name_map["redundancy"] = "redundancy"
             self._children_yang_names.add("redundancy")
-            self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + self.satellite_id.get() + "']"
+            self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + str(self.satellite_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
@@ -354,12 +366,15 @@ class NvSatellites(Entity):
                 self.yang_parent_name = "nv-satellite"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.connect_type = YLeaf(YType.enumeration, "connect-type")
-
-                self.reference = YLeaf(YType.str, "reference")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('connect_type', YLeaf(YType.enumeration, 'connect-type')),
+                    ('reference', YLeaf(YType.str, 'reference')),
+                ])
+                self.connect_type = None
+                self.reference = None
                 self._segment_path = lambda: "upgrade-on-connect"
 
             def __setattr__(self, name, value):
@@ -367,7 +382,7 @@ class NvSatellites(Entity):
 
             class ConnectType(Enum):
                 """
-                ConnectType
+                ConnectType (Enum Class)
 
                 When to upgrade the satellite
 
@@ -413,8 +428,10 @@ class NvSatellites(Entity):
                 self.yang_parent_name = "nv-satellite"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"candidate-fabric-port" : ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort)}
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("candidate-fabric-port", ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort))])
+                self._leafs = OrderedDict()
 
                 self.candidate_fabric_port = YList(self)
                 self._segment_path = lambda: "candidate-fabric-ports"
@@ -428,21 +445,21 @@ class NvSatellites(Entity):
                 Enable interfaces on the satellite to be used
                 as fabric ports
                 
-                .. attribute:: port_type  <key>
+                .. attribute:: port_type  (key)
                 
                 	Port type
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: slot  <key>
+                .. attribute:: slot  (key)
                 
                 	Slot
                 	**type**\: int
                 
                 	**range:** 0..8
                 
-                .. attribute:: sub_slot  <key>
+                .. attribute:: sub_slot  (key)
                 
                 	Sub slot
                 	**type**\: int
@@ -470,17 +487,20 @@ class NvSatellites(Entity):
                     self.yang_parent_name = "candidate-fabric-ports"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.port_type = YLeaf(YType.str, "port-type")
-
-                    self.slot = YLeaf(YType.uint32, "slot")
-
-                    self.sub_slot = YLeaf(YType.uint32, "sub-slot")
-
-                    self.port_range = YLeaf(YType.str, "port-range")
-                    self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + self.port_type.get() + "']" + "[slot='" + self.slot.get() + "']" + "[sub-slot='" + self.sub_slot.get() + "']"
+                    self.ylist_key_names = ['port_type','slot','sub_slot']
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('port_type', YLeaf(YType.str, 'port-type')),
+                        ('slot', YLeaf(YType.uint32, 'slot')),
+                        ('sub_slot', YLeaf(YType.uint32, 'sub-slot')),
+                        ('port_range', YLeaf(YType.str, 'port-range')),
+                    ])
+                    self.port_type = None
+                    self.slot = None
+                    self.sub_slot = None
+                    self.port_range = None
+                    self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
@@ -516,12 +536,15 @@ class NvSatellites(Entity):
                 self.yang_parent_name = "nv-satellite"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.username = YLeaf(YType.str, "username")
-
-                self.password = YLeaf(YType.str, "password")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('username', YLeaf(YType.str, 'username')),
+                    ('password', YLeaf(YType.str, 'password')),
+                ])
+                self.username = None
+                self.password = None
                 self._segment_path = lambda: "connection-info"
 
             def __setattr__(self, name, value):
@@ -553,10 +576,13 @@ class NvSatellites(Entity):
                 self.yang_parent_name = "nv-satellite"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.host_priority = YLeaf(YType.uint32, "host-priority")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('host_priority', YLeaf(YType.uint32, 'host-priority')),
+                ])
+                self.host_priority = None
                 self._segment_path = lambda: "redundancy"
 
             def __setattr__(self, name, value):

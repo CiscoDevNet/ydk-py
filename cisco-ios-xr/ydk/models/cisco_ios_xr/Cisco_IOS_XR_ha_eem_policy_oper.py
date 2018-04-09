@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -62,8 +64,10 @@ class Eem(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ha-eem-policy-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dir-user" : ("dir_user", Eem.DirUser), "env-variables" : ("env_variables", Eem.EnvVariables), "refresh-time" : ("refresh_time", Eem.RefreshTime), "reg-policies" : ("reg_policies", Eem.RegPolicies), "avl-policies" : ("avl_policies", Eem.AvlPolicies)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("dir-user", ("dir_user", Eem.DirUser)), ("env-variables", ("env_variables", Eem.EnvVariables)), ("refresh-time", ("refresh_time", Eem.RefreshTime)), ("reg-policies", ("reg_policies", Eem.RegPolicies)), ("avl-policies", ("avl_policies", Eem.AvlPolicies))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.dir_user = Eem.DirUser()
         self.dir_user.parent = self
@@ -120,8 +124,10 @@ class Eem(Entity):
             self.yang_parent_name = "eem"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"library" : ("library", Eem.DirUser.Library), "policy" : ("policy", Eem.DirUser.Policy)}
-            self._child_list_classes = {}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("library", ("library", Eem.DirUser.Library)), ("policy", ("policy", Eem.DirUser.Policy))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict()
 
             self.library = Eem.DirUser.Library()
             self.library.parent = self
@@ -164,12 +170,15 @@ class Eem(Entity):
                 self.yang_parent_name = "dir-user"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.policy = YLeaf(YType.str, "policy")
-
-                self.library = YLeaf(YType.str, "library")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('policy', YLeaf(YType.str, 'policy')),
+                    ('library', YLeaf(YType.str, 'library')),
+                ])
+                self.policy = None
+                self.library = None
                 self._segment_path = lambda: "library"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/dir-user/%s" % self._segment_path()
 
@@ -205,12 +214,15 @@ class Eem(Entity):
                 self.yang_parent_name = "dir-user"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.policy = YLeaf(YType.str, "policy")
-
-                self.library = YLeaf(YType.str, "library")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('policy', YLeaf(YType.str, 'policy')),
+                    ('library', YLeaf(YType.str, 'library')),
+                ])
+                self.policy = None
+                self.library = None
                 self._segment_path = lambda: "policy"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/dir-user/%s" % self._segment_path()
 
@@ -241,8 +253,10 @@ class Eem(Entity):
             self.yang_parent_name = "eem"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"env-variable" : ("env_variable", Eem.EnvVariables.EnvVariable)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("env-variable", ("env_variable", Eem.EnvVariables.EnvVariable))])
+            self._leafs = OrderedDict()
 
             self.env_variable = YList(self)
             self._segment_path = lambda: "env-variables"
@@ -256,7 +270,7 @@ class Eem(Entity):
             """
             environmental variables name and value 
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	Environmental variable name
             	**type**\: str
@@ -287,15 +301,18 @@ class Eem(Entity):
                 self.yang_parent_name = "env-variables"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.name_xr = YLeaf(YType.str, "name-xr")
-
-                self.value = YLeaf(YType.str, "value")
-                self._segment_path = lambda: "env-variable" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('name_xr', YLeaf(YType.str, 'name-xr')),
+                    ('value', YLeaf(YType.str, 'value')),
+                ])
+                self.name = None
+                self.name_xr = None
+                self.value = None
+                self._segment_path = lambda: "env-variable" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/env-variables/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -327,10 +344,13 @@ class Eem(Entity):
             self.yang_parent_name = "eem"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.refreshtime = YLeaf(YType.uint32, "refreshtime")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('refreshtime', YLeaf(YType.uint32, 'refreshtime')),
+            ])
+            self.refreshtime = None
             self._segment_path = lambda: "refresh-time"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/%s" % self._segment_path()
 
@@ -361,8 +381,10 @@ class Eem(Entity):
             self.yang_parent_name = "eem"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"reg-policy" : ("reg_policy", Eem.RegPolicies.RegPolicy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("reg-policy", ("reg_policy", Eem.RegPolicies.RegPolicy))])
+            self._leafs = OrderedDict()
 
             self.reg_policy = YList(self)
             self._segment_path = lambda: "reg-policies"
@@ -376,7 +398,7 @@ class Eem(Entity):
             """
             policy name and create time 
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	policy name
             	**type**\: str
@@ -444,29 +466,32 @@ class Eem(Entity):
                 self.yang_parent_name = "reg-policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.type = YLeaf(YType.str, "type")
-
-                self.time_created = YLeaf(YType.str, "time-created")
-
-                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                self.class_ = YLeaf(YType.str, "class")
-
-                self.event_type = YLeaf(YType.str, "event-type")
-
-                self.trap = YLeaf(YType.str, "trap")
-
-                self.persist_time = YLeaf(YType.uint32, "persist-time")
-
-                self.username = YLeaf(YType.str, "username")
-
-                self.description = YLeaf(YType.str, "description")
-                self._segment_path = lambda: "reg-policy" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('type', YLeaf(YType.str, 'type')),
+                    ('time_created', YLeaf(YType.str, 'time-created')),
+                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                    ('class_', YLeaf(YType.str, 'class')),
+                    ('event_type', YLeaf(YType.str, 'event-type')),
+                    ('trap', YLeaf(YType.str, 'trap')),
+                    ('persist_time', YLeaf(YType.uint32, 'persist-time')),
+                    ('username', YLeaf(YType.str, 'username')),
+                    ('description', YLeaf(YType.str, 'description')),
+                ])
+                self.name = None
+                self.type = None
+                self.time_created = None
+                self.policy_name = None
+                self.class_ = None
+                self.event_type = None
+                self.trap = None
+                self.persist_time = None
+                self.username = None
+                self.description = None
+                self._segment_path = lambda: "reg-policy" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/reg-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -496,8 +521,10 @@ class Eem(Entity):
             self.yang_parent_name = "eem"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"avl-policy" : ("avl_policy", Eem.AvlPolicies.AvlPolicy)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("avl-policy", ("avl_policy", Eem.AvlPolicies.AvlPolicy))])
+            self._leafs = OrderedDict()
 
             self.avl_policy = YList(self)
             self._segment_path = lambda: "avl-policies"
@@ -511,7 +538,7 @@ class Eem(Entity):
             """
             policy name and create time 
             
-            .. attribute:: name  <key>
+            .. attribute:: name  (key)
             
             	System policy name
             	**type**\: str
@@ -547,17 +574,20 @@ class Eem(Entity):
                 self.yang_parent_name = "avl-policies"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.type = YLeaf(YType.str, "type")
-
-                self.time_created = YLeaf(YType.str, "time-created")
-
-                self.policy_name = YLeaf(YType.str, "policy-name")
-                self._segment_path = lambda: "avl-policy" + "[name='" + self.name.get() + "']"
+                self.ylist_key_names = ['name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', YLeaf(YType.str, 'name')),
+                    ('type', YLeaf(YType.str, 'type')),
+                    ('time_created', YLeaf(YType.str, 'time-created')),
+                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                ])
+                self.name = None
+                self.type = None
+                self.time_created = None
+                self.policy_name = None
+                self._segment_path = lambda: "avl-policy" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/avl-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

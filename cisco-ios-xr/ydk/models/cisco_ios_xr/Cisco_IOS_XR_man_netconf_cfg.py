@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -42,8 +44,10 @@ class NetconfYang(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-man-netconf-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"agent" : ("agent", NetconfYang.Agent)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("agent", ("agent", NetconfYang.Agent))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.agent = NetconfYang.Agent()
         self.agent.parent = self
@@ -89,10 +93,13 @@ class NetconfYang(Entity):
             self.yang_parent_name = "netconf-yang"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"ssh" : ("ssh", NetconfYang.Agent.Ssh), "session" : ("session", NetconfYang.Agent.Session)}
-            self._child_list_classes = {}
-
-            self.rate_limit = YLeaf(YType.uint32, "rate-limit")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("ssh", ("ssh", NetconfYang.Agent.Ssh)), ("session", ("session", NetconfYang.Agent.Session))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
+            ])
+            self.rate_limit = None
 
             self.ssh = NetconfYang.Agent.Ssh()
             self.ssh.parent = self
@@ -133,10 +140,13 @@ class NetconfYang(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.enable = YLeaf(YType.empty, "enable")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('enable', YLeaf(YType.empty, 'enable')),
+                ])
+                self.enable = None
                 self._segment_path = lambda: "ssh"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
 
@@ -189,14 +199,17 @@ class NetconfYang(Entity):
                 self.yang_parent_name = "agent"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.limit = YLeaf(YType.uint32, "limit")
-
-                self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
-
-                self.idle_timeout = YLeaf(YType.uint32, "idle-timeout")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('limit', YLeaf(YType.uint32, 'limit')),
+                    ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),
+                    ('idle_timeout', YLeaf(YType.uint32, 'idle-timeout')),
+                ])
+                self.limit = None
+                self.absolute_timeout = None
+                self.idle_timeout = None
                 self._segment_path = lambda: "session"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
 

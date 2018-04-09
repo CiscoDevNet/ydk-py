@@ -1,1574 +1,1946 @@
 module Cisco-IOS-XR-infra-infra-locale-cfg {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-infra-infra-locale-cfg";
+  prefix infra-infra-locale-cfg;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-infra-infra-locale-cfg";
-
-
-  prefix "infra-infra-locale-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR infra-infra-locale package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        locale: Define the geographical locale
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Locale-country {
     type enumeration {
-      enum ad {
+      enum "ad" {
         value 1;
-        description "Andorra";
+        description
+          "Andorra";
       }
-      enum ae {
+      enum "ae" {
         value 2;
-        description "United Arab Emirates";
+        description
+          "United Arab Emirates";
       }
-      enum af {
+      enum "af" {
         value 3;
-        description "Afghanistan";
+        description
+          "Afghanistan";
       }
-      enum ag {
+      enum "ag" {
         value 4;
-        description "Antigua and Barbuda";
+        description
+          "Antigua and Barbuda";
       }
-      enum ai {
+      enum "ai" {
         value 5;
-        description "Anguilla";
+        description
+          "Anguilla";
       }
-      enum al {
+      enum "al" {
         value 6;
-        description "Albania";
+        description
+          "Albania";
       }
-      enum am {
+      enum "am" {
         value 7;
-        description "Armenia";
+        description
+          "Armenia";
       }
-      enum an {
+      enum "an" {
         value 8;
-        description "Netherlands Antilles";
+        description
+          "Netherlands Antilles";
       }
-      enum ao {
+      enum "ao" {
         value 9;
-        description "Angola";
+        description
+          "Angola";
       }
-      enum aq {
+      enum "aq" {
         value 10;
-        description "Antarctica";
+        description
+          "Antarctica";
       }
-      enum ar {
+      enum "ar" {
         value 11;
-        description "Argentina";
+        description
+          "Argentina";
       }
-      enum as {
+      enum "as" {
         value 12;
-        description "American Samoa";
+        description
+          "American Samoa";
       }
-      enum at {
+      enum "at" {
         value 13;
-        description "Austria";
+        description
+          "Austria";
       }
-      enum au {
+      enum "au" {
         value 14;
-        description "Australia";
+        description
+          "Australia";
       }
-      enum aw {
+      enum "aw" {
         value 15;
-        description "Aruba";
+        description
+          "Aruba";
       }
-      enum az {
+      enum "az" {
         value 16;
-        description "Azerbaijan";
+        description
+          "Azerbaijan";
       }
-      enum ba {
+      enum "ba" {
         value 17;
-        description "Bosnia and Herzegovina";
+        description
+          "Bosnia and Herzegovina";
       }
-      enum bb {
+      enum "bb" {
         value 18;
-        description "Barbados";
+        description
+          "Barbados";
       }
-      enum bd {
+      enum "bd" {
         value 19;
-        description "Bangladesh";
+        description
+          "Bangladesh";
       }
-      enum be {
+      enum "be" {
         value 20;
-        description "Belgium";
+        description
+          "Belgium";
       }
-      enum bf {
+      enum "bf" {
         value 21;
-        description "Burkina Faso";
+        description
+          "Burkina Faso";
       }
-      enum bg {
+      enum "bg" {
         value 22;
-        description "Bulgaria";
+        description
+          "Bulgaria";
       }
-      enum bh {
+      enum "bh" {
         value 23;
-        description "Bahrain";
+        description
+          "Bahrain";
       }
-      enum bi {
+      enum "bi" {
         value 24;
-        description "Burundi";
+        description
+          "Burundi";
       }
-      enum bj {
+      enum "bj" {
         value 25;
-        description "Benin";
+        description
+          "Benin";
       }
-      enum bm {
+      enum "bm" {
         value 26;
-        description "Bermuda";
+        description
+          "Bermuda";
       }
-      enum bn {
+      enum "bn" {
         value 27;
-        description "Brunei Darussalam";
+        description
+          "Brunei Darussalam";
       }
-      enum bo {
+      enum "bo" {
         value 28;
-        description "Bolivia";
+        description
+          "Bolivia";
       }
-      enum br {
+      enum "br" {
         value 29;
-        description "Brazil";
+        description
+          "Brazil";
       }
-      enum bs {
+      enum "bs" {
         value 30;
-        description "Bahamas";
+        description
+          "Bahamas";
       }
-      enum bt {
+      enum "bt" {
         value 31;
-        description "Bhutan";
+        description
+          "Bhutan";
       }
-      enum bv {
+      enum "bv" {
         value 32;
-        description "Bouvet Island";
+        description
+          "Bouvet Island";
       }
-      enum bw {
+      enum "bw" {
         value 33;
-        description "Botswana";
+        description
+          "Botswana";
       }
-      enum by {
+      enum "by" {
         value 34;
-        description "Belarus";
+        description
+          "Belarus";
       }
-      enum bz {
+      enum "bz" {
         value 35;
-        description "Belize";
+        description
+          "Belize";
       }
-      enum ca {
+      enum "ca" {
         value 36;
-        description "Canada";
+        description
+          "Canada";
       }
-      enum cc {
+      enum "cc" {
         value 37;
-        description "Cocos (Keeling) Islands";
+        description
+          "Cocos (Keeling) Islands";
       }
-      enum cd {
+      enum "cd" {
         value 38;
-        description "Congo, The Democratic Republic of the (Zaire)";
+        description
+          "Congo, The Democratic Republic of the (Zaire)";
       }
-      enum cf {
+      enum "cf" {
         value 39;
-        description "Central African Republic";
+        description
+          "Central African Republic";
       }
-      enum cg {
+      enum "cg" {
         value 40;
-        description "Congo";
+        description
+          "Congo";
       }
-      enum ch {
+      enum "ch" {
         value 41;
-        description "Switzerland";
+        description
+          "Switzerland";
       }
-      enum ci {
+      enum "ci" {
         value 42;
-        description "Cote D'Ivoire";
+        description
+          "Cote D'Ivoire";
       }
-      enum ck {
+      enum "ck" {
         value 43;
-        description "Cook Islands";
+        description
+          "Cook Islands";
       }
-      enum cl {
+      enum "cl" {
         value 44;
-        description "Chile";
+        description
+          "Chile";
       }
-      enum cm {
+      enum "cm" {
         value 45;
-        description "Cameroon";
+        description
+          "Cameroon";
       }
-      enum cn {
+      enum "cn" {
         value 46;
-        description "China";
+        description
+          "China";
       }
-      enum co {
+      enum "co" {
         value 47;
-        description "Colombia";
+        description
+          "Colombia";
       }
-      enum cr {
+      enum "cr" {
         value 48;
-        description "Costa Rica";
+        description
+          "Costa Rica";
       }
-      enum cu {
+      enum "cu" {
         value 49;
-        description "Cuba";
+        description
+          "Cuba";
       }
-      enum cv {
+      enum "cv" {
         value 50;
-        description "Cape Verde";
+        description
+          "Cape Verde";
       }
-      enum cx {
+      enum "cx" {
         value 51;
-        description "Christmas Island";
+        description
+          "Christmas Island";
       }
-      enum cy {
+      enum "cy" {
         value 52;
-        description "Cyprus";
+        description
+          "Cyprus";
       }
-      enum cz {
+      enum "cz" {
         value 53;
-        description "Czech Republic";
+        description
+          "Czech Republic";
       }
-      enum de {
+      enum "de" {
         value 54;
-        description "Germany";
+        description
+          "Germany";
       }
-      enum dj {
+      enum "dj" {
         value 55;
-        description "Djibouti";
+        description
+          "Djibouti";
       }
-      enum dk {
+      enum "dk" {
         value 56;
-        description "Denmark";
+        description
+          "Denmark";
       }
-      enum dm {
+      enum "dm" {
         value 57;
-        description "Dominica";
+        description
+          "Dominica";
       }
-      enum do {
+      enum "do" {
         value 58;
-        description "Dominican Republic";
+        description
+          "Dominican Republic";
       }
-      enum dz {
+      enum "dz" {
         value 59;
-        description "Algeria";
+        description
+          "Algeria";
       }
-      enum ec {
+      enum "ec" {
         value 60;
-        description "Ecuador";
+        description
+          "Ecuador";
       }
-      enum ee {
+      enum "ee" {
         value 61;
-        description "Estonia";
+        description
+          "Estonia";
       }
-      enum eg {
+      enum "eg" {
         value 62;
-        description "Egypt";
+        description
+          "Egypt";
       }
-      enum eh {
+      enum "eh" {
         value 63;
-        description "Western Sahara";
+        description
+          "Western Sahara";
       }
-      enum er {
+      enum "er" {
         value 64;
-        description "Eritrea";
+        description
+          "Eritrea";
       }
-      enum es {
+      enum "es" {
         value 65;
-        description "Spain";
+        description
+          "Spain";
       }
-      enum et {
+      enum "et" {
         value 66;
-        description "Ethiopia";
+        description
+          "Ethiopia";
       }
-      enum fi {
+      enum "fi" {
         value 67;
-        description "Finland";
+        description
+          "Finland";
       }
-      enum fj {
+      enum "fj" {
         value 68;
-        description "Fiji";
+        description
+          "Fiji";
       }
-      enum fk {
+      enum "fk" {
         value 69;
-        description "Falkland Islands (Malvinas)";
+        description
+          "Falkland Islands (Malvinas)";
       }
-      enum fm {
+      enum "fm" {
         value 70;
-        description "Micronesia, Federated States of";
+        description
+          "Micronesia, Federated States of";
       }
-      enum fo {
+      enum "fo" {
         value 71;
-        description "Faroe Islands";
+        description
+          "Faroe Islands";
       }
-      enum fr {
+      enum "fr" {
         value 72;
-        description "France";
+        description
+          "France";
       }
-      enum ga {
+      enum "ga" {
         value 73;
-        description "Gabon";
+        description
+          "Gabon";
       }
-      enum gb {
+      enum "gb" {
         value 74;
-        description "United Kingdom";
+        description
+          "United Kingdom";
       }
-      enum gd {
+      enum "gd" {
         value 75;
-        description "Grenada";
+        description
+          "Grenada";
       }
-      enum ge {
+      enum "ge" {
         value 76;
-        description "Georgia";
+        description
+          "Georgia";
       }
-      enum gf {
+      enum "gf" {
         value 77;
-        description "French Guiana";
+        description
+          "French Guiana";
       }
-      enum gh {
+      enum "gh" {
         value 78;
-        description "Ghana";
+        description
+          "Ghana";
       }
-      enum gi {
+      enum "gi" {
         value 79;
-        description "Gibraltar";
+        description
+          "Gibraltar";
       }
-      enum gl {
+      enum "gl" {
         value 80;
-        description "Greenland";
+        description
+          "Greenland";
       }
-      enum gm {
+      enum "gm" {
         value 81;
-        description "Gambia";
+        description
+          "Gambia";
       }
-      enum gn {
+      enum "gn" {
         value 82;
-        description "Guinea";
+        description
+          "Guinea";
       }
-      enum gp {
+      enum "gp" {
         value 83;
-        description "Guadeloupe";
+        description
+          "Guadeloupe";
       }
-      enum gq {
+      enum "gq" {
         value 84;
-        description "Equatorial Guinea";
+        description
+          "Equatorial Guinea";
       }
-      enum gr {
+      enum "gr" {
         value 85;
-        description "Greece";
+        description
+          "Greece";
       }
-      enum gs {
+      enum "gs" {
         value 86;
-        description "South Georgia and the South Sandwich Islands";
+        description
+          "South Georgia and the South Sandwich Islands";
       }
-      enum gt {
+      enum "gt" {
         value 87;
-        description "Guatemala";
+        description
+          "Guatemala";
       }
-      enum gu {
+      enum "gu" {
         value 88;
-        description "Guam";
+        description
+          "Guam";
       }
-      enum gw {
+      enum "gw" {
         value 89;
-        description "Guinea Bissau";
+        description
+          "Guinea Bissau";
       }
-      enum gy {
+      enum "gy" {
         value 90;
-        description "Guyana";
+        description
+          "Guyana";
       }
-      enum hk {
+      enum "hk" {
         value 91;
-        description "Hong Kong";
+        description
+          "Hong Kong";
       }
-      enum hm {
+      enum "hm" {
         value 92;
-        description "Heard Island and McDonald Islands";
+        description
+          "Heard Island and McDonald Islands";
       }
-      enum hn {
+      enum "hn" {
         value 93;
-        description "Honduras";
+        description
+          "Honduras";
       }
-      enum hr {
+      enum "hr" {
         value 94;
-        description "Croatia";
+        description
+          "Croatia";
       }
-      enum ht {
+      enum "ht" {
         value 95;
-        description "Haiti";
+        description
+          "Haiti";
       }
-      enum hu {
+      enum "hu" {
         value 96;
-        description "Hungary";
+        description
+          "Hungary";
       }
-      enum id {
+      enum "id" {
         value 97;
-        description "Indonesia";
+        description
+          "Indonesia";
       }
-      enum ie {
+      enum "ie" {
         value 98;
-        description "Ireland";
+        description
+          "Ireland";
       }
-      enum il {
+      enum "il" {
         value 99;
-        description "Israel";
+        description
+          "Israel";
       }
-      enum in {
+      enum "in" {
         value 100;
-        description "India";
+        description
+          "India";
       }
-      enum io {
+      enum "io" {
         value 101;
-        description "British Indian Ocean Territory";
+        description
+          "British Indian Ocean Territory";
       }
-      enum iq {
+      enum "iq" {
         value 102;
-        description "Iraq";
+        description
+          "Iraq";
       }
-      enum ir {
+      enum "ir" {
         value 103;
-        description "Iran, Islamic Republic of";
+        description
+          "Iran, Islamic Republic of";
       }
-      enum is {
+      enum "is" {
         value 104;
-        description "Iceland";
+        description
+          "Iceland";
       }
-      enum it {
+      enum "it" {
         value 105;
-        description "Italy";
+        description
+          "Italy";
       }
-      enum jm {
+      enum "jm" {
         value 106;
-        description "Jamaica";
+        description
+          "Jamaica";
       }
-      enum jo {
+      enum "jo" {
         value 107;
-        description "Jordan";
+        description
+          "Jordan";
       }
-      enum jp {
+      enum "jp" {
         value 108;
-        description "Japan";
+        description
+          "Japan";
       }
-      enum ke {
+      enum "ke" {
         value 109;
-        description "Kenya";
+        description
+          "Kenya";
       }
-      enum kg {
+      enum "kg" {
         value 110;
-        description "Kyrgyzstan";
+        description
+          "Kyrgyzstan";
       }
-      enum kh {
+      enum "kh" {
         value 111;
-        description "Cambodia";
+        description
+          "Cambodia";
       }
-      enum ki {
+      enum "ki" {
         value 112;
-        description "Kiribati";
+        description
+          "Kiribati";
       }
-      enum km {
+      enum "km" {
         value 113;
-        description "Comoros";
+        description
+          "Comoros";
       }
-      enum kn {
+      enum "kn" {
         value 114;
-        description "Saint Kitts and Nevis";
+        description
+          "Saint Kitts and Nevis";
       }
-      enum kp {
+      enum "kp" {
         value 115;
-        description "Korea, Democratic People's Republic of";
+        description
+          "Korea, Democratic People's Republic of";
       }
-      enum kr {
+      enum "kr" {
         value 116;
-        description "Korea, Republic of";
+        description
+          "Korea, Republic of";
       }
-      enum kw {
+      enum "kw" {
         value 117;
-        description "Kuwait";
+        description
+          "Kuwait";
       }
-      enum ky {
+      enum "ky" {
         value 118;
-        description "Cayman Islands";
+        description
+          "Cayman Islands";
       }
-      enum kz {
+      enum "kz" {
         value 119;
-        description "Kazakstan";
+        description
+          "Kazakstan";
       }
-      enum la {
+      enum "la" {
         value 120;
-        description "Lao People's Democratic Republic";
+        description
+          "Lao People's Democratic Republic";
       }
-      enum lb {
+      enum "lb" {
         value 121;
-        description "Lebanon";
+        description
+          "Lebanon";
       }
-      enum lc {
+      enum "lc" {
         value 122;
-        description "Saint Lucia";
+        description
+          "Saint Lucia";
       }
-      enum li {
+      enum "li" {
         value 123;
-        description "Liechtenstein";
+        description
+          "Liechtenstein";
       }
-      enum lk {
+      enum "lk" {
         value 124;
-        description "Sri Lanka";
+        description
+          "Sri Lanka";
       }
-      enum lr {
+      enum "lr" {
         value 125;
-        description "Liberia";
+        description
+          "Liberia";
       }
-      enum ls {
+      enum "ls" {
         value 126;
-        description "Lesotho";
+        description
+          "Lesotho";
       }
-      enum lt {
+      enum "lt" {
         value 127;
-        description "Lithuania";
+        description
+          "Lithuania";
       }
-      enum lu {
+      enum "lu" {
         value 128;
-        description "Luxembourg";
+        description
+          "Luxembourg";
       }
-      enum lv {
+      enum "lv" {
         value 129;
-        description "Latvia";
+        description
+          "Latvia";
       }
-      enum ly {
+      enum "ly" {
         value 130;
-        description "Libyan Arab Jamahiriya";
+        description
+          "Libyan Arab Jamahiriya";
       }
-      enum ma {
+      enum "ma" {
         value 131;
-        description "Morocco";
+        description
+          "Morocco";
       }
-      enum mc {
+      enum "mc" {
         value 132;
-        description "Monaco";
+        description
+          "Monaco";
       }
-      enum md {
+      enum "md" {
         value 133;
-        description "Moldova, Republic of";
+        description
+          "Moldova, Republic of";
       }
-      enum mg {
+      enum "mg" {
         value 134;
-        description "Madagascar";
+        description
+          "Madagascar";
       }
-      enum mh {
+      enum "mh" {
         value 135;
-        description "Marshall Islands";
+        description
+          "Marshall Islands";
       }
-      enum mk {
+      enum "mk" {
         value 136;
-        description "Macedonia, The Former Yugoslav Republic of";
+        description
+          "Macedonia, The Former Yugoslav Republic of";
       }
-      enum ml {
+      enum "ml" {
         value 137;
-        description "Mali";
+        description
+          "Mali";
       }
-      enum mm {
+      enum "mm" {
         value 138;
-        description "Myanmar";
+        description
+          "Myanmar";
       }
-      enum mn {
+      enum "mn" {
         value 139;
-        description "Mongolia";
+        description
+          "Mongolia";
       }
-      enum mo {
+      enum "mo" {
         value 140;
-        description "Macau";
+        description
+          "Macau";
       }
-      enum mp {
+      enum "mp" {
         value 141;
-        description "Northern Mariana Islands";
+        description
+          "Northern Mariana Islands";
       }
-      enum mq {
+      enum "mq" {
         value 142;
-        description "Martinique";
+        description
+          "Martinique";
       }
-      enum mr {
+      enum "mr" {
         value 143;
-        description "Mauritania";
+        description
+          "Mauritania";
       }
-      enum ms {
+      enum "ms" {
         value 144;
-        description "Montserrat";
+        description
+          "Montserrat";
       }
-      enum mt {
+      enum "mt" {
         value 145;
-        description "Malta";
+        description
+          "Malta";
       }
-      enum mu {
+      enum "mu" {
         value 146;
-        description "Mauritius";
+        description
+          "Mauritius";
       }
-      enum mv {
+      enum "mv" {
         value 147;
-        description "Maldives";
+        description
+          "Maldives";
       }
-      enum mw {
+      enum "mw" {
         value 148;
-        description "Malawi";
+        description
+          "Malawi";
       }
-      enum mx {
+      enum "mx" {
         value 149;
-        description "Mexico";
+        description
+          "Mexico";
       }
-      enum my {
+      enum "my" {
         value 150;
-        description "Malaysia";
+        description
+          "Malaysia";
       }
-      enum mz {
+      enum "mz" {
         value 151;
-        description "Mozambique";
+        description
+          "Mozambique";
       }
-      enum na {
+      enum "na" {
         value 152;
-        description "Namibia";
+        description
+          "Namibia";
       }
-      enum nc {
+      enum "nc" {
         value 153;
-        description "New Caledonia";
+        description
+          "New Caledonia";
       }
-      enum ne {
+      enum "ne" {
         value 154;
-        description "Niger";
+        description
+          "Niger";
       }
-      enum nf {
+      enum "nf" {
         value 155;
-        description "Norfolk Island";
+        description
+          "Norfolk Island";
       }
-      enum ng {
+      enum "ng" {
         value 156;
-        description "Nigeria";
+        description
+          "Nigeria";
       }
-      enum ni {
+      enum "ni" {
         value 157;
-        description "Nicaragua";
+        description
+          "Nicaragua";
       }
-      enum nl {
+      enum "nl" {
         value 158;
-        description "Netherlands";
+        description
+          "Netherlands";
       }
-      enum no {
+      enum "no" {
         value 159;
-        description "Norway";
+        description
+          "Norway";
       }
-      enum np {
+      enum "np" {
         value 160;
-        description "Nepal";
+        description
+          "Nepal";
       }
-      enum nr {
+      enum "nr" {
         value 161;
-        description "Nauru";
+        description
+          "Nauru";
       }
-      enum nu {
+      enum "nu" {
         value 162;
-        description "Niue";
+        description
+          "Niue";
       }
-      enum nz {
+      enum "nz" {
         value 163;
-        description "New Zealand";
+        description
+          "New Zealand";
       }
-      enum om {
+      enum "om" {
         value 164;
-        description "Oman";
+        description
+          "Oman";
       }
-      enum pa {
+      enum "pa" {
         value 165;
-        description "Panama";
+        description
+          "Panama";
       }
-      enum pe {
+      enum "pe" {
         value 166;
-        description "Peru";
+        description
+          "Peru";
       }
-      enum pf {
+      enum "pf" {
         value 167;
-        description "French Polynesia";
+        description
+          "French Polynesia";
       }
-      enum pg {
+      enum "pg" {
         value 168;
-        description "Papua New Guinea";
+        description
+          "Papua New Guinea";
       }
-      enum ph {
+      enum "ph" {
         value 169;
-        description "Philippines";
+        description
+          "Philippines";
       }
-      enum pk {
+      enum "pk" {
         value 170;
-        description "Pakistan";
+        description
+          "Pakistan";
       }
-      enum pl {
+      enum "pl" {
         value 171;
-        description "Poland";
+        description
+          "Poland";
       }
-      enum pm {
+      enum "pm" {
         value 172;
-        description "Saint Pierre and Miquelon";
+        description
+          "Saint Pierre and Miquelon";
       }
-      enum pn {
+      enum "pn" {
         value 173;
-        description "Pitcairn";
+        description
+          "Pitcairn";
       }
-      enum pr {
+      enum "pr" {
         value 174;
-        description "Puerto Rico";
+        description
+          "Puerto Rico";
       }
-      enum pt {
+      enum "pt" {
         value 175;
-        description "Portugal";
+        description
+          "Portugal";
       }
-      enum pw {
+      enum "pw" {
         value 176;
-        description "Palau";
+        description
+          "Palau";
       }
-      enum py {
+      enum "py" {
         value 177;
-        description "Paraguay";
+        description
+          "Paraguay";
       }
-      enum qa {
+      enum "qa" {
         value 178;
-        description "Qatar";
+        description
+          "Qatar";
       }
-      enum re {
+      enum "re" {
         value 179;
-        description "Reunion";
+        description
+          "Reunion";
       }
-      enum ro {
+      enum "ro" {
         value 180;
-        description "Romania";
+        description
+          "Romania";
       }
-      enum ru {
+      enum "ru" {
         value 181;
-        description "Russian Federation";
+        description
+          "Russian Federation";
       }
-      enum rw {
+      enum "rw" {
         value 182;
-        description "Rwanda";
+        description
+          "Rwanda";
       }
-      enum sa {
+      enum "sa" {
         value 183;
-        description "Saudi Arabia";
+        description
+          "Saudi Arabia";
       }
-      enum sb {
+      enum "sb" {
         value 184;
-        description "Solomon Islands";
+        description
+          "Solomon Islands";
       }
-      enum sc {
+      enum "sc" {
         value 185;
-        description "Seychelles";
+        description
+          "Seychelles";
       }
-      enum sd {
+      enum "sd" {
         value 186;
-        description "Sudan";
+        description
+          "Sudan";
       }
-      enum se {
+      enum "se" {
         value 187;
-        description "Sweden";
+        description
+          "Sweden";
       }
-      enum sg {
+      enum "sg" {
         value 188;
-        description "Singapore";
+        description
+          "Singapore";
       }
-      enum sh {
+      enum "sh" {
         value 189;
-        description "Saint Helena";
+        description
+          "Saint Helena";
       }
-      enum si {
+      enum "si" {
         value 190;
-        description "Slovenia";
+        description
+          "Slovenia";
       }
-      enum sj {
+      enum "sj" {
         value 191;
-        description "Svalbard and Jan Mayen";
+        description
+          "Svalbard and Jan Mayen";
       }
-      enum sk {
+      enum "sk" {
         value 192;
-        description "Slovakia";
+        description
+          "Slovakia";
       }
-      enum sl {
+      enum "sl" {
         value 193;
-        description "Sierra Leone";
+        description
+          "Sierra Leone";
       }
-      enum sm {
+      enum "sm" {
         value 194;
-        description "San Marino";
+        description
+          "San Marino";
       }
-      enum sn {
+      enum "sn" {
         value 195;
-        description "Senegal";
+        description
+          "Senegal";
       }
-      enum so {
+      enum "so" {
         value 196;
-        description "Somalia";
+        description
+          "Somalia";
       }
-      enum sr {
+      enum "sr" {
         value 197;
-        description "Suriname";
+        description
+          "Suriname";
       }
-      enum st {
+      enum "st" {
         value 198;
-        description "Sao Tome and Principe";
+        description
+          "Sao Tome and Principe";
       }
-      enum sv {
+      enum "sv" {
         value 199;
-        description "El Salvador";
+        description
+          "El Salvador";
       }
-      enum sy {
+      enum "sy" {
         value 200;
-        description "Syrian Arab Republic";
+        description
+          "Syrian Arab Republic";
       }
-      enum sz {
+      enum "sz" {
         value 201;
-        description "Swaziland";
+        description
+          "Swaziland";
       }
-      enum tc {
+      enum "tc" {
         value 202;
-        description "Turks and Caicos Islands";
+        description
+          "Turks and Caicos Islands";
       }
-      enum td {
+      enum "td" {
         value 203;
-        description "Chad";
+        description
+          "Chad";
       }
-      enum tf {
+      enum "tf" {
         value 204;
-        description "French Southern Territories";
+        description
+          "French Southern Territories";
       }
-      enum tg {
+      enum "tg" {
         value 205;
-        description "Togo";
+        description
+          "Togo";
       }
-      enum th {
+      enum "th" {
         value 206;
-        description "Thailand";
+        description
+          "Thailand";
       }
-      enum tj {
+      enum "tj" {
         value 207;
-        description "Tajikistan";
+        description
+          "Tajikistan";
       }
-      enum tk {
+      enum "tk" {
         value 208;
-        description "Tokelau";
+        description
+          "Tokelau";
       }
-      enum tm {
+      enum "tm" {
         value 209;
-        description "Turkmenistan";
+        description
+          "Turkmenistan";
       }
-      enum tn {
+      enum "tn" {
         value 210;
-        description "Tunisia";
+        description
+          "Tunisia";
       }
-      enum to {
+      enum "to" {
         value 211;
-        description "Tonga";
+        description
+          "Tonga";
       }
-      enum tp {
+      enum "tp" {
         value 212;
-        description "East Timor";
+        description
+          "East Timor";
       }
-      enum tr {
+      enum "tr" {
         value 213;
-        description "Turkey";
+        description
+          "Turkey";
       }
-      enum tt {
+      enum "tt" {
         value 214;
-        description "Trinidad and Tobago";
+        description
+          "Trinidad and Tobago";
       }
-      enum tv {
+      enum "tv" {
         value 215;
-        description "Tuvalu";
+        description
+          "Tuvalu";
       }
-      enum tw {
+      enum "tw" {
         value 216;
-        description "Taiwan, Province of China";
+        description
+          "Taiwan, Province of China";
       }
-      enum tz {
+      enum "tz" {
         value 217;
-        description "Tanzania, United Republic of";
+        description
+          "Tanzania, United Republic of";
       }
-      enum ua {
+      enum "ua" {
         value 218;
-        description "Ukraine";
+        description
+          "Ukraine";
       }
-      enum ug {
+      enum "ug" {
         value 219;
-        description "Uganda";
+        description
+          "Uganda";
       }
-      enum um {
+      enum "um" {
         value 220;
-        description "United States Minor Outlying Islands";
+        description
+          "United States Minor Outlying Islands";
       }
-      enum us {
+      enum "us" {
         value 221;
-        description "United States";
+        description
+          "United States";
       }
-      enum uy {
+      enum "uy" {
         value 222;
-        description "Uruguay";
+        description
+          "Uruguay";
       }
-      enum uz {
+      enum "uz" {
         value 223;
-        description "Uzbekistan";
+        description
+          "Uzbekistan";
       }
-      enum va {
+      enum "va" {
         value 224;
-        description "Holy See (Vatican City State)";
+        description
+          "Holy See (Vatican City State)";
       }
-      enum vc {
+      enum "vc" {
         value 225;
-        description "Saint Vincent and The Grenadines";
+        description
+          "Saint Vincent and The Grenadines";
       }
-      enum ve {
+      enum "ve" {
         value 226;
-        description "Venezuela";
+        description
+          "Venezuela";
       }
-      enum vg {
+      enum "vg" {
         value 227;
-        description "Virgin Islands, British";
+        description
+          "Virgin Islands, British";
       }
-      enum vi {
+      enum "vi" {
         value 228;
-        description "Virgin Islands, U.S.";
+        description
+          "Virgin Islands, U.S.";
       }
-      enum vn {
+      enum "vn" {
         value 229;
-        description "Vietnam";
+        description
+          "Vietnam";
       }
-      enum vu {
+      enum "vu" {
         value 230;
-        description "Vanuatu";
+        description
+          "Vanuatu";
       }
-      enum wf {
+      enum "wf" {
         value 231;
-        description "Wallis and Futuna";
+        description
+          "Wallis and Futuna";
       }
-      enum ws {
+      enum "ws" {
         value 232;
-        description "Samoa";
+        description
+          "Samoa";
       }
-      enum ye {
+      enum "ye" {
         value 233;
-        description "Yemen";
+        description
+          "Yemen";
       }
-      enum yt {
+      enum "yt" {
         value 234;
-        description "Mayotte";
+        description
+          "Mayotte";
       }
-      enum yu {
+      enum "yu" {
         value 235;
-        description "Yugoslavia";
+        description
+          "Yugoslavia";
       }
-      enum za {
+      enum "za" {
         value 236;
-        description "South Africa";
+        description
+          "South Africa";
       }
-      enum zm {
+      enum "zm" {
         value 237;
-        description "Zambia";
+        description
+          "Zambia";
       }
-      enum zw {
+      enum "zw" {
         value 238;
-        description "Zimbabwe";
+        description
+          "Zimbabwe";
       }
     }
-    description "Locale country";
+    description
+      "Locale country";
   }
+
   typedef Locale-language {
     type enumeration {
-      enum aa {
+      enum "aa" {
         value 1;
-        description "Afar";
+        description
+          "Afar";
       }
-      enum ab {
+      enum "ab" {
         value 2;
-        description "Abkhazian";
+        description
+          "Abkhazian";
       }
-      enum af {
+      enum "af" {
         value 3;
-        description "Afrikaans";
+        description
+          "Afrikaans";
       }
-      enum am {
+      enum "am" {
         value 4;
-        description "Amharic";
+        description
+          "Amharic";
       }
-      enum ar {
+      enum "ar" {
         value 5;
-        description "Arabic";
+        description
+          "Arabic";
       }
-      enum as {
+      enum "as" {
         value 6;
-        description "Assamese";
+        description
+          "Assamese";
       }
-      enum ay {
+      enum "ay" {
         value 7;
-        description "Aymara";
+        description
+          "Aymara";
       }
-      enum az {
+      enum "az" {
         value 8;
-        description "Azerbaijani";
+        description
+          "Azerbaijani";
       }
-      enum ba {
+      enum "ba" {
         value 9;
-        description "Bashkir";
+        description
+          "Bashkir";
       }
-      enum be {
+      enum "be" {
         value 10;
-        description "Byelorussian";
+        description
+          "Byelorussian";
       }
-      enum bg {
+      enum "bg" {
         value 11;
-        description "Bulgarian";
+        description
+          "Bulgarian";
       }
-      enum bh {
+      enum "bh" {
         value 12;
-        description "Bihari";
+        description
+          "Bihari";
       }
-      enum bi {
+      enum "bi" {
         value 13;
-        description "Bislama";
+        description
+          "Bislama";
       }
-      enum bn {
+      enum "bn" {
         value 14;
-        description "Bengali";
+        description
+          "Bengali";
       }
-      enum bo {
+      enum "bo" {
         value 15;
-        description "Tibetan";
+        description
+          "Tibetan";
       }
-      enum br {
+      enum "br" {
         value 16;
-        description "Breton";
+        description
+          "Breton";
       }
-      enum ca {
+      enum "ca" {
         value 17;
-        description "Catalan";
+        description
+          "Catalan";
       }
-      enum co {
+      enum "co" {
         value 18;
-        description "Corsican";
+        description
+          "Corsican";
       }
-      enum cs {
+      enum "cs" {
         value 19;
-        description "Czech";
+        description
+          "Czech";
       }
-      enum cy {
+      enum "cy" {
         value 20;
-        description "Welsh";
+        description
+          "Welsh";
       }
-      enum da {
+      enum "da" {
         value 21;
-        description "Danish";
+        description
+          "Danish";
       }
-      enum de {
+      enum "de" {
         value 22;
-        description "German";
+        description
+          "German";
       }
-      enum dz {
+      enum "dz" {
         value 23;
-        description "Bhutani";
+        description
+          "Bhutani";
       }
-      enum el {
+      enum "el" {
         value 24;
-        description "Greek";
+        description
+          "Greek";
       }
-      enum en {
+      enum "en" {
         value 25;
-        description "English";
+        description
+          "English";
       }
-      enum eo {
+      enum "eo" {
         value 26;
-        description "Esperanto";
+        description
+          "Esperanto";
       }
-      enum es {
+      enum "es" {
         value 27;
-        description "Spanish";
+        description
+          "Spanish";
       }
-      enum et {
+      enum "et" {
         value 28;
-        description "Estonian";
+        description
+          "Estonian";
       }
-      enum eu {
+      enum "eu" {
         value 29;
-        description "Basque";
+        description
+          "Basque";
       }
-      enum fa {
+      enum "fa" {
         value 30;
-        description "Persian";
+        description
+          "Persian";
       }
-      enum fi {
+      enum "fi" {
         value 31;
-        description "Finnish";
+        description
+          "Finnish";
       }
-      enum fj {
+      enum "fj" {
         value 32;
-        description "Fiji";
+        description
+          "Fiji";
       }
-      enum fo {
+      enum "fo" {
         value 33;
-        description "Faroese";
+        description
+          "Faroese";
       }
-      enum fr {
+      enum "fr" {
         value 34;
-        description "French";
+        description
+          "French";
       }
-      enum fy {
+      enum "fy" {
         value 35;
-        description "Frisian";
+        description
+          "Frisian";
       }
-      enum ga {
+      enum "ga" {
         value 36;
-        description "Irish";
+        description
+          "Irish";
       }
-      enum gd {
+      enum "gd" {
         value 37;
-        description "Scots Gaelic";
+        description
+          "Scots Gaelic";
       }
-      enum gl {
+      enum "gl" {
         value 38;
-        description "Galician";
+        description
+          "Galician";
       }
-      enum gn {
+      enum "gn" {
         value 39;
-        description "Guarani";
+        description
+          "Guarani";
       }
-      enum gu {
+      enum "gu" {
         value 40;
-        description "Gujarati";
+        description
+          "Gujarati";
       }
-      enum ha {
+      enum "ha" {
         value 41;
-        description "Hausa";
+        description
+          "Hausa";
       }
-      enum he {
+      enum "he" {
         value 42;
-        description "Hebrew";
+        description
+          "Hebrew";
       }
-      enum hi {
+      enum "hi" {
         value 43;
-        description "Hindi";
+        description
+          "Hindi";
       }
-      enum hr {
+      enum "hr" {
         value 44;
-        description "Croatian";
+        description
+          "Croatian";
       }
-      enum hu {
+      enum "hu" {
         value 45;
-        description "Hungarian";
+        description
+          "Hungarian";
       }
-      enum hy {
+      enum "hy" {
         value 46;
-        description "Armenian";
+        description
+          "Armenian";
       }
-      enum ia {
+      enum "ia" {
         value 47;
-        description "Interlingua";
+        description
+          "Interlingua";
       }
-      enum id {
+      enum "id" {
         value 48;
-        description "Indonesian";
+        description
+          "Indonesian";
       }
-      enum ie {
+      enum "ie" {
         value 49;
-        description "Interlingue";
+        description
+          "Interlingue";
       }
-      enum ik {
+      enum "ik" {
         value 50;
-        description "Inupiak";
+        description
+          "Inupiak";
       }
-      enum is {
+      enum "is" {
         value 51;
-        description "Icelandic";
+        description
+          "Icelandic";
       }
-      enum it {
+      enum "it" {
         value 52;
-        description "Italian";
+        description
+          "Italian";
       }
-      enum iu {
+      enum "iu" {
         value 53;
-        description "Inuktitut";
+        description
+          "Inuktitut";
       }
-      enum ja {
+      enum "ja" {
         value 54;
-        description "Japanese";
+        description
+          "Japanese";
       }
-      enum jw {
+      enum "jw" {
         value 55;
-        description "Javanese";
+        description
+          "Javanese";
       }
-      enum ka {
+      enum "ka" {
         value 56;
-        description "Georgian";
+        description
+          "Georgian";
       }
-      enum kk {
+      enum "kk" {
         value 57;
-        description "Kazakh";
+        description
+          "Kazakh";
       }
-      enum kl {
+      enum "kl" {
         value 58;
-        description "Greenlandic";
+        description
+          "Greenlandic";
       }
-      enum km {
+      enum "km" {
         value 59;
-        description "Cambodian";
+        description
+          "Cambodian";
       }
-      enum kn {
+      enum "kn" {
         value 60;
-        description "Kannada";
+        description
+          "Kannada";
       }
-      enum ko {
+      enum "ko" {
         value 61;
-        description "Korean";
+        description
+          "Korean";
       }
-      enum ks {
+      enum "ks" {
         value 62;
-        description "Kashmiri";
+        description
+          "Kashmiri";
       }
-      enum ku {
+      enum "ku" {
         value 63;
-        description "Kurdish";
+        description
+          "Kurdish";
       }
-      enum ky {
+      enum "ky" {
         value 64;
-        description "Kirghiz";
+        description
+          "Kirghiz";
       }
-      enum la {
+      enum "la" {
         value 65;
-        description "Latin";
+        description
+          "Latin";
       }
-      enum ln {
+      enum "ln" {
         value 66;
-        description "Lingala";
+        description
+          "Lingala";
       }
-      enum lo {
+      enum "lo" {
         value 67;
-        description "Laothian";
+        description
+          "Laothian";
       }
-      enum lt {
+      enum "lt" {
         value 68;
-        description "Lithuanian";
+        description
+          "Lithuanian";
       }
-      enum lv {
+      enum "lv" {
         value 69;
-        description "Latvian, Lettish";
+        description
+          "Latvian, Lettish";
       }
-      enum mg {
+      enum "mg" {
         value 70;
-        description "Malagasy";
+        description
+          "Malagasy";
       }
-      enum mi {
+      enum "mi" {
         value 71;
-        description "Maori";
+        description
+          "Maori";
       }
-      enum mk {
+      enum "mk" {
         value 72;
-        description "Macedonian";
+        description
+          "Macedonian";
       }
-      enum ml {
+      enum "ml" {
         value 73;
-        description "Malayalam";
+        description
+          "Malayalam";
       }
-      enum mn {
+      enum "mn" {
         value 74;
-        description "Mongolian";
+        description
+          "Mongolian";
       }
-      enum mo {
+      enum "mo" {
         value 75;
-        description "Moldavian";
+        description
+          "Moldavian";
       }
-      enum mr {
+      enum "mr" {
         value 76;
-        description "Marathi";
+        description
+          "Marathi";
       }
-      enum ms {
+      enum "ms" {
         value 77;
-        description "Malay";
+        description
+          "Malay";
       }
-      enum mt {
+      enum "mt" {
         value 78;
-        description "Maltese";
+        description
+          "Maltese";
       }
-      enum my {
+      enum "my" {
         value 79;
-        description "Burmese";
+        description
+          "Burmese";
       }
-      enum na {
+      enum "na" {
         value 80;
-        description "Nauru";
+        description
+          "Nauru";
       }
-      enum ne {
+      enum "ne" {
         value 81;
-        description "Nepali";
+        description
+          "Nepali";
       }
-      enum nl {
+      enum "nl" {
         value 82;
-        description "Dutch";
+        description
+          "Dutch";
       }
-      enum no {
+      enum "no" {
         value 83;
-        description "Norwegian";
+        description
+          "Norwegian";
       }
-      enum oc {
+      enum "oc" {
         value 84;
-        description "Occitan";
+        description
+          "Occitan";
       }
-      enum om {
+      enum "om" {
         value 85;
-        description "(Afan) Oromo";
+        description
+          "(Afan) Oromo";
       }
-      enum or {
+      enum "or" {
         value 86;
-        description "Oriya";
+        description
+          "Oriya";
       }
-      enum pa {
+      enum "pa" {
         value 87;
-        description "Punjabi";
+        description
+          "Punjabi";
       }
-      enum pl {
+      enum "pl" {
         value 88;
-        description "Polish";
+        description
+          "Polish";
       }
-      enum ps {
+      enum "ps" {
         value 89;
-        description "Pashto, Pushto";
+        description
+          "Pashto, Pushto";
       }
-      enum pt {
+      enum "pt" {
         value 90;
-        description "Portuguese";
+        description
+          "Portuguese";
       }
-      enum qu {
+      enum "qu" {
         value 91;
-        description "Quechua";
+        description
+          "Quechua";
       }
-      enum rm {
+      enum "rm" {
         value 92;
-        description "Rhaeto Romance";
+        description
+          "Rhaeto Romance";
       }
-      enum rn {
+      enum "rn" {
         value 93;
-        description "Kirundi";
+        description
+          "Kirundi";
       }
-      enum ro {
+      enum "ro" {
         value 94;
-        description "Romanian";
+        description
+          "Romanian";
       }
-      enum ru {
+      enum "ru" {
         value 95;
-        description "Russian";
+        description
+          "Russian";
       }
-      enum rw {
+      enum "rw" {
         value 96;
-        description "Kinyarwanda";
+        description
+          "Kinyarwanda";
       }
-      enum sa {
+      enum "sa" {
         value 97;
-        description "Sanskrit";
+        description
+          "Sanskrit";
       }
-      enum sd {
+      enum "sd" {
         value 98;
-        description "Sindhi";
+        description
+          "Sindhi";
       }
-      enum sg {
+      enum "sg" {
         value 99;
-        description "Sangho";
+        description
+          "Sangho";
       }
-      enum sh {
+      enum "sh" {
         value 100;
-        description "Serbo Croatian";
+        description
+          "Serbo Croatian";
       }
-      enum si {
+      enum "si" {
         value 101;
-        description "Sinhalese";
+        description
+          "Sinhalese";
       }
-      enum sk {
+      enum "sk" {
         value 102;
-        description "Slovak";
+        description
+          "Slovak";
       }
-      enum sl {
+      enum "sl" {
         value 103;
-        description "Slovenian";
+        description
+          "Slovenian";
       }
-      enum sm {
+      enum "sm" {
         value 104;
-        description "Samoan";
+        description
+          "Samoan";
       }
-      enum sn {
+      enum "sn" {
         value 105;
-        description "Shona";
+        description
+          "Shona";
       }
-      enum so {
+      enum "so" {
         value 106;
-        description "Somali";
+        description
+          "Somali";
       }
-      enum sq {
+      enum "sq" {
         value 107;
-        description "Albanian";
+        description
+          "Albanian";
       }
-      enum sr {
+      enum "sr" {
         value 108;
-        description "Serbian";
+        description
+          "Serbian";
       }
-      enum ss {
+      enum "ss" {
         value 109;
-        description "Siswati";
+        description
+          "Siswati";
       }
-      enum st {
+      enum "st" {
         value 110;
-        description "Sesotho";
+        description
+          "Sesotho";
       }
-      enum su {
+      enum "su" {
         value 111;
-        description "Sundanese";
+        description
+          "Sundanese";
       }
-      enum sv {
+      enum "sv" {
         value 112;
-        description "Swedish";
+        description
+          "Swedish";
       }
-      enum sw {
+      enum "sw" {
         value 113;
-        description "Swahili";
+        description
+          "Swahili";
       }
-      enum ta {
+      enum "ta" {
         value 114;
-        description "Tamil";
+        description
+          "Tamil";
       }
-      enum te {
+      enum "te" {
         value 115;
-        description "Telugu";
+        description
+          "Telugu";
       }
-      enum tg {
+      enum "tg" {
         value 116;
-        description "Tajik";
+        description
+          "Tajik";
       }
-      enum th {
+      enum "th" {
         value 117;
-        description "Thai";
+        description
+          "Thai";
       }
-      enum ti {
+      enum "ti" {
         value 118;
-        description "Tigrinya";
+        description
+          "Tigrinya";
       }
-      enum tk {
+      enum "tk" {
         value 119;
-        description "Turkmen";
+        description
+          "Turkmen";
       }
-      enum tl {
+      enum "tl" {
         value 120;
-        description "Tagalog";
+        description
+          "Tagalog";
       }
-      enum tn {
+      enum "tn" {
         value 121;
-        description "Setswana";
+        description
+          "Setswana";
       }
-      enum to {
+      enum "to" {
         value 122;
-        description "Tonga";
+        description
+          "Tonga";
       }
-      enum tr {
+      enum "tr" {
         value 123;
-        description "Turkish";
+        description
+          "Turkish";
       }
-      enum ts {
+      enum "ts" {
         value 124;
-        description "Tsonga";
+        description
+          "Tsonga";
       }
-      enum tt {
+      enum "tt" {
         value 125;
-        description "Tatar";
+        description
+          "Tatar";
       }
-      enum tw {
+      enum "tw" {
         value 126;
-        description "Twi";
+        description
+          "Twi";
       }
-      enum ug {
+      enum "ug" {
         value 127;
-        description "Uighur";
+        description
+          "Uighur";
       }
-      enum uk {
+      enum "uk" {
         value 128;
-        description "Ukrainian";
+        description
+          "Ukrainian";
       }
-      enum ur {
+      enum "ur" {
         value 129;
-        description "Urdu";
+        description
+          "Urdu";
       }
-      enum uz {
+      enum "uz" {
         value 130;
-        description "Uzbek";
+        description
+          "Uzbek";
       }
-      enum vi {
+      enum "vi" {
         value 131;
-        description "Vietnamese";
+        description
+          "Vietnamese";
       }
-      enum vo {
+      enum "vo" {
         value 132;
-        description "Volapuk";
+        description
+          "Volapuk";
       }
-      enum wo {
+      enum "wo" {
         value 133;
-        description "Wolof";
+        description
+          "Wolof";
       }
-      enum xh {
+      enum "xh" {
         value 134;
-        description "Xhosa";
+        description
+          "Xhosa";
       }
-      enum yi {
+      enum "yi" {
         value 135;
-        description "Yiddish";
+        description
+          "Yiddish";
       }
-      enum yo {
+      enum "yo" {
         value 136;
-        description "Yoruba";
+        description
+          "Yoruba";
       }
-      enum za {
+      enum "za" {
         value 137;
-        description "Zhuang";
+        description
+          "Zhuang";
       }
-      enum zh {
+      enum "zh" {
         value 138;
-        description "Chinese";
+        description
+          "Chinese";
       }
-      enum zu {
+      enum "zu" {
         value 139;
-        description "Zulu";
+        description
+          "Zulu";
       }
     }
-    description "Locale language";
+    description
+      "Locale language";
   }
 
   container locale {
-    description "Define the geographical locale";
+    description
+      "Define the geographical locale";
     leaf country {
       type Locale-country;
-      description "Name of country locale";
+      description
+        "Name of country locale";
     }
     leaf language {
       type Locale-language;
-      description "Name of language locale";
+      description
+        "Name of language locale";
     }
   }
 }

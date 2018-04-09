@@ -7,6 +7,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -15,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BandwidthNotificationState(Enum):
     """
-    BandwidthNotificationState
+    BandwidthNotificationState (Enum Class)
 
     Bandwidth notification state
 
@@ -36,7 +38,7 @@ class BandwidthNotificationState(Enum):
 
 class CfmAisInterval(Enum):
     """
-    CfmAisInterval
+    CfmAisInterval (Enum Class)
 
     Cfm ais interval
 
@@ -57,7 +59,7 @@ class CfmAisInterval(Enum):
 
 class CfmCcmInterval(Enum):
     """
-    CfmCcmInterval
+    CfmCcmInterval (Enum Class)
 
     Cfm ccm interval
 
@@ -108,7 +110,7 @@ class CfmCcmInterval(Enum):
 
 class CfmMepDir(Enum):
     """
-    CfmMepDir
+    CfmMepDir (Enum Class)
 
     Cfm mep dir
 

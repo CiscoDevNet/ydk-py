@@ -1,91 +1,81 @@
 module Cisco-IOS-XR-plat-chas-invmgr-oper {
+  namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-plat-chas-invmgr-oper";
+  prefix plat-chas-invmgr-oper;
 
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
-  namespace "http://cisco.com/ns/yang"+
-    "/Cisco-IOS-XR-plat-chas-invmgr-oper";
-
-
-  prefix "plat-chas-invmgr-oper";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
   include Cisco-IOS-XR-plat-chas-invmgr-oper-sub2 {
-    revision-date 2017-05-01;
+    revision-date 2018-01-22;
   }
-
   include Cisco-IOS-XR-plat-chas-invmgr-oper-sub1 {
-    revision-date 2017-05-01;
+    revision-date 2018-01-22;
   }
 
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR plat-chas-invmgr package operational data.
-
+     
      This module contains definitions
      for the following management objects:
        platform: Platform information
        platform-inventory: platform inventory
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-01" {
+  revision 2018-01-22 {
     description
-      "Fixing backward compatibility error in module.";
+      "Fixing incorrect spelling for node-description in module.";
   }
-
-  revision "2015-01-07" {
+  revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
   }
 
-
   grouping STATE {
-    description "Common node of instance, slot";
-
+    description
+      "Common node of instance, slot";
     container state {
-      description "State information";
+      description
+        "State information";
       uses PLATFORM-INFO;
     }
   }
 
   grouping PORT-SLOT-TABLE {
-    description "Common node of card, module";
-
+    description
+      "Common node of card, module";
     container port-slots {
-      description "Table of port slots";
-
+      description
+        "Table of port slots";
       list port-slot {
         key "name";
-        description "Port slot number";
-
+        description
+          "Port slot number";
         container portses {
-          description "Table of spirit port slots";
-
+          description
+            "Table of spirit port slots";
           list ports {
             key "name";
-            description "Port number";
+            description
+              "Port number";
             leaf name {
               type xr:Cisco-ios-xr-string;
-              description "Port name";
+              description
+                "Port name";
             }
             uses HW-COMPONENT-TABLE;
             uses SENSOR-TABLE;
@@ -94,7 +84,8 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
         }
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "Port slot name";
+          description
+            "Port slot name";
         }
         uses SENSOR-TABLE;
         uses ATTRIBUTES;
@@ -103,69 +94,72 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
   }
 
   grouping SLOT-TABLE {
-    description "Common node of rack, rack";
-
+    description
+      "Common node of rack, rack";
     container slots {
-      description "Table of slots";
-
+      description
+        "Table of slots";
       list slot {
         key "name";
-        description "Slot name";
-
+        description
+          "Slot name";
         container cards {
-          description "Table of cards";
-
+          description
+            "Table of cards";
           list card {
             key "name";
-            description "Card number";
-
+            description
+              "Card number";
             container hardware-information {
-              description "HardwareInformationDir";
-
+              description
+                "HardwareInformationDir";
               container processor-information {
-                description "ProcesorInformation";
+                description
+                  "ProcesorInformation";
                 uses INV-PROCESSOR;
               }
-
               container motherboard-information {
-                description "MotherboardInformation";
+                description
+                  "MotherboardInformation";
                 uses INV-XML-MOTHERBOARD-INFO;
               }
-
               container bootflash-information {
-                description "BootflashInformation";
+                description
+                  "BootflashInformation";
                 uses INV-BOOTFLASH;
               }
-
               container disk-information {
-                description "DiskInformation";
+                description
+                  "DiskInformation";
                 uses INV-XML-DISK-INFO;
               }
             }
-
             container sub-slots {
-              description "Table of subslots";
-
+              description
+                "Table of subslots";
               list sub-slot {
                 key "name";
-                description "Subslot number";
-
+                description
+                  "Subslot number";
                 container module {
-                  description "Module of a subslot";
+                  description
+                    "Module of a subslot";
                   uses PORT-SLOT-TABLE;
                   uses SENSOR-TABLE;
                   uses ATTRIBUTES;
                 }
                 leaf name {
                   type xr:Cisco-ios-xr-string;
-                  description "Subslot name";
+                  description
+                    "Subslot name";
                 }
                 uses ATTRIBUTES;
               }
             }
             leaf name {
               type xr:Cisco-ios-xr-string;
-              description "Card name";
+              description
+                "Card name";
             }
             uses PORT-SLOT-TABLE;
             uses HW-COMPONENT-TABLE;
@@ -175,7 +169,8 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
         }
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "Slot name";
+          description
+            "Slot name";
         }
         uses ATTRIBUTES;
       }
@@ -185,36 +180,38 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
   grouping PLATFORM-COMMON-SLOT-TABLE {
     description
       "Common node of rack, rackCommon node of rack,
-      rack";
-
+       rack";
     container slots {
-      description "Table of slots";
-
+      description
+        "Table of slots";
       list slot {
         key "slot-name";
-        description "Slot name";
-
+        description
+          "Slot name";
         container instances {
-          description "Table of Instances";
-
+          description
+            "Table of Instances";
           list instance {
             key "instance-name";
-            description "Instance name";
+            description
+              "Instance name";
             leaf instance-name {
               type string;
-              description "Instance name";
+              description
+                "Instance name";
             }
             uses STATE;
           }
         }
-
         container vm {
-          description "VM information";
+          description
+            "VM information";
           uses VM-INFO;
         }
         leaf slot-name {
           type xr:Cisco-ios-xr-string;
-          description "Slot name";
+          description
+            "Slot name";
         }
         uses STATE;
       }
@@ -224,17 +221,18 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
   grouping SENSOR-TABLE {
     description
       "Common node of card, module, hw-component,
-      port-slot, ports";
-
+       port-slot, ports";
     container sensors {
-      description "Table of sensors";
-
+      description
+        "Table of sensors";
       list sensor {
         key "name";
-        description "Sensor number";
+        description
+          "Sensor number";
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "Sensor name";
+          description
+            "Sensor name";
         }
         uses ATTRIBUTES;
       }
@@ -242,17 +240,19 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
   }
 
   grouping HW-COMPONENT-TABLE {
-    description "Common node of card, ports";
-
+    description
+      "Common node of card, ports";
     container hw-components {
-      description "Table of  HW components ";
-
+      description
+        "Table of  HW components ";
       list hw-component {
         key "name";
-        description "HW component number";
+        description
+          "HW component number";
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "HW component name";
+          description
+            "HW component name";
         }
         uses SENSOR-TABLE;
         uses ATTRIBUTES;
@@ -263,18 +263,18 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
   grouping ATTRIBUTES {
     description
       "Common node of rack, rack, slot, card, sub-slot,
-      module, port-slot, hw-component, sensor, ports";
-
+       module, port-slot, hw-component, sensor, ports";
     container attributes {
-      description "Attributes";
-
+      description
+        "Attributes";
       container basic-info {
-        description "Entity attributes";
+        description
+          "Entity attributes";
         uses INV-XML-ENTITY-BASIC-INFO;
       }
-
       container fru-info {
-        description "Field Replaceable Unit (FRU) attributes";
+        description
+          "Field Replaceable Unit (FRU) attributes";
         uses INV-XML-FRU-INFO;
       }
     }
@@ -282,36 +282,39 @@ module Cisco-IOS-XR-plat-chas-invmgr-oper {
 
   container platform {
     config false;
-    description "Platform information";
-
+    description
+      "Platform information";
     container racks {
-      description "Table of racks";
-
+      description
+        "Table of racks";
       list rack {
         key "rack-name";
-        description "Rack name";
+        description
+          "Rack name";
         leaf rack-name {
           type xr:Cisco-ios-xr-string;
-          description "Rack name";
+          description
+            "Rack name";
         }
         uses PLATFORM-COMMON-SLOT-TABLE;
       }
     }
   }
-
   container platform-inventory {
     config false;
-    description "platform inventory";
-
+    description
+      "platform inventory";
     container racks {
-      description "Table of racks";
-
+      description
+        "Table of racks";
       list rack {
         key "name";
-        description "Rack name";
+        description
+          "Rack name";
         leaf name {
           type xr:Cisco-ios-xr-string;
-          description "Rack name";
+          description
+            "Rack name";
         }
         uses SLOT-TABLE;
         uses ATTRIBUTES;

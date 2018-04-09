@@ -16,6 +16,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -24,7 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class Ipv6NdRouterPref(Enum):
     """
-    Ipv6NdRouterPref
+    Ipv6NdRouterPref (Enum Class)
 
     Ipv6 nd router pref
 
@@ -51,7 +53,7 @@ class Ipv6NdRouterPref(Enum):
 
 class Ipv6ndMonth(Enum):
     """
-    Ipv6ndMonth
+    Ipv6ndMonth (Enum Class)
 
     Ipv6nd month
 
@@ -132,7 +134,7 @@ class Ipv6ndMonth(Enum):
 
 class Ipv6srpEncapsulation(Enum):
     """
-    Ipv6srpEncapsulation
+    Ipv6srpEncapsulation (Enum Class)
 
     Ipv6srp encapsulation
 
@@ -185,10 +187,13 @@ class Ipv6Neighbor(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-nd-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"neighbors" : ("neighbors", Ipv6Neighbor.Neighbors)}
-        self._child_list_classes = {}
-
-        self.scavenge_timeout = YLeaf(YType.uint32, "scavenge-timeout")
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("neighbors", ("neighbors", Ipv6Neighbor.Neighbors))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict([
+            ('scavenge_timeout', YLeaf(YType.uint32, 'scavenge-timeout')),
+        ])
+        self.scavenge_timeout = None
 
         self.neighbors = Ipv6Neighbor.Neighbors()
         self.neighbors.parent = self
@@ -223,8 +228,10 @@ class Ipv6Neighbor(Entity):
             self.yang_parent_name = "ipv6-neighbor"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"neighbor" : ("neighbor", Ipv6Neighbor.Neighbors.Neighbor)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("neighbor", ("neighbor", Ipv6Neighbor.Neighbors.Neighbor))])
+            self._leafs = OrderedDict()
 
             self.neighbor = YList(self)
             self._segment_path = lambda: "neighbors"
@@ -238,14 +245,14 @@ class Ipv6Neighbor(Entity):
             """
             IPv6 neighbor configuration
             
-            .. attribute:: neighbor_address  <key>
+            .. attribute:: neighbor_address  (key)
             
             	IPv6 address
             	**type**\: str
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	Interface name
             	**type**\: str
@@ -287,19 +294,22 @@ class Ipv6Neighbor(Entity):
                 self.yang_parent_name = "neighbors"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.neighbor_address = YLeaf(YType.str, "neighbor-address")
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.zone = YLeaf(YType.str, "zone")
-
-                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['neighbor_address','interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('zone', YLeaf(YType.str, 'zone')),
+                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                    ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                ])
+                self.neighbor_address = None
+                self.interface_name = None
+                self.zone = None
+                self.mac_address = None
+                self.encapsulation = None
+                self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/neighbors/%s" % self._segment_path()
 
             def __setattr__(self, name, value):

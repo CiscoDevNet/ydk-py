@@ -38,6 +38,8 @@ A typical sequence of operations looks like this\:
 
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -91,8 +93,10 @@ class StartTransaction(Entity):
         self.yang_parent_name = "tailf-netconf-transactions"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.input = StartTransaction.Input()
         self.input.parent = self
@@ -128,10 +132,13 @@ class StartTransaction(Entity):
             self.yang_parent_name = "start-transaction"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", StartTransaction.Input.Target)}
-            self._child_list_classes = {}
-
-            self.with_inactive = YLeaf(YType.empty, "tailf-netconf-inactive:with-inactive")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("target", ("target", StartTransaction.Input.Target))])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('with_inactive', YLeaf(YType.empty, 'tailf-netconf-inactive:with-inactive')),
+            ])
+            self.with_inactive = None
 
             self.target = StartTransaction.Input.Target()
             self.target.parent = self
@@ -177,14 +184,17 @@ class StartTransaction(Entity):
                 self.yang_parent_name = "input"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.candidate = YLeaf(YType.empty, "candidate")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('running', YLeaf(YType.empty, 'running')),
+                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                ])
+                self.startup = None
+                self.running = None
+                self.candidate = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/input/%s" % self._segment_path()
 
@@ -232,8 +242,10 @@ class PrepareTransaction(Entity):
         self.yang_parent_name = "tailf-netconf-transactions"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:prepare-transaction"
 
     def clone_ptr(self):
@@ -263,8 +275,10 @@ class CommitTransaction(Entity):
         self.yang_parent_name = "tailf-netconf-transactions"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:commit-transaction"
 
     def clone_ptr(self):
@@ -294,8 +308,10 @@ class AbortTransaction(Entity):
         self.yang_parent_name = "tailf-netconf-transactions"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:abort-transaction"
 
     def clone_ptr(self):

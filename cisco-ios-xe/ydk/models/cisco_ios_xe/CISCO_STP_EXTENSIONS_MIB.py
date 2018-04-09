@@ -4,6 +4,8 @@ The MIB module for managing Cisco extensions to
 the 802.1D Spanning Tree Protocol (STP).
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -188,8 +190,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"stpxUplinkFastObjects" : ("stpxuplinkfastobjects", CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects), "stpxBackboneFastObjects" : ("stpxbackbonefastobjects", CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects), "stpxSpanningTreeObjects" : ("stpxspanningtreeobjects", CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects), "stpxMISTPObjects" : ("stpxmistpobjects", CISCOSTPEXTENSIONSMIB.Stpxmistpobjects), "stpxLoopGuardObjects" : ("stpxloopguardobjects", CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects), "stpxFastStartObjects" : ("stpxfaststartobjects", CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects), "stpxBpduSkewingObjects" : ("stpxbpduskewingobjects", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects), "stpxMSTObjects" : ("stpxmstobjects", CISCOSTPEXTENSIONSMIB.Stpxmstobjects), "stpxRSTPObjects" : ("stpxrstpobjects", CISCOSTPEXTENSIONSMIB.Stpxrstpobjects), "stpxSMSTObjects" : ("stpxsmstobjects", CISCOSTPEXTENSIONSMIB.Stpxsmstobjects), "stpxPVSTVlanTable" : ("stpxpvstvlantable", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable), "stpxInconsistencyTable" : ("stpxinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable), "stpxRootGuardConfigTable" : ("stpxrootguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable), "stpxRootInconsistencyTable" : ("stpxrootinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable), "stpxMISTPInstanceTable" : ("stpxmistpinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable), "stpxLoopGuardConfigTable" : ("stpxloopguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable), "stpxLoopInconsistencyTable" : ("stpxloopinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable), "stpxFastStartPortTable" : ("stpxfaststartporttable", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable), "stpxFastStartOperModeTable" : ("stpxfaststartopermodetable", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable), "stpxBpduSkewingTable" : ("stpxbpduskewingtable", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable), "stpxMSTInstanceTable" : ("stpxmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable), "stpxMSTInstanceEditTable" : ("stpxmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable), "stpxMSTPortTable" : ("stpxmstporttable", CISCOSTPEXTENSIONSMIB.Stpxmstporttable), "stpxMSTPortRoleTable" : ("stpxmstportroletable", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable), "stpxRSTPPortTable" : ("stpxrstpporttable", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable), "stpxRSTPPortRoleTable" : ("stpxrstpportroletable", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable), "stpxRPVSTPortTable" : ("stpxrpvstporttable", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable), "stpxSMSTInstanceTable" : ("stpxsmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable), "stpxSMSTInstanceEditTable" : ("stpxsmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable), "stpxSMSTPortTable" : ("stpxsmstporttable", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("stpxUplinkFastObjects", ("stpxuplinkfastobjects", CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects)), ("stpxBackboneFastObjects", ("stpxbackbonefastobjects", CISCOSTPEXTENSIONSMIB.Stpxbackbonefastobjects)), ("stpxSpanningTreeObjects", ("stpxspanningtreeobjects", CISCOSTPEXTENSIONSMIB.Stpxspanningtreeobjects)), ("stpxMISTPObjects", ("stpxmistpobjects", CISCOSTPEXTENSIONSMIB.Stpxmistpobjects)), ("stpxLoopGuardObjects", ("stpxloopguardobjects", CISCOSTPEXTENSIONSMIB.Stpxloopguardobjects)), ("stpxFastStartObjects", ("stpxfaststartobjects", CISCOSTPEXTENSIONSMIB.Stpxfaststartobjects)), ("stpxBpduSkewingObjects", ("stpxbpduskewingobjects", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingobjects)), ("stpxMSTObjects", ("stpxmstobjects", CISCOSTPEXTENSIONSMIB.Stpxmstobjects)), ("stpxRSTPObjects", ("stpxrstpobjects", CISCOSTPEXTENSIONSMIB.Stpxrstpobjects)), ("stpxSMSTObjects", ("stpxsmstobjects", CISCOSTPEXTENSIONSMIB.Stpxsmstobjects)), ("stpxPVSTVlanTable", ("stpxpvstvlantable", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable)), ("stpxInconsistencyTable", ("stpxinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable)), ("stpxRootGuardConfigTable", ("stpxrootguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable)), ("stpxRootInconsistencyTable", ("stpxrootinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable)), ("stpxMISTPInstanceTable", ("stpxmistpinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable)), ("stpxLoopGuardConfigTable", ("stpxloopguardconfigtable", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable)), ("stpxLoopInconsistencyTable", ("stpxloopinconsistencytable", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable)), ("stpxFastStartPortTable", ("stpxfaststartporttable", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable)), ("stpxFastStartOperModeTable", ("stpxfaststartopermodetable", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable)), ("stpxBpduSkewingTable", ("stpxbpduskewingtable", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable)), ("stpxMSTInstanceTable", ("stpxmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable)), ("stpxMSTInstanceEditTable", ("stpxmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable)), ("stpxMSTPortTable", ("stpxmstporttable", CISCOSTPEXTENSIONSMIB.Stpxmstporttable)), ("stpxMSTPortRoleTable", ("stpxmstportroletable", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable)), ("stpxRSTPPortTable", ("stpxrstpporttable", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable)), ("stpxRSTPPortRoleTable", ("stpxrstpportroletable", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable)), ("stpxRPVSTPortTable", ("stpxrpvstporttable", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable)), ("stpxSMSTInstanceTable", ("stpxsmstinstancetable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable)), ("stpxSMSTInstanceEditTable", ("stpxsmstinstanceedittable", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable)), ("stpxSMSTPortTable", ("stpxsmstporttable", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.stpxuplinkfastobjects = CISCOSTPEXTENSIONSMIB.Stpxuplinkfastobjects()
         self.stpxuplinkfastobjects.parent = self
@@ -398,18 +402,21 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxuplinkfastenabled = YLeaf(YType.boolean, "stpxUplinkFastEnabled")
-
-            self.stpxuplinkfasttransitions = YLeaf(YType.uint32, "stpxUplinkFastTransitions")
-
-            self.stpxuplinkstationlearninggenrate = YLeaf(YType.int32, "stpxUplinkStationLearningGenRate")
-
-            self.stpxuplinkstationlearningframes = YLeaf(YType.uint32, "stpxUplinkStationLearningFrames")
-
-            self.stpxuplinkfastoperenabled = YLeaf(YType.boolean, "stpxUplinkFastOperEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxuplinkfastenabled', YLeaf(YType.boolean, 'stpxUplinkFastEnabled')),
+                ('stpxuplinkfasttransitions', YLeaf(YType.uint32, 'stpxUplinkFastTransitions')),
+                ('stpxuplinkstationlearninggenrate', YLeaf(YType.int32, 'stpxUplinkStationLearningGenRate')),
+                ('stpxuplinkstationlearningframes', YLeaf(YType.uint32, 'stpxUplinkStationLearningFrames')),
+                ('stpxuplinkfastoperenabled', YLeaf(YType.boolean, 'stpxUplinkFastOperEnabled')),
+            ])
+            self.stpxuplinkfastenabled = None
+            self.stpxuplinkfasttransitions = None
+            self.stpxuplinkstationlearninggenrate = None
+            self.stpxuplinkstationlearningframes = None
+            self.stpxuplinkfastoperenabled = None
             self._segment_path = lambda: "stpxUplinkFastObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -480,22 +487,25 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxbackbonefastenabled = YLeaf(YType.boolean, "stpxBackboneFastEnabled")
-
-            self.stpxbackbonefastininferiorbpdus = YLeaf(YType.uint32, "stpxBackboneFastInInferiorBPDUs")
-
-            self.stpxbackbonefastinrlqrequestpdus = YLeaf(YType.uint32, "stpxBackboneFastInRLQRequestPDUs")
-
-            self.stpxbackbonefastinrlqresponsepdus = YLeaf(YType.uint32, "stpxBackboneFastInRLQResponsePDUs")
-
-            self.stpxbackbonefastoutrlqrequestpdus = YLeaf(YType.uint32, "stpxBackboneFastOutRLQRequestPDUs")
-
-            self.stpxbackbonefastoutrlqresponsepdus = YLeaf(YType.uint32, "stpxBackboneFastOutRLQResponsePDUs")
-
-            self.stpxbackbonefastoperenabled = YLeaf(YType.boolean, "stpxBackboneFastOperEnabled")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxbackbonefastenabled', YLeaf(YType.boolean, 'stpxBackboneFastEnabled')),
+                ('stpxbackbonefastininferiorbpdus', YLeaf(YType.uint32, 'stpxBackboneFastInInferiorBPDUs')),
+                ('stpxbackbonefastinrlqrequestpdus', YLeaf(YType.uint32, 'stpxBackboneFastInRLQRequestPDUs')),
+                ('stpxbackbonefastinrlqresponsepdus', YLeaf(YType.uint32, 'stpxBackboneFastInRLQResponsePDUs')),
+                ('stpxbackbonefastoutrlqrequestpdus', YLeaf(YType.uint32, 'stpxBackboneFastOutRLQRequestPDUs')),
+                ('stpxbackbonefastoutrlqresponsepdus', YLeaf(YType.uint32, 'stpxBackboneFastOutRLQResponsePDUs')),
+                ('stpxbackbonefastoperenabled', YLeaf(YType.boolean, 'stpxBackboneFastOperEnabled')),
+            ])
+            self.stpxbackbonefastenabled = None
+            self.stpxbackbonefastininferiorbpdus = None
+            self.stpxbackbonefastinrlqrequestpdus = None
+            self.stpxbackbonefastinrlqresponsepdus = None
+            self.stpxbackbonefastoutrlqrequestpdus = None
+            self.stpxbackbonefastoutrlqresponsepdus = None
+            self.stpxbackbonefastoperenabled = None
             self._segment_path = lambda: "stpxBackboneFastObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -551,20 +561,23 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxspanningtreetype = YLeaf(YType.enumeration, "stpxSpanningTreeType")
-
-            self.stpxspanningtreepathcostmode = YLeaf(YType.enumeration, "stpxSpanningTreePathCostMode")
-
-            self.stpxextendedsysidadminenabled = YLeaf(YType.boolean, "stpxExtendedSysIDAdminEnabled")
-
-            self.stpxextendedsysidoperenabled = YLeaf(YType.boolean, "stpxExtendedSysIDOperEnabled")
-
-            self.stpxnotificationenable = YLeaf(YType.bits, "stpxNotificationEnable")
-
-            self.stpxspanningtreepathcostopermode = YLeaf(YType.enumeration, "stpxSpanningTreePathCostOperMode")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxspanningtreetype', YLeaf(YType.enumeration, 'stpxSpanningTreeType')),
+                ('stpxspanningtreepathcostmode', YLeaf(YType.enumeration, 'stpxSpanningTreePathCostMode')),
+                ('stpxextendedsysidadminenabled', YLeaf(YType.boolean, 'stpxExtendedSysIDAdminEnabled')),
+                ('stpxextendedsysidoperenabled', YLeaf(YType.boolean, 'stpxExtendedSysIDOperEnabled')),
+                ('stpxnotificationenable', YLeaf(YType.bits, 'stpxNotificationEnable')),
+                ('stpxspanningtreepathcostopermode', YLeaf(YType.enumeration, 'stpxSpanningTreePathCostOperMode')),
+            ])
+            self.stpxspanningtreetype = None
+            self.stpxspanningtreepathcostmode = None
+            self.stpxextendedsysidadminenabled = None
+            self.stpxextendedsysidoperenabled = None
+            self.stpxnotificationenable = Bits()
+            self.stpxspanningtreepathcostopermode = None
             self._segment_path = lambda: "stpxSpanningTreeObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -573,7 +586,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxspanningtreepathcostmode(Enum):
             """
-            Stpxspanningtreepathcostmode
+            Stpxspanningtreepathcostmode (Enum Class)
 
             Indicates the administrative  spanning tree path cost mode 
 
@@ -592,7 +605,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxspanningtreepathcostopermode(Enum):
             """
-            Stpxspanningtreepathcostopermode
+            Stpxspanningtreepathcostopermode (Enum Class)
 
             Indicate the operational spanning tree path cost mode
 
@@ -641,7 +654,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxspanningtreetype(Enum):
             """
-            Stpxspanningtreetype
+            Stpxspanningtreetype (Enum Class)
 
             The actual mode of spanning tree protocol runs
 
@@ -722,10 +735,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxmistpinstancenumber = YLeaf(YType.int32, "stpxMISTPInstanceNumber")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxmistpinstancenumber', YLeaf(YType.int32, 'stpxMISTPInstanceNumber')),
+            ])
+            self.stpxmistpinstancenumber = None
             self._segment_path = lambda: "stpxMISTPObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -756,10 +772,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxloopguardglobaldefaultmode = YLeaf(YType.enumeration, "stpxLoopGuardGlobalDefaultMode")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxloopguardglobaldefaultmode', YLeaf(YType.enumeration, 'stpxLoopGuardGlobalDefaultMode')),
+            ])
+            self.stpxloopguardglobaldefaultmode = None
             self._segment_path = lambda: "stpxLoopGuardObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -768,7 +787,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxloopguardglobaldefaultmode(Enum):
             """
-            Stpxloopguardglobaldefaultmode
+            Stpxloopguardglobaldefaultmode (Enum Class)
 
             Indicates the global default config mode of LoopGuard 
 
@@ -819,14 +838,17 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxfaststartbpduguardenable = YLeaf(YType.boolean, "stpxFastStartBpduGuardEnable")
-
-            self.stpxfaststartbpdufilterenable = YLeaf(YType.boolean, "stpxFastStartBpduFilterEnable")
-
-            self.stpxfaststartglobaldefaultmode = YLeaf(YType.enumeration, "stpxFastStartGlobalDefaultMode")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxfaststartbpduguardenable', YLeaf(YType.boolean, 'stpxFastStartBpduGuardEnable')),
+                ('stpxfaststartbpdufilterenable', YLeaf(YType.boolean, 'stpxFastStartBpduFilterEnable')),
+                ('stpxfaststartglobaldefaultmode', YLeaf(YType.enumeration, 'stpxFastStartGlobalDefaultMode')),
+            ])
+            self.stpxfaststartbpduguardenable = None
+            self.stpxfaststartbpdufilterenable = None
+            self.stpxfaststartglobaldefaultmode = None
             self._segment_path = lambda: "stpxFastStartObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -835,7 +857,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxfaststartglobaldefaultmode(Enum):
             """
-            Stpxfaststartglobaldefaultmode
+            Stpxfaststartglobaldefaultmode (Enum Class)
 
             Indicates the global default mode of the Fast 
 
@@ -876,10 +898,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxbpduskewingdetectionenable = YLeaf(YType.boolean, "stpxBpduSkewingDetectionEnable")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxbpduskewingdetectionenable', YLeaf(YType.boolean, 'stpxBpduSkewingDetectionEnable')),
+            ])
+            self.stpxbpduskewingdetectionenable = None
             self._segment_path = lambda: "stpxBpduSkewingObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -965,24 +990,27 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxmstmaxinstancenumber = YLeaf(YType.int32, "stpxMSTMaxInstanceNumber")
-
-            self.stpxmstregionname = YLeaf(YType.str, "stpxMSTRegionName")
-
-            self.stpxmstregionrevision = YLeaf(YType.int32, "stpxMSTRegionRevision")
-
-            self.stpxmstregioneditbufferstatus = YLeaf(YType.enumeration, "stpxMSTRegionEditBufferStatus")
-
-            self.stpxmstregioneditbufferoperation = YLeaf(YType.enumeration, "stpxMSTRegionEditBufferOperation")
-
-            self.stpxmstregioneditname = YLeaf(YType.str, "stpxMSTRegionEditName")
-
-            self.stpxmstregioneditrevision = YLeaf(YType.int32, "stpxMSTRegionEditRevision")
-
-            self.stpxmstmaxhopcount = YLeaf(YType.int32, "stpxMSTMaxHopCount")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxmstmaxinstancenumber', YLeaf(YType.int32, 'stpxMSTMaxInstanceNumber')),
+                ('stpxmstregionname', YLeaf(YType.str, 'stpxMSTRegionName')),
+                ('stpxmstregionrevision', YLeaf(YType.int32, 'stpxMSTRegionRevision')),
+                ('stpxmstregioneditbufferstatus', YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferStatus')),
+                ('stpxmstregioneditbufferoperation', YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferOperation')),
+                ('stpxmstregioneditname', YLeaf(YType.str, 'stpxMSTRegionEditName')),
+                ('stpxmstregioneditrevision', YLeaf(YType.int32, 'stpxMSTRegionEditRevision')),
+                ('stpxmstmaxhopcount', YLeaf(YType.int32, 'stpxMSTMaxHopCount')),
+            ])
+            self.stpxmstmaxinstancenumber = None
+            self.stpxmstregionname = None
+            self.stpxmstregionrevision = None
+            self.stpxmstregioneditbufferstatus = None
+            self.stpxmstregioneditbufferoperation = None
+            self.stpxmstregioneditname = None
+            self.stpxmstregioneditrevision = None
+            self.stpxmstmaxhopcount = None
             self._segment_path = lambda: "stpxMSTObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -991,7 +1019,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxmstregioneditbufferoperation(Enum):
             """
-            Stpxmstregioneditbufferoperation
+            Stpxmstregioneditbufferoperation (Enum Class)
 
             Indicates the operation that is performed on the Region 
 
@@ -1074,7 +1102,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
         class Stpxmstregioneditbufferstatus(Enum):
             """
-            Stpxmstregioneditbufferstatus
+            Stpxmstregioneditbufferstatus (Enum Class)
 
             Indicates the current ownership status of the unique 
 
@@ -1133,10 +1161,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxrstptransmitholdcount = YLeaf(YType.uint32, "stpxRSTPTransmitHoldCount")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxrstptransmitholdcount', YLeaf(YType.uint32, 'stpxRSTPTransmitHoldCount')),
+            ])
+            self.stpxrstptransmitholdcount = None
             self._segment_path = lambda: "stpxRSTPObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -1207,22 +1238,25 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.stpxsmstmaxinstances = YLeaf(YType.uint32, "stpxSMSTMaxInstances")
-
-            self.stpxsmstmaxinstanceid = YLeaf(YType.uint32, "stpxSMSTMaxInstanceID")
-
-            self.stpxsmstregionrevision = YLeaf(YType.uint32, "stpxSMSTRegionRevision")
-
-            self.stpxsmstregioneditrevision = YLeaf(YType.uint32, "stpxSMSTRegionEditRevision")
-
-            self.stpxsmstmaxhopcount = YLeaf(YType.uint32, "stpxSMSTMaxHopCount")
-
-            self.stpxsmstconfigdigest = YLeaf(YType.str, "stpxSMSTConfigDigest")
-
-            self.stpxsmstconfigprestandarddigest = YLeaf(YType.str, "stpxSMSTConfigPreStandardDigest")
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('stpxsmstmaxinstances', YLeaf(YType.uint32, 'stpxSMSTMaxInstances')),
+                ('stpxsmstmaxinstanceid', YLeaf(YType.uint32, 'stpxSMSTMaxInstanceID')),
+                ('stpxsmstregionrevision', YLeaf(YType.uint32, 'stpxSMSTRegionRevision')),
+                ('stpxsmstregioneditrevision', YLeaf(YType.uint32, 'stpxSMSTRegionEditRevision')),
+                ('stpxsmstmaxhopcount', YLeaf(YType.uint32, 'stpxSMSTMaxHopCount')),
+                ('stpxsmstconfigdigest', YLeaf(YType.str, 'stpxSMSTConfigDigest')),
+                ('stpxsmstconfigprestandarddigest', YLeaf(YType.str, 'stpxSMSTConfigPreStandardDigest')),
+            ])
+            self.stpxsmstmaxinstances = None
+            self.stpxsmstmaxinstanceid = None
+            self.stpxsmstregionrevision = None
+            self.stpxsmstregioneditrevision = None
+            self.stpxsmstmaxhopcount = None
+            self.stpxsmstconfigdigest = None
+            self.stpxsmstconfigprestandarddigest = None
             self._segment_path = lambda: "stpxSMSTObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
 
@@ -1256,8 +1290,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxPVSTVlanEntry" : ("stpxpvstvlanentry", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxPVSTVlanEntry", ("stpxpvstvlanentry", CISCOSTPEXTENSIONSMIB.Stpxpvstvlantable.Stpxpvstvlanentry))])
+            self._leafs = OrderedDict()
 
             self.stpxpvstvlanentry = YList(self)
             self._segment_path = lambda: "stpxPVSTVlanTable"
@@ -1272,7 +1308,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             An entry containing Spanning Tree PVST+ Protocol 
             information for a particular Virtual LAN.
             
-            .. attribute:: stpxpvstvlanindex  <key>
+            .. attribute:: stpxpvstvlanindex  (key)
             
             	An index value that uniquely identifies the Virtual LAN associated with this information
             	**type**\: int
@@ -1298,13 +1334,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxPVSTVlanTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxpvstvlanindex = YLeaf(YType.int32, "stpxPVSTVlanIndex")
-
-                self.stpxpvstvlanenable = YLeaf(YType.enumeration, "stpxPVSTVlanEnable")
-                self._segment_path = lambda: "stpxPVSTVlanEntry" + "[stpxPVSTVlanIndex='" + self.stpxpvstvlanindex.get() + "']"
+                self.ylist_key_names = ['stpxpvstvlanindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxpvstvlanindex', YLeaf(YType.int32, 'stpxPVSTVlanIndex')),
+                    ('stpxpvstvlanenable', YLeaf(YType.enumeration, 'stpxPVSTVlanEnable')),
+                ])
+                self.stpxpvstvlanindex = None
+                self.stpxpvstvlanenable = None
+                self._segment_path = lambda: "stpxPVSTVlanEntry" + "[stpxPVSTVlanIndex='" + str(self.stpxpvstvlanindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxPVSTVlanTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1312,7 +1351,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxpvstvlanenable(Enum):
                 """
-                Stpxpvstvlanenable
+                Stpxpvstvlanenable (Enum Class)
 
                 Indicates whether Spanning Tree PVST+  
 
@@ -1393,8 +1432,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxInconsistencyEntry" : ("stpxinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxInconsistencyEntry", ("stpxinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxinconsistencytable.Stpxinconsistencyentry))])
+            self._leafs = OrderedDict()
 
             self.stpxinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxInconsistencyTable"
@@ -1409,14 +1450,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A VLAN on a particular port for which a Spanning Tree
             inconsistency is currently in effect.
             
-            .. attribute:: stpxvlanindex  <key>
+            .. attribute:: stpxvlanindex  (key)
             
             	The VLAN id of the VLAN
             	**type**\: int
             
             	**range:** 0..4095
             
-            .. attribute:: stpxportindex  <key>
+            .. attribute:: stpxportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -1442,15 +1483,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxvlanindex = YLeaf(YType.int32, "stpxVlanIndex")
-
-                self.stpxportindex = YLeaf(YType.int32, "stpxPortIndex")
-
-                self.stpxinconsistentstate = YLeaf(YType.bits, "stpxInconsistentState")
-                self._segment_path = lambda: "stpxInconsistencyEntry" + "[stpxVlanIndex='" + self.stpxvlanindex.get() + "']" + "[stpxPortIndex='" + self.stpxportindex.get() + "']"
+                self.ylist_key_names = ['stpxvlanindex','stpxportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxvlanindex', YLeaf(YType.int32, 'stpxVlanIndex')),
+                    ('stpxportindex', YLeaf(YType.int32, 'stpxPortIndex')),
+                    ('stpxinconsistentstate', YLeaf(YType.bits, 'stpxInconsistentState')),
+                ])
+                self.stpxvlanindex = None
+                self.stpxportindex = None
+                self.stpxinconsistentstate = Bits()
+                self._segment_path = lambda: "stpxInconsistencyEntry" + "[stpxVlanIndex='" + str(self.stpxvlanindex) + "']" + "[stpxPortIndex='" + str(self.stpxportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1481,8 +1525,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxRootGuardConfigEntry" : ("stpxrootguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxRootGuardConfigEntry", ("stpxrootguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxrootguardconfigtable.Stpxrootguardconfigentry))])
+            self._leafs = OrderedDict()
 
             self.stpxrootguardconfigentry = YList(self)
             self._segment_path = lambda: "stpxRootGuardConfigTable"
@@ -1497,7 +1543,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A bridge port for which Spanning Tree RootGuard
             capability can be configured.
             
-            .. attribute:: stpxrootguardconfigportindex  <key>
+            .. attribute:: stpxrootguardconfigportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -1523,13 +1569,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxRootGuardConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxrootguardconfigportindex = YLeaf(YType.int32, "stpxRootGuardConfigPortIndex")
-
-                self.stpxrootguardconfigenabled = YLeaf(YType.boolean, "stpxRootGuardConfigEnabled")
-                self._segment_path = lambda: "stpxRootGuardConfigEntry" + "[stpxRootGuardConfigPortIndex='" + self.stpxrootguardconfigportindex.get() + "']"
+                self.ylist_key_names = ['stpxrootguardconfigportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxrootguardconfigportindex', YLeaf(YType.int32, 'stpxRootGuardConfigPortIndex')),
+                    ('stpxrootguardconfigenabled', YLeaf(YType.boolean, 'stpxRootGuardConfigEnabled')),
+                ])
+                self.stpxrootguardconfigportindex = None
+                self.stpxrootguardconfigenabled = None
+                self._segment_path = lambda: "stpxRootGuardConfigEntry" + "[stpxRootGuardConfigPortIndex='" + str(self.stpxrootguardconfigportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootGuardConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1564,8 +1613,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxRootInconsistencyEntry" : ("stpxrootinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxRootInconsistencyEntry", ("stpxrootinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxrootinconsistencytable.Stpxrootinconsistencyentry))])
+            self._leafs = OrderedDict()
 
             self.stpxrootinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxRootInconsistencyTable"
@@ -1581,14 +1632,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             which a Spanning Tree root\-inconsistency is currently 
             in effect.
             
-            .. attribute:: stpxrootinconsistencyindex  <key>
+            .. attribute:: stpxrootinconsistencyindex  (key)
             
             	The Spanning Tree instance id, such as the VLAN id of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or rapidPvstPlus(5)
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: stpxrootinconsistencyportindex  <key>
+            .. attribute:: stpxrootinconsistencyportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -1614,15 +1665,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxRootInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxrootinconsistencyindex = YLeaf(YType.int32, "stpxRootInconsistencyIndex")
-
-                self.stpxrootinconsistencyportindex = YLeaf(YType.int32, "stpxRootInconsistencyPortIndex")
-
-                self.stpxrootinconsistencystate = YLeaf(YType.boolean, "stpxRootInconsistencyState")
-                self._segment_path = lambda: "stpxRootInconsistencyEntry" + "[stpxRootInconsistencyIndex='" + self.stpxrootinconsistencyindex.get() + "']" + "[stpxRootInconsistencyPortIndex='" + self.stpxrootinconsistencyportindex.get() + "']"
+                self.ylist_key_names = ['stpxrootinconsistencyindex','stpxrootinconsistencyportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxrootinconsistencyindex', YLeaf(YType.int32, 'stpxRootInconsistencyIndex')),
+                    ('stpxrootinconsistencyportindex', YLeaf(YType.int32, 'stpxRootInconsistencyPortIndex')),
+                    ('stpxrootinconsistencystate', YLeaf(YType.boolean, 'stpxRootInconsistencyState')),
+                ])
+                self.stpxrootinconsistencyindex = None
+                self.stpxrootinconsistencyportindex = None
+                self.stpxrootinconsistencystate = None
+                self._segment_path = lambda: "stpxRootInconsistencyEntry" + "[stpxRootInconsistencyIndex='" + str(self.stpxrootinconsistencyindex) + "']" + "[stpxRootInconsistencyPortIndex='" + str(self.stpxrootinconsistencyportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1657,8 +1711,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxMISTPInstanceEntry" : ("stpxmistpinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxMISTPInstanceEntry", ("stpxmistpinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmistpinstancetable.Stpxmistpinstanceentry))])
+            self._leafs = OrderedDict()
 
             self.stpxmistpinstanceentry = YList(self)
             self._segment_path = lambda: "stpxMISTPInstanceTable"
@@ -1673,7 +1729,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A conceptual row containing the status of the MISTP 
             instance.
             
-            .. attribute:: stpxmistpinstanceindex  <key>
+            .. attribute:: stpxmistpinstanceindex  (key)
             
             	An arbitrary integer within the range from 1 to the value of stpxMISTPInstanceNumber that uniquely identifies an instance
             	**type**\: int
@@ -1727,21 +1783,24 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxMISTPInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxmistpinstanceindex = YLeaf(YType.int32, "stpxMISTPInstanceIndex")
-
-                self.stpxmistpinstanceenable = YLeaf(YType.boolean, "stpxMISTPInstanceEnable")
-
-                self.stpxmistpinstancevlansmapped = YLeaf(YType.str, "stpxMISTPInstanceVlansMapped")
-
-                self.stpxmistpinstancevlansmapped2k = YLeaf(YType.str, "stpxMISTPInstanceVlansMapped2k")
-
-                self.stpxmistpinstancevlansmapped3k = YLeaf(YType.str, "stpxMISTPInstanceVlansMapped3k")
-
-                self.stpxmistpinstancevlansmapped4k = YLeaf(YType.str, "stpxMISTPInstanceVlansMapped4k")
-                self._segment_path = lambda: "stpxMISTPInstanceEntry" + "[stpxMISTPInstanceIndex='" + self.stpxmistpinstanceindex.get() + "']"
+                self.ylist_key_names = ['stpxmistpinstanceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxmistpinstanceindex', YLeaf(YType.int32, 'stpxMISTPInstanceIndex')),
+                    ('stpxmistpinstanceenable', YLeaf(YType.boolean, 'stpxMISTPInstanceEnable')),
+                    ('stpxmistpinstancevlansmapped', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped')),
+                    ('stpxmistpinstancevlansmapped2k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped2k')),
+                    ('stpxmistpinstancevlansmapped3k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped3k')),
+                    ('stpxmistpinstancevlansmapped4k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped4k')),
+                ])
+                self.stpxmistpinstanceindex = None
+                self.stpxmistpinstanceenable = None
+                self.stpxmistpinstancevlansmapped = None
+                self.stpxmistpinstancevlansmapped2k = None
+                self.stpxmistpinstancevlansmapped3k = None
+                self.stpxmistpinstancevlansmapped4k = None
+                self._segment_path = lambda: "stpxMISTPInstanceEntry" + "[stpxMISTPInstanceIndex='" + str(self.stpxmistpinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMISTPInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1772,8 +1831,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxLoopGuardConfigEntry" : ("stpxloopguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxLoopGuardConfigEntry", ("stpxloopguardconfigentry", CISCOSTPEXTENSIONSMIB.Stpxloopguardconfigtable.Stpxloopguardconfigentry))])
+            self._leafs = OrderedDict()
 
             self.stpxloopguardconfigentry = YList(self)
             self._segment_path = lambda: "stpxLoopGuardConfigTable"
@@ -1788,7 +1849,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A bridge port for which Spanning Tree LoopGuard 
             capability can be configured.
             
-            .. attribute:: stpxloopguardconfigportindex  <key>
+            .. attribute:: stpxloopguardconfigportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -1821,15 +1882,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxLoopGuardConfigTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxloopguardconfigportindex = YLeaf(YType.int32, "stpxLoopGuardConfigPortIndex")
-
-                self.stpxloopguardconfigenabled = YLeaf(YType.boolean, "stpxLoopGuardConfigEnabled")
-
-                self.stpxloopguardconfigmode = YLeaf(YType.enumeration, "stpxLoopGuardConfigMode")
-                self._segment_path = lambda: "stpxLoopGuardConfigEntry" + "[stpxLoopGuardConfigPortIndex='" + self.stpxloopguardconfigportindex.get() + "']"
+                self.ylist_key_names = ['stpxloopguardconfigportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxloopguardconfigportindex', YLeaf(YType.int32, 'stpxLoopGuardConfigPortIndex')),
+                    ('stpxloopguardconfigenabled', YLeaf(YType.boolean, 'stpxLoopGuardConfigEnabled')),
+                    ('stpxloopguardconfigmode', YLeaf(YType.enumeration, 'stpxLoopGuardConfigMode')),
+                ])
+                self.stpxloopguardconfigportindex = None
+                self.stpxloopguardconfigenabled = None
+                self.stpxloopguardconfigmode = None
+                self._segment_path = lambda: "stpxLoopGuardConfigEntry" + "[stpxLoopGuardConfigPortIndex='" + str(self.stpxloopguardconfigportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopGuardConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1837,7 +1901,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxloopguardconfigmode(Enum):
                 """
-                Stpxloopguardconfigmode
+                Stpxloopguardconfigmode (Enum Class)
 
                 Indicates the mode of Loop Guard Feature on this 
 
@@ -1905,8 +1969,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxLoopInconsistencyEntry" : ("stpxloopinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxLoopInconsistencyEntry", ("stpxloopinconsistencyentry", CISCOSTPEXTENSIONSMIB.Stpxloopinconsistencytable.Stpxloopinconsistencyentry))])
+            self._leafs = OrderedDict()
 
             self.stpxloopinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxLoopInconsistencyTable"
@@ -1922,14 +1988,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             which a Spanning Tree loop\-inconsistency is currently
             in effect.
             
-            .. attribute:: stpxloopinconsistencyindex  <key>
+            .. attribute:: stpxloopinconsistencyindex  (key)
             
             	The Spanning Tree instance id, such as the VLAN id of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or rapidPvstPlus(5)
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: stpxloopinconsistencyportindex  <key>
+            .. attribute:: stpxloopinconsistencyportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -1955,15 +2021,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxLoopInconsistencyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxloopinconsistencyindex = YLeaf(YType.int32, "stpxLoopInconsistencyIndex")
-
-                self.stpxloopinconsistencyportindex = YLeaf(YType.int32, "stpxLoopInconsistencyPortIndex")
-
-                self.stpxloopinconsistencystate = YLeaf(YType.boolean, "stpxLoopInconsistencyState")
-                self._segment_path = lambda: "stpxLoopInconsistencyEntry" + "[stpxLoopInconsistencyIndex='" + self.stpxloopinconsistencyindex.get() + "']" + "[stpxLoopInconsistencyPortIndex='" + self.stpxloopinconsistencyportindex.get() + "']"
+                self.ylist_key_names = ['stpxloopinconsistencyindex','stpxloopinconsistencyportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxloopinconsistencyindex', YLeaf(YType.int32, 'stpxLoopInconsistencyIndex')),
+                    ('stpxloopinconsistencyportindex', YLeaf(YType.int32, 'stpxLoopInconsistencyPortIndex')),
+                    ('stpxloopinconsistencystate', YLeaf(YType.boolean, 'stpxLoopInconsistencyState')),
+                ])
+                self.stpxloopinconsistencyindex = None
+                self.stpxloopinconsistencyportindex = None
+                self.stpxloopinconsistencystate = None
+                self._segment_path = lambda: "stpxLoopInconsistencyEntry" + "[stpxLoopInconsistencyIndex='" + str(self.stpxloopinconsistencyindex) + "']" + "[stpxLoopInconsistencyPortIndex='" + str(self.stpxloopinconsistencyportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopInconsistencyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -1995,8 +2064,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxFastStartPortEntry" : ("stpxfaststartportentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxFastStartPortEntry", ("stpxfaststartportentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartporttable.Stpxfaststartportentry))])
+            self._leafs = OrderedDict()
 
             self.stpxfaststartportentry = YList(self)
             self._segment_path = lambda: "stpxFastStartPortTable"
@@ -2011,7 +2082,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A bridge port for which Spanning Tree Port Fast
             Start can be configured.
             
-            .. attribute:: stpxfaststartportindex  <key>
+            .. attribute:: stpxfaststartportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -2054,19 +2125,22 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxFastStartPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxfaststartportindex = YLeaf(YType.int32, "stpxFastStartPortIndex")
-
-                self.stpxfaststartportenable = YLeaf(YType.boolean, "stpxFastStartPortEnable")
-
-                self.stpxfaststartportmode = YLeaf(YType.enumeration, "stpxFastStartPortMode")
-
-                self.stpxfaststartportbpduguardmode = YLeaf(YType.enumeration, "stpxFastStartPortBpduGuardMode")
-
-                self.stpxfaststartportbpdufiltermode = YLeaf(YType.enumeration, "stpxFastStartPortBpduFilterMode")
-                self._segment_path = lambda: "stpxFastStartPortEntry" + "[stpxFastStartPortIndex='" + self.stpxfaststartportindex.get() + "']"
+                self.ylist_key_names = ['stpxfaststartportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxfaststartportindex', YLeaf(YType.int32, 'stpxFastStartPortIndex')),
+                    ('stpxfaststartportenable', YLeaf(YType.boolean, 'stpxFastStartPortEnable')),
+                    ('stpxfaststartportmode', YLeaf(YType.enumeration, 'stpxFastStartPortMode')),
+                    ('stpxfaststartportbpduguardmode', YLeaf(YType.enumeration, 'stpxFastStartPortBpduGuardMode')),
+                    ('stpxfaststartportbpdufiltermode', YLeaf(YType.enumeration, 'stpxFastStartPortBpduFilterMode')),
+                ])
+                self.stpxfaststartportindex = None
+                self.stpxfaststartportenable = None
+                self.stpxfaststartportmode = None
+                self.stpxfaststartportbpduguardmode = None
+                self.stpxfaststartportbpdufiltermode = None
+                self._segment_path = lambda: "stpxFastStartPortEntry" + "[stpxFastStartPortIndex='" + str(self.stpxfaststartportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2074,7 +2148,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxfaststartportbpdufiltermode(Enum):
                 """
-                Stpxfaststartportbpdufiltermode
+                Stpxfaststartportbpdufiltermode (Enum Class)
 
                 Indicates the mode of Bpdu Filter Feature on the
 
@@ -2121,7 +2195,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxfaststartportbpduguardmode(Enum):
                 """
-                Stpxfaststartportbpduguardmode
+                Stpxfaststartportbpduguardmode (Enum Class)
 
                 Indicates the mode of Bpdu Guard Feature on the
 
@@ -2172,7 +2246,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxfaststartportmode(Enum):
                 """
-                Stpxfaststartportmode
+                Stpxfaststartportmode (Enum Class)
 
                 Indicates the mode of Fast Start Feature on the 
 
@@ -2266,8 +2340,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxFastStartOperModeEntry" : ("stpxfaststartopermodeentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxFastStartOperModeEntry", ("stpxfaststartopermodeentry", CISCOSTPEXTENSIONSMIB.Stpxfaststartopermodetable.Stpxfaststartopermodeentry))])
+            self._leafs = OrderedDict()
 
             self.stpxfaststartopermodeentry = YList(self)
             self._segment_path = lambda: "stpxFastStartOperModeTable"
@@ -2283,14 +2359,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             information on a bridge port for a particular 
             Spanning Tree Instance.
             
-            .. attribute:: stpxfaststartopermodeinstindex  <key>
+            .. attribute:: stpxfaststartopermodeinstindex  (key)
             
             	The Spanning Tree instance id, such as the VLAN id  of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1)
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: stpxfaststartopermodeportindex  <key>
+            .. attribute:: stpxfaststartopermodeportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -2316,15 +2392,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxFastStartOperModeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxfaststartopermodeinstindex = YLeaf(YType.int32, "stpxFastStartOperModeInstIndex")
-
-                self.stpxfaststartopermodeportindex = YLeaf(YType.int32, "stpxFastStartOperModePortIndex")
-
-                self.stpxfaststartopermode = YLeaf(YType.enumeration, "stpxFastStartOperMode")
-                self._segment_path = lambda: "stpxFastStartOperModeEntry" + "[stpxFastStartOperModeInstIndex='" + self.stpxfaststartopermodeinstindex.get() + "']" + "[stpxFastStartOperModePortIndex='" + self.stpxfaststartopermodeportindex.get() + "']"
+                self.ylist_key_names = ['stpxfaststartopermodeinstindex','stpxfaststartopermodeportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxfaststartopermodeinstindex', YLeaf(YType.int32, 'stpxFastStartOperModeInstIndex')),
+                    ('stpxfaststartopermodeportindex', YLeaf(YType.int32, 'stpxFastStartOperModePortIndex')),
+                    ('stpxfaststartopermode', YLeaf(YType.enumeration, 'stpxFastStartOperMode')),
+                ])
+                self.stpxfaststartopermodeinstindex = None
+                self.stpxfaststartopermodeportindex = None
+                self.stpxfaststartopermode = None
+                self._segment_path = lambda: "stpxFastStartOperModeEntry" + "[stpxFastStartOperModeInstIndex='" + str(self.stpxfaststartopermodeinstindex) + "']" + "[stpxFastStartOperModePortIndex='" + str(self.stpxfaststartopermodeportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartOperModeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2332,7 +2411,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxfaststartopermode(Enum):
                 """
-                Stpxfaststartopermode
+                Stpxfaststartopermode (Enum Class)
 
                 Indicates the fast start operational status of the 
 
@@ -2387,8 +2466,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxBpduSkewingEntry" : ("stpxbpduskewingentry", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxBpduSkewingEntry", ("stpxbpduskewingentry", CISCOSTPEXTENSIONSMIB.Stpxbpduskewingtable.Stpxbpduskewingentry))])
+            self._leafs = OrderedDict()
 
             self.stpxbpduskewingentry = YList(self)
             self._segment_path = lambda: "stpxBpduSkewingTable"
@@ -2403,14 +2484,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A Spanning Tree instance on a particular port for
             which BPDU skewing has been detected.
             
-            .. attribute:: stpxbpduskewinginstanceindex  <key>
+            .. attribute:: stpxbpduskewinginstanceindex  (key)
             
             	The Spanning Tree instance id, such as the VLAN id  of the VLAN if the object value of stpxSpanningTreeType  is pvstPlus(1)
             	**type**\: int
             
             	**range:** 0..65535
             
-            .. attribute:: stpxbpduskewingportindex  <key>
+            .. attribute:: stpxbpduskewingportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -2456,19 +2537,22 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxBpduSkewingTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxbpduskewinginstanceindex = YLeaf(YType.int32, "stpxBpduSkewingInstanceIndex")
-
-                self.stpxbpduskewingportindex = YLeaf(YType.int32, "stpxBpduSkewingPortIndex")
-
-                self.stpxbpduskewinglastskewduration = YLeaf(YType.uint32, "stpxBpduSkewingLastSkewDuration")
-
-                self.stpxbpduskewingworstskewduration = YLeaf(YType.uint32, "stpxBpduSkewingWorstSkewDuration")
-
-                self.stpxbpduskewingworstskewtime = YLeaf(YType.uint32, "stpxBpduSkewingWorstSkewTime")
-                self._segment_path = lambda: "stpxBpduSkewingEntry" + "[stpxBpduSkewingInstanceIndex='" + self.stpxbpduskewinginstanceindex.get() + "']" + "[stpxBpduSkewingPortIndex='" + self.stpxbpduskewingportindex.get() + "']"
+                self.ylist_key_names = ['stpxbpduskewinginstanceindex','stpxbpduskewingportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxbpduskewinginstanceindex', YLeaf(YType.int32, 'stpxBpduSkewingInstanceIndex')),
+                    ('stpxbpduskewingportindex', YLeaf(YType.int32, 'stpxBpduSkewingPortIndex')),
+                    ('stpxbpduskewinglastskewduration', YLeaf(YType.uint32, 'stpxBpduSkewingLastSkewDuration')),
+                    ('stpxbpduskewingworstskewduration', YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewDuration')),
+                    ('stpxbpduskewingworstskewtime', YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewTime')),
+                ])
+                self.stpxbpduskewinginstanceindex = None
+                self.stpxbpduskewingportindex = None
+                self.stpxbpduskewinglastskewduration = None
+                self.stpxbpduskewingworstskewduration = None
+                self.stpxbpduskewingworstskewtime = None
+                self._segment_path = lambda: "stpxBpduSkewingEntry" + "[stpxBpduSkewingInstanceIndex='" + str(self.stpxbpduskewinginstanceindex) + "']" + "[stpxBpduSkewingPortIndex='" + str(self.stpxbpduskewingportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxBpduSkewingTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2505,8 +2589,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxMSTInstanceEntry" : ("stpxmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxMSTInstanceEntry", ("stpxmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstancetable.Stpxmstinstanceentry))])
+            self._leafs = OrderedDict()
 
             self.stpxmstinstanceentry = YList(self)
             self._segment_path = lambda: "stpxMSTInstanceTable"
@@ -2521,7 +2607,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A conceptual row containing the MST instance 
             information.
             
-            .. attribute:: stpxmstinstanceindex  <key>
+            .. attribute:: stpxmstinstanceindex  (key)
             
             	An integer that uniquely identifies an MST instance  within the range of 0 to the object value of stpxMSTMaxInstanceNumber.  This object is deprecated and replaced by  stpxSMSTInstanceIndex
             	**type**\: int
@@ -2589,21 +2675,24 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxMSTInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxmstinstanceindex = YLeaf(YType.int32, "stpxMSTInstanceIndex")
-
-                self.stpxmstinstancevlansmapped = YLeaf(YType.str, "stpxMSTInstanceVlansMapped")
-
-                self.stpxmstinstancevlansmapped2k = YLeaf(YType.str, "stpxMSTInstanceVlansMapped2k")
-
-                self.stpxmstinstancevlansmapped3k = YLeaf(YType.str, "stpxMSTInstanceVlansMapped3k")
-
-                self.stpxmstinstancevlansmapped4k = YLeaf(YType.str, "stpxMSTInstanceVlansMapped4k")
-
-                self.stpxmstinstanceremaininghopcount = YLeaf(YType.int32, "stpxMSTInstanceRemainingHopCount")
-                self._segment_path = lambda: "stpxMSTInstanceEntry" + "[stpxMSTInstanceIndex='" + self.stpxmstinstanceindex.get() + "']"
+                self.ylist_key_names = ['stpxmstinstanceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxmstinstanceindex', YLeaf(YType.int32, 'stpxMSTInstanceIndex')),
+                    ('stpxmstinstancevlansmapped', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped')),
+                    ('stpxmstinstancevlansmapped2k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped2k')),
+                    ('stpxmstinstancevlansmapped3k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped3k')),
+                    ('stpxmstinstancevlansmapped4k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped4k')),
+                    ('stpxmstinstanceremaininghopcount', YLeaf(YType.int32, 'stpxMSTInstanceRemainingHopCount')),
+                ])
+                self.stpxmstinstanceindex = None
+                self.stpxmstinstancevlansmapped = None
+                self.stpxmstinstancevlansmapped2k = None
+                self.stpxmstinstancevlansmapped3k = None
+                self.stpxmstinstancevlansmapped4k = None
+                self.stpxmstinstanceremaininghopcount = None
+                self._segment_path = lambda: "stpxMSTInstanceEntry" + "[stpxMSTInstanceIndex='" + str(self.stpxmstinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2644,8 +2733,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxMSTInstanceEditEntry" : ("stpxmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxMSTInstanceEditEntry", ("stpxmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxmstinstanceedittable.Stpxmstinstanceeditentry))])
+            self._leafs = OrderedDict()
 
             self.stpxmstinstanceeditentry = YList(self)
             self._segment_path = lambda: "stpxMSTInstanceEditTable"
@@ -2660,7 +2751,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A conceptual row containing MST instance information 
             in the Edit Buffer.
             
-            .. attribute:: stpxmstinstanceeditindex  <key>
+            .. attribute:: stpxmstinstanceeditindex  (key)
             
             	An integer that uniquely identifies an MST instance  from 0 to the object value of stpxMSTMaxInstanceNumber.  The instances of this table entry with  stpxMSTInstanceEditIndex of zero can not be  modified.  This object is deprecated and replaced by  stpxSMSTInstanceEditIndex
             	**type**\: int
@@ -2719,19 +2810,22 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxMSTInstanceEditTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxmstinstanceeditindex = YLeaf(YType.int32, "stpxMSTInstanceEditIndex")
-
-                self.stpxmstinstanceeditvlansmap = YLeaf(YType.str, "stpxMSTInstanceEditVlansMap")
-
-                self.stpxmstinstanceeditvlansmap2k = YLeaf(YType.str, "stpxMSTInstanceEditVlansMap2k")
-
-                self.stpxmstinstanceeditvlansmap3k = YLeaf(YType.str, "stpxMSTInstanceEditVlansMap3k")
-
-                self.stpxmstinstanceeditvlansmap4k = YLeaf(YType.str, "stpxMSTInstanceEditVlansMap4k")
-                self._segment_path = lambda: "stpxMSTInstanceEditEntry" + "[stpxMSTInstanceEditIndex='" + self.stpxmstinstanceeditindex.get() + "']"
+                self.ylist_key_names = ['stpxmstinstanceeditindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxmstinstanceeditindex', YLeaf(YType.int32, 'stpxMSTInstanceEditIndex')),
+                    ('stpxmstinstanceeditvlansmap', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap')),
+                    ('stpxmstinstanceeditvlansmap2k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap2k')),
+                    ('stpxmstinstanceeditvlansmap3k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap3k')),
+                    ('stpxmstinstanceeditvlansmap4k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap4k')),
+                ])
+                self.stpxmstinstanceeditindex = None
+                self.stpxmstinstanceeditvlansmap = None
+                self.stpxmstinstanceeditvlansmap2k = None
+                self.stpxmstinstanceeditvlansmap3k = None
+                self.stpxmstinstanceeditvlansmap4k = None
+                self._segment_path = lambda: "stpxMSTInstanceEditEntry" + "[stpxMSTInstanceEditIndex='" + str(self.stpxmstinstanceeditindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceEditTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2765,8 +2859,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxMSTPortEntry" : ("stpxmstportentry", CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxMSTPortEntry", ("stpxmstportentry", CISCOSTPEXTENSIONSMIB.Stpxmstporttable.Stpxmstportentry))])
+            self._leafs = OrderedDict()
 
             self.stpxmstportentry = YList(self)
             self._segment_path = lambda: "stpxMSTPortTable"
@@ -2781,7 +2877,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             An entry with port information for the MST Protocol
             on a bridge port.
             
-            .. attribute:: stpxmstportindex  <key>
+            .. attribute:: stpxmstportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -2832,19 +2928,22 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxMSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxmstportindex = YLeaf(YType.int32, "stpxMSTPortIndex")
-
-                self.stpxmstportadminlinktype = YLeaf(YType.enumeration, "stpxMSTPortAdminLinkType")
-
-                self.stpxmstportoperlinktype = YLeaf(YType.enumeration, "stpxMSTPortOperLinkType")
-
-                self.stpxmstportprotocolmigration = YLeaf(YType.boolean, "stpxMSTPortProtocolMigration")
-
-                self.stpxmstportstatus = YLeaf(YType.bits, "stpxMSTPortStatus")
-                self._segment_path = lambda: "stpxMSTPortEntry" + "[stpxMSTPortIndex='" + self.stpxmstportindex.get() + "']"
+                self.ylist_key_names = ['stpxmstportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxmstportindex', YLeaf(YType.int32, 'stpxMSTPortIndex')),
+                    ('stpxmstportadminlinktype', YLeaf(YType.enumeration, 'stpxMSTPortAdminLinkType')),
+                    ('stpxmstportoperlinktype', YLeaf(YType.enumeration, 'stpxMSTPortOperLinkType')),
+                    ('stpxmstportprotocolmigration', YLeaf(YType.boolean, 'stpxMSTPortProtocolMigration')),
+                    ('stpxmstportstatus', YLeaf(YType.bits, 'stpxMSTPortStatus')),
+                ])
+                self.stpxmstportindex = None
+                self.stpxmstportadminlinktype = None
+                self.stpxmstportoperlinktype = None
+                self.stpxmstportprotocolmigration = None
+                self.stpxmstportstatus = Bits()
+                self._segment_path = lambda: "stpxMSTPortEntry" + "[stpxMSTPortIndex='" + str(self.stpxmstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -2852,7 +2951,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxmstportadminlinktype(Enum):
                 """
-                Stpxmstportadminlinktype
+                Stpxmstportadminlinktype (Enum Class)
 
                 Indicates the administrative link type configuration of 
 
@@ -2905,7 +3004,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxmstportoperlinktype(Enum):
                 """
-                Stpxmstportoperlinktype
+                Stpxmstportoperlinktype (Enum Class)
 
                 Indicates the operational link type of a bridge port
 
@@ -2973,8 +3072,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxMSTPortRoleEntry" : ("stpxmstportroleentry", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxMSTPortRoleEntry", ("stpxmstportroleentry", CISCOSTPEXTENSIONSMIB.Stpxmstportroletable.Stpxmstportroleentry))])
+            self._leafs = OrderedDict()
 
             self.stpxmstportroleentry = YList(self)
             self._segment_path = lambda: "stpxMSTPortRoleTable"
@@ -2990,7 +3091,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             protocol on a port for a particular MST instance existing
             on the system.
             
-            .. attribute:: stpxmstportroleinstanceindex  <key>
+            .. attribute:: stpxmstportroleinstanceindex  (key)
             
             	The MST instance id within the range of 0 to stpxMSTMaxInstanceNumber
             	**type**\: int
@@ -2999,7 +3100,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**status**\: deprecated
             
-            .. attribute:: stpxmstportroleportindex  <key>
+            .. attribute:: stpxmstportroleportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -3029,15 +3130,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxMSTPortRoleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxmstportroleinstanceindex = YLeaf(YType.int32, "stpxMSTPortRoleInstanceIndex")
-
-                self.stpxmstportroleportindex = YLeaf(YType.int32, "stpxMSTPortRolePortIndex")
-
-                self.stpxmstportrolevalue = YLeaf(YType.enumeration, "stpxMSTPortRoleValue")
-                self._segment_path = lambda: "stpxMSTPortRoleEntry" + "[stpxMSTPortRoleInstanceIndex='" + self.stpxmstportroleinstanceindex.get() + "']" + "[stpxMSTPortRolePortIndex='" + self.stpxmstportroleportindex.get() + "']"
+                self.ylist_key_names = ['stpxmstportroleinstanceindex','stpxmstportroleportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxmstportroleinstanceindex', YLeaf(YType.int32, 'stpxMSTPortRoleInstanceIndex')),
+                    ('stpxmstportroleportindex', YLeaf(YType.int32, 'stpxMSTPortRolePortIndex')),
+                    ('stpxmstportrolevalue', YLeaf(YType.enumeration, 'stpxMSTPortRoleValue')),
+                ])
+                self.stpxmstportroleinstanceindex = None
+                self.stpxmstportroleportindex = None
+                self.stpxmstportrolevalue = None
+                self._segment_path = lambda: "stpxMSTPortRoleEntry" + "[stpxMSTPortRoleInstanceIndex='" + str(self.stpxmstportroleinstanceindex) + "']" + "[stpxMSTPortRolePortIndex='" + str(self.stpxmstportroleportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortRoleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3045,7 +3149,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxmstportrolevalue(Enum):
                 """
-                Stpxmstportrolevalue
+                Stpxmstportrolevalue (Enum Class)
 
                 Indicates the port role on a particular MST instance
 
@@ -3134,8 +3238,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxRSTPPortEntry" : ("stpxrstpportentry", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxRSTPPortEntry", ("stpxrstpportentry", CISCOSTPEXTENSIONSMIB.Stpxrstpporttable.Stpxrstpportentry))])
+            self._leafs = OrderedDict()
 
             self.stpxrstpportentry = YList(self)
             self._segment_path = lambda: "stpxRSTPPortTable"
@@ -3150,7 +3256,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             An entry with port information for the RSTP Protocol
             on a bridge port.
             
-            .. attribute:: stpxrstpportindex  <key>
+            .. attribute:: stpxrstpportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -3186,17 +3292,20 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxRSTPPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxrstpportindex = YLeaf(YType.int32, "stpxRSTPPortIndex")
-
-                self.stpxrstpportadminlinktype = YLeaf(YType.enumeration, "stpxRSTPPortAdminLinkType")
-
-                self.stpxrstpportoperlinktype = YLeaf(YType.enumeration, "stpxRSTPPortOperLinkType")
-
-                self.stpxrstpportprotocolmigration = YLeaf(YType.boolean, "stpxRSTPPortProtocolMigration")
-                self._segment_path = lambda: "stpxRSTPPortEntry" + "[stpxRSTPPortIndex='" + self.stpxrstpportindex.get() + "']"
+                self.ylist_key_names = ['stpxrstpportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxrstpportindex', YLeaf(YType.int32, 'stpxRSTPPortIndex')),
+                    ('stpxrstpportadminlinktype', YLeaf(YType.enumeration, 'stpxRSTPPortAdminLinkType')),
+                    ('stpxrstpportoperlinktype', YLeaf(YType.enumeration, 'stpxRSTPPortOperLinkType')),
+                    ('stpxrstpportprotocolmigration', YLeaf(YType.boolean, 'stpxRSTPPortProtocolMigration')),
+                ])
+                self.stpxrstpportindex = None
+                self.stpxrstpportadminlinktype = None
+                self.stpxrstpportoperlinktype = None
+                self.stpxrstpportprotocolmigration = None
+                self._segment_path = lambda: "stpxRSTPPortEntry" + "[stpxRSTPPortIndex='" + str(self.stpxrstpportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3204,7 +3313,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxrstpportadminlinktype(Enum):
                 """
-                Stpxrstpportadminlinktype
+                Stpxrstpportadminlinktype (Enum Class)
 
                 Indicates the administrative link type configuration of 
 
@@ -3253,7 +3362,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxrstpportoperlinktype(Enum):
                 """
-                Stpxrstpportoperlinktype
+                Stpxrstpportoperlinktype (Enum Class)
 
                 Indicates the operational link type of a bridge port
 
@@ -3315,8 +3424,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxRSTPPortRoleEntry" : ("stpxrstpportroleentry", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxRSTPPortRoleEntry", ("stpxrstpportroleentry", CISCOSTPEXTENSIONSMIB.Stpxrstpportroletable.Stpxrstpportroleentry))])
+            self._leafs = OrderedDict()
 
             self.stpxrstpportroleentry = YList(self)
             self._segment_path = lambda: "stpxRSTPPortRoleTable"
@@ -3331,14 +3442,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             An entry containing the port role information for the RSTP
             protocol on a port for a particular Spanning Tree instance.
             
-            .. attribute:: stpxrstpportroleinstanceindex  <key>
+            .. attribute:: stpxrstpportroleinstanceindex  (key)
             
             	The Spanning Tree instance id, it can either be a  VLAN number if the stpxSpanningTreeType is rapidPvstPlus(5)  or an MST instance id if the stpxSpanningTreeType is mst(4)
             	**type**\: int
             
             	**range:** 0..4095
             
-            .. attribute:: stpxrstpportroleportindex  <key>
+            .. attribute:: stpxrstpportroleportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -3364,15 +3475,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxRSTPPortRoleTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxrstpportroleinstanceindex = YLeaf(YType.int32, "stpxRSTPPortRoleInstanceIndex")
-
-                self.stpxrstpportroleportindex = YLeaf(YType.int32, "stpxRSTPPortRolePortIndex")
-
-                self.stpxrstpportrolevalue = YLeaf(YType.enumeration, "stpxRSTPPortRoleValue")
-                self._segment_path = lambda: "stpxRSTPPortRoleEntry" + "[stpxRSTPPortRoleInstanceIndex='" + self.stpxrstpportroleinstanceindex.get() + "']" + "[stpxRSTPPortRolePortIndex='" + self.stpxrstpportroleportindex.get() + "']"
+                self.ylist_key_names = ['stpxrstpportroleinstanceindex','stpxrstpportroleportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxrstpportroleinstanceindex', YLeaf(YType.int32, 'stpxRSTPPortRoleInstanceIndex')),
+                    ('stpxrstpportroleportindex', YLeaf(YType.int32, 'stpxRSTPPortRolePortIndex')),
+                    ('stpxrstpportrolevalue', YLeaf(YType.enumeration, 'stpxRSTPPortRoleValue')),
+                ])
+                self.stpxrstpportroleinstanceindex = None
+                self.stpxrstpportroleportindex = None
+                self.stpxrstpportrolevalue = None
+                self._segment_path = lambda: "stpxRSTPPortRoleEntry" + "[stpxRSTPPortRoleInstanceIndex='" + str(self.stpxrstpportroleinstanceindex) + "']" + "[stpxRSTPPortRolePortIndex='" + str(self.stpxrstpportroleportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortRoleTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3380,7 +3494,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxrstpportrolevalue(Enum):
                 """
-                Stpxrstpportrolevalue
+                Stpxrstpportrolevalue (Enum Class)
 
                 Indicates the port role on a particular Spanning Tree 
 
@@ -3476,8 +3590,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxRPVSTPortEntry" : ("stpxrpvstportentry", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxRPVSTPortEntry", ("stpxrpvstportentry", CISCOSTPEXTENSIONSMIB.Stpxrpvstporttable.Stpxrpvstportentry))])
+            self._leafs = OrderedDict()
 
             self.stpxrpvstportentry = YList(self)
             self._segment_path = lambda: "stpxRPVSTPortTable"
@@ -3493,14 +3609,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             bridge port for a particular Spanning Tree 
             Instance.
             
-            .. attribute:: stpxrpvstportvlanindex  <key>
+            .. attribute:: stpxrpvstportvlanindex  (key)
             
             	The VLAN id of the VLAN
             	**type**\: int
             
             	**range:** 0..4095
             
-            .. attribute:: stpxrpvstportindex  <key>
+            .. attribute:: stpxrpvstportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -3526,15 +3642,18 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxRPVSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxrpvstportvlanindex = YLeaf(YType.int32, "stpxRPVSTPortVlanIndex")
-
-                self.stpxrpvstportindex = YLeaf(YType.int32, "stpxRPVSTPortIndex")
-
-                self.stpxrpvstportstatus = YLeaf(YType.bits, "stpxRPVSTPortStatus")
-                self._segment_path = lambda: "stpxRPVSTPortEntry" + "[stpxRPVSTPortVlanIndex='" + self.stpxrpvstportvlanindex.get() + "']" + "[stpxRPVSTPortIndex='" + self.stpxrpvstportindex.get() + "']"
+                self.ylist_key_names = ['stpxrpvstportvlanindex','stpxrpvstportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxrpvstportvlanindex', YLeaf(YType.int32, 'stpxRPVSTPortVlanIndex')),
+                    ('stpxrpvstportindex', YLeaf(YType.int32, 'stpxRPVSTPortIndex')),
+                    ('stpxrpvstportstatus', YLeaf(YType.bits, 'stpxRPVSTPortStatus')),
+                ])
+                self.stpxrpvstportvlanindex = None
+                self.stpxrpvstportindex = None
+                self.stpxrpvstportstatus = Bits()
+                self._segment_path = lambda: "stpxRPVSTPortEntry" + "[stpxRPVSTPortVlanIndex='" + str(self.stpxrpvstportvlanindex) + "']" + "[stpxRPVSTPortIndex='" + str(self.stpxrpvstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRPVSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3565,8 +3684,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxSMSTInstanceEntry" : ("stpxsmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxSMSTInstanceEntry", ("stpxsmstinstanceentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstancetable.Stpxsmstinstanceentry))])
+            self._leafs = OrderedDict()
 
             self.stpxsmstinstanceentry = YList(self)
             self._segment_path = lambda: "stpxSMSTInstanceTable"
@@ -3581,7 +3702,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             A conceptual row containing the MST instance 
             information for IEEE MST.
             
-            .. attribute:: stpxsmstinstanceindex  <key>
+            .. attribute:: stpxsmstinstanceindex  (key)
             
             	The MST instance ID, the value of which is in the range  from 0 to stpxSMSTMaxInstanceID
             	**type**\: int
@@ -3637,21 +3758,24 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxSMSTInstanceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxsmstinstanceindex = YLeaf(YType.uint32, "stpxSMSTInstanceIndex")
-
-                self.stpxsmstinstancevlansmapped1k2k = YLeaf(YType.str, "stpxSMSTInstanceVlansMapped1k2k")
-
-                self.stpxsmstinstancevlansmapped3k4k = YLeaf(YType.str, "stpxSMSTInstanceVlansMapped3k4k")
-
-                self.stpxsmstinstanceremaininghopcount = YLeaf(YType.int32, "stpxSMSTInstanceRemainingHopCount")
-
-                self.stpxsmstinstancecistregionalroot = YLeaf(YType.str, "stpxSMSTInstanceCISTRegionalRoot")
-
-                self.stpxsmstinstancecistintrootcost = YLeaf(YType.uint32, "stpxSMSTInstanceCISTIntRootCost")
-                self._segment_path = lambda: "stpxSMSTInstanceEntry" + "[stpxSMSTInstanceIndex='" + self.stpxsmstinstanceindex.get() + "']"
+                self.ylist_key_names = ['stpxsmstinstanceindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxsmstinstanceindex', YLeaf(YType.uint32, 'stpxSMSTInstanceIndex')),
+                    ('stpxsmstinstancevlansmapped1k2k', YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped1k2k')),
+                    ('stpxsmstinstancevlansmapped3k4k', YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped3k4k')),
+                    ('stpxsmstinstanceremaininghopcount', YLeaf(YType.int32, 'stpxSMSTInstanceRemainingHopCount')),
+                    ('stpxsmstinstancecistregionalroot', YLeaf(YType.str, 'stpxSMSTInstanceCISTRegionalRoot')),
+                    ('stpxsmstinstancecistintrootcost', YLeaf(YType.uint32, 'stpxSMSTInstanceCISTIntRootCost')),
+                ])
+                self.stpxsmstinstanceindex = None
+                self.stpxsmstinstancevlansmapped1k2k = None
+                self.stpxsmstinstancevlansmapped3k4k = None
+                self.stpxsmstinstanceremaininghopcount = None
+                self.stpxsmstinstancecistregionalroot = None
+                self.stpxsmstinstancecistintrootcost = None
+                self._segment_path = lambda: "stpxSMSTInstanceEntry" + "[stpxSMSTInstanceIndex='" + str(self.stpxsmstinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3686,8 +3810,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxSMSTInstanceEditEntry" : ("stpxsmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxSMSTInstanceEditEntry", ("stpxsmstinstanceeditentry", CISCOSTPEXTENSIONSMIB.Stpxsmstinstanceedittable.Stpxsmstinstanceeditentry))])
+            self._leafs = OrderedDict()
 
             self.stpxsmstinstanceeditentry = YList(self)
             self._segment_path = lambda: "stpxSMSTInstanceEditTable"
@@ -3705,7 +3831,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             The total number of entries in this table has to be 
             less than or equal to the object value of stpxSMSTMaxInstances.
             
-            .. attribute:: stpxsmstinstanceeditindex  <key>
+            .. attribute:: stpxsmstinstanceeditindex  (key)
             
             	The MST instance ID, the value of which is in the range from 0 to stpxSMSTMaxInstanceID.   The instances of this table entry with  stpxSMSTInstanceEditIndex of zero is automatically created by the device and can not modified
             	**type**\: int
@@ -3745,17 +3871,20 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxSMSTInstanceEditTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxsmstinstanceeditindex = YLeaf(YType.uint32, "stpxSMSTInstanceEditIndex")
-
-                self.stpxsmstinstanceeditvlansmap1k2k = YLeaf(YType.str, "stpxSMSTInstanceEditVlansMap1k2k")
-
-                self.stpxsmstinstanceeditvlansmap3k4k = YLeaf(YType.str, "stpxSMSTInstanceEditVlansMap3k4k")
-
-                self.stpxsmstinstanceeditrowstatus = YLeaf(YType.enumeration, "stpxSMSTInstanceEditRowStatus")
-                self._segment_path = lambda: "stpxSMSTInstanceEditEntry" + "[stpxSMSTInstanceEditIndex='" + self.stpxsmstinstanceeditindex.get() + "']"
+                self.ylist_key_names = ['stpxsmstinstanceeditindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxsmstinstanceeditindex', YLeaf(YType.uint32, 'stpxSMSTInstanceEditIndex')),
+                    ('stpxsmstinstanceeditvlansmap1k2k', YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap1k2k')),
+                    ('stpxsmstinstanceeditvlansmap3k4k', YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap3k4k')),
+                    ('stpxsmstinstanceeditrowstatus', YLeaf(YType.enumeration, 'stpxSMSTInstanceEditRowStatus')),
+                ])
+                self.stpxsmstinstanceeditindex = None
+                self.stpxsmstinstanceeditvlansmap1k2k = None
+                self.stpxsmstinstanceeditvlansmap3k4k = None
+                self.stpxsmstinstanceeditrowstatus = None
+                self._segment_path = lambda: "stpxSMSTInstanceEditEntry" + "[stpxSMSTInstanceEditIndex='" + str(self.stpxsmstinstanceeditindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceEditTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3790,8 +3919,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.yang_parent_name = "CISCO-STP-EXTENSIONS-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"stpxSMSTPortEntry" : ("stpxsmstportentry", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("stpxSMSTPortEntry", ("stpxsmstportentry", CISCOSTPEXTENSIONSMIB.Stpxsmstporttable.Stpxsmstportentry))])
+            self._leafs = OrderedDict()
 
             self.stpxsmstportentry = YList(self)
             self._segment_path = lambda: "stpxSMSTPortTable"
@@ -3806,7 +3937,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             An entry with port information for the MST protocol
             on a bridge port.
             
-            .. attribute:: stpxsmstportindex  <key>
+            .. attribute:: stpxsmstportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
             	**type**\: int
@@ -3869,23 +4000,26 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.yang_parent_name = "stpxSMSTPortTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.stpxsmstportindex = YLeaf(YType.int32, "stpxSMSTPortIndex")
-
-                self.stpxsmstportstatus = YLeaf(YType.bits, "stpxSMSTPortStatus")
-
-                self.stpxsmstportadminhellotime = YLeaf(YType.uint32, "stpxSMSTPortAdminHelloTime")
-
-                self.stpxsmstportconfigedhellotime = YLeaf(YType.uint32, "stpxSMSTPortConfigedHelloTime")
-
-                self.stpxsmstportoperhellotime = YLeaf(YType.int32, "stpxSMSTPortOperHelloTime")
-
-                self.stpxsmstportadminmstmode = YLeaf(YType.enumeration, "stpxSMSTPortAdminMSTMode")
-
-                self.stpxsmstportopermstmode = YLeaf(YType.enumeration, "stpxSMSTPortOperMSTMode")
-                self._segment_path = lambda: "stpxSMSTPortEntry" + "[stpxSMSTPortIndex='" + self.stpxsmstportindex.get() + "']"
+                self.ylist_key_names = ['stpxsmstportindex']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('stpxsmstportindex', YLeaf(YType.int32, 'stpxSMSTPortIndex')),
+                    ('stpxsmstportstatus', YLeaf(YType.bits, 'stpxSMSTPortStatus')),
+                    ('stpxsmstportadminhellotime', YLeaf(YType.uint32, 'stpxSMSTPortAdminHelloTime')),
+                    ('stpxsmstportconfigedhellotime', YLeaf(YType.uint32, 'stpxSMSTPortConfigedHelloTime')),
+                    ('stpxsmstportoperhellotime', YLeaf(YType.int32, 'stpxSMSTPortOperHelloTime')),
+                    ('stpxsmstportadminmstmode', YLeaf(YType.enumeration, 'stpxSMSTPortAdminMSTMode')),
+                    ('stpxsmstportopermstmode', YLeaf(YType.enumeration, 'stpxSMSTPortOperMSTMode')),
+                ])
+                self.stpxsmstportindex = None
+                self.stpxsmstportstatus = Bits()
+                self.stpxsmstportadminhellotime = None
+                self.stpxsmstportconfigedhellotime = None
+                self.stpxsmstportoperhellotime = None
+                self.stpxsmstportadminmstmode = None
+                self.stpxsmstportopermstmode = None
+                self._segment_path = lambda: "stpxSMSTPortEntry" + "[stpxSMSTPortIndex='" + str(self.stpxsmstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTPortTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -3893,7 +4027,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxsmstportadminmstmode(Enum):
                 """
-                Stpxsmstportadminmstmode
+                Stpxsmstportadminmstmode (Enum Class)
 
                 The desired MST mode of this port.
 
@@ -3918,7 +4052,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
             class Stpxsmstportopermstmode(Enum):
                 """
-                Stpxsmstportopermstmode
+                Stpxsmstportopermstmode (Enum Class)
 
                 Indicates the current operational MST mode of this port.
 

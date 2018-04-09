@@ -29,6 +29,25 @@ module Cisco-IOS-XE-nd {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Add support for 40 and 100GE interfaces";
+  }
+
+  revision 2017-10-12 {
+    description
+      "Add support for command 'ipv6 nd suppress policy *'";
+  }
+
+  revision 2017-09-18 {
+    description
+      "This revision has changes for new 2gig interface addition";
+ }
 
   revision 2017-08-16 {
     description
@@ -247,6 +266,19 @@ module Cisco-IOS-XE-nd {
         }
       }
     }
+    container suppress {
+      description
+        "Configure ND multicast suppress";
+      list policy {
+        description
+          "Configure a policy for feature nd suppress";
+        key "nd-suppress-policy-name";
+        leaf nd-suppress-policy-name {
+          type string;
+        }
+        // submode CLIs will be modelled later.
+      }
+    }
   }
 
   grouping config-interface-ipv6-nd-grouping {
@@ -323,7 +355,19 @@ module Cisco-IOS-XE-nd {
     uses config-interface-ipv6-nd-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ipv6/ios:nd" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6/ios:nd" {
+    uses config-interface-ipv6-nd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6/ios:nd" {
+    uses config-interface-ipv6-nd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6/ios:nd" {
+    uses config-interface-ipv6-nd-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6/ios:nd" {
     uses config-interface-ipv6-nd-grouping;
   }
 

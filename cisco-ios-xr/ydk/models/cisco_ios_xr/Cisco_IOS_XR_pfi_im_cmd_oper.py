@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class BmMbrStateReason(Enum):
     """
-    BmMbrStateReason
+    BmMbrStateReason (Enum Class)
 
     Bm mbr state reason
 
@@ -546,7 +548,7 @@ class BmMbrStateReason(Enum):
 
 class BmMuxreason(Enum):
     """
-    BmMuxreason
+    BmMuxreason (Enum Class)
 
     Bm muxreason
 
@@ -681,7 +683,7 @@ class BmMuxreason(Enum):
 
 class BmMuxstate(Enum):
     """
-    BmMuxstate
+    BmMuxstate (Enum Class)
 
     Bm muxstate
 
@@ -726,7 +728,7 @@ class BmMuxstate(Enum):
 
 class BmSeverity(Enum):
     """
-    BmSeverity
+    BmSeverity (Enum Class)
 
     Severity of the member state reason
 
@@ -765,7 +767,7 @@ class BmSeverity(Enum):
 
 class BmStateReasonTarget(Enum):
     """
-    BmStateReasonTarget
+    BmStateReasonTarget (Enum Class)
 
     Scope of the state reason
 
@@ -786,7 +788,7 @@ class BmStateReasonTarget(Enum):
 
 class BmdMemberState(Enum):
     """
-    BmdMemberState
+    BmdMemberState (Enum Class)
 
     Bmd member state
 
@@ -831,7 +833,7 @@ class BmdMemberState(Enum):
 
 class BmdMemberTypeEnum(Enum):
     """
-    BmdMemberTypeEnum
+    BmdMemberTypeEnum (Enum Class)
 
     Bmd member type enum
 
@@ -860,7 +862,7 @@ class BmdMemberTypeEnum(Enum):
 
 class EfpPayloadEtype(Enum):
     """
-    EfpPayloadEtype
+    EfpPayloadEtype (Enum Class)
 
     Payload ethertype match
 
@@ -887,7 +889,7 @@ class EfpPayloadEtype(Enum):
 
 class EfpTagEtype(Enum):
     """
-    EfpTagEtype
+    EfpTagEtype (Enum Class)
 
     Tag ethertype
 
@@ -914,7 +916,7 @@ class EfpTagEtype(Enum):
 
 class EfpTagPriority(Enum):
     """
-    EfpTagPriority
+    EfpTagPriority (Enum Class)
 
     Priority
 
@@ -977,7 +979,7 @@ class EfpTagPriority(Enum):
 
 class GccDerState(Enum):
     """
-    GccDerState
+    GccDerState (Enum Class)
 
     Gcc der state
 
@@ -1010,7 +1012,7 @@ class GccDerState(Enum):
 
 class GccSecState(Enum):
     """
-    GccSecState
+    GccSecState (Enum Class)
 
     Gcc sec state
 
@@ -1037,7 +1039,7 @@ class GccSecState(Enum):
 
 class ImAttrDuplex(Enum):
     """
-    ImAttrDuplex
+    ImAttrDuplex (Enum Class)
 
     Im attr duplex
 
@@ -1064,7 +1066,7 @@ class ImAttrDuplex(Enum):
 
 class ImAttrFlowControl(Enum):
     """
-    ImAttrFlowControl
+    ImAttrFlowControl (Enum Class)
 
     Im attr flow control
 
@@ -1097,7 +1099,7 @@ class ImAttrFlowControl(Enum):
 
 class ImAttrLink(Enum):
     """
-    ImAttrLink
+    ImAttrLink (Enum Class)
 
     Im attr link
 
@@ -1118,7 +1120,7 @@ class ImAttrLink(Enum):
 
 class ImAttrMedia(Enum):
     """
-    ImAttrMedia
+    ImAttrMedia (Enum Class)
 
     Im attr media
 
@@ -2550,6 +2552,30 @@ class ImAttrMedia(Enum):
 
     	im attr media 100gbase acu
 
+    .. data:: im_attr_media_10gbase_cu1m = 357
+
+    	im attr media 10gbase cu1m
+
+    .. data:: im_attr_media_10gbase_cu3m = 358
+
+    	im attr media 10gbase cu3m
+
+    .. data:: im_attr_media_10gbase_cu5m = 359
+
+    	im attr media 10gbase cu5m
+
+    .. data:: im_attr_media_10gbase_acu7m = 360
+
+    	im attr media 10gbase acu7m
+
+    .. data:: im_attr_media_10gbase_acu10m = 361
+
+    	im attr media 10gbase acu10m
+
+    .. data:: im_attr_media_4x10g_base_lr = 362
+
+    	im attr media 4x10g base lr
+
     """
 
     im_attr_media_other = Enum.YLeaf(0, "im-attr-media-other")
@@ -3266,10 +3292,22 @@ class ImAttrMedia(Enum):
 
     im_attr_media_100gbase_acu = Enum.YLeaf(356, "im-attr-media-100gbase-acu")
 
+    im_attr_media_10gbase_cu1m = Enum.YLeaf(357, "im-attr-media-10gbase-cu1m")
+
+    im_attr_media_10gbase_cu3m = Enum.YLeaf(358, "im-attr-media-10gbase-cu3m")
+
+    im_attr_media_10gbase_cu5m = Enum.YLeaf(359, "im-attr-media-10gbase-cu5m")
+
+    im_attr_media_10gbase_acu7m = Enum.YLeaf(360, "im-attr-media-10gbase-acu7m")
+
+    im_attr_media_10gbase_acu10m = Enum.YLeaf(361, "im-attr-media-10gbase-acu10m")
+
+    im_attr_media_4x10g_base_lr = Enum.YLeaf(362, "im-attr-media-4x10g-base-lr")
+
 
 class ImAttrTransportMode(Enum):
     """
-    ImAttrTransportMode
+    ImAttrTransportMode (Enum Class)
 
     Im attr transport mode
 
@@ -3320,7 +3358,7 @@ class ImAttrTransportMode(Enum):
 
 class ImCmdEncapsEnum(Enum):
     """
-    ImCmdEncapsEnum
+    ImCmdEncapsEnum (Enum Class)
 
     Im cmd encaps enum
 
@@ -3347,7 +3385,7 @@ class ImCmdEncapsEnum(Enum):
 
 class ImCmdFrTypeEnum(Enum):
     """
-    ImCmdFrTypeEnum
+    ImCmdFrTypeEnum (Enum Class)
 
     Im cmd fr type enum
 
@@ -3368,7 +3406,7 @@ class ImCmdFrTypeEnum(Enum):
 
 class ImCmdIntfTypeEnum(Enum):
     """
-    ImCmdIntfTypeEnum
+    ImCmdIntfTypeEnum (Enum Class)
 
     Im cmd intf type enum
 
@@ -3431,7 +3469,7 @@ class ImCmdIntfTypeEnum(Enum):
 
 class ImCmdLmiTypeEnum(Enum):
     """
-    ImCmdLmiTypeEnum
+    ImCmdLmiTypeEnum (Enum Class)
 
     Im cmd lmi type enum
 
@@ -3464,7 +3502,7 @@ class ImCmdLmiTypeEnum(Enum):
 
 class ImCmdLoopbackEnum(Enum):
     """
-    ImCmdLoopbackEnum
+    ImCmdLoopbackEnum (Enum Class)
 
     Im cmd loopback enum
 
@@ -3497,7 +3535,7 @@ class ImCmdLoopbackEnum(Enum):
 
 class ImCmdStatsEnum(Enum):
     """
-    ImCmdStatsEnum
+    ImCmdStatsEnum (Enum Class)
 
     List of different interface stats structures
 
@@ -3518,7 +3556,7 @@ class ImCmdStatsEnum(Enum):
 
 class ImStateEnum(Enum):
     """
-    ImStateEnum
+    ImStateEnum (Enum Class)
 
     Im state enum
 
@@ -3641,7 +3679,7 @@ class ImStateEnum(Enum):
 
 class InterfaceTypeSet(Enum):
     """
-    InterfaceTypeSet
+    InterfaceTypeSet (Enum Class)
 
     Interface type set
 
@@ -3656,7 +3694,7 @@ class InterfaceTypeSet(Enum):
 
 class NcpIdent(Enum):
     """
-    NcpIdent
+    NcpIdent (Enum Class)
 
     Ncp ident
 
@@ -3701,7 +3739,7 @@ class NcpIdent(Enum):
 
 class PppFsmState(Enum):
     """
-    PppFsmState
+    PppFsmState (Enum Class)
 
     Ppp fsm state
 
@@ -3770,7 +3808,7 @@ class PppFsmState(Enum):
 
 class SonetApsEt(Enum):
     """
-    SonetApsEt
+    SonetApsEt (Enum Class)
 
     APS states
 
@@ -3809,7 +3847,7 @@ class SonetApsEt(Enum):
 
 class SrpMgmtFailureEt(Enum):
     """
-    SrpMgmtFailureEt
+    SrpMgmtFailureEt (Enum Class)
 
     SRP failure type
 
@@ -3866,7 +3904,7 @@ class SrpMgmtFailureEt(Enum):
 
 class SrpMgmtFailureStateEt(Enum):
     """
-    SrpMgmtFailureStateEt
+    SrpMgmtFailureStateEt (Enum Class)
 
     SRP failure state type
 
@@ -3929,7 +3967,7 @@ class SrpMgmtFailureStateEt(Enum):
 
 class SrpMgmtIpsPathInd(Enum):
     """
-    SrpMgmtIpsPathInd
+    SrpMgmtIpsPathInd (Enum Class)
 
     SRP IPS path indication
 
@@ -3956,7 +3994,7 @@ class SrpMgmtIpsPathInd(Enum):
 
 class SrpMgmtIpsReq(Enum):
     """
-    SrpMgmtIpsReq
+    SrpMgmtIpsReq (Enum Class)
 
     SRP IPS request type
 
@@ -4007,7 +4045,7 @@ class SrpMgmtIpsReq(Enum):
 
 class SrpMgmtIpsWrapState(Enum):
     """
-    SrpMgmtIpsWrapState
+    SrpMgmtIpsWrapState (Enum Class)
 
     SRP IPS side wrap state
 
@@ -4040,7 +4078,7 @@ class SrpMgmtIpsWrapState(Enum):
 
 class SrpMgmtSrrFailure(Enum):
     """
-    SrpMgmtSrrFailure
+    SrpMgmtSrrFailure (Enum Class)
 
     SRP SRR failure type
 
@@ -4079,7 +4117,7 @@ class SrpMgmtSrrFailure(Enum):
 
 class SrpMgmtSrrNodeState(Enum):
     """
-    SrpMgmtSrrNodeState
+    SrpMgmtSrrNodeState (Enum Class)
 
     SRP SRR node state
 
@@ -4106,7 +4144,7 @@ class SrpMgmtSrrNodeState(Enum):
 
 class StatsCounter(Enum):
     """
-    StatsCounter
+    StatsCounter (Enum Class)
 
     Stats counter
 
@@ -4229,7 +4267,7 @@ class StatsCounter(Enum):
 
 class StatsId(Enum):
     """
-    StatsId
+    StatsId (Enum Class)
 
     Stats id
 
@@ -4280,7 +4318,7 @@ class StatsId(Enum):
 
 class StatsTypeContents(Enum):
     """
-    StatsTypeContents
+    StatsTypeContents (Enum Class)
 
     Stats type contents
 
@@ -4301,7 +4339,7 @@ class StatsTypeContents(Enum):
 
 class TunlIpModeDir(Enum):
     """
-    TunlIpModeDir
+    TunlIpModeDir (Enum Class)
 
     Tunl ip mode dir
 
@@ -4334,7 +4372,7 @@ class TunlIpModeDir(Enum):
 
 class TunlPfiAfId(Enum):
     """
-    TunlPfiAfId
+    TunlPfiAfId (Enum Class)
 
     Tunl pfi af id
 
@@ -4361,7 +4399,7 @@ class TunlPfiAfId(Enum):
 
 class TunnelGreMode(Enum):
     """
-    TunnelGreMode
+    TunnelGreMode (Enum Class)
 
     Tunnel gre mode
 
@@ -4412,7 +4450,7 @@ class TunnelGreMode(Enum):
 
 class TunnelKaDfState(Enum):
     """
-    TunnelKaDfState
+    TunnelKaDfState (Enum Class)
 
     Tunnel ka df state
 
@@ -4433,7 +4471,7 @@ class TunnelKaDfState(Enum):
 
 class TunnelKeyState(Enum):
     """
-    TunnelKeyState
+    TunnelKeyState (Enum Class)
 
     Tunnel key state
 
@@ -4454,7 +4492,7 @@ class TunnelKeyState(Enum):
 
 class VlanEncaps(Enum):
     """
-    VlanEncaps
+    VlanEncaps (Enum Class)
 
     VLAN encapsulation
 
@@ -4549,7 +4587,7 @@ class Interfaces(Entity):
     .. attribute:: interfaces
     
     	Descriptions for interfaces
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces>`
+    	**type**\:  :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces_>`
     
     .. attribute:: interface_summary
     
@@ -4571,8 +4609,10 @@ class Interfaces(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pfi-im-cmd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"interface-xr" : ("interface_xr", Interfaces.InterfaceXr), "node-type-sets" : ("node_type_sets", Interfaces.NodeTypeSets), "interface-briefs" : ("interface_briefs", Interfaces.InterfaceBriefs), "inventory-summary" : ("inventory_summary", Interfaces.InventorySummary), "interfaces" : ("interfaces", Interfaces.Interfaces), "interface-summary" : ("interface_summary", Interfaces.InterfaceSummary)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("interface-xr", ("interface_xr", Interfaces.InterfaceXr)), ("node-type-sets", ("node_type_sets", Interfaces.NodeTypeSets)), ("interface-briefs", ("interface_briefs", Interfaces.InterfaceBriefs)), ("inventory-summary", ("inventory_summary", Interfaces.InventorySummary)), ("interfaces", ("interfaces", Interfaces.Interfaces_)), ("interface-summary", ("interface_summary", Interfaces.InterfaceSummary))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.interface_xr = Interfaces.InterfaceXr()
         self.interface_xr.parent = self
@@ -4594,7 +4634,7 @@ class Interfaces(Entity):
         self._children_name_map["inventory_summary"] = "inventory-summary"
         self._children_yang_names.add("inventory-summary")
 
-        self.interfaces = Interfaces.Interfaces()
+        self.interfaces = Interfaces.Interfaces_()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
@@ -4630,8 +4670,10 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Interfaces.InterfaceXr.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Interfaces.InterfaceXr.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interface-xr"
@@ -4646,7 +4688,7 @@ class Interfaces(Entity):
             Detailed operational data for a particular
             interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -4913,74 +4955,77 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface-xr"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"dampening-information" : ("dampening_information", Interfaces.InterfaceXr.Interface.DampeningInformation), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.MacAddress), "burned-in-address" : ("burned_in_address", Interfaces.InterfaceXr.Interface.BurnedInAddress), "carrier-delay" : ("carrier_delay", Interfaces.InterfaceXr.Interface.CarrierDelay), "arp-information" : ("arp_information", Interfaces.InterfaceXr.Interface.ArpInformation), "ip-information" : ("ip_information", Interfaces.InterfaceXr.Interface.IpInformation), "encapsulation-information" : ("encapsulation_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation), "interface-type-information" : ("interface_type_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation), "data-rates" : ("data_rates", Interfaces.InterfaceXr.Interface.DataRates), "interface-statistics" : ("interface_statistics", Interfaces.InterfaceXr.Interface.InterfaceStatistics), "l2-interface-statistics" : ("l2_interface_statistics", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics), "nv-optical" : ("nv_optical", Interfaces.InterfaceXr.Interface.NvOptical)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                self.interface_type = YLeaf(YType.str, "interface-type")
-
-                self.hardware_type_string = YLeaf(YType.str, "hardware-type-string")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.encapsulation = YLeaf(YType.str, "encapsulation")
-
-                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
-
-                self.mtu = YLeaf(YType.uint32, "mtu")
-
-                self.is_l2_transport_enabled = YLeaf(YType.boolean, "is-l2-transport-enabled")
-
-                self.state_transition_count = YLeaf(YType.uint32, "state-transition-count")
-
-                self.last_state_transition_time = YLeaf(YType.uint32, "last-state-transition-time")
-
-                self.is_dampening_enabled = YLeaf(YType.boolean, "is-dampening-enabled")
-
-                self.speed = YLeaf(YType.uint32, "speed")
-
-                self.crc_length = YLeaf(YType.uint32, "crc-length")
-
-                self.is_scramble_enabled = YLeaf(YType.boolean, "is-scramble-enabled")
-
-                self.duplexity = YLeaf(YType.enumeration, "duplexity")
-
-                self.media_type = YLeaf(YType.enumeration, "media-type")
-
-                self.link_type = YLeaf(YType.enumeration, "link-type")
-
-                self.in_flow_control = YLeaf(YType.enumeration, "in-flow-control")
-
-                self.out_flow_control = YLeaf(YType.enumeration, "out-flow-control")
-
-                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                self.max_bandwidth = YLeaf(YType.uint32, "max-bandwidth")
-
-                self.keepalive = YLeaf(YType.uint32, "keepalive")
-
-                self.is_l2_looped = YLeaf(YType.boolean, "is-l2-looped")
-
-                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
-                self.loopback_configuration = YLeaf(YType.enumeration, "loopback-configuration")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.is_maintenance_enabled = YLeaf(YType.boolean, "is-maintenance-enabled")
-
-                self.is_data_inverted = YLeaf(YType.boolean, "is-data-inverted")
-
-                self.transport_mode = YLeaf(YType.enumeration, "transport-mode")
-
-                self.fast_shutdown = YLeaf(YType.boolean, "fast-shutdown")
-
-                self.if_index = YLeaf(YType.uint32, "if-index")
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([("dampening-information", ("dampening_information", Interfaces.InterfaceXr.Interface.DampeningInformation)), ("mac-address", ("mac_address", Interfaces.InterfaceXr.Interface.MacAddress)), ("burned-in-address", ("burned_in_address", Interfaces.InterfaceXr.Interface.BurnedInAddress)), ("carrier-delay", ("carrier_delay", Interfaces.InterfaceXr.Interface.CarrierDelay)), ("arp-information", ("arp_information", Interfaces.InterfaceXr.Interface.ArpInformation)), ("ip-information", ("ip_information", Interfaces.InterfaceXr.Interface.IpInformation)), ("encapsulation-information", ("encapsulation_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation)), ("interface-type-information", ("interface_type_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation)), ("data-rates", ("data_rates", Interfaces.InterfaceXr.Interface.DataRates)), ("interface-statistics", ("interface_statistics", Interfaces.InterfaceXr.Interface.InterfaceStatistics)), ("l2-interface-statistics", ("l2_interface_statistics", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics)), ("nv-optical", ("nv_optical", Interfaces.InterfaceXr.Interface.NvOptical))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                    ('interface_type', YLeaf(YType.str, 'interface-type')),
+                    ('hardware_type_string', YLeaf(YType.str, 'hardware-type-string')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
+                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
+                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
+                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                    ('is_l2_transport_enabled', YLeaf(YType.boolean, 'is-l2-transport-enabled')),
+                    ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
+                    ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
+                    ('is_dampening_enabled', YLeaf(YType.boolean, 'is-dampening-enabled')),
+                    ('speed', YLeaf(YType.uint32, 'speed')),
+                    ('crc_length', YLeaf(YType.uint32, 'crc-length')),
+                    ('is_scramble_enabled', YLeaf(YType.boolean, 'is-scramble-enabled')),
+                    ('duplexity', YLeaf(YType.enumeration, 'duplexity')),
+                    ('media_type', YLeaf(YType.enumeration, 'media-type')),
+                    ('link_type', YLeaf(YType.enumeration, 'link-type')),
+                    ('in_flow_control', YLeaf(YType.enumeration, 'in-flow-control')),
+                    ('out_flow_control', YLeaf(YType.enumeration, 'out-flow-control')),
+                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                    ('max_bandwidth', YLeaf(YType.uint32, 'max-bandwidth')),
+                    ('keepalive', YLeaf(YType.uint32, 'keepalive')),
+                    ('is_l2_looped', YLeaf(YType.boolean, 'is-l2-looped')),
+                    ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
+                    ('loopback_configuration', YLeaf(YType.enumeration, 'loopback-configuration')),
+                    ('description', YLeaf(YType.str, 'description')),
+                    ('is_maintenance_enabled', YLeaf(YType.boolean, 'is-maintenance-enabled')),
+                    ('is_data_inverted', YLeaf(YType.boolean, 'is-data-inverted')),
+                    ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
+                    ('fast_shutdown', YLeaf(YType.boolean, 'fast-shutdown')),
+                    ('if_index', YLeaf(YType.uint32, 'if-index')),
+                ])
+                self.interface_name = None
+                self.interface_handle = None
+                self.interface_type = None
+                self.hardware_type_string = None
+                self.state = None
+                self.line_state = None
+                self.encapsulation = None
+                self.encapsulation_type_string = None
+                self.mtu = None
+                self.is_l2_transport_enabled = None
+                self.state_transition_count = None
+                self.last_state_transition_time = None
+                self.is_dampening_enabled = None
+                self.speed = None
+                self.crc_length = None
+                self.is_scramble_enabled = None
+                self.duplexity = None
+                self.media_type = None
+                self.link_type = None
+                self.in_flow_control = None
+                self.out_flow_control = None
+                self.bandwidth = None
+                self.max_bandwidth = None
+                self.keepalive = None
+                self.is_l2_looped = None
+                self.parent_interface_name = None
+                self.loopback_configuration = None
+                self.description = None
+                self.is_maintenance_enabled = None
+                self.is_data_inverted = None
+                self.transport_mode = None
+                self.fast_shutdown = None
+                self.if_index = None
 
                 self.dampening_information = Interfaces.InterfaceXr.Interface.DampeningInformation()
                 self.dampening_information.parent = self
@@ -5041,7 +5086,7 @@ class Interfaces(Entity):
                 self.nv_optical.parent = self
                 self._children_name_map["nv_optical"] = "nv-optical"
                 self._children_yang_names.add("nv-optical")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -5126,24 +5171,27 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.penalty = YLeaf(YType.uint32, "penalty")
-
-                    self.is_suppressed_enabled = YLeaf(YType.boolean, "is-suppressed-enabled")
-
-                    self.seconds_remaining = YLeaf(YType.uint32, "seconds-remaining")
-
-                    self.half_life = YLeaf(YType.uint32, "half-life")
-
-                    self.reuse_threshold = YLeaf(YType.uint32, "reuse-threshold")
-
-                    self.suppress_threshold = YLeaf(YType.uint32, "suppress-threshold")
-
-                    self.maximum_suppress_time = YLeaf(YType.uint32, "maximum-suppress-time")
-
-                    self.restart_penalty = YLeaf(YType.uint32, "restart-penalty")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('penalty', YLeaf(YType.uint32, 'penalty')),
+                        ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
+                        ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
+                        ('half_life', YLeaf(YType.uint32, 'half-life')),
+                        ('reuse_threshold', YLeaf(YType.uint32, 'reuse-threshold')),
+                        ('suppress_threshold', YLeaf(YType.uint32, 'suppress-threshold')),
+                        ('maximum_suppress_time', YLeaf(YType.uint32, 'maximum-suppress-time')),
+                        ('restart_penalty', YLeaf(YType.uint32, 'restart-penalty')),
+                    ])
+                    self.penalty = None
+                    self.is_suppressed_enabled = None
+                    self.seconds_remaining = None
+                    self.half_life = None
+                    self.reuse_threshold = None
+                    self.suppress_threshold = None
+                    self.maximum_suppress_time = None
+                    self.restart_penalty = None
                     self._segment_path = lambda: "dampening-information"
 
                 def __setattr__(self, name, value):
@@ -5175,10 +5223,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                    ])
+                    self.address = None
                     self._segment_path = lambda: "mac-address"
 
                 def __setattr__(self, name, value):
@@ -5210,10 +5261,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('address', YLeaf(YType.str, 'address')),
+                    ])
+                    self.address = None
                     self._segment_path = lambda: "burned-in-address"
 
                 def __setattr__(self, name, value):
@@ -5252,12 +5306,15 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.carrier_delay_up = YLeaf(YType.uint32, "carrier-delay-up")
-
-                    self.carrier_delay_down = YLeaf(YType.uint32, "carrier-delay-down")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('carrier_delay_up', YLeaf(YType.uint32, 'carrier-delay-up')),
+                        ('carrier_delay_down', YLeaf(YType.uint32, 'carrier-delay-down')),
+                    ])
+                    self.carrier_delay_up = None
+                    self.carrier_delay_down = None
                     self._segment_path = lambda: "carrier-delay"
 
                 def __setattr__(self, name, value):
@@ -5301,14 +5358,17 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.arp_timeout = YLeaf(YType.uint32, "arp-timeout")
-
-                    self.arp_type_name = YLeaf(YType.str, "arp-type-name")
-
-                    self.arp_is_learning_disabled = YLeaf(YType.boolean, "arp-is-learning-disabled")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('arp_timeout', YLeaf(YType.uint32, 'arp-timeout')),
+                        ('arp_type_name', YLeaf(YType.str, 'arp-type-name')),
+                        ('arp_is_learning_disabled', YLeaf(YType.boolean, 'arp-is-learning-disabled')),
+                    ])
+                    self.arp_timeout = None
+                    self.arp_type_name = None
+                    self.arp_is_learning_disabled = None
                     self._segment_path = lambda: "arp-information"
 
                 def __setattr__(self, name, value):
@@ -5347,12 +5407,15 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.ip_address = YLeaf(YType.str, "ip-address")
-
-                    self.subnet_mask_length = YLeaf(YType.uint32, "subnet-mask-length")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                        ('subnet_mask_length', YLeaf(YType.uint32, 'subnet-mask-length')),
+                    ])
+                    self.ip_address = None
+                    self.subnet_mask_length = None
                     self._segment_path = lambda: "ip-information"
 
                 def __setattr__(self, name, value):
@@ -5397,10 +5460,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"frame-relay-information" : ("frame_relay_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation), "dot1q-information" : ("dot1q_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation), "ppp-information" : ("ppp_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation)}
-                    self._child_list_classes = {}
-
-                    self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("frame-relay-information", ("frame_relay_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation)), ("dot1q-information", ("dot1q_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation)), ("ppp-information", ("ppp_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                    ])
+                    self.encapsulation_type = None
 
                     self.frame_relay_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation()
                     self.frame_relay_information.parent = self
@@ -5524,36 +5590,39 @@ class Interfaces(Entity):
                         self.yang_parent_name = "encapsulation-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.fr_encapsulation_type = YLeaf(YType.enumeration, "fr-encapsulation-type")
-
-                        self.lmi_type = YLeaf(YType.enumeration, "lmi-type")
-
-                        self.lmidlci = YLeaf(YType.uint32, "lmidlci")
-
-                        self.is_nni = YLeaf(YType.boolean, "is-nni")
-
-                        self.is_dte = YLeaf(YType.boolean, "is-dte")
-
-                        self.is_lmi_up = YLeaf(YType.boolean, "is-lmi-up")
-
-                        self.is_lmi_nni_dce_up = YLeaf(YType.boolean, "is-lmi-nni-dce-up")
-
-                        self.is_lmi_enabled = YLeaf(YType.boolean, "is-lmi-enabled")
-
-                        self.enquiries_received = YLeaf(YType.uint32, "enquiries-received")
-
-                        self.enquiries_sent = YLeaf(YType.uint32, "enquiries-sent")
-
-                        self.status_received = YLeaf(YType.uint32, "status-received")
-
-                        self.status_sent = YLeaf(YType.uint32, "status-sent")
-
-                        self.update_status_received = YLeaf(YType.uint32, "update-status-received")
-
-                        self.update_status_sent = YLeaf(YType.uint32, "update-status-sent")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('fr_encapsulation_type', YLeaf(YType.enumeration, 'fr-encapsulation-type')),
+                            ('lmi_type', YLeaf(YType.enumeration, 'lmi-type')),
+                            ('lmidlci', YLeaf(YType.uint32, 'lmidlci')),
+                            ('is_nni', YLeaf(YType.boolean, 'is-nni')),
+                            ('is_dte', YLeaf(YType.boolean, 'is-dte')),
+                            ('is_lmi_up', YLeaf(YType.boolean, 'is-lmi-up')),
+                            ('is_lmi_nni_dce_up', YLeaf(YType.boolean, 'is-lmi-nni-dce-up')),
+                            ('is_lmi_enabled', YLeaf(YType.boolean, 'is-lmi-enabled')),
+                            ('enquiries_received', YLeaf(YType.uint32, 'enquiries-received')),
+                            ('enquiries_sent', YLeaf(YType.uint32, 'enquiries-sent')),
+                            ('status_received', YLeaf(YType.uint32, 'status-received')),
+                            ('status_sent', YLeaf(YType.uint32, 'status-sent')),
+                            ('update_status_received', YLeaf(YType.uint32, 'update-status-received')),
+                            ('update_status_sent', YLeaf(YType.uint32, 'update-status-sent')),
+                        ])
+                        self.fr_encapsulation_type = None
+                        self.lmi_type = None
+                        self.lmidlci = None
+                        self.is_nni = None
+                        self.is_dte = None
+                        self.is_lmi_up = None
+                        self.is_lmi_nni_dce_up = None
+                        self.is_lmi_enabled = None
+                        self.enquiries_received = None
+                        self.enquiries_sent = None
+                        self.status_received = None
+                        self.status_sent = None
+                        self.update_status_received = None
+                        self.update_status_sent = None
                         self._segment_path = lambda: "frame-relay-information"
 
                     def __setattr__(self, name, value):
@@ -5583,8 +5652,10 @@ class Interfaces(Entity):
                         self.yang_parent_name = "encapsulation-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"encapsulation-details" : ("encapsulation_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
                         self.encapsulation_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails()
                         self.encapsulation_details.parent = self
@@ -5673,22 +5744,25 @@ class Interfaces(Entity):
                             self.yang_parent_name = "dot1q-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"stack" : ("stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack), "service-instance-details" : ("service_instance_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails), "dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack)}
-                            self._child_list_classes = {}
-
-                            self.vlan_encapsulation = YLeaf(YType.enumeration, "vlan-encapsulation")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                            self.native_tag = YLeaf(YType.uint16, "native-tag")
-
-                            self.dot1ad_tag = YLeaf(YType.uint16, "dot1ad-tag")
-
-                            self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
-
-                            self.dot1ad_outer_tag = YLeaf(YType.uint16, "dot1ad-outer-tag")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("stack", ("stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
+                                ('tag', YLeaf(YType.uint16, 'tag')),
+                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
+                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
+                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
+                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                            ])
+                            self.vlan_encapsulation = None
+                            self.tag = None
+                            self.outer_tag = None
+                            self.native_tag = None
+                            self.dot1ad_tag = None
+                            self.dot1ad_native_tag = None
+                            self.dot1ad_outer_tag = None
 
                             self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack()
                             self.stack.parent = self
@@ -5742,12 +5816,15 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
@@ -5834,22 +5911,25 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
-                                self._child_list_classes = {"tags-to-match" : ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch), "pushe" : ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe)}
-
-                                self.payload_ethertype = YLeaf(YType.enumeration, "payload-ethertype")
-
-                                self.tags_popped = YLeaf(YType.uint16, "tags-popped")
-
-                                self.is_exact_match = YLeaf(YType.int32, "is-exact-match")
-
-                                self.is_native_vlan = YLeaf(YType.int32, "is-native-vlan")
-
-                                self.is_native_preserving = YLeaf(YType.int32, "is-native-preserving")
-
-                                self.source_mac_match = YLeaf(YType.str, "source-mac-match")
-
-                                self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack))])
+                                self._child_list_classes = OrderedDict([("tags-to-match", ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
+                                self._leafs = OrderedDict([
+                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
+                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
+                                    ('is_exact_match', YLeaf(YType.int32, 'is-exact-match')),
+                                    ('is_native_vlan', YLeaf(YType.int32, 'is-native-vlan')),
+                                    ('is_native_preserving', YLeaf(YType.int32, 'is-native-preserving')),
+                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
+                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                ])
+                                self.payload_ethertype = None
+                                self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
 
                                 self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
@@ -5887,8 +5967,10 @@ class Interfaces(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"local-traffic-tag" : ("local_traffic_tag", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag)}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("local-traffic-tag", ("local_traffic_tag", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag))])
+                                    self._leafs = OrderedDict()
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
@@ -5927,12 +6009,15 @@ class Interfaces(Entity):
                                         self.yang_parent_name = "local-traffic-stack"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                        self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ])
+                                        self.ethertype = None
+                                        self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
 
                                     def __setattr__(self, name, value):
@@ -5972,12 +6057,15 @@ class Interfaces(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"vlan-range" : ("vlan_range", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange)}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.priority = YLeaf(YType.enumeration, "priority")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("vlan-range", ("vlan_range", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                    ])
+                                    self.ethertype = None
+                                    self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
@@ -6018,12 +6106,15 @@ class Interfaces(Entity):
                                         self.yang_parent_name = "tags-to-match"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
-
-                                        self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
+                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                        ])
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
@@ -6060,12 +6151,15 @@ class Interfaces(Entity):
                                     self.yang_parent_name = "service-instance-details"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
+                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                    ])
+                                    self.ethertype = None
+                                    self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
 
                                 def __setattr__(self, name, value):
@@ -6104,12 +6198,15 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                                self.second_tag = YLeaf(YType.uint16, "second-tag")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
+                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                ])
+                                self.outer_tag = None
+                                self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
@@ -6172,18 +6269,21 @@ class Interfaces(Entity):
                         self.yang_parent_name = "encapsulation-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ncp-info-array" : ("ncp_info_array", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray)}
-
-                        self.lcp_state = YLeaf(YType.enumeration, "lcp-state")
-
-                        self.is_loopback_detected = YLeaf(YType.int32, "is-loopback-detected")
-
-                        self.keepalive_period = YLeaf(YType.uint32, "keepalive-period")
-
-                        self.is_mp_bundle_member = YLeaf(YType.int32, "is-mp-bundle-member")
-
-                        self.is_multilink_open = YLeaf(YType.int32, "is-multilink-open")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("ncp-info-array", ("ncp_info_array", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray))])
+                        self._leafs = OrderedDict([
+                            ('lcp_state', YLeaf(YType.enumeration, 'lcp-state')),
+                            ('is_loopback_detected', YLeaf(YType.int32, 'is-loopback-detected')),
+                            ('keepalive_period', YLeaf(YType.uint32, 'keepalive-period')),
+                            ('is_mp_bundle_member', YLeaf(YType.int32, 'is-mp-bundle-member')),
+                            ('is_multilink_open', YLeaf(YType.int32, 'is-multilink-open')),
+                        ])
+                        self.lcp_state = None
+                        self.is_loopback_detected = None
+                        self.keepalive_period = None
+                        self.is_mp_bundle_member = None
+                        self.is_multilink_open = None
 
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "ppp-information"
@@ -6220,12 +6320,15 @@ class Interfaces(Entity):
                             self.yang_parent_name = "ppp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ncp_state = YLeaf(YType.enumeration, "ncp-state")
-
-                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ncp_state', YLeaf(YType.enumeration, 'ncp-state')),
+                                ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
+                            ])
+                            self.ncp_state = None
+                            self.ncp_identifier = None
                             self._segment_path = lambda: "ncp-info-array"
 
                         def __setattr__(self, name, value):
@@ -6300,10 +6403,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"srp-information" : ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation), "tunnel-information" : ("tunnel_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation), "bundle-information" : ("bundle_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation), "serial-information" : ("serial_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation), "sonet-pos-information" : ("sonet_pos_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation), "tunnel-gre-information" : ("tunnel_gre_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation), "pseudowire-head-end-information" : ("pseudowire_head_end_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation), "cem-information" : ("cem_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation), "gcc-information" : ("gcc_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation)}
-                    self._child_list_classes = {}
-
-                    self.interface_type_info = YLeaf(YType.enumeration, "interface-type-info")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("srp-information", ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation)), ("tunnel-information", ("tunnel_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation)), ("bundle-information", ("bundle_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation)), ("serial-information", ("serial_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation)), ("sonet-pos-information", ("sonet_pos_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation)), ("tunnel-gre-information", ("tunnel_gre_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation)), ("pseudowire-head-end-information", ("pseudowire_head_end_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation)), ("cem-information", ("cem_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation)), ("gcc-information", ("gcc_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_type_info', YLeaf(YType.enumeration, 'interface-type-info')),
+                    ])
+                    self.interface_type_info = None
 
                     self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation()
                     self.srp_information.parent = self
@@ -6362,7 +6468,7 @@ class Interfaces(Entity):
                     .. attribute:: srp_information
                     
                     	SRP\-specific data
-                    	**type**\:  :py:class:`SrpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation>`
+                    	**type**\:  :py:class:`SrpInformation_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_>`
                     
                     .. attribute:: srp_statistics
                     
@@ -6383,10 +6489,12 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"srp-information" : ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation), "srp-statistics" : ("srp_statistics", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics)}
-                        self._child_list_classes = {}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("srp-information", ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_)), ("srp-statistics", ("srp_statistics", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict()
 
-                        self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation()
+                        self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_()
                         self.srp_information.parent = self
                         self._children_name_map["srp_information"] = "srp-information"
                         self._children_yang_names.add("srp-information")
@@ -6398,29 +6506,29 @@ class Interfaces(Entity):
                         self._segment_path = lambda: "srp-information"
 
 
-                    class SrpInformation(Entity):
+                    class SrpInformation_(Entity):
                         """
                         SRP\-specific data
                         
                         .. attribute:: ips_info
                         
                         	SRP IPS information
-                        	**type**\:  :py:class:`IpsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo>`
+                        	**type**\:  :py:class:`IpsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo>`
                         
                         .. attribute:: topology_info
                         
                         	SRP topology information
-                        	**type**\:  :py:class:`TopologyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo>`
+                        	**type**\:  :py:class:`TopologyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo>`
                         
                         .. attribute:: srr_info
                         
                         	SRP SRR information
-                        	**type**\:  :py:class:`SrrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo>`
+                        	**type**\:  :py:class:`SrrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo>`
                         
                         .. attribute:: rate_limit_info
                         
                         	SRP rate limit information
-                        	**type**\:  :py:class:`RateLimitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo>`
+                        	**type**\:  :py:class:`RateLimitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo>`
                         
                         
 
@@ -6430,31 +6538,33 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation, self).__init__()
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_, self).__init__()
 
                             self.yang_name = "srp-information"
                             self.yang_parent_name = "srp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ips-info" : ("ips_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo), "topology-info" : ("topology_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo), "srr-info" : ("srr_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo), "rate-limit-info" : ("rate_limit_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo)}
-                            self._child_list_classes = {}
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("ips-info", ("ips_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo)), ("topology-info", ("topology_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo)), ("srr-info", ("srr_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo)), ("rate-limit-info", ("rate_limit_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict()
 
-                            self.ips_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo()
+                            self.ips_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo()
                             self.ips_info.parent = self
                             self._children_name_map["ips_info"] = "ips-info"
                             self._children_yang_names.add("ips-info")
 
-                            self.topology_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo()
+                            self.topology_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo()
                             self.topology_info.parent = self
                             self._children_name_map["topology_info"] = "topology-info"
                             self._children_yang_names.add("topology-info")
 
-                            self.srr_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo()
+                            self.srr_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo()
                             self.srr_info.parent = self
                             self._children_name_map["srr_info"] = "srr-info"
                             self._children_yang_names.add("srr-info")
 
-                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo()
+                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo()
                             self.rate_limit_info.parent = self
                             self._children_name_map["rate_limit_info"] = "rate-limit-info"
                             self._children_yang_names.add("rate-limit-info")
@@ -6475,7 +6585,7 @@ class Interfaces(Entity):
                             .. attribute:: local_information
                             
                             	IPS information
-                            	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation>`
+                            	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation>`
                             
                             
 
@@ -6485,22 +6595,25 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, self).__init__()
 
                                 self.yang_name = "ips-info"
                                 self.yang_parent_name = "srp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"local-information" : ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("local-information", ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation))])
+                                self._leafs = OrderedDict([
+                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                ])
+                                self.is_admin_down = None
 
                                 self.local_information = YList(self)
                                 self._segment_path = lambda: "ips-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, ['is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -6510,12 +6623,12 @@ class Interfaces(Entity):
                                 .. attribute:: side_a
                                 
                                 	Side A IPS details
-                                	**type**\:  :py:class:`SideA <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA>`
+                                	**type**\:  :py:class:`SideA <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA>`
                                 
                                 .. attribute:: side_b
                                 
                                 	Side B IPS details
-                                	**type**\:  :py:class:`SideB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB>`
+                                	**type**\:  :py:class:`SideB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB>`
                                 
                                 .. attribute:: mac_address
                                 
@@ -6546,34 +6659,37 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation, self).__init__()
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, self).__init__()
 
                                     self.yang_name = "local-information"
                                     self.yang_parent_name = "ips-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {"side-a" : ("side_a", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA), "side-b" : ("side_b", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB)}
-                                    self._child_list_classes = {}
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([("side-a", ("side_a", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA)), ("side-b", ("side_b", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB))])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ('is_inter_card_bus_enabled', YLeaf(YType.int32, 'is-inter-card-bus-enabled')),
+                                        ('wtr_timer_period', YLeaf(YType.uint32, 'wtr-timer-period')),
+                                    ])
+                                    self.mac_address = None
+                                    self.is_inter_card_bus_enabled = None
+                                    self.wtr_timer_period = None
 
-                                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                    self.is_inter_card_bus_enabled = YLeaf(YType.int32, "is-inter-card-bus-enabled")
-
-                                    self.wtr_timer_period = YLeaf(YType.uint32, "wtr-timer-period")
-
-                                    self.side_a = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA()
+                                    self.side_a = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA()
                                     self.side_a.parent = self
                                     self._children_name_map["side_a"] = "side-a"
                                     self._children_yang_names.add("side-a")
 
-                                    self.side_b = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB()
+                                    self.side_b = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB()
                                     self.side_b.parent = self
                                     self._children_name_map["side_b"] = "side-b"
                                     self._children_yang_names.add("side-b")
                                     self._segment_path = lambda: "local-information"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
 
 
                                 class SideA(Entity):
@@ -6697,7 +6813,7 @@ class Interfaces(Entity):
                                     .. attribute:: asserted_failure
                                     
                                     	Failures presently asserted
-                                    	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure>`
+                                    	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure>`
                                     
                                     
 
@@ -6707,56 +6823,59 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA, self).__init__()
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, self).__init__()
 
                                         self.yang_name = "side-a"
                                         self.yang_parent_name = "local-information"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"asserted-failure" : ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure)}
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
-
-                                        self.packet_sent_timer = YLeaf(YType.uint32, "packet-sent-timer")
-
-                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
-
-                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
-
-                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
-
-                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
-
-                                        self.rx_neighbor_mac_address = YLeaf(YType.str, "rx-neighbor-mac-address")
-
-                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
-
-                                        self.rx_path_type = YLeaf(YType.enumeration, "rx-path-type")
-
-                                        self.rx_ttl = YLeaf(YType.uint32, "rx-ttl")
-
-                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
-
-                                        self.tx_neighbor_mac_address = YLeaf(YType.str, "tx-neighbor-mac-address")
-
-                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
-
-                                        self.tx_path_type = YLeaf(YType.enumeration, "tx-path-type")
-
-                                        self.tx_ttl = YLeaf(YType.uint32, "tx-ttl")
-
-                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
-
-                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("asserted-failure", ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure))])
+                                        self._leafs = OrderedDict([
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('wrap_state', YLeaf(YType.enumeration, 'wrap-state')),
+                                            ('packet_sent_timer', YLeaf(YType.uint32, 'packet-sent-timer')),
+                                            ('send_timer_time_remaining', YLeaf(YType.uint32, 'send-timer-time-remaining')),
+                                            ('wtr_timer_remaining', YLeaf(YType.uint32, 'wtr-timer-remaining')),
+                                            ('self_detected_request', YLeaf(YType.enumeration, 'self-detected-request')),
+                                            ('remote_request', YLeaf(YType.enumeration, 'remote-request')),
+                                            ('rx_neighbor_mac_address', YLeaf(YType.str, 'rx-neighbor-mac-address')),
+                                            ('rx_message_type', YLeaf(YType.enumeration, 'rx-message-type')),
+                                            ('rx_path_type', YLeaf(YType.enumeration, 'rx-path-type')),
+                                            ('rx_ttl', YLeaf(YType.uint32, 'rx-ttl')),
+                                            ('rx_packet_test', YLeaf(YType.int32, 'rx-packet-test')),
+                                            ('tx_neighbor_mac_address', YLeaf(YType.str, 'tx-neighbor-mac-address')),
+                                            ('tx_message_type', YLeaf(YType.enumeration, 'tx-message-type')),
+                                            ('tx_path_type', YLeaf(YType.enumeration, 'tx-path-type')),
+                                            ('tx_ttl', YLeaf(YType.uint32, 'tx-ttl')),
+                                            ('tx_packet_test', YLeaf(YType.int32, 'tx-packet-test')),
+                                            ('delay_keep_alive_trigger', YLeaf(YType.uint32, 'delay-keep-alive-trigger')),
+                                        ])
+                                        self.mac_address = None
+                                        self.wrap_state = None
+                                        self.packet_sent_timer = None
+                                        self.send_timer_time_remaining = None
+                                        self.wtr_timer_remaining = None
+                                        self.self_detected_request = None
+                                        self.remote_request = None
+                                        self.rx_neighbor_mac_address = None
+                                        self.rx_message_type = None
+                                        self.rx_path_type = None
+                                        self.rx_ttl = None
+                                        self.rx_packet_test = None
+                                        self.tx_neighbor_mac_address = None
+                                        self.tx_message_type = None
+                                        self.tx_path_type = None
+                                        self.tx_ttl = None
+                                        self.tx_packet_test = None
+                                        self.delay_keep_alive_trigger = None
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-a"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -6805,30 +6924,33 @@ class Interfaces(Entity):
                                         _revision = '2017-06-26'
 
                                         def __init__(self):
-                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure, self).__init__()
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, self).__init__()
 
                                             self.yang_name = "asserted-failure"
                                             self.yang_parent_name = "side-a"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.reported_state = YLeaf(YType.enumeration, "reported-state")
-
-                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
-
-                                            self.current_state = YLeaf(YType.enumeration, "current-state")
-
-                                            self.stable_time = YLeaf(YType.uint64, "stable-time")
-
-                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('reported_state', YLeaf(YType.enumeration, 'reported-state')),
+                                                ('debounced_state', YLeaf(YType.enumeration, 'debounced-state')),
+                                                ('current_state', YLeaf(YType.enumeration, 'current-state')),
+                                                ('stable_time', YLeaf(YType.uint64, 'stable-time')),
+                                                ('debounced_delay', YLeaf(YType.uint32, 'debounced-delay')),
+                                            ])
+                                            self.type = None
+                                            self.reported_state = None
+                                            self.debounced_state = None
+                                            self.current_state = None
+                                            self.stable_time = None
+                                            self.debounced_delay = None
                                             self._segment_path = lambda: "asserted-failure"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
                                 class SideB(Entity):
@@ -6952,7 +7074,7 @@ class Interfaces(Entity):
                                     .. attribute:: asserted_failure
                                     
                                     	Failures presently asserted
-                                    	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure>`
+                                    	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure>`
                                     
                                     
 
@@ -6962,56 +7084,59 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB, self).__init__()
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, self).__init__()
 
                                         self.yang_name = "side-b"
                                         self.yang_parent_name = "local-information"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {"asserted-failure" : ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure)}
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
-
-                                        self.packet_sent_timer = YLeaf(YType.uint32, "packet-sent-timer")
-
-                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
-
-                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
-
-                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
-
-                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
-
-                                        self.rx_neighbor_mac_address = YLeaf(YType.str, "rx-neighbor-mac-address")
-
-                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
-
-                                        self.rx_path_type = YLeaf(YType.enumeration, "rx-path-type")
-
-                                        self.rx_ttl = YLeaf(YType.uint32, "rx-ttl")
-
-                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
-
-                                        self.tx_neighbor_mac_address = YLeaf(YType.str, "tx-neighbor-mac-address")
-
-                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
-
-                                        self.tx_path_type = YLeaf(YType.enumeration, "tx-path-type")
-
-                                        self.tx_ttl = YLeaf(YType.uint32, "tx-ttl")
-
-                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
-
-                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([("asserted-failure", ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure))])
+                                        self._leafs = OrderedDict([
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('wrap_state', YLeaf(YType.enumeration, 'wrap-state')),
+                                            ('packet_sent_timer', YLeaf(YType.uint32, 'packet-sent-timer')),
+                                            ('send_timer_time_remaining', YLeaf(YType.uint32, 'send-timer-time-remaining')),
+                                            ('wtr_timer_remaining', YLeaf(YType.uint32, 'wtr-timer-remaining')),
+                                            ('self_detected_request', YLeaf(YType.enumeration, 'self-detected-request')),
+                                            ('remote_request', YLeaf(YType.enumeration, 'remote-request')),
+                                            ('rx_neighbor_mac_address', YLeaf(YType.str, 'rx-neighbor-mac-address')),
+                                            ('rx_message_type', YLeaf(YType.enumeration, 'rx-message-type')),
+                                            ('rx_path_type', YLeaf(YType.enumeration, 'rx-path-type')),
+                                            ('rx_ttl', YLeaf(YType.uint32, 'rx-ttl')),
+                                            ('rx_packet_test', YLeaf(YType.int32, 'rx-packet-test')),
+                                            ('tx_neighbor_mac_address', YLeaf(YType.str, 'tx-neighbor-mac-address')),
+                                            ('tx_message_type', YLeaf(YType.enumeration, 'tx-message-type')),
+                                            ('tx_path_type', YLeaf(YType.enumeration, 'tx-path-type')),
+                                            ('tx_ttl', YLeaf(YType.uint32, 'tx-ttl')),
+                                            ('tx_packet_test', YLeaf(YType.int32, 'tx-packet-test')),
+                                            ('delay_keep_alive_trigger', YLeaf(YType.uint32, 'delay-keep-alive-trigger')),
+                                        ])
+                                        self.mac_address = None
+                                        self.wrap_state = None
+                                        self.packet_sent_timer = None
+                                        self.send_timer_time_remaining = None
+                                        self.wtr_timer_remaining = None
+                                        self.self_detected_request = None
+                                        self.remote_request = None
+                                        self.rx_neighbor_mac_address = None
+                                        self.rx_message_type = None
+                                        self.rx_path_type = None
+                                        self.rx_ttl = None
+                                        self.rx_packet_test = None
+                                        self.tx_neighbor_mac_address = None
+                                        self.tx_message_type = None
+                                        self.tx_path_type = None
+                                        self.tx_ttl = None
+                                        self.tx_packet_test = None
+                                        self.delay_keep_alive_trigger = None
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-b"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -7060,30 +7185,33 @@ class Interfaces(Entity):
                                         _revision = '2017-06-26'
 
                                         def __init__(self):
-                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure, self).__init__()
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, self).__init__()
 
                                             self.yang_name = "asserted-failure"
                                             self.yang_parent_name = "side-b"
                                             self.is_top_level_class = False
                                             self.has_list_ancestor = True
-                                            self._child_container_classes = {}
-                                            self._child_list_classes = {}
-
-                                            self.type = YLeaf(YType.enumeration, "type")
-
-                                            self.reported_state = YLeaf(YType.enumeration, "reported-state")
-
-                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
-
-                                            self.current_state = YLeaf(YType.enumeration, "current-state")
-
-                                            self.stable_time = YLeaf(YType.uint64, "stable-time")
-
-                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
+                                            self.ylist_key_names = []
+                                            self._child_container_classes = OrderedDict([])
+                                            self._child_list_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('reported_state', YLeaf(YType.enumeration, 'reported-state')),
+                                                ('debounced_state', YLeaf(YType.enumeration, 'debounced-state')),
+                                                ('current_state', YLeaf(YType.enumeration, 'current-state')),
+                                                ('stable_time', YLeaf(YType.uint64, 'stable-time')),
+                                                ('debounced_delay', YLeaf(YType.uint32, 'debounced-delay')),
+                                            ])
+                                            self.type = None
+                                            self.reported_state = None
+                                            self.debounced_state = None
+                                            self.current_state = None
+                                            self.stable_time = None
+                                            self.debounced_delay = None
                                             self._segment_path = lambda: "asserted-failure"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
                         class TopologyInfo(Entity):
@@ -7100,7 +7228,7 @@ class Interfaces(Entity):
                             .. attribute:: local_information
                             
                             	Detailed SRP topology information
-                            	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation>`
+                            	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation>`
                             
                             
 
@@ -7110,22 +7238,25 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, self).__init__()
 
                                 self.yang_name = "topology-info"
                                 self.yang_parent_name = "srp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"local-information" : ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("local-information", ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation))])
+                                self._leafs = OrderedDict([
+                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                ])
+                                self.is_admin_down = None
 
                                 self.local_information = YList(self)
                                 self._segment_path = lambda: "topology-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, ['is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -7170,7 +7301,7 @@ class Interfaces(Entity):
                                 .. attribute:: ring_node
                                 
                                 	List of nodes on the ring info
-                                	**type**\: list of  		 :py:class:`RingNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode>`
+                                	**type**\: list of  		 :py:class:`RingNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode>`
                                 
                                 
 
@@ -7180,30 +7311,33 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, self).__init__()
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, self).__init__()
 
                                     self.yang_name = "local-information"
                                     self.yang_parent_name = "topology-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ring-node" : ("ring_node", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode)}
-
-                                    self.topology_timer = YLeaf(YType.uint32, "topology-timer")
-
-                                    self.next_topology_packet_delay = YLeaf(YType.uint32, "next-topology-packet-delay")
-
-                                    self.time_since_last_topology_packet_received = YLeaf(YType.uint32, "time-since-last-topology-packet-received")
-
-                                    self.time_since_last_topology_change = YLeaf(YType.uint32, "time-since-last-topology-change")
-
-                                    self.number_of_nodes_on_ring = YLeaf(YType.uint16, "number-of-nodes-on-ring")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("ring-node", ("ring_node", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode))])
+                                    self._leafs = OrderedDict([
+                                        ('topology_timer', YLeaf(YType.uint32, 'topology-timer')),
+                                        ('next_topology_packet_delay', YLeaf(YType.uint32, 'next-topology-packet-delay')),
+                                        ('time_since_last_topology_packet_received', YLeaf(YType.uint32, 'time-since-last-topology-packet-received')),
+                                        ('time_since_last_topology_change', YLeaf(YType.uint32, 'time-since-last-topology-change')),
+                                        ('number_of_nodes_on_ring', YLeaf(YType.uint16, 'number-of-nodes-on-ring')),
+                                    ])
+                                    self.topology_timer = None
+                                    self.next_topology_packet_delay = None
+                                    self.time_since_last_topology_packet_received = None
+                                    self.time_since_last_topology_change = None
+                                    self.number_of_nodes_on_ring = None
 
                                     self.ring_node = YList(self)
                                     self._segment_path = lambda: "local-information"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
 
 
                                 class RingNode(Entity):
@@ -7256,30 +7390,33 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, self).__init__()
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, self).__init__()
 
                                         self.yang_name = "ring-node"
                                         self.yang_parent_name = "local-information"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.hop_count = YLeaf(YType.uint16, "hop-count")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.is_wrapped = YLeaf(YType.int32, "is-wrapped")
-
-                                        self.is_srr_supported = YLeaf(YType.int32, "is-srr-supported")
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('hop_count', YLeaf(YType.uint16, 'hop-count')),
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                                            ('is_wrapped', YLeaf(YType.int32, 'is-wrapped')),
+                                            ('is_srr_supported', YLeaf(YType.int32, 'is-srr-supported')),
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                        ])
+                                        self.hop_count = None
+                                        self.mac_address = None
+                                        self.ipv4_address = None
+                                        self.is_wrapped = None
+                                        self.is_srr_supported = None
+                                        self.node_name = None
                                         self._segment_path = lambda: "ring-node"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
 
 
                         class SrrInfo(Entity):
@@ -7303,7 +7440,7 @@ class Interfaces(Entity):
                             .. attribute:: srr_detailed_info
                             
                             	SRP information
-                            	**type**\: list of  		 :py:class:`SrrDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo>`
+                            	**type**\: list of  		 :py:class:`SrrDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo>`
                             
                             
 
@@ -7313,24 +7450,27 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, self).__init__()
 
                                 self.yang_name = "srr-info"
                                 self.yang_parent_name = "srp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"srr-detailed-info" : ("srr_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
-
-                                self.is_srr_enabled = YLeaf(YType.int32, "is-srr-enabled")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("srr-detailed-info", ("srr_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo))])
+                                self._leafs = OrderedDict([
+                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                    ('is_srr_enabled', YLeaf(YType.int32, 'is-srr-enabled')),
+                                ])
+                                self.is_admin_down = None
+                                self.is_srr_enabled = None
 
                                 self.srr_detailed_info = YList(self)
                                 self._segment_path = lambda: "srr-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
 
 
                             class SrrDetailedInfo(Entity):
@@ -7456,12 +7596,12 @@ class Interfaces(Entity):
                                 .. attribute:: nodes_on_ring
                                 
                                 	List of nodes on the ring info
-                                	**type**\: list of  		 :py:class:`NodesOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing>`
+                                	**type**\: list of  		 :py:class:`NodesOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing>`
                                 
                                 .. attribute:: nodes_not_on_ring
                                 
                                 	nodes not in topology map
-                                	**type**\: list of  		 :py:class:`NodesNotOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
+                                	**type**\: list of  		 :py:class:`NodesNotOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
                                 
                                 
 
@@ -7471,53 +7611,56 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, self).__init__()
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, self).__init__()
 
                                     self.yang_name = "srr-detailed-info"
                                     self.yang_parent_name = "srr-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"nodes-on-ring" : ("nodes_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing), "nodes-not-on-ring" : ("nodes_not_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing)}
-
-                                    self.version_number = YLeaf(YType.uint32, "version-number")
-
-                                    self.is_wrong_version_received = YLeaf(YType.int32, "is-wrong-version-received")
-
-                                    self.last_wrong_version_receive_time = YLeaf(YType.uint32, "last-wrong-version-receive-time")
-
-                                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                    self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                                    self.is_outer_ring_in_use = YLeaf(YType.int32, "is-outer-ring-in-use")
-
-                                    self.is_inner_ring_in_use = YLeaf(YType.int32, "is-inner-ring-in-use")
-
-                                    self.is_announce = YLeaf(YType.int32, "is-announce")
-
-                                    self.outer_fail_type = YLeaf(YType.enumeration, "outer-fail-type")
-
-                                    self.inner_fail_type = YLeaf(YType.enumeration, "inner-fail-type")
-
-                                    self.packet_send_timer = YLeaf(YType.uint32, "packet-send-timer")
-
-                                    self.next_srr_packet_send_time = YLeaf(YType.uint32, "next-srr-packet-send-time")
-
-                                    self.single_ring_bw = YLeaf(YType.uint32, "single-ring-bw")
-
-                                    self.wtr_time = YLeaf(YType.uint32, "wtr-time")
-
-                                    self.wtr_timer_remaining_outer_ring = YLeaf(YType.uint32, "wtr-timer-remaining-outer-ring")
-
-                                    self.wtr_timer_remaining_inner_ring = YLeaf(YType.uint32, "wtr-timer-remaining-inner-ring")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([("nodes-on-ring", ("nodes_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing)), ("nodes-not-on-ring", ("nodes_not_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing))])
+                                    self._leafs = OrderedDict([
+                                        ('version_number', YLeaf(YType.uint32, 'version-number')),
+                                        ('is_wrong_version_received', YLeaf(YType.int32, 'is-wrong-version-received')),
+                                        ('last_wrong_version_receive_time', YLeaf(YType.uint32, 'last-wrong-version-receive-time')),
+                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                        ('node_state', YLeaf(YType.enumeration, 'node-state')),
+                                        ('is_outer_ring_in_use', YLeaf(YType.int32, 'is-outer-ring-in-use')),
+                                        ('is_inner_ring_in_use', YLeaf(YType.int32, 'is-inner-ring-in-use')),
+                                        ('is_announce', YLeaf(YType.int32, 'is-announce')),
+                                        ('outer_fail_type', YLeaf(YType.enumeration, 'outer-fail-type')),
+                                        ('inner_fail_type', YLeaf(YType.enumeration, 'inner-fail-type')),
+                                        ('packet_send_timer', YLeaf(YType.uint32, 'packet-send-timer')),
+                                        ('next_srr_packet_send_time', YLeaf(YType.uint32, 'next-srr-packet-send-time')),
+                                        ('single_ring_bw', YLeaf(YType.uint32, 'single-ring-bw')),
+                                        ('wtr_time', YLeaf(YType.uint32, 'wtr-time')),
+                                        ('wtr_timer_remaining_outer_ring', YLeaf(YType.uint32, 'wtr-timer-remaining-outer-ring')),
+                                        ('wtr_timer_remaining_inner_ring', YLeaf(YType.uint32, 'wtr-timer-remaining-inner-ring')),
+                                    ])
+                                    self.version_number = None
+                                    self.is_wrong_version_received = None
+                                    self.last_wrong_version_receive_time = None
+                                    self.mac_address = None
+                                    self.node_state = None
+                                    self.is_outer_ring_in_use = None
+                                    self.is_inner_ring_in_use = None
+                                    self.is_announce = None
+                                    self.outer_fail_type = None
+                                    self.inner_fail_type = None
+                                    self.packet_send_timer = None
+                                    self.next_srr_packet_send_time = None
+                                    self.single_ring_bw = None
+                                    self.wtr_time = None
+                                    self.wtr_timer_remaining_outer_ring = None
+                                    self.wtr_timer_remaining_inner_ring = None
 
                                     self.nodes_on_ring = YList(self)
                                     self.nodes_not_on_ring = YList(self)
                                     self._segment_path = lambda: "srr-detailed-info"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
 
 
                                 class NodesOnRing(Entity):
@@ -7573,32 +7716,35 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
 
                                         self.yang_name = "nodes-on-ring"
                                         self.yang_parent_name = "srr-detailed-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
-
-                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
-
-                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
-
-                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('srr_entry_exits', YLeaf(YType.int32, 'srr-entry-exits')),
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('outer_failure', YLeaf(YType.enumeration, 'outer-failure')),
+                                            ('inner_failure', YLeaf(YType.enumeration, 'inner-failure')),
+                                            ('is_last_announce_received', YLeaf(YType.int32, 'is-last-announce-received')),
+                                            ('last_announce_received_time', YLeaf(YType.uint32, 'last-announce-received-time')),
+                                        ])
+                                        self.node_name = None
+                                        self.srr_entry_exits = None
+                                        self.mac_address = None
+                                        self.outer_failure = None
+                                        self.inner_failure = None
+                                        self.is_last_announce_received = None
+                                        self.last_announce_received_time = None
                                         self._segment_path = lambda: "nodes-on-ring"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
                                 class NodesNotOnRing(Entity):
@@ -7654,32 +7800,35 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
 
                                         self.yang_name = "nodes-not-on-ring"
                                         self.yang_parent_name = "srr-detailed-info"
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
-
-                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
-
-                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
-
-                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
+                                        self.ylist_key_names = []
+                                        self._child_container_classes = OrderedDict([])
+                                        self._child_list_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('srr_entry_exits', YLeaf(YType.int32, 'srr-entry-exits')),
+                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('outer_failure', YLeaf(YType.enumeration, 'outer-failure')),
+                                            ('inner_failure', YLeaf(YType.enumeration, 'inner-failure')),
+                                            ('is_last_announce_received', YLeaf(YType.int32, 'is-last-announce-received')),
+                                            ('last_announce_received_time', YLeaf(YType.uint32, 'last-announce-received-time')),
+                                        ])
+                                        self.node_name = None
+                                        self.srr_entry_exits = None
+                                        self.mac_address = None
+                                        self.outer_failure = None
+                                        self.inner_failure = None
+                                        self.is_last_announce_received = None
+                                        self.last_announce_received_time = None
                                         self._segment_path = lambda: "nodes-not-on-ring"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
                         class RateLimitInfo(Entity):
@@ -7696,7 +7845,7 @@ class Interfaces(Entity):
                             .. attribute:: rate_limit_detailed_info
                             
                             	SRP rate limit information
-                            	**type**\: list of  		 :py:class:`RateLimitDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo.RateLimitDetailedInfo>`
+                            	**type**\: list of  		 :py:class:`RateLimitDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo>`
                             
                             
 
@@ -7706,22 +7855,25 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, self).__init__()
 
                                 self.yang_name = "rate-limit-info"
                                 self.yang_parent_name = "srp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"rate-limit-detailed-info" : ("rate_limit_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo.RateLimitDetailedInfo)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([("rate-limit-detailed-info", ("rate_limit_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo))])
+                                self._leafs = OrderedDict([
+                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                ])
+                                self.is_admin_down = None
 
                                 self.rate_limit_detailed_info = YList(self)
                                 self._segment_path = lambda: "rate-limit-info"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo, ['is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, ['is_admin_down'], name, value)
 
 
                             class RateLimitDetailedInfo(Entity):
@@ -7743,20 +7895,23 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo.RateLimitDetailedInfo, self).__init__()
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, self).__init__()
 
                                     self.yang_name = "rate-limit-detailed-info"
                                     self.yang_parent_name = "rate-limit-info"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.min_priority_value = YLeaf(YType.uint16, "min-priority-value")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('min_priority_value', YLeaf(YType.uint16, 'min-priority-value')),
+                                    ])
+                                    self.min_priority_value = None
                                     self._segment_path = lambda: "rate-limit-detailed-info"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
 
 
                     class SrpStatistics(Entity):
@@ -7806,10 +7961,13 @@ class Interfaces(Entity):
                             self.yang_parent_name = "srp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"side-a-data-rate" : ("side_a_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate), "side-b-data-rate" : ("side_b_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate), "side-a-errors" : ("side_a_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors), "side-b-errors" : ("side_b_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors)}
-                            self._child_list_classes = {}
-
-                            self.data_rate_interval = YLeaf(YType.uint32, "data-rate-interval")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("side-a-data-rate", ("side_a_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate)), ("side-b-data-rate", ("side_b_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate)), ("side-a-errors", ("side_a_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors)), ("side-b-errors", ("side_b_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('data_rate_interval', YLeaf(YType.uint32, 'data-rate-interval')),
+                            ])
+                            self.data_rate_interval = None
 
                             self.side_a_data_rate = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate()
                             self.side_a_data_rate.parent = self
@@ -7882,16 +8040,19 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "srp-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.bit_rate_sent = YLeaf(YType.uint32, "bit-rate-sent")
-
-                                self.packet_rate_sent = YLeaf(YType.uint32, "packet-rate-sent")
-
-                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
-
-                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bit_rate_sent', YLeaf(YType.uint32, 'bit-rate-sent')),
+                                    ('packet_rate_sent', YLeaf(YType.uint32, 'packet-rate-sent')),
+                                    ('bit_rate_received', YLeaf(YType.uint32, 'bit-rate-received')),
+                                    ('packet_rate_received', YLeaf(YType.uint32, 'packet-rate-received')),
+                                ])
+                                self.bit_rate_sent = None
+                                self.packet_rate_sent = None
+                                self.bit_rate_received = None
+                                self.packet_rate_received = None
                                 self._segment_path = lambda: "side-a-data-rate"
 
                             def __setattr__(self, name, value):
@@ -7944,16 +8105,19 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "srp-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.bit_rate_sent = YLeaf(YType.uint32, "bit-rate-sent")
-
-                                self.packet_rate_sent = YLeaf(YType.uint32, "packet-rate-sent")
-
-                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
-
-                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('bit_rate_sent', YLeaf(YType.uint32, 'bit-rate-sent')),
+                                    ('packet_rate_sent', YLeaf(YType.uint32, 'packet-rate-sent')),
+                                    ('bit_rate_received', YLeaf(YType.uint32, 'bit-rate-received')),
+                                    ('packet_rate_received', YLeaf(YType.uint32, 'packet-rate-received')),
+                                ])
+                                self.bit_rate_sent = None
+                                self.packet_rate_sent = None
+                                self.bit_rate_received = None
+                                self.packet_rate_received = None
                                 self._segment_path = lambda: "side-b-data-rate"
 
                             def __setattr__(self, name, value):
@@ -8041,26 +8205,29 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "srp-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.error_packets_received = YLeaf(YType.uint32, "error-packets-received")
-
-                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
-                                self.input_insufficient_resource_events = YLeaf(YType.uint32, "input-insufficient-resource-events")
-
-                                self.mac_aborts_received = YLeaf(YType.uint32, "mac-aborts-received")
-
-                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
-
-                                self.mac_giant_packets_received = YLeaf(YType.uint32, "mac-giant-packets-received")
-
-                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
-
-                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
-
-                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('error_packets_received', YLeaf(YType.uint32, 'error-packets-received')),
+                                    ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
+                                    ('input_insufficient_resource_events', YLeaf(YType.uint32, 'input-insufficient-resource-events')),
+                                    ('mac_aborts_received', YLeaf(YType.uint32, 'mac-aborts-received')),
+                                    ('mac_runt_packets_received', YLeaf(YType.uint32, 'mac-runt-packets-received')),
+                                    ('mac_giant_packets_received', YLeaf(YType.uint32, 'mac-giant-packets-received')),
+                                    ('framer_runt_packets_received', YLeaf(YType.uint32, 'framer-runt-packets-received')),
+                                    ('framer_giant_packets_received', YLeaf(YType.uint32, 'framer-giant-packets-received')),
+                                    ('framer_aborts_received', YLeaf(YType.uint32, 'framer-aborts-received')),
+                                ])
+                                self.error_packets_received = None
+                                self.crc_errors = None
+                                self.input_insufficient_resource_events = None
+                                self.mac_aborts_received = None
+                                self.mac_runt_packets_received = None
+                                self.mac_giant_packets_received = None
+                                self.framer_runt_packets_received = None
+                                self.framer_giant_packets_received = None
+                                self.framer_aborts_received = None
                                 self._segment_path = lambda: "side-a-errors"
 
                             def __setattr__(self, name, value):
@@ -8148,26 +8315,29 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "srp-statistics"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.error_packets_received = YLeaf(YType.uint32, "error-packets-received")
-
-                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
-                                self.input_insufficient_resource_events = YLeaf(YType.uint32, "input-insufficient-resource-events")
-
-                                self.mac_aborts_received = YLeaf(YType.uint32, "mac-aborts-received")
-
-                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
-
-                                self.mac_giant_packets_received = YLeaf(YType.uint32, "mac-giant-packets-received")
-
-                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
-
-                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
-
-                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('error_packets_received', YLeaf(YType.uint32, 'error-packets-received')),
+                                    ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
+                                    ('input_insufficient_resource_events', YLeaf(YType.uint32, 'input-insufficient-resource-events')),
+                                    ('mac_aborts_received', YLeaf(YType.uint32, 'mac-aborts-received')),
+                                    ('mac_runt_packets_received', YLeaf(YType.uint32, 'mac-runt-packets-received')),
+                                    ('mac_giant_packets_received', YLeaf(YType.uint32, 'mac-giant-packets-received')),
+                                    ('framer_runt_packets_received', YLeaf(YType.uint32, 'framer-runt-packets-received')),
+                                    ('framer_giant_packets_received', YLeaf(YType.uint32, 'framer-giant-packets-received')),
+                                    ('framer_aborts_received', YLeaf(YType.uint32, 'framer-aborts-received')),
+                                ])
+                                self.error_packets_received = None
+                                self.crc_errors = None
+                                self.input_insufficient_resource_events = None
+                                self.mac_aborts_received = None
+                                self.mac_runt_packets_received = None
+                                self.mac_giant_packets_received = None
+                                self.framer_runt_packets_received = None
+                                self.framer_giant_packets_received = None
+                                self.framer_aborts_received = None
                                 self._segment_path = lambda: "side-b-errors"
 
                             def __setattr__(self, name, value):
@@ -8230,20 +8400,23 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.source_name = YLeaf(YType.str, "source-name")
-
-                        self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
-
-                        self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
-
-                        self.tunnel_type = YLeaf(YType.str, "tunnel-type")
-
-                        self.key = YLeaf(YType.uint32, "key")
-
-                        self.ttl = YLeaf(YType.uint32, "ttl")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_name', YLeaf(YType.str, 'source-name')),
+                            ('source_ipv4_address', YLeaf(YType.str, 'source-ipv4-address')),
+                            ('destination_ipv4_address', YLeaf(YType.str, 'destination-ipv4-address')),
+                            ('tunnel_type', YLeaf(YType.str, 'tunnel-type')),
+                            ('key', YLeaf(YType.uint32, 'key')),
+                            ('ttl', YLeaf(YType.uint32, 'ttl')),
+                        ])
+                        self.source_name = None
+                        self.source_ipv4_address = None
+                        self.destination_ipv4_address = None
+                        self.tunnel_type = None
+                        self.key = None
+                        self.ttl = None
                         self._segment_path = lambda: "tunnel-information"
 
                     def __setattr__(self, name, value):
@@ -8273,8 +8446,10 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"member" : ("member", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member)}
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("member", ("member", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member))])
+                        self._leafs = OrderedDict()
 
                         self.member = YList(self)
                         self._segment_path = lambda: "bundle-information"
@@ -8387,28 +8562,31 @@ class Interfaces(Entity):
                             self.yang_parent_name = "bundle-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"counters" : ("counters", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters), "link-data" : ("link_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData), "member-mux-data" : ("member_mux_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.port_priority = YLeaf(YType.uint16, "port-priority")
-
-                            self.port_number = YLeaf(YType.uint16, "port-number")
-
-                            self.underlying_link_id = YLeaf(YType.uint16, "underlying-link-id")
-
-                            self.link_order_number = YLeaf(YType.uint16, "link-order-number")
-
-                            self.iccp_node = YLeaf(YType.uint32, "iccp-node")
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                            self.lacp_enabled = YLeaf(YType.str, "lacp-enabled")
-
-                            self.member_type = YLeaf(YType.enumeration, "member-type")
-
-                            self.member_name = YLeaf(YType.str, "member-name")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([("counters", ("counters", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters)), ("link-data", ("link_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData)), ("member-mux-data", ("member_mux_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData)), ("mac-address", ("mac_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress))])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('port_priority', YLeaf(YType.uint16, 'port-priority')),
+                                ('port_number', YLeaf(YType.uint16, 'port-number')),
+                                ('underlying_link_id', YLeaf(YType.uint16, 'underlying-link-id')),
+                                ('link_order_number', YLeaf(YType.uint16, 'link-order-number')),
+                                ('iccp_node', YLeaf(YType.uint32, 'iccp-node')),
+                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('lacp_enabled', YLeaf(YType.str, 'lacp-enabled')),
+                                ('member_type', YLeaf(YType.enumeration, 'member-type')),
+                                ('member_name', YLeaf(YType.str, 'member-name')),
+                            ])
+                            self.interface_name = None
+                            self.port_priority = None
+                            self.port_number = None
+                            self.underlying_link_id = None
+                            self.link_order_number = None
+                            self.iccp_node = None
+                            self.bandwidth = None
+                            self.lacp_enabled = None
+                            self.member_type = None
+                            self.member_name = None
 
                             self.counters = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters()
                             self.counters.parent = self
@@ -8530,30 +8708,33 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "member"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.lacpd_us_received = YLeaf(YType.uint32, "lacpd-us-received")
-
-                                self.lacpd_us_transmitted = YLeaf(YType.uint32, "lacpd-us-transmitted")
-
-                                self.marker_packets_received = YLeaf(YType.uint32, "marker-packets-received")
-
-                                self.marker_responses_transmitted = YLeaf(YType.uint32, "marker-responses-transmitted")
-
-                                self.illegal_packets_received = YLeaf(YType.uint32, "illegal-packets-received")
-
-                                self.excess_lacpd_us_received = YLeaf(YType.uint32, "excess-lacpd-us-received")
-
-                                self.excess_marker_packets_received = YLeaf(YType.uint32, "excess-marker-packets-received")
-
-                                self.defaulted = YLeaf(YType.uint32, "defaulted")
-
-                                self.expired = YLeaf(YType.uint32, "expired")
-
-                                self.last_cleared_sec = YLeaf(YType.uint32, "last-cleared-sec")
-
-                                self.last_cleared_nsec = YLeaf(YType.uint32, "last-cleared-nsec")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('lacpd_us_received', YLeaf(YType.uint32, 'lacpd-us-received')),
+                                    ('lacpd_us_transmitted', YLeaf(YType.uint32, 'lacpd-us-transmitted')),
+                                    ('marker_packets_received', YLeaf(YType.uint32, 'marker-packets-received')),
+                                    ('marker_responses_transmitted', YLeaf(YType.uint32, 'marker-responses-transmitted')),
+                                    ('illegal_packets_received', YLeaf(YType.uint32, 'illegal-packets-received')),
+                                    ('excess_lacpd_us_received', YLeaf(YType.uint32, 'excess-lacpd-us-received')),
+                                    ('excess_marker_packets_received', YLeaf(YType.uint32, 'excess-marker-packets-received')),
+                                    ('defaulted', YLeaf(YType.uint32, 'defaulted')),
+                                    ('expired', YLeaf(YType.uint32, 'expired')),
+                                    ('last_cleared_sec', YLeaf(YType.uint32, 'last-cleared-sec')),
+                                    ('last_cleared_nsec', YLeaf(YType.uint32, 'last-cleared-nsec')),
+                                ])
+                                self.lacpd_us_received = None
+                                self.lacpd_us_transmitted = None
+                                self.marker_packets_received = None
+                                self.marker_responses_transmitted = None
+                                self.illegal_packets_received = None
+                                self.excess_lacpd_us_received = None
+                                self.excess_marker_packets_received = None
+                                self.defaulted = None
+                                self.expired = None
+                                self.last_cleared_sec = None
+                                self.last_cleared_nsec = None
                                 self._segment_path = lambda: "counters"
 
                             def __setattr__(self, name, value):
@@ -8683,38 +8864,41 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "member"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                self.actor_system_priority = YLeaf(YType.uint16, "actor-system-priority")
-
-                                self.actor_system_mac_address = YLeaf(YType.str, "actor-system-mac-address")
-
-                                self.actor_operational_key = YLeaf(YType.uint16, "actor-operational-key")
-
-                                self.partner_system_priority = YLeaf(YType.uint16, "partner-system-priority")
-
-                                self.partner_system_mac_address = YLeaf(YType.str, "partner-system-mac-address")
-
-                                self.partner_operational_key = YLeaf(YType.uint16, "partner-operational-key")
-
-                                self.selected_aggregator_id = YLeaf(YType.uint32, "selected-aggregator-id")
-
-                                self.attached_aggregator_id = YLeaf(YType.uint32, "attached-aggregator-id")
-
-                                self.actor_port_id = YLeaf(YType.uint16, "actor-port-id")
-
-                                self.actor_port_priority = YLeaf(YType.uint16, "actor-port-priority")
-
-                                self.partner_port_id = YLeaf(YType.uint16, "partner-port-id")
-
-                                self.partner_port_priority = YLeaf(YType.uint16, "partner-port-priority")
-
-                                self.actor_port_state = YLeaf(YType.uint8, "actor-port-state")
-
-                                self.partner_port_state = YLeaf(YType.uint8, "partner-port-state")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                                    ('actor_system_priority', YLeaf(YType.uint16, 'actor-system-priority')),
+                                    ('actor_system_mac_address', YLeaf(YType.str, 'actor-system-mac-address')),
+                                    ('actor_operational_key', YLeaf(YType.uint16, 'actor-operational-key')),
+                                    ('partner_system_priority', YLeaf(YType.uint16, 'partner-system-priority')),
+                                    ('partner_system_mac_address', YLeaf(YType.str, 'partner-system-mac-address')),
+                                    ('partner_operational_key', YLeaf(YType.uint16, 'partner-operational-key')),
+                                    ('selected_aggregator_id', YLeaf(YType.uint32, 'selected-aggregator-id')),
+                                    ('attached_aggregator_id', YLeaf(YType.uint32, 'attached-aggregator-id')),
+                                    ('actor_port_id', YLeaf(YType.uint16, 'actor-port-id')),
+                                    ('actor_port_priority', YLeaf(YType.uint16, 'actor-port-priority')),
+                                    ('partner_port_id', YLeaf(YType.uint16, 'partner-port-id')),
+                                    ('partner_port_priority', YLeaf(YType.uint16, 'partner-port-priority')),
+                                    ('actor_port_state', YLeaf(YType.uint8, 'actor-port-state')),
+                                    ('partner_port_state', YLeaf(YType.uint8, 'partner-port-state')),
+                                ])
+                                self.interface_handle = None
+                                self.actor_system_priority = None
+                                self.actor_system_mac_address = None
+                                self.actor_operational_key = None
+                                self.partner_system_priority = None
+                                self.partner_system_mac_address = None
+                                self.partner_operational_key = None
+                                self.selected_aggregator_id = None
+                                self.attached_aggregator_id = None
+                                self.actor_port_id = None
+                                self.actor_port_priority = None
+                                self.partner_port_id = None
+                                self.partner_port_priority = None
+                                self.actor_port_state = None
+                                self.partner_port_state = None
                                 self._segment_path = lambda: "link-data"
 
                             def __setattr__(self, name, value):
@@ -8771,18 +8955,21 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "member"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"member-mux-state-reason-data" : ("member_mux_state_reason_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData)}
-                                self._child_list_classes = {}
-
-                                self.mux_state = YLeaf(YType.enumeration, "mux-state")
-
-                                self.error = YLeaf(YType.uint32, "error")
-
-                                self.member_mux_state_reason = YLeaf(YType.enumeration, "member-mux-state-reason")
-
-                                self.member_state = YLeaf(YType.enumeration, "member-state")
-
-                                self.mux_state_reason = YLeaf(YType.enumeration, "mux-state-reason")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([("member-mux-state-reason-data", ("member_mux_state_reason_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData))])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mux_state', YLeaf(YType.enumeration, 'mux-state')),
+                                    ('error', YLeaf(YType.uint32, 'error')),
+                                    ('member_mux_state_reason', YLeaf(YType.enumeration, 'member-mux-state-reason')),
+                                    ('member_state', YLeaf(YType.enumeration, 'member-state')),
+                                    ('mux_state_reason', YLeaf(YType.enumeration, 'mux-state-reason')),
+                                ])
+                                self.mux_state = None
+                                self.error = None
+                                self.member_mux_state_reason = None
+                                self.member_state = None
+                                self.mux_state_reason = None
 
                                 self.member_mux_state_reason_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData()
                                 self.member_mux_state_reason_data.parent = self
@@ -8823,12 +9010,15 @@ class Interfaces(Entity):
                                     self.yang_parent_name = "member-mux-data"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.reason_type = YLeaf(YType.enumeration, "reason-type")
-
-                                    self.severity = YLeaf(YType.enumeration, "severity")
+                                    self.ylist_key_names = []
+                                    self._child_container_classes = OrderedDict([])
+                                    self._child_list_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('reason_type', YLeaf(YType.enumeration, 'reason-type')),
+                                        ('severity', YLeaf(YType.enumeration, 'severity')),
+                                    ])
+                                    self.reason_type = None
+                                    self.severity = None
                                     self._segment_path = lambda: "member-mux-state-reason-data"
 
                                 def __setattr__(self, name, value):
@@ -8860,10 +9050,13 @@ class Interfaces(Entity):
                                 self.yang_parent_name = "member"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
+                                self.ylist_key_names = []
+                                self._child_container_classes = OrderedDict([])
+                                self._child_list_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('address', YLeaf(YType.str, 'address')),
+                                ])
+                                self.address = None
                                 self._segment_path = lambda: "mac-address"
 
                             def __setattr__(self, name, value):
@@ -8893,10 +9086,13 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.timeslots = YLeaf(YType.str, "timeslots")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('timeslots', YLeaf(YType.str, 'timeslots')),
+                        ])
+                        self.timeslots = None
                         self._segment_path = lambda: "serial-information"
 
                     def __setattr__(self, name, value):
@@ -8926,10 +9122,13 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.aps_state = YLeaf(YType.enumeration, "aps-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('aps_state', YLeaf(YType.enumeration, 'aps-state')),
+                        ])
+                        self.aps_state = None
                         self._segment_path = lambda: "sonet-pos-information"
 
                     def __setattr__(self, name, value):
@@ -9038,32 +9237,35 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"source-ip-address" : ("source_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress), "destination-ip-address" : ("destination_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress)}
-                        self._child_list_classes = {}
-
-                        self.source_name = YLeaf(YType.str, "source-name")
-
-                        self.destination_ip_address_length = YLeaf(YType.uint8, "destination-ip-address-length")
-
-                        self.tunnel_tos = YLeaf(YType.uint32, "tunnel-tos")
-
-                        self.tunnel_ttl = YLeaf(YType.uint32, "tunnel-ttl")
-
-                        self.key = YLeaf(YType.uint32, "key")
-
-                        self.keepalive_period = YLeaf(YType.uint16, "keepalive-period")
-
-                        self.keepalive_maximum_retry = YLeaf(YType.uint8, "keepalive-maximum-retry")
-
-                        self.tunnel_mode = YLeaf(YType.enumeration, "tunnel-mode")
-
-                        self.tunnel_mode_direction = YLeaf(YType.enumeration, "tunnel-mode-direction")
-
-                        self.keepalive_state = YLeaf(YType.enumeration, "keepalive-state")
-
-                        self.df_bit_state = YLeaf(YType.enumeration, "df-bit-state")
-
-                        self.key_bit_state = YLeaf(YType.enumeration, "key-bit-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("source-ip-address", ("source_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress)), ("destination-ip-address", ("destination_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('source_name', YLeaf(YType.str, 'source-name')),
+                            ('destination_ip_address_length', YLeaf(YType.uint8, 'destination-ip-address-length')),
+                            ('tunnel_tos', YLeaf(YType.uint32, 'tunnel-tos')),
+                            ('tunnel_ttl', YLeaf(YType.uint32, 'tunnel-ttl')),
+                            ('key', YLeaf(YType.uint32, 'key')),
+                            ('keepalive_period', YLeaf(YType.uint16, 'keepalive-period')),
+                            ('keepalive_maximum_retry', YLeaf(YType.uint8, 'keepalive-maximum-retry')),
+                            ('tunnel_mode', YLeaf(YType.enumeration, 'tunnel-mode')),
+                            ('tunnel_mode_direction', YLeaf(YType.enumeration, 'tunnel-mode-direction')),
+                            ('keepalive_state', YLeaf(YType.enumeration, 'keepalive-state')),
+                            ('df_bit_state', YLeaf(YType.enumeration, 'df-bit-state')),
+                            ('key_bit_state', YLeaf(YType.enumeration, 'key-bit-state')),
+                        ])
+                        self.source_name = None
+                        self.destination_ip_address_length = None
+                        self.tunnel_tos = None
+                        self.tunnel_ttl = None
+                        self.key = None
+                        self.keepalive_period = None
+                        self.keepalive_maximum_retry = None
+                        self.tunnel_mode = None
+                        self.tunnel_mode_direction = None
+                        self.keepalive_state = None
+                        self.df_bit_state = None
+                        self.key_bit_state = None
 
                         self.source_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress()
                         self.source_ip_address.parent = self
@@ -9117,14 +9319,17 @@ class Interfaces(Entity):
                             self.yang_parent_name = "tunnel-gre-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi', YLeaf(YType.enumeration, 'afi')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.afi = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "source-ip-address"
 
                         def __setattr__(self, name, value):
@@ -9168,14 +9373,17 @@ class Interfaces(Entity):
                             self.yang_parent_name = "tunnel-gre-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('afi', YLeaf(YType.enumeration, 'afi')),
+                                ('ipv4', YLeaf(YType.str, 'ipv4')),
+                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ])
+                            self.afi = None
+                            self.ipv4 = None
+                            self.ipv6 = None
                             self._segment_path = lambda: "destination-ip-address"
 
                         def __setattr__(self, name, value):
@@ -9219,14 +9427,17 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_list_name = YLeaf(YType.str, "interface-list-name")
-
-                        self.l2_overhead = YLeaf(YType.uint32, "l2-overhead")
-
-                        self.internal_label = YLeaf(YType.uint32, "internal-label")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_list_name', YLeaf(YType.str, 'interface-list-name')),
+                            ('l2_overhead', YLeaf(YType.uint32, 'l2-overhead')),
+                            ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ])
+                        self.interface_list_name = None
+                        self.l2_overhead = None
+                        self.internal_label = None
                         self._segment_path = lambda: "pseudowire-head-end-information"
 
                     def __setattr__(self, name, value):
@@ -9281,16 +9492,19 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.timeslots = YLeaf(YType.str, "timeslots")
-
-                        self.payload = YLeaf(YType.uint16, "payload")
-
-                        self.dejitter_buffer = YLeaf(YType.uint16, "dejitter-buffer")
-
-                        self.framing = YLeaf(YType.int32, "framing")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('timeslots', YLeaf(YType.str, 'timeslots')),
+                            ('payload', YLeaf(YType.uint16, 'payload')),
+                            ('dejitter_buffer', YLeaf(YType.uint16, 'dejitter-buffer')),
+                            ('framing', YLeaf(YType.int32, 'framing')),
+                        ])
+                        self.timeslots = None
+                        self.payload = None
+                        self.dejitter_buffer = None
+                        self.framing = None
                         self._segment_path = lambda: "cem-information"
 
                     def __setattr__(self, name, value):
@@ -9325,12 +9539,15 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.derived_mode = YLeaf(YType.enumeration, "derived-mode")
-
-                        self.sec_state = YLeaf(YType.enumeration, "sec-state")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('derived_mode', YLeaf(YType.enumeration, 'derived-mode')),
+                            ('sec_state', YLeaf(YType.enumeration, 'sec-state')),
+                        ])
+                        self.derived_mode = None
+                        self.sec_state = None
                         self._segment_path = lambda: "gcc-information"
 
                     def __setattr__(self, name, value):
@@ -9456,34 +9673,37 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
-
-                    self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
-
-                    self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
-
-                    self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
-
-                    self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
-
-                    self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
-
-                    self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
-
-                    self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
-
-                    self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                    self.load_interval = YLeaf(YType.uint32, "load-interval")
-
-                    self.output_load = YLeaf(YType.uint8, "output-load")
-
-                    self.input_load = YLeaf(YType.uint8, "input-load")
-
-                    self.reliability = YLeaf(YType.uint8, "reliability")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
+                        ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
+                        ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
+                        ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
+                        ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
+                        ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
+                        ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
+                        ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
+                        ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                        ('load_interval', YLeaf(YType.uint32, 'load-interval')),
+                        ('output_load', YLeaf(YType.uint8, 'output-load')),
+                        ('input_load', YLeaf(YType.uint8, 'input-load')),
+                        ('reliability', YLeaf(YType.uint8, 'reliability')),
+                    ])
+                    self.input_data_rate = None
+                    self.input_packet_rate = None
+                    self.output_data_rate = None
+                    self.output_packet_rate = None
+                    self.peak_input_data_rate = None
+                    self.peak_input_packet_rate = None
+                    self.peak_output_data_rate = None
+                    self.peak_output_packet_rate = None
+                    self.bandwidth = None
+                    self.load_interval = None
+                    self.output_load = None
+                    self.input_load = None
+                    self.reliability = None
                     self._segment_path = lambda: "data-rates"
 
                 def __setattr__(self, name, value):
@@ -9523,10 +9743,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"full-interface-stats" : ("full_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats), "basic-interface-stats" : ("basic_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats)}
-                    self._child_list_classes = {}
-
-                    self.stats_type = YLeaf(YType.enumeration, "stats-type")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("full-interface-stats", ("full_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats)), ("basic-interface-stats", ("basic_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats))])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('stats_type', YLeaf(YType.enumeration, 'stats-type')),
+                    ])
+                    self.stats_type = None
 
                     self.full_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats()
                     self.full_interface_stats.parent = self
@@ -9827,80 +10050,83 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
-
-                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
-
-                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
-
-                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
-
-                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
-
-                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
-
-                        self.output_drops = YLeaf(YType.uint32, "output-drops")
-
-                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
-
-                        self.input_drops = YLeaf(YType.uint32, "input-drops")
-
-                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
-
-                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
-
-                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
-
-                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
-
-                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
-
-                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
-
-                        self.input_errors = YLeaf(YType.uint32, "input-errors")
-
-                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
-                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
-
-                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
-
-                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
-
-                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
-
-                        self.output_errors = YLeaf(YType.uint32, "output-errors")
-
-                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
-
-                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
-
-                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
-
-                        self.applique = YLeaf(YType.uint32, "applique")
-
-                        self.resets = YLeaf(YType.uint32, "resets")
-
-                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
-
-                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
-
-                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
-
-                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
-
-                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
-
-                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
-
-                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
+                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
+                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
+                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
+                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
+                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
+                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
+                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
+                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
+                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
+                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
+                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
+                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
+                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
+                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
+                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
+                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
+                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
+                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
+                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
+                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
+                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
+                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
+                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
+                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
+                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
+                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
+                            ('applique', YLeaf(YType.uint32, 'applique')),
+                            ('resets', YLeaf(YType.uint32, 'resets')),
+                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
+                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
+                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
+                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
+                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
+                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
+                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                        ])
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "full-interface-stats"
 
                     def __setattr__(self, name, value):
@@ -10051,40 +10277,43 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
-
-                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
-
-                        self.input_drops = YLeaf(YType.uint32, "input-drops")
-
-                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
-
-                        self.input_errors = YLeaf(YType.uint32, "input-errors")
-
-                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
-
-                        self.output_drops = YLeaf(YType.uint32, "output-drops")
-
-                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
-
-                        self.output_errors = YLeaf(YType.uint32, "output-errors")
-
-                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
-
-                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
-
-                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
-
-                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
-
-                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
+                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
+                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
+                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
+                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
+                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
+                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
+                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
+                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
+                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
+                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
+                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
+                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
+                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
+                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
+                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                        ])
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.input_errors = None
+                        self.unknown_protocol_packets_received = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.output_errors = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "basic-interface-stats"
 
                     def __setattr__(self, name, value):
@@ -10136,12 +10365,15 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"stats-id" : ("stats_id", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId)}
-                    self._child_list_classes = {"block-array" : ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray), "element-array" : ("element_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray)}
-
-                    self.stats_type = YLeaf(YType.uint32, "stats-type")
-
-                    self.contents = YLeaf(YType.enumeration, "contents")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("stats-id", ("stats_id", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId))])
+                    self._child_list_classes = OrderedDict([("block-array", ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray)), ("element-array", ("element_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray))])
+                    self._leafs = OrderedDict([
+                        ('stats_type', YLeaf(YType.uint32, 'stats-type')),
+                        ('contents', YLeaf(YType.enumeration, 'contents')),
+                    ])
+                    self.stats_type = None
+                    self.contents = None
 
                     self.stats_id = Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId()
                     self.stats_id.parent = self
@@ -10214,20 +10446,23 @@ class Interfaces(Entity):
                         self.yang_parent_name = "l2-interface-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.id_type = YLeaf(YType.enumeration, "id-type")
-
-                        self.unused = YLeaf(YType.uint32, "unused")
-
-                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                        self.node_id = YLeaf(YType.str, "node-id")
-
-                        self.feature_id = YLeaf(YType.uint32, "feature-id")
-
-                        self.id = YLeaf(YType.uint32, "id")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('id_type', YLeaf(YType.enumeration, 'id-type')),
+                            ('unused', YLeaf(YType.uint32, 'unused')),
+                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
+                            ('node_id', YLeaf(YType.str, 'node-id')),
+                            ('feature_id', YLeaf(YType.uint32, 'feature-id')),
+                            ('id', YLeaf(YType.uint32, 'id')),
+                        ])
+                        self.id_type = None
+                        self.unused = None
+                        self.interface_handle = None
+                        self.node_id = None
+                        self.feature_id = None
+                        self.id = None
                         self._segment_path = lambda: "stats-id"
 
                     def __setattr__(self, name, value):
@@ -10271,14 +10506,17 @@ class Interfaces(Entity):
                         self.yang_parent_name = "l2-interface-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.count = YLeaf(YType.uint32, "count")
-
-                        self.data = YLeaf(YType.str, "data")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('count', YLeaf(YType.uint32, 'count')),
+                            ('data', YLeaf(YType.str, 'data')),
+                        ])
+                        self.type = None
+                        self.count = None
+                        self.data = None
                         self._segment_path = lambda: "block-array"
 
                     def __setattr__(self, name, value):
@@ -10315,10 +10553,13 @@ class Interfaces(Entity):
                         self.yang_parent_name = "l2-interface-statistics"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"block-array" : ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray)}
-
-                        self.key = YLeaf(YType.str, "key")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([("block-array", ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray))])
+                        self._leafs = OrderedDict([
+                            ('key', YLeaf(YType.str, 'key')),
+                        ])
+                        self.key = None
 
                         self.block_array = YList(self)
                         self._segment_path = lambda: "element-array"
@@ -10364,14 +10605,17 @@ class Interfaces(Entity):
                             self.yang_parent_name = "element-array"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.type = YLeaf(YType.enumeration, "type")
-
-                            self.count = YLeaf(YType.uint32, "count")
-
-                            self.data = YLeaf(YType.str, "data")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('count', YLeaf(YType.uint32, 'count')),
+                                ('data', YLeaf(YType.str, 'data')),
+                            ])
+                            self.type = None
+                            self.count = None
+                            self.data = None
                             self._segment_path = lambda: "block-array"
 
                         def __setattr__(self, name, value):
@@ -10401,10 +10645,13 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.controller = YLeaf(YType.str, "controller")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('controller', YLeaf(YType.str, 'controller')),
+                    ])
+                    self.controller = None
                     self._segment_path = lambda: "nv-optical"
 
                 def __setattr__(self, name, value):
@@ -10435,8 +10682,10 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"node-type-set" : ("node_type_set", Interfaces.NodeTypeSets.NodeTypeSet)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("node-type-set", ("node_type_set", Interfaces.NodeTypeSets.NodeTypeSet))])
+            self._leafs = OrderedDict()
 
             self.node_type_set = YList(self)
             self._segment_path = lambda: "node-type-sets"
@@ -10482,12 +10731,15 @@ class Interfaces(Entity):
                 self.yang_parent_name = "node-type-sets"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-summary" : ("interface_summary", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary)}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.type_set_name = YLeaf(YType.enumeration, "type-set-name")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("interface-summary", ("interface_summary", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('type_set_name', YLeaf(YType.enumeration, 'type-set-name')),
+                ])
+                self.node_name = None
+                self.type_set_name = None
 
                 self.interface_summary = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary()
                 self.interface_summary.parent = self
@@ -10528,8 +10780,10 @@ class Interfaces(Entity):
                     self.yang_parent_name = "node-type-set"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts)}
-                    self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts))])
+                    self._child_list_classes = OrderedDict([("interface-type", ("interface_type", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType))])
+                    self._leafs = OrderedDict()
 
                     self.interface_counts = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts()
                     self.interface_counts.parent = self
@@ -10590,16 +10844,19 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                        self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                        self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                        self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                            ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                            ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                            ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                        ])
+                        self.interface_count = None
+                        self.up_interface_count = None
+                        self.down_interface_count = None
+                        self.admin_down_interface_count = None
                         self._segment_path = lambda: "interface-counts"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/%s" % self._segment_path()
 
@@ -10640,12 +10897,15 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts)}
-                        self._child_list_classes = {}
-
-                        self.interface_type_name = YLeaf(YType.str, "interface-type-name")
-
-                        self.interface_type_description = YLeaf(YType.str, "interface-type-description")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts))])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
+                            ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                        ])
+                        self.interface_type_name = None
+                        self.interface_type_description = None
 
                         self.interface_counts = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts()
                         self.interface_counts.parent = self
@@ -10704,16 +10964,19 @@ class Interfaces(Entity):
                             self.yang_parent_name = "interface-type"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                            self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                            self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                            self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                            self.ylist_key_names = []
+                            self._child_container_classes = OrderedDict([])
+                            self._child_list_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                                ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                                ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                                ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                            ])
+                            self.interface_count = None
+                            self.up_interface_count = None
+                            self.down_interface_count = None
+                            self.admin_down_interface_count = None
                             self._segment_path = lambda: "interface-counts"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/interface-type/%s" % self._segment_path()
 
@@ -10744,8 +11007,10 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface-brief" : ("interface_brief", Interfaces.InterfaceBriefs.InterfaceBrief)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface-brief", ("interface_brief", Interfaces.InterfaceBriefs.InterfaceBrief))])
+            self._leafs = OrderedDict()
 
             self.interface_brief = YList(self)
             self._segment_path = lambda: "interface-briefs"
@@ -10760,7 +11025,7 @@ class Interfaces(Entity):
             Brief operational attributes for a particular
             interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -10860,37 +11125,40 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface-briefs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface = YLeaf(YType.str, "interface")
-
-                self.parent_interface = YLeaf(YType.str, "parent-interface")
-
-                self.type = YLeaf(YType.str, "type")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.actual_state = YLeaf(YType.enumeration, "actual-state")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.actual_line_state = YLeaf(YType.enumeration, "actual-line-state")
-
-                self.encapsulation = YLeaf(YType.str, "encapsulation")
-
-                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
-
-                self.mtu = YLeaf(YType.uint32, "mtu")
-
-                self.sub_interface_mtu_overhead = YLeaf(YType.uint32, "sub-interface-mtu-overhead")
-
-                self.l2_transport = YLeaf(YType.boolean, "l2-transport")
-
-                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-                self._segment_path = lambda: "interface-brief" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface', YLeaf(YType.str, 'interface')),
+                    ('parent_interface', YLeaf(YType.str, 'parent-interface')),
+                    ('type', YLeaf(YType.str, 'type')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('actual_state', YLeaf(YType.enumeration, 'actual-state')),
+                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
+                    ('actual_line_state', YLeaf(YType.enumeration, 'actual-line-state')),
+                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
+                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
+                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                    ('sub_interface_mtu_overhead', YLeaf(YType.uint32, 'sub-interface-mtu-overhead')),
+                    ('l2_transport', YLeaf(YType.boolean, 'l2-transport')),
+                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                ])
+                self.interface_name = None
+                self.interface = None
+                self.parent_interface = None
+                self.type = None
+                self.state = None
+                self.actual_state = None
+                self.line_state = None
+                self.actual_line_state = None
+                self.encapsulation = None
+                self.encapsulation_type_string = None
+                self.mtu = None
+                self.sub_interface_mtu_overhead = None
+                self.l2_transport = None
+                self.bandwidth = None
+                self._segment_path = lambda: "interface-brief" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-briefs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
@@ -10925,8 +11193,10 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceCounts)}
-            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InventorySummary.InterfaceType)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InventorySummary.InterfaceCounts))])
+            self._child_list_classes = OrderedDict([("interface-type", ("interface_type", Interfaces.InventorySummary.InterfaceType))])
+            self._leafs = OrderedDict()
 
             self.interface_counts = Interfaces.InventorySummary.InterfaceCounts()
             self.interface_counts.parent = self
@@ -10987,16 +11257,19 @@ class Interfaces(Entity):
                 self.yang_parent_name = "inventory-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                    ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                    ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                    ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                ])
+                self.interface_count = None
+                self.up_interface_count = None
+                self.down_interface_count = None
+                self.admin_down_interface_count = None
                 self._segment_path = lambda: "interface-counts"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
 
@@ -11037,12 +11310,15 @@ class Interfaces(Entity):
                 self.yang_parent_name = "inventory-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceType.InterfaceCounts)}
-                self._child_list_classes = {}
-
-                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
-
-                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InventorySummary.InterfaceType.InterfaceCounts))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
+                    ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                ])
+                self.interface_type_name = None
+                self.interface_type_description = None
 
                 self.interface_counts = Interfaces.InventorySummary.InterfaceType.InterfaceCounts()
                 self.interface_counts.parent = self
@@ -11101,16 +11377,19 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface-type"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                        ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                        ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                        ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                    ])
+                    self.interface_count = None
+                    self.up_interface_count = None
+                    self.down_interface_count = None
+                    self.admin_down_interface_count = None
                     self._segment_path = lambda: "interface-counts"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/interface-type/%s" % self._segment_path()
 
@@ -11118,14 +11397,14 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
-    class Interfaces(Entity):
+    class Interfaces_(Entity):
         """
         Descriptions for interfaces
         
         .. attribute:: interface
         
         	Description for a particular interface
-        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces.Interface>`
+        	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces_.Interface>`
         
         
 
@@ -11135,28 +11414,30 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.Interfaces, self).__init__()
+            super(Interfaces.Interfaces_, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Interfaces.Interfaces.Interface)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("interface", ("interface", Interfaces.Interfaces_.Interface))])
+            self._leafs = OrderedDict()
 
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interfaces, [], name, value)
+            self._perform_setattr(Interfaces.Interfaces_, [], name, value)
 
 
         class Interface(Entity):
             """
             Description for a particular interface
             
-            .. attribute:: interface_name  <key>
+            .. attribute:: interface_name  (key)
             
             	The name of the interface
             	**type**\: str
@@ -11193,29 +11474,32 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.Interfaces.Interface, self).__init__()
+                super(Interfaces.Interfaces_.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface = YLeaf(YType.str, "interface")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.description = YLeaf(YType.str, "description")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self.ylist_key_names = ['interface_name']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface', YLeaf(YType.str, 'interface')),
+                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
+                    ('description', YLeaf(YType.str, 'description')),
+                ])
+                self.interface_name = None
+                self.interface = None
+                self.state = None
+                self.line_state = None
+                self.description = None
+                self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interfaces.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
+                self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
 
 
     class InterfaceSummary(Entity):
@@ -11246,8 +11530,10 @@ class Interfaces(Entity):
             self.yang_parent_name = "interfaces"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceCounts)}
-            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InterfaceSummary.InterfaceType)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InterfaceSummary.InterfaceCounts))])
+            self._child_list_classes = OrderedDict([("interface-type", ("interface_type", Interfaces.InterfaceSummary.InterfaceType))])
+            self._leafs = OrderedDict()
 
             self.interface_counts = Interfaces.InterfaceSummary.InterfaceCounts()
             self.interface_counts.parent = self
@@ -11308,16 +11594,19 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                    ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                    ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                    ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                ])
+                self.interface_count = None
+                self.up_interface_count = None
+                self.down_interface_count = None
+                self.admin_down_interface_count = None
                 self._segment_path = lambda: "interface-counts"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
 
@@ -11358,12 +11647,15 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface-summary"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts)}
-                self._child_list_classes = {}
-
-                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
-
-                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts))])
+                self._child_list_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
+                    ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                ])
+                self.interface_type_name = None
+                self.interface_type_description = None
 
                 self.interface_counts = Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts()
                 self.interface_counts.parent = self
@@ -11422,16 +11714,19 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface-type"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-
-                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface_count', YLeaf(YType.uint32, 'interface-count')),
+                        ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
+                        ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
+                        ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                    ])
+                    self.interface_count = None
+                    self.up_interface_count = None
+                    self.down_interface_count = None
+                    self.admin_down_interface_count = None
                     self._segment_path = lambda: "interface-counts"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/interface-type/%s" % self._segment_path()
 

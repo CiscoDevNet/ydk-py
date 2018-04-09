@@ -19,6 +19,8 @@ This version of this YANG module is part of RFC 6243; see
 the RFC itself for full legal notices.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -27,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class WithDefaultsMode(Enum):
     """
-    WithDefaultsMode
+    WithDefaultsMode (Enum Class)
 
     Possible modes to report default data.
 

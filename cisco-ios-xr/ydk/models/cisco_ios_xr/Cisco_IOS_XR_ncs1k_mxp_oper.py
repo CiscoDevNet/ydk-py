@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -19,7 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class ClientDataRate(Enum):
     """
-    ClientDataRate
+    ClientDataRate (Enum Class)
 
     Client data rate
 
@@ -52,7 +54,7 @@ class ClientDataRate(Enum):
 
 class HwModuleSliceStatus(Enum):
     """
-    HwModuleSliceStatus
+    HwModuleSliceStatus (Enum Class)
 
     Hw module slice status
 
@@ -97,7 +99,7 @@ class HwModuleSliceStatus(Enum):
 
 class TrunkDataRate(Enum):
     """
-    TrunkDataRate
+    TrunkDataRate (Enum Class)
 
     Trunk data rate
 
@@ -158,8 +160,10 @@ class HwModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"slice-ids" : ("slice_ids", HwModule.SliceIds), "slice-all" : ("slice_all", HwModule.SliceAll)}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([("slice-ids", ("slice_ids", HwModule.SliceIds)), ("slice-all", ("slice_all", HwModule.SliceAll))])
+        self._child_list_classes = OrderedDict([])
+        self._leafs = OrderedDict()
 
         self.slice_ids = HwModule.SliceIds()
         self.slice_ids.parent = self
@@ -196,8 +200,10 @@ class HwModule(Entity):
             self.yang_parent_name = "hw-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"slice-id" : ("slice_id", HwModule.SliceIds.SliceId)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("slice-id", ("slice_id", HwModule.SliceIds.SliceId))])
+            self._leafs = OrderedDict()
 
             self.slice_id = YList(self)
             self._segment_path = lambda: "slice-ids"
@@ -211,17 +217,70 @@ class HwModule(Entity):
             """
             Per slice num data
             
-            .. attribute:: slice_num  <key>
+            .. attribute:: slice_num  (key)
             
             	Details associated with a particular slice number
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: slice_info
+            .. attribute:: slice_id
             
-            	slice info
-            	**type**\: list of  		 :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo>`
+            	SliceId
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: client_rate
+            
+            	ClientRate
+            	**type**\:  :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
+            
+            .. attribute:: trunk_rate
+            
+            	TrunkRate
+            	**type**\:  :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
+            
+            .. attribute:: hardware_status
+            
+            	HardwareStatus
+            	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
+            
+            .. attribute:: dp_fpga_fw_type
+            
+            	DpFpgaFwType
+            	**type**\: str
+            
+            	**length:** 0..10
+            
+            .. attribute:: dp_fpga_fw_ver
+            
+            	DpFpgaFwVer
+            	**type**\: str
+            
+            	**length:** 0..10
+            
+            .. attribute:: need_upg
+            
+            	NeedUpg
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: encryption_supported
+            
+            	EncryptionSupported
+            	**type**\: bool
+            
+            .. attribute:: lldp_drop_status
+            
+            	LldpDropStatus
+            	**type**\: bool
+            
+            .. attribute:: client_port
+            
+            	client port
+            	**type**\: list of  		 :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.ClientPort>`
             
             
 
@@ -237,80 +296,62 @@ class HwModule(Entity):
                 self.yang_parent_name = "slice-ids"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"slice-info" : ("slice_info", HwModule.SliceIds.SliceId.SliceInfo)}
+                self.ylist_key_names = ['slice_num']
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("client-port", ("client_port", HwModule.SliceIds.SliceId.ClientPort))])
+                self._leafs = OrderedDict([
+                    ('slice_num', YLeaf(YType.int32, 'slice-num')),
+                    ('slice_id', YLeaf(YType.uint32, 'slice-id')),
+                    ('client_rate', YLeaf(YType.enumeration, 'client-rate')),
+                    ('trunk_rate', YLeaf(YType.enumeration, 'trunk-rate')),
+                    ('hardware_status', YLeaf(YType.enumeration, 'hardware-status')),
+                    ('dp_fpga_fw_type', YLeaf(YType.str, 'dp-fpga-fw-type')),
+                    ('dp_fpga_fw_ver', YLeaf(YType.str, 'dp-fpga-fw-ver')),
+                    ('need_upg', YLeaf(YType.uint32, 'need-upg')),
+                    ('encryption_supported', YLeaf(YType.boolean, 'encryption-supported')),
+                    ('lldp_drop_status', YLeaf(YType.boolean, 'lldp-drop-status')),
+                ])
+                self.slice_num = None
+                self.slice_id = None
+                self.client_rate = None
+                self.trunk_rate = None
+                self.hardware_status = None
+                self.dp_fpga_fw_type = None
+                self.dp_fpga_fw_ver = None
+                self.need_upg = None
+                self.encryption_supported = None
+                self.lldp_drop_status = None
 
-                self.slice_num = YLeaf(YType.int32, "slice-num")
-
-                self.slice_info = YList(self)
-                self._segment_path = lambda: "slice-id" + "[slice-num='" + self.slice_num.get() + "']"
+                self.client_port = YList(self)
+                self._segment_path = lambda: "slice-id" + "[slice-num='" + str(self.slice_num) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-ids/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.SliceIds.SliceId, ['slice_num'], name, value)
+                self._perform_setattr(HwModule.SliceIds.SliceId, ['slice_num', 'slice_id', 'client_rate', 'trunk_rate', 'hardware_status', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'need_upg', 'encryption_supported', 'lldp_drop_status'], name, value)
 
 
-            class SliceInfo(Entity):
+            class ClientPort(Entity):
                 """
-                slice info
+                client port
                 
-                .. attribute:: slice_id
+                .. attribute:: client_name
                 
-                	SliceId
+                	ClientName
+                	**type**\: str
+                
+                	**length:** 0..64
+                
+                .. attribute:: if_index
+                
+                	IfIndex
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: client_rate
+                .. attribute:: trunk_port
                 
-                	ClientRate
-                	**type**\:  :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
-                
-                .. attribute:: trunk_rate
-                
-                	TrunkRate
-                	**type**\:  :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
-                
-                .. attribute:: hardware_status
-                
-                	HardwareStatus
-                	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
-                
-                .. attribute:: dp_fpga_fw_type
-                
-                	DpFpgaFwType
-                	**type**\: str
-                
-                	**length:** 0..10
-                
-                .. attribute:: dp_fpga_fw_ver
-                
-                	DpFpgaFwVer
-                	**type**\: str
-                
-                	**length:** 0..10
-                
-                .. attribute:: need_upg
-                
-                	NeedUpg
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: encryption_supported
-                
-                	EncryptionSupported
-                	**type**\: bool
-                
-                .. attribute:: lldp_drop_status
-                
-                	LldpDropStatus
-                	**type**\: bool
-                
-                .. attribute:: client_port
-                
-                	client port
-                	**type**\: list of  		 :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
+                	trunk port
+                	**type**\: list of  		 :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.ClientPort.TrunkPort>`
                 
                 
 
@@ -320,47 +361,36 @@ class HwModule(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(HwModule.SliceIds.SliceId.SliceInfo, self).__init__()
+                    super(HwModule.SliceIds.SliceId.ClientPort, self).__init__()
 
-                    self.yang_name = "slice-info"
+                    self.yang_name = "client-port"
                     self.yang_parent_name = "slice-id"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"client-port" : ("client_port", HwModule.SliceIds.SliceId.SliceInfo.ClientPort)}
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trunk-port", ("trunk_port", HwModule.SliceIds.SliceId.ClientPort.TrunkPort))])
+                    self._leafs = OrderedDict([
+                        ('client_name', YLeaf(YType.str, 'client-name')),
+                        ('if_index', YLeaf(YType.uint32, 'if-index')),
+                    ])
+                    self.client_name = None
+                    self.if_index = None
 
-                    self.slice_id = YLeaf(YType.uint32, "slice-id")
-
-                    self.client_rate = YLeaf(YType.enumeration, "client-rate")
-
-                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
-
-                    self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
-
-                    self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
-
-                    self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
-
-                    self.need_upg = YLeaf(YType.uint32, "need-upg")
-
-                    self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
-
-                    self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
-
-                    self.client_port = YList(self)
-                    self._segment_path = lambda: "slice-info"
+                    self.trunk_port = YList(self)
+                    self._segment_path = lambda: "client-port"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo, ['slice_id', 'client_rate', 'trunk_rate', 'hardware_status', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'need_upg', 'encryption_supported', 'lldp_drop_status'], name, value)
+                    self._perform_setattr(HwModule.SliceIds.SliceId.ClientPort, ['client_name', 'if_index'], name, value)
 
 
-                class ClientPort(Entity):
+                class TrunkPort(Entity):
                     """
-                    client port
+                    trunk port
                     
-                    .. attribute:: client_name
+                    .. attribute:: trunk_name
                     
-                    	ClientName
+                    	TrunkName
                     	**type**\: str
                     
                     	**length:** 0..64
@@ -372,10 +402,12 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: trunk_port
+                    .. attribute:: percentage
                     
-                    	trunk port
-                    	**type**\: list of  		 :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort>`
+                    	Percentage
+                    	**type**\: str
+                    
+                    	**length:** 0..8
                     
                     
 
@@ -385,77 +417,27 @@ class HwModule(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort, self).__init__()
+                        super(HwModule.SliceIds.SliceId.ClientPort.TrunkPort, self).__init__()
 
-                        self.yang_name = "client-port"
-                        self.yang_parent_name = "slice-info"
+                        self.yang_name = "trunk-port"
+                        self.yang_parent_name = "client-port"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"trunk-port" : ("trunk_port", HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort)}
-
-                        self.client_name = YLeaf(YType.str, "client-name")
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
-
-                        self.trunk_port = YList(self)
-                        self._segment_path = lambda: "client-port"
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trunk_name', YLeaf(YType.str, 'trunk-name')),
+                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                            ('percentage', YLeaf(YType.str, 'percentage')),
+                        ])
+                        self.trunk_name = None
+                        self.if_index = None
+                        self.percentage = None
+                        self._segment_path = lambda: "trunk-port"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo.ClientPort, ['client_name', 'if_index'], name, value)
-
-
-                    class TrunkPort(Entity):
-                        """
-                        trunk port
-                        
-                        .. attribute:: trunk_name
-                        
-                        	TrunkName
-                        	**type**\: str
-                        
-                        	**length:** 0..64
-                        
-                        .. attribute:: if_index
-                        
-                        	IfIndex
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: percentage
-                        
-                        	Percentage
-                        	**type**\: str
-                        
-                        	**length:** 0..8
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs1k-mxp-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, self).__init__()
-
-                            self.yang_name = "trunk-port"
-                            self.yang_parent_name = "client-port"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.trunk_name = YLeaf(YType.str, "trunk-name")
-
-                            self.if_index = YLeaf(YType.uint32, "if-index")
-
-                            self.percentage = YLeaf(YType.str, "percentage")
-                            self._segment_path = lambda: "trunk-port"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, ['trunk_name', 'if_index', 'percentage'], name, value)
+                        self._perform_setattr(HwModule.SliceIds.SliceId.ClientPort.TrunkPort, ['trunk_name', 'if_index', 'percentage'], name, value)
 
 
     class SliceAll(Entity):
@@ -481,8 +463,10 @@ class HwModule(Entity):
             self.yang_parent_name = "hw-module"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"slice-info" : ("slice_info", HwModule.SliceAll.SliceInfo)}
+            self.ylist_key_names = []
+            self._child_container_classes = OrderedDict([])
+            self._child_list_classes = OrderedDict([("slice-info", ("slice_info", HwModule.SliceAll.SliceInfo))])
+            self._leafs = OrderedDict()
 
             self.slice_info = YList(self)
             self._segment_path = lambda: "slice-all"
@@ -568,26 +552,29 @@ class HwModule(Entity):
                 self.yang_parent_name = "slice-all"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"client-port" : ("client_port", HwModule.SliceAll.SliceInfo.ClientPort)}
-
-                self.slice_id = YLeaf(YType.uint32, "slice-id")
-
-                self.client_rate = YLeaf(YType.enumeration, "client-rate")
-
-                self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
-
-                self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
-
-                self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
-
-                self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
-
-                self.need_upg = YLeaf(YType.uint32, "need-upg")
-
-                self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
-
-                self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
+                self.ylist_key_names = []
+                self._child_container_classes = OrderedDict([])
+                self._child_list_classes = OrderedDict([("client-port", ("client_port", HwModule.SliceAll.SliceInfo.ClientPort))])
+                self._leafs = OrderedDict([
+                    ('slice_id', YLeaf(YType.uint32, 'slice-id')),
+                    ('client_rate', YLeaf(YType.enumeration, 'client-rate')),
+                    ('trunk_rate', YLeaf(YType.enumeration, 'trunk-rate')),
+                    ('hardware_status', YLeaf(YType.enumeration, 'hardware-status')),
+                    ('dp_fpga_fw_type', YLeaf(YType.str, 'dp-fpga-fw-type')),
+                    ('dp_fpga_fw_ver', YLeaf(YType.str, 'dp-fpga-fw-ver')),
+                    ('need_upg', YLeaf(YType.uint32, 'need-upg')),
+                    ('encryption_supported', YLeaf(YType.boolean, 'encryption-supported')),
+                    ('lldp_drop_status', YLeaf(YType.boolean, 'lldp-drop-status')),
+                ])
+                self.slice_id = None
+                self.client_rate = None
+                self.trunk_rate = None
+                self.hardware_status = None
+                self.dp_fpga_fw_type = None
+                self.dp_fpga_fw_ver = None
+                self.need_upg = None
+                self.encryption_supported = None
+                self.lldp_drop_status = None
 
                 self.client_port = YList(self)
                 self._segment_path = lambda: "slice-info"
@@ -634,12 +621,15 @@ class HwModule(Entity):
                     self.yang_parent_name = "slice-info"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trunk-port" : ("trunk_port", HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort)}
-
-                    self.client_name = YLeaf(YType.str, "client-name")
-
-                    self.if_index = YLeaf(YType.uint32, "if-index")
+                    self.ylist_key_names = []
+                    self._child_container_classes = OrderedDict([])
+                    self._child_list_classes = OrderedDict([("trunk-port", ("trunk_port", HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort))])
+                    self._leafs = OrderedDict([
+                        ('client_name', YLeaf(YType.str, 'client-name')),
+                        ('if_index', YLeaf(YType.uint32, 'if-index')),
+                    ])
+                    self.client_name = None
+                    self.if_index = None
 
                     self.trunk_port = YList(self)
                     self._segment_path = lambda: "client-port"
@@ -688,14 +678,17 @@ class HwModule(Entity):
                         self.yang_parent_name = "client-port"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.trunk_name = YLeaf(YType.str, "trunk-name")
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
-
-                        self.percentage = YLeaf(YType.str, "percentage")
+                        self.ylist_key_names = []
+                        self._child_container_classes = OrderedDict([])
+                        self._child_list_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('trunk_name', YLeaf(YType.str, 'trunk-name')),
+                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                            ('percentage', YLeaf(YType.str, 'percentage')),
+                        ])
+                        self.trunk_name = None
+                        self.if_index = None
+                        self.percentage = None
                         self._segment_path = lambda: "trunk-port"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/client-port/%s" % self._segment_path()
 

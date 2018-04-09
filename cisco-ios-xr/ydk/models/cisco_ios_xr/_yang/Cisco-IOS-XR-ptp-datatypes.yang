@@ -1,324 +1,396 @@
 module Cisco-IOS-XR-ptp-datatypes {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ptp-datatypes";
+  prefix ptp-datatypes;
 
-
-  prefix "ptp-datatypes";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of generally useful
      derived YANG data types.
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
 
   typedef Ptp-time {
     type enumeration {
-      enum interval {
+      enum "interval" {
         value 0;
-        description "Time interval in seconds";
+        description
+          "Time interval in seconds";
       }
-      enum frequency {
+      enum "frequency" {
         value 1;
-        description "Frequency per second";
+        description
+          "Frequency per second";
       }
     }
-    description "Ptp time";
+    description
+      "Ptp time";
   }
+
   typedef Ptp-clock-advertisement-mode {
     type enumeration {
-      enum 1588v2 {
+      enum "1588v2" {
         value 0;
-        description "Use 1588v2 clock selection";
+        description
+          "Use 1588v2 clock selection";
       }
-      enum telecom-profile {
+      enum "telecom-profile" {
         value 1;
-        description "Use Telecom Profile clock selection";
+        description
+          "Use Telecom Profile clock selection";
       }
     }
-    description "Ptp clock advertisement mode";
+    description
+      "Ptp clock advertisement mode";
   }
+
   typedef Ptp-encap {
     type enumeration {
-      enum ethernet {
+      enum "ethernet" {
         value 1;
-        description "Ethernet Encapsulation";
+        description
+          "Ethernet Encapsulation";
       }
-      enum ipv4 {
+      enum "ipv4" {
         value 2;
-        description "IPv4 Encapsulation";
+        description
+          "IPv4 Encapsulation";
       }
-      enum ipv6 {
+      enum "ipv6" {
         value 3;
-        description "IPv6 Encapsulation";
+        description
+          "IPv6 Encapsulation";
       }
     }
-    description "Ptp encap";
+    description
+      "Ptp encap";
   }
+
   typedef Ptp-time-period {
     type enumeration {
-      enum 1 {
+      enum "1" {
         value 0;
-        description "One";
+        description
+          "One";
       }
-      enum 2 {
+      enum "2" {
         value 1;
-        description "Two";
+        description
+          "Two";
       }
-      enum 4 {
+      enum "4" {
         value 2;
-        description "Four";
+        description
+          "Four";
       }
-      enum 8 {
+      enum "8" {
         value 3;
-        description "Eight";
+        description
+          "Eight";
       }
-      enum 16 {
+      enum "16" {
         value 4;
-        description "Sixteen";
+        description
+          "Sixteen";
       }
-      enum 32 {
+      enum "32" {
         value 5;
-        description "Thirty Two";
+        description
+          "Thirty Two";
       }
-      enum 64 {
+      enum "64" {
         value 6;
-        description "Sixty Four";
+        description
+          "Sixty Four";
       }
-      enum 128 {
+      enum "128" {
         value 7;
-        description "One Hundred and Twenty-Eight";
+        description
+          "One Hundred and Twenty-Eight";
       }
     }
-    description "Ptp time period";
+    description
+      "Ptp time period";
   }
+
   typedef Ptp-clock-operation {
     type enumeration {
-      enum two-step {
+      enum "two-step" {
         value 0;
-        description "Two-step clock operation";
+        description
+          "Two-step clock operation";
       }
-      enum one-step {
+      enum "one-step" {
         value 1;
-        description "One-step clock operation";
+        description
+          "One-step clock operation";
       }
     }
-    description "Ptp clock operation";
+    description
+      "Ptp clock operation";
   }
+
   typedef Ptp-clock-selection-mode {
     type enumeration {
-      enum 1588v2 {
+      enum "1588v2" {
         value 0;
-        description "Use 1588v2 clock selection";
+        description
+          "Use 1588v2 clock selection";
       }
-      enum telecom-profile {
+      enum "telecom-profile" {
         value 1;
-        description "Use Telecom Profile clock selection";
+        description
+          "Use Telecom Profile clock selection";
       }
     }
-    description "Ptp clock selection mode";
+    description
+      "Ptp clock selection mode";
   }
+
   typedef Ptp-timescale {
     type enumeration {
-      enum ptp {
+      enum "ptp" {
         value 0;
-        description "PTP timescale";
+        description
+          "PTP timescale";
       }
-      enum arb {
+      enum "arb" {
         value 1;
-        description "ARB timescale";
+        description
+          "ARB timescale";
       }
     }
-    description "Ptp timescale";
+    description
+      "Ptp timescale";
   }
+
   typedef Transparent-clock-domain {
     type string {
       pattern "(all)";
     }
-    description "all: Set for all domains";
+    description
+      "all: Set for all domains";
   }
+
   typedef Ptp-delay-asymmetry-units {
     type enumeration {
-      enum nanoseconds {
+      enum "nanoseconds" {
         value 0;
-        description "Nanoseconds";
+        description
+          "Nanoseconds";
       }
-      enum microseconds {
+      enum "microseconds" {
         value 1;
-        description "Microseconds";
+        description
+          "Microseconds";
       }
-      enum milliseconds {
+      enum "milliseconds" {
         value 2;
-        description "Milliseconds";
+        description
+          "Milliseconds";
       }
     }
-    description "Ptp delay asymmetry units";
+    description
+      "Ptp delay asymmetry units";
   }
+
   typedef Ptp-time-source {
     type enumeration {
-      enum unknown {
+      enum "unknown" {
         value 0;
-        description "Unknown";
+        description
+          "Unknown";
       }
-      enum atomic-clock {
+      enum "atomic-clock" {
         value 16;
-        description "Atomic Clock";
+        description
+          "Atomic Clock";
       }
-      enum gps {
+      enum "gps" {
         value 32;
-        description "GPS";
+        description
+          "GPS";
       }
-      enum terrestrial-radio {
+      enum "terrestrial-radio" {
         value 48;
-        description "Terrestrial Radio";
+        description
+          "Terrestrial Radio";
       }
-      enum ptp {
+      enum "ptp" {
         value 64;
-        description "PTP";
+        description
+          "PTP";
       }
-      enum ntp {
+      enum "ntp" {
         value 80;
-        description "NTP";
+        description
+          "NTP";
       }
-      enum hand-set {
+      enum "hand-set" {
         value 96;
-        description "Hand set";
+        description
+          "Hand set";
       }
-      enum other {
+      enum "other" {
         value 144;
-        description "Other";
+        description
+          "Other";
       }
-      enum internal-oscillator {
+      enum "internal-oscillator" {
         value 160;
-        description "Internal Oscillator";
+        description
+          "Internal Oscillator";
       }
     }
-    description "Ptp time source";
+    description
+      "Ptp time source";
   }
+
   typedef Ptp-port-state {
     type enumeration {
-      enum any {
+      enum "any" {
         value 0;
-        description "Any port state allowed";
+        description
+          "Any port state allowed";
       }
-      enum slave-only {
+      enum "slave-only" {
         value 1;
-        description "Restrict to slave";
+        description
+          "Restrict to slave";
       }
-      enum master-only {
+      enum "master-only" {
         value 2;
-        description "Restrict to master";
+        description
+          "Restrict to master";
       }
     }
-    description "Ptp port state";
+    description
+      "Ptp port state";
   }
+
   typedef Ptp-clock-profile {
     type enumeration {
-      enum default {
+      enum "default" {
         value 0;
-        description "Default clock profile";
+        description
+          "Default clock profile";
       }
-      enum g82651 {
+      enum "g82651" {
         value 1;
-        description "G.8265.1 profile";
+        description
+          "G.8265.1 profile";
       }
-      enum g82751 {
+      enum "g82751" {
         value 2;
-        description "G.8275.1 profile";
+        description
+          "G.8275.1 profile";
       }
-      enum g82752 {
+      enum "g82752" {
         value 3;
-        description "G.8275.2 profile";
+        description
+          "G.8275.2 profile";
       }
     }
-    description "Ptp clock profile";
+    description
+      "Ptp clock profile";
   }
+
   typedef Ptp-transport {
     type enumeration {
-      enum unicast {
+      enum "unicast" {
         value 0;
-        description "Unicast communication";
+        description
+          "Unicast communication";
       }
-      enum mixed-mode {
+      enum "mixed-mode" {
         value 1;
-        description "Mixed-mode communication";
+        description
+          "Mixed-mode communication";
       }
-      enum multicast {
+      enum "multicast" {
         value 2;
-        description "Multicast communication";
+        description
+          "Multicast communication";
       }
     }
-    description "Ptp transport";
+    description
+      "Ptp transport";
   }
+
   typedef Ptp-clock-id {
     type enumeration {
-      enum router-mac {
+      enum "router-mac" {
         value 0;
-        description "Use the router's MAC";
+        description
+          "Use the router's MAC";
       }
-      enum user-mac {
+      enum "user-mac" {
         value 1;
-        description "Use a user-specified MAC";
+        description
+          "Use a user-specified MAC";
       }
-      enum eui {
+      enum "eui" {
         value 2;
-        description "Use a user-specified EUI-64 number";
+        description
+          "Use a user-specified EUI-64 number";
       }
     }
-    description "Ptp clock id";
+    description
+      "Ptp clock id";
   }
+
   typedef Ptp-invalid-unicast-grant-request-response {
     type enumeration {
-      enum reduce {
+      enum "reduce" {
         value 0;
-        description "Reduce grant parameters";
+        description
+          "Reduce grant parameters";
       }
-      enum deny {
+      enum "deny" {
         value 1;
-        description "Deny grant";
+        description
+          "Deny grant";
       }
     }
-    description "Ptp invalid unicast grant request response";
+    description
+      "Ptp invalid unicast grant request response";
   }
+
   typedef Ptp-telecom-clock {
     type enumeration {
-      enum telecom-grandmaster {
+      enum "telecom-grandmaster" {
         value 0;
-        description "Telecom grandmaster clock";
+        description
+          "Telecom grandmaster clock";
       }
-      enum telecom-boundary {
+      enum "telecom-boundary" {
         value 1;
-        description "Telecom boundary clock";
+        description
+          "Telecom boundary clock";
       }
-      enum telecom-slave {
+      enum "telecom-slave" {
         value 2;
-        description "Telecom slave clock";
+        description
+          "Telecom slave clock";
       }
     }
-    description "Ptp telecom clock";
+    description
+      "Ptp telecom clock";
   }
 }

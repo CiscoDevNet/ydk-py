@@ -1,52 +1,45 @@
 module Cisco-IOS-XR-ipv4-pim-cfg {
-
-  /*** NAMESPACE / PREFIX DEFINITION ***/
-
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-pim-cfg";
+  prefix ipv4-pim-cfg;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+  import Cisco-IOS-XR-ipv4-autorp-datatypes {
+    prefix dt1;
+  }
 
-  prefix "ipv4-pim-cfg";
-
-  /*** LINKAGE (IMPORTS / INCLUDES) ***/
-
-  import ietf-inet-types { prefix "inet"; }
-
-  import Cisco-IOS-XR-types { prefix "xr"; }
-
-  import Cisco-IOS-XR-ipv4-autorp-datatypes { prefix "dt1"; }
-
-  /*** META INFORMATION ***/
-
-  organization "Cisco Systems, Inc.";
-
+  organization
+    "Cisco Systems, Inc.";
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
-
-  description 
+  description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-pim package configuration.
-
+     
      This module contains definitions
      for the following management objects:
        pim: PIM configuration
-
+     
      Copyright (c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision "2017-05-22" {
+  revision 2017-05-22 {
     description
       "Updated node naming to be consistent with the CLI";
   }
-
-  revision "2015-11-09" {
+  revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
   }
@@ -55,189 +48,218 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
     type uint32 {
       range "1..255";
     }
-    description "Pim bsr priority";
+    description
+      "Pim bsr priority";
   }
+
   typedef Auto-rp-announce-period {
     type uint32 {
       range "1..600";
     }
-    description "Auto rp announce period";
+    description
+      "Auto rp announce period";
   }
+
   typedef Pim-multipath {
     type enumeration {
-      enum enable {
+      enum "enable" {
         value 0;
-        description "Enable PIM multipath";
+        description
+          "Enable PIM multipath";
       }
-      enum interface-hash {
+      enum "interface-hash" {
         value 1;
         description
           "Enable PIM multipath with interface based
-          hashing";
+           hashing";
       }
-      enum source-hash {
+      enum "source-hash" {
         value 2;
         description
           "Enable PIM multipath with source based hashing";
       }
-      enum source-next-hop-hash {
+      enum "source-next-hop-hash" {
         value 3;
         description
           "Enable PIM multipath with source next-hop
-          hashing";
+           hashing";
       }
-      enum source-group-hash {
+      enum "source-group-hash" {
         value 4;
         description
           "Enable PIM multipath with source, group based
-          hashing";
+           hashing";
       }
     }
-    description "Pim multipath";
+    description
+      "Pim multipath";
   }
+
   typedef Auto-rp-ttl {
     type uint32 {
       range "1..255";
     }
-    description "Auto rp ttl";
+    description
+      "Auto rp ttl";
   }
+
   typedef Pim-protocol-mode {
     type enumeration {
-      enum sm {
+      enum "sm" {
         value 0;
-        description "Sparse Mode";
+        description
+          "Sparse Mode";
       }
-      enum bidir {
+      enum "bidir" {
         value 1;
-        description "Bidirectional";
+        description
+          "Bidirectional";
       }
     }
-    description "Pim protocol mode";
+    description
+      "Pim protocol mode";
   }
 
   grouping SUPPRESS-DATA-REGISTERS {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf suppress-data-registers {
       type empty;
       description
         "Suppress data registers after initial state
-        setup";
+         setup";
     }
   }
 
   grouping ROUTE-POLICY {
-    description "Common node of rpf, rpf-redirect";
+    description
+      "Common node of rpf, rpf-redirect";
     leaf route-policy {
       type xr:Cisco-ios-xr-string {
         length "1..64";
       }
-      description "Route policy to select RPF topology";
+      description
+        "Route policy to select RPF topology";
     }
   }
 
   grouping INTERFACE-ENABLE {
-    description "Common node of interface, interface, interface";
+    description
+      "Common node of interface, interface, interface";
     leaf interface-enable {
       type boolean;
-      description "Enable PIM processing on the interface";
+      description
+        "Enable PIM processing on the interface";
     }
   }
 
   grouping BSR-BORDER {
-    description "Common node of interface, interface, interface";
+    description
+      "Common node of interface, interface, interface";
     leaf bsr-border {
       type boolean;
-      description "BSR Border configuration for Interface";
+      description
+        "BSR Border configuration for Interface";
     }
   }
 
   grouping JOIN-PRUNE-MTU {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf join-prune-mtu {
       type uint32 {
         range "576..65535";
       }
       units "byte";
-      description "Join-Prune MTU in Bytes";
+      description
+        "Join-Prune MTU in Bytes";
     }
   }
 
   grouping NEIGHBOR-CHECK-ON-RECEIVE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf neighbor-check-on-receive {
       type empty;
       description
         "Enable PIM neighbor checking when receiving PIM
-        messages";
+         messages";
     }
   }
 
   grouping RPF {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container rpf {
-      description "Configure RPF options";
+      description
+        "Configure RPF options";
       uses ROUTE-POLICY;
     }
   }
 
   grouping MOFRR {
-    description "Common node of ipv4, ipv4";
-
+    description
+      "Common node of ipv4, ipv4";
     container mofrr {
-      description "Multicast Only Fast Re-Route";
-
+      description
+        "Multicast Only Fast Re-Route";
       container clone-joins {
-        description "Clone multicast joins";
-
+        description
+          "Clone multicast joins";
         list clone-join {
           key "source primary backup prefix-length";
           description
             "Clone S,G joins as S1,G joins and S2,G joins";
           leaf source {
             type inet:ipv4-address-no-zone;
-            description "Original source address (S)";
+            description
+              "Original source address (S)";
           }
           leaf primary {
             type inet:ipv4-address-no-zone;
-            description "Primary cloned address (S1)";
+            description
+              "Primary cloned address (S1)";
           }
           leaf backup {
             type inet:ipv4-address-no-zone;
-            description "Backup cloned address (S2)";
+            description
+              "Backup cloned address (S2)";
           }
           leaf prefix-length {
             type xr:Ipv4-prefix-length;
-            description "Mask length";
+            description
+              "Mask length";
           }
         }
       }
-
       container clone-sources {
-        description "Clone multicast traffic";
-
+        description
+          "Clone multicast traffic";
         list clone-source {
           key "source primary backup prefix-length";
           description
             "Clone S,G traffic as S1,G traffic and S2,G
-            traffic";
+             traffic";
           leaf source {
             type inet:ipv4-address-no-zone;
-            description "Original source address (S)";
+            description
+              "Original source address (S)";
           }
           leaf primary {
             type inet:ipv4-address-no-zone;
-            description "Primary cloned address (S1)";
+            description
+              "Primary cloned address (S1)";
           }
           leaf backup {
             type inet:ipv4-address-no-zone;
-            description "Backup cloned address (S2)";
+            description
+              "Backup cloned address (S2)";
           }
           leaf prefix-length {
             type xr:Ipv4-prefix-length;
-            description "Mask length";
+            description
+              "Mask length";
           }
         }
       }
@@ -247,15 +269,17 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         }
         description
           "Access-list specifying SG that should do RIB
-          MOFRR";
+           MOFRR";
       }
       leaf non-revertive {
         type empty;
-        description "Non-revertive Multicast Only Fast Re-Route";
+        description
+          "Non-revertive Multicast Only Fast Re-Route";
       }
       leaf enable {
         type empty;
-        description "Enable Multicast Only FRR";
+        description
+          "Enable Multicast Only FRR";
       }
       leaf flow {
         type xr:Cisco-ios-xr-string {
@@ -263,23 +287,25 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         }
         description
           "Access-list specifying SG that should do FLOW
-          MOFRR";
+           MOFRR";
       }
     }
   }
 
   grouping EMBEDDED-RP {
-    description "Common node of ipv6, ipv6";
-
+    description
+      "Common node of ipv6, ipv6";
     container embedded-rp-addresses {
-      description "Set Embedded RP processing support";
-
+      description
+        "Set Embedded RP processing support";
       list embedded-rp-address {
         key "rp-address";
-        description "Set Embedded RP processing support";
+        description
+          "Set Embedded RP processing support";
         leaf rp-address {
           type inet:ip-address-no-zone;
-          description "RP address of the Rendezvous Point";
+          description
+            "RP address of the Rendezvous Point";
         }
         leaf access-list-name {
           type xr:Cisco-ios-xr-string {
@@ -288,53 +314,60 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           mandatory true;
           description
             "Access list of groups that should map to a
-            given RP";
+             given RP";
         }
       }
     }
   }
 
   grouping NEIGHBOR-CHECK-ON-SEND {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf neighbor-check-on-send {
       type empty;
       description
         "Enable PIM neighbor checking when sending
-        join-prunes";
+         join-prunes";
     }
   }
 
   grouping EMBEDDED-RP-DISABLE {
-    description "Common node of ipv6, ipv6";
+    description
+      "Common node of ipv6, ipv6";
     leaf embedded-rp-disable {
       type empty;
-      description "Set Embedded RP processing support";
+      description
+        "Set Embedded RP processing support";
     }
   }
 
   grouping BSR {
-    description "Common node of ipv4, ipv4";
-
+    description
+      "Common node of ipv4, ipv4";
     container bsr {
-      description "PIM BSR configuration";
-
+      description
+        "PIM BSR configuration";
       container candidate-bsr {
         presence "Indicates a candidate-bsr node is configured.";
-        description "PIM Candidate BSR configuration";
+        description
+          "PIM Candidate BSR configuration";
         leaf address {
           type inet:ip-address-no-zone;
           mandatory true;
-          description "BSR Address configured";
+          description
+            "BSR Address configured";
         }
         leaf prefix-length {
           type xr:Ipv4-prefix-length;
           default "30";
-          description "Hash Mask Length for this candidate BSR";
+          description
+            "Hash Mask Length for this candidate BSR";
         }
         leaf priority {
           type Pim-bsr-priority;
           default "1";
-          description "Priority of the Candidate BSR";
+          description
+            "Priority of the Candidate BSR";
         }
       }
       uses CANDIDATE-RP-TABLE;
@@ -344,28 +377,31 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping IPV6-PIM-CFG-BSR {
     description
       "Common node of ipv4, ipv4Common node of ipv6,
-      ipv6";
-
+       ipv6";
     container bsr {
-      description "PIM BSR configuration";
-
+      description
+        "PIM BSR configuration";
       container candidate-bsr {
         presence "Indicates a candidate-bsr node is configured.";
-        description "PIM Candidate BSR configuration";
+        description
+          "PIM Candidate BSR configuration";
         leaf address {
           type inet:ipv6-address-no-zone;
           mandatory true;
-          description "BSR Address configured";
+          description
+            "BSR Address configured";
         }
         leaf prefix-length {
           type xr:Ipv6-prefix-length;
           default "126";
-          description "Hash Mask Length for this candidate BSR";
+          description
+            "Hash Mask Length for this candidate BSR";
         }
         leaf priority {
           type Pim-bsr-priority;
           default "1";
-          description "Priority of the Candidate BSR";
+          description
+            "Priority of the Candidate BSR";
         }
       }
       uses CANDIDATE-RP-TABLE;
@@ -373,17 +409,19 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   grouping SPARSE-MODE-RP-ADDRESS-TABLE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container sparse-mode-rp-addresses {
-      description "Configure Sparse-Mode Rendezvous Point";
-
+      description
+        "Configure Sparse-Mode Rendezvous Point";
       list sparse-mode-rp-address {
         key "rp-address";
-        description "Address of the Rendezvous Point";
+        description
+          "Address of the Rendezvous Point";
         leaf rp-address {
           type inet:ip-address-no-zone;
-          description "RP address of Rendezvous Point";
+          description
+            "RP address of Rendezvous Point";
         }
         leaf access-list-name {
           type xr:Cisco-ios-xr-string {
@@ -391,29 +429,31 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           }
           description
             "Access list of groups that should map to a 
-            given RP";
+             given RP";
         }
         leaf auto-rp-override {
           type boolean;
           description
             "TRUE Indicates if static RP config overrides
-            AutoRP and BSR";
+             AutoRP and BSR";
         }
       }
     }
   }
 
   grouping INHERITABLE-DEFAULTS {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container inheritable-defaults {
-      description "Inheritable defaults";
+      description
+        "Inheritable defaults";
       leaf convergence-timeout {
         type uint32 {
           range "1800..2400";
         }
         units "second";
-        description "Convergency timeout in seconds";
+        description
+          "Convergency timeout in seconds";
       }
       uses HELLO-INTERVAL;
       uses PROPAGATION-DELAY;
@@ -425,63 +465,72 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   grouping AUTO-RP-DISABLE {
-    description "Common node of ipv4, ipv4";
+    description
+      "Common node of ipv4, ipv4";
     leaf auto-rp-disable {
       type empty;
       description
         "Disable Rendezvous Point discovery through the
-        AutoRP protocol";
+         AutoRP protocol";
     }
   }
 
   grouping ROUTES {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container routes {
       presence "Indicates a routes node is configured.";
-      description "Override default maximum for number of routes";
+      description
+        "Override default maximum for number of routes";
       leaf maximum-routes {
         type uint32 {
           range "1..200000";
         }
         mandatory true;
-        description "Maximum number of PIM routes";
+        description
+          "Maximum number of PIM routes";
       }
       leaf warning-threshold {
         type uint32 {
           range "1..200000";
         }
         default "100000";
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
     }
   }
 
   grouping RP-STATIC-DENY {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf rp-static-deny {
       type xr:Cisco-ios-xr-string {
         length "1..64";
       }
-      description "Configure static RP deny range";
+      description
+        "Configure static RP deny range";
     }
   }
 
   grouping SSM {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container ssm {
-      description "Configure IP Multicast SSM";
+      description
+        "Configure IP Multicast SSM";
       leaf disable {
         type boolean;
         default "false";
-        description "TRUE if SSM is disabled on this router";
+        description
+          "TRUE if SSM is disabled on this router";
       }
       leaf range {
         type string {
           length "1..64";
         }
-        description "Access list of groups enabled with SSM";
+        description
+          "Access list of groups enabled with SSM";
       }
     }
   }
@@ -489,21 +538,23 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping OVERRIDE-INTERVAL {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf override-interval {
       type uint32 {
         range "400..65535";
       }
       units "millisecond";
-      description "Override interval in milliseconds";
+      description
+        "Override interval in milliseconds";
     }
   }
 
   grouping CONVERGENCE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container convergence {
-      description "Configure convergence parameters";
+      description
+        "Configure convergence parameters";
       leaf rpf-conflict-join-delay {
         type uint32 {
           range "0..15";
@@ -511,7 +562,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         units "second";
         description
           "Dampen first join if RPF path is through one of
-          the downstream neighbor";
+           the downstream neighbor";
       }
       leaf link-down-prune-delay {
         type uint32 {
@@ -520,35 +571,40 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         units "second";
         description
           "Delay prunes if route join state transitions to
-          not-joined on link down";
+           not-joined on link down";
       }
     }
   }
 
   grouping REGISTER-SOURCE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf register-source {
       type xr:Interface-name;
-      description "Source address to use for register messages";
+      description
+        "Source address to use for register messages";
     }
   }
 
   grouping CANDIDATE-RP-TABLE {
-    description "Common node of bsr, bsr";
-
+    description
+      "Common node of bsr, bsr";
     container candidate-rps {
-      description "PIM RP configuration";
-
+      description
+        "PIM RP configuration";
       list candidate-rp {
         key "address mode";
-        description "Address of PIM SM BSR Candidate-RP";
+        description
+          "Address of PIM SM BSR Candidate-RP";
         leaf address {
           type inet:ip-address-no-zone;
-          description "Address of Candidate-RP";
+          description
+            "Address of Candidate-RP";
         }
         leaf mode {
           type Pim-protocol-mode;
-          description "SM or Bidir";
+          description
+            "SM or Bidir";
         }
         leaf group-list {
           type string {
@@ -556,19 +612,21 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           }
           description
             "Access-list specifying the group range for the
-            Candidate-RP";
+             Candidate-RP";
         }
         leaf priority {
           type Pim-bsr-priority;
           default "192";
-          description "Priority of the CRP";
+          description
+            "Priority of the CRP";
         }
         leaf interval {
           type uint32 {
             range "30..600";
           }
           default "60";
-          description "Advertisement interval";
+          description
+            "Advertisement interval";
         }
       }
     }
@@ -577,25 +635,25 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping PROPAGATION-DELAY {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf propagation-delay {
       type uint32 {
         range "100..32767";
       }
       units "millisecond";
-      description "Propagation delay in milli seconds";
+      description
+        "Propagation delay in milli seconds";
     }
   }
 
   grouping GROUP-MAPPINGS-AUTO-RP {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container group-mappings-auto-rp {
-      presence "Indicates a group-mappings-auto-rp node is"+
-        " configured.";
+      presence "Indicates a group-mappings-auto-rp node is configured.";
       description
         "Override default maximum for number of group
-        mappings from autorp mapping agent";
+         mappings from autorp mapping agent";
       leaf maximum-group-ranges-auto-rp {
         type uint32 {
           range "1..10000";
@@ -603,7 +661,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         mandatory true;
         description
           "Maximum number of PIM group mappings from
-          autorp";
+           autorp";
       }
       leaf threshold-group-ranges-auto-rp {
         type uint32 {
@@ -612,93 +670,102 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         default "450";
         description
           "Warning threshold number of PIM group mappings
-          from autorp";
+           from autorp";
       }
     }
   }
 
   grouping SPT-THRESHOLD-INFINITY {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf spt-threshold-infinity {
       type string;
       description
         "Configure threshold of infinity for switching to
-        SPT on last-hop";
+         SPT on last-hop";
     }
   }
 
   grouping NEIGHBOR-FILTER {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf neighbor-filter {
       type xr:Cisco-ios-xr-string {
         length "1..64";
       }
-      description "Access-list of neighbors to be filtered";
+      description
+        "Access-list of neighbors to be filtered";
     }
   }
 
   grouping IPV4-PIM-COMMON-CFG-NEIGHBOR-FILTER {
     description
       "Common node of ipv4, ipv4, ipv6, ipv6Common node
-      of interface, interface, interface";
+       of interface, interface, interface";
     leaf neighbor-filter {
       type xr:Cisco-ios-xr-string {
         length "1..64";
       }
-      description "Access-list of neighbors to be filtered";
+      description
+        "Access-list of neighbors to be filtered";
     }
   }
 
   grouping ROUTE-INTERFACES {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container route-interfaces {
       presence "Indicates a route-interfaces node is configured.";
       description
         "Override default maximum for number of
-        route-interfaces";
+         route-interfaces";
       leaf maximum-route-interfaces {
         type uint32 {
           range "1..1100000";
         }
         mandatory true;
-        description "Maximum number of PIM route-interfaces";
+        description
+          "Maximum number of PIM route-interfaces";
       }
       leaf warning-threshold {
         type uint32 {
           range "1..1100000";
         }
         default "300000";
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
     }
   }
 
   grouping SSM-ALLOW-OVERRIDE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf ssm-allow-override {
       type empty;
       description
         "Allow SSM ranges to be overridden by more
-        specific ranges";
+         specific ranges";
     }
   }
 
   grouping LOG-NEIGHBOR-CHANGES {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf log-neighbor-changes {
       type empty;
       description
         "PIM neighbor state change logging is turned on
-        if configured";
+         if configured";
     }
   }
 
   grouping MAXIMUM {
-    description "Common node of ipv4, ipv6";
-
+    description
+      "Common node of ipv4, ipv6";
     container maximum {
-      description "Configure PIM State Limits";
+      description
+        "Configure PIM State Limits";
       uses GROUP-MAPPINGS-AUTO-RP;
       uses BSR-GROUP-MAPPINGS;
       uses REGISTER-STATES;
@@ -711,17 +778,15 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping IPV4-PIM-COMMON-CFG-MAXIMUM {
     description
       "Common node of ipv4, ipv6Common node of ipv4,
-      ipv6";
-
+       ipv6";
     container maximum {
-      description "Configure PIM State Limits";
-
+      description
+        "Configure PIM State Limits";
       container bsr-global-group-mappings {
-        presence "Indicates a bsr-global-group-mappings node is"+
-          " configured.";
+        presence "Indicates a bsr-global-group-mappings node is configured.";
         description
           "Override default global maximum and threshold
-          for PIM group mapping ranges from BSR";
+           for PIM group mapping ranges from BSR";
         leaf bsr-maximum-global-group-mappings {
           type uint32 {
             range "1..10000";
@@ -729,42 +794,43 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           mandatory true;
           description
             "Global Maximum number of PIM group mapping
-            ranges from BSR";
+             ranges from BSR";
         }
         leaf warning-threshold {
           type uint32 {
             range "1..10000";
           }
           default "500";
-          description "Set threshold to print warning";
+          description
+            "Set threshold to print warning";
         }
       }
-
       container global-routes {
         presence "Indicates a global-routes node is configured.";
-        description "Override default maximum for number of routes";
+        description
+          "Override default maximum for number of routes";
         leaf maximum-routes {
           type uint32 {
             range "1..200000";
           }
           mandatory true;
-          description "Maximum number of PIM routes";
+          description
+            "Maximum number of PIM routes";
         }
         leaf warning-threshold {
           type uint32 {
             range "1..200000";
           }
           default "100000";
-          description "Set threshold to print warning";
+          description
+            "Set threshold to print warning";
         }
       }
-
       container global-group-mappings-auto-rp {
-        presence "Indicates a global-group-mappings-auto-rp node is"+
-          " configured.";
+        presence "Indicates a global-group-mappings-auto-rp node is configured.";
         description
           "Maximum for number of group mappings from
-          autorp mapping agent";
+           autorp mapping agent";
         leaf maximum-global-group-ranges-auto-rp {
           type uint32 {
             range "1..10000";
@@ -772,7 +838,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           mandatory true;
           description
             "Maximum number of PIM group mappings from
-            autorp";
+             autorp";
         }
         leaf threshold-global-group-ranges-auto-rp {
           type uint32 {
@@ -781,16 +847,14 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           default "450";
           description
             "Warning threshold number of PIM group mappings
-            from autorp";
+             from autorp";
         }
       }
-
       container bsr-global-candidate-rp-cache {
-        presence "Indicates a bsr-global-candidate-rp-cache node is"+
-          " configured.";
+        presence "Indicates a bsr-global-candidate-rp-cache node is configured.";
         description
           "Override default global maximum and threshold
-          for C-RP set in BSR";
+           for C-RP set in BSR";
         leaf bsr-maximum-global-candidate-rp-cache {
           type uint32 {
             range "1..10000";
@@ -798,23 +862,22 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           mandatory true;
           description
             "Global Maximum number of PIM C-RP Sets from
-            BSR";
+             BSR";
         }
         leaf warning-threshold {
           type uint32 {
             range "1..10000";
           }
           default "100";
-          description "Set threshold to print warning";
+          description
+            "Set threshold to print warning";
         }
       }
-
       container global-register-states {
-        presence "Indicates a global-register-states node is"+
-          " configured.";
+        presence "Indicates a global-register-states node is configured.";
         description
           "Override default maximum for number of
-          sparse-mode source registers";
+           sparse-mode source registers";
         leaf maximum-register-states {
           type uint32 {
             range "0..75000";
@@ -822,36 +885,37 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           mandatory true;
           description
             "Maximum number of PIM Sparse-Mode register
-            states";
+             states";
         }
         leaf warning-threshold {
           type uint32 {
             range "0..75000";
           }
           default "20000";
-          description "Set threshold to print warning";
+          description
+            "Set threshold to print warning";
         }
       }
-
       container global-route-interfaces {
-        presence "Indicates a global-route-interfaces node is"+
-          " configured.";
+        presence "Indicates a global-route-interfaces node is configured.";
         description
           "Override default maximum for number of
-          route-interfaces";
+           route-interfaces";
         leaf maximum-route-interfaces {
           type uint32 {
             range "1..1100000";
           }
           mandatory true;
-          description "Maximum number of PIM route-interfaces";
+          description
+            "Maximum number of PIM route-interfaces";
         }
         leaf warning-threshold {
           type uint32 {
             range "1..1100000";
           }
           default "300000";
-          description "Set threshold to print warning";
+          description
+            "Set threshold to print warning";
         }
       }
       leaf global-low-priority-packet-queue {
@@ -859,14 +923,16 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           range "0..2147483648";
         }
         units "byte";
-        description "Maximum packet queue size in bytes";
+        description
+          "Maximum packet queue size in bytes";
       }
       leaf global-high-priority-packet-queue {
         type uint32 {
           range "0..2147483648";
         }
         units "byte";
-        description "Maximum packet queue size in bytes";
+        description
+          "Maximum packet queue size in bytes";
       }
       uses GROUP-MAPPINGS-AUTO-RP;
       uses BSR-GROUP-MAPPINGS;
@@ -878,42 +944,48 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   grouping SG-EXPIRY-TIMER {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container sg-expiry-timer {
-      description "Configure expiry timer for S,G routes";
+      description
+        "Configure expiry timer for S,G routes";
       leaf interval {
         type uint32 {
           range "40..57600";
         }
         units "second";
-        description "(S,G) expiry time in seconds";
+        description
+          "(S,G) expiry time in seconds";
       }
       leaf access-list-name {
         type xr:Cisco-ios-xr-string {
           length "1..64";
         }
-        description "Access-list of applicable S,G routes";
+        description
+          "Access-list of applicable S,G routes";
       }
     }
   }
 
   grouping INTERFACE-TABLE {
-    description "Common node of ipv4, ipv6";
-
+    description
+      "Common node of ipv4, ipv6";
     container interfaces {
-      description "Interface-level Configuration";
-
+      description
+        "Interface-level Configuration";
       list interface {
         key "interface-name";
-        description "The name of the interface";
+        description
+          "The name of the interface";
         leaf enable {
           type empty;
-          description "Enter PIM Interface processing";
+          description
+            "Enter PIM Interface processing";
         }
         leaf interface-name {
           type xr:Interface-name;
-          description "The name of interface";
+          description
+            "The name of interface";
         }
         uses IPV4-PIM-COMMON-CFG-NEIGHBOR-FILTER;
         uses HELLO-INTERVAL;
@@ -931,13 +1003,13 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   grouping REGISTER-STATES {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container register-states {
       presence "Indicates a register-states node is configured.";
       description
         "Override default maximum for number of
-        sparse-mode source registers";
+         sparse-mode source registers";
       leaf maximum-register-states {
         type uint32 {
           range "0..75000";
@@ -945,51 +1017,57 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         mandatory true;
         description
           "Maximum number of PIM Sparse-Mode register
-          states";
+           states";
       }
       leaf warning-threshold {
         type uint32 {
           range "0..75000";
         }
         default "20000";
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
     }
   }
 
   grouping MULTIPATH {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf multipath {
       type Pim-multipath;
-      description "Enable equal-cost multipath routing";
+      description
+        "Enable equal-cost multipath routing";
     }
   }
 
   grouping HELLO-INTERVAL {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf hello-interval {
       type uint32 {
         range "1..3600";
       }
       units "second";
-      description "Hello interval in seconds";
+      description
+        "Hello interval in seconds";
     }
   }
 
   grouping BIDIR-RP-ADDRESS-TABLE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container bidir-rp-addresses {
-      description "Configure Bidirectional PIM Rendezvous Point";
-
+      description
+        "Configure Bidirectional PIM Rendezvous Point";
       list bidir-rp-address {
         key "rp-address";
-        description "Address of the Rendezvous Point";
+        description
+          "Address of the Rendezvous Point";
         leaf rp-address {
           type inet:ip-address-no-zone;
-          description "RP address of Rendezvous Point";
+          description
+            "RP address of Rendezvous Point";
         }
         leaf access-list-name {
           type xr:Cisco-ios-xr-string {
@@ -997,40 +1075,41 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           }
           description
             "Access list of groups that should map to a
-            given RP";
+             given RP";
         }
         leaf auto-rp-override {
           type boolean;
           description
             "TRUE Indicates if static RP config overrides
-            AutoRP and BSR";
+             AutoRP and BSR";
         }
       }
     }
   }
 
   grouping BSR-CANDIDATE-RP-CACHE {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container bsr-candidate-rp-cache {
-      presence "Indicates a bsr-candidate-rp-cache node is"+
-        " configured.";
+      presence "Indicates a bsr-candidate-rp-cache node is configured.";
       description
         "Override default maximum and threshold for BSR
-        C-RP cache setting";
+         C-RP cache setting";
       leaf bsr-maximum-candidate-rp-cache {
         type uint32 {
           range "1..10000";
         }
         mandatory true;
-        description "Maximum number of BSR C-RP cache setting";
+        description
+          "Maximum number of BSR C-RP cache setting";
       }
       leaf warning-threshold {
         type uint32 {
           range "1..10000";
         }
         default "100";
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
     }
   }
@@ -1038,21 +1117,23 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping JP-INTERVAL {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf jp-interval {
       type uint32 {
         range "10..600";
       }
       units "second";
-      description "Join-Prune interval in seconds";
+      description
+        "Join-Prune interval in seconds";
     }
   }
 
   grouping NSF {
-    description "Common node of ipv4, ipv6";
-
+    description
+      "Common node of ipv4, ipv6";
     container nsf {
-      description "Configure Non-stop forwarding (NSF) options";
+      description
+        "Configure Non-stop forwarding (NSF) options";
       leaf lifetime {
         type uint32 {
           range "10..600";
@@ -1060,7 +1141,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         units "second";
         description
           "Override default maximum lifetime for PIM NSF
-          mode";
+           mode";
       }
     }
   }
@@ -1068,29 +1149,30 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping DR-PRIORITY {
     description
       "Common node of inheritable-defaults, interface,
-      interface, interface";
+       interface, interface";
     leaf dr-priority {
       type uint32 {
         range "0..4294967295";
       }
       description
         "Hello DR priority, preference given to larger
-        value";
+         value";
     }
   }
 
   grouping BFD {
-    description "Common node of interface, interface, interface";
-
+    description
+      "Common node of interface, interface, interface";
     container bfd {
-      description "BFD configuration";
+      description
+        "BFD configuration";
       leaf detection-multiplier {
         type uint32 {
           range "2..50";
         }
         description
           "Detection multiplier for BFD sessions created
-          by PIM";
+           by PIM";
       }
       leaf interval {
         type uint32 {
@@ -1104,65 +1186,72 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         type boolean;
         description
           "TRUE to enable BFD. FALSE to disable and to
-          prevent inheritance from a parent";
+           prevent inheritance from a parent";
       }
     }
   }
 
   grouping RPF-VECTOR-INJECT {
-    description "Common node of ipv4, ipv4";
-
+    description
+      "Common node of ipv4, ipv4";
     container paths {
-      description "Inject PIM RPF Vector Proxy's";
-
+      description
+        "Inject PIM RPF Vector Proxy's";
       list path {
         key "source-address prefix-length";
-        description "Inject PIM RPF Vector Proxy's";
+        description
+          "Inject PIM RPF Vector Proxy's";
         leaf source-address {
           type inet:ipv4-address-no-zone;
-          description "Source Address";
+          description
+            "Source Address";
         }
         leaf prefix-length {
           type xr:Ipv4-prefix-length;
-          description "Masklen";
+          description
+            "Masklen";
         }
         leaf-list rpf-proxy-address {
           type inet:ipv4-address-no-zone;
-          min-elements "1";
+          min-elements 1;
           max-elements "22";
-          description "RPF Proxy Address";
+          description
+            "RPF Proxy Address";
         }
       }
     }
   }
 
   grouping BSR-GROUP-MAPPINGS {
-    description "Common node of maximum, maximum";
-
+    description
+      "Common node of maximum, maximum";
     container bsr-group-mappings {
       presence "Indicates a bsr-group-mappings node is configured.";
       description
         "Override default maximum and threshold for
-        number of group mappings from BSR";
+         number of group mappings from BSR";
       leaf bsr-maximum-group-ranges {
         type uint32 {
           range "1..10000";
         }
         mandatory true;
-        description "Maximum number of PIM group mappings from BSR";
+        description
+          "Maximum number of PIM group mappings from BSR";
       }
       leaf warning-threshold {
         type uint32 {
           range "1..10000";
         }
         default "500";
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
     }
   }
 
   grouping ACCEPT-REGISTER {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf accept-register {
       type xr:Cisco-ios-xr-string {
         length "1..64";
@@ -1173,62 +1262,69 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   }
 
   grouping OLD-REGISTER-CHECKSUM {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     leaf old-register-checksum {
       type empty;
       description
         "Generate registers compatible with older IOS
-        versions";
+         versions";
     }
   }
 
   grouping ALLOW-RP {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container allow-rp {
       presence "enable allow-rp";
-      description "Enable allow-rp filtering for SM joins";
+      description
+        "Enable allow-rp filtering for SM joins";
       leaf rp-list-name {
         type xr:Cisco-ios-xr-string {
           length "1..64";
         }
-        description "Access-list specifiying applicable RPs";
+        description
+          "Access-list specifiying applicable RPs";
       }
       leaf group-list-name {
         type xr:Cisco-ios-xr-string {
           length "1..64";
         }
-        description "Access-list specifiying applicable groups";
+        description
+          "Access-list specifiying applicable groups";
       }
     }
   }
 
   grouping MAXIMUM-ROUTES {
-    description "Common node of interface, interface, interface";
-
+    description
+      "Common node of interface, interface, interface";
     container maximum-routes {
       presence "Indicates a maximum-routes node is configured.";
       description
         "Maximum number of allowed routes for this
-        interface";
+         interface";
       leaf maximum {
         type uint32 {
           range "1..1100000";
         }
         mandatory true;
-        description "Maximum number of routes for this interface";
+        description
+          "Maximum number of routes for this interface";
       }
       leaf warning-threshold {
         type uint32 {
           range "1..1100000";
         }
-        description "Set threshold to print warning";
+        description
+          "Set threshold to print warning";
       }
       leaf access-list-name {
         type xr:Cisco-ios-xr-string {
           length "1..64";
         }
-        description "Access-list to account for";
+        description
+          "Access-list to account for";
       }
     }
   }
@@ -1236,25 +1332,27 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
   grouping SUPPRESS-RPF-PRUNES {
     description
       "Common node of interface, interface,
-      interfaceCommon node of ipv4, ipv4, ipv6, ipv6";
+       interfaceCommon node of ipv4, ipv4, ipv6, ipv6";
     leaf suppress-rpf-prunes {
       type empty;
       description
         "Suppress prunes triggered as a result of RPF
-        changes";
+         changes";
     }
   }
 
   grouping RPF-VECTOR-ENABLE {
-    description "Common node of ipv4, ipv4, ipv6, ipv6";
-
+    description
+      "Common node of ipv4, ipv4, ipv6, ipv6";
     container rpf-vector-enable {
       presence "Indicates a rpf-vector-enable node is configured.";
-      description "Enable PIM RPF Vector Proxy's";
+      description
+        "Enable PIM RPF Vector Proxy's";
       leaf enable {
         type empty;
         mandatory true;
-        description "RPF Vector is turned on if configured";
+        description
+          "RPF Vector is turned on if configured";
       }
       leaf allow-ebgp {
         type empty;
@@ -1265,33 +1363,37 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         type empty;
         description
           "Disable RPF Vector origination over iBGP
-          sessions";
+           sessions";
       }
     }
   }
 
   grouping EXPLICIT-RPF-VECTOR {
-    description "Common node of ipv4, ipv4";
-
+    description
+      "Common node of ipv4, ipv4";
     container injects {
-      description "Inject Explicit PIM RPF Vector Proxy's";
-
+      description
+        "Inject Explicit PIM RPF Vector Proxy's";
       list inject {
         key "source-address prefix-length";
-        description "Inject Explicit PIM RPF Vector Proxy's";
+        description
+          "Inject Explicit PIM RPF Vector Proxy's";
         leaf source-address {
           type inet:ipv4-address-no-zone;
-          description "Source Address";
+          description
+            "Source Address";
         }
         leaf prefix-length {
           type xr:Ipv4-prefix-length;
-          description "Masklen";
+          description
+            "Masklen";
         }
         leaf-list rpf-proxy-address {
           type inet:ipv4-address-no-zone;
-          min-elements "1";
+          min-elements 1;
           max-elements "22";
-          description "RPF Proxy Address";
+          description
+            "RPF Proxy Address";
         }
       }
     }
@@ -1299,17 +1401,18 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
 
   container pim {
     presence "Indicates a pim node is configured.";
-    description "PIM configuration";
-
+    description
+      "PIM configuration";
     container vrfs {
-      description "VRF table";
-
+      description
+        "VRF table";
       list vrf {
         key "vrf-name";
-        description "VRF name";
-
+        description
+          "VRF name";
         container ipv4 {
-          description "IPV4 commands";
+          description
+            "IPV4 commands";
           uses NEIGHBOR-CHECK-ON-RECEIVE;
           uses OLD-REGISTER-CHECKSUM;
           uses SPARSE-MODE-RP-ADDRESS-TABLE;
@@ -1340,9 +1443,9 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           uses INTERFACE-TABLE;
           uses AUTO-RP-DISABLE;
         }
-
         container ipv6 {
-          description "IPV6 commands";
+          description
+            "IPV6 commands";
           uses NEIGHBOR-CHECK-ON-RECEIVE;
           uses OLD-REGISTER-CHECKSUM;
           uses SPARSE-MODE-RP-ADDRESS-TABLE;
@@ -1375,31 +1478,34 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
-          description "VRF name";
+          description
+            "VRF name";
         }
       }
     }
-
     container default-context {
       presence "Indicates a default-context node is configured.";
-      description "Default Context";
-
+      description
+        "Default Context";
       container ipv6 {
-        description "IPV6 commands";
-
+        description
+          "IPV6 commands";
         container interfaces {
-          description "Interface-level Configuration";
-
+          description
+            "Interface-level Configuration";
           list interface {
             key "interface-name";
-            description "The name of the interface";
+            description
+              "The name of the interface";
             leaf enable {
               type empty;
-              description "Enter PIM Interface processing";
+              description
+                "Enter PIM Interface processing";
             }
             leaf interface-name {
               type xr:Interface-name;
-              description "The name of interface";
+              description
+                "The name of interface";
             }
             uses IPV4-PIM-COMMON-CFG-NEIGHBOR-FILTER;
             uses HELLO-INTERVAL;
@@ -1442,31 +1548,31 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         uses EMBEDDED-RP;
         uses CONVERGENCE;
       }
-
       container ipv4 {
-        description "IPV4 commands";
-
+        description
+          "IPV4 commands";
         container rpf-redirect {
-          description "Configure RPF-redirect feature";
+          description
+            "Configure RPF-redirect feature";
           uses ROUTE-POLICY;
         }
-
         container interfaces {
-          description "Interface-level Configuration";
-
+          description
+            "Interface-level Configuration";
           list interface {
             key "interface-name";
-            description "The name of the interface";
-
+            description
+              "The name of the interface";
             container redirect-bundle {
               description
                 "Configure RPF-redirect bundle for interface.
-                Applicable for IPv4 only";
+                 Applicable for IPv4 only";
               leaf bundle-name {
                 type xr:Cisco-ios-xr-string {
                   length "1..32";
                 }
-                description "Bundle name";
+                description
+                  "Bundle name";
               }
               leaf interface-bandwidth {
                 type uint32 {
@@ -1474,7 +1580,8 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
                 }
                 units "kbit/s";
                 must "../bundle-name and ../threshold-bandwidth";
-                description "Interface bandwidth in Kbps";
+                description
+                  "Interface bandwidth in Kbps";
               }
               leaf threshold-bandwidth {
                 type uint32 {
@@ -1482,16 +1589,19 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
                 }
                 units "kbit/s";
                 must "../bundle-name and ../interface-bandwidth";
-                description "Threshold bandwidth in Kbps";
+                description
+                  "Threshold bandwidth in Kbps";
               }
             }
             leaf enable {
               type empty;
-              description "Enter PIM Interface processing";
+              description
+                "Enter PIM Interface processing";
             }
             leaf interface-name {
               type xr:Interface-name;
-              description "The name of interface";
+              description
+                "The name of interface";
             }
             uses IPV4-PIM-COMMON-CFG-NEIGHBOR-FILTER;
             uses HELLO-INTERVAL;
@@ -1506,27 +1616,29 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
             uses OVERRIDE-INTERVAL;
           }
         }
-
         container auto-rp-candidate-rps {
-          description "Configure Candidate-RPs";
-
+          description
+            "Configure Candidate-RPs";
           list auto-rp-candidate-rp {
             key "interface-name protocol-mode";
-            description "Specifications for a Candidate-RP";
+            description
+              "Specifications for a Candidate-RP";
             leaf interface-name {
               type xr:Interface-name;
               description
                 "Interface from which Candidate-RP packets
-                will be sourced";
+                 will be sourced";
             }
             leaf protocol-mode {
               type dt1:Auto-rp-protocol-mode;
-              description "Protocol Mode";
+              description
+                "Protocol Mode";
             }
             leaf ttl {
               type Auto-rp-ttl;
               mandatory true;
-              description "TTL in Hops";
+              description
+                "TTL in Hops";
             }
             leaf access-list-name {
               type xr:Cisco-ios-xr-string {
@@ -1535,7 +1647,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
               default "224-4";
               description
                 "Access-list specifying the group range for
-                the Candidate-RP";
+                 the Candidate-RP";
             }
             leaf announce-period {
               type Auto-rp-announce-period;
@@ -1546,26 +1658,26 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
             }
           }
         }
-
         container auto-rp-mapping-agent {
-          description "Configure AutoRP Mapping Agent";
-
+          description
+            "Configure AutoRP Mapping Agent";
           container parameters {
             presence "Indicates a parameters node is configured.";
             description
               "Specifications for Mapping Agent configured
-              on this box";
+               on this box";
             leaf interface-name {
               type xr:Interface-name;
               mandatory true;
               description
                 "Interface from which mapping packets will be
-                sourced ";
+                 sourced ";
             }
             leaf ttl {
               type Auto-rp-ttl;
               mandatory true;
-              description "TTL in Hops";
+              description
+                "TTL in Hops";
             }
             leaf announce-period {
               type Auto-rp-announce-period;
@@ -1575,16 +1687,17 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
                 "Time between discovery messages <in seconds>";
             }
           }
-
           container cache-limit {
             presence "Indicates a cache-limit node is configured.";
-            description "Mapping Agent cache size limit";
+            description
+              "Mapping Agent cache size limit";
             leaf maximum-cache-entry {
               type uint32 {
                 range "1..1000";
               }
               mandatory true;
-              description "Maximum number of mapping cache entries";
+              description
+                "Maximum number of mapping cache entries";
             }
             leaf threshold-cache-entry {
               type uint32 {

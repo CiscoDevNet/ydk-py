@@ -41,6 +41,28 @@ module Cisco-IOS-XE-nat {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description 
+      "Add 40 and 100GE support";
+  }
+
+  revision 2017-11-10 {
+    description 
+      "Add translation timeout support";
+  }
+  revision 2017-11-06 {
+    description 
+      "Add ip nat to interface BDI";
+  }
+  revision 2017-09-15 {
+    description 
+      "This revison has changes for new 2gig interface addition";
+  }
   revision 2017-08-16 {
     description
       "This revision has changes for new 5gig and 25gig interfaces addition";
@@ -166,6 +188,45 @@ module Cisco-IOS-XE-nat {
          OER will select IP from outgoing Interface.
          All packets matching translation are forwarded over Interface
          for duration of translation.";
+      type empty;
+    }
+  }
+  
+  grouping ip-nat-translation-port-number-grouping {
+    container protocol {
+      leaf port-numer {
+        description
+          "Port number";
+        type uint16 {
+          range "1..63535";
+        }
+      }
+      leaf time-val {
+        description
+          "Timeout in seconds";
+        type uint32 {
+          range "0..536870";
+        }
+      }
+      leaf never {
+        description
+          "Never timeout";
+        type empty;
+      }
+    }
+  }
+
+  grouping ip-nat-translation-timeout-grouping {
+    leaf time-val {
+      description
+        "Timeout in seconds";
+      type uint32 {
+        range "0..536870";
+      }
+    }
+    leaf never {
+      description
+        "Never timeout";
       type empty;
     }
   }
@@ -640,6 +701,63 @@ module Cisco-IOS-XE-nat {
           }
         }
       }
+      container translation {
+        container dns-timeout {
+          description
+            "Specify timeout for NAT DNS flows";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container finrst-timeout {
+          description
+            "Specify timeout for NAT TCP flows after a FIN or RST";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container icmp-timeout {
+          description
+            "Specify timeout for NAT ICMP flows";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container routemap-entry-timeout {
+          description
+            "Specify timeout for routemap created half entry";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container syn-timeout {
+          description
+            "Specify timeout for NAT TCP flows after a SYN \
+             and no further data";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container tcp-timeout {
+          description
+            "Specify timeout for NAT TCP/UDP port specific flows";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container timeout {
+          description
+            "Specify timeout for dynamic NAT translations";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container udp-timeout {
+          description
+            "Specify timeout for NAT UDP flows";
+          uses ip-nat-translation-timeout-grouping;
+        }
+        container port-timeout {
+          description
+            "Specify timeout for NAT TCP/UDP port specific flows";
+          container tcp {
+            description
+              "TCP protocol";
+            uses ip-nat-translation-port-number-grouping;
+          }
+          container udp {
+            description
+              "UDP protocol";
+            uses ip-nat-translation-port-number-grouping;
+          }
+        }
+      }
     }
   }
 
@@ -711,7 +829,19 @@ module Cisco-IOS-XE-nat {
     uses config-interface-ip-nat-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet/ios:ip" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-nat-grouping;
   }
 
@@ -723,6 +853,9 @@ module Cisco-IOS-XE-nat {
     uses config-interface-ip-nat-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:BDI/ios:ip" {
+    uses config-interface-ip-nat-grouping;
+  }
 
   /////////////////////////////////////////////////////////
   // native / nat66
@@ -750,7 +883,19 @@ module Cisco-IOS-XE-nat {
     uses config-interface-nat66-grouping;
   }
 
-  augment "/ios:native/ios:interface/ios:TwentyFiveGigabitEthernet" {
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-nat66-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-nat66-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-nat66-grouping;
   }
 

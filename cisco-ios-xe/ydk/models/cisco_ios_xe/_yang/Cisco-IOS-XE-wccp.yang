@@ -37,6 +37,16 @@ module Cisco-IOS-XE-wccp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Added 2, 5, 25, 40, 100GE interfaces";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -236,6 +246,26 @@ module Cisco-IOS-XE-wccp {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ip" {
+    uses config-interface-ip-wccp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ip" {
+    uses config-interface-ip-wccp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ip" {
+    uses config-interface-ip-wccp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ip" {
+    uses config-interface-ip-wccp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ip" {
+    uses config-interface-ip-wccp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ip" {
     uses config-interface-ip-wccp-grouping;
   }
 

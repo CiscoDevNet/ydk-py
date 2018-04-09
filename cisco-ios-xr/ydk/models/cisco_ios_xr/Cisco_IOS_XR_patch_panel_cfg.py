@@ -11,6 +11,8 @@ Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+from collections import OrderedDict
+
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
@@ -65,17 +67,20 @@ class PatchPanel(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-patch-panel-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
+        self.ylist_key_names = []
+        self._child_container_classes = OrderedDict([])
+        self._child_list_classes = OrderedDict([])
         self.is_presence_container = True
-
-        self.enable = YLeaf(YType.empty, "enable")
-
-        self.user_name = YLeaf(YType.str, "user-name")
-
-        self.password = YLeaf(YType.str, "password")
-
-        self.ipv4 = YLeaf(YType.str, "ipv4")
+        self._leafs = OrderedDict([
+            ('enable', YLeaf(YType.empty, 'enable')),
+            ('user_name', YLeaf(YType.str, 'user-name')),
+            ('password', YLeaf(YType.str, 'password')),
+            ('ipv4', YLeaf(YType.str, 'ipv4')),
+        ])
+        self.enable = None
+        self.user_name = None
+        self.password = None
+        self.ipv4 = None
         self._segment_path = lambda: "Cisco-IOS-XR-patch-panel-cfg:patch-panel"
 
     def __setattr__(self, name, value):
